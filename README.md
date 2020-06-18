@@ -18,7 +18,11 @@ Download or clone in your WordPress theme folder
 ```
 your-wordpress/wp-content/themes/oowyea-vuejs-wp-theme
 ```
-
+import demo content
+```
+Tools > import > WordPress (install/run)
+demo-content.xml
+```
 ### Vue.js install
 ```sh
 cd path-to-your-themes/oowyea-vuejs-wp-theme/vuejs

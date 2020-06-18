@@ -31,7 +31,7 @@ npm run build
 ```
 
 ### Vue.js serve
-In vue.config.php change ```'is_vuejs_dev'``` const to true
+In vue.config.php change ```'is_vuejs_dev'``` const to true  
 make sure about your Vue.js server
 ```php
 define('is_vuejs_dev', true);

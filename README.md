@@ -6,7 +6,7 @@ Get the power to create the new generation of websites :sunglasses:
 * Auto animated scroll
 * Fluid Page transition
 * Support WordPress hierarchy
-* It Doesn't use the API but php environment variables
+* It doesn't use the API but php environment variables
 * Vue.js include the jquery var of WordPress
 
 ## Installation

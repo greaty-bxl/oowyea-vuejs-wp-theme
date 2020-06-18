@@ -5,18 +5,31 @@
  *  Elegant Vue.js WordPress theme.
  */
 
+define('GREATY_TEMPLATE_PATH', get_template_directory());
+include GREATY_TEMPLATE_PATH.'/vue.config.php';
+
 /*------------------------------------*\
-	External Modules/Files
+    Vue.js Libraries & functions
 \*------------------------------------*/
 
-// Load any external files you have here
+//$wp_vue_json will be used in Vue as vue.wp or this.wp in components
+$wp_vue_json;
+
+include GREATY_TEMPLATE_PATH.'/libs/get_vue_template.php';
+include GREATY_TEMPLATE_PATH.'/libs/wp_vue_add_var.php';
+include GREATY_TEMPLATE_PATH.'/libs/vue-to-templates.php';
+include GREATY_TEMPLATE_PATH.'/libs/menus.php';
+include GREATY_TEMPLATE_PATH.'/libs/sidebars.php';
+include GREATY_TEMPLATE_PATH.'/libs/sections.php';
+
+//last
+include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
+
 
 /*------------------------------------*\
 	Theme Support
 \*------------------------------------*/
 
-define('is_vuejs_dev', false);
-define('vuejs_server', 'http://localhost:8080');
 
 if (!isset($content_width))
 {
@@ -458,33 +471,6 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
-/*------------------------------------*\
-    Vue custom template list
-\*------------------------------------*/
-$vue_hierarchy = array(
-    'index',
-    'page'
-);
-$vue_templates = array(
-    'template-demo1' => 'Template Demo 1', 
-    'template-demo2' => 'Template Demo 2'
-);
 
-/*------------------------------------*\
-	Libraries & functions
-\*------------------------------------*/
-
-$wp_vue_json;
-
-define('GREATY_TEMPLATE_PATH', get_template_directory());
-include GREATY_TEMPLATE_PATH.'/libs/get_vue_template.php';
-include GREATY_TEMPLATE_PATH.'/libs/wp_vue_add_var.php';
-include GREATY_TEMPLATE_PATH.'/libs/vue-to-templates.php';
-include GREATY_TEMPLATE_PATH.'/libs/menus.php';
-include GREATY_TEMPLATE_PATH.'/libs/sidebars.php';
-include GREATY_TEMPLATE_PATH.'/libs/sections.php';
-
-//end
-include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
 
 ?>

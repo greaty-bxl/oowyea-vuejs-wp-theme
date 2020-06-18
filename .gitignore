@@ -7,5 +7,5 @@ node_modules/
 *.sqlite
 
 # ignore floobit
-.floo
-.flooignore
+\.floo
+\.flooignore

@@ -1,10 +1,11 @@
-# [Vue.js WordPress Theme](http://html5blank.com)
+# [Vue.js WordPress Theme](https://greaty.be)
 
 Get the power to create the new generation of websites :sunglasses:
 
 ## Features
 * Auto animated scroll
-* Fluid page transitions
+* Fluid pages transitions (update url)
+* Child pages as sections 
 * Support WordPress hierarchy
 * It doesn't use WordPress API but php environment variables
 * Vue.js include the jquery var of WordPress
@@ -24,8 +25,9 @@ npm run serve
 #build for production /vuejs/dist
 npm run build
 ```
+
 ### Vue.js serve
-In function.php change ```'is_vuejs_dev'``` const to true
+In vue.config.php change ```'is_vuejs_dev'``` const to true
 make sure about your Vue.js server
 ```php
 define('is_vuejs_dev', true);

@@ -21,7 +21,7 @@ your-wordpress/wp-content/themes/oowyea-vuejs-wp-theme
 import demo content
 ```
 Tools > import > WordPress (install/run)
-demo-content.xml
+Upload: demo-content.xml
 ```
 ### Vue.js install
 ```sh

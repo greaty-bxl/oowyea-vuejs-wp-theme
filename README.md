@@ -34,7 +34,7 @@ npm run serve
 npm run build
 ```
 
-### Vue.js serve
+### Use Vue.js dev server in WP
 In vue.config.php change ```'is_vuejs_dev'``` const to true  
 make sure about your Vue.js server
 ```php
@@ -42,5 +42,7 @@ define('is_vuejs_dev', true);
 define('vuejs_server', 'http://localhost:8080');
 ```
 
-## Development
-
+## Code Development
+```sh
+Loading...
+```

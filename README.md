@@ -4,9 +4,9 @@ Get the power to create the new generation of websites :sunglasses:
 
 ## Features
 * Auto animated scroll
-* Fluid Page transition
+* Fluid page transitions
 * Support WordPress hierarchy
-* It doesn't use the API but php environment variables
+* It doesn't use WordPress API but php environment variables
 * Vue.js include the jquery var of WordPress
 
 ## Installation
@@ -15,13 +15,13 @@ Get the power to create the new generation of websites :sunglasses:
 your-wordpress/wp-content/themes/oowyea-vuejs-wp-theme
 
 ### Vue.js install
-```
+```sh
 cd path-to-your-themes/oowyea-vuejs-wp-theme/vuejs
 npm install
 
-//development
+#development
 npm run serve
-//build for production /vuejs/dist
+#build for production /vuejs/dist
 npm run build
 ```
 ### Vue.js serve

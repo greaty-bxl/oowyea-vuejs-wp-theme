@@ -14,7 +14,10 @@ Get the power to create the new generation of websites :sunglasses:
 ## Installation
 
 ### Install the theme in WordPress
+Download or clone in your WordPress theme folder
+```
 your-wordpress/wp-content/themes/oowyea-vuejs-wp-theme
+```
 
 ### Vue.js install
 ```sh

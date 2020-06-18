@@ -18,7 +18,7 @@ Download or clone in your WordPress theme folder
 ```
 your-wordpress/wp-content/themes/oowyea-vuejs-wp-theme
 ```
-import demo content
+Import demo content
 ```
 Tools > import > WordPress (install/run)
 Upload: demo-content.xml

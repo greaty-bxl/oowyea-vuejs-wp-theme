@@ -3,9 +3,9 @@
 Get the power to create the new generation of websites :sunglasses:
 
 ## Features
-* Auto animated scroll
+* Auto animated scroll by section
 * Pages transitions (update url)
-* Fluid design
+* Fullscreen & fluid design
 * Child pages as sections 
 * Support WordPress hierarchy
 * It doesn't use WordPress API but php environment variables

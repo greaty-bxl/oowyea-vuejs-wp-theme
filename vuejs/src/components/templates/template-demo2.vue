@@ -20,7 +20,9 @@
 		mounted (){
 			var $ = this.$
 
-			$(this.$el).css('height', '200vh');
+			$(this.$el).css('height', '200vh')
+
+			this.$emit('template_mounted')
 		}
 	}
 </script>

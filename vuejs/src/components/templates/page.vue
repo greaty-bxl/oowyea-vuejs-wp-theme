@@ -18,7 +18,7 @@
 			'post' : Object
 		},
 		mounted (){
-			
+			this.$emit('template_mounted')
 		}
 	}
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <div class="page sections" v-for="(page, key) in pages" :key="key" :data-state="key" >
+    <div class="page sections" v-for="(page, key) in pages" :key="key" :data-state="key">
       <div class="section" 
         v-for="(section, key2) in page" 
         :key="section.post_name" 
@@ -9,10 +9,22 @@
         :data-permalink="section.permalink"
         :data-index="key2"
         :data-title="section.post_title">
-          <Index v-if="section.template === 'index'" :post="section"/>
-          <Page v-if="section.template === 'page'" :post="section"/>
-          <Demo1 v-if="section.template === 'template-demo1'" :post="section"/>
-          <Demo2 v-if="section.template === 'template-demo2'" :post="section"/>
+
+          <Index v-if="section.template === 'index'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
+
+          <Page v-if="section.template === 'page'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
+
+          <Demo1 v-if="section.template === 'template-demo1'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
+
+          <Demo2 v-if="section.template === 'template-demo2'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
       </div>
     </div>
     <!-- Footer -->
@@ -36,14 +48,13 @@ import Demo2 from 'Templates/template-demo2.vue'
 //Footer
 import Footer from 'Organisms/footer.vue'
 
-//import {wp_get_sections} from 'Libs/wp.js'
-
+//Functions
 import init_scrolltop from 'Libs/init-scrolltop.js'
 import scrollSection from 'Libs/scroll-sections.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
-
+import smart_fonts from 'Libs/smart-fonts'
 
 export default {
   name: 'App',
@@ -103,6 +114,13 @@ export default {
         })
       });
     });
+
+  },
+  methods : {
+    template_mounted(){
+      console.log('child mounted');
+      smart_fonts()
+    }
   }
 }
 </script>

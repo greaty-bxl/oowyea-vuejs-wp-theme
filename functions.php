@@ -160,8 +160,8 @@ function greatytheme_header_scripts()
         if( is_vuejs_dev )
         {
             // vue server
-            wp_enqueue_script('vue-app', vuejs_server.'/js/app.js', array('greatythemescripts'), '1.0', true );
-            wp_enqueue_script('vue-chunk-vendors', vuejs_server.'/js/chunk-vendors.js', array('greatythemescripts'), '1.0', true);
+            wp_enqueue_script('vue-app', vuejs_server.'/app.js', array('greatythemescripts'), '1.0', true );
+            wp_enqueue_script('vue-chunk-vendors', vuejs_server.'/chunk-vendors.js', array('greatythemescripts'), '1.0', true);
         }
         else
         {

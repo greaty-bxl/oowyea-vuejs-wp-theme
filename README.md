@@ -106,8 +106,32 @@ smart_fonts()
 
 This function is used in App.vue for each template mounted
 
+### On screen event
+Detect an element appear in screen with JQuery  
+
+First, init the class on your element
+```html
+<div class="any-class on-screen"></div>
+```
+
+in your vue
+```js
+$('any-class').on('enter-screen', (event) => {
+
+	
+})
+
+//on leave screen (also tiggered on init)
+$('any-class').on('leave-screen', () => {
+
+})
+```
+
 ## To do
 
 - [ ] use swipper slider for horizontal post list
 - [x] on element enter in or leave screen (enter-screen / leave-screen, jquery event)
 - [ ] elements fixed in section
+- [ ] scroll with gradient opacity
+- [ ] vertical scroll crossed lines photos gallery
+- [ ] section with video background (mp4, vimeo, youtube, iframe)

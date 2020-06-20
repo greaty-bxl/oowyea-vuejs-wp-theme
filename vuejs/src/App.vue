@@ -102,13 +102,20 @@ export default {
           this.pages['next'] = wp.sections
           
           setTimeout( ()=>{
+
+            $(document).trigger('before_next_page')
+
             animate_next_page( this, event.href, () => {
               this.wp = wp
               this.pages['current'] = wp.sections
-              
+            
               setTimeout( ()=>{ 
+
                 init_scrolltop(this) 
                 this.pages['next'] = {}
+
+                $(document).trigger('after_next_page')
+
               }, 1)
             })
           },1)
@@ -116,13 +123,12 @@ export default {
       });
 
       on_screen()
-      
+
     });
 
   },
   methods : {
     template_mounted(){
-      console.log('child mounted');
       smart_fonts()
     }
   }

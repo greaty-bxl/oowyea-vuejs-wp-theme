@@ -8,6 +8,15 @@ export default () => {
 
 	console.log('on screen', $("#app"));
 
+	function leave(el)
+	{
+		$(el).trigger({
+			'type': 'leave-screen',
+			'sens': sens,
+			'scrollingType': scrollingType
+		})
+	}
+
 	function scan_screen(){
 		$('.on-screen').each( (index, el) => {
 			var elTop = $(el).position().top +  $('#app').scrollTop()
@@ -32,17 +41,13 @@ export default () => {
 				if( $(el).data('screen-event') !== 'out-screen' )
 				{
 					$(el).data('screen-event', 'out-screen')
-					$(el).trigger({
-						'type': 'leave-screen',
-						'sens': sens,
-						'scrollingType': scrollingType
-					})
+					leave(el)
 				}
 			}
 		})
 	}
 
-	$('.on-screen').trigger('leave-screen')
+	leave('.on-screen')
 
 	$("#app").scroll( () => { 
 		
@@ -65,8 +70,10 @@ export default () => {
 		last_scroll = new_scroll
 
 		scan_screen()
-
 	})
+
 	$(window).resize( () => { scan_screen() })
+	$(document).on('before_next_page', () => { leave('.on-screen') })
+	$(document).on('after_next_page', () => { scan_screen() })
 	scan_screen()
 }

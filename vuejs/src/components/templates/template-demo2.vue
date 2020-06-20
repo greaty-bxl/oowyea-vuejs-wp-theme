@@ -8,8 +8,6 @@
 </template>
 
 <script>
-	//import {wp_content_filter} from 'Libs/wp.js'
-
 	export default {
 		components: {
 			
@@ -19,8 +17,6 @@
 		},
 		mounted (){
 			var $ = this.$
-
-			$(this.$el).css('height', '200vh')
 
 			this.$emit('template_mounted')
 
@@ -38,7 +34,7 @@
 				//scroll up
 				else 
 				{
-					delay = 50
+					delay = 12
 				}
 
 				$('.title-demo2')
@@ -48,8 +44,9 @@
 					.animate({opacity: 1}, 500)
 			})
 
+			//if out of screen state
 			$('.title-demo2').on('leave-screen', () => {
-				$('.title-demo2').css('opacity', '0')
+				$('.title-demo2').stop().css('opacity', '0')
 			})
 		}
 	}

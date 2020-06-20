@@ -109,5 +109,5 @@ This function is used in App.vue for each template mounted
 ## To do
 
 - [ ] use swipper slider for horizontal post list
-- [ ] on view jquery event
+- [ ] on element in view jquery event
 - [ ] elements fixed in section

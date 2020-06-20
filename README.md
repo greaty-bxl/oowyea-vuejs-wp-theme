@@ -62,8 +62,8 @@ $vue_hierarchy = array(
 ```
 
 ### Smart Fonts
-Make fonts proportional to the ratio screen
-Edit your font in ```src/fonts.js```
+Make fonts proportional to the ratio screen  
+Edit your font in ```src/fonts.js```  
 
 or init fonts with the js function
 ```js

@@ -76,7 +76,7 @@ smart_fonts({
 ```
 or 
 
-just init the function in your component
+just init the function in your component mounted event
 ```js
 smart_fonts()
 ```

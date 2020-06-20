@@ -8,7 +8,7 @@ Get the power to create the new generation of websites :sunglasses:
 * Fullscreen & fluid design
 * Child pages as sections 
 * Support WordPress hierarchy
-* Vue.js include the jquery var of WordPress
+* Vue.js include JQuery from WordPress
 
 ## :floppy_disk: Installation
 

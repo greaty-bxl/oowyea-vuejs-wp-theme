@@ -35,7 +35,7 @@ npm run build
 ```
 
 ### Use Vue.js dev server in WP
-In vue.config.php change ```'is_vuejs_dev'``` const to true  
+In ```vue.config.php``` change ```'is_vuejs_dev'``` const to true  
 make sure about your Vue.js server
 ```php
 define('is_vuejs_dev', true);
@@ -43,6 +43,35 @@ define('vuejs_server', 'http://localhost:8080');
 ```
 
 ## Code Development
-```sh
-Loading...
+
+### Create a Vue.js WordPress page or hierarchy template
+Create a vue file in ```vuejs/src/components/templates``` 
+for example for custom post event: ```single-event.vue```
+and for a custom page template: ```cool-design.vue```
+
+Refering it in ```vue.config.php```
+```php
+$vue_hierarchy = array(
+    'single-event'
+);
+
+$vue_hierarchy = array(
+    'cool-design' => 'Cool Design'
+);
+```
+
+### Smart Fonts
+Make fonts proportional to the ratio screen
+Edit your font in ```src/fonts.js```
+
+or init fonts with the js function
+```js
+smart_fonts({
+	'h1' : 22,
+	'p' : 14,
+})
+```
+or just init the function in your component
+```js
+smart_fonts()
 ```

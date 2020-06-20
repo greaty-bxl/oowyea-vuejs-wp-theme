@@ -109,5 +109,5 @@ This function is used in App.vue for each template mounted
 ## To do
 
 - [ ] use swipper slider for horizontal post list
-- [ ] on element enter in or leave screen (enter-screen / leave-screen, jquery event)
+- [x] on element enter in or leave screen (enter-screen / leave-screen, jquery event)
 - [ ] elements fixed in section

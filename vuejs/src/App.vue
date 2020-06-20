@@ -55,6 +55,7 @@ import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
 import smart_fonts from 'Libs/smart-fonts'
+import on_screen from 'Libs/on-screen'
 
 export default {
   name: 'App',
@@ -113,6 +114,9 @@ export default {
           },1)
         })
       });
+
+      on_screen()
+      
     });
 
   },

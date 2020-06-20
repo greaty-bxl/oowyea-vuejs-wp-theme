@@ -61,6 +61,32 @@ $vue_hierarchy = array(
 );
 ```
 
+### Add a variable from WordPress to Vue.js
+
+In WordPress Plugins or Theme ```/libs```
+```php
+function your_function()
+{
+	
+	/*
+	wp_vue_add_var($key, string || object || array);
+	*/
+	wp_vue_add_var('your_vue_var_1', 'hello world !');
+	wp_vue_add_var('your_vue_var_2', array(1,2,3));
+}
+
+add_action( 'wp_head', 'your_function' ); // used on load
+add_action( 'wp', 'your_function' ); // json page transition
+```
+In Vue.js Template
+```js
+export default {
+	mounted (){
+		console.log(this.wp.your_vue_var_1);
+	}
+}
+```
+
 ### Smart Fonts
 Make fonts proportional to the ratio screen  
 Edit your font in ```src/fonts.js```  
@@ -80,3 +106,5 @@ just init the function in your component mounted event
 ```js
 smart_fonts()
 ```
+
+This function is used in App.vue for each template mounted

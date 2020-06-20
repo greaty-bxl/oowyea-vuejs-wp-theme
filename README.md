@@ -59,6 +59,37 @@ $vue_hierarchy = array(
     'cool-design' => 'Cool Design'
 );
 ```
+Refering it in ```App.vue```  
+Template part
+```html
+<div class="section" 
+  ...>
+
+    <SingleEvent v-if="section.template === 'single-event'" 
+        :post="section" 
+        @template_mounted="template_mounted"/>
+
+    <CoolDesign v-if="section.template === 'cool-design'" 
+        :post="section" 
+        @template_mounted="template_mounted"/>
+</div>
+```
+Js part
+```js
+//custom template
+import SingleEvent from 'Templates/single-event.vue'
+import CoolDesign from 'Templates/cool-design.vue'
+
+export default {
+	//...
+	components: {
+		//...
+		SingleEvent,
+		CoolDesign,
+	},
+}
+```
+
 
 ### Add a variable from WordPress to Vue.js
 

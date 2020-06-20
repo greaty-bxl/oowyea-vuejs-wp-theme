@@ -36,7 +36,6 @@ npm run build
 
 ### Use Vue.js dev server in WP
 In ```vue.config.php``` change ```'is_vuejs_dev'``` const to true  
-make sure about your Vue.js server
 ```php
 define('is_vuejs_dev', true);
 define('vuejs_server', 'http://localhost:8080');

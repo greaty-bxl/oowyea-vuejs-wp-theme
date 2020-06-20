@@ -43,8 +43,7 @@ define('vuejs_server', 'http://localhost:8080');
 
 ## Code References
 
-### Create a Vue.js WordPress page or hierarchy template
-[a relative link](doc/code-references/create-a-vuejs-wordpress-page-or-hierarchy-templat.md) link
+### [Create a Vue.js WordPress page or hierarchy template](doc/code-references/create-a-vuejs-wordpress-page-or-hierarchy-templat.md)
 
 
 ### Add a variable from WordPress to Vue.js

@@ -8,7 +8,6 @@ Get the power to create the new generation of websites :sunglasses:
 * Fullscreen & fluid design
 * Child pages as sections 
 * Support WordPress hierarchy
-* It doesn't use WordPress API
 * Vue.js include the jquery var of WordPress
 
 ## :floppy_disk: Installation

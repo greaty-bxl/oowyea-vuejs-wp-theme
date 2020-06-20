@@ -107,7 +107,7 @@ smart_fonts()
 This function is used in App.vue for each template mounted
 
 ### On screen event
-Detect an element appear in screen with JQuery  
+Detect an element which appear in screen with JQuery  
 
 First, init the class on your element
 ```html
@@ -116,13 +116,13 @@ First, init the class on your element
 
 in your vue
 ```js
-$('any-class').on('enter-screen', (event) => {
+$('.any-class').on('enter-screen', (event) => {
 
 	
 })
 
 //on leave screen (also tiggered on init)
-$('any-class').on('leave-screen', () => {
+$('.any-class').on('leave-screen', () => {
 
 })
 ```

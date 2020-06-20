@@ -45,10 +45,10 @@ define('vuejs_server', 'http://localhost:8080');
 ## Code Development
 
 ### Create a Vue.js WordPress page or hierarchy template
-Create a vue file in ```vuejs/src/components/templates``` 
-for example for custom post event: ```single-event.vue```
-and for a custom page template: ```cool-design.vue```
-
+Create a vue file in ```vuejs/src/components/templates```  
+for example for custom post event: ```single-event.vue```  
+and for a custom page template: ```cool-design.vue```  
+  
 Refering it in ```vue.config.php```
 ```php
 $vue_hierarchy = array(

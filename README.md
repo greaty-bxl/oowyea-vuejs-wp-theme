@@ -41,7 +41,7 @@ define('is_vuejs_dev', true);
 define('vuejs_server', 'http://localhost:8080');
 ```
 
-## Code Development
+## Code References
 
 ### Create a Vue.js WordPress page or hierarchy template
 Create a vue file in ```vuejs/src/components/templates```  
@@ -105,3 +105,9 @@ smart_fonts()
 ```
 
 This function is used in App.vue for each template mounted
+
+## To do
+
+[] use swipper slider for horizontal post list
+[] on view jquery event
+[] elements fixed in section

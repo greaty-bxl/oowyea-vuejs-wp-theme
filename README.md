@@ -46,8 +46,8 @@ define('vuejs_server', 'http://localhost:8080');
 ### Create a Vue.js WordPress page or hierarchy template
 Create a vue file in ```vuejs/src/components/templates```  
 for example: 
-* for custom post event: ```single-event.vue```  
-* for a custom page template: ```cool-design.vue```  
+* custom post event: ```single-event.vue```  
+* custom page template: ```cool-design.vue```  
   
 Refering it in ```vue.config.php```
 ```php
@@ -86,7 +86,7 @@ export default {
 
 ### Smart Fonts
 Make fonts proportional to the ratio screen  
-Edit your font in ```src/fonts.js```  
+Edit your fonts in ```src/fonts.js```  
 
 or 
 

@@ -2,7 +2,7 @@
 
 Get the power to create the new generation of websites :sunglasses:
 
-## Features
+## :hamburger: Features
 * Auto animated scroll by section
 * Pages transitions (update url)
 * Fullscreen & fluid design

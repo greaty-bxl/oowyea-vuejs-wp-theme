@@ -11,7 +11,7 @@ Get the power to create the new generation of websites :sunglasses:
 * It doesn't use WordPress API
 * Vue.js include the jquery var of WordPress
 
-## Installation
+## Installation :floppy_disk:
 
 ### Install the theme in WordPress
 Download or clone in your WordPress theme folder
@@ -41,7 +41,7 @@ define('is_vuejs_dev', true);
 define('vuejs_server', 'http://localhost:8080');
 ```
 
-## Code References
+## Code References :mortar_board:
 
 ### [Create a Vue.js WordPress page or hierarchy template](doc/code-references/create-a-vuejs-wordpress-page-or-hierarchy-templat.md)
 

@@ -63,7 +63,7 @@ $vue_hierarchy = array(
 
 ### Add a variable from WordPress to Vue.js
 
-In WordPress Plugins or Theme ```/libs```
+In your WordPress Plugin or Theme
 ```php
 function your_function () {
 	/*

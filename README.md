@@ -65,9 +65,7 @@ $vue_hierarchy = array(
 
 In WordPress Plugins or Theme ```/libs```
 ```php
-function your_function()
-{
-	
+function your_function () {
 	/*
 	wp_vue_add_var($key, string || object || array);
 	*/

@@ -1,6 +1,8 @@
 <template>
 	<div class="section-wrap">
 		<div class="clear"></div>
+
+		<div class="fixit">Fixed element</div>
 		<h1 class="on-screen title-demo2">{{post.post_title}}</h1>
 		<p>Demo 2 template</p>
 		<div class="clear"></div>
@@ -8,46 +10,61 @@
 </template>
 
 <script>
-	export default {
-		components: {
-			
-		},
-		props: {
-			'post' : Object
-		},
-		mounted (){
-			var $ = this.$
 
-			this.$emit('template_mounted')
+import fixit from 'Libs/fix-it.js'
 
-			//animate the title on enter in screen
-			$('.title-demo2').on('enter-screen', (event) => {
+export default {
+	components: {
+		
+	},
+	props: {
+		'post' : Object
+	},
+	mounted (){
+		var $ = this.$
 
-				var delay
+		this.$emit('template_mounted')
 
-				//scroll down or on load
-				if( ( event.sens == 1 || event.sens == 0 )
-					&& event.scrollingType != "links-and-anchors") 
-				{
-					delay = 500
-				}
-				//scroll up
-				else 
-				{
-					delay = 12
-				}
+		$(this.$el).css('height', '200vh')
 
-				$('.title-demo2')
-					.css('opacity', '0')
-					.stop()
-					.delay(delay)
-					.animate({opacity: 1}, 500)
-			})
+		//animate the title on enter in screen
+		$('.title-demo2').on('enter-screen', (event) => {
 
-			//if out of screen state
-			$('.title-demo2').on('leave-screen', () => {
-				$('.title-demo2').stop().css('opacity', '0')
-			})
-		}
+			var delay
+
+			//scroll down or on load
+			if( ( event.sens == 1 || event.sens == 0 )
+				&& event.scrollingType != "links-and-anchors") 
+			{
+				delay = 500
+			}
+			//scroll up
+			else 
+			{
+				delay = 12
+			}
+
+			$('.title-demo2')
+				.css('opacity', '0')
+				.stop()
+				.delay(delay)
+				.animate({opacity: 1}, 500)
+		})
+
+		//if out of screen state
+		$('.title-demo2').on('leave-screen', () => {
+			$('.title-demo2').stop().css('opacity', '0')
+		})
+		
+		//fix div in section
+		fixit(this, '.fixit', '50vh', '0')
+		
 	}
+}
 </script>
+
+<style>
+	.fixit{
+		color: #FF0000;
+	}
+</style>

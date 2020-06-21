@@ -44,51 +44,11 @@ define('vuejs_server', 'http://localhost:8080');
 
 ### [Create a Vue.js WordPress page or hierarchy template](doc/code-references/create-a-vuejs-wordpress-page-or-hierarchy-templat.md)
 
-
 ### [Add a variable from WordPress to Vue.js](doc/code-references/add-a-variable-from-wordpress-to-vuejs.md)
 
-### Smart Fonts
-Make fonts proportional to the ratio screen  
-Edit your fonts in ```src/fonts.js```  
+### [Smart Fonts (fluid responsive)](doc/code-references/smart-fonts.md)
 
-or 
-
-init fonts with the js function
-```js
-smart_fonts({
-	'h1' : 22,
-	'p' : 14,
-})
-```
-or 
-
-just init the function in your component mounted event
-```js
-smart_fonts()
-```
-
-This function is used in App.vue for each template mounted
-
-### On screen event
-Detect an element which appear in screen with JQuery  
-
-First, init the class on your element
-```html
-<div class="any-class on-screen"></div>
-```
-
-in your vue
-```js
-$('.any-class').on('enter-screen', (event) => {
-
-	
-})
-
-//on leave screen (also tiggered on init)
-$('.any-class').on('leave-screen', () => {
-
-})
-```
+### [On screen (event)](doc/code-references/on-screen.md)
 
 ## To do
 

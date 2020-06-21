@@ -40,7 +40,8 @@ export default function (vue)
 					'left': 0,
 					'width': '100%',
 					'overflow-y':'scroll',
-					'opacity': 0
+					'opacity': 0,
+					'z-index': 2000
 				});
 
 				section.parent().prepend(clone)

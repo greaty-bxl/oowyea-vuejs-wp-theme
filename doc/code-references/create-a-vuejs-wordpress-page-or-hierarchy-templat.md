@@ -1,4 +1,4 @@
-### Create a Vue.js WordPress page or hierarchy template
+# Create a Vue.js WordPress page or hierarchy template
 Create a vue file in ```vuejs/src/components/templates```  
 for example: 
 * custom post event: ```single-event.vue```  

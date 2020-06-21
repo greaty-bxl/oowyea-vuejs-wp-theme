@@ -11,8 +11,6 @@ export default function (fonts = {}){
 
 	window.smartFonts = Object.assign( defaultsFonts, window.smartFonts, fonts)
 
-	console.log( window.smartFonts, $('#app').innerWidth())
-
 	function update_size()
 	{
 		$.each(window.smartFonts, function(selector, fontSize) {

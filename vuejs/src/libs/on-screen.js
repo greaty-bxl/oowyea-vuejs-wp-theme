@@ -6,8 +6,6 @@ export default () => {
 	var sens = 0
 	var scrollingType = ''
 
-	console.log('on screen', $("#app"));
-
 	function leave(el)
 	{
 		$(el).trigger({

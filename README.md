@@ -56,7 +56,7 @@ define('vuejs_server', 'http://localhost:8080');
 
 - [ ] use swipper slider for horizontal post list
 - [x] on element enter in or leave screen (enter-screen / leave-screen, jquery event)
-- [ ] elements fixed in section
+- [x] elements fixed in section
 - [ ] scroll with gradient opacity
 - [ ] vertical scroll crossed lines photos gallery
 - [ ] section with video background (mp4, vimeo, youtube, iframe)

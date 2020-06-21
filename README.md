@@ -50,6 +50,8 @@ define('vuejs_server', 'http://localhost:8080');
 
 ### [On screen (event)](doc/code-references/on-screen.md)
 
+### [Fixed element in section](doc/code-references/fix-it.md)
+
 ## To do
 
 - [ ] use swipper slider for horizontal post list

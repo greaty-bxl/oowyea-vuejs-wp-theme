@@ -54,9 +54,13 @@ define('vuejs_server', 'http://localhost:8080');
 
 ## To do
 
+- [ ] wp images, lazy load
 - [ ] use swipper slider for horizontal post list
 - [x] on element enter in or leave screen (enter-screen / leave-screen, jquery event)
 - [x] elements fixed in section
 - [ ] scroll with gradient opacity
 - [ ] vertical scroll crossed lines photos gallery
 - [ ] section with video background (mp4, vimeo, youtube, iframe)
+- [ ] make working the website offline (webapp)
+- [ ] p2p live chat 
+- [ ] p2p user notifications website activity (new product, new comment, new like, ...)

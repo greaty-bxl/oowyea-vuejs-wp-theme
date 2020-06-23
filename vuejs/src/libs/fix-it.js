@@ -34,7 +34,6 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 				{
 					eltop = 0
 				}
-				
 			}
 			else
 			{
@@ -63,8 +62,8 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 
 			
 
-			$(el).unbind('wheel touchstart touchmove touchend').on('wheel touchstart touchmove touchend', function(e) {
-				
+			$(el).unbind('wheel touchstart touchmove touchend').on('wheel touchstart touchmove touchend', function(e) 
+			{
 				if( e.type == 'touchstart')
 				{
 					touchY = e.originalEvent.touches[0].clientY

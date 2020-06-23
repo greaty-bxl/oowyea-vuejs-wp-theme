@@ -44,6 +44,8 @@ define('vuejs_server', 'http://localhost:8080');
 
 ### [Create a Vue.js WordPress page or hierarchy template](doc/code-references/create-a-vuejs-wordpress-page-or-hierarchy-templat.md)
 
+### [Use JQuery in Vue.js](doc/code-references/wp-jquery-vue.md)
+
 ### [Add a variable from WordPress to Vue.js](doc/code-references/add-a-variable-from-wordpress-to-vuejs.md)
 
 ### [Smart Fonts (fluid responsive)](doc/code-references/smart-fonts.md)

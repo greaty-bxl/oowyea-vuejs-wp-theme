@@ -54,6 +54,8 @@ define('vuejs_server', 'http://localhost:8080');
 
 ## To do
 
+- [ ] Complete basic hierarchy 
+	[ ] 404
 - [ ] wp images, lazy load
 - [ ] use swipper slider for horizontal post list
 - [x] on element enter in or leave screen (enter-screen / leave-screen, jquery event)

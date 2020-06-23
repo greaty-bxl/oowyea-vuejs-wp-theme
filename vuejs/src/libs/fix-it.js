@@ -1,5 +1,7 @@
 export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 	var $ = vue.$
+	var touchY;
+	var speed = 1
 
 	function update_position(vue, selector, top, left, state) {
 
@@ -14,17 +16,25 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 				$(el).wrap('<div class="extra-wrapper-fixit"></div>')
 			}
 
-			var pos1 = $('#app').scrollTop()
-			var pos2 = section.position().top + $('#app').scrollTop()
-			var pos3 = pos2 + section.outerHeight() - $('#app').outerHeight()
+			var scroll_pos = $('#app').scrollTop()
+			var sectionTop_pos = section.position().top + $('#app').scrollTop()
+			var sectionBot_pos = sectionTop_pos + section.outerHeight() - $('#app').outerHeight()
 
 			var eltop
 
 			if( $(el).parents('.section').hasClass('clone') ) state = 'absolute'
 
-			if( ( ( pos1 < pos2 || pos3 < pos1 ) && state == 'limited' ) || state == 'absolute' )
+			if( ( ( scroll_pos < sectionTop_pos || sectionBot_pos < scroll_pos ) && state == 'limited' ) || state == 'absolute' )
 			{
-				eltop = 0
+				if( sectionBot_pos < scroll_pos && state != 'absolute' )
+				{
+					eltop = 0 + section.outerHeight() - $('#app').outerHeight()
+				} 
+				else
+				{
+					eltop = 0
+				}
+				
 			}
 			else
 			{
@@ -49,12 +59,54 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 				'margin-left': left,
 				'pointer-events': 'auto',
 				'touch-action': 'none',
-			});	
+			});
 
-			$(el).on('touchmove', function(e) {
-					console.log('touch');
-					e.preventDefault();
-			}, false);
+			
+
+			$(el).unbind('wheel touchstart touchmove touchend').on('wheel touchstart touchmove touchend', function(e) {
+				
+				if( e.type == 'touchstart')
+				{
+					touchY = e.originalEvent.touches[0].clientY
+				}
+				if( e.type == 'touchmove' )
+				{
+					var newTouchY = e.originalEvent.touches[0].clientY
+					
+					if( newTouchY < touchY )
+					{
+						$('#app').scrollTop( $('#app').scrollTop(  ) + 7 )
+						if( !$('#app').data('scrolling') )
+						{
+							$("#app").stop()
+							.animate({scrollTop: $('#app').scrollTop(  ) + ( 72 * speed ) + 'px'}, 100, 'easeInOutQuart')
+						}
+						
+					}
+					else if( newTouchY > touchY )
+					{
+						$('#app').scrollTop( $('#app').scrollTop(  ) - 7 )
+						if( !$('#app').data('scrolling') )
+						{
+							$("#app").stop()
+								.animate({scrollTop: $('#app').scrollTop(  ) - ( 72 * speed ) + 'px'}, 100, 'easeInOutQuart')
+						}
+					}
+
+					speed+= 0.1
+				}
+
+				if( e.type == 'touchend' )
+				{
+					speed = 1
+				}
+				else
+				{
+					$(this).css('pointer-events', 'none')
+				}
+				
+			});
+
 		});
 	}
 	

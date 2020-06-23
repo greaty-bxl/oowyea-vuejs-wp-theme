@@ -2,10 +2,10 @@
 	<div class="section-wrap">
 		<div class="clear"></div>
 
-		
+		<div class="fixit">Fixed element</div>
 		<h1 class="on-screen title-demo2">{{post.post_title}}</h1>
 		<p>Demo 2 template</p>
-		<div class="fixit">Fixed element</div>
+		
 		<div class="clear"></div>
 	</div>
 </template>
@@ -62,7 +62,7 @@ export default {
 		})
 		
 		//fix div in section
-		fixit(this, '.fixit', '50vh', '0', 'auto')
+		fixit(this, '.fixit', '50vh', '0', 'limited')
 		
 	}
 }

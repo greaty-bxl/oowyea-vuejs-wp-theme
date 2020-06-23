@@ -6,7 +6,8 @@ function get_sections()
 	global $post;
 
 	/*echo "<pre>";
-	print_r( $wp_query );*/
+	print_r( $wp_query );
+	exit();*/
 
 	$sections = array();
 	$page_for_posts = get_option( 'page_for_posts' );

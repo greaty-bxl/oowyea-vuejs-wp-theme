@@ -10,7 +10,7 @@ Vue.prototype.wp = window.wp
 import pushHistory from 'Libs/push-history.js'
 Vue.prototype.pushHistory = pushHistory
 
-if(process.env.NODE_ENV === 'development') console.log('development mode')
+if( process.env.NODE_ENV === 'development' ) console.log('development mode')
 
 new Vue({
   render: h => h(App),

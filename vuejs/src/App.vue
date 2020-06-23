@@ -136,6 +136,11 @@ export default {
 </script>
 
 <style>
+html{
+  height: 100vh;
+  width: 100vw;
+  overflow:hidden;
+}
 #app {
   position: fixed;
   font-family: Avenir, Helvetica, Arial, sans-serif;

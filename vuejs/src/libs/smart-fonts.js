@@ -14,7 +14,13 @@ export default function (fonts = {}){
 	function update_size()
 	{
 		$.each(window.smartFonts, function(selector, fontSize) {
-			$( selector ).css('font-size', (((( $('#app').innerHeight() + $('#app').innerWidth() ) / 2)  / 34 / 20) * fontSize) + 'px' );
+			
+			
+			//var divider = $('#app').innerHeight() / $('#app').innerWidth()
+
+			//console.log(fontSize, ( ( $('#app').innerHeight() + $('#app').innerWidth() / 2 ) / 999 ) * fontSize )
+
+			$( selector ).css('font-size', ( ( $('#app').innerHeight() + $('#app').innerWidth() / 2.2 ) / 999 ) * fontSize  + 'px' );
 		});
 	}
 

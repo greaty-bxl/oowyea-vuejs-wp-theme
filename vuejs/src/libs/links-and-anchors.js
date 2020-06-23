@@ -34,17 +34,21 @@ export default function (vue)
 
 				var clone = section.clone()
 
+				clone.addClass('clone')
+
 				clone.css({
 					'position': 'fixed',
 					'top': start,
 					'left': 0,
-					'width': '100%',
-					'overflow-y':'scroll',
-					'opacity': 0,
+					'width': section.width(),
+					'overflow':'hidden',
+					'opacity': 0.5,
 					'z-index': 2000
 				});
 
 				section.parent().prepend(clone)
+
+				$('#app').trigger('clone')
 
 				$('#app').data('scrolling', 'links-and-anchors')
 
@@ -54,16 +58,23 @@ export default function (vue)
 					top: '0',
 					opacity: 1
 					},
-					500, 'easeOutQuart', () => {
-						clone.remove()
+					{
+						duration: 444,
+						ease: 'easeOutQuart',
+						step: () => {
+							$('#app').trigger('clone-move')
+						},
+						done: () => {
+							console.log( "done" );
+							$('#app').scrollTop( section.position().top + $('#app').scrollTop() )
+							clone.remove()
 
-						$('#app').scrollTop( section.position().top + $('#app').scrollTop() )
-
-						clearTimeout( timer )
-						timer = setTimeout( () => {
-							$('#app').data('scrolling', '')
-						}, 15)
-				});
+							clearTimeout( timer )
+							timer = setTimeout( () => {
+								$('#app').data('scrolling', '')
+							}, 15)
+						}
+					});
 			}
 			else
 			{

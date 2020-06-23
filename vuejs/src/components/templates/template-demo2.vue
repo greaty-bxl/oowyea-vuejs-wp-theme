@@ -2,9 +2,10 @@
 	<div class="section-wrap">
 		<div class="clear"></div>
 
-		<div class="fixit">Fixed element</div>
+		
 		<h1 class="on-screen title-demo2">{{post.post_title}}</h1>
 		<p>Demo 2 template</p>
+		<div class="fixit">Fixed element</div>
 		<div class="clear"></div>
 	</div>
 </template>
@@ -26,6 +27,10 @@ export default {
 		this.$emit('template_mounted')
 
 		$(this.$el).css('height', '200vh')
+
+		$(this.$el).parents('.section').css({
+			'background-color': this.post.metas.background_color[0],
+		});
 
 		//animate the title on enter in screen
 		$('.title-demo2').on('enter-screen', (event) => {
@@ -57,7 +62,7 @@ export default {
 		})
 		
 		//fix div in section
-		fixit(this, '.fixit', '50vh', '0')
+		fixit(this, '.fixit', '50vh', '0', 'auto')
 		
 	}
 }
@@ -66,5 +71,8 @@ export default {
 <style>
 	.fixit{
 		color: #FF0000;
+		background-color: #624343;
+		height: 50vh;
+		width: 50%;
 	}
 </style>

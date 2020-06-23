@@ -41,8 +41,9 @@ export default function (vue)
 					'top': start,
 					'left': 0,
 					'width': section.width(),
+					'height': '100vh',
 					'overflow':'hidden',
-					'opacity': 0.5,
+					'opacity': 1,
 					'z-index': 2000
 				});
 

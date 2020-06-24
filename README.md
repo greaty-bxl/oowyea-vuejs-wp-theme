@@ -54,7 +54,7 @@ define('vuejs_server', 'http://localhost:8080');
 
 ### [Fixed element in section](doc/code-references/fix-it.md)
 
-## To do
+## :heavy_check_mark: To do
 
 - [ ] Complete basic hierarchy 
 	- [ ] 404

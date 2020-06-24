@@ -62,7 +62,7 @@ export default {
 		})
 		
 		//fix div in section
-		fixit(this, '.fixit', '50vh', '0', 'limited')
+		fixit(this, '.fixit', '50vh', '0')
 		
 	}
 }

@@ -61,7 +61,6 @@ export default {
   name: 'App',
   data(){
     return {
-      sections:[],
       pages:{'current':{},'next':{}}
     }
   },

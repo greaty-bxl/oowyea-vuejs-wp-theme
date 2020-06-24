@@ -6,6 +6,10 @@
  */
 
 define('GREATY_TEMPLATE_PATH', get_template_directory());
+
+include GREATY_TEMPLATE_PATH.'/security/security.php';
+include GREATY_TEMPLATE_PATH.'/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
+
 include GREATY_TEMPLATE_PATH.'/vue.config.php';
 
 /*------------------------------------*\
@@ -24,7 +28,6 @@ include GREATY_TEMPLATE_PATH.'/libs/sections.php';
 
 //last
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
-
 
 /*------------------------------------*\
 	Theme Support

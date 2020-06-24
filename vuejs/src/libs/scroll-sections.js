@@ -5,7 +5,7 @@ function scrollSection(vue){
 	var $ = vue.$;
 	var wait = 0;
 	var current_section;
-
+	
 	function animate_scroll_to( pos )
 	{
 		if( !wait )

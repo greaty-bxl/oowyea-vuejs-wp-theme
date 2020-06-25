@@ -66,6 +66,7 @@ define('vuejs_server', 'http://localhost:8080');
 	- [ ] search
 	- [ ] single
 	- [ ] tag
+- [ ] Make appear an animated loading gif/svg if load page take more than 500ms  
 - [ ] wp images, lazy load
 - [ ] use swipper slider for horizontal post list
 - [x] on element enter in or leave screen (enter-screen / leave-screen, jquery event)

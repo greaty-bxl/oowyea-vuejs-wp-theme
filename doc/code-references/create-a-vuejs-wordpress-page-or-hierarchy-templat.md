@@ -14,7 +14,7 @@ $vue_hierarchy = array(
     'cool-design' => 'Cool Design'
 );
 ```
-Refering it in ```App.vue```  
+Refering it in ```App.vue```   
 Template part
 ```html
 <div class="section" 
@@ -29,6 +29,7 @@ Template part
         @template_mounted="template_mounted"/>
 </div>
 ```
+
 Js part
 ```js
 //custom template
@@ -42,5 +43,34 @@ export default {
 		SingleEvent,
 		CoolDesign,
 	},
+}
+```
+
+Template structure
+
+```html
+<template>
+    <div class="section-wrap">
+        <div class="clear"></div>
+        <h1 v-html="post.post_title"></h1>
+        <div v-html="post.post_content"></div>
+        <div class="clear"></div>
+    </div>
+</template>
+```
+
+```js
+export default {
+    components: {
+        
+    },
+    props: {
+        'post' : Object
+    },
+    mounted (){
+
+        //Important to let works basic functions
+        this.$emit('template_mounted')
+    }
 }
 ```

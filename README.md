@@ -1,6 +1,6 @@
 # [Vue.js WordPress Theme](https://greaty.be)
 
-Get the power to create the new generation of websites :sunglasses:
+OOWYEA is an unique mixed and simplified framework to create advanced webapp.
 
 ## :hamburger: Features
 * Auto animated scroll by section

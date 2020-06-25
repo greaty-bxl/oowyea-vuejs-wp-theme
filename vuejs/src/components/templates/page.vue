@@ -8,8 +8,6 @@
 </template>
 
 <script>
-	//import {wp_content_filter} from 'Libs/wp.js'
-
 	export default {
 		components: {
 			

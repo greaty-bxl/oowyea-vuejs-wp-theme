@@ -10,7 +10,7 @@ $vue_hierarchy = array(
     'single-event'
 );
 
-$vue_hierarchy = array(
+$vue_templates = array(
     'cool-design' => 'Cool Design'
 );
 ```

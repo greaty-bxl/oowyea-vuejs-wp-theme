@@ -2,7 +2,8 @@
 	<div class="section-wrap">
 		<div class="clear"></div>
 
-		<div class="fixit">Fixed element</div>
+		<div id="fixit1">Fixed element: auto</div>
+		<div id="fixit2">Fixed element: limited</div>
 		<h1 class="on-screen title-demo2">{{post.post_title}}</h1>
 		<p>Demo 2 template</p>
 		
@@ -62,17 +63,19 @@ export default {
 		})
 		
 		//fix div in section
-		fixit(this, '.fixit', '50vh', '0')
+		fixit(this, '#fixit1', '80vh', '0')
+		//fix div in section
+		fixit(this, '#fixit2', '80vh', '50%', 'limited')
 		
 	}
 }
 </script>
 
 <style>
-	.fixit{
+	#fixit1, #fixit2{
 		color: #FF0000;
 		background-color: #624343;
-		height: 50vh;
+		height: 20vh;
 		width: 50%;
 	}
 </style>

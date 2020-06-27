@@ -1,13 +1,15 @@
 <?php
 
-define('is_vuejs_dev', false);
+define('is_vuejs_dev', true);
 define('vuejs_server', 'http://localhost:8080');
 
 //Register Vue.js templates components 
 
 //for the hierarchy
 $vue_hierarchy = array(
+	'404',
     'index',
+    'archive',
     'page'
 );
 

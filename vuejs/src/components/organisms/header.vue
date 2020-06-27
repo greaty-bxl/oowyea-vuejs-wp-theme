@@ -37,7 +37,6 @@
 			}
 		},
 		mounted(){
-			console.log( this.wp.menus )
 			var $ = this.$
 
 			$(this.$el).find('#header-menu').html( this.wp.menus['header-menu'] )

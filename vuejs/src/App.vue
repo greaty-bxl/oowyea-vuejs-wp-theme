@@ -14,7 +14,16 @@
               :post="section" 
               @template_mounted="template_mounted"/>
 
+          <Archive v-if="section.template === 'archive'" 
+              :posts="wp.wp_query.posts" 
+              :title="wp.wp_query.queried_object.label"
+              @template_mounted="template_mounted"/>
+
           <Page v-if="section.template === 'page'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
+
+          <Comp404 v-if="section.template === '404'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
@@ -39,7 +48,9 @@ import Header from 'Organisms/header.vue'
 
 //template hierarchy
 import Index from 'Templates/index.vue'
+import Archive from 'Templates/archive.vue'
 import Page from 'Templates/page.vue'
+import Comp404 from 'Templates/404.vue'
 
 //custom template
 import Demo1 from 'Templates/template-demo1.vue'
@@ -67,7 +78,9 @@ export default {
   components: {
     Header,
     Index,
+    Archive,
     Page,
+    Comp404,
     Demo1,
     Demo2,
     Footer,
@@ -80,7 +93,7 @@ export default {
 
     this.$(document).ready( ($) => {
 
-      console.log('JQuery Ready', $, this.ajaxurl)
+      //console.log('JQuery Ready', $, this.ajaxurl)
       
       //init scroll if child
       init_scrolltop(this)

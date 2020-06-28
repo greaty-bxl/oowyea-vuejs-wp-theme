@@ -104,6 +104,9 @@ function get_vue_template($post = false)
 		'is_search' => array(
 			0 => 'search'
 			),
+		'is_author' => array(
+			0 => 'author'
+			),
 		);
 
 	$page_template = get_page_template_slug($post->ID);

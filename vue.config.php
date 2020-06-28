@@ -8,9 +8,14 @@ define('vuejs_server', 'http://localhost:8080');
 //for the hierarchy
 $vue_hierarchy = array(
 	'404',
-    'index',
     'archive',
-    'page'
+    'author',
+    'category',
+    'index',
+    'page',
+    'search',
+    'single',
+    'tag'
 );
 
 //custom page templates

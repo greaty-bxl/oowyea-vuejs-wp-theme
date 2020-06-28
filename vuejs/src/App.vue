@@ -10,7 +10,7 @@
         :data-index="key2"
         :data-title="section.post_title">
 
-          <Index v-if="section.template === 'index'" 
+          <Comp404 v-if="section.template === '404'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
@@ -19,12 +19,33 @@
               :title="wp.wp_query.queried_object.label"
               @template_mounted="template_mounted"/>
 
+          <Category v-if="section.template === 'category'"  
+              :cat="wp.wp_query.queried_object"
+              @template_mounted="template_mounted"/>
+
+          <Author v-if="section.template === 'author'"  
+              :author="wp.wp_query.queried_object.data"
+              @template_mounted="template_mounted"/>
+
+          <Index v-if="section.template === 'index'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
+
           <Page v-if="section.template === 'page'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
-          <Comp404 v-if="section.template === '404'" 
-              :post="section" 
+          <Search v-if="section.template === 'search'" 
+              :posts="wp.wp_query.posts" 
+              :s="wp.wp_query.query_vars.s"
+              @template_mounted="template_mounted"/>
+
+          <Single v-if="section.template === 'single'" 
+              :post="wp.wp_query.queried_object" 
+              @template_mounted="template_mounted"/>
+
+          <Tag v-if="section.template === 'tag'"  
+              :tag="wp.wp_query.queried_object"
               @template_mounted="template_mounted"/>
 
           <Demo1 v-if="section.template === 'template-demo1'" 
@@ -47,10 +68,15 @@
 import Header from 'Organisms/header.vue'
 
 //template hierarchy
-import Index from 'Templates/index.vue'
-import Archive from 'Templates/archive.vue'
-import Page from 'Templates/page.vue'
 import Comp404 from 'Templates/404.vue'
+import Archive from 'Templates/archive.vue'
+import Author from 'Templates/author.vue'
+import Category from 'Templates/category.vue'
+import Index from 'Templates/index.vue'
+import Page from 'Templates/page.vue'
+import Search from 'Templates/search.vue'
+import Single from 'Templates/single.vue'
+import Tag from 'Templates/tag.vue'
 
 //custom template
 import Demo1 from 'Templates/template-demo1.vue'
@@ -77,10 +103,15 @@ export default {
   },
   components: {
     Header,
-    Index,
-    Archive,
-    Page,
     Comp404,
+    Archive,
+    Author,
+    Category,
+    Index,
+    Page,
+    Search,
+    Single,
+    Tag,
     Demo1,
     Demo2,
     Footer,

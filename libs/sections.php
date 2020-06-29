@@ -5,10 +5,6 @@ function get_sections()
 	global $wp_query;
 	global $post;
 
-	/*echo "<pre>";
-	print_r( $wp_query );
-	exit();*/
-
 	$sections = array();
 	$page_for_posts = get_option( 'page_for_posts' );
 
@@ -17,7 +13,6 @@ function get_sections()
 		if( $wp_query->is_posts_page && $page_for_posts )
 		{
 			$post = get_page( $page_for_posts );
-			//exit();
 		}
 
 		if( $post->post_parent == 0 )
@@ -67,7 +62,7 @@ function get_sections()
 				{
 					foreach ($sections[$key]->children as $key2 => $child) {
 						$sections[$key]->children[$key2]->permalink = get_permalink( $child->ID );
-						$sections[$key]->children[$key2]->metas = get_post_meta( $child->ID );	
+						$sections[$key]->children[$key2]->metas = get_post_meta( $child->ID );
 					}
 				}
 
@@ -97,11 +92,7 @@ function get_sections()
 	{
 		$wp_query->queried_object->post_content = apply_filters( 'the_content', $wp_query->queried_object->post_content );
 	}
-
-
-	/*echo "<pre>";
-	print_r(  );
-	exit();*/
+	
 	wp_vue_add_var('sections', $sections);
 }
 

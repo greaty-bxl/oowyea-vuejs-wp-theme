@@ -16,7 +16,14 @@
 			'post' : Object
 		},
 		mounted (){
+			//var $ = this.$
+			
 			this.$emit('template_mounted')
+
+			/*$('[data-srcset]').each(function(index, el) 
+			{
+				$(el).attr('srcset', $(el).data('srcset') )
+			});*/
 		}
 	}
 </script>

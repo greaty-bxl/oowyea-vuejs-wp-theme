@@ -35,7 +35,8 @@ function get_sections()
 			foreach ($children as $key => $child) 
 			{
 				$children[$key]->template = get_vue_template( $child );
-			}
+
+			}	
 			
 			$sections = array_merge($sections, $children);			
 		}
@@ -61,8 +62,11 @@ function get_sections()
 				if( $sections[$key]->children )
 				{
 					foreach ($sections[$key]->children as $key2 => $child) {
+						
 						$sections[$key]->children[$key2]->permalink = get_permalink( $child->ID );
 						$sections[$key]->children[$key2]->metas = get_post_meta( $child->ID );
+						$sections[$key]->children[$key2]->thumb = get_the_post_thumbnail_url( $child->ID );
+						
 					}
 				}
 

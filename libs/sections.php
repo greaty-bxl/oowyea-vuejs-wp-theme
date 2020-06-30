@@ -59,17 +59,6 @@ function get_sections()
 				$sections[$key]->template = get_vue_template();
 				$sections[$key]->children = get_posts();
 
-				if( $sections[$key]->children )
-				{
-					foreach ($sections[$key]->children as $key2 => $child) {
-						
-						$sections[$key]->children[$key2]->permalink = get_permalink( $child->ID );
-						$sections[$key]->children[$key2]->metas = get_post_meta( $child->ID );
-						$sections[$key]->children[$key2]->thumb = get_the_post_thumbnail_url( $child->ID );
-						
-					}
-				}
-
 				$wp_query->is_page = true;
 				$wp_query->is_posts_page = false;
 				$post = $clonePost;

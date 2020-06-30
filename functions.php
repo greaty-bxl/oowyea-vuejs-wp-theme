@@ -25,6 +25,7 @@ include GREATY_TEMPLATE_PATH.'/libs/vue-to-templates.php';
 include GREATY_TEMPLATE_PATH.'/libs/menus.php';
 include GREATY_TEMPLATE_PATH.'/libs/sidebars.php';
 include GREATY_TEMPLATE_PATH.'/libs/sections.php';
+include GREATY_TEMPLATE_PATH.'/libs/posts.php';
 
 //last
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';

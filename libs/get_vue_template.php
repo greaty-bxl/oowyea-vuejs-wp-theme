@@ -60,7 +60,8 @@ function get_vue_template($post = false)
 		'is_posts_page' => array(
 			0 => 'index',
 			1 => 'archive',
-			2 => 'blog'
+			2 => 'blog',
+			3 => 'front-page'
 			),
 		'is_page' => array(
 			0 => 'index',

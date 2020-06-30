@@ -26,6 +26,9 @@ include GREATY_TEMPLATE_PATH.'/libs/menus.php';
 include GREATY_TEMPLATE_PATH.'/libs/sidebars.php';
 include GREATY_TEMPLATE_PATH.'/libs/sections.php';
 
+include GREATY_TEMPLATE_PATH.'/libs/htmlify.php';
+include GREATY_TEMPLATE_PATH.'/libs/images-lazy-filter.php';
+
 //last
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
 

@@ -52,6 +52,7 @@ function get_vue_template($post = false)
 		
 		$wp_query->is_archive = 1;
 	}
+	
 
 	$template_hierarchy = array(
 		'is_home' => array(
@@ -107,6 +108,11 @@ function get_vue_template($post = false)
 			),
 		'is_author' => array(
 			0 => 'author'
+			),
+		'is_shop' => array(
+			0 => 'index',
+			1 => 'archive',
+			2 => 'shop'
 			),
 		);
 

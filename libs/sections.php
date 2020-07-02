@@ -8,6 +8,10 @@ function get_sections()
 	$sections = array();
 	$page_for_posts = get_option( 'page_for_posts' );
 
+	do_action( 'before_sections' );
+
+
+
 	if( is_page() || ( $wp_query->is_posts_page && $page_for_posts ) )
 	{
 		if( $wp_query->is_posts_page && $page_for_posts )
@@ -70,6 +74,10 @@ function get_sections()
 		$sections[0] = (object) 'section';		
 		$sections[0]->template = get_vue_template();
 	}
+
+	/*echo "<pre>";
+	print_r( $sections );
+	exit();*/
 
 
 	//apply content filter

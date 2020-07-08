@@ -2,6 +2,7 @@
 
 
 	<div  class="section-wrap" >
+		<div class="global-slide">
 		<div class="clear"></div>
 <!-- 				<h1 v-html="title"></h1>
 				<p>Archive template</p> -->
@@ -50,6 +51,7 @@
 			</swiper>
 
 		<div class="clear"></div>
+		</div>
 	</div>
 </template>
 
@@ -136,11 +138,11 @@
 	flex-direction: row;
 }
 
-.section-wrap{
+.global-slide{
 
 	display: flex;
 	flex-direction: row;
-	height: 80vh;
+	height: 70vh;
 
 }
 .swiper1{

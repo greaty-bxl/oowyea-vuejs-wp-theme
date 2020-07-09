@@ -11,7 +11,7 @@
         @slide-change-end="onSlideChangeEnd">
 				<!-- <swiper-slide>Slide 1</swiper-slide> -->
 
-					<swiper-slide  class="slide-full-view" v-for="child in wp.wp_query.posts" :key="child.ID" >
+					<swiper-slide  class="slide-full-view" v-for="child in posts" :key="child.ID" >
 
 						<h2 v-html="child.post_title"></h2>
 						<p v-html="child.post_content"></p>
@@ -40,7 +40,7 @@
 
 			<swiper class="swiper" :options="swiperOption">
 			<!-- <swiper-slide>Slide 1</swiper-slide> -->
-			<swiper-slide v-for="child in wp.wp_query.posts" :key="child.ID" :src="child.thumb" >
+			<swiper-slide v-for="child in posts" :key="child.ID" :src="child.thumb" >
 				<img height="100%" width="100%" :src="child.thumb"> 
 			<!-- 	<h2 v-html="child.post_title"></h2>
 				<p v-html="child.post_content"></p>

@@ -15,7 +15,7 @@
               @template_mounted="template_mounted"/>
 
           <Archive v-if="section.template === 'archive'" 
-              :posts="wp.wp_query.posts" 
+              :posts="section.children" 
               :title="wp.wp_query.queried_object.label"
               @template_mounted="template_mounted"/>
 

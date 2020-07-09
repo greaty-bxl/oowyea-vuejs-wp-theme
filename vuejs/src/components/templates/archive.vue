@@ -1,6 +1,4 @@
 <template>
-
-
 	<div  class="section-wrap" >
 		<div class="global-slide">
 		<div class="clear"></div>
@@ -57,78 +55,55 @@
 
 <script>
 	
-	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-	import 'swiper/css/swiper.css';
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+import 'swiper/css/swiper.css';
 
-	export default {
+export default {
+	props: {	
+		'title': String,
+		'posts' : Array,
+	},
+	mounted () {
 
-		props: {	
-			'title': String,
-			'posts' : Array,
-		},
-		mounted (){
-
-			console.log( this.wp.wp_query.posts );
-			this.$emit('template_mounted');
-			// AOS.init();
-		},
-				
-		name: 'swiper-example-default',
-		title: 'Default',
-		init: true,
-		
-		components: {
+		console.log( this.posts );
+		this.$emit('template_mounted');
+	},	
+	name: 'swiper-example-default',
+	title: 'Default',
+	init: true,
+	components: {
 		Swiper,
 		SwiperSlide,
-
-		},
-
-		data() {
-
-			return {
-
-				swiperOption: {
-
-					slidesPerView: 3,
-					initialSlide: 0,
-					loop: true,
-					allowTouchMove: false,
-					runCallbacksOnInit: true,
-
-					navigation: {
-							nextEl: '.flex-gauche',
-							prevEl: '.flex-droite',
-					},
-
-
+	},
+	data () {
+		return {
+			swiperOption: {
+				slidesPerView: 3,
+				initialSlide: 0,
+				loop: true,
+				allowTouchMove: false,
+				runCallbacksOnInit: true,
+				navigation: {
+						nextEl: '.flex-gauche',
+						prevEl: '.flex-droite',
 				},
-
-				swiperOption1:{
-
-					slidesPerView: 1,
-					initialSlide: 0,
-					loop: true,	
-					mousewheel: false,
-					allowTouchMove: false,
-					runCallbacksOnInit: true,
-					setTransition: 2000,
-
-
-					navigation: {
-							nextEl: '.flex-gauche',
-							prevEl: '.flex-droite',
-					},
-
+			},
+			swiperOption1:{
+				slidesPerView: 1,
+				initialSlide: 0,
+				loop: true,	
+				mousewheel: false,
+				allowTouchMove: false,
+				runCallbacksOnInit: true,
+				setTransition: 2000,
+				navigation: {
+						nextEl: '.flex-gauche',
+						prevEl: '.flex-droite',
 				},
-
-			}
+			},
 		}
-
-	
 	}
-
-
-
+}
 </script>
 <style>
 

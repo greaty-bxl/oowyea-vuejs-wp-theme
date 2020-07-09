@@ -73,6 +73,11 @@ function get_sections()
 	{
 		$sections[0] = (object) 'section';		
 		$sections[0]->template = get_vue_template();
+
+		if( $wp_query->posts )
+		{
+			$sections[0]->children = $wp_query->posts;
+		}
 	}
 
 	/*echo "<pre>";

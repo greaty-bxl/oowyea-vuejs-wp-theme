@@ -16,4 +16,4 @@ function get_menus()
 }
 
 add_action( 'wp_head', 'get_menus' );
-add_action( 'wp', 'get_menus' );
+add_action( 'wp', 'get_menus' );		

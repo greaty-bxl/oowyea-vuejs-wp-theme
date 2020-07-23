@@ -15,9 +15,7 @@
 						<p v-html="child.post_content"></p>
 						<a :href="child.permalink">Read more</a>
 
-						<vue-aos animation-class="fadeIn animated">
 						<div>lalallalallaall</div>
-						</vue-aos>
 
 					</swiper-slide>
 				
@@ -176,7 +174,7 @@ export default {
 
 .section-wrap{
 
-	padding-top: 150px
+	padding-top: 150px; 
 }
 
 /*.slide-full-view  {

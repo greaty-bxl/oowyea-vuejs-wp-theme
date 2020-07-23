@@ -12,3 +12,4 @@ function my_posts_results_filter( $posts ) {
 	return $posts;
 }
 add_filter( 'posts_results', 'my_posts_results_filter' );
+add_filter( 'get_posts', 'my_posts_results_filter' );

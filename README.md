@@ -56,7 +56,15 @@ define('vuejs_server', 'http://localhost:8080');
 
 ## :heavy_check_mark: To do
 
-- [ ] Complete basic hierarchy 
+### Theme
+- [ ] Floting titles
+- [ ] Theme settings form (ACF) (
+	- [ ] logo
+	- [ ] fonts
+	- [ ] colors (light/dark)
+
+### General
+- [ ] Complete basic hierarchy
 	- [ ] 404
 	- [ ] archive
 	- [ ] author

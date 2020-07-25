@@ -172,7 +172,7 @@ function greatytheme_header_scripts()
         {
             // vue dist
             wp_enqueue_script('vue-app', get_template_directory_uri() .'/vuejs/dist/app.js', array('greatythemescripts'), '1.0', true );
-            wp_enqueue_script('vue-chunk-vendors', get_template_directory_uri() . '/vuejs/dist/chunk-vendors.js', array('greatythemescripts'), '1.0', true);
+            wp_enqueue_script('vue-chunk-vendors', get_template_directory_uri() . '/vuejs/dist/chunk-vendors.js', array('vue-app'), '1.0', true);
         }
 
         
@@ -192,6 +192,9 @@ function greatytheme_styles()
     // vue dist
     if( !is_vuejs_dev )
     {
+        wp_register_style('vue-chunk-vendors-css', get_template_directory_uri() . '/vuejs/dist/chunk-vendors.css', array(), '1.0', 'all');
+        wp_enqueue_style('vue-chunk-vendors-css'); // Enqueue it!
+
         wp_register_style('vue-css', get_template_directory_uri() . '/vuejs/dist/app.css', array(), '1.0', 'all');
         wp_enqueue_style('vue-css'); // Enqueue it!
     }

@@ -20,6 +20,7 @@ $vue_hierarchy = array(
 
 //custom page templates
 $vue_templates = array(
-    'template-demo1' => 'Template Demo 1', 
-    'template-demo2' => 'Template Demo 2'
+    'demo1' => 'Template Demo 1', 
+    'demo2' => 'Template Demo 2',
+    'phaser' => 'Phaser'
 );

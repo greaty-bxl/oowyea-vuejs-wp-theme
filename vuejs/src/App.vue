@@ -55,6 +55,10 @@
           <Demo2 v-if="section.template === 'template-demo2'" 
               :post="section" 
               @template_mounted="template_mounted"/>
+
+          <Phaser v-if="section.template === 'phaser'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
       </div>
     </div>
     <!-- Footer -->
@@ -79,8 +83,9 @@ import Single from 'Templates/single.vue'
 import Tag from 'Templates/tag.vue'
 
 //custom template
-import Demo1 from 'Templates/template-demo1.vue'
-import Demo2 from 'Templates/template-demo2.vue'
+import Demo1 from 'Templates/customs/demo1.vue'
+import Demo2 from 'Templates/customs/demo2.vue'
+import Phaser from 'Templates/customs/phaser.vue'
 
 //Footer
 import Footer from 'Organisms/footer.vue'
@@ -114,6 +119,7 @@ export default {
     Tag,
     Demo1,
     Demo2,
+    Phaser,
     Footer,
   },
   mounted (){

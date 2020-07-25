@@ -62,6 +62,11 @@ define('vuejs_server', 'http://localhost:8080');
 	- [ ] logo
 	- [ ] fonts
 	- [ ] colors (light/dark)
+	- [ ] footer 
+		- use: true / false
+		- height: full / normal
+		- collumns
+		- align
 
 ### General
 - [ ] Complete basic hierarchy

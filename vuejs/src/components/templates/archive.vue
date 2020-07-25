@@ -5,8 +5,7 @@
 <!-- 				<h1 v-html="title"></h1>
 				<p>Archive template</p> -->
 			<div class="div-parent-slide-text">	
-				<swiper class="swiper1" :options="swiperOption1"  @slide-change-start="onSlideChangeStart"
-        @slide-change-end="onSlideChangeEnd">
+				<swiper class="swiper1" :options="swiperOption1">
 				<!-- <swiper-slide>Slide 1</swiper-slide> -->
 
 					<swiper-slide  class="slide-full-view" v-for="child in posts" :key="child.ID" >
@@ -14,8 +13,6 @@
 						<h2 v-html="child.post_title"></h2>
 						<p v-html="child.post_content"></p>
 						<a :href="child.permalink">Read more</a>
-
-						<div>lalallalallaall</div>
 
 					</swiper-slide>
 				

@@ -32,6 +32,9 @@ include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
 // Playing with Phaser (do not include in Greaty Theme)
 include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
 
+// Code for greaty new site
+include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
+
 // Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
 

@@ -22,5 +22,7 @@ $vue_hierarchy = array(
 $vue_templates = array(
     'demo1' => 'Template Demo 1', 
     'demo2' => 'Template Demo 2',
-    'phaser' => 'Phaser'
+    'phaser' => 'Phaser',
+    'greaty-home' => 'Greaty home'
+
 );

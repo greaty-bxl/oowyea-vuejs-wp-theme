@@ -59,6 +59,10 @@
           <Phaser v-if="section.template === 'phaser'" 
               :post="section" 
               @template_mounted="template_mounted"/>
+
+          <Page v-if="section.template === 'greaty-home'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
       </div>
     </div>
     <!-- Footer -->

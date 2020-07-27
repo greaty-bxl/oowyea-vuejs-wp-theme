@@ -2,7 +2,7 @@
 	<div  class="section-wrap" >
 		<div class="global-slide">
 		<div class="clear"></div>
-<!-- 				<h1 v-html="title"></h1>
+<!-- <h1 v-html="title"></h1>
 				<p>Archive template</p> -->
 			<div class="div-parent-slide-text">	
 				<swiper class="swiper1" :options="swiperOption1"  @slide-change-start="onSlideChangeStart"
@@ -36,7 +36,7 @@
 
 			<swiper class="swiper" :options="swiperOption">
 			<!-- <swiper-slide>Slide 1</swiper-slide> -->
-			<swiper-slide v-for="child in posts" :key="child.ID" :src="child.thumb" >
+			<swiper-slide v-for="child in posts" :key="child.ID" >
 				<img height="100%" width="100%" :src="child.thumb"> 
 			<!-- 	<h2 v-html="child.post_title"></h2>
 				<p v-html="child.post_content"></p>

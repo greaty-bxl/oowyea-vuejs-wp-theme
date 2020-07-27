@@ -16,7 +16,7 @@ include GREATY_TEMPLATE_PATH.'/vue.config.php';
     Vue.js Libraries & functions
 \*------------------------------------*/
 
-//$wp_vue_json will be used in Vue as vue.wp or this.wp in components
+// $wp_vue_json will be used in Vue as vue.wp or this.wp in components
 $wp_vue_json;
 
 include GREATY_TEMPLATE_PATH.'/libs/get_vue_template.php';
@@ -27,8 +27,12 @@ include GREATY_TEMPLATE_PATH.'/libs/sidebars.php';
 include GREATY_TEMPLATE_PATH.'/libs/sections.php';
 include GREATY_TEMPLATE_PATH.'/libs/posts.php';
 include GREATY_TEMPLATE_PATH.'/libs/woocommerce.php';
+include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
 
-//last
+// Playing with Phaser (do not include in Greaty Theme)
+include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
+
+// Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
 
 /*------------------------------------*\

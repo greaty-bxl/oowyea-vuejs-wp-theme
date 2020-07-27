@@ -85,7 +85,7 @@ import Tag from 'Templates/tag.vue'
 //custom template
 import Demo1 from 'Templates/customs/demo1.vue'
 import Demo2 from 'Templates/customs/demo2.vue'
-import Phaser from 'Templates/customs/phaser.vue'
+import Phaser from 'Libs/phaser/phaser.vue'
 
 //Footer
 import Footer from 'Organisms/footer.vue'
@@ -199,7 +199,7 @@ html{
   color: #2c3e50;
   height: 100vh;
   width: 100%;
-  overflow-y: scroll !important;
+  overflow-y: scroll;
 }
 
 .clear{
@@ -207,9 +207,17 @@ html{
 }
 
 .section{
+  display: block;
   min-height: 100vh;
   width: 100%;
   background-color: #fff;
+}
+
+.section-wrap{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 }
 
 #header{

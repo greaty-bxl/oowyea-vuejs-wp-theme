@@ -1,5 +1,5 @@
 <template>
-	<div  class="section-wrap" >
+	<div class="section-wrap">
 		<div class="global-slide">
 		<div class="clear"></div>
 <!-- 				<h1 v-html="title"></h1>
@@ -169,10 +169,10 @@ export default {
 
 
 
-.section-wrap{
+/*.section-wrap{
 
 	padding-top: 150px; 
-}
+}*/
 
 /*.slide-full-view  {
   

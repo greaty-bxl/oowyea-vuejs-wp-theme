@@ -22,7 +22,7 @@ export default () => {
 			var top = $('#app').scrollTop()
 			var bottom = $('#app').scrollTop() + $('#app').outerHeight()
 
-			if( elTop >= top && elBott < bottom )
+			if( elTop >= top - 1 && elBott < bottom )
 			{
 				if( $(el).data('screen-event') !== 'in-screen' )
 				{

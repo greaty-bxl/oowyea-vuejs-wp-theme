@@ -2,15 +2,17 @@
 <template>
     <div class="section-wrap">
         <div class="clear"></div>
-		
+		<div>
+
 		<div class="div-text-homepage">
 			<p class="text-homepage">
 			Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.	
 			</p>
 		</div>
 
+		</div>
 		<div class="post-client">
-
+				
 				<div class="global-project">
 
 					<div class="client">
@@ -21,7 +23,18 @@
 						<p class="role-greaty">Corporated Website</p>
 
 				</div>
-				
+
+				<div class="global-project">
+
+					<div class="client">
+						<div class="image-client"></div>
+					</div>
+						
+						<p class="name-client">Lorem ipsum</p>
+						<p class="role-greaty">Corporated Website</p>
+					
+				</div>
+
 				<div class="global-project">
 
 					<div class="client">
@@ -233,7 +246,7 @@ a{color: #e1e1e1 ;}
 
 .div-text-homepage{
 display: flex;
-height: 100%;
+height: 100vh;
 width: 100%;
 /*padding-top: 100px;*/
 padding-left: auto;
@@ -323,13 +336,21 @@ font-family: 'Gotham Book Regular', sans-serif;
 
 @media screen and (min-width: 1200px) {
 
+	.post-client{
+		padding-left: 35px;
+		padding-right: 35px;
+		display: flex;
+		flex-direction: row;
+	}
+
 .global-project{
-z-index: 10;
-width: 100% !important;
-height: auto;
-min-height: 400px;
-margin-left: 35px;
-margin-right: 35px; 
+
+	z-index: 10;
+	width: 50% !important;
+	height: auto;
+	min-height: 400px;
+	margin-left: 35px;
+	margin-right: 35px; 
 
 }
 
@@ -427,15 +448,16 @@ flex-direction: column;
 }
 
 .div-text-homepage{ 
-height: auto;
-min-height: 100vh;
-padding-top: auto;
-padding-left: auto;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-content: center;
-padding-top: 0px;
+
+	height: 100vh;
+	min-height: 100vh;
+	padding-top: auto;
+	padding-left: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	padding-top: 0px;
 }
 
 }

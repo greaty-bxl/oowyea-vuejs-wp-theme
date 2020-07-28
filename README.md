@@ -65,7 +65,7 @@ define('vuejs_server', 'http://localhost:8080');
 	- [ ] footer 
 		- use: true / false
 		- height: full / normal
-		- collumns
+		- n° collumns
 		- align
 
 ### General

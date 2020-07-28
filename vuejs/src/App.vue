@@ -60,9 +60,18 @@
               :post="section" 
               @template_mounted="template_mounted"/>
 
-          <Page v-if="section.template === 'greaty-home'" 
+          <Greatyhome v-if="section.template === 'greaty-home'" 
               :post="section" 
               @template_mounted="template_mounted"/>
+
+          <Greatyprojets v-if="section.template === 'greaty-projets'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
+
+          <Greatysingle v-if="section.template === 'greaty-single'" 
+              :post="section" 
+              @template_mounted="template_mounted"/>
+
       </div>
     </div>
     <!-- Footer -->
@@ -90,6 +99,10 @@ import Tag from 'Templates/tag.vue'
 import Demo1 from 'Templates/customs/demo1.vue'
 import Demo2 from 'Templates/customs/demo2.vue'
 import Phaser from 'Libs/phaser/phaser.vue'
+import Greatyhome from 'Templates/greaty/greaty-home.vue'
+import Greatyprojets from 'Templates/greaty/greaty-projets.vue'
+import Greatysingle from 'Templates/greaty/greaty-single.vue'
+
 
 //Footer
 import Footer from 'Organisms/footer.vue'
@@ -124,7 +137,11 @@ export default {
     Demo1,
     Demo2,
     Phaser,
+    Greatyhome,
+    Greatyprojets,
+    Greatysingle,
     Footer,
+
   },
   mounted (){
     console.log('App mounted');

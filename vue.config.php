@@ -20,13 +20,13 @@ $vue_hierarchy = array(
 
 //custom page templates
 $vue_templates = array(
-    
+
     'demo1' => 'Template Demo 1', 
     'demo2' => 'Template Demo 2',
     'phaser' => 'Phaser',
-    'greaty-home' => 'Greaty home'
-    'greaty-home' => 'Greaty Services'
-    'greaty-single' => 'Greaty Project'
-    'greaty-home' => 'Greaty Single'
+    'greaty-home' => 'Greaty home',
+    'greaty-services' => 'Greaty Services',
+    'greaty-project' => 'Greaty Project',
+    'greaty-single' => 'Greaty Single',
 
 );

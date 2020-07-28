@@ -20,8 +20,16 @@ export default {
 	},
 	mounted (){
 
+		var $ = this.$
+
+		$(this.$el).parents('.section').css({
+			'background-color': this.post.metas.background_color[0],
+		});
+
 		//Important to let works basic functions
 		this.$emit('template_mounted')
+
+
 	}
 }
 

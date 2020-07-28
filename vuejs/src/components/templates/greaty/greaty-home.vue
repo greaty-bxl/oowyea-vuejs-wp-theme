@@ -11,86 +11,28 @@
 
 		<div class="post-client">
 
-			<div class="row">
-
 				<div class="global-project">
 
 					<div class="client">
-						<div class="image-client-1"></div>
+						<div class="image-client"></div>
 					</div>
 						
 						<p class="name-client">Lorem ipsum</p>
 						<p class="role-greaty">Corporated Website</p>
 
 				</div>
-
+				
 				<div class="global-project">
 
 					<div class="client">
-						<div class="image-client-2"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
-				</div>
-
-			</div>
-
-			<div class="row">
-
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client-3"></div>
+						<div class="image-client"></div>
 					</div>
 						
 						<p class="name-client">Lorem ipsum</p>
 						<p class="role-greaty">Corporated Website</p>
 					
 				</div>
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client-4"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
-				</div>
-
-			</div>
-
-			<div class="row">
-
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client-5"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
-				</div>
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client-6"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
-				</div>
-
-			</div>
-			
+	
 		</div>
 
 
@@ -111,6 +53,15 @@ export default {
 		'post' : Object
 	},
 	mounted (){
+
+
+		var $ = this.$
+
+		$(this.$el).parents('.section').css({
+			'background-color': this.post.metas.background_color[0],
+		});
+
+		console.log(this.post.metas.background_color[0] +'dsgs<');
 
 		//Important to let works basic functions
 		this.$emit('template_mounted')
@@ -295,6 +246,8 @@ padding-right: auto;
 
 width: 100%;
 
+background-color: white;
+
 }
 .client{
 
@@ -387,6 +340,7 @@ margin-right: 35px;
 width: 100% !important;
 height: 60vh;
 min-height: 400px;
+background-color: white;
 
 }
 
@@ -449,7 +403,8 @@ margin-bottom: 20px;
 
 .image-client{
 
-height: 100%
+height: 100%;
+background-color: white;
 }
 
 
@@ -645,6 +600,103 @@ overflow: hidden;
 
 margin-left: 30px;
 }
+
+@import url(https://fonts.googleapis.com/css?family=Karla);
+
+body {
+  /*font-family: "Karla", sans-serif;*/
+   text-align: center;
+   /*font-size: 50px;*/ 
+   padding-top: 100px;
+  /*background-color: #202020;*/
+  color: #f9f9f9;
+}
+
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.cursor {
+    animation: blink 0.7s infinite;
+}
+
+#quote{
+
+  margin: auto auto;
+  /*width: 90%;*/
+  /*font-size: 3em;*/
+}
+
+.typing-animation{
+
+  display: flex;
+  height: 100%;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: #ccc;
+  text-align: center;
+  color: #FFF;
+  font-size: 3em;
+}
+
+.img{
+
+    margin-left: 30px;
+}
+
+
+.div-text-homepage p {
+  color: white !important;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  position: absolute;
+  top: 100px;
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+
+
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+
 
 
 </style>

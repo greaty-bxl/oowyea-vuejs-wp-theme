@@ -71,6 +71,9 @@
           <Greatysingle v-if="section.template === 'greaty-single'" 
               :post="section" 
               @template_mounted="template_mounted"/>
+          <Greatyservices v-if="section.template === 'greaty-single'" 
+            :post="section" 
+            @template_mounted="template_mounted"/>
 
       </div>
     </div>
@@ -102,6 +105,8 @@ import Phaser from 'Libs/phaser/phaser.vue'
 import Greatyhome from 'Templates/greaty/greaty-home.vue'
 import Greatyprojets from 'Templates/greaty/greaty-projets.vue'
 import Greatysingle from 'Templates/greaty/greaty-single.vue'
+import Greatyservices from 'Templates/greaty/greaty-services.vue'
+
 
 
 //Footer
@@ -140,6 +145,7 @@ export default {
     Greatyhome,
     Greatyprojets,
     Greatysingle,
+    Greatyservices,
     Footer,
 
   },

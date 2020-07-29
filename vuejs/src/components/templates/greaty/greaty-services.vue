@@ -32,7 +32,13 @@ import textcotact from './components/text-contact'
 export default {
 	components: {
         textcotact,
-	},
+
+<script>
+
+export default {
+	components: {
+
+},
 	props: {
 		'post' : Object
 	},
@@ -95,3 +101,4 @@ body, html {
 }
 
 </style>
+

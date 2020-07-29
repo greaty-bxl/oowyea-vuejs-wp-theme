@@ -33,11 +33,6 @@ export default {
 	components: {
         textcotact,
 
-<script>
-
-export default {
-	components: {
-
 },
 	props: {
 		'post' : Object

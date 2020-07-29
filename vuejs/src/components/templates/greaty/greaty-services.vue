@@ -18,16 +18,20 @@
             </div>
         </div>
     </section>
+    <section>
+        <textcotact>
+        </textcotact>
+    </section>
 	</div>
 </template>
  
 
 
 <script>
-
+import textcotact from './components/text-contact'
 export default {
 	components: {
-
+        textcotact,
 	},
 	props: {
 		'post' : Object
@@ -59,11 +63,11 @@ body, html {
 	box-sizing: border-box;
 	}
 .mainSection {
-    padding: 150px 70px;
+    padding: 12rem 4.5rem;
 }
 
 .title {
-    font-size: 30px;
+    font-size: 4.5rem;
 	font-family: 'Gotham Book Regular', sans-serif;
     text-align: left;
     color: white;
@@ -74,7 +78,7 @@ body, html {
 }
 
 .grid-services {
-    padding-top: 150px;
+    padding-top: 9rem;
 }
 .item-services {
     display: grid;
@@ -86,7 +90,7 @@ body, html {
     font-family: 'Myriad pro', sans-serif;
 }
 .item-text {
-    font-size: 25px;
+    font-size: 30px;
     text-align: left;
 }
 

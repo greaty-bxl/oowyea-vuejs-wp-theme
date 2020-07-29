@@ -12,39 +12,41 @@
 
 		</div>
 		<div class="post-client">
+
+				<div class="global-project">
+
+					<div class="client">
+						<div class="image-client"></div>
+					</div>
+						
+						<p class="name-client">Lorem ipsum</p>
+						<p class="role-greaty">Corporated Website</p>
+
+				</div>
+
+				<div class="global-project">
+
+					<div class="client">
+						<div class="image-client"></div>
+					</div>
+						
+						<p class="name-client">Lorem ipsum</p>
+						<p class="role-greaty">Corporated Website</p>
+					
+				</div>
+
+				<div class="global-project">
+
+					<div class="client">
+						<div class="image-client"></div>
+					</div>
+						
+						<p class="name-client">Lorem ipsum</p>
+						<p class="role-greaty">Corporated Website</p>
+					
+				</div>
+
 				
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-
-				</div>
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
-				</div>
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
-				</div>
 	
 		</div>
 
@@ -74,10 +76,12 @@ export default {
 			'background-color': this.post.metas.background_color[0],
 		});
 
-		console.log(this.post.metas.background_color[0] +'dsgs<');
+	
 
 		//Important to let works basic functions
 		this.$emit('template_mounted')
+
+			console.log(this.wp);
 	}
 }
 
@@ -686,36 +690,6 @@ body {
 .img{
 
     margin-left: 30px;
-}
-
-
-.div-text-homepage p {
-  color: white !important;
-  font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  position: absolute;
-  top: 100px;
-  animation: 
-    typing 3.5s steps(30, end),
-    blink-caret .5s step-end infinite;
-
-
-}
-
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange }
 }
 
 

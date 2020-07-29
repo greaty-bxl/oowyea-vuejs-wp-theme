@@ -71,7 +71,7 @@
           <Greatysingle v-if="section.template === 'greaty-single'" 
               :post="section" 
               @template_mounted="template_mounted"/>
-          <Greatyservices v-if="section.template === 'greaty-single'" 
+          <Greatyservices v-if="section.template === 'greaty-services'" 
             :post="section" 
             @template_mounted="template_mounted"/>
 

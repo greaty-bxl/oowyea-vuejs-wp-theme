@@ -76,12 +76,9 @@ export default {
 			'background-color': this.post.metas.background_color[0],
 		});
 
-	
-
-		//Important to let works basic functions
 		this.$emit('template_mounted')
 
-			console.log(this.wp);
+			console.log(this.wp.projects);
 	}
 }
 

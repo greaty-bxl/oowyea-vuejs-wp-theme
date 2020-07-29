@@ -64,7 +64,7 @@
               :post="section" 
               @template_mounted="template_mounted"/>
 
-          <Greatyprojets v-if="section.template === 'greaty-projets'" 
+          <Greatyprojects v-if="section.template === 'greaty-projects'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
@@ -103,7 +103,7 @@ import Demo1 from 'Templates/customs/demo1.vue'
 import Demo2 from 'Templates/customs/demo2.vue'
 import Phaser from 'Libs/phaser/phaser.vue'
 import Greatyhome from 'Templates/greaty/greaty-home.vue'
-import Greatyprojets from 'Templates/greaty/greaty-projets.vue'
+import Greatyprojects from 'Templates/greaty/greaty-projects.vue'
 import Greatysingle from 'Templates/greaty/greaty-single.vue'
 import Greatyservices from 'Templates/greaty/greaty-services.vue'
 
@@ -143,7 +143,7 @@ export default {
     Demo2,
     Phaser,
     Greatyhome,
-    Greatyprojets,
+    Greatyprojects,
     Greatysingle,
     Greatyservices,
     Footer,

@@ -48,11 +48,11 @@
               :tag="wp.wp_query.queried_object"
               @template_mounted="template_mounted"/>
 
-          <Demo1 v-if="section.template === 'template-demo1'" 
+          <Demo1 v-if="section.template === 'demo1'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
-          <Demo2 v-if="section.template === 'template-demo2'" 
+          <Demo2 v-if="section.template === 'demo2'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
@@ -219,7 +219,7 @@ html{
   overflow:hidden;
 }
 #app {
-  position: fixed;
+  position: absolute;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

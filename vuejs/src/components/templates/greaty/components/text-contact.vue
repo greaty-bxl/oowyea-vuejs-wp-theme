@@ -16,9 +16,29 @@
 <script>
 
 export default {
+	components: {
 
-	name: 'footer',
+	},
+	props: {
+		'post' : Object
+	},
+	mounted (){
 
+
+		var $ = this.$
+
+
+		$(this.$el).css({
+			'min-height':'50vh'
+		})
+
+	
+
+		//Important to let works basic functions
+		this.$emit('template_mounted')
+
+			console.log(this.wp);
+	}
 }
 
 </script>
@@ -46,7 +66,7 @@ export default {
 
 		.div-text-contact{
 
-			padding-right: 20px;
+			padding: 12rem 4.5rem;
 			width: 80%;
 			margin-left: 0;
 			margin-right: 0;
@@ -62,8 +82,7 @@ export default {
 
         .div-text-contact{
 
-			padding-left: 5vw;
-			padding-right: 5vw;
+			padding: 12rem 4.5rem;
 			width: 80%;
 		
 			color: white;

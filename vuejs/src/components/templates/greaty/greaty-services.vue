@@ -1,12 +1,8 @@
 <template>
 	<div class="section-wrap">
 		<div class="clear"></div>
-  <section class="mainSection">
-        <span class="title">
-            <h1>Dès qu'il s'agit de creativité, nous<br> sommes là ! Dans le web,
-                dans le print,<br> nous prenons notre pied.
-            </h1>
-        </span>
+  <section class="firstSection">
+        <div class="first-items on-screen">
         <div class="grid-services">
             <div class="item-services">
                 <div class="item-text"><strong class="smallTile">Stratégie</strong><br><br>- Consultance graphique<br>- Audit stratégie<br>- Stratégie de communication<br>- Conception publicitaire</div>
@@ -15,6 +11,7 @@
                 <div class="item-text"><strong class="smallTile">Digital design</strong><br><br>- UI/UX design<br>- Direction artistique digitale<br>- Webdesign sites internet<br>- Webdesign applications<br>- Motion design</div>
                 <div class="item-text"><strong class="smallTile">Dev Web</strong><br><br>- Intégration HTML5/CSS3<br>- Développement PHP/MYSQL<br>- Développement de sites Web<br>- Application mobile<br>- Développement frontend<br>- CMS<br>- Intranets<br>- Développement Backend<br>- E-Commerce / Webshops</div>
                 <div class="item-text"><strong class="smallTile">Tech Web</strong><br><br>- (Web-)Hosting<br>- Domaines<br>- Serveur et stockage</div>
+            </div>
             </div>
         </div>
     </section>
@@ -29,6 +26,7 @@
 
 <script>
 import textcotact from './components/text-contact'
+import anime from 'animejs/lib/anime.es.js';
 export default {
 	components: {
         textcotact,
@@ -38,7 +36,7 @@ export default {
 		'post' : Object
 	},
 	mounted (){
-
+        
         var $ = this.$
 
             $(this.$el).parents('.section').css({
@@ -47,6 +45,21 @@ export default {
 
             //Important to let works basic functions
             this.$emit('template_mounted')
+           
+            /* var test =  document.getElementsByClassName("title"); */
+            $('.first-items').on('enter-screen', () => {
+                console.log('test');
+                anime({
+                targets: ".first-items",
+                translateY: -10,
+                opacity: [0, 1],
+                easing: 'easeInOutSine',
+                duration: 1500
+                });
+
+            })
+             
+                
 
 
 	}
@@ -63,16 +76,10 @@ body, html {
 	color: #e1e1e1;
 	box-sizing: border-box;
 	}
-.mainSection {
-    padding: 12rem 4.5rem;
+.firstSection {
+    padding: 0 4.5rem;
 }
 
-.title {
-    font-size: 4.5rem;
-	font-family: 'Gotham Book Regular', sans-serif;
-    text-align: left;
-    color: white;
-}
 
 .smallTile {
     font-size: 1.5em;

@@ -121,7 +121,7 @@ if( function_exists('acf_add_options_page') ) {
 
     include GREATY_TEMPLATE_PATH.'/plugins/acf-google-fonts/acf-google_font_selector.php';
 
-    include GREATY_TEMPLATE_PATH.'/libs/acf-fields.php';
+    include GREATY_TEMPLATE_PATH.'/libs/acf.php';
 }
 
 

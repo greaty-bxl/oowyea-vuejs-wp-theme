@@ -3,7 +3,7 @@
 		<div class="clear"></div>
   <section class="firstSection">
         <div class="first-items on-screen">
-        <div class="grid-services">
+        <div class="on-screen grid-services ">
             <div class="item-services">
                 <div class="item-text"><strong class="smallTile">Stratégie</strong><br><br>- Consultance graphique<br>- Audit stratégie<br>- Stratégie de communication<br>- Conception publicitaire</div>
                 <div class="item-text"><strong class="smallTile">Desing</strong><br><br>- Direction artistique<br>- Identité visuelle<br>- Charte graphique<br>- Création de logo<br>- Brochure &amp; catalogue<br>- Magazine &amp; éditorial<br>- Rapport annuel <br>- Illustation<br>- Signalétique<br>- Matériels promotionnels<br>- Packaging<br>- Etc</div>
@@ -26,7 +26,7 @@
 
 <script>
 import textcotact from './components/text-contact'
-import anime from 'animejs/lib/anime.es.js';
+/* import anime from 'animejs/lib/anime.es.js'; */
 export default {
 	components: {
         textcotact,
@@ -47,15 +47,18 @@ export default {
             this.$emit('template_mounted')
            
             /* var test =  document.getElementsByClassName("title"); */
-            $('.first-items').on('enter-screen', () => {
+            $('.grid-services').on('enter-screen', () => {
                 console.log('test');
-                anime({
+
+                alert("hello");
+
+             /*    anime({
                 targets: ".first-items",
                 translateY: -10,
                 opacity: [0, 1],
                 easing: 'easeInOutSine',
                 duration: 1500
-                });
+                }); */
 
             })
              

@@ -2,18 +2,16 @@
 	<div class="section-wrap">
 		<div class="clear"></div>
   <section class="firstSection">
-        <div class="first-items on-screen">
-        <div class="on-screen grid-services ">
+        <div class="grid-services ">
             <div class="item-services">
-                <div class="item-text"><strong class="smallTile">Stratégie</strong><br><br>- Consultance graphique<br>- Audit stratégie<br>- Stratégie de communication<br>- Conception publicitaire</div>
-                <div class="item-text"><strong class="smallTile">Desing</strong><br><br>- Direction artistique<br>- Identité visuelle<br>- Charte graphique<br>- Création de logo<br>- Brochure &amp; catalogue<br>- Magazine &amp; éditorial<br>- Rapport annuel <br>- Illustation<br>- Signalétique<br>- Matériels promotionnels<br>- Packaging<br>- Etc</div>
-                <div class="item-text"><strong class="smallTile">Impression</strong><br><br>- Papeterie<br>- Panneau<br>- Bâche<br>- Stand<br>- Vitrine<br>- Autocollant<br>- Véhicule<br>- Textile<br>- Etc</div>
-                <div class="item-text"><strong class="smallTile">Digital design</strong><br><br>- UI/UX design<br>- Direction artistique digitale<br>- Webdesign sites internet<br>- Webdesign applications<br>- Motion design</div>
-                <div class="item-text"><strong class="smallTile">Dev Web</strong><br><br>- Intégration HTML5/CSS3<br>- Développement PHP/MYSQL<br>- Développement de sites Web<br>- Application mobile<br>- Développement frontend<br>- CMS<br>- Intranets<br>- Développement Backend<br>- E-Commerce / Webshops</div>
-                <div class="item-text"><strong class="smallTile">Tech Web</strong><br><br>- (Web-)Hosting<br>- Domaines<br>- Serveur et stockage</div>
+                <div class="item-text on-screen"><strong class="smallTile">Stratégie</strong><br><br>- Consultance graphique<br>- Audit stratégie<br>- Stratégie de communication<br>- Conception publicitaire</div>
+                <div class="item-text on-screen"><strong class="smallTile">Desing</strong><br><br>- Direction artistique<br>- Identité visuelle<br>- Charte graphique<br>- Création de logo<br>- Brochure &amp; catalogue<br>- Magazine &amp; éditorial<br>- Rapport annuel <br>- Illustation<br>- Signalétique<br>- Matériels promotionnels<br>- Packaging<br>- Etc</div>
+                <div class="item-text on-screen"><strong class="smallTile">Impression</strong><br><br>- Papeterie<br>- Panneau<br>- Bâche<br>- Stand<br>- Vitrine<br>- Autocollant<br>- Véhicule<br>- Textile<br>- Etc</div>
+                <div class="item-text on-screen"><strong class="smallTile">Digital design</strong><br><br>- UI/UX design<br>- Direction artistique digitale<br>- Webdesign sites internet<br>- Webdesign applications<br>- Motion design</div>
+                <div class="item-text on-screen"><strong class="smallTile">Dev Web</strong><br><br>- Intégration HTML5/CSS3<br>- Développement PHP/MYSQL<br>- Développement de sites Web<br>- Application mobile<br>- Développement frontend<br>- CMS<br>- Intranets<br>- Développement Backend<br>- E-Commerce / Webshops</div>
+                <div class="item-text on-screen"><strong class="smallTile">Tech Web</strong><br><br>- (Web-)Hosting<br>- Domaines<br>- Serveur et stockage</div>
             </div>
             </div>
-        </div>
     </section>
     <section>
         <textcotact>
@@ -26,7 +24,7 @@
 
 <script>
 import textcotact from './components/text-contact'
-/* import anime from 'animejs/lib/anime.es.js'; */
+import anime from 'animejs/lib/anime.es.js';
 export default {
 	components: {
         textcotact,
@@ -47,18 +45,19 @@ export default {
             this.$emit('template_mounted')
            
             /* var test =  document.getElementsByClassName("title"); */
-            $('.grid-services').on('enter-screen', () => {
-                console.log('test');
+            $(".item-text").css("opacity","0");
 
-                alert("hello");
-
-             /*    anime({
-                targets: ".first-items",
+            $('.item-text').on('leave-screen', (event) => {
+                $(event.target).css("opacity","0");
+            })
+            $('.item-text').on('enter-screen', (event) => {
+                anime({
+                targets: event.target,
                 translateY: -10,
-                opacity: [0, 1],
+                opacity: 1,
                 easing: 'easeInOutSine',
                 duration: 1500
-                }); */
+                });
 
             })
              
@@ -71,7 +70,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 body, html { 
     padding:0;
 	margin: 0 ;
@@ -103,6 +102,7 @@ body, html {
 .item-text {
     font-size: 30px;
     text-align: left;
+    opacity: 0;
 }
 
 </style>

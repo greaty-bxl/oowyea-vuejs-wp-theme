@@ -26,8 +26,9 @@ $vue_templates = array(
     'phaser' => 'Phaser',
     'greaty-home' => 'Greaty home',
     'greaty-services' => 'Greaty Services',
-    'greaty-project' => 'Greaty Project',
+    'greaty-projects' => 'Greaty Project',
     'greaty-single' => 'Greaty Single',
     'greaty-services-title' => 'Greaty Services title',
 
 );
+

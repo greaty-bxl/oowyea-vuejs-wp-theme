@@ -48,11 +48,11 @@
               :tag="wp.wp_query.queried_object"
               @template_mounted="template_mounted"/>
 
-          <Demo1 v-if="section.template === 'demo1'" 
+          <Demo1 v-if="section.template === 'template-demo1'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
-          <Demo2 v-if="section.template === 'demo2'" 
+          <Demo2 v-if="section.template === 'template-demo2'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
@@ -64,19 +64,14 @@
               :post="section" 
               @template_mounted="template_mounted"/>
 
-          <Greatyprojets v-if="section.template === 'greaty-project'" 
+          <Greatyprojects v-if="section.template === 'greaty-projects'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
           <Greatysingle v-if="section.template === 'greaty-single'" 
               :post="section" 
               @template_mounted="template_mounted"/>
-
           <Greatyservices v-if="section.template === 'greaty-services'" 
-            :post="section" 
-            @template_mounted="template_mounted"/>
-
-          <Greatyservicestitle v-if="section.template === 'greaty-services-title'" 
             :post="section" 
             @template_mounted="template_mounted"/>
 
@@ -108,10 +103,10 @@ import Demo1 from 'Templates/customs/demo1.vue'
 import Demo2 from 'Templates/customs/demo2.vue'
 import Phaser from 'Libs/phaser/phaser.vue'
 import Greatyhome from 'Templates/greaty/greaty-home.vue'
-import Greatyprojets from 'Templates/greaty/greaty-projets.vue'
+import Greatyprojects from 'Templates/greaty/greaty-projects.vue'
 import Greatysingle from 'Templates/greaty/greaty-single.vue'
 import Greatyservices from 'Templates/greaty/greaty-services.vue'
-import Greatyservicestitle from 'Templates/greaty/greaty-services-title.vue'
+
 
 
 //Footer
@@ -148,10 +143,9 @@ export default {
     Demo2,
     Phaser,
     Greatyhome,
-    Greatyprojets,
+    Greatyprojects,
     Greatysingle,
     Greatyservices,
-    Greatyservicestitle,
     Footer,
 
   },
@@ -224,7 +218,7 @@ html{
   overflow:hidden;
 }
 #app {
-  position: absolute;
+  position: fixed;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -30,6 +30,8 @@ include GREATY_TEMPLATE_PATH.'/libs/sections.php';
 include GREATY_TEMPLATE_PATH.'/libs/posts.php';
 include GREATY_TEMPLATE_PATH.'/libs/woocommerce.php';
 include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
+include GREATY_TEMPLATE_PATH.'/libs/image-sizes.php';
+
 
 // Playing with Phaser (do not include in Greaty Theme)
 include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
@@ -57,10 +59,31 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+
+    function remove_extra_image_sizes() {
+        foreach ( get_intermediate_image_sizes() as $size ) {
+            if ( !in_array( $size, array( 'thumbnail', 'medium', 'medium_large', 'large' ) ) ) {
+                remove_image_size( $size );
+            }
+        }
+    }
+    add_action('init', 'remove_extra_image_sizes');
+    
+    /*update_option( 'thumbnail_size_h', 0 );
+    update_option( 'thumbnail_size_w', 0 );
+    update_option( 'medium_size_h', 0 );
+    update_option( 'medium_size_w', 0 );
+    update_option( 'medium_large_h', 0 );
+    update_option( 'medium_large_w', 0 );    
+    update_option( 'large_size_h', 0 );
+    update_option( 'large_size_w', 0 );*/
+    
+
+    //add_image_size('large', 700, '', true); // Large Thumbnail
+    //add_image_size('medium', 250, '', true); // Medium Thumbnail
+    //add_image_size('small', 120, '', true); // Small Thumbnail
+    //add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(

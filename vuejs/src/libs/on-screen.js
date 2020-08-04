@@ -18,7 +18,6 @@ export default () => {
 	function scan_screen(){
 		$('.on-screen').each( (index, el) => {
 			var elTop = $(el).position().top +  $('#app').scrollTop()
-			console.log(elTop);
 			var elBott = elTop + $(el).outerHeight()
 			var top = $('#app').scrollTop()
 			var bottom = $('#app').scrollTop() + $('#app').outerHeight()

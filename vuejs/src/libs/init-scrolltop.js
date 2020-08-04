@@ -15,6 +15,10 @@ export default function(vue){
 			clearTimeout( timer )
 			timer = setTimeout( () => {
 				$('#app').data('scrolling', '')
+
+				window.current_section = section.attr('id')
+				window.current_section_index =  section.index()
+				$('#app').trigger('section-top-ready')
 			}, 15)
 		}		
 	}

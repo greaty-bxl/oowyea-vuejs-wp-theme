@@ -50,7 +50,7 @@ function scrollSection(vue){
 					//scroll down in section
 					//auto scroll to end of current section for biggest sections than 100vh
 					let bottomPos = $(el).position().top + new_scroll + $(el).outerHeight()
-					if( bottomPos - new_scroll - $('#app').outerHeight() <= $('#app').outerHeight() / 2 )
+					if( bottomPos - new_scroll - $('#app').outerHeight() <= $('#app').outerHeight() / 3 )
 					{
 						new_scroll = $(el).position().top + $(el).outerHeight() -  $('#app').outerHeight() + new_scroll
 						animate_scroll_to( new_scroll )	
@@ -91,13 +91,15 @@ function scrollSection(vue){
 
 	$('#app').on('scroll', () => 
 	{
+		
+
 		let is_scrolling_by_what = $('#app').data('scrolling')
 
 		if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) )
 		{
 			$('#app').data('scrolling', 'scroll-sections')
 			clearTimeout( timer )
-			timer = setTimeout( scroll_end , 50 )
+			timer = setTimeout( scroll_end , 250 )
 		}
 		else
 		{

@@ -3,6 +3,7 @@
 		<div class="clear"></div>
 		<h1 v-html="post.post_title"></h1>
 		<div v-html="post.post_content"></div>
+		Demo 1
 		<div class="clear"></div>
 	</div>
 </template>
@@ -17,10 +18,10 @@
 		},
 		mounted (){
 			var $ = this.$
-
 			$(this.$el).parents('.section').css({
 				'background-color': this.post.metas.background_color[0],
 			});
+
 
 			this.$emit('template_mounted')
 		}

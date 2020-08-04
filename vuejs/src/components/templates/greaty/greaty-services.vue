@@ -43,23 +43,30 @@ export default {
 
             //Important to let works basic functions
             this.$emit('template_mounted')
-           
+
             /* var test =  document.getElementsByClassName("title"); */
             $(".item-text").css("opacity","0");
 
             $('.item-text').on('leave-screen', (event) => {
                 $(event.target).css("opacity","0");
             })
-            $('.item-text').on('enter-screen', (event) => {
-                anime({
-                targets: event.target,
-                translateY: -10,
-                opacity: 1,
-                easing: 'easeInOutSine',
-                duration: 1500
-                });
 
-            })
+            $( ".item-text" ).each( function(index, el) {
+                console.log(el);
+                $(el).on('enter-screen', (event) => {
+                    anime({
+                        targets: event.target,
+                        translateY: -100,
+                        opacity: 1,
+                        easing: 'easeInOutSine',
+                        duration: 500,
+                        delay: index * 100
+                        });
+                    })
+            });
+
+
+
              
                 
 
@@ -70,7 +77,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 body, html { 
     padding:0;
 	margin: 0 ;
@@ -90,6 +97,7 @@ body, html {
 .grid-services {
     padding-top: 9rem;
 }
+
 .item-services {
     display: grid;
     flex-wrap: wrap;
@@ -104,6 +112,8 @@ body, html {
     text-align: left;
     opacity: 0;
 }
+
+
 
 </style>
 

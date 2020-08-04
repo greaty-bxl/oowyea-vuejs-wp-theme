@@ -30,3 +30,4 @@ $vue_templates = array(
     'greaty-single' => 'Greaty Single',
 
 );
+

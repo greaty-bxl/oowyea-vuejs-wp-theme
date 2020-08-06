@@ -1,6 +1,7 @@
 <template>
 	<span>
-		<AcfImg v-if="type == 'image'"/>
+		<AcfImg v-if="acf_field.type == 'image'" :value="acf_field.value"/>
+		<div v-else v-html="acf_field.value"></div>
 	</span>
 </template>
 
@@ -15,48 +16,42 @@ export default{
 	},
 	props:{
 		field: null,
-		type: null
+	},
+	data(){
+		return {
+			acf_field: {
+				value:'',
+				type: ''
+			}
+		}
 	},
 	mounted(){
 		let $ = this.$
-
-		let section = null
+		let section =  $(this.$el).parents('.section')
 
 		if( $(this.$el).parents('#header').length )
 		{
-			console.log( 'ACF header' )
+			//console.log( 'ACF header' )
 			$('#app').on('section-top-ready scroll', () => {
 				let new_section = this.wp.sections[window.current_section_index]
 				if( new_section != section )
 				{
-					console.log( 'ACF update header' )
+					//console.log( 'ACF update header' )
 					section = new_section
-					acf_get_field( this.field, section )
+					this.acf_field = acf_get_field( this.field, section )
 				}
 			});
-			
 		}
 		else if( $(this.$el).parents('#footer').length )
 		{
-			console.log( 'ACF footer' )
-			acf_get_field( this.field, section )
+			//console.log( 'ACF footer' )
+			this.acf_field = acf_get_field( this.field, section )
 		}
 		else if( section.length )
 		{
-			console.log( 'ACF section' )
-			section = $(this.$el).parents('.section')
-			acf_get_field( this.field, section )
+			//console.log( 'ACF section' )
+			this.acf_field = acf_get_field( this.field, section )
 		}
-
-		
-
-
-		
-
-		//console.log( this );
-		//console.log( index );
-		//console.log( this.wp.acf.field_objects );
-		//console.log( acf_get_field() );
 	}
 }
 </script>

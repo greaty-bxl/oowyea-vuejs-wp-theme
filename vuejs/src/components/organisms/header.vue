@@ -40,8 +40,6 @@ export default {
 	mounted(){
 		var $ = this.$
 
-		console.log('header', this.wp);
-
 		$(this.$el).find('#header-menu').html( this.wp.menus['header-menu'] )
 
 		var header = this.$el
@@ -92,7 +90,6 @@ export default {
 		height: 0;
 		overflow-y: visible;
 		position: fixed;
-		background-color: #F55353;
 		text-align: left;
 	}
 
@@ -153,6 +150,4 @@ export default {
 		width: 30vw;
 		background-color: #fff;
 	}
-
-
 </style>

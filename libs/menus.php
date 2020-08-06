@@ -8,7 +8,7 @@ function get_menus()
 	foreach ($menuLocations as $key => $menuLocation) 
 	{
 		$menus[$key] = wp_nav_menu( array(
-				'menu_id' => $menuLocations['header-menu'],
+				'menu_id' => $menuLocations[$key],
 				'echo' => false
 			));
 	}
@@ -16,4 +16,4 @@ function get_menus()
 }
 
 add_action( 'wp_head', 'get_menus' );
-add_action( 'wp', 'get_menus' );		
+add_action( 'wp', 'get_menus' );

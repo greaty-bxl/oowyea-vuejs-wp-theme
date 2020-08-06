@@ -6,9 +6,11 @@
  */
 
 define('GREATY_TEMPLATE_PATH', get_template_directory());
+define('GREATY_TEMPLATE_URL', get_template_directory_uri());
 
 include GREATY_TEMPLATE_PATH.'/security/security.php';
 include GREATY_TEMPLATE_PATH.'/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
+include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
 
 include GREATY_TEMPLATE_PATH.'/vue.config.php';
 
@@ -31,6 +33,9 @@ include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
 
 // Playing with Phaser (do not include in Greaty Theme)
 include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
+
+// Code for greaty new site
+include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
 
 // Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
@@ -113,6 +118,10 @@ if( function_exists('acf_add_options_page') ) {
         'capability'    => 'edit_posts',
         'redirect'      => false
     ));
+
+    include GREATY_TEMPLATE_PATH.'/plugins/acf-google-fonts/acf-google_font_selector.php';
+
+    include GREATY_TEMPLATE_PATH.'/libs/acf.php';
 }
 
 

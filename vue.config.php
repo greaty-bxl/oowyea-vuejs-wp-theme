@@ -22,5 +22,16 @@ $vue_hierarchy = array(
 $vue_templates = array(
     'demo1' => 'Template Demo 1', 
     'demo2' => 'Template Demo 2',
+<<<<<<< Updated upstream
     'phaser' => 'Phaser'
 );
+=======
+    'phaser' => 'Phaser',
+    'greaty-home' => 'Greaty home',
+    'greaty-services' => 'Greaty Services',
+    'greaty-projects' => 'Greaty Project',
+    'greaty-single' => 'Greaty Single',
+    'greaty-services-title' => 'Greaty Services title',
+
+);
+>>>>>>> Stashed changes

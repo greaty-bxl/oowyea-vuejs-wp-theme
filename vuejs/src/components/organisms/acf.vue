@@ -32,11 +32,11 @@ export default{
 		if( $(this.$el).parents('#header').length )
 		{
 			//console.log( 'ACF header' )
-			$('#app').on('section-top-ready scroll', () => {
+			$('#app').on('section-top-ready scroll after_next_page', () => {
 				let new_section = this.wp.sections[window.current_section_index]
 				if( new_section != section )
 				{
-					//console.log( 'ACF update header' )
+					console.log( 'ACF update header' )
 					section = new_section
 					this.acf_field = acf_get_field( this.field, section )
 				}

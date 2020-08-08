@@ -170,7 +170,9 @@ export default {
       
       //new page with transition
       $(document).on('new_page', (event) => { /* event from: links-and-anchors.js */
-      
+        
+        $('#app').data('scrolling', 'new-page')
+
         get_new_page( this, event.href, (wp) => {
 
           console.log( wp )
@@ -186,9 +188,12 @@ export default {
               this.pages['current'] = wp.sections
             
               setTimeout( ()=>{ 
-
-                init_scrolltop(this) 
+                
                 this.pages['next'] = {}
+
+                $('#app').data('scrolling', '')
+
+                init_scrolltop(this)                 
 
                 $(document).trigger('after_next_page')
 

@@ -1,14 +1,17 @@
+//import is from 'is_js'
+
 export default function (field = String, section = Object)
 {
-	
-	
+
 	let acf_field = {}
 
 	let selected_field
 	let option_field = window.wp.acf.options[field]
 	let meta_field = false
 
-	if( section )
+	console.log( section );
+
+	if( section /*&& Object.keys(section).length !== 0*/ )
 	{
 		meta_field = section.acf_fields[field]
 	}

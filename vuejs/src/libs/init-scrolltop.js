@@ -2,7 +2,7 @@ export default function(vue){
 	var $ = vue.$
 	var timer
 	
-	if( vue.wp.sections.length > 1 )
+	if( vue.wp.sections.length >= 1 )
 	{
 		var section = $('.section[data-permalink="'+window.location.href+'"]')
 
@@ -22,4 +22,8 @@ export default function(vue){
 			}, 15)
 		}		
 	}
+	/*else
+	{
+		$('#app').trigger('section-top-ready')
+	}*/
 }

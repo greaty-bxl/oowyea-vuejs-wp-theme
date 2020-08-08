@@ -34,7 +34,7 @@ export default () => {
 					})
 				}
 			}
-			else
+			else if( elTop < top - 1 && elBott < top ||  elTop > bottom - 1 && elBott > bottom )
 			{
 				if( $(el).data('screen-event') !== 'out-screen' )
 				{

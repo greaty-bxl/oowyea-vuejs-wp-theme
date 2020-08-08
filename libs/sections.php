@@ -84,11 +84,13 @@ function get_sections()
 
 
 	//apply content filter
-	foreach ($sections as $key => $value) 
+	foreach ($sections as $key => $section) 
 	{
-		if( $value->post_content )
+		$section = apply_filters( 'section', $section );
+		
+		if( $section->post_content )
 		{
-			$sections[$key]->post_content = apply_filters( 'the_content', $value->post_content );
+			$sections[$key]->post_content = apply_filters( 'the_content', $section->post_content );
 		}
 	}
 

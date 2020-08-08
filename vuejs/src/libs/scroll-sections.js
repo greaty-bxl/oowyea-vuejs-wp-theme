@@ -5,6 +5,12 @@ function scrollSection(vue){
 	var $ = vue.$;
 	var wait = 0;
 	var current_section;
+
+	function update_current_section()
+	{
+		window.current_section = current_section
+		window.current_section_index =  $('#'+current_section).index()
+	}
 	
 	function animate_scroll_to( pos )
 	{
@@ -40,6 +46,8 @@ function scrollSection(vue){
 					if( current_section != $(el).attr('id') )
 					{
 						current_section = $(el).attr('id')
+						update_current_section()
+
 						new_scroll = $(el).position().top + new_scroll
 						animate_scroll_to( new_scroll )
 					}
@@ -50,7 +58,7 @@ function scrollSection(vue){
 					//scroll down in section
 					//auto scroll to end of current section for biggest sections than 100vh
 					let bottomPos = $(el).position().top + new_scroll + $(el).outerHeight()
-					if( bottomPos - new_scroll - $('#app').outerHeight() <= $('#app').outerHeight() / 2 )
+					if( bottomPos - new_scroll - $('#app').outerHeight() <= $('#app').outerHeight() / 3 )
 					{
 						new_scroll = $(el).position().top + $(el).outerHeight() -  $('#app').outerHeight() + new_scroll
 						animate_scroll_to( new_scroll )	
@@ -68,6 +76,8 @@ function scrollSection(vue){
 					if( current_section != $(el).attr('id') )
 					{
 						current_section = $(el).attr('id')
+						update_current_section()
+
 						new_scroll = $(el).position().top + $(el).outerHeight() -  $('#app').outerHeight() + new_scroll
 						animate_scroll_to( new_scroll )	
 					}
@@ -97,13 +107,16 @@ function scrollSection(vue){
 		{
 			$('#app').data('scrolling', 'scroll-sections')
 			clearTimeout( timer )
-			timer = setTimeout( scroll_end , 50 )
+			timer = setTimeout( scroll_end , 250 )
 		}
 		else
 		{
 			last_scroll = $('#app').scrollTop()
 		}
 	});
+
+	current_section = $('.section').first().attr('id')
+	update_current_section()	
 }
 
 export default scrollSection 

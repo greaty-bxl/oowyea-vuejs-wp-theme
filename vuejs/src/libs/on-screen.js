@@ -18,10 +18,6 @@ export default () => {
 	function scan_screen(){
 		$('.on-screen').each( (index, el) => {
 			var elTop = $(el).position().top +  $('#app').scrollTop()
-<<<<<<< Updated upstream
-=======
-			//console.log(elTop);
->>>>>>> Stashed changes
 			var elBott = elTop + $(el).outerHeight()
 			var top = $('#app').scrollTop()
 			var bottom = $('#app').scrollTop() + $('#app').outerHeight()
@@ -77,8 +73,5 @@ export default () => {
 	$(window).resize( () => { scan_screen() })
 	$(document).on('before_next_page', () => { leave('.on-screen') })
 	$(document).on('after_next_page', () => { scan_screen() })
-
-	setTimeout( ()=> {
-		scan_screen()
-	}, 3)
+	scan_screen()
 }

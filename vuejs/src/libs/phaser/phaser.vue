@@ -9,14 +9,16 @@
 				<Editor v-if="currentScreen == 'editor'"/>
 			</div>
 			<div v-if="!login">
-				Login
+				checking Login...
 			</div>
 		</div>
 		<div v-if="is_mobile">
 			Join a screen<br/>
 			<input type="text" name="screen-id" />
 		</div>
-		<iframe width="300" height="200" src="https://www.youtube.com/embed/W7aH4be6aEg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" autoplay="1" allowfullscreen></iframe>
+		<div id="yt-music">
+			<!-- <iframe width="280" height="160" src="https://www.youtube.com/embed/videoseries?list=PL6lm2r44ZiI7djdnxbNFow2OxDaFXm50E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" autoplay="1" allowfullscreen></iframe> -->
+		</div>
 		<div class="clear"></div>
 	</div>	
 </template>
@@ -30,13 +32,12 @@ import UserInterface from './components/user-interface'
 import Game from './components/game'
 import Editor from './components/editor'
 
-
 export default {
 	data(){
 		return {
 			login: false,
 			firstaction: false,
-			currentScreen: 'ui',
+			currentScreen: 'game',
 			is_mobile: is.mobile()
 		}
 	},
@@ -49,13 +50,11 @@ export default {
 		let $ = this.$
 
 		$('#header, #footer').hide()
-		$('#app').css('overflow-y', 'hidden')
+		$('#app').css('overflow', 'hidden')
 
 		wp_ajax('is_user_logged', null, (result)=>{
 			if( result ) this.login = true
 		})
-		
-		//if( is.mobile() ) this.is_mobile = true
 
 		this.$emit('template_mounted');
 		
@@ -64,5 +63,7 @@ export default {
 </script>
 
 <style>
-
+#yt-music{
+	position: absolute;
+}
 </style>

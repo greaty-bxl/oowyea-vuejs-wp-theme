@@ -5,21 +5,27 @@
 		<div>
 
 		<div class="div-text-homepage">
-			<p class="text-homepage">
+			<p href="./lalalla" class="text-homepage" >
 			Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.	
 			</p>
+
+			
+
+
 		</div>
 
 		</div>
 		<div class="post-client">
 
-				<div class="global-project" v-for="child in projects" :key="child.ID">
-					<div class="client">
-						<div class="image-client"> child.post_title </div>
+				<div class="global-project" v-for="child in wp.projects" :key="child.ID" >
+					<a :href="child.permalink" >
+					<div class="client " >
+						<img class="image-client" height="100%" :src="child.thumb" >
 					</div>
-
-						<p class="name-client">Lorem ipsum</p>
+						<p class="name-client" v-html="child.post_title" ></p>
 						<p class="role-greaty">Corporated Website</p>
+
+					</a>
 				</div>
 		</div>
 

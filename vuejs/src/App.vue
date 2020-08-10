@@ -130,6 +130,9 @@ import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
 import smart_fonts from 'Libs/smart-fonts'
 import on_screen from 'Libs/on-screen'
+// import on_screen from 'Libs/on-screen'
+// import Funtion_animation_line_per_line from 'Libs/on-screen'
+
 
 export default {
   name: 'App',

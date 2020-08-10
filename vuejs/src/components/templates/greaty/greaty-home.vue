@@ -3,20 +3,20 @@
     <div class="section-wrap">
         <div class="clear"></div>
 		<div>
-
+		
 		<div class="div-text-homepage">
-			<p class="text-homepage">
-			Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.	
-			</p>
+			<Alpl class="text-homepage on-screen">Test-test, hello <br>Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.	
+			</Alpl>
 		</div>
-
+	
 		</div>
 		<div class="post-client">
 
 				<div class="global-project">
 
-					<div class="client">
-						<div class="image-client"></div>
+					<div class="client on-screen">	
+						<div class="image-client "></div>
+
 					</div>
 						
 						<p class="name-client">Lorem ipsum</p>
@@ -60,15 +60,20 @@
 
 <script>
 
+import Alpl from 'Molecules/animation-line-per-line';
+
+   // import anime from 'animejs/lib/anime.es.js';
+
+ 
+
 export default {
 	components: {
-
+		Alpl
 	},
 	props: {
 		'post' : Object
 	},
-	mounted (){
-
+	mounted(){
 
 		var $ = this.$
 
@@ -78,8 +83,7 @@ export default {
 
 		this.$emit('template_mounted')
 
-			console.log(this.wp.projects);
-	}
+	},	
 }
 
 </script>

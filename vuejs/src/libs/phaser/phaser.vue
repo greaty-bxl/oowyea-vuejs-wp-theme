@@ -16,6 +16,7 @@
 			Join a screen<br/>
 			<input type="text" name="screen-id" />
 		</div>
+		<iframe width="300" height="200" src="https://www.youtube.com/embed/W7aH4be6aEg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" autoplay="1" allowfullscreen></iframe>
 		<div class="clear"></div>
 	</div>	
 </template>

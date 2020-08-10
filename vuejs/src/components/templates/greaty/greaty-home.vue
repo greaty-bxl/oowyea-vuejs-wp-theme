@@ -5,13 +5,9 @@
 		<div>
 
 		<div class="div-text-homepage">
-			<p href="./lalalla" class="text-homepage" >
+			<p class="text-homepage" >
 			Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.	
 			</p>
-
-			
-
-
 		</div>
 
 		</div>

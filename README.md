@@ -1,6 +1,6 @@
 # [Vue.js WordPress Theme](https://greaty.be)
 
-OOWYEA is an unique mixed and simplified framework to create advanced webapp.
+OOWYEA, creating awesome websites and more.
 
 ## :hamburger: Features
 * Auto animated scroll by section
@@ -65,7 +65,7 @@ define('vuejs_server', 'http://localhost:8080');
 	- [ ] footer 
 		- use: true / false
 		- height: full / normal
-		- collumns
+		- n° collumns
 		- align
 
 ### General

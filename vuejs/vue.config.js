@@ -26,6 +26,7 @@ module.exports = {
         Templates: path.resolve(__dirname, 'src/components/templates'),
         Pages: path.resolve(__dirname, 'src/components/pages'),
         Game: path.resolve(__dirname, 'src/phaser-games'),
+        image: path.resolve(__dirname, 'src/componets/images'),
       }
     },
     output: {
@@ -42,7 +43,7 @@ module.exports = {
         options.limit = -1
         return options
       });
-
+      
     if (config.plugins.has("extract-css")) {
       const extractCSSPlugin = config.plugin("extract-css");
       extractCSSPlugin &&

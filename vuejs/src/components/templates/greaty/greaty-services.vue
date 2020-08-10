@@ -1,22 +1,22 @@
 <template>
 	<div class="section-wrap">
 		<div class="clear"></div>
-  <section class="firstSection">
-        <div class="grid-services ">
-            <div class="item-services">
-                <div class="item-text on-screen"><strong class="smallTile">Stratégie</strong><br><br>- Consultance graphique<br>- Audit stratégie<br>- Stratégie de communication<br>- Conception publicitaire</div>
-                <div class="item-text on-screen"><strong class="smallTile">Desing</strong><br><br>- Direction artistique<br>- Identité visuelle<br>- Charte graphique<br>- Création de logo<br>- Brochure &amp; catalogue<br>- Magazine &amp; éditorial<br>- Rapport annuel <br>- Illustation<br>- Signalétique<br>- Matériels promotionnels<br>- Packaging<br>- Etc</div>
-                <div class="item-text on-screen"><strong class="smallTile">Impression</strong><br><br>- Papeterie<br>- Panneau<br>- Bâche<br>- Stand<br>- Vitrine<br>- Autocollant<br>- Véhicule<br>- Textile<br>- Etc</div>
-                <div class="item-text on-screen"><strong class="smallTile">Digital design</strong><br><br>- UI/UX design<br>- Direction artistique digitale<br>- Webdesign sites internet<br>- Webdesign applications<br>- Motion design</div>
-                <div class="item-text on-screen"><strong class="smallTile">Dev Web</strong><br><br>- Intégration HTML5/CSS3<br>- Développement PHP/MYSQL<br>- Développement de sites Web<br>- Application mobile<br>- Développement frontend<br>- CMS<br>- Intranets<br>- Développement Backend<br>- E-Commerce / Webshops</div>
-                <div class="item-text on-screen"><strong class="smallTile">Tech Web</strong><br><br>- (Web-)Hosting<br>- Domaines<br>- Serveur et stockage</div>
+            <div class="firstSection">
+                <div class="grid-services  ">
+                    <div class="item-services">
+                        <div class="item-text on-screen"><div class="smallTile">Stratégie</div><br><br>- Consultance graphique<br><br>- Audit stratégie<br><br>- Stratégie de communication<br><br>- Conception publicitaire</div>
+                        <div class="item-text on-screen"><div class="smallTile">Desing</div><br><br>- Direction artistique<br><br>- Identité visuelle<br><br>- Charte graphique<br><br>- Création de logo<br><br>- Brochure &amp; catalogue<br><br>- Magazine &amp; éditorial<br><br>- Rapport annuel <br><br>- Illustation<br><br>- Signalétique<br><br>- Matériels promotionnels<br><br>- Packaging<br><br>- Etc</div>
+                        <div class="item-text on-screen"><div class="smallTile">Impression</div><br><br>- Papeterie<br><br>- Panneau<br><br>- Bâche<br><br>- Stand<br><br>- Vitrine<br><br>- Autocollant<br><br>- Véhicule<br><br>- Textile<br><br>- Etc</div>
+                        <div class="item-text on-screen"><div class="smallTile">Digital design</div><br><br>- UI/UX design<br><br>- Direction artistique digitale<br><br>- Webdesign sites internet<br><br>- Webdesign applications<br><br>- Motion design</div>
+                        <div class="item-text on-screen"><div class="smallTile">Dev Web</div><br><br>- Intégration HTML5/CSS3<br><br>- Développement PHP/MYSQL<br><br>- Développement de sites Web<br><br>- Application mobile<br><br>- Développement frontend<br><br>- CMS<br><br>- Intranets<br><br>- Développement Backend<br><br>- E-Commerce / Webshops</div>
+                        <div class="item-text on-screen"><div class="smallTile">Tech Web</div><br><br>- (Web-)Hosting<br><br>- Domaines<br><br>- Serveur et stockage</div>
+                    </div>
+                </div>
             </div>
-            </div>
-    </section>
-    <section>
+    <div>
         <textcotact>
         </textcotact>
-    </section>
+    </div>
 	</div>
 </template>
  
@@ -24,6 +24,7 @@
 
 <script>
 import textcotact from './components/text-contact'
+import smart_fonts from "Libs/smart-fonts.js"
 import anime from 'animejs/lib/anime.es.js';
 export default {
 	components: {
@@ -63,6 +64,12 @@ export default {
                         delay: index * 100
                         });
                     })
+            
+            smart_fonts({
+            '.smallTile' :54,
+            '.item-text' : 20,
+            })
+	
             });
 
 
@@ -78,24 +85,17 @@ export default {
 
 
 <style lang="scss" scoped>
-body, html { 
-    padding:0;
-	margin: 0 ;
-	font-family: 'Myriad pro', sans-serif; 
-	color: #e1e1e1;
-	box-sizing: border-box;
-	}
+
 .firstSection {
     padding: 0 4.5rem;
 }
 
-
-.smallTile {
-    font-size: 1.5em;
-}
-
 .grid-services {
     padding-top: 9rem;
+}
+
+.smallTile {
+    font-family: 'Gotham-Bold';
 }
 
 .item-services {
@@ -105,10 +105,8 @@ body, html {
     grid-column-gap:50px;
     grid-row-gap: 80px;
     color: white;
-    font-family: 'Myriad pro', sans-serif;
 }
 .item-text {
-    font-size: 30px;
     text-align: left;
     opacity: 0;
 }

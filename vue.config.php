@@ -29,6 +29,7 @@ $vue_templates = array(
     'greaty-projects' => 'Greaty Project',
     'greaty-single' => 'Greaty Single',
     'greaty-services-title' => 'Greaty Services title',
+    'greaty-studio' => 'Greaty Studio',
 
 );
 

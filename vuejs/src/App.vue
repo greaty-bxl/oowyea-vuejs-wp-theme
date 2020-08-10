@@ -71,7 +71,17 @@
           <Greatysingle v-if="section.template === 'greaty-single'" 
               :post="section" 
               @template_mounted="template_mounted"/>
+
           <Greatyservices v-if="section.template === 'greaty-services'" 
+            :post="section" 
+            @template_mounted="template_mounted"/>
+
+          <Greatyservicestitle v-if="section.template === 'greaty-services-title'" 
+            :post="section" 
+            @template_mounted="template_mounted"/>
+
+
+          <Greatystudio v-if="section.template === 'greaty-studio'" 
             :post="section" 
             @template_mounted="template_mounted"/>
 
@@ -107,8 +117,11 @@ import Greatyprojects from 'Templates/greaty/greaty-projects.vue'
 import Greatysingle from 'Templates/greaty/greaty-single.vue'
 import Greatyservices from 'Templates/greaty/greaty-services.vue'
 
+import Greatyservicestitle from 'Templates/greaty/greaty-services-title.vue'
+import Greatystudio from 'Templates/greaty/greaty-studio.vue'
 
-//Footer
+
+//footer
 import Footer from 'Organisms/footer.vue'
 
 //Functions
@@ -119,6 +132,9 @@ import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
 import smart_fonts from 'Libs/smart-fonts'
 import on_screen from 'Libs/on-screen'
+// import on_screen from 'Libs/on-screen'
+// import Funtion_animation_line_per_line from 'Libs/on-screen'
+
 
 export default {
   name: 'App',
@@ -145,6 +161,8 @@ export default {
     Greatyprojects,
     Greatysingle,
     Greatyservices,
+    Greatyservicestitle,
+    Greatystudio,
     Footer,
 
   },

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-
+import smart_fonts from "Libs/smart-fonts.js"
 export default {
 	components: {
 
@@ -38,6 +38,10 @@ export default {
 		this.$emit('template_mounted')
 
 			console.log(this.wp);
+
+		smart_fonts({
+			'.text-contact' :54
+		})
 	}
 }
 
@@ -50,13 +54,12 @@ export default {
 }
 
 .text-contact {
-    font-size: 4rem !important;
+ 
     color: #e1e1e1;
-    padding-left: 4.5rem;
+    
 }
 
 .text-contact a{
-		font-family: 'Gotham Bold', sans-serif; 
 		color: white;
 	}
 	
@@ -72,6 +75,7 @@ export default {
 			margin-right: 0;
 			padding-top: 100px;
 			padding-bottom: 70px;
+			font-family: 'Gotham-Book';
 
 		}
         

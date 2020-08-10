@@ -1,11 +1,13 @@
 <template>
-        <div class="section-wrap">
+	<div class="section-wrap">
         <div class="clear"></div>
-			<div class="title js-split-text mainSection" >
-				<h1>Dès qu'il s'agit de creativité, nous<br> sommes là ! Dans le web,
-						dans le print,<br> nous prenons notre pied.</h1>
-				</div>
-				</div>
+		<div class="title js-split-text mainSection" >
+			<div class="textTitle">Greaty est spécialisée dans la communication, l’élaboration 
+			d’images de marque, les solutions digitales et les supports 
+			imprimés.
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -24,16 +26,15 @@ export default {
 
 		$(this.$el).parents('.section').css({
 			'background-color': this.post.metas.background_color[0],
-			'height':'50vh',
-			'min-height':'50vh'
+
+			
 		});
 
 		$(this.$el).css({
-			'min-height':'50vh'
+			'justify-content':'center'
 		})
 		smart_fonts({
-			'h1' : 30,
-			'p' : 14,
+			'.textTitle' :54
 		})
 	
 
@@ -50,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 
 .mainSection {
-    padding: 12rem 4.5rem;
+    padding: 0 5.5rem;
 }
 
 .title {

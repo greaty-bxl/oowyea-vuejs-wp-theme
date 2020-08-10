@@ -76,12 +76,16 @@
             :post="section" 
             @template_mounted="template_mounted"/>
 
-          <Greatyservicestitle v-if="section.template === 'greaty-services-title'" 
+          <Greatyservicestitle v-if="section.template === 'services-title'" 
             :post="section" 
             @template_mounted="template_mounted"/>
 
 
           <Greatystudio v-if="section.template === 'greaty-studio'" 
+            :post="section" 
+            @template_mounted="template_mounted"/>
+
+          <Studiotitle v-if="section.template === 'studio-title'" 
             :post="section" 
             @template_mounted="template_mounted"/>
 
@@ -116,9 +120,9 @@ import Greatyhome from 'Templates/greaty/greaty-home.vue'
 import Greatyprojects from 'Templates/greaty/greaty-projects.vue'
 import Greatysingle from 'Templates/greaty/greaty-single.vue'
 import Greatyservices from 'Templates/greaty/greaty-services.vue'
-import Greatyservicestitle from 'Templates/greaty/greaty-services-title.vue'
+import Greatyservicestitle from 'Templates/greaty/services-title.vue'
 import Greatystudio from 'Templates/greaty/greaty-studio.vue'
-
+import Studiotitle from 'Templates/greaty/studio-title.vue'
 //Footer
 import Footer from 'Organisms/footer.vue'
 
@@ -161,6 +165,7 @@ export default {
     Greatyservices,
     Greatyservicestitle,
     Greatystudio,
+    Studiotitle,
     Footer,
 
   },

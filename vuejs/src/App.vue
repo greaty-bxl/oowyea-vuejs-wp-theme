@@ -108,7 +108,6 @@ import Greatysingle from 'Templates/greaty/greaty-single.vue'
 import Greatyservices from 'Templates/greaty/greaty-services.vue'
 
 
-
 //Footer
 import Footer from 'Organisms/footer.vue'
 

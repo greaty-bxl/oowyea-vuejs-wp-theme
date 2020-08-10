@@ -13,46 +13,16 @@
 		</div>
 		<div class="post-client">
 
-				<div class="global-project">
-
+				<div class="global-project" v-for="child in projects" :key="child.ID">
 					<div class="client">
-						<div class="image-client"></div>
+						<div class="image-client"> child.post_title </div>
 					</div>
-						
+
 						<p class="name-client">Lorem ipsum</p>
 						<p class="role-greaty">Corporated Website</p>
-
 				</div>
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
-				</div>
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
-				</div>
-
-				
-	
 		</div>
 
-
-
-       
         <div class="clear"></div>
     </div>
  
@@ -76,9 +46,12 @@ export default {
 			'background-color': this.post.metas.background_color[0],
 		});
 
+		console.log(this.wp.projects);
+		
+
 		this.$emit('template_mounted')
 
-			console.log(this.wp.projects);
+			
 	}
 }
 
@@ -335,26 +308,24 @@ font-family: 'Gotham Book Regular', sans-serif;
 
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 800px) {
 
 	.post-client{
 		padding-left: 35px;
 		padding-right: 35px;
-		display: flex;
-		flex-direction: row;
 	}
 
 .global-project{
 
 	z-index: 10;
-	width: 50% !important;
+	width: calc(50% - 70px) !important;
 	height: auto;
 	min-height: 400px;
 	margin-left: 35px;
-	margin-right: 35px; 
+	margin-right: 35px;
+	display: inline-block;
 
 }
-
 
 
 .client{

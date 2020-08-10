@@ -49,7 +49,7 @@ export default {
 	mounted(){
 		let $ = this.$
 
-		$('#header, #footer').hide()
+		$('#footer, #header #header-logo, #header #header-menu').hide()
 		$('#app').css('overflow', 'hidden')
 
 		wp_ajax('is_user_logged', null, (result)=>{

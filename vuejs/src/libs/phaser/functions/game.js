@@ -11,10 +11,7 @@ export default class oowyea_game{
 		console.log('init oowyea game', wrap, config);
 
 		let $ = window.jquery
-		
-		window.oowyea_game = {}
-		window.oowyea_game.config = config
-		
+				
 		
 		function elements_events( event ){
 			$.each(game.elements, function(index, element) {

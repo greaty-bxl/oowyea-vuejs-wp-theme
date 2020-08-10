@@ -14,30 +14,48 @@ export default {
 			'max-players': 0,
 			'game-type': 'tank', //space, plateform, tank
 			'controllers': 'any',
-			'zoom': 100, //Integer || Object{ desktop: 100, tablet: 150, mobile: 170 }
-			'zoom-max': 300,
-			'zoom-min': 50,
+			'zoom': 1, //Integer || Object{ desktop: 100, tablet: 150, mobile: 170 }
+			'zoom-max': 3,
+			'zoom-min': 0.5,
 			init: (game, scene/*, players*/) => {
+
+				console.log(vw(100),vh(100));
 
 				//grid map
 				game.new_map(100, 100)
 
 				//my tank
 				game.new_element({
-					preload: (element) => {
+					preload: function(element) {
 						console.log('preload images for the element', element);
 
 					},
-					create: (element) => {
-						console.log('create element', element);
-
-						let rect = scene.add.rectangle(vw(50), vh(50), vh(5), vh(5), 0x6666ff)
-						let rect2 = scene.add.rectangle(vw(50), vh(53), vh(2), vh(1), 0x6666ff)
+					create: function(element) {
 						
-						element.add(rect, rect2)
+						this.rect = scene.add.rectangle(0, 0, 0, 0, 0x6666ff)
+						this.rect2 = scene.add.rectangle(0, 0, 0, 0, 0xfff)
+
+						this.rect2.fillColor = 0x20FFF2
+
+						console.log(this.rect, this.rect2); 
+						
+						element.add(this.rect)
+						element.add(this.rect2)
+
+						console.log('create element', element, this);
 					},
-					sizes: () => {
-						console.log('sizes element', game);
+					sizes: function (element) {
+						console.log('sizes element', element);
+						this.rect.height = vh(5)
+						this.rect.width = vh(5)
+
+						this.rect2.height = vh(2)
+						this.rect2.width = vh(2)
+						this.rect2.x = vh(1.5)
+						this.rect2.y = vh(1.5)
+
+						element.x = vw(50) - (this.rect.width / 2)
+						element.y = vh(50) - (this.rect.width / 2)
 					},
 					update: () => {
 						//console.log('update element');
@@ -45,7 +63,7 @@ export default {
 				})
 			},
 			create: (game, scene) => {
-				//scene.cameras.main.setBounds(0, 0, 1024, 2048);
+				//scene.cameras.main.setBounds(-500, 0, 1024, 2048);
 				scene.cameras.main.setZoom(1);
 			}			
 		})

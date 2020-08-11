@@ -99,7 +99,9 @@
 <script>
 
 //Header
-import Header from 'Organisms/header.vue'
+import Header from 'Organisms/header-light-burger.vue'
+// import Header from 'Organisms/header.vue'
+
 
 //template hierarchy
 import Comp404 from 'Templates/404.vue'

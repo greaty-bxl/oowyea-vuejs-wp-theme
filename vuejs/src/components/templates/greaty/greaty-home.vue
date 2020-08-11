@@ -5,6 +5,7 @@
 		<div>
 		
 		<div class="div-text-homepage">
+
 			<Alpl class="text-homepage on-screen">Test-test, hello <br>Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.	
 			</Alpl>
 		</div>
@@ -12,47 +13,19 @@
 		</div>
 		<div class="post-client">
 
-				<div class="global-project">
+				<div class="global-project" v-for="child in wp.projects" :key="child.ID" >
+					<a :href="child.permalink" >
+					<div class="client " >
+						<img class="image-client" height="100%" :src="child.thumb" >
 
-					<div class="client on-screen">	
-						<div class="image-client "></div>
-
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
+						<p class="name-client" v-html="child.post_title" ></p>
 						<p class="role-greaty">Corporated Website</p>
-
-				</div>
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client"></div>
 					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
+
+					</a>
 				</div>
-
-				<div class="global-project">
-
-					<div class="client">
-						<div class="image-client"></div>
-					</div>
-						
-						<p class="name-client">Lorem ipsum</p>
-						<p class="role-greaty">Corporated Website</p>
-					
-				</div>
-
-				
-	
 		</div>
 
-
-
-       
         <div class="clear"></div>
     </div>
  
@@ -81,9 +54,13 @@ export default {
 			'background-color': this.post.metas.background_color[0],
 		});
 
-		this.$emit('template_mounted')
+		console.log(this.wp.projects);
+		
 
-	},	
+		this.$emit('template_mounted');
+
+    }
+
 }
 
 </script>
@@ -339,26 +316,24 @@ font-family: 'Gotham Book Regular', sans-serif;
 
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 800px) {
 
 	.post-client{
 		padding-left: 35px;
 		padding-right: 35px;
-		display: flex;
-		flex-direction: row;
 	}
 
 .global-project{
 
 	z-index: 10;
-	width: 50% !important;
+	width: calc(50% - 70px) !important;
 	height: auto;
 	min-height: 400px;
 	margin-left: 35px;
-	margin-right: 35px; 
+	margin-right: 35px;
+	display: inline-block;
 
 }
-
 
 
 .client{

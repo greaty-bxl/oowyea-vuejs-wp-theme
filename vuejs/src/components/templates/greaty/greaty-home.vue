@@ -6,7 +6,7 @@
 		
 		<div class="div-text-homepage">
 
-			<Alpl class="text-homepage on-screen">Test-test, hello <br>Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.	
+			<Alpl class="text-homepage on-screen">Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. <br>Test-test, hello	
 			</Alpl>
 		</div>
 	
@@ -29,17 +29,6 @@
 		</div>
 		</div>
 
-	<!-- 			<div class="global-project" v-for="child in wp.projects" :key="child.ID" >
-					<a :href="child.permalink" >
-					<div class="client " >
-						<img class="image-client" height="100%" :src="child.thumb" >
-
-						<p class="name-client" v-html="child.post_title" ></p>
-						<p class="role-greaty">Corporated Website</p>
-					</div>
-
-					</a>
-				</div> -->
 		</div>
 
         <div class="clear"></div>
@@ -50,12 +39,10 @@
 <script>
 
 import Alpl from 'Molecules/animation-line-per-line';
-console.log(Alpl);
-
 
 export default {
 	components: {
-		// Alpl
+		Alpl
 	},
 	props: {
 		'post' : Object
@@ -92,24 +79,24 @@ var XRel = e.pageX - $this.offset().left;
 var YRel = e.pageY - $this.offset().top;
 var width = $this.width();
 
-YAngle = -(0.5 - (XRel / width)) * 20; 
-XAngle = (0.5 - (YRel / width)) * 20;
+YAngle = -(0.5 - (XRel / width)) * 8; 
+XAngle = (0.5 - (YRel / width)) * 8;
 updateView($this.children(".icon"));
 });
 
 selector.on("mouseleave",function(){
 
 	oLayer = $(this).children(".icon");
-	oLayer.css({"transform":"perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
-	oLayer.find("strong").css({"transform":"perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+	oLayer.css({"transform":"perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 200ms linear 0s","-webkit-transition":"all 200ms linear 0s"});
+	oLayer.find("strong").css({"transform":"perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 200ms linear 0s","-webkit-transition":"all 200ms linear 0s"});
 	});
 
 }
 
 function updateView(oLayer)
 {
-	oLayer.css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + XAngle + "deg) rotateY(" + YAngle + "deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
-	oLayer.find("strong").css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + (XAngle / 0.22) + "deg) rotateY(" + (YAngle / 0.66) + "deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+	oLayer.css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + XAngle + "deg) rotateY(" + YAngle + "deg)","transition":"all 200ms linear 0s","-webkit-transition":"all 200ms linear 0s"});
+	oLayer.find("strong").css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + (XAngle / 0.22) + "deg) rotateY(" + (YAngle / 0.66) + "deg)","transition":"all 200ms linear 0s","-webkit-transition":"all 200ms linear 0s"});
 }
 
     }
@@ -119,6 +106,7 @@ function updateView(oLayer)
 </script>
 
 <style scoped >
+
 	
 body {
 margin: 0 !important;
@@ -151,6 +139,11 @@ z-index: 20;
 .global-project p{
 
 text-align: left;
+}
+
+.global-project {
+
+	overflow: visible;
 }
 
 nav{
@@ -287,7 +280,6 @@ width: 100%;
 padding-left: auto;
 padding-right: auto;
 
-
 }
 
 .image-client{
@@ -368,6 +360,12 @@ margin-top: 0px;
 font-family: 'Gotham Book Regular', sans-serif; 
 
 }
+
+/*.global-project{
+
+	overflow-x: hidden;
+
+}*/
 
 @media screen and (min-width: 800px) {
 

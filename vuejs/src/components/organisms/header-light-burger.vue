@@ -1,7 +1,7 @@
 <template>
-	<div id="header" class="header-1">
+	<div id="header" class="header-greaty">
 			<div class="clear"></div>
-			<div id="header-logo"><Acf options="logo"/></div>
+			<div id="header-logo"><Acf field="logo"/></div>
 			<!-- <div id="header-menu"></div> -->
 			<div id="right-panel">
 			
@@ -9,6 +9,7 @@
 					<div class="headerButton" style="pointer-events: auto; width: 260px; height: 400px;">
 					<div class="headerMore"><span></span><span></span><span></span></div>
 					<div class="headerBody">
+					<div v-html="wp.menus['burger-menu']" ></div>
 					<ul class="topBody">
 					<li class="items"><a href="#">Projects</a></li>
 					<li class="items"><a href="#">Services</a></li>
@@ -53,15 +54,15 @@ export default {
 	mounted(){
 		var $ = this.$
 
-		// console.log(Acf=>options);
+		console.log(Acf[0]);
 
-		$('.header-1').css('background-color', 'black');
+		$('.header-greaty').css('background-color', 'rgb(25, 26, 28)');
 
-		console.log('header', this.wp);
+		console.log('header', this.wp.acf);
 
 		var height_origin_taille = $('.headerButton').height()
 
-		console.log(height_origin_taille + 'taille_total');
+		// console.log(height_origin_taille + 'taille_total');
 
 		// var height_petit_point = $(this).parent('.headerButton').height()
 
@@ -78,8 +79,6 @@ export default {
 		var width_button =   parseInt($('.headerMore').width()) + parseInt($('.headerMore').css('padding-left')) + parseInt($('.headerMore').css('padding-right'))
 
 		var width_origin_taille = $('.headerBody').width()
-
-		console.log(width_origin_taille);
 
 		$('.headerButton').width(width_button);
 
@@ -101,7 +100,6 @@ export default {
 
 		// var animation_rajouter =  parseInt(height_petit_point) - parseInt(height_total)
 
-		console.log($('.headerButton').width());
 
 		$('.headerBody').find('a').css('color', color);
 
@@ -175,29 +173,29 @@ export default {
 
 		});
 
-		var reload = true;
+		// var reload = true;
 
 
-		$(window).scroll(function() {
+		// $(window).scroll(function() {
 
-			var scroll = $(window).scrollTop();
+		// 	var scroll = $(window).scrollTop();
 
-		if (scroll == '0') {
+		// if (scroll == '0') {
 
-			$('.logo').css('display', 'flex');
-		}
-		if (scroll >= '100') {
+		// 	$('.logo').css('display', 'flex');
+		// }
+		// if (scroll >= '100') {
 
-			if (reload == true) {
+		// 	if (reload == true) {
 
-				reload = false
+		// 		reload = false
 
-			}
-			$('.logo').css('display', 'none');
+		// 	}
+		// 	$('.logo').css('display', 'none');
 
-		}
+		// }
 
-		});
+		// });
 
 		
 	}
@@ -214,7 +212,8 @@ export default {
 	right: 20px;
 	border-radius: 15px;
 	background-color: hsla(0, 0%, 100%, 0.37);
-    width: 30px; 
+    width: 30px;
+    z-index: 10000;
 	
 }
 
@@ -270,6 +269,7 @@ export default {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
+    text-align: left;
     /* justify-content: space-between; */
 }
 
@@ -295,14 +295,35 @@ export default {
 
 .bottomBody{
 
-    padding-left: 25px;    
+    padding-left: 25px;
+    list-style-type: none;
 }
 
+.header-greaty{
 
-.bottomBody{
-
+ display: flex;
 
 }
+
+/*@media (max-width: 1250px) { ... }*/
+@media (max-width: 450px) {
+
+	#header-logo img{
+
+	padding-left: 18px !important;
+	padding-top: 20px;
+
+	}
+	
+}
+
+#header-logo img{
+
+ padding-left: 70px;
+ padding-top: 20px;
+
+}
+
 
 
 </style>

@@ -122,17 +122,17 @@ export default{
 
 			$.each(lines, function(index, val) {
 
-				let delay = i_lines * 50
+				let delay = i_lines * 100
 
 				setTimeout( ()=>{
 					$('[data-lettertop='+val+']').each( (index, el) => {
 						anime({
 							targets: el,
-							translateY: -20,
+							translateY: -50,
 							opacity: 1,
 							easing: 'linear',
 							delay: delay,
-							duration: 500
+							duration: 700
 						}) ;	
 					});
 				}, 1 )

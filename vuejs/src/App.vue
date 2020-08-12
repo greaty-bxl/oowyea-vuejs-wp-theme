@@ -48,11 +48,11 @@
               :tag="wp.wp_query.queried_object"
               @template_mounted="template_mounted"/>
 
-          <Demo1 v-if="section.template === 'template-demo1'" 
+          <Demo1 v-if="section.template === 'demo1'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
-          <Demo2 v-if="section.template === 'template-demo2'" 
+          <Demo2 v-if="section.template === 'demo2'" 
               :post="section" 
               @template_mounted="template_mounted"/>
 
@@ -192,7 +192,9 @@ export default {
       
       //new page with transition
       $(document).on('new_page', (event) => { /* event from: links-and-anchors.js */
-      
+        
+        $('#app').data('scrolling', 'new-page')
+
         get_new_page( this, event.href, (wp) => {
 
           console.log( wp )
@@ -208,9 +210,12 @@ export default {
               this.pages['current'] = wp.sections
             
               setTimeout( ()=>{ 
-
-                init_scrolltop(this) 
+                
                 this.pages['next'] = {}
+
+                $('#app').data('scrolling', '')
+
+                init_scrolltop(this)                 
 
                 $(document).trigger('after_next_page')
 
@@ -240,7 +245,7 @@ html{
   overflow:hidden;
 }
 #app {
-  position: fixed;
+  position: absolute;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

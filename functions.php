@@ -30,6 +30,8 @@ include GREATY_TEMPLATE_PATH.'/libs/sections.php';
 include GREATY_TEMPLATE_PATH.'/libs/posts.php';
 include GREATY_TEMPLATE_PATH.'/libs/woocommerce.php';
 include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
+include GREATY_TEMPLATE_PATH.'/libs/image-sizes.php';
+
 
 // Playing with Phaser (do not include in Greaty Theme)
 include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
@@ -57,29 +59,20 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
-    // Add Support for Custom Backgrounds - Uncomment below if you're going to use
-    /*add_theme_support('custom-background', array(
-	'default-color' => 'FFF',
-	'default-image' => get_template_directory_uri() . '/img/bg.jpg'
-    ));*/
+    function remove_extra_image_sizes() {
+        foreach ( get_intermediate_image_sizes() as $size ) {
+            if ( !in_array( $size, array( 'mini_blur', 'thumbnail', 'medium', 'medium_large', 'large' ) ) ) {
+                remove_image_size( $size );
+            }
+        }
+    }
+    add_action('init', 'remove_extra_image_sizes');
 
-    // Add Support for Custom Header - Uncomment below if you're going to use
-    /*add_theme_support('custom-header', array(
-	'default-image'			=> get_template_directory_uri() . '/img/headers/default.jpg',
-	'header-text'			=> false,
-	'default-text-color'		=> '000',
-	'width'				=> 1000,
-	'height'			=> 198,
-	'random-default'		=> false,
-	'wp-head-callback'		=> $wphead_cb,
-	'admin-head-callback'		=> $adminhead_cb,
-	'admin-preview-callback'	=> $adminpreview_cb
-    ));*/
+    add_image_size('mini_blur', 10, 10, 0); // mini
+    update_option( 'mini_blur_size_h', 10 );
+    update_option( 'mini_blur_size_w', 10 );
+    update_option( 'mini_blur_crop', 0 );
 
     // Enables post and comment RSS feed links to head
     add_theme_support('automatic-feed-links');

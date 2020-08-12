@@ -1,7 +1,7 @@
 <template>
 	<div id="header">
 		<div class="clear"></div>
-		<div id="header-logo"><Acf option="logo"/></div>
+		<div id="header-logo"><Acf field="logo"/></div>
 		<div id="header-menu"></div>
 		<div id="right-panel">
 			<div id="burger-menu" class="btn">
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Acf from 'Molecules/acf.vue'
+import Acf from 'Organisms/acf.vue'
 
 export default {
 	components:{
@@ -39,8 +39,6 @@ export default {
 	},
 	mounted(){
 		var $ = this.$
-
-		console.log('header', this.wp);
 
 		$(this.$el).find('#header-menu').html( this.wp.menus['header-menu'] )
 
@@ -92,7 +90,6 @@ export default {
 		height: 0;
 		overflow-y: visible;
 		position: fixed;
-		background-color: #F55353;
 		text-align: left;
 	}
 
@@ -153,6 +150,4 @@ export default {
 		width: 30vw;
 		background-color: #fff;
 	}
-
-
 </style>

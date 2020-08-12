@@ -2,7 +2,7 @@ export default function(vue){
 	var $ = vue.$
 	var timer
 	
-	if( vue.wp.sections.length > 1 )
+	if( vue.wp.sections.length >= 1 )
 	{
 		var section = $('.section[data-permalink="'+window.location.href+'"]')
 
@@ -15,7 +15,15 @@ export default function(vue){
 			clearTimeout( timer )
 			timer = setTimeout( () => {
 				$('#app').data('scrolling', '')
+
+				window.current_section = section.attr('id')
+				window.current_section_index =  section.index()
+				$('#app').trigger('section-top-ready')
 			}, 15)
 		}		
 	}
+	/*else
+	{
+		$('#app').trigger('section-top-ready')
+	}*/
 }

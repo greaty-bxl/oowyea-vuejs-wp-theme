@@ -80,7 +80,11 @@
     "label_placement": "left",
     "instruction_placement": "label",
     "hide_on_screen": "",
+<<<<<<< HEAD
     "active": 1,
+=======
+    "active": true,
+>>>>>>> greaty-acf
     "description": "",
     "acfe_display_title": "",
     "acfe_autosync": [
@@ -90,5 +94,9 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
+<<<<<<< HEAD
     "modified": 1597230512
+=======
+    "modified": 1596633785
+>>>>>>> greaty-acf
 }

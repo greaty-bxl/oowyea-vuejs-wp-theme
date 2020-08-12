@@ -1,7 +1,7 @@
 <template>
 	<div id="header" class="header-1">
 			<div class="clear"></div>
-			<div id="header-logo"><Acf option="logo"/></div>
+			<div id="header-logo"><Acf options="logo"/></div>
 			<!-- <div id="header-menu"></div> -->
 			<div id="right-panel">
 			
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Acf from 'Molecules/acf.vue'
+import Acf from 'Organisms/acf.vue'
 
 export default {
 	components:{
@@ -52,6 +52,8 @@ export default {
 	},
 	mounted(){
 		var $ = this.$
+
+		// console.log(Acf=>options);
 
 		$('.header-1').css('background-color', 'black');
 
@@ -155,6 +157,7 @@ export default {
 
 		});
 
+
 		var padd_ori =  parseInt( $('.headerMore').css('padding-left') ) 
 
 		var padd =  parseInt( $('.headerMore').css('padding-left') ) + 2
@@ -168,11 +171,33 @@ export default {
 
 		}, function() {
 
-		$('.headerMore').animate({"padding-left": padd_ori + 'px', "padding-right": padd_ori + 'px'  }, "fast", "swing");
+			$('.headerMore').animate({"padding-left": padd_ori + 'px', "padding-right": padd_ori + 'px'  }, "fast", "swing");
 
 		});
 
-		// var reload = true;
+		var reload = true;
+
+
+		$(window).scroll(function() {
+
+			var scroll = $(window).scrollTop();
+
+		if (scroll == '0') {
+
+			$('.logo').css('display', 'flex');
+		}
+		if (scroll >= '100') {
+
+			if (reload == true) {
+
+				reload = false
+
+			}
+			$('.logo').css('display', 'none');
+
+		}
+
+		});
 
 		
 	}
@@ -189,7 +214,7 @@ export default {
 	right: 20px;
 	border-radius: 15px;
 	background-color: hsla(0, 0%, 100%, 0.37);
-    /*padding-top: 30px;*/
+    width: 30px; 
 	
 }
 
@@ -207,7 +232,7 @@ export default {
 
 .headerMore {
 
-    width: 51px;
+    width: 30px;
     height: 30px;
     position: absolute;
     top: 0;

@@ -13,7 +13,23 @@
 		</div>
 		<div class="post-client">
 
-				<div class="global-project" v-for="child in wp.projects" :key="child.ID" >
+		<div class="lalal" v-for="child in wp.projects" :key="child.ID">
+		<div class="icon global-project test__item" >
+			<a :href="child.permalink" >
+
+				<div class="client">
+
+					<img class="image-client" height="100%" :src="child.thumb" >
+					<p class="name-client" v-html="child.post_title" ></p>
+					<p class="role-greaty">Corporated Website</p>
+
+				</div>
+
+			</a>
+		</div>
+		</div>
+
+	<!-- 			<div class="global-project" v-for="child in wp.projects" :key="child.ID" >
 					<a :href="child.permalink" >
 					<div class="client " >
 						<img class="image-client" height="100%" :src="child.thumb" >
@@ -23,7 +39,7 @@
 					</div>
 
 					</a>
-				</div>
+				</div> -->
 		</div>
 
         <div class="clear"></div>
@@ -34,14 +50,12 @@
 <script>
 
 import Alpl from 'Molecules/animation-line-per-line';
+console.log(Alpl);
 
-   // import anime from 'animejs/lib/anime.es.js';
-
- 
 
 export default {
 	components: {
-		Alpl
+		// Alpl
 	},
 	props: {
 		'post' : Object
@@ -54,10 +68,49 @@ export default {
 			'background-color': this.post.metas.background_color[0],
 		});
 
-		console.log(this.wp.projects);
-		
+		console.log(this.post.metas.background_color[0]);
 
-		this.$emit('template_mounted');
+			this.$emit('template_mounted');
+
+var oLayer;
+let selector = $(".post-client").find('.lalal');
+let XAngle = 0;
+let YAngle = 0;
+let Z = 20;	
+
+$(function(){
+boxRollovers();
+});
+
+function boxRollovers()
+{
+
+
+selector.on("mousemove",function(e){
+var $this = $(this);
+var XRel = e.pageX - $this.offset().left;
+var YRel = e.pageY - $this.offset().top;
+var width = $this.width();
+
+YAngle = -(0.5 - (XRel / width)) * 20; 
+XAngle = (0.5 - (YRel / width)) * 20;
+updateView($this.children(".icon"));
+});
+
+selector.on("mouseleave",function(){
+
+	oLayer = $(this).children(".icon");
+	oLayer.css({"transform":"perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+	oLayer.find("strong").css({"transform":"perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+	});
+
+}
+
+function updateView(oLayer)
+{
+	oLayer.css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + XAngle + "deg) rotateY(" + YAngle + "deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+	oLayer.find("strong").css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + (XAngle / 0.22) + "deg) rotateY(" + (YAngle / 0.66) + "deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+}
 
     }
 
@@ -323,7 +376,7 @@ font-family: 'Gotham Book Regular', sans-serif;
 		padding-right: 35px;
 	}
 
-.global-project{
+.lalal{
 
 	z-index: 10;
 	width: calc(50% - 70px) !important;
@@ -372,7 +425,7 @@ padding-bottom: 15%;
 width: 80% !important;
 margin: auto 70px;
 width: 100%;
-font-size: 5.5em;
+font-size: 3em;
 color: #e1e1e1;
 font-family: 'Montserrat', sans-serif; 
 }

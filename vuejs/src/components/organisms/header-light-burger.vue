@@ -9,15 +9,12 @@
 					<div class="headerButton" style="pointer-events: auto; width: 260px; height: 400px;">
 					<div class="headerMore"><span></span><span></span><span></span></div>
 					<div class="headerBody">
-					<div v-html="wp.menus['burger-menu']" ></div>
-					<ul class="topBody">
-					<li class="items"><a href="#">Projects</a></li>
-					<li class="items"><a href="#">Services</a></li>
-					<li class="items"><a href="#">Studio</a></li>
-					<li class="items"><a href="#">Clients</a></li>
-					<li class="items"><a href="#">Contact</a></li>
-					<li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
-					</ul>
+					<div class="topBody">
+						
+						<div v-html="wp.menus['burger-menu']" ></div>
+
+					</div>
+
 					<ul class="bottomBody">
 
 					<li>GET IN TOUCH</li><br>
@@ -62,9 +59,7 @@ export default {
 
 		var height_origin_taille = $('.headerButton').height()
 
-		// console.log(height_origin_taille + 'taille_total');
 
-		// var height_petit_point = $(this).parent('.headerButton').height()
 
 		var height_total = $('.headerMore').height()
 
@@ -160,7 +155,6 @@ export default {
 
 		var padd =  parseInt( $('.headerMore').css('padding-left') ) + 2
 
-
 		$('.headerMore').hover(function() {
 
 
@@ -204,12 +198,18 @@ export default {
 
 <style>
 
+.menu{
+	
+	padding-left: 0px !important;
+
+}
+
 .headerButton{
     
 	position: fixed;
 	left: auto;
 	top: 20px;
-	right: 20px;
+	right: 40px;
 	border-radius: 15px;
 	background-color: hsla(0, 0%, 100%, 0.37);
     width: 30px;
@@ -256,7 +256,7 @@ export default {
     left: 30px;
     top: 30px;
     width: 200px;
-    height: 340px;
+    /* height: 340px; */
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -276,15 +276,17 @@ export default {
 .headerBody .topBody li {
 
     list-style: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.5;
     text-align: left;
-
+    text-decoration: none;
 }
 
 .headerBody .topBody li a{
 
-  font-weight: 400;}
+  font-weight: 200;
+  text-decoration: none
+}
 
 .topBody{
 
@@ -296,6 +298,7 @@ export default {
 .bottomBody{
 
     padding-left: 25px;
+    padding-bottom: 25px;
     list-style-type: none;
 }
 
@@ -321,7 +324,18 @@ export default {
 
  padding-left: 70px;
  padding-top: 20px;
+ height: 70px;
 
+}
+
+a{
+
+	list-style-type: none
+}
+
+ul{
+
+	list-style-type: none
 }
 
 

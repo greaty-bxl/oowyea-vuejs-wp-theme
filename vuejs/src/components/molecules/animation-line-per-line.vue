@@ -64,9 +64,6 @@ export default{
 
 					text_remplace += '<span class="char">'+ tets.charAt(i) +'</span>';
 
-					/*$( this.$el ).html(" ")
-
-					$( this.$el ).append(text_remplace)*/
 				}
 			}
 
@@ -81,7 +78,6 @@ export default{
 
 		$( this.$el ).html( text_remplace )
 		$( this.$el ).find('.word').css('white-space', 'nowrap');
-		//$( this.$el ).find('.char').css('display', 'inline-block');
 		$( this.$el ).find('.char').css({
 			'display': 'inline-block',
 		});
@@ -130,7 +126,7 @@ export default{
 							targets: el,
 							translateY: -50,
 							opacity: 1,
-							easing: 'linear',
+							easing: 'cubicBezier(0.25, 0.46, 0.45, 0.94)',
 							delay: delay,
 							duration: 700
 						}) ;	

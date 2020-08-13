@@ -10,84 +10,15 @@
         :data-index="key2"
         :data-title="section.post_title">
 
-          <Comp404 v-if="section.template === '404'" 
-              :post="section" 
-              @template_mounted="template_mounted"/>
-
-          <Archive v-if="section.template === 'archive'" 
-              :posts="section.children" 
-              :title="wp.wp_query.queried_object.label"
-              @template_mounted="template_mounted"/>
-
-          <Category v-if="section.template === 'category'"  
-              :cat="wp.wp_query.queried_object"
-              @template_mounted="template_mounted"/>
-
-          <Author v-if="section.template === 'author'"  
-              :author="wp.wp_query.queried_object.data"
-              @template_mounted="template_mounted"/>
-
-          <Index v-if="section.template === 'index'" 
-              :post="section" 
-              @template_mounted="template_mounted"/>
-
-          <Page v-if="section.template === 'page'" 
-              :post="section" 
-              @template_mounted="template_mounted"/>
-
-          <Search v-if="section.template === 'search'" 
-              :posts="wp.wp_query.posts" 
-              :s="wp.wp_query.query_vars.s"
-              @template_mounted="template_mounted"/>
-
-          <Single v-if="section.template === 'single'" 
-              :post="wp.wp_query.queried_object" 
-              @template_mounted="template_mounted"/>
-
-          <Tag v-if="section.template === 'tag'"  
-              :tag="wp.wp_query.queried_object"
-              @template_mounted="template_mounted"/>
-
-          <Demo1 v-if="section.template === 'demo1'" 
-              :post="section" 
-              @template_mounted="template_mounted"/>
-
-          <Demo2 v-if="section.template === 'demo2'" 
-              :post="section" 
-              @template_mounted="template_mounted"/>
-
-          <Phaser v-if="section.template === 'phaser'" 
-              :post="section" 
-              @template_mounted="template_mounted"/>
-
-          <Greatyhome v-if="section.template === 'greaty-home'" 
-              :post="section" 
-              @template_mounted="template_mounted"/>
-
-          <Greatyprojects v-if="section.template === 'greaty-projects'" 
-              :post="section" 
-              @template_mounted="template_mounted"/>
-
-          <Greatysingle v-if="section.template === 'greaty-single'" 
-              :post="section" 
-              @template_mounted="template_mounted"/>
-
-          <Greatyservices v-if="section.template === 'greaty-services'" 
+          <component 
+            :is="Templates[section.template]"
             :post="section" 
-            @template_mounted="template_mounted"/>
-
-          <Greatyservicestitle v-if="section.template === 'services-title'" 
-            :post="section" 
-            @template_mounted="template_mounted"/>
-
-
-          <Greatystudio v-if="section.template === 'greaty-studio'" 
-            :post="section" 
-            @template_mounted="template_mounted"/>
-
-          <Studiotitle v-if="section.template === 'studio-title'" 
-            :post="section" 
-            @template_mounted="template_mounted"/>
+            :posts="section.children" 
+            :tag="wp.wp_query.queried_object"
+            :cat="wp.wp_query.queried_object"
+            :author="wp.wp_query.queried_object.data"
+            :s="wp.wp_query.query_vars.s"
+            @template_mounted="template_mounted" ></component>
 
       </div>
     </div>
@@ -103,28 +34,7 @@ import Header from 'Organisms/header-light-burger.vue'
 // import Header from 'Organisms/header.vue'
 
 
-//template hierarchy
-import Comp404 from 'Templates/404.vue'
-import Archive from 'Templates/archive.vue'
-import Author from 'Templates/author.vue'
-import Category from 'Templates/category.vue'
-import Index from 'Templates/index.vue'
-import Page from 'Templates/page.vue'
-import Search from 'Templates/search.vue'
-import Single from 'Templates/single.vue'
-import Tag from 'Templates/tag.vue'
 
-//custom template
-import Demo1 from 'Templates/customs/demo1.vue'
-import Demo2 from 'Templates/customs/demo2.vue'
-import Phaser from 'Libs/phaser/phaser.vue'
-import Greatyhome from 'Templates/greaty/greaty-home.vue'
-import Greatyprojects from 'Templates/greaty/greaty-projects.vue'
-import Greatysingle from 'Templates/greaty/greaty-single.vue'
-import Greatyservices from 'Templates/greaty/greaty-services.vue'
-import Greatyservicestitle from 'Templates/greaty/services-title.vue'
-import Greatystudio from 'Templates/greaty/greaty-studio.vue'
-import Studiotitle from 'Templates/greaty/studio-title.vue'
 //Footer
 import Footer from 'Organisms/footer.vue'
 
@@ -136,46 +46,45 @@ import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
 import smart_fonts from 'Libs/smart-fonts'
 import on_screen from 'Libs/on-screen'
-// import on_screen from 'Libs/on-screen'
-// import Funtion_animation_line_per_line from 'Libs/on-screen'
 
+
+function vue_key_to_name(str)
+{
+  var base = new String(str).substring(str.lastIndexOf('/') + 1); 
+  if(base.lastIndexOf(".") != -1) base = base.substring(0, base.lastIndexOf("."));
+  return base;
+}
 
 export default {
   name: 'App',
   data(){
     return {
+      Templates: {},
       pages:{'current':{},'next':{}}
     }
   },
   components: {
     Header,
-    Comp404,
-    Archive,
-    Author,
-    Category,
-    Index,
-    Page,
-    Search,
-    Single,
-    Tag,
-    Demo1,
-    Demo2,
-    Phaser,
-    Greatyhome,
-    Greatyprojects,
-    Greatysingle,
-    Greatyservices,
-    Greatyservicestitle,
-    Greatystudio,
-    Studiotitle,
-    Footer,
+    Footer
+  },
+  created ()  {
+    //automatically load templates
+    const req = require.context('Templates/', true, /\.(js|vue)$/i);
+    req.keys().map(key => {
 
+      let name = vue_key_to_name( key )
+      let file = key.substring(2)
+      
+      this.Templates[name] = () => import( `Templates/${file}` )
+
+    });
   },
   mounted (){
     console.log('App mounted');
     console.log( this.wp );
 
     this.pages['current'] = this.wp.sections
+
 
     this.$(document).ready( ($) => {
 
@@ -281,5 +190,4 @@ html{
 .page[data-state="next"]{
   z-index: 1000;
 }
-
 </style>

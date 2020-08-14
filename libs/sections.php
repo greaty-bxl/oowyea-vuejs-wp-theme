@@ -75,15 +75,8 @@ function get_sections()
 		if( $wp_query->posts )
 		{
 			$sections[0]->children = apply_filters( 'posts_results', $wp_query->posts );
-
-			var_dump("7777") ;
 		}
 	}
-
-	/*echo "<pre>";
-	print_r( $sections );
-	exit();*/
-
 
 	//apply content filter
 	foreach ($sections as $key => $section) 

@@ -25,9 +25,7 @@ function scrollSection(vue){
 						wait = 0
 						$('#app').data('scrolling', '')
 						let permalink = $('#'+current_section).data('permalink')
-						console.log(current_section);
 						vue.pushHistory( permalink )
-						
 					}, 150)
 					
 			});

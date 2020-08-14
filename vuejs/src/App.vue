@@ -30,8 +30,8 @@
 <script>
 
 //Header
-import Header from 'Organisms/header-light-burger.vue'
-// import Header from 'Organisms/header.vue'
+//import Header from 'Organisms/header-light-burger.vue'
+import Header from 'Organisms/header.vue'
 
 
 
@@ -39,13 +39,15 @@ import Header from 'Organisms/header-light-burger.vue'
 import Footer from 'Organisms/footer.vue'
 
 //Functions
+import is from 'is_js'
 import init_scrolltop from 'Libs/init-scrolltop.js'
 import scrollSection from 'Libs/scroll-sections.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
-import smart_fonts from 'Libs/smart-fonts'
-import on_screen from 'Libs/on-screen'
+import smart_fonts from 'Libs/smart-fonts.js'
+import on_screen from 'Libs/on-screen.js'
+import acf_to_css from 'Libs/acf-to-css.js'
 
 
 function vue_key_to_name(str)
@@ -80,7 +82,7 @@ export default {
     });
   },
   mounted (){
-    console.log('App mounted');
+    console.log( 'App mounted' );
     console.log( this.wp );
 
     this.pages['current'] = this.wp.sections
@@ -140,7 +142,25 @@ export default {
 
   },
   methods : {
-    template_mounted(){
+    template_mounted(comp){
+
+      let $ = this.$
+
+      //console.log('template_mounted')
+
+      if( is.object(comp) )
+      {
+        
+        let section = this.pages['current'][$(comp.$el).parent('.section').data('index')]
+
+        acf_to_css( comp.$el, {
+          'background-color' : 'background->color',
+          ':hover' : {
+            'background-color' : 'background->color'
+          }
+        }, section)
+      }
+
       smart_fonts()
     }
   }

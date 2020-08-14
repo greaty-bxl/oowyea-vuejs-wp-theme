@@ -17,7 +17,7 @@
 			'post' : Object
 		},
 		mounted (){
-			var $ = this.$
+			//var $ = this.$
 			/*$(this.$el).parents('.section').css({
 				'background-color': this.post.metas.background_color[0],
 			});*/

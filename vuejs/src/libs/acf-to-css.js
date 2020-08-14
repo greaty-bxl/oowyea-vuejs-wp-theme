@@ -22,13 +22,11 @@ export default function (selector, css_rules, section = Object) {
 
 	$(selector).css( css_rules )
 
-	$(selector).hover(function() {
+	$(selector).hover( () => {
 		//hover state
 		$(selector).css( css_hover_rules )
-	}, function() {
+	}, () => {
 		//normal state
 		$(selector).css( css_rules )
 	})
-		
-
 }

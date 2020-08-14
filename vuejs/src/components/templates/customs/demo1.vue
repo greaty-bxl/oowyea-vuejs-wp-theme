@@ -17,13 +17,13 @@
 			'post' : Object
 		},
 		mounted (){
-			var $ = this.$
-			$(this.$el).parents('.section').css({
+			//var $ = this.$
+			/*$(this.$el).parents('.section').css({
 				'background-color': this.post.metas.background_color[0],
-			});
+			});*/
+			
 
-
-			this.$emit('template_mounted')
+			this.$emit('template_mounted', this)
 		}
 	}
 </script>

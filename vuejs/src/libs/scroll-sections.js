@@ -26,7 +26,6 @@ function scrollSection(vue){
 						$('#app').data('scrolling', '')
 						let permalink = $('#'+current_section).data('permalink')
 						vue.pushHistory( permalink )
-						
 					}, 150)
 					
 			});
@@ -86,7 +85,7 @@ function scrollSection(vue){
 						//scroll up in section 
 						//auto scroll to begin of current section for biggest sections than 100vh
 						let topPos = $(el).position().top
-						if( topPos * -1 <= $('#app').outerHeight() / 2 )
+						if( topPos * -1 <= $('#app').outerHeight() / 3 )
 						{
 							new_scroll = $(el).position().top + new_scroll
 							animate_scroll_to( new_scroll )	

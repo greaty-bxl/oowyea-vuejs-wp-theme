@@ -1,6 +1,10 @@
 <template>
 	<div class="section-wrap">
 		<div class="clear"></div>
+            <div class="div-text-homepage">
+                <Alpl class="text-homepage on-screen">Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.
+                </Alpl>
+            </div>
             <div class="firstSection">
                 <div class="grid-services  ">
                     <div class="item-services">
@@ -38,12 +42,8 @@ export default {
         
         var $ = this.$
 
-            $(this.$el).parents('.section').css({
-                'background-color': this.post.metas.background_color[0],
-            });
-
             //Important to let works basic functions
-            this.$emit('template_mounted')
+            this.$emit('template_mounted', this)
 
             /* var test =  document.getElementsByClassName("title"); */
             $(".item-text").css("opacity","0");
@@ -71,13 +71,6 @@ export default {
             })
 	
             });
-
-
-
-             
-                
-
-
 	}
 }
 
@@ -110,6 +103,17 @@ export default {
     text-align: left;
     opacity: 0;
 }
+
+.div-text-homepage{
+display: flex;
+height: 100vh;
+width: 100%;
+/*padding-top: 100px;*/
+padding-left: auto;
+padding-right: auto;
+
+}
+
 
 
 

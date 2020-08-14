@@ -3,11 +3,12 @@
     <div class="section-wrap">
         <div class="clear"></div>
 		<div>
-		
+
 		<div class="div-text-homepage">
 
 			<Alpl class="text-homepage on-screen">Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.
 			</Alpl>
+
 		</div>
 	
 		</div>
@@ -41,7 +42,7 @@
 				Faites-nous un <u><strong><a id="quote" href="">coucou</a></strong></u>  :)
 				</p>
 			</div>
-		</div>  
+		</div> 
 
         <div class="clear"></div>
     </div>
@@ -64,30 +65,7 @@ export default {
 
 		var $ = this.$
 
-		$(this.$el).parents('.section').css({
-			'background-color': this.post.metas.background_color[0],
-		});
-
-		console.log(this.post.metas.background_color[0]);
-
-			this.$emit('template_mounted');
-
-		// $('.global-project').each(function(index, el) {
-
-				// anime({
-				// 	targets: el.target,
-				// 	translateY: 100,
-				// 	opacity: 0,
-				// });
-
-				// $('.global-project').css({
-				// 	translateY: '100px',
-				// 	// opacity: '0 !important'
-				// });
-				// $('.global-project').fadeTo('0', 0, function() {
-					
-				// });
-		// });
+		this.$emit('template_mounted', this);
 
 
 		$('.global-project').on('leave-screen', (event) => {
@@ -117,12 +95,6 @@ export default {
 
 		})
 
-
-
-		// smart_fonts({
-		// '.smallTile' :54,icon global-project test__item on-screen
-		// '.item-text' : 20,
-		// })
 
 		});
 
@@ -324,7 +296,7 @@ padding-left: 30px
 
 }
 
-body,html
+/*body,html
 { 
 padding: 0%;
 margin: 0;
@@ -332,7 +304,7 @@ background-color:#191a1c;
 font-family: 'Myriad pro', sans-serif; 
 color: #e1e1e1;
 }
-
+*/
 a{color: #e1e1e1 ;}
 
 .div-text-homepage{

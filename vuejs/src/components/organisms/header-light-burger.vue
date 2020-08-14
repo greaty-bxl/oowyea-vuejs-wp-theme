@@ -6,7 +6,7 @@
 			<div id="right-panel">
 			
 					<ul>
-					<div class="headerButton" style="pointer-events: auto; width: 260px; height: 400px;">
+					<div class="headerButton" style="pointer-events: auto; width: 260px;">
 					<div class="headerMore"><span></span><span></span><span></span></div>
 					<div class="headerBody">
 					<div class="topBody">
@@ -17,7 +17,7 @@
 
 					<ul class="bottomBody">
 
-					<li>GET IN TOUCH</li><br>
+					<li>ENTRER EN CONTACT</li><br>
 					<li><a href="tel:88002011486">8 800 201 1486</a></li>
 					<li><a href="mailto:hello@roky.rocks">hello@roky.rocks</a></li><br>
 					<li><a href="https://www.instagram.com/rokystudio/" target="_blank">Instagram</a></li>
@@ -196,13 +196,17 @@ export default {
 }
 </script>
 
-<style>
+<style >
 
 .menu{
 	
 	padding-left: 0px !important;
 
 }
+
+/*li{
+	color: white;
+}*/
 
 .headerButton{
     
@@ -276,10 +280,16 @@ export default {
 .headerBody .topBody li {
 
     list-style: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     text-align: left;
     text-decoration: none;
+    
+}
+
+li{
+
+color: white;
 }
 
 .headerBody .topBody li a{
@@ -292,6 +302,7 @@ export default {
 
     padding-left: 25px;
       padding-top: 30px;
+      padding-bottom: 20px;
 
 }
 
@@ -328,14 +339,14 @@ export default {
 
 }
 
-a{
+.menu a{
 
-	list-style-type: none
+	list-style-type: none !important;
 }
 
-ul{
+ .menu ul{
 
-	list-style-type: none
+	list-style-type: none !important;
 }
 
 

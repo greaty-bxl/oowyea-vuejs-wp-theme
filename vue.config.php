@@ -15,6 +15,7 @@ $vue_hierarchy = array(
     'page',
     'search',
     'single',
+    'single-project',
     'tag'
 );
 

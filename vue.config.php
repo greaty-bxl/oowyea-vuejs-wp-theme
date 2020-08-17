@@ -2,6 +2,7 @@
 
 define('is_vuejs_dev', true);
 define('vuejs_server', 'http://localhost:8080');
+define('vuejs_builder_server', 'http://localhost:8082');
 
 //Register Vue.js templates components 
 
@@ -31,7 +32,7 @@ $vue_templates = array(
     'greaty-single' => 'Greaty Single',
     'services-title' => 'Services title',
     'greaty-studio' => 'Greaty Studio',
-    'studio-title' => 'Studio Title'
+    'studio-title' => 'Studio Title',
+    'radio' => 'Radio',
 
 );
-

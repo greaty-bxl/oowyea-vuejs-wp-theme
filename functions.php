@@ -4,6 +4,9 @@
  *  URL: https://greaty.be/wp-themes
  *  Elegant Vue.js WordPress theme.
  */
+/*@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );*/
 
 define('GREATY_TEMPLATE_PATH', get_template_directory());
 define('GREATY_TEMPLATE_URL', get_template_directory_uri());
@@ -21,6 +24,7 @@ include GREATY_TEMPLATE_PATH.'/vue.config.php';
 // $wp_vue_json will be used in Vue as vue.wp or this.wp in components
 $wp_vue_json;
 
+include GREATY_TEMPLATE_PATH.'/libs/vuejs-builder.php';
 include GREATY_TEMPLATE_PATH.'/libs/get_vue_template.php';
 include GREATY_TEMPLATE_PATH.'/libs/wp_vue_add_var.php';
 include GREATY_TEMPLATE_PATH.'/libs/vue-to-templates.php';
@@ -31,6 +35,7 @@ include GREATY_TEMPLATE_PATH.'/libs/posts.php';
 include GREATY_TEMPLATE_PATH.'/libs/woocommerce.php';
 include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
 include GREATY_TEMPLATE_PATH.'/libs/image-sizes.php';
+include GREATY_TEMPLATE_PATH.'/libs/radio.php';
 
 
 // Playing with Phaser (do not include in Greaty Theme)
@@ -41,6 +46,21 @@ include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
 
 // Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
+
+
+function get_oowyea_home()
+{
+    echo "hello";
+}
+
+function oowyea_menus()
+{
+    add_menu_page( 'oowYea', 'oowYea', 'edit_theme_options', 'oowyea-home', 'get_oowyea_home');
+    add_submenu_page( 'oowyea-home', 'Vue builder', 'Vue builder', 'edit_theme_options', 'vue-builder', 'get_vuejs_builder' );
+}
+
+
+add_action( 'admin_menu', 'oowyea_menus' );
 
 /*------------------------------------*\
 	Theme Support
@@ -108,6 +128,7 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Theme General Settings',
         'menu_title'    => 'Theme Settings',
         'menu_slug'     => 'greaty-theme-general-settings',
+        'parent_slug'   => 'oowyea-home',
         'capability'    => 'edit_posts',
         'redirect'      => false
     ));

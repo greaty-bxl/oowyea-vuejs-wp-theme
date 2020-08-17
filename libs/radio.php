@@ -4,7 +4,6 @@ function radio_generate_order($post_id, $post)
 {
 	if( $post->post_type == 'radio-show' )
 	{
-
 		$musics_query = new WP_Query(array(
 			'post_type' => 'attachment',
 			'post_mime_type' => 'audio/mpeg',
@@ -22,6 +21,27 @@ function radio_generate_order($post_id, $post)
 		        ),
 		));
 
+		
+		$musics_by_ids = (object) array();
+
+		if( !empty( $_POST['acf']['field_5f386bef684cd'] ) )
+		{
+			$ids_in = array();
+
+			foreach ($_POST['acf']['field_5f386bef684cd'] as $key => $value) 
+			{
+				$ids_in[] = $value['field_5f386c25684ce'];
+			}
+
+			$musics_by_ids = new WP_Query(array(
+				'post_type' => 'attachment',
+				'post_mime_type' => 'audio/mpeg',
+			    'post_status'    => 'inherit',
+			    'posts_per_page' => -1,
+			    'post__in' => $ids_in
+			));
+		}
+
 		$start = $_POST['acf']['field_5f390319f90a4'];
 		$end = $_POST['acf']['field_5f39034ef90a6'];
 
@@ -31,7 +51,13 @@ function radio_generate_order($post_id, $post)
 		$diff = $date1->diff($date2);
 		$playlist_duration_seconds = ($diff->i + $diff->h * 60) * 60 + $diff->s ;
 
-		$musics = $musics_query->posts;
+		$musics = array_merge( $musics_query->posts, $musics_by_ids->posts );
+		$musics_clean = array();
+		foreach ($musics as $key => $value) 
+		{
+			$musics_clean[$value->ID] = $value;
+		}
+		$musics = $musics_clean;		
 
 		function get_musics_for($musics, $duration, $list, $start_at = 0)
 		{
@@ -41,7 +67,7 @@ function radio_generate_order($post_id, $post)
 			{	
 				$prev = array_slice($list, -1)[0];
 				
-				if( $prev->ID == $music->ID )
+				if( $prev->ID == $music->ID && count( $musics ) > 2 )
 				{
 					continue;
 				}
@@ -66,17 +92,26 @@ function radio_generate_order($post_id, $post)
 			}
 		}
 
-		$playlist = get_musics_for( $musics, $playlist_duration_seconds, array());
+		$playlist = array();
+		
+
+		if( count( $musics ) > 0 )
+		{
+			$playlist = get_musics_for( $musics, $playlist_duration_seconds, $playlist);
+		}
 		
 		$_POST['acf']['field_5f39042b7c73a'] = json_encode( $playlist );
 
 		update_post_meta( $post_id, 'playlist_array', $playlist );
-		
 		//echo "<pre>";
 		//print_r( $playlist );
 		//print_r( $_POST['acf']['field_5f3862199a219'] );
 		//print_r( $playlist_duration_seconds );
 		//exit();
+
+		/*echo "<pre>";
+		print_r( $playlist );
+		exit();*/
 
 	}
 }

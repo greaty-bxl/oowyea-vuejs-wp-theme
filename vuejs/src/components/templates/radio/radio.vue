@@ -10,9 +10,19 @@
 				<v-icon name="play" v-else></v-icon>
 			</div>
 			<h2>{{currentTitle}}</h2>
+			<div class="playlist">
+				<div 
+					class="song-item" 
+					v-for="(item, index) in playlist" 
+					v-bind:key="index"
+					v-bind:class="{ 'current': item.current }" 
+				>
+					<!-- {{item.time_start}} --> {{item.post_title}}
+				</div>
+			</div>
 		</div>
 
-		<div class="clear"></div>
+		<canvas id="audio-visualizer"></canvas>
 	</div>
 </template>
 
@@ -22,6 +32,20 @@ Date.prototype.addHours = function(h) {
   this.setTime(this.getTime() + (h*60*60*1000));
   return this;
 }
+
+String.prototype.toHHMMSS = function () {
+    var sec_num = parseInt(this, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return hours+':'+minutes+':'+seconds;
+}
+
+
 
 export default {
 	components: {
@@ -35,24 +59,20 @@ export default {
 			playing: true,
 			currentTitle : '...loading',
 			audio: null,
+			last_audio: null,
 			next_timer: false,
+			toptimer: false,
+			playlist: [],
 		}
 	},
 	mounted (){
-		
-		//var audio
+		let $ = this.$
 
-		/*function play_next_audio(vue)
-		{
-			
-			
-		}*/
+		$('#header').hide()
 
 		this.play_next_audio()
 
 		this.$emit('template_mounted', this)
-
-		//$('#radio')[0].play()		
 	},
 	methods:{
 		play_next_audio: function(){
@@ -69,34 +89,57 @@ export default {
 
 			let select_current = false
 			let selected_index = false
-			let next_song = false
 			let next_index = false
 
 			let prev = null
 			let prev_index = 0
-			$.each(this.wp.radio_playlist, function(index, val) {
+
+			$.each(this.wp.radio_playlist, (index, val) => {
 
 				if( current_second_to_play >= prev_index && current_second_to_play < index && !select_current)
 				{
+					console.log('current', this.wp.radio_playlist[prev_index]);
+					this.wp.radio_playlist[prev_index]['current'] = true
+
 					selected_index = prev_index
 					select_current = prev
 
-					next_song = val
 					next_index = index
-				} 
+				}
+				else
+				{
+					this.wp.radio_playlist[index]['current'] = false
+				}
 
 				prev_index = index
 				prev = val
+
+				this.wp.radio_playlist[index]['time_start'] = ((start_in_second + index)).toHHMMSS()
 			});
+
+			this.playlist = this.wp.radio_playlist
 
 			let currentTime = current_second_to_play - selected_index
 
 			this.currentTitle = select_current.post_title
-			
 
+			this.toptimer = setTimeout( () =>{
+				
+				var new_top = $('.song-item.current').position().top - $('#player .playlist').position().top + $('#player .playlist').scrollTop() - ($('#player .playlist').outerHeight() / 2) + ($('.song-item.current').outerHeight() / 2)
+					//+ $('#player .playlist').scrollTop() 
+					/*- $('#player .playlist').outerHeight() 
+					- $('.song-item.current').outerHeight()*/
+
+				console.log( 'top', new_top, $('.song-item.current') );
+
+				$('#player .playlist').animate({scrollTop: new_top}, 150)
+				/*$('#player .playlist').scrollTop( 
+					$('.song-item.current').position().top - $('#player .playlist').outerHeight() - $('.song-item.current').outerHeight() )*/
+			}, 300)
+			
 			this.audio = new Audio('http://localhost/wp-food-theme/wp-content/uploads/' + select_current.metas._wp_attached_file)
 			//audio.currentTime = currentTime
-			this.audio.addEventListener("canplaythrough", event => {
+			this.audio.addEventListener("canplaythrough", () => {
 				
 				if( this.audio.currentTime != currentTime )
 				{
@@ -104,25 +147,22 @@ export default {
 				}
 				var promise = this.audio.play();
 				if (promise !== undefined) {
-					promise.then(_ => {
+					promise.then( () => {
 						this.playing = true
-					}).catch(error => {
+					}).catch(() => {
 						this.playing = false
 					});
 				}
+
+				this.visualizer()
 			})
 
 
-			this.next_timer = setTimeout( _ =>{
+			this.next_timer = setTimeout( () =>{
 				console.log('next by timer');
 				this.play_next_audio()
 			}, (next_index - current_second_to_play) * 1000)
-			//console.log('next', next_index - current_second_to_play, next_song);
 
-			/*this.audio.addEventListener("ended", _ => { 
-				console.log('next by end');
-				this.play_next_audio()
-			});*/
 		},
 		click_play_pause: function()
 		{
@@ -136,11 +176,102 @@ export default {
 				this.play_next_audio()
 			}
 			console.log('click_play_pause');
+		},
+		visualizer: function () {
+
+			var $ = this.$ 
+
+			if( this.last_audio == this.audio ) return false
+
+			console.log('visualizer started');
+
+			var context = new AudioContext();
+			var src = context.createMediaElementSource(this.audio);
+			var analyser = context.createAnalyser();
+
+			this.last_audio = this.audio
+
+			var canvas = document.getElementById("audio-visualizer");
+			canvas.width = $('#app').innerWidth();
+			canvas.height = window.innerHeight / 3;
+			var ctx = canvas.getContext("2d");
+
+			src.connect(analyser);
+			analyser.connect(context.destination);
+
+			analyser.fftSize = 256;
+
+			var bufferLength = analyser.frequencyBinCount;
+			console.log(bufferLength);
+
+			var dataArray = new Uint8Array(bufferLength);
+
+			var WIDTH = canvas.width;
+			var HEIGHT = canvas.height;
+
+			var barWidth = (WIDTH / bufferLength) * 2.5;
+			var barHeight;
+			var x = 0;
+
+			function renderFrame() {
+				requestAnimationFrame(renderFrame);
+
+				x = 0;
+
+				analyser.getByteFrequencyData(dataArray);
+
+				ctx.fillStyle = "#000";
+				ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+				for (var i = 0; i < bufferLength; i++) {
+					barHeight = dataArray[i];
+
+					var r = barHeight + (25 * (i/bufferLength));
+					var g = 250 * (i/bufferLength);
+					var b = 50;
+
+					ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+					ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+					x += barWidth + 1;
+				}
+			}
+
+			//audio.play();
+			renderFrame();
 		}
 	}
 }
 </script>
 
-<style>
-
+<style scoped>
+#player{
+	
+}
+#player .playlist{
+	height: 15vh;
+	width: 35vh;
+	max-width: 90%;
+	margin: auto;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	text-align: left;
+}
+#player .playlist > .song-item{
+	white-space: nowrap;
+	line-height: 180%;
+	padding: 0 2%;
+	opacity: 0.3;
+	color: #5C7EA1;
+}
+#player .playlist > .song-item.current {
+	display: block;
+	background-color: #2c3e50;
+	color: #5C7EA1;
+	opacity: 1 !important;
+}
+#audio-visualizer{
+	bottom: 0;
+	align-self: flex-end;
+}
 </style>

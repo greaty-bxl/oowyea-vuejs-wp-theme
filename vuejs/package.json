@@ -20,7 +20,9 @@
     "vue": "^2.6.11",
     "vue-awesome": "^4.1.0",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-gapi": "^0.3.1",
     "vue-swiper": "^0.5.0",
+    "vue-youtube": "^1.4.0",
     "vuex": "^3.5.1"
   },
   "devDependencies": {

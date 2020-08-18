@@ -207,7 +207,7 @@ html{
   color: #2c3e50;
   height: 100vh;
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .clear{

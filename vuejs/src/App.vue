@@ -168,6 +168,31 @@ export default {
 </script>
 
 <style>
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+
+}
+
+/* Track */
+#app::-webkit-scrollbar-track {
+  background: rgba(33,33,33,1);
+}
+#app *::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #595959;
+  border-radius: 7px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #595959;
+}
+
 html{
   height: 100vh;
   width: 100vw;

@@ -1,5 +1,7 @@
 <?php 
 
+include GREATY_TEMPLATE_PATH.'/libs/radio/yt-funny-bg.php';
+
 function radio_generate_order($post_id, $post)
 {
 	if( $post->post_type == 'radio-show' )
@@ -9,18 +11,17 @@ function radio_generate_order($post_id, $post)
 			'post_mime_type' => 'audio/mpeg',
 		    'post_status'    => 'inherit',
 		    'posts_per_page' => -1,
-		    'tax_query' => array(                     //(array) - use taxonomy parameters (available with Version 3.1).
-		        'relation' => 'AND',                      //(string) - Possible values are 'AND' or 'OR' and is the equivalent of running a JOIN for each taxonomy
+		    'tax_query' => array(  
+		        'relation' => 'AND',
 		          array(
-		            'taxonomy' => 'music_tag',                //(string) - Taxonomy.
-		            'field' => 'id',                    //(string) - Select taxonomy term by ('id' or 'slug')
-		            'terms' => $_POST['acf']['field_5f3862199a219'],    //(int/string/array) - Taxonomy term(s).
-		            'include_children' => true,           //(bool) - Whether or not to include children for hierarchical taxonomies. Defaults to true.
-		            'operator' => 'IN'                    //(string) - Operator to test. Possible values are 'IN', 'NOT IN', 'AND'.
+		            'taxonomy' => 'music_tag',
+		            'field' => 'id',
+		            'terms' => $_POST['acf']['field_5f3862199a219'],
+		            'include_children' => true,
+		            'operator' => 'IN'
 		          ),
 		        ),
 		));
-
 		
 		$musics_by_ids = (object) array();
 
@@ -93,7 +94,6 @@ function radio_generate_order($post_id, $post)
 		}
 
 		$playlist = array();
-		
 
 		if( count( $musics ) > 0 )
 		{
@@ -103,15 +103,6 @@ function radio_generate_order($post_id, $post)
 		$_POST['acf']['field_5f39042b7c73a'] = json_encode( $playlist );
 
 		update_post_meta( $post_id, 'playlist_array', $playlist );
-		//echo "<pre>";
-		//print_r( $playlist );
-		//print_r( $_POST['acf']['field_5f3862199a219'] );
-		//print_r( $playlist_duration_seconds );
-		//exit();
-
-		/*echo "<pre>";
-		print_r( $playlist );
-		exit();*/
 
 	}
 }
@@ -137,16 +128,13 @@ function get_radio_playlist()
 			$current_show = $shows->post;
 			$current_show_playlist = get_post_meta( $current_show->ID, 'playlist_array', true );
 
+			/*echo "<pre>";
+			print_r(id3_get_tag( $current_show_playlist[0]->guid ) );
+			exit();*/
+			//id3_get_tag 
+
 			wp_vue_add_var('radio_show', $current_show);
 			wp_vue_add_var('radio_playlist', $current_show_playlist);	
-
-			/*echo "<pre>";
-			print_r( $current_show );
-
-			echo "<pre>";
-			print_r( $current_show_playlist );
-			//get_page_template_slug
-			exit();*/
 		}
 	}
 	

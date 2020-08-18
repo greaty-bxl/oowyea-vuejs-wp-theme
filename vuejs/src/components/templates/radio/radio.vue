@@ -1,3 +1,4 @@
+<!-- template: Radio -->
 <template>
 	<div class="section-wrap">
 		<div class="clear"></div>
@@ -57,6 +58,7 @@ export default {
 	data(){
 		return {
 			playing: true,
+			paused: false,
 			currentTitle : '...loading',
 			audio: null,
 			last_audio: null,
@@ -71,6 +73,12 @@ export default {
 		$('#header').hide()
 
 		this.play_next_audio()
+
+		$(window).resize( () => {
+			var canvas = document.getElementById("audio-visualizer");
+			canvas.width = $('#app').innerWidth();
+			canvas.height = window.innerHeight / 3;
+		});
 
 		this.$emit('template_mounted', this)
 	},
@@ -126,15 +134,8 @@ export default {
 			this.toptimer = setTimeout( () =>{
 				
 				var new_top = $('.song-item.current').position().top - $('#player .playlist').position().top + $('#player .playlist').scrollTop() - ($('#player .playlist').outerHeight() / 2) + ($('.song-item.current').outerHeight() / 2)
-					//+ $('#player .playlist').scrollTop() 
-					/*- $('#player .playlist').outerHeight() 
-					- $('.song-item.current').outerHeight()*/
-
-				console.log( 'top', new_top, $('.song-item.current') );
 
 				$('#player .playlist').animate({scrollTop: new_top}, 150)
-				/*$('#player .playlist').scrollTop( 
-					$('.song-item.current').position().top - $('#player .playlist').outerHeight() - $('.song-item.current').outerHeight() )*/
 			}, 300)
 			
 			this.audio = new Audio('http://localhost/wp-food-theme/wp-content/uploads/' + select_current.metas._wp_attached_file)
@@ -145,16 +146,20 @@ export default {
 				{
 					this.audio.currentTime = currentTime
 				}
-				var promise = this.audio.play();
-				if (promise !== undefined) {
-					promise.then( () => {
-						this.playing = true
-					}).catch(() => {
-						this.playing = false
-					});
-				}
 
-				this.visualizer()
+				if( this.paused == false )
+				{
+					var promise = this.audio.play();
+					if (promise !== undefined) {
+						promise.then( () => {
+							this.playing = true
+						}).catch(() => {
+							this.playing = false
+						});
+					}
+
+					this.visualizer()	
+				}
 			})
 
 
@@ -170,9 +175,11 @@ export default {
 			{
 				this.audio.pause()
 				this.playing = false
+				this.paused = true
 			}
 			else
 			{
+				this.paused = false
 				this.play_next_audio()
 			}
 			console.log('click_play_pause');
@@ -199,45 +206,61 @@ export default {
 			src.connect(analyser);
 			analyser.connect(context.destination);
 
-			analyser.fftSize = 256;
+			analyser.fftSize = 256 * 64//256;
 
 			var bufferLength = analyser.frequencyBinCount;
-			console.log(bufferLength);
 
 			var dataArray = new Uint8Array(bufferLength);
 
-			var WIDTH = canvas.width;
-			var HEIGHT = canvas.height;
-
-			var barWidth = (WIDTH / bufferLength) * 2.5;
+			
 			var barHeight;
 			var x = 0;
 
+			var _this = this
+			var max_height = 0
+
 			function renderFrame() {
-				requestAnimationFrame(renderFrame);
+
+				var WIDTH = canvas.width;
+				var HEIGHT = canvas.height;
+
+				var barWidth = (WIDTH / bufferLength) * 2.5;
+
+				requestAnimationFrame(renderFrame);				
 
 				x = 0;
 
 				analyser.getByteFrequencyData(dataArray);
 
-				ctx.fillStyle = "#000";
-				ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
+				var canContext = canvas.getContext('2d');
+				canContext.clearRect(0, 0, canvas.width, canvas.height)
+				/*ctx.fillStyle = $(_this.$el).css('background-color');
+				ctx.fillRect(0, 0, WIDTH, HEIGHT);*/
+				//context.clearRect(0, 0, canvas.width, canvas.height);
+				//console.log(bufferLength);
 				for (var i = 0; i < bufferLength; i++) {
-					barHeight = dataArray[i];
+					//console.log(i);
+					barHeight = dataArray[i] / 1;
+
+					if( barHeight > max_height )
+					{
+						max_height = barHeight
+					}
+
+					var percent = Math.round( barHeight / max_height * 100 ) / 100
+					//console.log(percent);
 
 					var r = barHeight + (25 * (i/bufferLength));
 					var g = 250 * (i/bufferLength);
 					var b = 50;
 
-					ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+					//ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+					ctx.fillStyle = "rgba(255,255,255, "+percent+")"
 					ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-					x += barWidth + 1;
+					x += barWidth + 0;
 				}
 			}
-
-			//audio.play();
 			renderFrame();
 		}
 	}
@@ -245,8 +268,8 @@ export default {
 </script>
 
 <style scoped>
-#player{
-	
+h1{
+	color: #fff
 }
 #player .playlist{
 	height: 15vh;
@@ -263,15 +286,19 @@ export default {
 	padding: 0 2%;
 	opacity: 0.3;
 	color: #5C7EA1;
+	overflow: hidden;
+	width: 92%;
 }
 #player .playlist > .song-item.current {
 	display: block;
 	background-color: #2c3e50;
 	color: #5C7EA1;
 	opacity: 1 !important;
+	width: auto;
 }
 #audio-visualizer{
 	bottom: 0;
 	align-self: flex-end;
+	opacity: 0.5
 }
 </style>

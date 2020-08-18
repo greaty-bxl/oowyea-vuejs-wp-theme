@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import store from './store/index.js'
 
 Vue.config.productionTip = false
 
@@ -20,7 +21,8 @@ Vue.component('v-icon', Icon)
 if( process.env.NODE_ENV === 'development' ) console.log('development mode')
 
 new Vue({
-  render: h => h(App),
+	store,
+	render: h => h(App),
 }).$mount('#app')
 
 window.vue = Vue

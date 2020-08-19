@@ -5,7 +5,7 @@
 <div class="global-descriptif">
 <div class="all-description">
 
-	<p>Nom du Client</p>
+	<p  v-html="this.wp.title"></p>
 
 	<div class="info">
 		<p>lorem ipsum </p>
@@ -16,20 +16,31 @@
 	
 </div>
 <!-- <img :src="this.wp.thumb" > -->
- <div class="image"></div>
+ <div class="image" :src="this.wp.thumb" ></div>
 </div>
 
-<swiper class="swiper1" :options="swiperOption1">
+<div class="post-client">
 
-	<swiper-slide  class="slide-full-view" v-for="child in this.wp.projects" :key="child.ID" >
+<div class="g-project" v-for="child in wp.projects" :key="child.ID">
+	
+		<div class="icon global-project test__item on-screen" >
+		
+				<a :href="child.permalink" >
+					<div class="client">
 
-		<h2 v-html="child.post_title"></h2>
-		<p v-html="child.post_content"></p>
-		<a :href="child.permalink">Read more</a>
+						<img class="image-client" height="100%" :src="child.thumb" >
+						<p class="name-client" v-html="child.post_title" ></p>
+						<p class="role-greaty">Corporated Website</p>
 
-	</swiper-slide>
+					</div>
+				</a>
+			
+		</div>
+	
+</div>
 
-</swiper>
+</div>
+
 
 <!-- <h1 v-html="this.wp.title">single</h1>
 <div v-html="this.wp.post_content"></div> -->
@@ -41,43 +52,28 @@
 
 <script>
 
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-import 'swiper/css/swiper.css';
+	/*import Alpl from 'Molecules/animation-line-per-line';
+	import anime from 'animejs/lib/anime.es.js';*/
 
 export default {
 		components: {
-			Swiper,
-			SwiperSlide,
+
 		},
-		data () {
-			return {
-				swiperOption1:{
-					slidesPerView: 1,
-					initialSlide: 0,
-					loop: true,	
-					mousewheel: false,
-					// allowTouchMove: false,
-					runCallbacksOnInit: true,
-					setTransition: 2000,
-					navigation: {
-							nextEl: '.flex-gauche',
-							prevEl: '.flex-droite',
-					},
-				},
-			}
-		},
+
 		props: {
 
 		'post' : Object
 		},
 		mounted (){
 
-			//var $ = this.$
+// <<<<<<< HEAD
+// 		var $ = this.$
+// =======
+// 			//var $ = this.$
+// >>>>>>> e4d8f4f7ea710344ee7ff8d30b6af9da147347f3
 
-		console.log( this.wp.ID );
+		console.log( this.wp);
 		console.log( this.wp.projects );
-
-
 
 		this.$emit('template_mounted', this)
 
@@ -87,12 +83,9 @@ export default {
 
 </script>
 
-<style scoped >
+<style scope >
 
-	.swiper1{
-
-		height: 50vh;
-	}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
 	.global-descriptif{
 
@@ -171,6 +164,146 @@ export default {
 
    }
 
+   body {
+   margin: 0 !important;
+   padding: 0;
+   font-family: 'Open Sans', regular;
+
+   }
+
+   a{
+   color: #e1e1e1;
+   text-decoration: none;
+   }
+
+
+
+   .global-project p{
+
+   text-align: left;
+   }
+
+
+
+   a{color: #e1e1e1 ;}
+
+   .div-text-homepage{
+   display: flex;
+   /*height: 100vh;/*/
+   width: 80%;
+   /*padding-top: 100px;*/
+   padding-left: auto;
+   padding-right: auto;
+
+   }
+
+   .image-client{
+
+   width: 100%;
+
+   background-color: white;
+
+   }
+   .client img{
+
+   width: 45%;
+   height: 59vh;
+
+   }
+
+
+   .name-client{
+
+   font-size: 20px;
+   margin-bottom: 5px;
+   font-family: 'Gotham Book Regular', sans-serif; 
+
+   }
+
+   .role-greaty{
+
+   font-size: 12px;
+   margin-top: 0px;
+   font-family: 'Gotham Book Regular', sans-serif; 
+
+   }
+
+	@media screen and (min-width: 800px) {
+
+	.post-client{
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+
+	.g-project{
+
+	z-index: 10;
+	width: calc(50% - 70px) !important;
+	height: auto;
+	min-height: 400px;
+	/*	margin: 35px;*/
+
+	display: inline-block;
+	/*padding-right: 5%*/
+	}
+
+
+	.client img{
+
+	width: 100% !important;
+	height: 60vh;
+	min-height: 400px;
+	/*background-color: white;*/
+
+	}
+
+
+   .text-homepage{
+   padding-top: 10%;
+   padding-bottom: 5%;
+   width: 100% !important;
+   margin: auto 70px;
+   width: 100%;
+   font-size: 3.1em;
+   color: #e1e1e1;
+   font-family: "Open Sans", regular !important;
+   font-weight: lighter;
+   ;
+   }
+
+
+   }
+
+   @media screen and (max-width: 1200px) {
+   .client{
+
+   width: 100% !important;
+   height: 60vw;
+
+   margin-left: auto;
+   margin-right: auto;
+
+
+   }
+
+   .global-project{
+   z-index: 10;
+   width: 90% !important;
+   /*margin-left: auto;
+   margin-right: auto;*/
+   margin: 20px !important;
+
+   }
+
+   .image-client{
+
+   height: 100%;
+   background-color: white;
+   }
+
+
+
+   }
 
 
 

@@ -72,7 +72,7 @@ export default {
 		},
 		mounted (){
 
-			var $ = this.$
+			//var $ = this.$
 
 		console.log( this.wp.ID );
 		console.log( this.wp.projects );

@@ -176,6 +176,8 @@ let YAngle = 0;
 
 <style scoped >
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
+
 	
 body {
 margin: 0 !important;
@@ -343,54 +345,6 @@ width: 45%;
 height: 59vh;
 
 }
-
-
-.image-client-1{
-
-height: 100%;
-/*background:  no-repeat  center/100% url( "images/Greaty_axa_cover.jpg") ;*/
-/*background-repeat: 'no-repeat';*/
-background-size: 'cover';
-/*background-position: 'left';*/
-width: 100%;
-}
-
-.image-client-2{
-
-height: 100%;
-/*background:  no-repeat  center/100% url( "images/Greaty_Eveil_cover.jpg") ;*/
-/*background-repeat: 'no-repeat';*/
-background-size: 'cover';
-/*background-position: 'left';*/
-}
-
-.image-client-3{
-
-height: 100%;
-/*background:  no-repeat  center/100% url( "images/Greaty_vauban_cover.jpg") ;*/
-/*background-repeat: 'no-repeat';*/
-background-size: 'cover';
-/*background-position: 'left';*/
-}
-
-.image-client-4{
-
-height: 100%;
-/*background:  no-repeat  center/100% url( "images/Greaty_vauban_cover-1.jpg") ;*/
-/*background-repeat: 'no-repeat';*/
-background-size: 'cover';
-
-}
-
-.image-client-5{
-
-height: 100%;
-/*background:  no-repeat  center/100% url( "images/Majolie_cover.jpg") ;*/
-/*background-repeat: 'no-repeat';*/
-background-size: 'cover';
-
-}
-
 
 
 .name-client{

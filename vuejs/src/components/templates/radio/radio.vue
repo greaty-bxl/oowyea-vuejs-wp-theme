@@ -40,8 +40,6 @@
 				<v-icon name="bars" ></v-icon>
 			</div>
 		</div>
-		
-
 		<canvas id="audio-visualizer"></canvas>
 	</div>
 </template>
@@ -65,13 +63,13 @@ String.prototype.toHHMMSS = function () {
     return hours+':'+minutes+':'+seconds;
 }
 
-function baseName(str)
+/*function baseName(str)
 {
    var base = new String(str).substring(str.lastIndexOf('/') + 1); 
     if(base.lastIndexOf(".") != -1)       
         base = base.substring(0, base.lastIndexOf("."));
    return base;
-}
+}*/
 
 import Vue from 'vue'
 import VueGAPI from 'vue-gapi'
@@ -133,7 +131,7 @@ export default {
 		$(window).resize( () => {
 			var canvas = document.getElementById("audio-visualizer");
 			canvas.width = $('#app').innerWidth();
-			canvas.height = window.innerHeight * 0.20;;
+			canvas.height = window.innerHeight * 0.20;
 		});
 
 		/*this.$gapi.getGapiClient().then((gapi) => {
@@ -223,7 +221,7 @@ export default {
 				this.cover = get_cover
 			})
 			.fail( () => {
-			    this.cover = this.post.thumb
+				this.cover = this.post.thumb
 			});
 
 			this.audio = new Audio(music_url)
@@ -295,7 +293,7 @@ export default {
 			src.connect(analyser);
 			analyser.connect(context.destination);
 
-			analyser.fftSize = 256 * 64//256;
+			analyser.fftSize = 256 * 8//256;
 
 			var bufferLength = analyser.frequencyBinCount;
 
@@ -328,7 +326,7 @@ export default {
 				//console.log(bufferLength);
 				for (var i = 0; i < bufferLength; i++) {
 					//console.log(i);
-					barHeight = dataArray[i] / 2;
+					barHeight = dataArray[i] / 3;
 
 					if( barHeight > max_height )
 					{
@@ -346,7 +344,7 @@ export default {
 					ctx.fillStyle = "rgba(255,255,255, "+percent+")"
 					ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-					x += barWidth + 0;
+					x += barWidth + 2;
 				}
 			}
 			renderFrame();

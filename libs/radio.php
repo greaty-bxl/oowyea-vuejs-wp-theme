@@ -1,6 +1,6 @@
 <?php 
 
-include GREATY_TEMPLATE_PATH.'/libs/radio/yt-funny-bg.php';
+//include GREATY_TEMPLATE_PATH.'/libs/radio/yt-funny-bg.php';
 
 function radio_generate_order($post_id, $post)
 {

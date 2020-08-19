@@ -69,8 +69,12 @@ function get_sections()
 	}
 	else
 	{
-		
-		$sections[0] = $wp_query->post;	
+		$sections[0] = (object) 'section';
+
+		if( is_object($wp_query->post) )
+		{
+			$sections[0] = $wp_query->post;	
+		}
 		$sections[0]->template = get_vue_template();
 
 

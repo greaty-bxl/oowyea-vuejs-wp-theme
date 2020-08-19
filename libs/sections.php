@@ -69,10 +69,12 @@ function get_sections()
 	}
 	else
 	{
-		$sections[0] = (object) 'section';		
+		
+		$sections[0] = $wp_query->post;	
 		$sections[0]->template = get_vue_template();
 
-		if( $wp_query->posts )
+
+		if( count( $wp_query->posts ) > 1 )
 		{
 			$sections[0]->children = apply_filters( 'posts_results', $wp_query->posts );
 		}
@@ -93,6 +95,10 @@ function get_sections()
 	{
 		$wp_query->queried_object->post_content = apply_filters( 'the_content', $wp_query->queried_object->post_content );
 	}
+
+	/*echo "<pre>";
+	print_r($sections);
+	exit();*/
 	
 	wp_vue_add_var('sections', $sections);
 }

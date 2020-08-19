@@ -16,7 +16,7 @@
 	
 </div>
 <!-- <img :src="this.wp.thumb" > -->
- <div class="image"></div>
+ <div class="image" :src="this.wp.thumb" ></div>
 </div>
 
 <div class="post-client">
@@ -66,9 +66,13 @@ export default {
 		},
 		mounted (){
 
-		var $ = this.$
+// <<<<<<< HEAD
+// 		var $ = this.$
+// =======
+// 			//var $ = this.$
+// >>>>>>> e4d8f4f7ea710344ee7ff8d30b6af9da147347f3
 
-		console.log( this.wp.ID );
+		console.log( this.wp);
 		console.log( this.wp.projects );
 
 		this.$emit('template_mounted', this)
@@ -224,40 +228,34 @@ export default {
 
    }
 
-   /*.global-project{
+	@media screen and (min-width: 800px) {
 
-   	overflow-x: hidden;
+	.post-client{
+		padding-left: 35px;
+		padding-right: 35px;
+	}
 
-   }*/
+	.g-project{
 
-   @media screen and (min-width: 800px) {
+	z-index: 10;
+	width: calc(50% - 70px) !important;
+	height: auto;
+	min-height: 400px;
+	/*	margin: 35px;*/
 
-   	.post-client{
-   		padding-left: 35px;
-   		padding-right: 35px;
-   	}
-
-   .g-project{
-
-   	z-index: 10;
-   	width: calc(50% - 70px) !important;
-   	height: auto;
-   	min-height: 400px;
-   /*	margin: 35px;*/
-
-   	display: inline-block;
-   	/*padding-right: 5%*/
-   }
+	display: inline-block;
+	/*padding-right: 5%*/
+	}
 
 
-   .client img{
+	.client img{
 
-   width: 100% !important;
-   height: 60vh;
-   min-height: 400px;
-   /*background-color: white;*/
+	width: 100% !important;
+	height: 60vh;
+	min-height: 400px;
+	/*background-color: white;*/
 
-   }
+	}
 
 
    .text-homepage{

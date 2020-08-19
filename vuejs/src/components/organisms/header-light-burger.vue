@@ -1,37 +1,26 @@
 <template>
 	<div id="header" class="header-greaty">
-			<div class="clear"></div>
-			<div id="header-logo"><Acf field="logo"/></div>
-			<!-- <div id="header-menu"></div> -->
-			<div id="right-panel">
-			
-					<ul>
-					<div class="headerButton" style="pointer-events: auto;">
-					<div class="headerMore"><span></span><span></span><span></span></div>
-					<div class="headerBody">
+		<div class="clear"></div>
+		<div id="header-logo"><Acf field="logo"/></div>
+		<!-- <div id="header-menu"></div> -->
+		<div id="right-panel">
+			<div class="headerButton" style="pointer-events: auto;">
+				<div class="headerMore"><span></span><span></span><span></span></div>
+				<div class="headerBody">
 					<div class="topBody">
-						
 						<div v-html="wp.menus['burger-menu']" ></div>
-
 					</div>
-
 					<ul class="bottomBody">
-
-					<li>ENTRER EN CONTACT</li><br>
-					<li><a href="tel:88002011486">8 800 201 1486</a></li>
-					<li><a href="mailto:hello@roky.rocks">hello@roky.rocks</a></li><br>
-					<li><a href="https://www.instagram.com/rokystudio/" target="_blank">Instagram</a></li>
-					<li><a href="https://www.facebook.com/rokystudio/" target="_blank">Facebook</a></li>
-					<li><a href="https://www.linkedin.com/company/rokyrocks/" target="_blank">LinkedIn</a></li>
-
+						<li>ENTRER EN CONTACT</li><br>
+						<li><a href="tel:88002011486">8 800 201 1486</a></li>
+						<li><a href="mailto:hello@roky.rocks">hello@roky.rocks</a></li><br>
+						<li><a href="https://www.instagram.com/rokystudio/" target="_blank">Instagram</a></li>
+						<li><a href="https://www.facebook.com/rokystudio/" target="_blank">Facebook</a></li>
+						<li><a href="https://www.linkedin.com/company/rokyrocks/" target="_blank">LinkedIn</a></li>
 					</ul>
-					</div>
-					</div>
-
-					</ul>
-					
 				</div>
-		
+			</div>		
+		</div>
 		<div class="clear"></div>
 	</div>
 </template>
@@ -259,7 +248,9 @@ export default {
 </script>
 
 <style >
-
+.header-greaty{
+	/*position: fixed;*/
+}
 .menu{
 	
 	padding-left: 0px !important;
@@ -401,6 +392,9 @@ padding-bottom: 20px;
 
 	}
 	
+}
+#header-logo {
+	position: absolute;
 }
 
 #header-logo img{

@@ -58,7 +58,7 @@ module.exports = {
   runtimeCompiler: true,
   devServer: { 
     https: false,
-    port: 8080
+    port: 8091
   },
   transpileDependencies: ['ansi-regex']
 }

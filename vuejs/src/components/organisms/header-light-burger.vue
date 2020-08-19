@@ -177,21 +177,21 @@ export default {
 
 		// click external than the parents class menu function close
       
-			$(function() {
-				$(".headerButton").on("click", function(e) {
-				e.stopPropagation()
-				});
-				$(document).on("click", function(e) {
-				if ($(e.target).is(".headerButton") === false) {
+			// $(function() {
+			// 	$(".headerButton").on("click", function() {
+			// 	// e.stopPropagation()
+			// 	});
+			// 	$(document).on("click", function(e) {
+			// 	if ($(e.target).is(".headerButton") === false) {
 
-					if ($(".headerButton").hasClass('open')) {
+			// 		if ($(".headerButton").hasClass('open')) {
 
-						close()
-					}
+			// 			close()
+			// 		}
 					
-				}
-				});
-			});
+			// 	}
+			// 	});
+			// });
 
 		// click external than the parents class menu function close
 

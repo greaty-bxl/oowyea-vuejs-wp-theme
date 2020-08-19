@@ -5,7 +5,7 @@
 <div class="global-descriptif">
 <div class="all-description">
 
-	<p>Nom du Client</p>
+	<p  v-html="this.wp.title"></p>
 
 	<div class="info">
 		<p>lorem ipsum </p>

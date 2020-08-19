@@ -120,7 +120,7 @@ export default {
 	mounted (){
 		let $ = this.$
 
-		console.log(this.post);
+		//console.log(this.post);
 
 		this.cover = this.post.thumb
 
@@ -137,7 +137,7 @@ export default {
 		/*this.$gapi.getGapiClient().then((gapi) => {
 			// gapi.sheets.spreadsheet.get(...)
 			// ...
-			console.log('gapi',gapi);
+			//console.log('gapi',gapi);
 
 			var arr_search = {
 				"part": 'snippet',
@@ -150,7 +150,7 @@ export default {
 			 
 		    gapi.client.youtube.search.list(arr_search)
 		    .then(function(response) {
-		    	console.log('response',response);
+		    	//console.log('response',response);
 		    });
 		})*/
 
@@ -181,7 +181,7 @@ export default {
 
 				if( current_second_to_play >= prev_index && current_second_to_play < index && !select_current)
 				{
-					console.log('current', this.wp.radio_playlist[prev_index]);
+					//console.log('current', this.wp.radio_playlist[prev_index]);
 					this.wp.radio_playlist[prev_index]['current'] = true
 
 					selected_index = prev_index
@@ -213,12 +213,16 @@ export default {
 				$('#player .playlist').animate({scrollTop: new_top}, 150)
 			}, 300)
 
-			console.log( this.wp.upload_baseurl )
+			//console.log( this.wp.upload_baseurl )
 
 			let music_url = this.wp.upload_baseurl + '/' + select_current.metas._wp_attached_file
 
-			let get_cover = music_url.toString().replace(/\./g,'-')/*.toLowerCase()*/+'-image.jpg'
-			console.log('_wp_attached_file', get_cover);
+			let get_cover = music_url.toString()
+				.replace(/(\.-)/g,'-')
+				.replace(/\./g,'-') + '-image.jpg'
+
+			//console.log( ("test.-test").replace(/(\.-)/g,'-') )
+			//console.log('_wp_attached_file', get_cover);
 			$.get(get_cover, () => {
 				this.cover = get_cover
 			})
@@ -252,7 +256,7 @@ export default {
 
 			clearTimeout(this.next_timer);
 			this.next_timer = setTimeout( () =>{
-				console.log('next by timer');
+				//console.log('next by timer');
 				this.play_next_audio()
 			}, (next_index - current_second_to_play) * 1000)
 
@@ -270,7 +274,7 @@ export default {
 				this.paused = false
 				this.play_next_audio()
 			}
-			console.log('click_play_pause');
+			//console.log('click_play_pause');
 		},
 		visualizer: function () {
 
@@ -278,7 +282,7 @@ export default {
 
 			if( this.last_audio == this.audio ) return false
 
-			console.log('visualizer started');
+			//console.log('visualizer started');
 
 			var context = new AudioContext();
 			var src = context.createMediaElementSource(this.audio);
@@ -324,9 +328,9 @@ export default {
 				/*ctx.fillStyle = $(_this.$el).css('background-color');
 				ctx.fillRect(0, 0, WIDTH, HEIGHT);*/
 				//context.clearRect(0, 0, canvas.width, canvas.height);
-				//console.log(bufferLength);
+				////console.log(bufferLength);
 				for (var i = 0; i < bufferLength; i++) {
-					//console.log(i);
+					////console.log(i);
 					barHeight = dataArray[i] / 3;
 
 					if( barHeight > max_height )
@@ -335,7 +339,7 @@ export default {
 					}
 
 					var percent = Math.round( barHeight / max_height * 100 ) / 100
-					//console.log(percent);
+					////console.log(percent);
 
 					/*var r = barHeight + (25 * (i/bufferLength));
 					var g = 250 * (i/bufferLength);
@@ -351,7 +355,7 @@ export default {
 			renderFrame();
 		},
 		YT_ready : function(){
-			console.log('ready yt');
+			//console.log('ready yt');
 			this.$refs.youtube.player.mute()
 			/*this.$refs.youtube.player.cueVideoById({videoId:this.YtId,
 			                     startSeconds:0,
@@ -360,13 +364,13 @@ export default {
 			this.$refs.youtube.player.playVideo()*/
 		},
 		YT_playing : function() {
-			console.log('playing yt');
+			//console.log('playing yt');
 			let $ = this.$
 			$(this.$el).find('.yt-bg').show();
 			$(this.$el).find('.yt-bg').animate({opacity: 0.3}, 3000)
 		},
 		YT_ended : function(){
-			console.log('ended yt');
+			//console.log('ended yt');
 			this.$refs.youtube.player.playVideo()
 		}
 	}

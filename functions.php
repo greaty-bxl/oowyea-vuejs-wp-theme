@@ -24,7 +24,6 @@ include GREATY_TEMPLATE_PATH.'/vue.config.php';
 // $wp_vue_json will be used in Vue as vue.wp or this.wp in components
 $wp_vue_json;
 
-include GREATY_TEMPLATE_PATH.'/libs/vuejs-builder.php';
 include GREATY_TEMPLATE_PATH.'/libs/get_vue_template.php';
 include GREATY_TEMPLATE_PATH.'/libs/wp_vue_add_var.php';
 include GREATY_TEMPLATE_PATH.'/libs/vue-to-templates.php';
@@ -56,7 +55,7 @@ function get_oowyea_home()
 function oowyea_menus()
 {
     add_menu_page( 'oowYea', 'oowYea', 'edit_theme_options', 'oowyea-home', 'get_oowyea_home');
-    add_submenu_page( 'oowyea-home', 'Vue builder', 'Vue builder', 'edit_theme_options', 'vue-builder', 'get_vuejs_builder' );
+    //add_submenu_page( 'oowyea-home', 'Vue builder', 'Vue builder', 'edit_theme_options', 'vue-builder', 'get_vuejs_builder' );
 }
 
 

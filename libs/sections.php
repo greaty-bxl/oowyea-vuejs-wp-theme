@@ -66,6 +66,8 @@ function get_sections()
 				$post = $clonePost;
 			}
 		}
+
+		$sections = apply_filters( 'posts_results', $sections ) ;
 	}
 	else
 	{

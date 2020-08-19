@@ -128,11 +128,6 @@ function get_radio_playlist()
 			$current_show = $shows->post;
 			$current_show_playlist = get_post_meta( $current_show->ID, 'playlist_array', true );
 
-			/*echo "<pre>";
-			print_r(id3_get_tag( $current_show_playlist[0]->guid ) );
-			exit();*/
-			//id3_get_tag 
-
 			wp_vue_add_var('radio_show', $current_show);
 			wp_vue_add_var('radio_playlist', $current_show_playlist);	
 		}

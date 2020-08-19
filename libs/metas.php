@@ -1,6 +1,6 @@
 <?php
 
-function get_menus()
+/*function get_menus()
 {
 	$metas = array();
 
@@ -9,4 +9,4 @@ function get_menus()
 }
 
 add_action( 'wp_head', 'get_menus' );
-add_action( 'wp', 'get_menus' );
+add_action( 'wp', 'get_menus' );*/

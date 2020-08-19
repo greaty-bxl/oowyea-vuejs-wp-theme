@@ -1,7 +1,7 @@
 <template page-template="Radio">
 	<div class="section-wrap">
-		<div id="yt-bg" v-if="playing">
-			<youtube :video-id="YtId" :player-vars="YtVars" @ready="YT_ready" @playing="YT_playing" @ended="YT_ended" ref="youtube"></youtube>
+		<div class="yt-bg" v-if="playing">
+			<youtube class="yt-iframe" :video-id="YtId" :player-vars="YtVars" @ready="YT_ready" @playing="YT_playing" @ended="YT_ended" ref="youtube"></youtube>
 		</div>
 		<div class="clear"></div>
 		<div>
@@ -113,6 +113,7 @@ export default {
 				controls: 0,
 				showinfo: 0,
 				loop: 1,
+				suggestedQuality:'large',
 			}
 		}
 	},
@@ -123,7 +124,7 @@ export default {
 
 		this.cover = this.post.thumb
 
-		$('#header, #footer').hide()
+		//$('#header, #footer').hide()
 
 		this.play_next_audio()
 
@@ -212,9 +213,11 @@ export default {
 				$('#player .playlist').animate({scrollTop: new_top}, 150)
 			}, 300)
 
-			let music_url = 'http://localhost/wp-food-theme/wp-content/uploads/' + select_current.metas._wp_attached_file
+			console.log( this.wp.upload_baseurl )
 
-			let get_cover = music_url.toString().replace('.mp3','-mp3')/*.toLowerCase()*/+'-image.jpg'
+			let music_url = this.wp.upload_baseurl + '/' + select_current.metas._wp_attached_file
+
+			let get_cover = music_url.toString().replace(/\./g,'-')/*.toLowerCase()*/+'-image.jpg'
 			console.log('_wp_attached_file', get_cover);
 			$.get(get_cover, () => {
 				this.cover = get_cover
@@ -239,12 +242,11 @@ export default {
 					if (promise !== undefined) {
 						promise.then( () => {
 							this.playing = true
+							setTimeout(()=>{this.visualizer()}, 250)
 						}).catch(() => {
 							this.playing = false
 						});
-					}
-
-					setTimeout(()=>{this.visualizer()}, 250)	
+					}	
 				}
 			})
 
@@ -360,8 +362,8 @@ export default {
 		YT_playing : function() {
 			console.log('playing yt');
 			let $ = this.$
-			$('#yt-bg').show();
-			$('#yt-bg').animate({opacity: 1}, 3000)
+			$(this.$el).find('.yt-bg').show();
+			$(this.$el).find('.yt-bg').animate({opacity: 0.3}, 3000)
 		},
 		YT_ended : function(){
 			console.log('ended yt');
@@ -390,12 +392,6 @@ h2{
 .section-wrap{
 	color: #fff
 }
-</style>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Open+Sans+Condensed:wght@300&display=swap');
-
-
 #player .play-pause{
 	background-size: cover;
 	margin: auto;
@@ -404,7 +400,7 @@ h2{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	opacity: 0.7;
+	opacity: 0.90;
 	/*border-radius: 33vh;*/
 }
 #player .play-pause > svg {
@@ -458,10 +454,7 @@ h2{
 	align-self: flex-end;
 	opacity: 0.8
 }
-.section-wrap > * {
-	z-index: 1;
-}
-#yt-bg{
+.yt-bg{
 	display: none;
 	width:100%;
 	height:100vh;
@@ -471,16 +464,24 @@ h2{
 	pointer-events:none;
 	opacity: 0;
 }
-iframe{
+.section-wrap > * {
+	z-index: 1;
+}
+
+</style>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Open+Sans+Condensed:wght@300&display=swap');
+
+.yt-iframe {
 	position: absolute;
 	/*left: 50%;
 	top: 50%;
 	transform: translateY(-50%) translateX(-50%);*/
-	transform: translateX(-50%) scale(1.4);
+	transform: translateX(-50%) scale(1.3);
 	height: 100vh;
 	width: 177vh;
 	/*margin: auto;*/
 	/*margin-top: -72px;*/
 }
 </style>
-

@@ -4,7 +4,7 @@ function my_posts_results_filter( $posts ) {
 
 	if( !is_array($posts) )
 	{
-		$post = $post;
+		$post = $posts;
 		$posts = array( 0 => $post );
 	}
 	foreach ($posts as $key2 => $child) 

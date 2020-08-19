@@ -73,7 +73,8 @@ function get_sections()
 
 		if( is_object($wp_query->post) )
 		{
-			$sections[0] = $wp_query->post;	
+			$sections[0] = apply_filters( 'posts_results', $wp_query->post )[0];	
+			$sections[0]->post_content = apply_filters( 'the_content', $sections[0]->post_content );
 		}
 		$sections[0]->template = get_vue_template();
 

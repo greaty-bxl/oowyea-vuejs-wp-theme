@@ -88,16 +88,11 @@ export default function (vue)
 	}
 
 	$(document).on('click', 'a', (event) => {
-
-		/* Act on the event */
 		let href = $(event.target).prop('href')
-
 		open_link(event, href)
-
 	});
 
 	window.onpopstate = function(event) {
-
 		open_link(event, document.location.href, false)
 	};
 }

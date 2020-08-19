@@ -11,20 +11,20 @@
 <div class="adresse-social">
 
 <div>
-  <p>Greaty</p>
-  <p>Boulevard de l'Humanité 415,</p>
-  <p>1190 Bruxelles</p> 
+  <p class="on-screen">Greaty</p>
+  <p class="on-screen">Boulevard de l'Humanité 415,</p>
+  <p class="on-screen">1190 Bruxelles</p> 
 </div>
 
 </div>
 
 <div class="confidentialite">
 
-<p> <a href="">GREATY © 2020</a></p>
+<p class="on-screen"><a  href="">GREATY © 2020</a></p>
 
-<p><a href="">Confidentialité</a></p>
+<p class="on-screen"><a href="">Confidentialité</a></p>
 
-<p><a href="">Conditions générales</a></p>
+<p class="on-screen"><a href="">Conditions générales</a></p>
 
 </div>
 
@@ -38,14 +38,85 @@
 </template>
 
 <script>
-	export default {
 
+	import Alpl from 'Molecules/animation-line-per-line';
+	import anime from 'animejs/lib/anime.es.js';
+	export default {
+		Alpl,
+		anime,
+
+		mounted(){
+			var $ = this.$
+
+			$('p').on('leave-screen', (event) => {
+
+			$(event.target).css("opacity","0");
+
+				anime({
+					targets: event.target,
+					translateY: '10px',
+					opacity: 0,
+
+				});
+
+			})
+
+			$( "p " ).each( function( index , el) {
+
+			$(el).on('enter-screen', (event) => {
+				anime({
+					targets: event.target,
+					translateY: '0px',
+					opacity: 1,
+					easing: 'easeInOutSine',
+					duration: 500,
+					delay: index * 100
+				});
+
+			})
+
+
+			});
+
+			$('a').on('leave-screen', (event) => {
+
+			$(event.target).css("opacity","0");
+
+				anime({
+					targets: event.target,
+					translateY: '10px',
+					opacity: 0,
+
+				});
+
+			})
+
+			$( "a" ).each( function( index , el) {
+
+			$(el).on('enter-screen', (event) => {
+				anime({
+					targets: event.target,
+					translateY: '0px',
+					opacity: 1,
+					easing: 'easeInOutSine',
+					duration: 500,
+					delay: index * 100
+				});
+
+			})
+
+
+			});
+
+		}
 	}
+
+
 </script>
 
 <style>
 		#footer{
-			min-height: 33vh;
+			min-height: auto;
 			color: white;
 		}
 		footer{
@@ -59,7 +130,8 @@
 		@media screen and (min-width: 1200px) {
 
 		footer{
-		padding: 40px 30px;
+
+		padding: 20px 30px;
 		display: flex;
 		-webkit-box-orient: vertical;
 		flex-direction: column;
@@ -82,7 +154,10 @@
 		.adresse-social {
 		text-align: left;
 
+		}
 
+		.adresse-social p {
+		margin-top: 0px ;
 
 		}
 
@@ -98,11 +173,11 @@
 		}
 
 		.confidentialite p {
-		margin: 5px  0px;
+		margin-top: 0px ;
 		text-align: right;
 		}
 
-
+		
 
 		}
 

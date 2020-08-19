@@ -2,6 +2,11 @@
 
 function my_posts_results_filter( $posts ) {
 
+	if( !is_array($posts) )
+	{
+		$post = $posts;
+		$posts = array( 0 => $post );
+	}
 	foreach ($posts as $key2 => $child) 
 	{						
 		$posts[$key2]->permalink = get_permalink( $child->ID );

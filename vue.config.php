@@ -1,8 +1,7 @@
 <?php
 
 define('is_vuejs_dev', true);
-define('vuejs_server', 'http://localhost:8080');
-define('vuejs_builder_server', 'http://localhost:8082');
+define('vuejs_server', 'http://localhost:8091/');
 
 //Register Vue.js templates components 
 
@@ -22,7 +21,6 @@ $vue_hierarchy = array(
 
 //custom page templates
 $vue_templates = array(
-
     'demo1' => 'Template Demo 1', 
     'demo2' => 'Template Demo 2',
     'phaser' => 'Phaser',

@@ -4,7 +4,7 @@ function gtr_get_projects( $args = null ) {
 
     $projects = get_posts( array(
     	'numberposts'      => 9,
-    	'post_type'        => 'projects',
+    	'post_type'        => 'project',
 
     ));
 

@@ -83,7 +83,7 @@ export default {
   },
   mounted (){
     console.log( 'App mounted' );
-    console.log( this.wp );
+   
 
     this.pages['current'] = this.wp.sections
 

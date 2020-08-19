@@ -6,7 +6,7 @@
 
 		<div class="div-text-homepage">
 
-			<Alpl class="text-homepage on-screen">Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.
+			<Alpl class="text-homepage on-screen"><h1>Projets</h1><br>Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.
 			</Alpl>
 
 		</div>
@@ -34,13 +34,13 @@
 
 		</div>
 
-		<div class="textbox on-screen">
+		<div class="textbox">
 			<div class="div-text-contact">
-				<p data-aos="fade-up" class="text-contact" >
+				<Alpl  class="text-contact ">
 				Vous avez une idée.<br>
 				Nous avons l'expertise pour la réaliser.<br>
-				Faites-nous un <u><strong><a id="quote" href="">coucou</a></strong></u>  :)
-				</p>
+				Faites-nous un <strong><a id="quote" href="">coucou</a></strong>  :)
+				</Alpl>
 			</div>
 		</div> 
 
@@ -81,7 +81,7 @@ export default {
 
 		})
 
-		$( ".global-project" ).each( function( index , el) {
+		$( ".global-project " ).each( function( index , el) {
 
 		$(el).on('enter-screen', (event) => {
 			anime({
@@ -98,10 +98,32 @@ export default {
 
 		});
 
-		var oLayer;
-		let selector = $(".g-project")
-		let XAngle = 0;
-		let YAngle = 0;
+// $(".div-text-contact").css("opacity","0");
+
+// $('.div-text-contact').on('leave-screen', (event) => {
+// $(event.target).css("opacity","0");
+// })
+
+// $( ".div-text-contact" ).each( function(index, el) {
+// console.log(el);
+// $(el).on('enter-screen', (event) => {
+// anime({
+// targets: event.target,
+// translateY: -100,
+// opacity: 1,
+// easing: 'easeInOutSine',
+// duration: 500,
+// delay: index * 100
+// });
+// })
+
+
+// });
+
+var oLayer;
+let selector = $(".g-project")
+let XAngle = 0;
+let YAngle = 0;
 		let Z = 20;	
 		// var topPost = 0
 	
@@ -134,11 +156,6 @@ export default {
 			oLayer.find("strong").css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + (XAngle / 0.22) + "deg) rotateY(" + (YAngle / 0.66) + "deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
 			}
 
-		// animation fad up
-
-
-
-
 
 		setTimeout(function() {
 
@@ -149,12 +166,7 @@ export default {
 
 		},1000);
 
-	
-
-
 	}
-
-
 
 }
 
@@ -168,6 +180,7 @@ export default {
 body {
 margin: 0 !important;
 padding: 0;
+font-family: 'Open Sans', regular;
 
 }
 
@@ -309,8 +322,8 @@ a{color: #e1e1e1 ;}
 
 .div-text-homepage{
 display: flex;
-height: 100vh;
-width: 100%;
+/*height: 100vh;/*/
+width: 80%;
 /*padding-top: 100px;*/
 padding-left: auto;
 padding-right: auto;
@@ -418,7 +431,7 @@ font-family: 'Gotham Book Regular', sans-serif;
 /*	margin: 35px;*/
 
 	display: inline-block;
-	padding-right: 5%
+	/*padding-right: 5%*/
 }
 
 
@@ -435,7 +448,7 @@ min-height: 400px;
 
 margin: 0px 70px;
 width: 100%;
-font-size: 50px;
+/*font-size: 50px;*/
 /*margin-left: 70px;*/
 margin-right: auto;
 text-align: left;
@@ -453,14 +466,16 @@ justify-content: space-between;
 }
 
 .text-homepage{
-padding-top: 15%;
-padding-bottom: 15%;
-width: 80% !important;
+padding-top: 10%;
+padding-bottom: 5%;
+width: 100% !important;
 margin: auto 70px;
 width: 100%;
-font-size: 3em;
+font-size: 3.1em;
 color: #e1e1e1;
-font-family: 'Montserrat', sans-serif; 
+font-family: "Open Sans", regular !important;
+font-weight: lighter;
+;
 }
 
 
@@ -581,8 +596,8 @@ margin: 5px  0px;
 
 .confidentialite{
 
-display: flex;
-flex-direction: column;
+/*display: flex;
+flex-direction: column;*/
 
 }
 
@@ -590,6 +605,12 @@ flex-direction: column;
 margin: 5px  0px;
 text-align: right;
 }
+
+.text-contact strong{
+
+	display: inline !important;
+}
+
 
 
 
@@ -632,11 +653,11 @@ text-align: left;
 }
 
 .text-contact a{
-font-family: 'Gotham Bold', sans-serif; 
+font-family: "Open Sans", regular !important;
 color: white;
 }
 .text-contact {
-font-family: 'Gotham Bold', sans-serif; 
+	font-family: "Open Sans", regular !important;
 color: white;
 font-size: 0.6em !important;
 }
@@ -697,12 +718,13 @@ margin-left: 30px;
 @import url(https://fonts.googleapis.com/css?family=Karla);
 
 body {
-  /*font-family: "Karla", sans-serif;*/
-   text-align: center;
-   /*font-size: 50px;*/ 
-   padding-top: 100px;
-  /*background-color: #202020;*/
-  color: #f9f9f9;
+	font-family: "Open Sans", regular !important;
+	font-weight: lighter;
+	text-align: center;
+	/*font-size: 50px;*/ 
+	padding-top: 100px;
+	/*background-color: #202020;*/
+	color: #f9f9f9;
 }
 
 @keyframes blink{
@@ -739,10 +761,10 @@ body {
 }
 
 
-* {
+/** {
   box-sizing: border-box;
 }
-
+*/
 .item {
   width: 200px;
   height: 200px;
@@ -760,11 +782,8 @@ body {
 }
 
 .g-project {
-  float: left;
-  /*list-style: none;*/
-  /*width: 100%;*/
-  padding-right: 5%;
-  /*font-weight: bold;*/
+	padding-left: 35px;
+	padding-right: 35px;
 }
 
 strong {
@@ -775,14 +794,17 @@ strong {
 
 .icon {
   font-size: 200%;  
-  border-radius: 0.5em;
-  padding:0.5em;
+  /*border-radius: 0.5em;*/
+  /*padding:0.5em;*/
   height: 100%;
   /*height: 60vw !important;*/
 }
 
 
+h1{
 
+	font-size: 4em !important;
+}
 
 
 

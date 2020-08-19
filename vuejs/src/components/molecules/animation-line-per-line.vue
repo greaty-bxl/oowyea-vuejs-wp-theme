@@ -74,23 +74,28 @@ export default{
 		
 		}
 
+
+
 		text_remplace += "</span>"
 
 		$( this.$el ).html( text_remplace )
 		$( this.$el ).find('.word').css('white-space', 'nowrap');
 		$( this.$el ).find('.char').css({
 			'display': 'inline-block',
+			'opacity': 0,
+			'translateY': 20
 		});
 
 		$( this.$el ).find('.word')
 		.first()
 		.addClass('on-screen')
-		.on('leave-screen', () => {
-			$( this.$el ).find('.char').css({
-				'opacity': 0,
-				'translateY': 20
-			});
-		})
+		// .on('leave-screen', () => {
+		// 	$( this.$el ).find('.char').css({
+		// 		'opacity': 0,
+		// 		'translateY': 20
+		// 	});
+		// })
+	
 		.on('enter-screen', () => {
 
 			console.log( 'my first word enter-screen' )

@@ -6,7 +6,7 @@
 			<div id="right-panel">
 			
 					<ul>
-					<div class="headerButton" style="pointer-events: auto; width: 260px;">
+					<div class="headerButton" style="pointer-events: auto;">
 					<div class="headerMore"><span></span><span></span><span></span></div>
 					<div class="headerBody">
 					<div class="topBody">
@@ -38,6 +38,7 @@
 
 <script>
 import Acf from 'Organisms/acf.vue'
+
 
 export default {
 	components:{
@@ -89,66 +90,127 @@ export default {
 
 		$('.headerMore').click(function() {
 
-		// var height_petit_point = $(this).parent('.headerButton').height()
+			var height_total = $(this).height()
 
-		var height_total = $(this).height()
+			$('.headerBody').find('a').css('color', color);
 
-		// var animation_rajouter =  parseInt(height_petit_point) - parseInt(height_total)
+			$('.headerButton').css('overflow', 'hidden');
+
+			if ( $('.headerButton').hasClass( 'close' )) {
+
+			$('.headerBody').find('a').css('color', 'white');
+			// .animate({"color":  'white !important'  }, "fast", "swing");
+
+			$('.headerButton').removeClass('close')
+
+			$('.headerButton').addClass('open')
+
+			$('.headerButton ').css('width', 'a');
+
+			$('.headerButton').animate({"width":  width_origin_taille  }, "fast", "swing");
+
+			setTimeout(function() {
+
+			$('.headerButton').animate({"height":  height_origin_taille  }, "fast", "swing");
+
+			}, 400);
+
+			$('.headerBody').find('ul').fadeTo('show/400/fast', 200, function() {
+
+			});
+
+			// timer_close_menu = "";
 
 
-		$('.headerBody').find('a').css('color', color);
+			// //hover timer animation
 
-		$('.headerButton').css('overflow', 'hidden');
+			// var timer_close_menu ;
 
-		if ( $('.headerButton').hasClass( 'close' )) {
+			// console.log(timer_close_menu);
 
-		$('.headerBody').find('a').css('color', 'white');
-		// .animate({"color":  'white !important'  }, "fast", "swing");
+			// $(".headerButton").hover(function() {
 
-		$('.headerButton').removeClass('close')
+			// 	if ($(".headerButton").hasClass('open')) {
 
-		$('.headerButton').addClass('open')
+			// 		timer_close_menu = setTimeout(function() {
 
-		$('.headerButton').animate({"width":  width_origin_taille  }, "fast", "swing");
+			// 		close()
 
-		setTimeout(function() {
+			// 		}, 2000 );
+			// 	}
+			// 	else{
 
-		$('.headerButton').animate({"height":  height_origin_taille  }, "fast", "swing");
-
-		}, 400);
-
+			// 		timer_close_menu = "";
+			// 	}
 
 
-		$('.headerBody').find('ul').fadeTo('show/400/fast', 200, function() {
+			// }, function() {
 
-		});
+			// 			timer_close_menu = setTimeout(function() {
+
+			// 		close()
+
+			// 		}, 2000 );
+		
+			// });
+
 
 		}
 
-		else {  
+		else { 
 
-		$('.headerBody').find('a').animate({"color":  color  }, "fast", "swing");
-
-		$('.headerButton').removeClass('open')
-
-		$('.headerButton').addClass('close')
-
-		$('.headerBody').find('ul').fadeTo('hide/400/fast', 200, function() {
-
-		});
-
-
-		$('.headerButton').animate({"height":  height_total  }, "fast", "swing");
-
-		setTimeout(function() {
-
-		$('.headerButton').animate({"width":  width_button  }, "fast", "swing");
-
-		}, 150);
+			close()
 
 		}
 
+		function close(){
+
+			
+			$('.headerBody').find('a').animate({"color":  color  }, "fast", "swing");
+
+			$('.headerButton').removeClass('open')
+
+			$('.headerButton').addClass('close')
+
+			$('.headerBody').find('ul').fadeTo('hide/400/fast', 200, function() {
+
+			});
+
+			$('.headerButton').animate({"height":  height_total  }, "fast", "swing");
+
+			setTimeout(function() {
+
+			$('.headerButton').animate({"width":  width_button  }, "fast", "swing");
+
+			}, 150);
+
+		}
+
+		// click external than the parents class menu function close
+      
+			$(function() {
+				$(".headerButton").on("click", function(e) {
+				e.stopPropagation()
+				});
+				$(document).on("click", function(e) {
+				if ($(e.target).is(".headerButton") === false) {
+
+					if ($(".headerButton").hasClass('open')) {
+
+						close()
+					}
+					
+				}
+				});
+			});
+
+		// click external than the parents class menu function close
+
+
+
 		});
+
+
 
 
 		var padd_ori =  parseInt( $('.headerMore').css('padding-left') ) 
@@ -215,9 +277,11 @@ export default {
 	top: 20px;
 	right: 40px;
 	border-radius: 15px;
-	background-color: hsla(0, 0%, 100%, 0.37);
-    width: 30px;
+	background-color: hsla(0,0%,100%,.2);
+	width: auto;
+    min-width: 30px;
     z-index: 10000;
+
 	
 }
 
@@ -228,6 +292,7 @@ export default {
     border-radius: 50%;
     background-color: #fff;
     display: block;
+    font-family: 'Open Sans', regular;
 /*    -webkit-transition: .15s cubic-bezier(.445,.05,.55,.95);
     -o-transition: .15s cubic-bezier(.445,.05,.55,.95);
     transition: .15s cubic-bezier(.445,.05,.55,.95);*/
@@ -259,8 +324,8 @@ export default {
     /*position: absolute;*/
     left: 30px;
     top: 30px;
-    width: 200px;
-    /* height: 340px; */
+    min-width: 200px;
+    width: auto;/* height: 340px; */
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -280,29 +345,36 @@ export default {
 .headerBody .topBody li {
 
     list-style: none;
-    font-size: 1.1rem;
+    font-size: 2.1rem;
     line-height: 1.5;
     text-align: left;
     text-decoration: none;
+    font-family: 'Open Sans', regular;
+    font-weight: lighter;
     
 }
 
 li{
 
 color: white;
+font-family: 'Open Sans', regular;
+font-weight: lighter;
 }
 
 .headerBody .topBody li a{
 
   font-weight: 200;
-  text-decoration: none
+  text-decoration: none;
+  font-family: 'Open Sans', regular;
+  font-weight: lighter;
 }
 
 .topBody{
 
-    padding-left: 25px;
-      padding-top: 30px;
-      padding-bottom: 20px;
+padding-left: 25px;
+padding-right: 75px;
+padding-top: 30px;
+padding-bottom: 20px;
 
 }
 
@@ -334,19 +406,25 @@ color: white;
 #header-logo img{
 
  padding-left: 70px;
- padding-top: 20px;
- height: 70px;
+ padding-top: 25px;
+ height: 70px;	
 
 }
 
 .menu a{
 
 	list-style-type: none !important;
+	font-family: 'Open Sans', regular;
+	font-weight: lighter;
+	
 }
 
  .menu ul{
 
 	list-style-type: none !important;
+	font-family: 'Open Sans', regular;
+	font-weight: lighter;
+	
 }
 
 

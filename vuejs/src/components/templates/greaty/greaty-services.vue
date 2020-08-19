@@ -2,7 +2,9 @@
 	<div class="section-wrap">
 		<div class="clear"></div>
             <div class="div-text-homepage">
-                <Alpl class="text-homepage on-screen">Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.
+                <Alpl class="text-homepage on-screen">Greaty est spécialisée dans la communication,
+                l’élaboration d’images de marque, les solutions digitales
+                et les supports imprimés.
                 </Alpl>
             </div>
             <div class="firstSection">
@@ -61,7 +63,7 @@ export default {
                         opacity: 1,
                         easing: 'easeInOutSine',
                         duration: 500,
-                        delay: index * 100
+                        delay: index * 50
                         });
                     })
             
@@ -113,8 +115,71 @@ padding-left: auto;
 padding-right: auto;
 
 }
+@media screen and (max-width: 1200px) {
+
+.text-homepage{
+text-align: left;
+padding-top: 50px;
+font-size: 35px;
+display: block;
+margin-top: 0px;
+padding-left: auto;
+padding-right: auto;
+width: auto;
+
+}
 
 
+.div-text-homepage{ 
+
+    height: 100vh;
+    min-height: 100vh;
+    padding-top: auto;
+    padding-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-top: 0px;
+}
+
+}
+
+
+.div-text-homepage{
+display: flex;
+/*height: 100vh;/*/
+width: 60%;
+/*padding-top: 100px;*/
+padding-left: auto;
+padding-right: auto;
+
+}
+
+.text-homepage{
+
+margin: 0px 70px;
+width: 100%;
+/*font-size: 50px;*/
+/*margin-left: 70px;*/
+margin-right: auto;
+text-align: left;
+
+
+}
+
+.text-homepage{
+padding-top: 10%;
+padding-bottom: 5%;
+width: 100% !important;
+margin: auto 70px;
+width: 100%;
+font-size: 3.1em;
+color: #e1e1e1;
+font-family: "Open Sans", regular !important;
+font-weight: lighter;
+;
+}
 
 
 </style>

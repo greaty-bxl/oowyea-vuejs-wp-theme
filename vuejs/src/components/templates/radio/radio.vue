@@ -1,5 +1,4 @@
-<!-- template: Radio -->
-<template>
+<template page-template="Radio">
 	<div class="section-wrap">
 		<div id="yt-bg" v-if="playing">
 			<youtube :video-id="YtId" :player-vars="YtVars" @ready="YT_ready" @playing="YT_playing" @ended="YT_ended" ref="youtube"></youtube>
@@ -362,7 +361,7 @@ export default {
 			console.log('playing yt');
 			let $ = this.$
 			$('#yt-bg').show();
-			$('#yt-bg').animate({opacity: 0.3}, 3000)
+			$('#yt-bg').animate({opacity: 1}, 3000)
 		},
 		YT_ended : function(){
 			console.log('ended yt');
@@ -372,9 +371,7 @@ export default {
 }
 </script>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Open+Sans+Condensed:wght@300&display=swap');
-
+<style scoped>
 body{
 	font-family: 'Libre Caslon Display', serif;
 }
@@ -393,6 +390,12 @@ h2{
 .section-wrap{
 	color: #fff
 }
+</style>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Open+Sans+Condensed:wght@300&display=swap');
+
+
 #player .play-pause{
 	background-size: cover;
 	margin: auto;
@@ -480,3 +483,4 @@ iframe{
 	/*margin-top: -72px;*/
 }
 </style>
+

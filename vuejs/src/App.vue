@@ -84,13 +84,15 @@ export default {
   mounted (){
     console.log( 'App mounted' );
     console.log('wp', this.wp)
+    console.log('store', this.$store.state.wp)
+
 
     this.pages['current'] = this.wp.sections
 
 
     this.$(document).ready( ($) => {
 
-      console.log('JQuery Ready', $, this.ajaxurl)
+      //console.log('JQuery Ready', $, this.ajaxurl)
       
       //init scroll if child
       init_scrolltop(this)
@@ -108,16 +110,20 @@ export default {
 
         get_new_page( this, event.href, (wp) => {
 
-          console.log( wp )
-          
-          this.pages['next'] = wp.sections
+          //console.log( 'app get page', wp )
+          let new_sections = wp.sections
+          this.wp = wp
+          this.$store.state.wp = wp
+
+          //console.log( 'app get page this', this.wp )
+          this.pages['next'] = new_sections
           
           setTimeout( ()=>{
 
             $(document).trigger('before_next_page')
 
             animate_next_page( this, event.href, () => {
-              this.wp = wp
+              
               this.pages['current'] = wp.sections
             
               setTimeout( ()=>{ 

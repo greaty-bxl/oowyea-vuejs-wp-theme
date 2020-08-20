@@ -128,13 +128,10 @@ function get_radio_playlist()
 			$current_show = $shows->post;
 			$current_show_playlist = get_post_meta( $current_show->ID, 'playlist_array', true );
 
-			wp_vue_add_var('radio_show', $current_show);
-			wp_vue_add_var('radio_playlist', $current_show_playlist);	
+			wp_vue_add_var('radio_show', $current_show );
+			wp_vue_add_var('radio_playlist', $current_show_playlist );	
 		}
 	}
-	
-	
 }
-
 add_action( 'wp_head', 'get_radio_playlist' );
 add_action( 'wp', 'get_radio_playlist' );

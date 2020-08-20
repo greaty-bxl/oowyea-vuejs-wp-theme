@@ -21,6 +21,7 @@ module.exports = {
         Assets: path.resolve(__dirname, 'src/assets'),
         Libs: path.resolve(__dirname, 'src/libs'),
         Store: path.resolve(__dirname, 'src/store'),
+        Headers: path.resolve(__dirname, 'src/components/headers'),
         Atoms: path.resolve(__dirname, 'src/components/atoms'),
         Molecules: path.resolve(__dirname, 'src/components/molecules'),
         Organisms: path.resolve(__dirname, 'src/components/organisms'),

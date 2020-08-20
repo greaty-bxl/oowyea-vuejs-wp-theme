@@ -1,10 +1,10 @@
-const audio_state = {
+const audio = {
 	'main_audio' : null
 }
 
 function audio_mutation() 
 {
-
+	
 }
 
 function audio_getters()
@@ -12,4 +12,4 @@ function audio_getters()
 
 }
 
-export {audio_state, audio_mutation, audio_getters}
+export {audio, audio_mutation, audio_getters}

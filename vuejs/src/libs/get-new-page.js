@@ -22,7 +22,7 @@ export default function (vue, href, callback) {
 	//insertParam( href, 'add_to_json', 1 );
 
 	$.get( insertParam( href, 'add_to_json', 1 ), function(data) {
-		//console.log('get page', JSON.parse( data ) );
+		console.log('get page', JSON.parse( data ) );
 		vue.pushHistory( href )
 		var json_data = JSON.parse( data )
 		callback( json_data )

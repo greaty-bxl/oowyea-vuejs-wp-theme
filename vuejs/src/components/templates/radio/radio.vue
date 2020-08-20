@@ -1,4 +1,4 @@
-<template page-template="Radio">
+<template page-template="Radio" header="radio">
 	<div class="section-wrap">
 		<div class="yt-bg" v-if="playing">
 			<youtube class="yt-iframe" :video-id="YtId" :player-vars="YtVars" @ready="YT_ready" @playing="YT_playing" @ended="YT_ended" ref="youtube"></youtube>
@@ -12,10 +12,15 @@
 		<div v-html="post.post_content"></div>
 		
 		<div id="player">
-			<div class="play-pause" v-on:click="click_play_pause" v-bind:style="{ 'background-image': 'url(' + cover + ')' }">
-				<v-icon name="pause" v-if="playing"></v-icon>
-				<v-icon name="play" v-else></v-icon>
+			<div class="diamond-shape-wrap">
+				<div class="diamond-shape">
+					<div class="play-pause" v-on:click="click_play_pause" v-bind:style="{ 'background-image': 'url(' + cover + ')' }">
+						<v-icon name="pause" v-if="playing"></v-icon>
+						<v-icon name="play" v-else></v-icon>
+					</div>
+				</div>
 			</div>
+
 			<h2>{{currentTitle}}</h2>
 			<div class="playlist">
 				<div 
@@ -120,7 +125,7 @@ export default {
 	mounted (){
 		let $ = this.$
 
-		//console.log(this.post);
+		console.log('radio mounted');
 
 		this.cover = this.post.thumb
 
@@ -166,7 +171,11 @@ export default {
 			date.addHours(2)
 
 			let current_second_of_the_day = (date.getUTCMinutes() + date.getUTCHours() * 60) * 60 + date.getUTCSeconds()
-			let start = this.wp.radio_show.metas.start[0].split(':')
+			
+			console.log('open radio', this.$store.state.wp);
+			//setTimeout( () => { console.log('open radio', this.$store.state.wp) }, 500 )
+
+			let start = this.$store.state.wp.radio_show.metas.start[0].split(':')
 			let start_in_second = (parseInt(start[1]) + parseInt(start[0]) * 60) * 60 + parseInt(start[2])
 			let current_second_to_play = current_second_of_the_day - start_in_second
 
@@ -177,12 +186,12 @@ export default {
 			let prev = null
 			let prev_index = 0
 
-			$.each(this.wp.radio_playlist, (index, val) => {
+			$.each(this.$store.state.wp.radio_playlist, (index, val) => {
 
 				if( current_second_to_play >= prev_index && current_second_to_play < index && !select_current)
 				{
-					//console.log('current', this.wp.radio_playlist[prev_index]);
-					this.wp.radio_playlist[prev_index]['current'] = true
+					//console.log('current', this.$store.state.wp.radio_playlist[prev_index]);
+					this.$store.state.wp.radio_playlist[prev_index]['current'] = true
 
 					selected_index = prev_index
 					select_current = prev
@@ -191,16 +200,16 @@ export default {
 				}
 				else
 				{
-					this.wp.radio_playlist[index]['current'] = false
+					this.$store.state.wp.radio_playlist[index]['current'] = false
 				}
 
 				prev_index = index
 				prev = val
 
-				this.wp.radio_playlist[index]['time_start'] = ((start_in_second + index)).toHHMMSS()
+				this.$store.state.wp.radio_playlist[index]['time_start'] = ((start_in_second + index)).toHHMMSS()
 			});
 
-			this.playlist = this.wp.radio_playlist
+			this.playlist = this.$store.state.wp.radio_playlist
 
 			let currentTime = current_second_to_play - selected_index
 
@@ -213,12 +222,12 @@ export default {
 				$('#player .playlist').animate({scrollTop: new_top}, 150)
 			}, 300)
 
-			//console.log( this.wp.upload_baseurl )
+			//console.log( this.$store.state.wp.upload_baseurl )
 
-			let music_url = this.wp.upload_baseurl + '/' + select_current.metas._wp_attached_file
+			let music_url = this.$store.state.wp.upload_baseurl + '/' + select_current.metas._wp_attached_file
 
 			let get_cover = music_url.toString()
-				.replace(/(\.-)/g,'-')
+				.replace(/(\.-)|(\.\.)/g,'-')
 				.replace(/\./g,'-') + '-image.jpg'
 
 			//console.log( ("test.-test").replace(/(\.-)/g,'-') )
@@ -355,16 +364,16 @@ export default {
 			renderFrame();
 		},
 		YT_ready : function(){
-			//console.log('ready yt');
+			console.log('ready yt');
 			this.$refs.youtube.player.mute()
 			/*this.$refs.youtube.player.cueVideoById({videoId:this.YtId,
 			                     startSeconds:0,
 			                     endSeconds:39,
-			                     suggestedQuality:'medium'})
-			this.$refs.youtube.player.playVideo()*/
+			                     suggestedQuality:'medium'})*/
+			this.$refs.youtube.player.playVideo()
 		},
 		YT_playing : function() {
-			//console.log('playing yt');
+			console.log('playing yt');
 			let $ = this.$
 			$(this.$el).find('.yt-bg').show();
 			$(this.$el).find('.yt-bg').animate({opacity: 0.3}, 3000)
@@ -396,7 +405,22 @@ h2{
 .section-wrap{
 	color: #fff
 }
+.diamond-shape-wrap{
+	transform: translateY(-2vh);
+}
+.diamond-shape{
+	height: 22vh;
+	width: 22vh;
+	overflow: hidden;
+	transform: rotate(45deg) scale(0.93);
+	transform-origin: center;
+	margin:auto;
+	margin-top: 7vh;
+
+}
 #player .play-pause{
+	transform: rotate(-45deg) translateY(-13%) scale(1.3);
+	transform-origin: center;
 	background-size: cover;
 	margin: auto;
 	height: 27vh;
@@ -404,7 +428,7 @@ h2{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	opacity: 0.90;
+	opacity: 0.80;
 	/*border-radius: 33vh;*/
 }
 #player .play-pause > svg {
@@ -482,9 +506,9 @@ h2{
 	/*left: 50%;
 	top: 50%;
 	transform: translateY(-50%) translateX(-50%);*/
-	transform: translateX(-50%) scale(1.3);
-	height: 100vh;
-	width: 177vh;
+	transform: translateX(-50%) translateY(-5vh);
+	height: 120vh; /*100vh;*/
+	width: 212vh;/*177vh;*/
 	/*margin: auto;*/
 	/*margin-top: -72px;*/
 }

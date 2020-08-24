@@ -59,7 +59,7 @@ export default {
 	},
 	mounted () {
 
-		console.log( this.posts );
+		//console.log( this.posts );
 		this.$emit('template_mounted');
 	},	
 	name: 'swiper-example-default',

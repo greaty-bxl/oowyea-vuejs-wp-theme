@@ -17,7 +17,7 @@ export default{
 		return{
 			//playing: true,
 			YTReady: false,
-			YtId: 'EbOy4D4hu3U', //'tnGaCZZ5Z28',//'6stlCkUDG_s',//'1eHwlmn_Mps', rlonGk2UcnE, EbOy4D4hu3U
+			YtId: 'rlonGk2UcnE', //'tnGaCZZ5Z28',//'6stlCkUDG_s',//'1eHwlmn_Mps', rlonGk2UcnE, EbOy4D4hu3U
 			YtVars: {
 				autoplay: 1,
 				controls: 0,
@@ -32,7 +32,8 @@ export default{
 		let bg = $(this.$el).parents('.section-wrap').css('background')
 
 		$('.yt-bg').css('background', bg)
-		$(this.$el).parents('.section-wrap').css('background', 'none')
+		$(this.$el).parents('.section-wrap').addClass('force-no-bg')
+
 	},
 	computed: {
 		main_audio: {
@@ -91,5 +92,8 @@ export default{
 
 		display: none;
 		opacity: 0;
+	}
+	.force-no-bg{
+		background: none !important;
 	}
 </style>

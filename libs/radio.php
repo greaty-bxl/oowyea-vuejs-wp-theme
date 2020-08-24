@@ -1,7 +1,5 @@
 <?php 
 
-//include GREATY_TEMPLATE_PATH.'/libs/radio/yt-funny-bg.php';
-
 function radio_generate_order($post_id, $post)
 {
 	if( $post->post_type == 'radio-show' )
@@ -107,34 +105,6 @@ function radio_generate_order($post_id, $post)
 	}
 }
 add_action( 'save_post', 'radio_generate_order', 10, 2 );
-
-function get_radio_playlist()
-{
-	global $post;
-
-	if( $post )
-	{
-		if( @$post->template == 'radio' )
-		{
-			$shows = new WP_Query(array(
-				'post_type' => 'radio-show',
-				'posts_per_page' => -1
-			));
-
-			/*
-			to do: find the current show about current hour
-			*/
-
-			$current_show = $shows->post;
-			$current_show_playlist = get_post_meta( $current_show->ID, 'playlist_array', true );
-
-			wp_vue_add_var('radio_show', $current_show );
-			wp_vue_add_var('radio_playlist', $current_show_playlist );	
-		}
-	}
-}
-add_action( 'wp_head', 'get_radio_playlist' );
-add_action( 'wp', 'get_radio_playlist' );
 
 
 function get_radio_playlist_ajx()

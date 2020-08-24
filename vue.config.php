@@ -32,6 +32,4 @@ $vue_templates = array(
     'greaty-studio' => 'Greaty Studio',
     'studio-title' => 'Studio Title',
     'radio' => 'Radio',
-    'radio-2' => 'Radio',
-
 );

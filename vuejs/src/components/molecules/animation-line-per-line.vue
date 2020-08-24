@@ -7,6 +7,7 @@
 <script>
 	import anime from 'animejs/lib/anime.es.js';
 
+	//console.log(anime);	
 
 export default{
 
@@ -82,7 +83,7 @@ export default{
 		$( this.$el ).find('.char').css({
 			'display': 'inline-block',
 			'opacity': 0,
-			'translateY': -50
+			'translateY': 20
 		});
 
 		$( this.$el ).find('.word')
@@ -97,6 +98,7 @@ export default{
 	
 		.on('enter-screen', () => {
 
+			console.log( 'my first word enter-screen' )
 			
 			$( this.$el ).find('.char').each(function(index, el) {
 				let newTop = Math.round( $(el).position().top )
@@ -124,18 +126,6 @@ export default{
 				let delay = i_lines * 100
 
 				setTimeout( ()=>{
-<<<<<<< Updated upstream
-					$('[data-lettertop='+val+']').each( (index, el) => {
-						anime({
-							targets: el,
-							translateY: 0,
-							opacity: 1,
-							easing: 'cubicBezier(0.25, 0.46, 0.45, 0.94)',
-							delay: delay,
-							duration: 700
-						}) ;	
-					});
-=======
 					/*$('[data-lettertop='+val+']').each( (index, el) => {
 							
 					});*/
@@ -148,9 +138,9 @@ export default{
 						delay: delay,
 						duration: 700
 					}) ;
->>>>>>> Stashed changes
 				}, 1 )
-
+					
+				console.log('enter', $('[data-lettertop='+val+']').length, i_lines );
 
 
 				i_lines++

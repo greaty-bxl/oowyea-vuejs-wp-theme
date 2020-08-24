@@ -41,11 +41,10 @@ export default {
 	mounted(){
 		var $ = this.$
 
-		console.log(Acf[0]);
 
 		$('.header-greaty').css('background-color', 'rgb(25, 26, 28)');
 
-		console.log('header', this.wp.acf);
+		// console.log('header', this.wp.acf);
 
 		var height_origin_taille = $('.headerButton').height()
 
@@ -247,7 +246,49 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
+
+			@media (min-width: 1100px) {
+
+
+
+			}
+
+
+			@media (max-width: 600px) {
+
+
+				#header-logo img{
+
+				padding-left: 35px !important;
+				padding-top: 25px;
+				height: 70px;	
+
+			}
+
+				.headerButton{
+
+				right: 35px !important;
+				}
+
+			}
+
+			@media screen and (max-width: 1100px) and  (min-width: 600px) {
+
+
+				.header-greaty{
+
+					margin: 0px 70px;
+
+				}
+
+
+
+			}
+
+
+
+
 .header-greaty{
 	/*position: fixed;*/
 }
@@ -383,16 +424,6 @@ padding-bottom: 20px;
 }
 
 /*@media (max-width: 1250px) { ... }*/
-@media (max-width: 450px) {
-
-	#header-logo img{
-
-	padding-left: 18px !important;
-	padding-top: 20px;
-
-	}
-	
-}
 #header-logo {
 	position: absolute;
 }
@@ -404,6 +435,7 @@ padding-bottom: 20px;
  height: 70px;	
 
 }
+
 
 .menu a{
 

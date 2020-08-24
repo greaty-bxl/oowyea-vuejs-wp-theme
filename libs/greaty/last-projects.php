@@ -1,12 +1,37 @@
 <?php
 
+
 function gtr_get_projects( $args = null ) {
 
-    $projects = get_posts( array(
-    	'numberposts'      => 9,
-    	'post_type'        => 'project',
+	global $post;
 
-    ));
+	$args = array(
+		'post_type' => 'project',
+	);
+
+	if( is_single() && $post->post_type == "project" ){
+
+		$args = 
+		array( 
+			'post_type' => 'project',
+			'post__not_in' =>  array($post->ID)
+		);
+	
+	}
+
+	if ( $post->template ==  'greaty-home' ) {
+		
+		$args = 
+		array( 
+			'post_type' => 'project',
+			'posts_per_page' => 6,
+			'post__not_in' =>  ''
+
+		);
+
+	}
+
+    $projects = get_posts($args);
 
     $projects = apply_filters( 'posts_results', $projects ) ;
 

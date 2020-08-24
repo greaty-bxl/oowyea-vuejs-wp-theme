@@ -82,15 +82,15 @@ export default {
     });
   },
   mounted (){
-    console.log( 'App mounted' );
-    console.log('wp', this.wp)
+    // console.log( 'App mounted' );
+    // console.log('wp', this.wp)
 
     this.pages['current'] = this.wp.sections
 
 
     this.$(document).ready( ($) => {
 
-      console.log('JQuery Ready', $, this.ajaxurl)
+      // console.log('JQuery Ready', $, this.ajaxurl)
       
       //init scroll if child
       init_scrolltop(this)

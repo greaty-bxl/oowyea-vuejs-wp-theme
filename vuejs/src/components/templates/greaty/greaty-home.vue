@@ -4,24 +4,29 @@
         <div class="clear"></div>
 		<div>
 
+
+		<!-- <lottie :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation"/> -->
+
 		<div class="div-text-homepage">
 
-			<Alpl class="text-homepage on-screen"><h1>Projets</h1><br>Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes.
-			</Alpl>
+
+		<Alpl class="text-homepage"> <h1 class="title-page">Home</h1>
+			Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
+		</Alpl>
 
 		</div>
 	
 		</div>
 		<div class="post-client">
 
-		<div class="g-project" v-for="child in wp.projects" :key="child.ID">
+		<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
 			
 				<div class="icon global-project test__item on-screen" >
 				
 						<a :href="child.permalink" >
 							<div class="client">
 
-								<img class="image-client" height="100%" :src="child.thumb" >
+								<img class="image-client" height="100%" width="100%" :src="child.thumb" >
 								<p class="name-client" v-html="child.post_title" ></p>
 								<p class="role-greaty">Corporated Website</p>
 
@@ -30,19 +35,13 @@
 					
 				</div>
 			
-		</div>
+		</Anime3d>
 
 		</div>
 
-		<div class="textbox">
-			<div class="div-text-contact">
-				<Alpl  class="text-contact ">
-				Vous avez une idée.<br>
-				Nous avons l'expertise pour la réaliser.<br>
-				Faites-nous un <strong><a id="quote" href="">coucou</a></strong>  :)
-				</Alpl>
-			</div>
-		</div> 
+	
+	<textcotact>
+	</textcotact>
 
         <div class="clear"></div>
     </div>
@@ -53,17 +52,33 @@
 
 import Alpl from 'Molecules/animation-line-per-line';
 import anime from 'animejs/lib/anime.es.js';
-
+import Anime3d from 'Molecules/animation-3d';
+import textcotact from './components/text-contact'
+// import Lottie from 'lottie-web';
+// import animationData from './components/json/animation-homepage.json';
+// animation-homepage.json
+// C:\laragon\www\template_greaty\wordpress\wp-content\themes\oowyea-vuejs-wp-theme\vuejs\src\components\json
 export default {
 	components: {
-		Alpl
+		Alpl,
+		Anime3d,
+		textcotact
 	},
 	props: {
 		'post' : Object
 	},
+
+	// data() {
+	//     return {
+	//       defaultOptions: {animationData: animationData},
+	//       animationSpeed: 1
+	//     }
+	//   },
+
 	mounted(){
 
 		var $ = this.$
+
 
 		this.$emit('template_mounted', this);
 
@@ -81,7 +96,7 @@ export default {
 
 		})
 
-		$( ".global-project " ).each( function( index , el) {
+		$( ".global-project" ).each( function( index , el) {
 
 		$(el).on('enter-screen', (event) => {
 			anime({
@@ -96,75 +111,7 @@ export default {
 		})
 
 
-		});
-
-// $(".div-text-contact").css("opacity","0");
-
-// $('.div-text-contact').on('leave-screen', (event) => {
-// $(event.target).css("opacity","0");
-// })
-
-// $( ".div-text-contact" ).each( function(index, el) {
-// console.log(el);
-// $(el).on('enter-screen', (event) => {
-// anime({
-// targets: event.target,
-// translateY: -100,
-// opacity: 1,
-// easing: 'easeInOutSine',
-// duration: 500,
-// delay: index * 100
-// });
-// })
-
-
-// });
-
-var oLayer;
-let selector = $(".g-project")
-let XAngle = 0;
-let YAngle = 0;
-		let Z = 20;	
-		// var topPost = 0
-	
-		function boxRollovers()
-		{
-			selector.on("mousemove",function(e){
-
-				var $this = $(this);
-				var XRel = e.pageX - $this.offset().left;
-				var YRel = e.pageY - $this.offset().top ;
-				var width = $this.width();
-
-				YAngle = -(0.5 - (XRel / width)) * 8; 
-				XAngle = (0.5 - (YRel / width)) * 8;
-				updateView($this.children(".icon"));
-				console.log(YAngle , 'YAngle');
-
-			});
-
-			selector.on("mouseleave",function(){
-			oLayer = $(this).children(".icon");
-			oLayer.css({"transform":"perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
-			oLayer.find("strong").css({"transform":"perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
-			});
-			}
-
-			function updateView(oLayer)
-			{
-			oLayer.css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + XAngle + "deg) rotateY(" + YAngle + "deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
-			oLayer.find("strong").css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + (XAngle / 0.22) + "deg) rotateY(" + (YAngle / 0.66) + "deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
-			}
-
-
-		setTimeout(function() {
-
-			$(function(){
-				boxRollovers();
-			});
-
-
-		},1000);
+	});
 
 	}
 
@@ -178,13 +125,19 @@ let YAngle = 0;
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
+
+lottie-animation{
+
+	height: 50vh;
+	width: 50%;
+}
 	
-body {
+/*body {
 margin: 0 !important;
 padding: 0;
 font-family: 'Open Sans', regular;
 
-}
+}*/
 
 a{
 color: #e1e1e1;
@@ -240,89 +193,27 @@ cursor: pointer;
 }
 
 
-    .div-text-contact{
+.div-text-contact{
 
-      padding-left: 20px;
-      padding-right: 20px;
-      font-size: 3em;
-      margin-left: 0;
-      margin-right: 0;
-      padding-top: 100px;
-      padding-bottom: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 3em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 100px;
+  padding-bottom: 70px;
 
-    }
+}
 
-    .textbox {
-      margin:5em;
-      
-    }
-        
+.textbox {
+  margin:5em;
   
-  
-
-    @media screen and (max-width: 1200px) {
-
-        .div-text-contact{
-
-      padding-left: 5vw;
-      padding-right: 5vw;
-      width: 80%;
-      font-size: 2em;
-      color: white;
-      margin-left: 0;
-      margin-right: 0;
-      padding-top: 50px;
-
-    }
-    }
-@media all and (max-width: 1200px){
-nav{
-width: 100%;
 }
-nav ul li.items{
-width: 100%;
-/*display: none;*/
-}
-nav ul li.items.show{
-display: block;
-background: 191a1c;
-flex-basis: 100%;
-}
-nav ul li.btn{
-display: block;
-}
-nav ul li.items:hover{
-border-radius: 5px;
-box-shadow: inset 0 0 5px gray,
-inset 0 0 10px white;
-}
-
-nav ul li.items:hover:after{
-opacity: 0;
-
-}
-
-nav ul{
-text-align: left;
-padding-right: 30px;
-padding-left: 30px
-
-}
-
-}
-
-/*body,html
-{ 
-padding: 0%;
-margin: 0;
-background-color:#191a1c;
-font-family: 'Myriad pro', sans-serif; 
-color: #e1e1e1;
-}
-*/
+    
 a{color: #e1e1e1 ;}
 
-.div-text-homepage{
+
+.div-text-project{
 display: flex;
 /*height: 100vh;/*/
 width: 80%;
@@ -339,19 +230,12 @@ width: 100%;
 background-color: white;
 
 }
-.client img{
-
-width: 45%;
-height: 59vh;
-
-}
-
 
 .name-client{
 
 font-size: 20px;
 margin-bottom: 5px;
-font-family: 'Gotham Book Regular', sans-serif; 
+font-family: "Open Sans", regular; 
 
 }
 
@@ -359,144 +243,16 @@ font-family: 'Gotham Book Regular', sans-serif;
 
 font-size: 12px;
 margin-top: 0px;
-font-family: 'Gotham Book Regular', sans-serif; 
+font-family: "Open Sans", regular; 
 
 }
 
-/*.global-project{
-
-	overflow-x: hidden;
-
-}*/
-
-@media screen and (min-width: 800px) {
-
-	.post-client{
-		padding-left: 35px;
-		padding-right: 35px;
-	}
-
-.g-project{
-
-	z-index: 10;
-	width: calc(50% - 70px) !important;
-	height: auto;
-	min-height: 400px;
-/*	margin: 35px;*/
-
-	display: inline-block;
-	/*padding-right: 5%*/
+.g-project {
+	padding-left: 35px ;
+	padding-right: 35px;
 }
 
-
-.client img{
-
-width: 100% !important;
-height: 60vh;
-min-height: 400px;
-/*background-color: white;*/
-
-}
-
-.text-homepage{
-
-margin: 0px 70px;
-width: 100%;
-/*font-size: 50px;*/
-/*margin-left: 70px;*/
-margin-right: auto;
-text-align: left;
-
-
-}
-
-.row{
-
-padding:  35px 35px;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-
-}
-
-.text-homepage{
-padding-top: 10%;
-padding-bottom: 5%;
-width: 100% !important;
-margin: auto 70px;
-width: 100%;
-font-size: 3.1em;
-color: #e1e1e1;
-font-family: "Open Sans", regular !important;
-font-weight: lighter;
-;
-}
-
-
-}
-
-@media screen and (max-width: 1200px) {
-.client{
-
-width: 100% !important;
-height: 60vw;
-
-margin-left: auto;
-margin-right: auto;
-
-
-}
-
-.global-project{
-z-index: 10;
-width: 90% !important;
-/*margin-left: auto;
-margin-right: auto;*/
-margin: 20px !important;
-
-}
-
-.image-client{
-
-height: 100%;
-background-color: white;
-}
-
-
-.text-homepage{
-text-align: left;
-padding-top: 50px;
-font-size: 35px;
-display: block;
-margin-top: 0px;
-padding-left: auto;
-padding-right: auto;
-width: auto;
-
-}
-
-.row{
-width: 100%;
-display: flex;
-flex-direction: column;
-}
-
-.div-text-homepage{ 
-
-	height: 100vh;
-	min-height: 100vh;
-	padding-top: auto;
-	padding-left: auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-content: center;
-	padding-top: 0px;
-}
-
-}
-
-
+				/* maximum */
 
 .confidentialite p a {
 
@@ -513,99 +269,6 @@ footer{
 font-family: 'Gotham Book Regular', sans-serif; 
 }
 
-
-@media screen and (min-width: 1200px) {
-
-footer{
-padding: 40px 30px;
-display: flex;
--webkit-box-orient: vertical;
-flex-direction: column;
-
-}
-
-.footer-text{
-
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-
-}
-
-.reseaux-sociaux{
-display: flex;
-flex-direction: column;
-
-}
-.adresse-social {
-text-align: left;
-
-
-
-}
-
-.reseaux-sociaux p {
-margin: 5px  0px;
-}
-
-.confidentialite{
-
-/*display: flex;
-flex-direction: column;*/
-
-}
-
-.confidentialite p {
-margin: 5px  0px;
-text-align: right;
-}
-
-.text-contact strong{
-
-	display: inline !important;
-}
-
-
-
-
-}
-
-@media screen and (max-width: 1200px) {
-
-footer{
-padding: 40px 5vw;
-color: white;
-display: flex;
--webkit-box-orient: vertical;
-flex-direction: column;
-
-}
-
-.reseaux-sociaux{
-display: flex;
-flex-direction: column;
-justify-content: center;
-
-}
-
-.reseaux-sociaux p {
-margin: 4px  0px;
-}
-
-.confidentialite{
-
-display: flex;
-flex-direction: column;
-
-}
-
-.confidentialite p {
-margin: 5px  0px;
-text-align: left;
-}
-
-}
-
 .text-contact a{
 font-family: "Open Sans", regular !important;
 color: white;
@@ -615,10 +278,6 @@ color: white;
 color: white;
 font-size: 0.6em !important;
 }
-
-
-
-
 
 .div-text-contact{
 
@@ -638,31 +297,6 @@ color: white;
 margin:5em;
 
 }
-
-
-
-@media screen and (max-width: 1200px) {
-
-.div-text-contact{
-
-padding-left: 5vw;
-padding-right: 5vw;
-width: 80%;
-font-size: 2em;
-color: white;
-margin-left: 0;
-margin-right: 0;
-padding-top: 50px;
-
-
-}
-}
-
-/*.row{
-
-overflow: hidden;
-}
-*/
 
 .img{
 
@@ -704,8 +338,7 @@ body {
 #quote{
 
   margin: auto auto;
-  /*width: 90%;*/
-  /*font-size: 3em;*/
+
 }
 
 .typing-animation{
@@ -713,12 +346,6 @@ body {
   display: flex;
   height: 100%;
 }
-
-
-/** {
-  box-sizing: border-box;
-}
-*/
 .item {
   width: 200px;
   height: 200px;
@@ -735,10 +362,6 @@ body {
     margin-left: 30px;
 }
 
-.g-project {
-	padding-left: 35px;
-	padding-right: 35px;
-}
 
 strong {
   text-transform: uppercase;
@@ -754,12 +377,323 @@ strong {
   /*height: 60vw !important;*/
 }
 
-
-h1{
+.title-page{
 
 	font-size: 4em !important;
 }
 
 
+			
+
+				@media screen and (min-width: 1100px) {
+
+						.post-client{
+
+							padding:  30px 35px;
+						}
+
+						.text-homepage{
+
+							padding-top: 150px;
+							padding-bottom: 5%;
+							width: 70% ;
+							margin: auto 70px;
+							/*width: 100%;*/
+							font-size: 3.3em;
+							color: #e1e1e1;
+							font-family: "Open Sans", regular !important;
+							font-weight: lighter;
+							text-align: left;
+
+						}
+
+						.text-homepage h1{
+
+							text-align: left;
+							margin: 5% 0px;
+						}
+
+
+						.client img{
+
+						width: 100%;
+
+						}
+
+						footer{
+						padding: 40px 30px;
+						display: flex;
+						-webkit-box-orient: vertical;
+						flex-direction: column;
+
+						}
+
+						.footer-text{
+
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between;
+
+						}
+
+						.reseaux-sociaux{
+						display: flex;
+						flex-direction: column;
+
+						}
+						.adresse-social {
+						text-align: left;
+
+						}
+
+
+
+						.reseaux-sociaux p {
+						margin: 5px  0px;
+						}
+
+						.confidentialite p {
+						margin: 5px  0px;
+						text-align: right;
+						}
+
+						.text-contact strong{
+
+							display: inline !important;
+						}
+
+						.g-project{
+								width: calc(50% - 70px) !important;
+								display: inline-block;
+								margin-bottom: 3%;
+						}
+
+
+				}
+
+				@media screen and (max-width: 1100px) and  (min-width: 600px) {
+
+						.text-homepage{
+
+						
+							color: white;
+							padding-left: 5%;
+
+						}
+
+						.g-project {
+							padding-left: 10%;
+							padding-right: 10%;
+							padding-bottom: 5%
+						}
+
+						.div-text-contact{
+
+						padding-left: 5vw;
+						padding-right: 5vw;
+						width: 80%;
+						font-size: 2em;
+						color: white;
+						margin-left: 0;
+						margin-right: 0;
+						padding-top: 50px;
+
+						}
+						.client{
+
+						width: 100% !important;
+						/*height: 60vw;*/
+
+						margin-left: auto;
+						margin-right: auto;
+
+
+						}
+
+						.global-project{
+						z-index: 10;
+						width: 100% !important;
+
+
+						}
+
+						.image-client{
+
+						height: 100%;
+						background-color: white;
+						}
+
+
+						.text-homepage{
+						text-align: left;
+						padding-top: 50px;
+						font-size: 35px;
+						display: block;
+						margin-top: 0px;
+						padding-left: auto;
+						padding-right: auto;
+						width: auto;
+
+						}
+
+						.row{
+						width: 100%;
+						display: flex;
+						flex-direction: column;
+						}
+
+						.div-text-project{ 
+
+						height: 100vh;
+						min-height: 100vh;
+						padding-top: auto;
+						padding-left: auto;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-content: center;
+						padding-top: 0px;
+						}
+
+						footer{
+						padding: 40px 5vw;
+						color: white;
+						display: flex;
+						-webkit-box-orient: vertical;
+						flex-direction: column;
+
+						}
+
+						.reseaux-sociaux{
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+
+						}
+
+						.reseaux-sociaux p {
+						margin: 4px  0px;
+						}
+
+						.confidentialite{
+
+						display: flex;
+						flex-direction: column;
+
+						}
+
+						.confidentialite p {
+						margin: 5px  0px;
+						text-align: left;
+						}
+
+						.text-homepage{
+
+							line-height: 60px;
+							padding-left: 10%;
+						}
+
+				}
+
+
+				@media screen and (max-width: 600px) {
+
+						.global-project{
+						z-index: 10;
+						width: 100% !important;
+
+
+						}
+
+
+						.post-client{
+
+						}
+
+						.g-project{
+
+							width: calc(100% - 70px) !important;
+							height: auto;
+							display: inline-block;
+							padding-right: 30px;
+							padding-left: 30px;
+
+						}
+						.div-text-project{
+
+							width:100%;
+
+						}
+
+						.title-page{
+
+							font-size: 2em !important;
+						}
+
+
+						.client img{
+
+							width: 100% !important;
+							/*height: 60vh;*/
+							min-height: 200px;
+							/*background-color: white;*/
+
+						}
+
+
+
+						.row{
+
+							padding:  35px 35px;
+							display: flex;
+							flex-direction: row;
+							justify-content: space-between;
+
+						}
+
+						.text-homepage{
+
+							padding-top: 150px;
+							padding-bottom: 5%;
+							width: 100% !important;
+							margin: auto 30px;
+							width: 100%;
+							font-size: 3.1em;
+							color: #e1e1e1;
+							font-family: "Open Sans", regular !important;
+							font-weight: lighter;
+
+						}
+
+						.textbox{
+
+							margin: 50px 30px !important;
+							height: 70vh;
+
+
+						}
+						.div-text-contact{
+
+							height: 100%
+
+						}
+						.div-text-contact{
+							padding: 0px 0px;
+						}
+
+						.post-client{
+
+							padding-top: 100px;
+							padding-bottom: 120px;
+
+						}
+
+				}
+
+
+
 
 </style>
+
+
+

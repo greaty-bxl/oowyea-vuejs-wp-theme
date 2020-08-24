@@ -5,30 +5,30 @@
 <div class="global-descriptif">
 <div class="all-description">
 
-	<p  v-html="this.wp.title"></p>
-
 	<div class="info">
-		<p>lorem ipsum </p>
-		<p> Client : Lorem ipsum dolor</p>
+		<p><strong>Client : </strong>  <span v-html="this.wp.title"></span> </p>
+	<p v-html="post.fields.description_client" ></p>
+		
 	</div>
 
-	<p class="notre-service">Services : Lorem ipsum dolor</p>
+	<p class="notre-service"><strong>Ce que nous avons réalisé :</strong> </p>
+	<div class="services-fourni" v-html="post.fields.liste_services" ></div>
 	
 </div>
 <!-- <img :src="this.wp.thumb" > -->
- <div class="image" :src="this.wp.thumb" ></div>
+ <img class="image" :src="post.fields.image_projet.url " >
 </div>
 
 <div class="post-client">
 
-<div class="g-project" v-for="child in wp.projects" :key="child.ID">
+<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
 	
 		<div class="icon global-project test__item on-screen" >
 		
 				<a :href="child.permalink" >
 					<div class="client">
 
-						<img class="image-client" height="100%" :src="child.thumb" >
+						<img class="image-client" height="100%" width="100%" :src="child.thumb" >
 						<p class="name-client" v-html="child.post_title" ></p>
 						<p class="role-greaty">Corporated Website</p>
 
@@ -37,7 +37,7 @@
 			
 		</div>
 	
-</div>
+</Anime3d>
 
 </div>
 
@@ -54,10 +54,12 @@
 
 	/*import Alpl from 'Molecules/animation-line-per-line';
 	import anime from 'animejs/lib/anime.es.js';*/
+	import Anime3d from 'Molecules/animation-3d';
 
 export default {
 		components: {
 
+			Anime3d
 		},
 
 		props: {
@@ -66,13 +68,7 @@ export default {
 		},
 		mounted (){
 
-// <<<<<<< HEAD
-// 		var $ = this.$
-// =======
-// 			//var $ = this.$
-// >>>>>>> e4d8f4f7ea710344ee7ff8d30b6af9da147347f3
 
-		console.log( this.wp);
 		console.log( this.wp.projects );
 
 		this.$emit('template_mounted', this)
@@ -80,6 +76,8 @@ export default {
 		}
 	
 }
+
+
 
 </script>
 
@@ -90,29 +88,45 @@ export default {
 	.global-descriptif{
 
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: center;
 		background-color: rgb(25, 26, 28);
 		min-height: 100vh;
-		width: calc(100% - 200px);
-		padding:  70px 100px;
-		height: 125vh;
+		/*width: calc(100% - 140px);*/
+		padding-top: 150px;
+		padding-bottom: 150px;
+
+		/*padding-left: 70px;*/
+		/* padding-right: 70px; */
+
+		/*height: 125vh;*/
 
 	}
 
 	.all-description{
 
 		height: 100%;
-		width: 35%;
+		width: 80%;
 		background-color: rgb(25, 26, 28);
+		margin:  0px 5%;
 
+	}
+
+	.all-description p{
+
+		line-height: 30px;
+		font-size: 18px !important;
 	}
 	.image{
 
 		height: 100%;
-		width: 65%;
+		width: 90%;
 		background-color: white;
-
+		background-position: center;
+		background-size: cover;
+		background-repeat: none;
+		margin-left: 5%;
+		margin-right: 5%;
 	}
 	p{
 		text-align: left;
@@ -128,7 +142,9 @@ export default {
 
 	.notre-service{
 		
-		margin-top: 10%;
+		margin-top: 5%;
+		margin-bottom: 2%;
+
 
 	}
 
@@ -141,25 +157,56 @@ export default {
 			justify-content: center;
 			background-color: rgb(25, 26, 28);
 			min-height: 100vh;
-			width: calc(100% - 200px);
-			padding:  70px 100px;
-			height: 125vh;
+			/*width: calc(100% - 200px);*/
+			/*padding:  70px 100px;*/
+			/*height: 125vh;*/
 
 		}
 		
 		.image{
 
 			height: 100%;
-			width: 100%;
-			background-color: white;
+			width: 90%;
+			/*height: 100vh;*/
 
 		}
 		.all-description{
 
 			height: 100%;
-			width: 100%;
+			width: 80%;
 			background-color: rgb(25, 26, 28);
+			margin: 0px 35px;
 
+		}
+		.image{
+
+			margin: 35px 35px;
+		}
+
+		.client{
+
+		width: 100% !important;
+		height: 60vw;
+
+		margin-left: auto;
+		margin-right: auto;
+
+
+		}
+
+		.global-project{
+		z-index: 10;
+		width: 90% !important;
+		/*margin-left: auto;
+		margin-right: auto;*/
+		margin: 20px !important;
+
+		}
+
+		.image-client{
+
+		height: 100%;
+		/*background-color: white;*/
 		}
 
    }
@@ -204,12 +251,18 @@ export default {
    background-color: white;
 
    }
-   .client img{
 
-   width: 45%;
-   height: 59vh;
+@media (min-width: 1100px) {
 
-   }
+	.client img{
+
+	width: 45%;
+	height: 59vh;
+
+	}
+	
+}
+
 
 
    .name-client{
@@ -274,38 +327,56 @@ export default {
 
    }
 
-   @media screen and (max-width: 1200px) {
-   .client{
 
-   width: 100% !important;
-   height: 60vw;
+	@media screen and (min-width: 800px) {
 
-   margin-left: auto;
-   margin-right: auto;
+	.post-client{
+		padding-left: 35px;
+		padding-right: 35px;
+		background-color: rgb(25, 26, 28);
+	}
 
+	.g-project{
+		z-index: 10;
+		width: calc(50% - 70px) !important;
+		height: auto;
+		min-height: 400px;
+		display: inline-block;
 
-   }
+	
+    }
 
-   .global-project{
-   z-index: 10;
-   width: 90% !important;
-   /*margin-left: auto;
-   margin-right: auto;*/
-   margin: 20px !important;
+	.client img{
 
-   }
+	width: 100% !important;
+	height: 60vh;
+	min-height: 400px;
+	/*background-color: white;*/
 
-   .image-client{
+	}
 
-   height: 100%;
-   background-color: white;
-   }
+	}
 
+	.g-project {
+		padding-left: 35px;
+		padding-right: 35px;
+	}
 
+	.services-fourni ul{
+		
+		list-style: none;
+		list-style-type: none;
+		text-align: left;
+		padding-left: 0px;
+		margin-bottom: 5%;
 
-   }
+	}
 
+	.services-fourni ul li{
 
+     padding-top: 15px;
+
+	}
 
 
 </style>

@@ -127,68 +127,71 @@
 			color: white
 		}
 
-		@media screen and (min-width: 1200px) {
+		@media screen and (min-width: 1100px) {
 
-		footer{
+				footer{
 
-		padding: 20px 30px;
-		display: flex;
-		-webkit-box-orient: vertical;
-		flex-direction: column;
+				padding: 20px 70px;
+				display: flex;
+				-webkit-box-orient: vertical;
+				flex-direction: column;
 
-		}
+				}
 
-		.footer-text{
+				.footer-text{
 
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
 
-		}
+				}
 
-		.reseaux-sociaux{
-		display: flex;
-		flex-direction: column;
+				.reseaux-sociaux{
+				display: flex;
+				flex-direction: column;
 
-		}
-		.adresse-social {
-		text-align: left;
+				}
+				.adresse-social {
+				text-align: left;
 
-		}
+				}
 
-		.adresse-social p {
-		margin-top: 0px ;
+				.adresse-social p {
+				margin-top: 0px ;
+				text-align: left;
 
-		}
+				}
 
-		.reseaux-sociaux p {
-		margin: 5px  0px;
-		}
+				.reseaux-sociaux p {
+				margin: 5px  0px;
+				}
 
-		.confidentialite{
+				.confidentialite{
 
-		display: flex;
-		flex-direction: column;
+				display: flex;
+				flex-direction: column;
 
-		}
+				}
 
-		.confidentialite p {
-		margin-top: 0px ;
-		text-align: right;
-		}
+				.confidentialite p {
+				margin-top: 0px ;
+				text-align: right;
+				}
+				.text-contact{
+
+					font-size: 3.3em;
+				}
 
 		
 
 		}
 
-		@media screen and (max-width: 1200px) {
+		@media screen and (max-width: 1100px) and  (min-width: 600px) {
 
 		footer{
-		padding: 40px 5vw;
+		padding: 40px 70px;
 		color: white;
-		display: flex;
-		-webkit-box-orient: vertical;
-		flex-direction: column;
+
 
 		}
 
@@ -210,9 +213,15 @@
 
 		}
 
+		.adresse-social p {
+		margin-top: 0px ;
+		text-align: left;
+
+		}
+
 		.confidentialite p {
 		margin: 5px  0px;
-		text-align: left;
+		text-align: right;
 		}
 
 		}
@@ -225,6 +234,20 @@
 		#footer{
 			
 			background-color: rgb(25, 26, 28);
+
+		}
+
+		@media screen and (max-width: 600px) {
+
+			p{
+				text-align: left;
+				padding-right: 30px;
+			}
+			footer{
+
+				padding: 40px 35px;
+
+			}
 
 		}
 

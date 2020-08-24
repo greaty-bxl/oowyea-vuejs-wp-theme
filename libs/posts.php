@@ -12,6 +12,11 @@ function my_posts_results_filter( $posts ) {
 		$posts[$key2]->permalink = get_permalink( $child->ID );
 		$posts[$key2]->metas = get_post_meta( $child->ID );
 		$posts[$key2]->thumb = get_the_post_thumbnail_url( $child->ID );
+	    // $posts[$key2]->fields = get_field( 'image_projet' );
+	    $posts[$key2]->fields = get_fields( $child->ID );
+
+	    
+
 	}
 
 	return $posts;

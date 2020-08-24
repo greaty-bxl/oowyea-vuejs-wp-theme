@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<span>{{option}}</span>
 </template>
 
@@ -6,9 +6,10 @@
 export default{
 	props:{
 		option: null
+		
 	},
 	mounted(){
 		
 	}
 }
-</script>
+</script> -->

@@ -246,45 +246,74 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
-			@media (min-width: 1100px) {
+		@media (min-width: 1100px) {
 
+			#header-logo {
 
-
-			}
-
-
-			@media (max-width: 600px) {
-
-
-				#header-logo img{
-
-				padding-left: 35px !important;
+				/*padding-left: 70px;*/
 				padding-top: 25px;
 				height: 70px;	
 
 			}
 
-				.headerButton{
+			.header-greaty{
 
-				right: 35px !important;
-				}
+				margin: 0px 70px;
+
+			}
+
+			.headerButton{
+				top: 25px;
 
 			}
 
-			@media screen and (max-width: 1100px) and  (min-width: 600px) {
+
+		}
+
+		@media screen and (max-width: 1100px) and  (min-width: 600px) {
 
 
-				.header-greaty{
+			.header-greaty{
 
-					margin: 0px 70px;
-
-				}
-
-
+				margin: 0px 70px;
 
 			}
+
+			#header-logo{
+
+				padding-top: 40px;
+
+			}
+			.headerButton{
+
+				top: 40px !important;
+			}
+
+		}
+
+		@media (max-width: 600px) {
+
+
+			#header-logo img{
+
+			padding-left: 35px !important;
+			padding-top: 25px;
+			height: 70px;	
+
+		}
+
+
+
+
+			.headerButton{
+
+			right: 35px !important;
+			}
+
+		}
+
 
 
 
@@ -428,13 +457,6 @@ padding-bottom: 20px;
 	position: absolute;
 }
 
-#header-logo img{
-
- padding-left: 70px;
- padding-top: 25px;
- height: 70px;	
-
-}
 
 
 .menu a{

@@ -93,7 +93,7 @@ p{
 
 	.div-text-contact{
 
-		padding: 12rem 4.5rem;
+		/*padding: 12rem 4.5rem;*/
 		width: 80%;
 		margin-left: 0;
 		margin-right: 0;

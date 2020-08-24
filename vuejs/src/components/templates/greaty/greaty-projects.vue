@@ -9,10 +9,13 @@
 
 		<div class="div-text-homepage">
 
+			<div class="center-flex" >
 
-		<Alpl class="text-homepage"> <h1 class="title-page">Projet</h1>
-			Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
-		</Alpl>
+				<Alpl class="text-homepage"> <h1 class="title-page">Projet</h1>
+					Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
+				</Alpl>
+
+			</div>
 
 		</div>
 	
@@ -348,7 +351,13 @@ strong {
 	font-size: 4em !important;
 }
 
+.div-text-homepage{
 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+}
 			
 
 				@media screen and (min-width: 1100px) {
@@ -361,7 +370,7 @@ strong {
 						.text-homepage{
 
 							padding-top: 150px;
-							padding-bottom: 5%;
+							padding-bottom: 150px;
 							width: 70% ;
 							margin: auto 70px;
 							/*width: 100%;*/
@@ -443,7 +452,7 @@ strong {
 							/*padding-left: 5%;*/
 							height: auto;
 							text-align: left;
-							padding-top: 20%;
+							/*padding-top: 20%;*/
 							font-size: 35px;
 							display: block;
 							margin-top: 0px;
@@ -603,7 +612,7 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 150px;
+							/*padding-top: 150px;*/
 							padding-bottom: 5%;
 							/*width: 100% !important;*/
 							/*margin: auto 30px;*/

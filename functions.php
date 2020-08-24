@@ -11,9 +11,9 @@
 define('GREATY_TEMPLATE_PATH', get_template_directory());
 define('GREATY_TEMPLATE_URL', get_template_directory_uri());
 
-include GREATY_TEMPLATE_PATH.'/security/security.php';
+/*include GREATY_TEMPLATE_PATH.'/security/security.php';
 include GREATY_TEMPLATE_PATH.'/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
-include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
+include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';*/
 
 include GREATY_TEMPLATE_PATH.'/vue.config.php';
 
@@ -504,7 +504,3 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
-
-
-
-?>

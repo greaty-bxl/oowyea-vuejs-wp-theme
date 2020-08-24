@@ -3,6 +3,7 @@
 
 function init_classics_wp_variables()
 {
+	if(is_admin()) {return;}
 	global $wp, $wp_query;
 	wp_vue_add_var('wp', $wp );
 	wp_vue_add_var('wp_query', $wp_query );

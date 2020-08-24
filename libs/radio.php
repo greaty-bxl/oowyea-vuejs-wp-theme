@@ -135,3 +135,29 @@ function get_radio_playlist()
 }
 add_action( 'wp_head', 'get_radio_playlist' );
 add_action( 'wp', 'get_radio_playlist' );
+
+
+function get_radio_playlist_ajx()
+{
+	$shows = new WP_Query(array(
+		'post_type' => 'radio-show',
+		'posts_per_page' => -1
+	));
+
+	/*
+	to do: find the current show about current hour
+	*/
+
+	$current_show = $shows->post;
+	$current_show_playlist = get_post_meta( $current_show->ID, 'playlist_array', true );
+
+	$return = array(
+		'radio_show' => $current_show,
+		'radio_playlist' => $current_show_playlist
+	);
+
+	die( json_encode($return) );
+}
+
+add_action( 'wp_ajax_get_radio_playlist', 'get_radio_playlist_ajx' );
+add_action( 'wp_ajax_nopriv_get_radio_playlist', 'get_radio_playlist_ajx' );

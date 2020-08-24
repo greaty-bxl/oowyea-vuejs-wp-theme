@@ -112,6 +112,7 @@ export default {
 			toptimer: false,
 			playlist: [],
 			cover: '',
+			visualizer_vars: {},
 			YtId: 'tnGaCZZ5Z28',//'6stlCkUDG_s',//'1eHwlmn_Mps',
 			YtVars: {
 				autoplay: 1,
@@ -119,7 +120,8 @@ export default {
 				showinfo: 0,
 				loop: 1,
 				suggestedQuality:'large',
-			}
+			},
+			visualizer_first_time: 1
 		}
 	},
 	mounted (){
@@ -161,6 +163,9 @@ export default {
 
 		this.$emit('template_mounted', this)		 
 		
+	},
+	beforeDestroy(){
+		console.log('beforeDestroy');
 	},
 	methods:{
 		play_next_audio: function(){
@@ -239,42 +244,80 @@ export default {
 				this.cover = this.post.thumb
 			});
 
-			this.audio = new Audio(music_url)
-			
-			//audio.currentTime = currentTime
-			this.audio.addEventListener("canplaythrough", () => {
+
+			if( !this.$store.state.audio.radio )
+			{
+				this.$store.state.audio.radio = new Audio(music_url)
+
+				//audio.currentTime = currentTime
+				this.$store.state.audio.radio.addEventListener("canplaythrough", () => {
+
+					console.log('canplaythrough');
+					
+					this.play_after_load(currentTime)
+				})
+			}
+			else if( this.$store.state.audio.radio.src != music_url || this.playing == false )
+			{
+				console.log('change source');
+				/*if( this.$store.state.audio.radio.src != music_url )
+				{
+					console.log( 'new music' );
+					this.$store.state.audio.radio.src = music_url
+					this.$store.state.audio.radio.load()
+					this.$store.state.audio.radio.play()
+					this.playing = true
+					setTimeout(()=>{this.visualizer()}, 250)
+				}
+				else
+				{
+					console.log( 'replay music' );
+					this.playing = true
+					this.$store.state.audio.radio.play()
+				}	*/	
+				this.$store.state.audio.radio.src = music_url
+				this.play_after_load(currentTime)		
 				
-				if( this.audio.currentTime != currentTime )
-				{
-					this.audio.currentTime = currentTime
-				}
+			}
 
-				if( this.paused == false )
-				{
-					var promise = this.audio.play();
-					if (promise !== undefined) {
-						promise.then( () => {
-							this.playing = true
-							setTimeout(()=>{this.visualizer()}, 250)
-						}).catch(() => {
-							this.playing = false
-						});
-					}	
-				}
-			})
+			this.$store.state.audio = this.$store.state.audio
 
+			console.log('init audio',this.$store.state.audio.radio);
+			
+			console.log('next_timer', next_index - current_second_to_play);
 			clearTimeout(this.next_timer);
 			this.next_timer = setTimeout( () =>{
-				//console.log('next by timer');
+				/*this.playing = false*/
+				console.log('next by timer');
 				this.play_next_audio()
 			}, (next_index - current_second_to_play) * 1000)
 
+		},
+		play_after_load: function(currentTime)
+		{
+			if( this.$store.state.audio.radio.currentTime != currentTime )
+			{
+				this.$store.state.audio.radio.currentTime = currentTime
+			}
+
+			if( this.paused == false )
+			{
+				var promise = this.$store.state.audio.radio.play();
+				if (promise !== undefined) {
+					promise.then( () => {
+						this.playing = true
+						//setTimeout(()=>{this.visualizer()}, 250)
+					}).catch(() => {
+						this.playing = false
+					});
+				}	
+			}
 		},
 		click_play_pause: function()
 		{
 			if( this.playing )
 			{
-				this.audio.pause()
+				this.$store.state.audio.radio.pause()
 				this.playing = false
 				this.paused = true
 			}
@@ -289,25 +332,34 @@ export default {
 
 			var $ = this.$ 
 
-			if( this.last_audio == this.audio ) return false
+			if( this.$store.state.audio.radio_last_audio == this.$store.state.audio.radio )
+			{
+				var context = this.$store.state.audio.radio_visualizer_vars.context
+				var src = this.$store.state.audio.radio_visualizer_vars.src
+				var analyser = this.$store.state.audio.radio_visualizer_vars.analyser
 
-			//console.log('visualizer started');
+				/*console.log( this.$store.state.audio.radio_visualizer_vars );
+				return;*/
+			}
+			else
+			{
+				console.log('visualizer started');
 
-			var context = new AudioContext();
-			var src = context.createMediaElementSource(this.audio);
-			var analyser = context.createAnalyser();
+				var context = new AudioContext();
+				var src = context.createMediaElementSource(this.$store.state.audio.radio);
+				var analyser = context.createAnalyser();
 
-			this.last_audio = this.audio
-
-			var canvas = document.getElementById("audio-visualizer");
-			canvas.width = $('#app').innerWidth();
-			canvas.height = window.innerHeight * 0.20;
-			var ctx = canvas.getContext("2d");
-
+				this.$store.state.audio.radio_visualizer_vars = {
+					'context' : context,
+					'src' : src,
+					'analyser': analyser
+				}
+			}
+			
 			src.connect(analyser);
 			analyser.connect(context.destination);
 
-			analyser.fftSize = 256 * 8//256;
+			analyser.fftSize = 256 / 4//256;
 
 			var bufferLength = analyser.frequencyBinCount;
 
@@ -319,14 +371,30 @@ export default {
 
 			var max_height = 0
 
-			function renderFrame() {
+			
 
+			function renderFrame(vue) {
+				
+				if( vue.frame_started )
+				{
+					return false
+				}
+				var canvas = document.getElementById("audio-visualizer");
+				//console.log('frame');
+				if( !canvas ) return
+
+				canvas.width = $('#app').innerWidth();
+				canvas.height = window.innerHeight * 0.20;
+				var ctx = canvas.getContext("2d");
+				//console.log('frame');
 				var WIDTH = canvas.width;
 				var HEIGHT = canvas.height;
 
 				var barWidth = (WIDTH / bufferLength) * 2.5;
 
-				requestAnimationFrame(renderFrame);				
+				requestAnimationFrame(renderFrame);		
+
+				return;		
 
 				x = 0;
 
@@ -361,7 +429,15 @@ export default {
 					x += barWidth + 2;
 				}
 			}
-			renderFrame();
+
+			if( this.$store.state.audio.radio_last_audio != this.$store.state.audio.radio || this.visualizer_first_time )
+			{
+				renderFrame(this.$store.state.audio.radio.src);	
+				this.visualizer_first_time = 0
+			}
+
+			this.$store.state.audio.radio_last_audio = this.$store.state.audio.radio
+			
 		},
 		YT_ready : function(){
 			console.log('ready yt');

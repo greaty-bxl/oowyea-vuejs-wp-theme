@@ -3,6 +3,35 @@
     "title": "Show options",
     "fields": [
         {
+            "key": "field_5f3fc99fd0bc0",
+            "label": "Radio (page)",
+            "name": "radio_page",
+            "type": "relationship",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_permissions": "",
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": 1,
+            "max": 1,
+            "return_format": "object",
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "0"
+            }
+        },
+        {
             "key": "field_5f390281f90a3",
             "label": "Days",
             "name": "days",
@@ -183,5 +212,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1597573533
+    "modified": 1598016139
 }

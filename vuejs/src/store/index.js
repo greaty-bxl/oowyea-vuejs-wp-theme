@@ -2,20 +2,30 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-import {audio, audio_mutation, audio_getters} from 'Store/audio.js'
+/* using class as import for clearer code, take care than this in the class is the store instead of the class itself */
+import main_audio from 'Store/audio.js'
 import {wp, wp_mutation, wp_getters} from 'Store/wp.js'
+import radio from 'Store/radio.js'
 
 export default new Vuex.Store({
 	state: {
-		audio,
-		wp
+		main_audio: main_audio.state,
+		wp,
+		radio: radio.state,
 	},
 	mutations: {
-		audio_mutation,
-		wp_mutation
+		/* WP */
+		wp_mutation,
+		/* Audio */
+		update_main_audio_src: main_audio.update_main_audio_src,
+		play_pause: main_audio.play_pause,
+		/* Radio */
+		init_radio: radio.init_radio,
 	},
 	getters: {
-		audio_getters,
-		wp_getters
+		wp_getters,
+		/*radio_getters: (state) =>{
+			this.state.radio = radio_getters(state)
+		}*/
 	}
 })

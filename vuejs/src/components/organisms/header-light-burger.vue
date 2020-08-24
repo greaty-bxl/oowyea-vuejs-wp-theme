@@ -41,11 +41,11 @@ export default {
 	mounted(){
 		var $ = this.$
 
-		console.log(Acf[0]);
+		//console.log(Acf[0]);
 
 		$('.header-greaty').css('background-color', 'rgb(25, 26, 28)');
 
-		console.log('header', this.wp.acf);
+		//console.log('header', this.wp.acf);
 
 		var height_origin_taille = $('.headerButton').height()
 

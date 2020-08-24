@@ -83,8 +83,8 @@ export default {
   },
   mounted (){
     console.log( 'App mounted' );
-    console.log('wp', this.wp)
-    console.log('store', this.$store.state.wp)
+    //console.log('wp', this.wp)
+    //console.log('store', this.$store.state.wp)
 
 
     this.pages['current'] = this.wp.sections
@@ -224,7 +224,7 @@ html{
   display: block;
   min-height: 100vh;
   width: 100%;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 .section-wrap{

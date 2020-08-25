@@ -17,7 +17,7 @@ export default{
 		return{
 			//playing: true,
 			YTReady: false,
-			YtId: 'rlonGk2UcnE', //'tnGaCZZ5Z28',//'6stlCkUDG_s',//'1eHwlmn_Mps', rlonGk2UcnE, EbOy4D4hu3U
+			YtId: 'tnGaCZZ5Z28', //'tnGaCZZ5Z28',//'6stlCkUDG_s',//'1eHwlmn_Mps', rlonGk2UcnE, EbOy4D4hu3U
 			YtVars: {
 				autoplay: 1,
 				controls: 0,

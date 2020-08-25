@@ -24,6 +24,7 @@
     </div>
     <!-- Footer -->
     <Footer/>
+    <AudioPlayerBottom />
   </div>
 </template>
 
@@ -33,10 +34,10 @@
 //import Header from 'Organisms/header-light-burger.vue'
 import Header from 'Organisms/header-light-burger.vue'
 
-
-
 //Footer
 import Footer from 'Organisms/footer.vue'
+
+import AudioPlayerBottom from 'Organisms/audio-player-bottom.vue'
 
 //Functions
 import is from 'is_js'
@@ -67,7 +68,8 @@ export default {
   },
   components: {
     Header,
-    Footer
+    Footer,
+    AudioPlayerBottom
   },
   created ()  {
     //automatically load templates

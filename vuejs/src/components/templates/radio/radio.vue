@@ -12,8 +12,6 @@
 
 		<RadioPlayer />
 
-		<!-- <AudioPlayerBottom /> -->
-
 		<AudioVisualizer />		
 	</div>
 </template>
@@ -22,14 +20,13 @@
 import VideoBg from 'Organisms/radio-youtube-background.vue'
 import RadioPlayer from 'Organisms/radio-centered-player.vue'
 import AudioVisualizer from 'Organisms/audio-visualizer.vue'
-//import AudioPlayerBottom from 'Organisms/audio-player-bottom.vue'
+
 
 export default{
 	components:{
 		VideoBg,
 		RadioPlayer,
 		AudioVisualizer,
-		//AudioPlayerBottom
 	},
 	props: {
 		'post' : Object

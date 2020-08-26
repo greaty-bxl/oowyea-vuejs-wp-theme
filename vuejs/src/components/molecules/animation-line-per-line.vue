@@ -7,6 +7,7 @@
 <script>
 	import anime from 'animejs/lib/anime.es.js';
 
+	//console.log(anime);	
 
 export default{
 
@@ -56,12 +57,12 @@ export default{
 
 				}
 				else if (tets.charAt(i) == "-") {
-					text_remplace += '<span class="char">-</span></span><span class="word">'
+					text_remplace += '<span class="char char'+this._uid+'">-</span></span><span class="word">'
 				}
 				else
 				{
 
-					text_remplace += '<span class="char">'+ tets.charAt(i) +'</span>';
+					text_remplace += '<span class="char char'+this._uid+'">'+ tets.charAt(i) +'</span>';
 
 				}
 			}
@@ -82,7 +83,7 @@ export default{
 		$( this.$el ).find('.char').css({
 			'display': 'inline-block',
 			'opacity': 0,
-			'translateY': -50
+			'translateY': 20
 		});
 
 		$( this.$el ).find('.word')
@@ -97,6 +98,7 @@ export default{
 	
 		.on('enter-screen', () => {
 
+			console.log( 'my first word enter-screen' )
 			
 			$( this.$el ).find('.char').each(function(index, el) {
 				let newTop = Math.round( $(el).position().top )
@@ -119,23 +121,26 @@ export default{
 				//$("[data-lettertop="+ val +"]:first").addClass('line')
 			});*/
 
-			$.each(lines, function(index, val) {
+			$.each(lines, (index, val) => {
 
 				let delay = i_lines * 100
 
 				setTimeout( ()=>{
-					$('[data-lettertop='+val+']').each( (index, el) => {
-						anime({
-							targets: el,
-							translateY: 0,
-							opacity: 1,
-							easing: 'cubicBezier(0.25, 0.46, 0.45, 0.94)',
-							delay: delay,
-							duration: 700
-						}) ;	
-					});
+					/*$('[data-lettertop='+val+']').each( (index, el) => {
+							
+					});*/
+					console.log('anime', '.char'+this._uid);
+					anime({
+						targets: '.char'+this._uid,
+						translateY: -50,
+						opacity: 1,
+						easing: 'cubicBezier(0.25, 0.46, 0.45, 0.94)',
+						delay: delay,
+						duration: 700
+					}) ;
 				}, 1 )
-
+					
+				console.log('enter', $('[data-lettertop='+val+']').length, i_lines );
 
 
 				i_lines++

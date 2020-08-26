@@ -32,14 +32,15 @@ export default {
 			'min-height':'50vh'
 		})
 
-	
-
+		// console.log( $.get('./json/animation.json') );
 		//Important to let works basic functions
 		this.$emit('template_mounted')
 		
 		smart_fonts({
-			'.text-contact' :54
+			'.text-contact' :45,
 		})
+
+
 	}
 }
 

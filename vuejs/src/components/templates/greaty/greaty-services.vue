@@ -85,7 +85,7 @@ export default {
                         translateY: -100,
                         opacity: 1,
                         easing: 'easeInOutSine',
-                        duration: 500,
+                        duration: 200,
                         delay: index * 50
                         });
                     })

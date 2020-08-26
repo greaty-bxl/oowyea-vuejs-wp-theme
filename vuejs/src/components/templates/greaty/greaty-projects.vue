@@ -56,7 +56,8 @@
 import Alpl from 'Molecules/animation-line-per-line';
 import anime from 'animejs/lib/anime.es.js';
 import Anime3d from 'Molecules/animation-3d';
-import textcotact from './components/text-contact'
+import textcotact from './components/text-contact';
+import smart_fonts from "Libs/smart-fonts.js";
 // import Lottie from 'lottie-web';
 // import animationData from './components/json/animation-homepage.json';
 // animation-homepage.json
@@ -115,6 +116,14 @@ export default {
 
 
 	});
+
+		// smart_fonts({
+		// '.smallTile' :54,
+		// '.text-homepage' : 45,
+		// '.role-greaty': 30,
+		// '.name-client': 22,
+		// })
+
 
 	}
 

@@ -20,11 +20,11 @@ export default function (fonts = {}){
 
 			//console.log(fontSize, ( ( $('#app').innerHeight() + $('#app').innerWidth() / 2 ) / 999 ) * fontSize )
 
-			$( selector ).css('font-size', ( ( ( $('#app').innerHeight() + $('#app').innerWidth() + 6000 ) / 2 ) / 4200 ) * fontSize  + 'px' );
+			$( selector ).css('font-size', ( ( ( $('#app').innerHeight() + $('#app').innerWidth() + 5000 ) / 2 ) / 4200 ) * fontSize  + 'px' );
 		});
 	}
 
-	update_size()
+	update_size() 
 
 	$(window).resize( () => {
 		update_size()

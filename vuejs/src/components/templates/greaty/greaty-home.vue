@@ -52,6 +52,7 @@ import Alpl from 'Molecules/animation-line-per-line';
 import anime from 'animejs/lib/anime.es.js';
 import Anime3d from 'Molecules/animation-3d';
 import textcotact from './components/text-contact'
+import smart_fonts from "Libs/smart-fonts.js"
 
 export default {
 	components: {
@@ -71,6 +72,7 @@ export default {
 
 
 		var $ = this.$
+
 
 
 		this.$emit('template_mounted', this);
@@ -105,6 +107,14 @@ export default {
 
 
 	});
+
+		smart_fonts({
+		'.smallTile' :54,
+		'.text-homepage' : 45,
+		'.role-greaty': 27,
+		'.name-client': 22,
+		})
+
 
 	}
 
@@ -445,7 +455,7 @@ strong {
 							height: auto;
 							text-align: left;
 							/*padding-top: 20%;*/
-							font-size: 35px;
+							/*font-size: 35px;*/
 							display: block;
 							margin-top: 0px;
 							padding-left: 70px;

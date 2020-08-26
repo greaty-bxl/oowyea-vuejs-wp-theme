@@ -9,13 +9,18 @@
 			</div>
 		</div>
 		<div class="title-line">
-			<h2 v-html="main_audio.title"></h2> <v-icon name="star" ></v-icon> <v-icon name="download" ></v-icon>
+			<h2 v-html="main_audio.title"></h2> <Lottie class="ico-like-lottie" /> <v-icon name="download" ></v-icon>
 		</div>
 	</div>
 </template>
 
 <script>
+import Lottie from 'Organisms/lottie.vue'
+
 export default{
+	components:{
+		Lottie
+	},
 	mounted(){
 
 		if( this.main_audio.from !== 'radio' && !this.main_audio.playing )
@@ -51,6 +56,14 @@ export default{
 	}
 }
 </script>
+
+<style>
+	.ico-like-lottie{
+		height: 16px;
+		width: 16px;
+		display: inline-block;
+	}	
+</style>
 
 <style scoped>
 h2{

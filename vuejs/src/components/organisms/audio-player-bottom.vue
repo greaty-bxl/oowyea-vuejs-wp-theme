@@ -1,7 +1,11 @@
 <template>
-	<transition name="fade">
-		<div :class="classes" v-if="show">{{section.template}}</div>
-	</transition>
+	<div>
+		<transition name="fade">
+			<div :class="classes" v-if="show">{{section.template}}</div>
+		</transition>
+		<div :class="this.$style['block-sized']" v-if="show"></div>
+	</div>
+	
 </template>
 
 <script>
@@ -31,7 +35,6 @@ export default{
 				this.section = mutation.payload.current_section
 				if( this.excludes.includes(this.section.template) )
 				{
-					console.log('radio excludes');
 					this.show = false
 				}
 				else
@@ -45,6 +48,9 @@ export default{
 </script>
 
 <style module>
+	.block-sized{
+		height: 50px;
+	}
 	.audio-player-bottom{
 		position: fixed;
 		bottom: 0;

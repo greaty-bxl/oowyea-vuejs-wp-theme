@@ -1,7 +1,7 @@
 <template>
-	<div class="section-wrap">
+	<div :class="$style['section-wrap']" class="section-wrap">
 		
-		<VideoBg type="youtube" />
+		<VideoBg type="youtube" :bgcolor="'#00081D'" />
 
 		<div class="clear"></div>
 		<div>
@@ -47,7 +47,7 @@ body{
 	
 </style>
 
-<style>
+<style module>
 
 h1{
 	color: #fff;

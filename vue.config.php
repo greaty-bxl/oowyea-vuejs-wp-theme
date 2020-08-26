@@ -1,7 +1,7 @@
 <?php
 
 define('is_vuejs_dev', true);
-define('vuejs_server', 'http://localhost:8091/');
+define('vuejs_server', 'http://'.$_SERVER['HTTP_HOST'].':8091/');
 
 //Register Vue.js templates components 
 

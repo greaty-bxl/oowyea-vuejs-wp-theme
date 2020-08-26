@@ -10,7 +10,7 @@
         :data-index="key2"
         :data-title="section.post_title">
 
-          <component 
+          <component data-test="blibli"  
             :is="Templates[section.template]"
             :post="section" 
             :posts="section.children" 
@@ -88,12 +88,12 @@ export default {
     //console.log('wp', this.wp)
     //console.log('store', this.$store.state.wp)
 
-
+    
     this.pages['current'] = this.wp.sections
 
 
     this.$(document).ready( ($) => {
-
+      console.log( $('php') )
       //console.log('JQuery Ready', $, this.ajaxurl)
       
       //init scroll if child

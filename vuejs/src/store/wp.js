@@ -1,13 +1,10 @@
-const wp = window.wp
+class wp{
+	constructor(){
+		this.state = window.wp
+		console.log( this.state );
+	}
 
-function wp_mutation() 
-{
-
+	
 }
 
-function wp_getters()
-{
-
-}
-
-export {wp, wp_mutation, wp_getters}
+export default new wp()

@@ -13,6 +13,9 @@ import VueYoutube from 'vue-youtube'
 Vue.use(VueYoutube)
 
 export default{
+	props:{
+		'bgcolor': String
+	},
 	data(){
 		return{
 			//playing: true,
@@ -29,7 +32,7 @@ export default{
 	},
 	mounted(){
 		let $ = this.$
-		let bg = $(this.$el).parents('.section-wrap').css('background')
+		let bg = this.bgcolor //$(this.$el).parents('.section-wrap').css('background')
 
 		$('.yt-bg').css('background', bg)
 		$(this.$el).parents('.section-wrap').addClass('force-no-bg')

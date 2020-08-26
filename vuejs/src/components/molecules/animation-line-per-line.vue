@@ -169,3 +169,12 @@ export default{
 	}
 }
 </script>
+
+
+<style >
+	
+	.word{
+		text-align: left;
+	}
+	
+</style>

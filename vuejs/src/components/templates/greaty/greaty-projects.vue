@@ -9,9 +9,9 @@
 
 		<div class="div-text-homepage">
 
-			<div class="center-flex" >
-
-				<Alpl class="text-homepage"> <h1 class="title-page">Projet</h1>
+			<div class="center-flex">
+			
+				<Alpl class="text-homepage"><h1 class="title-page"></h1>
 					Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
 				</Alpl>
 
@@ -124,7 +124,7 @@ export default {
 
 </script>
 
-<style scoped >
+<style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
@@ -135,12 +135,11 @@ lottie-animation{
 	width: 50%;
 }
 	
-/*body {
-margin: 0 !important;
-padding: 0;
-font-family: 'Open Sans', regular;
+.div-text-homepage{
 
-}*/
+	min-height: 100vh;
+}
+
 
 a{
 color: #e1e1e1;
@@ -219,7 +218,7 @@ padding-right: auto;
 
 width: 100%;
 
-background-color: white;
+/*background-color: white;*/
 
 }
 
@@ -516,14 +515,6 @@ strong {
 						padding-top: 0px;
 						}
 
-						footer{
-						padding: 40px 5vw;
-						color: white;
-						display: flex;
-						-webkit-box-orient: vertical;
-						flex-direction: column;
-
-						}
 
 						.reseaux-sociaux{
 						display: flex;
@@ -561,11 +552,6 @@ strong {
 						z-index: 10;
 						width: 100% !important;
 
-
-						}
-
-
-						.post-client{
 
 						}
 
@@ -612,15 +598,15 @@ strong {
 
 						.text-homepage{
 
-							/*padding-top: 150px;*/
+							padding-top: 100px;
 							padding-bottom: 5%;
-							/*width: 100% !important;*/
-							/*margin: auto 30px;*/
-							
-							font-size: 3.1em;
+							margin: auto 30px;						
+							font-size: 2.2em;
 							color: #e1e1e1;
 							font-family: "Open Sans", regular !important;
 							font-weight: lighter;
+							text-align: left;
+							line-height: 1.8em;
 
 						}
 

@@ -36,9 +36,7 @@ export default {
 
 		//Important to let works basic functions
 		this.$emit('template_mounted')
-
-			console.log(this.wp);
-
+		
 		smart_fonts({
 			'.text-contact' :54
 		})
@@ -148,6 +146,7 @@ p{
 			padding-left: 30px !important;
 			padding-right: 30px !important;
 
+
 		}
 
 		.div-text-contact{
@@ -165,5 +164,11 @@ p{
 
 		}
 
+		.text-contact{
+
+			font-size: 2.2em !important;
+			line-height: 1.8em;
+
+		}
     }
 </style>

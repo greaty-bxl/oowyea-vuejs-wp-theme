@@ -246,7 +246,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 
 		@media (min-width: 1100px) {
 

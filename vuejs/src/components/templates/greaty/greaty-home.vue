@@ -2,21 +2,19 @@
 <template>
     <div class="section-wrap">
         <div class="clear"></div>
-		<div>
-
-
-		<!-- <lottie :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation"/> -->
 
 		<div class="div-text-homepage">
 
+			<div class="center-flex">
 
-		<Alpl class="text-homepage"> <h1 class="title-page">Home</h1>
-			Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
-		</Alpl>
+				<Alpl class="text-homepage"> <h1 class="title-page">Home</h1>
+					Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
+				</Alpl>
+
+			</div>
 
 		</div>
 	
-		</div>
 		<div class="post-client">
 
 		<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
@@ -40,7 +38,7 @@
 		</div>
 
 	
-	<textcotact>
+	<textcotact>s
 	</textcotact>
 
         <div class="clear"></div>
@@ -54,28 +52,23 @@ import Alpl from 'Molecules/animation-line-per-line';
 import anime from 'animejs/lib/anime.es.js';
 import Anime3d from 'Molecules/animation-3d';
 import textcotact from './components/text-contact'
-// import Lottie from 'lottie-web';
-// import animationData from './components/json/animation-homepage.json';
-// animation-homepage.json
-// C:\laragon\www\template_greaty\wordpress\wp-content\themes\oowyea-vuejs-wp-theme\vuejs\src\components\json
+
 export default {
 	components: {
 		Alpl,
 		Anime3d,
-		textcotact
+		textcotact,
+
 	},
 	props: {
 		'post' : Object
 	},
 
-	// data() {
-	//     return {
-	//       defaultOptions: {animationData: animationData},
-	//       animationSpeed: 1
-	//     }
-	//   },
+
 
 	mounted(){
+
+
 
 		var $ = this.$
 
@@ -115,11 +108,15 @@ export default {
 
 	}
 
+
+
+
 }
 
 
 
 </script>
+
 
 <style scoped >
 
@@ -192,19 +189,6 @@ nav ul li{
 cursor: pointer;
 }
 
-
-.div-text-contact{
-
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 3em;
-  margin-left: 0;
-  margin-right: 0;
-  padding-top: 100px;
-  padding-bottom: 70px;
-
-}
-
 .textbox {
   margin:5em;
   
@@ -227,7 +211,7 @@ padding-right: auto;
 
 width: 100%;
 
-background-color: white;
+/*background-color: white;*/
 
 }
 
@@ -269,29 +253,6 @@ footer{
 font-family: 'Gotham Book Regular', sans-serif; 
 }
 
-.text-contact a{
-font-family: "Open Sans", regular !important;
-color: white;
-}
-.text-contact {
-	font-family: "Open Sans", regular !important;
-color: white;
-font-size: 0.6em !important;
-}
-
-.div-text-contact{
-
-padding-left: 20px;
-padding-right: 20px;
-/*width: 80%;*/
-font-size: 5em;
-margin-left: 0;
-margin-right: 0;
-padding-top: 100px;
-padding-bottom: 70px;
-color: white;
-
-}
 
 .textbox {
 margin:5em;
@@ -382,7 +343,13 @@ strong {
 	font-size: 4em !important;
 }
 
+.div-text-homepage{
 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+}
 			
 
 				@media screen and (min-width: 1100px) {
@@ -395,7 +362,7 @@ strong {
 						.text-homepage{
 
 							padding-top: 150px;
-							padding-bottom: 5%;
+							padding-bottom: 150px;
 							width: 70% ;
 							margin: auto 70px;
 							/*width: 100%;*/
@@ -457,11 +424,7 @@ strong {
 						text-align: right;
 						}
 
-						.text-contact strong{
-
-							display: inline !important;
-						}
-
+		
 						.g-project{
 								width: calc(50% - 70px) !important;
 								display: inline-block;
@@ -475,9 +438,20 @@ strong {
 
 						.text-homepage{
 
-						
+							font-family: "Open Sans", regular !important;
+							font-weight: lighter;
 							color: white;
-							padding-left: 5%;
+							/*padding-left: 5%;*/
+							height: auto;
+							text-align: left;
+							/*padding-top: 20%;*/
+							font-size: 35px;
+							display: block;
+							margin-top: 0px;
+							padding-left: 70px;
+							padding-right: 70px;
+							width: auto;
+							line-height: 60px;
 
 						}
 
@@ -487,18 +461,7 @@ strong {
 							padding-bottom: 5%
 						}
 
-						.div-text-contact{
-
-						padding-left: 5vw;
-						padding-right: 5vw;
-						width: 80%;
-						font-size: 2em;
-						color: white;
-						margin-left: 0;
-						margin-right: 0;
-						padding-top: 50px;
-
-						}
+	
 						.client{
 
 						width: 100% !important;
@@ -524,17 +487,7 @@ strong {
 						}
 
 
-						.text-homepage{
-						text-align: left;
-						padding-top: 50px;
-						font-size: 35px;
-						display: block;
-						margin-top: 0px;
-						padding-left: auto;
-						padding-right: auto;
-						width: auto;
 
-						}
 
 						.row{
 						width: 100%;
@@ -586,11 +539,9 @@ strong {
 						margin: 5px  0px;
 						text-align: left;
 						}
+						.div-text-homepage{
 
-						.text-homepage{
-
-							line-height: 60px;
-							padding-left: 10%;
+							height: 100vh;
 						}
 
 				}
@@ -601,12 +552,6 @@ strong {
 						.global-project{
 						z-index: 10;
 						width: 100% !important;
-
-
-						}
-
-
-						.post-client{
 
 						}
 
@@ -640,8 +585,6 @@ strong {
 
 						}
 
-
-
 						.row{
 
 							padding:  35px 35px;
@@ -653,17 +596,19 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 150px;
+							padding-top: 100px;
 							padding-bottom: 5%;
-							width: 100% !important;
+							/*width: 100% !important;*/
 							margin: auto 30px;
-							width: 100%;
+							
 							font-size: 3.1em;
 							color: #e1e1e1;
 							font-family: "Open Sans", regular !important;
 							font-weight: lighter;
+							text-align: left;
 
 						}
+
 
 						.textbox{
 
@@ -672,14 +617,6 @@ strong {
 
 
 						}
-						.div-text-contact{
-
-							height: 100%
-
-						}
-						.div-text-contact{
-							padding: 0px 0px;
-						}
 
 						.post-client{
 
@@ -687,6 +624,7 @@ strong {
 							padding-bottom: 120px;
 
 						}
+
 
 				}
 

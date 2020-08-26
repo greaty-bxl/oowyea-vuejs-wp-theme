@@ -7,12 +7,11 @@
 
 	<div class="info">
 		<p><strong>Client : </strong>  <span v-html="this.wp.title"></span> </p>
-	<p v-html="post.fields.description_client" ></p>
+	<p v-html="post.fields.description_client"></p>
 		
 	</div>
-
-	<p class="notre-service"><strong>Ce que nous avons réalisé :</strong> </p>
-	<div class="services-fourni" v-html="post.fields.liste_services" ></div>
+		<p class="notre-service"><strong>Ce que nous avons réalisé :</strong> </p>
+	<div class="services-fourni" v-html="post.fields.liste_services"></div>
 	
 </div>
 <!-- <img :src="this.wp.thumb" > -->
@@ -81,7 +80,24 @@ export default {
 
 </script>
 
-<style scope >
+<style>
+	
+body div .section-wrap {
+
+font-family: 'Open Sans', regular;
+background-color: rgb(25, 26, 28) ;
+
+}
+
+.services-fourni ul{
+ color: #e1e1e1;
+ list-style-type: none;
+ text-align: left;
+ padding-left: 0px;
+}
+</style>
+
+<style scoped >
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
@@ -92,15 +108,16 @@ export default {
 		justify-content: center;
 		background-color: rgb(25, 26, 28);
 		min-height: 100vh;
-		/*width: calc(100% - 140px);*/
 		padding-top: 150px;
 		padding-bottom: 150px;
 
-		/*padding-left: 70px;*/
-		/* padding-right: 70px; */
+	}
 
-		/*height: 125vh;*/
-
+	.services-fourni ul{
+		color: #e1e1e1;
+		list-style-type: none;
+		text-align: left;
+		padding-left: 0px;
 	}
 
 	.all-description{
@@ -108,7 +125,7 @@ export default {
 		height: 100%;
 		width: 80%;
 		background-color: rgb(25, 26, 28);
-		margin:  0px 5%;
+		margin:  0px 70px;
 
 	}
 
@@ -121,7 +138,7 @@ export default {
 
 		height: 100%;
 		width: 90%;
-		background-color: white;
+		/*background-color: white;*/
 		background-position: center;
 		background-size: cover;
 		background-repeat: none;
@@ -133,6 +150,7 @@ export default {
 		margin-bottom: 10%;
 		color: white;
 	}
+
 
 	.info p {
 		
@@ -148,82 +166,17 @@ export default {
 
 	}
 
-   @media (max-width: 1100px) {
-
-		.global-descriptif{
-
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			background-color: rgb(25, 26, 28);
-			min-height: 100vh;
-			/*width: calc(100% - 200px);*/
-			/*padding:  70px 100px;*/
-			/*height: 125vh;*/
-
-		}
-		
-		.image{
-
-			height: 100%;
-			width: 90%;
-			/*height: 100vh;*/
-
-		}
-		.all-description{
-
-			height: 100%;
-			width: 80%;
-			background-color: rgb(25, 26, 28);
-			margin: 0px 35px;
-
-		}
-		.image{
-
-			margin: 35px 35px;
-		}
-
-		.client{
-
-		width: 100% !important;
-		height: 60vw;
-
-		margin-left: auto;
-		margin-right: auto;
-
-
-		}
-
-		.global-project{
-		z-index: 10;
-		width: 90% !important;
-		/*margin-left: auto;
-		margin-right: auto;*/
-		margin: 20px !important;
-
-		}
-
-		.image-client{
-
-		height: 100%;
-		/*background-color: white;*/
-		}
-
-   }
-
-   body {
-   margin: 0 !important;
-   padding: 0;
-   font-family: 'Open Sans', regular;
-
-   }
-
    a{
    color: #e1e1e1;
    text-decoration: none;
    }
 
+   p{
 
+	color: #e1e1e1 ;
+	text-align: left;
+
+   }
 
    .global-project p{
 
@@ -248,22 +201,9 @@ export default {
 
    width: 100%;
 
-   background-color: white;
+   /*background-color: white;*/
 
    }
-
-@media (min-width: 1100px) {
-
-	.client img{
-
-	width: 45%;
-	height: 59vh;
-
-	}
-	
-}
-
-
 
    .name-client{
 
@@ -281,7 +221,136 @@ export default {
 
    }
 
-	@media screen and (min-width: 800px) {
+	.g-project {
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+
+
+
+	/*********/
+
+
+	/*DESCKTOP*/
+  
+
+
+	/*********/
+
+	@media (min-width: 1100px) {
+
+		.client img{
+
+		width: 100%;
+		height: 59vh;
+
+		}
+
+		.g-project{
+				width: calc(50% - 70px) !important;
+				display: inline-block;
+				margin-bottom: 3%;
+		}
+
+
+		.post-client{
+
+			margin: 0px 35px;
+		}
+
+	}
+
+			/*********/
+
+
+			/*Tablette*/
+
+
+
+			/*********/
+
+
+	@media screen and (max-width: 1100px) and  (min-width: 600px) {
+
+
+		.global-descriptif{
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background-color: rgb(25, 26, 28);
+			min-height: 100vh;
+			padding-left: 70px;
+			/*width: calc(100% - 200px);*/
+			/*padding:  70px 100px;*/
+			/*height: 125vh;*/
+
+		}
+
+		.g-project {
+			padding-left: 70px;
+			padding-right: 70px;
+			padding-bottom: 5%;
+			width: calc(100% - 140px) !important;
+		}
+
+		.image{
+
+			height: 100%;
+			width: 90%;
+			/*height: 100vh;*/
+
+		}
+		.all-description{
+
+			height: 100%;
+			width: 80%;
+			background-color: rgb(25, 26, 28);
+			margin: 0px 0px;
+
+		}
+		.image{
+			width: calc(100% - 70px) !important;
+			margin: 35px 0px;
+		}
+
+		.client{
+
+		width: 100% !important;
+		/*height: 60vw;*/
+
+		margin-left: auto;
+		margin-right: auto;
+
+
+		}
+
+		.global-project{
+		z-index: 10;
+		width: 100% !important;
+		/*margin-left: auto;
+		margin-right: auto;*/
+		/*margin: 20px !important;*/
+
+		}
+
+		.image-client{
+
+		height: 100%;
+		/*background-color: white;*/
+		}
+
+	}
+
+/*********/
+
+
+ /*GSM*/
+
+
+
+/*********/
+	@media screen and (max-width: 600px) {
 
 	.post-client{
 		padding-left: 35px;
@@ -291,10 +360,15 @@ export default {
 	.g-project{
 
 	z-index: 10;
-	width: calc(50% - 70px) !important;
+	width: 100%;
 	height: auto;
-	min-height: 400px;
-	/*	margin: 35px;*/
+	/*min-height: 400px;*/
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 5%;
+	/*min-height: 400px;*/
+
+
 
 	display: inline-block;
 	/*padding-right: 5%*/
@@ -304,79 +378,52 @@ export default {
 	.client img{
 
 	width: 100% !important;
-	height: 60vh;
-	min-height: 400px;
+	/*height: 60vh;
+	min-height: 400px;*/
 	/*background-color: white;*/
 
 	}
 
 
-   .text-homepage{
-   padding-top: 10%;
-   padding-bottom: 5%;
-   width: 100% !important;
-   margin: auto 70px;
-   width: 100%;
-   font-size: 3.1em;
-   color: #e1e1e1;
-   font-family: "Open Sans", regular !important;
-   font-weight: lighter;
-   ;
-   }
-
-
-   }
-
-
-	@media screen and (min-width: 800px) {
-
+	.text-homepage{
+	padding-top: 10%;
+	padding-bottom: 5%;
+	width: 100% !important;
+	margin: auto 35px;
+	width: 100%;
+	font-size: 3.1em;
+	color: #e1e1e1;
+	font-family: "Open Sans", regular !important;
+	font-weight: lighter;
+	;
+	}
 	.post-client{
 		padding-left: 35px;
 		padding-right: 35px;
 		background-color: rgb(25, 26, 28);
 	}
 
-	.g-project{
+/*	.g-project{
 		z-index: 10;
 		width: calc(50% - 70px) !important;
 		height: auto;
 		min-height: 400px;
 		display: inline-block;
 
-	
-    }
+
+	}*/
 
 	.client img{
 
 	width: 100% !important;
-	height: 60vh;
-	min-height: 400px;
+/*	height: 60vh;
+	min-height: 400px;*/
 	/*background-color: white;*/
 
 	}
 
 	}
 
-	.g-project {
-		padding-left: 35px;
-		padding-right: 35px;
-	}
-
-	.services-fourni ul{
-		
-		list-style: none;
-		list-style-type: none;
-		text-align: left;
-		padding-left: 0px;
-		margin-bottom: 5%;
-
-	}
-
-	.services-fourni ul li{
-
-     padding-top: 15px;
-
-	}
 
 
 </style>

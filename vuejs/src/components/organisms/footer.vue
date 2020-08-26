@@ -114,7 +114,7 @@
 
 </script>
 
-<style>
+<style scoped>
 		#footer{
 			min-height: auto;
 			color: white;
@@ -249,6 +249,7 @@
 
 			}
 
+	
 		}
 
 		/*.css('background-color', 'rgb(25, 26, 28)');*/

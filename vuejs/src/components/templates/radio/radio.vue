@@ -12,6 +12,8 @@
 
 		<RadioPlayer />
 
+		<Lottie class="ico-like-lottie" />
+
 		<AudioVisualizer />		
 	</div>
 </template>
@@ -21,12 +23,16 @@ import VideoBg from 'Organisms/radio-youtube-background.vue'
 import RadioPlayer from 'Organisms/radio-centered-player.vue'
 import AudioVisualizer from 'Organisms/audio-visualizer.vue'
 
+import Lottie from 'Organisms/lottie.vue'
+
+
 
 export default{
 	components:{
 		VideoBg,
 		RadioPlayer,
 		AudioVisualizer,
+		Lottie
 	},
 	props: {
 		'post' : Object
@@ -41,10 +47,12 @@ export default{
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Open+Sans+Condensed:wght@300&display=swap');
 
-body{
+/*body{
 	font-family: 'Libre Caslon Display', serif;
+}*/
+.ico-like-lottie{
+	height: 20px;
 }
-	
 </style>
 
 <style module>
@@ -66,5 +74,5 @@ h2{
 	background-color: #000;
 	color: #fff;
 }
-	
+
 </style>

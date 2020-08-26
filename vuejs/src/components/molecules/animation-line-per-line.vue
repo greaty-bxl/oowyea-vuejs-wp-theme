@@ -98,7 +98,7 @@ export default{
 	
 		.on('enter-screen', () => {
 
-			console.log( 'my first word enter-screen' )
+			//console.log( 'my first word enter-screen' )
 			
 			$( this.$el ).find('.char').each(function(index, el) {
 				let newTop = Math.round( $(el).position().top )
@@ -138,7 +138,7 @@ export default{
 					});
 				}, 1 )
 					
-				console.log('enter', $('[data-lettertop='+val+']').length, i_lines );
+				//console.log('enter', $('[data-lettertop='+val+']').length, i_lines );
 
 
 				i_lines++

@@ -16,7 +16,7 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		/* WP */
-		//wp_mutation,
+		section_change: wp.section_change,
 		/* Audio */
 		update_main_audio_src: main_audio.update_main_audio_src,
 		play_pause: main_audio.play_pause,

@@ -18,8 +18,15 @@ export default function(vue){
 
 				window.current_section = section.attr('id')
 				window.current_section_index =  section.index()
+
+				vue.$store.commit({
+					type: 'section_change',
+					current_section: vue.$store.state.wp.sections[window.current_section_index],
+				})
+
 				$('#app').trigger('section-top-ready')
-			}, 15)
+				
+			}, 0)
 		}		
 	}
 	/*else

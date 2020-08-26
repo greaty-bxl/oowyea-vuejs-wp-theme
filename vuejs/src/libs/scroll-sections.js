@@ -1,15 +1,22 @@
 function scrollSection(vue){
-
-	var last_scroll = 0;
-	var timer;
+	
 	var $ = vue.$;
+
+	var last_scroll = $('#app').scrollTop();
+	var timer;
+	
 	var wait = 0;
-	var current_section;
+	var current_section = window.current_section;
 
 	function update_current_section()
 	{
 		window.current_section = current_section
 		window.current_section_index =  $('#'+current_section).index()
+
+		vue.$store.commit({
+			type: 'section_change',
+			current_section: vue.$store.state.wp.sections[window.current_section_index],
+		})
 	}
 	
 	function animate_scroll_to( pos )
@@ -26,7 +33,7 @@ function scrollSection(vue){
 						$('#app').data('scrolling', '')
 						let permalink = $('#'+current_section).data('permalink')
 						vue.pushHistory( permalink )
-					}, 150)
+					}, 0)
 					
 			});
 		}
@@ -35,6 +42,8 @@ function scrollSection(vue){
 	function scroll_end()
 	{
 		let new_scroll = $('#app').scrollTop()
+
+
 
 		if( new_scroll > last_scroll )
 		{
@@ -68,6 +77,7 @@ function scrollSection(vue){
 		}
 		else if ( new_scroll <= last_scroll )
 		{
+
 			//auto scroll up
 			$('.section').each(function(index, el) {
 				if( ($(el).position().top + new_scroll) <= new_scroll && ($(el).position().top + $(el).outerHeight() + new_scroll) > new_scroll )
@@ -85,7 +95,7 @@ function scrollSection(vue){
 						//scroll up in section 
 						//auto scroll to begin of current section for biggest sections than 100vh
 						let topPos = $(el).position().top
-						if( topPos * -1 <= $('#app').outerHeight() / 3 )
+						if( topPos * -1 <= $('#app').outerHeight() / 5 )
 						{
 							new_scroll = $(el).position().top + new_scroll
 							animate_scroll_to( new_scroll )	
@@ -98,24 +108,23 @@ function scrollSection(vue){
 		last_scroll = new_scroll
 	}
 
-	$('#app').on('scroll', () => 
-	{
-		let is_scrolling_by_what = $('#app').data('scrolling')
+	$('#app').on('section-top-ready', () => {
+		$('#app').on('scroll', () => 
+		{
+			let is_scrolling_by_what = $('#app').data('scrolling')
 
-		if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) )
-		{
-			$('#app').data('scrolling', 'scroll-sections')
-			clearTimeout( timer )
-			timer = setTimeout( scroll_end , 250 )
-		}
-		else
-		{
-			last_scroll = $('#app').scrollTop()
-		}
+			if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) )
+			{
+				$('#app').data('scrolling', 'scroll-sections')
+				clearTimeout( timer )
+				timer = setTimeout( scroll_end , 150 )
+			}
+			else
+			{
+				last_scroll = $('#app').scrollTop()
+			}
+		});
 	});
-
-	current_section = $('.section').first().attr('id')
-	update_current_section()	
 }
 
 export default scrollSection 

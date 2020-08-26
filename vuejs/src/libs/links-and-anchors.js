@@ -83,6 +83,8 @@ export default function (vue)
 					type:"new_page",
 					href: href,
 				})
+
+				//console.log('new page');
 			}
 		}
 	}

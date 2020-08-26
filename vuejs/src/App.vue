@@ -89,11 +89,11 @@ export default {
     //console.log('store', this.$store.state.wp)
 
     
+    
     this.pages['current'] = this.wp.sections
 
 
     this.$(document).ready( ($) => {
-      console.log( $('php') )
       //console.log('JQuery Ready', $, this.ajaxurl)
       
       //init scroll if child

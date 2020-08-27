@@ -2,16 +2,14 @@
 <template>
     <div class="section-wrap">
         <div class="clear"></div>
-		<div>
 
 
-		<!-- <lottie :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation"/> -->
 
 		<div class="div-text-homepage">
 
 			<div class="center-flex">
-			
-				<Alpl class="text-homepage"><h1 class="title-page"></h1>
+
+				<Alpl class="text-homepage">
 					Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
 				</Alpl>
 
@@ -19,7 +17,6 @@
 
 		</div>
 	
-		</div>
 		<div class="post-client">
 
 		<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
@@ -57,31 +54,30 @@ import Alpl from 'Molecules/animation-line-per-line';
 import anime from 'animejs/lib/anime.es.js';
 import Anime3d from 'Molecules/animation-3d';
 import textcotact from './components/text-contact';
-import smart_fonts from "Libs/smart-fonts.js";
-// import Lottie from 'lottie-web';
-// import animationData from './components/json/animation-homepage.json';
-// animation-homepage.json
-// C:\laragon\www\template_greaty\wordpress\wp-content\themes\oowyea-vuejs-wp-theme\vuejs\src\components\json
+import smart_fonts from 'Libs/smart-fonts.js';
+// import lottie from "Molecules/Lottie";
+
 export default {
 	components: {
 		Alpl,
 		Anime3d,
-		textcotact
+		textcotact,
+		// smart_fonts,
+		// lottie
+
 	},
 	props: {
 		'post' : Object
 	},
 
-	// data() {
-	//     return {
-	//       defaultOptions: {animationData: animationData},
-	//       animationSpeed: 1
-	//     }
-	//   },
+
 
 	mounted(){
 
+		console.log(smart_fonts);
+
 		var $ = this.$
+
 
 
 		this.$emit('template_mounted', this);
@@ -127,13 +123,17 @@ export default {
 
 	}
 
+
+
+
 }
 
 
 
 </script>
 
-<style scoped>
+
+<style scoped >
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
@@ -144,10 +144,12 @@ lottie-animation{
 	width: 50%;
 }
 	
-.div-text-homepage{
+/*body {
+margin: 0 !important;
+padding: 0;
+font-family: 'Open Sans', regular;
 
-	min-height: 100vh;
-}
+}*/
 
 
 a{
@@ -176,41 +178,6 @@ z-index: 20;
 
 text-align: left;
 }
-
-nav{
-
-width: 100%;
-/*height: 35px;*/
-/*background: #191a1c;*/
-/*box-shadow: 0 0 15px 20px #191a1c;*/
-}
-nav ul{
-list-style: none;
-display: flex;
-flex-wrap: wrap;
-align-items: left;
-justify-content: left;
-padding-top: 15px;
-padding-bottom: 15px;
-margin: 0;
-height: 100%;
-text-align: left;
-display: flex;
-flex-direction: column;
-
-}
-nav ul li{
-cursor: pointer;
-}
-
-
-
-.textbox {
-  margin:5em;
-  
-}
-    
-a{color: #e1e1e1 ;}
 
 
 .div-text-project{
@@ -368,7 +335,29 @@ strong {
 }
 			
 
+.banner{
+
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.banner div{
+
+	margin-top: auto;
+} 
+
 				@media screen and (min-width: 1100px) {
+
+						.center-flex{
+
+							min-height: 100vh;
+							display: flex;
+							flex-direction: row;
+							justify-content: center;
+
+						}
+
 
 						.post-client{
 
@@ -377,8 +366,8 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 150px;
-							padding-bottom: 150px;
+							padding-top: 70px;
+							/*padding-bottom: 150px;*/
 							width: 70% ;
 							margin: auto 70px;
 							/*width: 100%;*/
@@ -452,6 +441,18 @@ strong {
 
 				@media screen and (max-width: 1100px) and  (min-width: 600px) {
 
+						.banner{
+
+							min-height: 50vh;
+							display: flex;
+							flex-direction: column;
+						}
+
+						.banner div{
+
+							margin-top: auto;
+						} 
+
 						.text-homepage{
 
 							font-family: "Open Sans", regular !important;
@@ -461,7 +462,7 @@ strong {
 							height: auto;
 							text-align: left;
 							/*padding-top: 20%;*/
-							font-size: 35px;
+							/*font-size: 35px;*/
 							display: block;
 							margin-top: 0px;
 							padding-left: 70px;
@@ -524,6 +525,14 @@ strong {
 						padding-top: 0px;
 						}
 
+						footer{
+						padding: 40px 5vw;
+						color: white;
+						display: flex;
+						-webkit-box-orient: vertical;
+						flex-direction: column;
+
+						}
 
 						.reseaux-sociaux{
 						display: flex;
@@ -557,10 +566,22 @@ strong {
 
 				@media screen and (max-width: 600px) {
 
+
+						.banner{
+
+							min-height: 50vh;
+							display: flex;
+							flex-direction: column;
+						}
+
+						.banner div{
+
+							margin-top: auto;
+						}
+
 						.global-project{
 						z-index: 10;
 						width: 100% !important;
-
 
 						}
 
@@ -594,8 +615,6 @@ strong {
 
 						}
 
-
-
 						.row{
 
 							padding:  35px 35px;
@@ -607,17 +626,17 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 100px;
+							padding-top: 150px;
 							padding-bottom: 5%;
-							margin: auto 30px;						
-							font-size: 2.2em;
+							margin: auto 30px;
+							font-size: 3.1em;
 							color: #e1e1e1;
 							font-family: "Open Sans", regular !important;
 							font-weight: lighter;
 							text-align: left;
-							line-height: 1.8em;
 
 						}
+
 
 						.textbox{
 

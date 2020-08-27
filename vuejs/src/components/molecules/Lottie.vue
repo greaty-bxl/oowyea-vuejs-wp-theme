@@ -1,5 +1,5 @@
 <template>
-	<div :style="{ 'width': width, 'height': height }" ></div>
+	<div :style="{ 'margin-to': width, 'width': width, 'height': height }" ></div>
 </template>
 
 <script>

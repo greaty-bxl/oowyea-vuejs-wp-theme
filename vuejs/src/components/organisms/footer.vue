@@ -115,16 +115,51 @@
 </script>
 
 <style scoped>
+
+		nav{
+
+		width: 100%;
+		/*height: 35px;*/
+		/*background: #191a1c;*/
+		/*box-shadow: 0 0 15px 20px #191a1c;*/
+		}
+		nav ul{
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: left;
+		justify-content: left;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		margin: 0;
+		height: 100%;
+		text-align: left;
+		display: flex;
+		flex-direction: column;
+
+		}
+		nav ul li{
+		cursor: pointer;
+		}
+
+		.textbox {
+		margin:5em;
+
+		}
+
+		a{color: #e1e1e1 ;}
+
 		#footer{
 			min-height: auto;
-			color: white;
+			color: #e1e1e1;
 		}
 		footer{
 		font-family: 'Gotham Book Regular', sans-serif; 
 		}
 
 		a{
-			color: white
+			color: #e1e1e1;
+			text-decoration: none;
 		}
 
 		@media screen and (min-width: 1100px) {
@@ -190,7 +225,7 @@
 
 		footer{
 		padding: 40px 70px;
-		color: white;
+		color: #e1e1e1;
 
 
 		}
@@ -228,12 +263,12 @@
 
 		.text-contact a{
 		font-family: 'Gotham Bold', sans-serif; 
-		color: white;
+		color: #e1e1e1;
 		}
 
 		#footer{
 			
-			background-color: rgb(25, 26, 28);
+			background-color: #282828;
 
 		}
 

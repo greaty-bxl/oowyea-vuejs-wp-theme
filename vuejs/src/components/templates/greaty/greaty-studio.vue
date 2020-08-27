@@ -67,7 +67,7 @@ export default {
 		})
 		smart_fonts({
 			'h1' :54,
-			'p' : 14,
+			// 'p' : 14,
 			'.text-homepage' : 52.8
 
 		})
@@ -112,24 +112,33 @@ p{
 @media screen and (min-width: 1100px   ) {
 
 
+		.center-flex{
+
+		min-height: 100vh;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+
+		}
+
 
 		.post-client{
 
-			padding:  30px 35px;
+		padding:  30px 35px;
 		}
 
 		.text-homepage{
 
-			padding-top: 150px;
-			padding-bottom: 150px;
-			// width: 70% ;
-			margin: auto 70px;
-			/*width: 100%;*/
-			// font-size: 3.3em;
-			color: #e1e1e1;
-			font-family: "Open Sans", regular !important;
-			font-weight: lighter;
-			text-align: left;
+		padding-top: 70px;
+		/*padding-bottom: 150px;*/
+		width: 70% ;
+		margin: auto 70px;
+		/*width: 100%;*/
+		font-size: 3.3em;
+		color: #e1e1e1;
+		font-family: "Open Sans", regular !important;
+		font-weight: lighter;
+		text-align: left;
 
 		}
 

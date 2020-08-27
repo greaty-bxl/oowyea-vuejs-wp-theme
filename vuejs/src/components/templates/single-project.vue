@@ -6,8 +6,8 @@
 <div class="all-description">
 
 	<div class="info">
-		<p><strong>Client : </strong>  <span v-html="this.wp.title"></span> </p>
-	<p v-html="post.fields.description_client"></p>
+		<p><strong class="text-client-sigle">Client : </strong> <span class="text-client-sigle-span" v-html="this.wp.title"></span> </p>
+	<p class="text-client-sigle-span" v-html="post.fields.description_client"></p>
 		
 	</div>
 		<p class="notre-service"><strong>Ce que nous avons réalisé :</strong> </p>
@@ -20,26 +20,29 @@
 
 <div class="post-client">
 
-<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
-	
-		<div class="icon global-project test__item on-screen" >
-		
-				<a :href="child.permalink" >
-					<div class="client">
+</div>
 
-						<img class="image-client" height="100%" width="100%" :src="child.thumb" >
-						<p class="name-client" v-html="child.post_title" ></p>
-						<p class="role-greaty">Corporated Website</p>
+<div class="div-parent-slide-text">	
+	<swiper class="swiper1" :options="swiperOption1">
 
-					</div>
-				</a>
-			
-		</div>
+		<swiper-slide  class="slide-full-view" v-for="child in wp.projects" :key="child.ID" >
+			<a :href="child.permalink" >
+								<div class="client-swiper">
+
+									<img class="image-client-swiper" height="100%" width="100%" :src="child.thumb" >
+									<p class="name-client-swiper" v-html="child.post_title" ></p>
+									<p class="role-greaty-swiper">Corporated Website</p>
+
+								</div>
+							</a>
+		</swiper-slide>
 	
-</Anime3d>
+	</swiper>
 
 </div>
 
+<textcotact>
+</textcotact>
 
 <!-- <h1 v-html="this.wp.title">single</h1>
 <div v-html="this.wp.post_content"></div> -->
@@ -53,25 +56,72 @@
 
 	/*import Alpl from 'Molecules/animation-line-per-line';
 	import anime from 'animejs/lib/anime.es.js';*/
-	import Anime3d from 'Molecules/animation-3d';
+	import textcotact from './greaty/components/text-contact';
+	// import Anime3d from 'Molecules/animation-3d';
+	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+	import 'swiper/css/swiper.css';
+	import smart_fonts from 'Libs/smart-fonts.js';
 
 export default {
-		components: {
 
-			Anime3d
+		components: {
+			textcotact,
+			Swiper,
+			SwiperSlide,
 		},
 
 		props: {
-
-		'post' : Object
+			'post' : Object
 		},
 		mounted (){
 
-
 		console.log( this.wp.projects );
+
+		smart_fonts({
+		'.smallTile' :54,
+		'.text-homepage' : 45,
+		'.role-greaty-swiper': 27,
+		'.name-client-swiper': 22,
+
+		})
+
 
 		this.$emit('template_mounted', this)
 
+		},
+		name: 'swiper-example-default',
+		title: 'Default',
+		init: true,
+		
+		data () {
+			return {
+				swiperOption1: {
+					initialSlide: 0,
+					loop: true,
+					allowTouchMove: true,
+					runCallbacksOnInit: true,
+					navigation: {
+							nextEl: '.flex-gauche',
+							prevEl: '.flex-droite',
+					},
+					breakpoints: {
+					    // when window width is >= 320px
+					    1100: {
+					      slidesPerView: 3,
+
+					    },
+
+					    700: {
+					      slidesPerView: 2,
+					    },
+
+					    600: {
+					      slidesPerView: 1,
+					    }
+					  }
+				},
+
+			}
 		}
 	
 }
@@ -85,7 +135,7 @@ export default {
 body div .section-wrap {
 
 font-family: 'Open Sans', regular;
-background-color: rgb(25, 26, 28) ;
+background-color: #282828; ;
 
 }
 
@@ -95,18 +145,59 @@ background-color: rgb(25, 26, 28) ;
  text-align: left;
  padding-left: 0px;
 }
+
+.services-fourni{
+
+	padding-bottom: 5%;
+}
+
+.client-swiper{
+
+	width: 100%;
+}
+.name-client-swiper-swiper{
+
+	margin-bottom: 2% !important;
+
+}
+.swiper-slide{
+
+		    margin-left: 2.5%;
+}
+
+.swiper-container{
+
+	margin-bottom: 75px;
+}
+.text-client-sigle-span{
+
+	font-size: 16px !important;
+}
 </style>
 
 <style scoped >
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
+
+	.notre-service{
+
+	  font-size: 14px !important;
+
+	}
+	.text-client-sigle{
+
+		font-size: 14px !important;
+	}
+
+
+
 	.global-descriptif{
 
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		background-color: rgb(25, 26, 28);
+		background-color: #282828;
 		min-height: 100vh;
 		padding-top: 150px;
 		padding-bottom: 150px;
@@ -124,7 +215,7 @@ background-color: rgb(25, 26, 28) ;
 
 		height: 100%;
 		width: 80%;
-		background-color: rgb(25, 26, 28);
+		background-color: #282828;
 		margin:  0px 70px;
 
 	}
@@ -132,18 +223,7 @@ background-color: rgb(25, 26, 28) ;
 	.all-description p{
 
 		line-height: 30px;
-		font-size: 18px !important;
-	}
-	.image{
-
-		height: 100%;
-		width: 90%;
-		/*background-color: white;*/
-		background-position: center;
-		background-size: cover;
-		background-repeat: none;
-		margin-left: 5%;
-		margin-right: 5%;
+/*		font-size: 18px !important;*/
 	}
 	p{
 		text-align: left;
@@ -154,14 +234,14 @@ background-color: rgb(25, 26, 28) ;
 
 	.info p {
 		
-		margin-bottom: 5%;
+		margin-bottom: 2.5%;
 
 	}
 
 	.notre-service{
 		
-		margin-top: 5%;
-		margin-bottom: 2%;
+		margin-top: 2.5%;
+		margin-bottom: 2.5%;
 
 
 	}
@@ -205,17 +285,17 @@ background-color: rgb(25, 26, 28) ;
 
    }
 
-   .name-client{
+   .name-client-swiper{
 
-   font-size: 20px;
+   /*font-size: 20px;*/
    margin-bottom: 5px;
    font-family: 'Gotham Book Regular', sans-serif; 
 
    }
 
-   .role-greaty{
+   .role-greaty-swiper{
 
-   font-size: 12px;
+   /*font-size: 12px;*/
    margin-top: 0px;
    font-family: 'Gotham Book Regular', sans-serif; 
 
@@ -239,10 +319,22 @@ background-color: rgb(25, 26, 28) ;
 
 	@media (min-width: 1100px) {
 
+		.image{
+
+			height: 100%;
+			width: calc(100% - 140px);
+			/*background-color: white;*/
+			background-position: center;
+			background-size: cover;
+			background-repeat: none;
+			margin-left: 70px;
+			margin-right: 70px;
+		}
+
 		.client img{
 
-		width: 100%;
-		height: 59vh;
+		width: 90%;
+		height: auto;
 
 		}
 
@@ -278,7 +370,7 @@ background-color: rgb(25, 26, 28) ;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			background-color: rgb(25, 26, 28);
+			background-color: #282828;
 			min-height: 100vh;
 			padding-left: 70px;
 			/*width: calc(100% - 200px);*/
@@ -294,18 +386,11 @@ background-color: rgb(25, 26, 28) ;
 			width: calc(100% - 140px) !important;
 		}
 
-		.image{
-
-			height: 100%;
-			width: 90%;
-			/*height: 100vh;*/
-
-		}
 		.all-description{
 
 			height: 100%;
 			width: 80%;
-			background-color: rgb(25, 26, 28);
+			background-color: #282828;
 			margin: 0px 0px;
 
 		}
@@ -316,7 +401,7 @@ background-color: rgb(25, 26, 28) ;
 
 		.client{
 
-		width: 100% !important;
+		width: 90% !important;
 		/*height: 60vw;*/
 
 		margin-left: auto;
@@ -352,6 +437,15 @@ background-color: rgb(25, 26, 28) ;
 /*********/
 	@media screen and (max-width: 600px) {
 
+	.all-description{
+
+		height: 100%;
+		width: 80%;
+		background-color: #282828;
+		margin:  0px 35px;
+
+	}
+
 	.post-client{
 		padding-left: 35px;
 		padding-right: 35px;
@@ -359,28 +453,21 @@ background-color: rgb(25, 26, 28) ;
 
 	.g-project{
 
-	z-index: 10;
-	width: 100%;
-	height: auto;
-	/*min-height: 400px;*/
-	padding-left: 0px;
-	padding-right: 0px;
-	padding-bottom: 5%;
-	/*min-height: 400px;*/
+		z-index: 10;
+		width: 100%;
+		height: auto;
+		/*min-height: 400px;*/
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-bottom: 5%;
+		display: inline-block;
 
-
-
-	display: inline-block;
-	/*padding-right: 5%*/
 	}
 
 
-	.client img{
+	.image{
 
-	width: 100% !important;
-	/*height: 60vh;
-	min-height: 400px;*/
-	/*background-color: white;*/
+		width:100%;
 
 	}
 
@@ -400,7 +487,7 @@ background-color: rgb(25, 26, 28) ;
 	.post-client{
 		padding-left: 35px;
 		padding-right: 35px;
-		background-color: rgb(25, 26, 28);
+		background-color: #282828;
 	}
 
 /*	.g-project{

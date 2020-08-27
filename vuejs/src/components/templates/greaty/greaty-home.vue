@@ -4,7 +4,7 @@
         <div class="clear"></div>
 
         <div class="banner">
-        	<lottie></lottie>
+        <lottie></lottie>
         </div>
         
 
@@ -385,6 +385,15 @@ strong {
 
 				@media screen and (min-width: 1100px) {
 
+						.center-flex{
+
+							min-height: 100vh;
+							display: flex;
+							flex-direction: row;
+							justify-content: center;
+
+						}
+
 
 						.post-client{
 
@@ -653,11 +662,9 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 100px;
+							padding-top: 150px;
 							padding-bottom: 5%;
-							/*width: 100% !important;*/
 							margin: auto 30px;
-							
 							font-size: 3.1em;
 							color: #e1e1e1;
 							font-family: "Open Sans", regular !important;

@@ -139,5 +139,6 @@ export default{
 	.audio-visualizer-wrap{
 		width: 100%;
 		height: 30vh;
+		overflow: hidden;
 	}
 </style>

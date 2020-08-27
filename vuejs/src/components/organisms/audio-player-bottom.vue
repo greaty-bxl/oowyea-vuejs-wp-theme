@@ -5,7 +5,6 @@
 		</transition>
 		<div :class="this.$style['block-sized']" v-if="show"></div>
 	</div>
-	
 </template>
 
 <script>

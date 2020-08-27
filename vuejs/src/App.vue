@@ -8,9 +8,11 @@
         :id="section.post_name" 
         :data-permalink="section.permalink"
         :data-index="key2"
-        :data-title="section.post_title">
+        :data-title="section.post_title"
+        :style="section.style" >
 
-          <component data-test="blibli"  
+          <component   
+            :section="section" 
             :is="Templates[section.template]"
             :post="section" 
             :posts="section.children" 
@@ -40,7 +42,7 @@ import Footer from 'Organisms/footer.vue'
 import AudioPlayerBottom from 'Organisms/audio-player-bottom.vue'
 
 //Functions
-import is from 'is_js'
+//import is from 'is_js'
 import init_scrolltop from 'Libs/init-scrolltop.js'
 import scrollSection from 'Libs/scroll-sections.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
@@ -48,7 +50,7 @@ import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
 import smart_fonts from 'Libs/smart-fonts.js'
 import on_screen from 'Libs/on-screen.js'
-import acf_to_css from 'Libs/acf-to-css.js'
+//import acf_to_css from 'Libs/acf-to-css.js'
 
 
 function vue_key_to_name(str)
@@ -86,16 +88,26 @@ export default {
   mounted (){
     console.log( 'App mounted' );
     //console.log('wp', this.wp)
-    //console.log('store', this.$store.state.wp)
+    
 
+    this.$store.subscribe((mutation, state) => {
+      console.log(mutation, state);
+    })
     
     
     this.pages['current'] = this.wp.sections
+
+    this.$store.commit({
+        type: 'sections_load',
+        sections: this.pages['current'],
+      })
+    
 
 
     this.$(document).ready( ($) => {
       //console.log('JQuery Ready', $, this.ajaxurl)
       
+      //console.log('store', this.$store.state.wp)
       //init scroll if child
       init_scrolltop(this)
 
@@ -127,6 +139,11 @@ export default {
             animate_next_page( this, event.href, () => {
               
               this.pages['current'] = wp.sections
+
+              this.$store.commit({
+                type: 'sections_load',
+                sections: this.pages['current'],
+              })
             
               setTimeout( ()=>{ 
                 
@@ -150,13 +167,13 @@ export default {
 
   },
   methods : {
-    template_mounted(comp){
+    template_mounted(){
 
-      let $ = this.$
+      //let $ = this.$
 
       //console.log('template_mounted')
 
-      if( is.object(comp) )
+      /*if( is.object(comp) )
       {
         
         let section = this.pages['current'][$(comp.$el).parent('.section').data('index')]
@@ -167,11 +184,11 @@ export default {
             'background-color' : 'background->color'
           }
         }, section)
-      }
+      }*/
 
       smart_fonts()
     }
-  }
+  },
 }
 </script>
 
@@ -192,8 +209,8 @@ export default {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #595959;
-  border-radius: 7px;
+  background: #595959; 
+  /*border-radius: 7px;*/
 }
 
 /* Handle on hover */

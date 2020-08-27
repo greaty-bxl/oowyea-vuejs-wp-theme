@@ -1,16 +1,53 @@
+import getField from "Libs/acf-get-field.js"
+
 class wp{
+
+	/* State */
 	constructor(){
 		this.state = window.wp
-		//console.log( this.state );
 	}
 
+	/* Mutations */
 	section_change(state, payload){
 
-		//console.log('section_change', state, payload)
-		
-		state.wp.current_section = payload.section
+		state.wp.current_section = payload.current_section
 
-		state.main_audio = Object.assign({}, state.main_audio)
+		state.wp = Object.assign({}, state.wp)
+	}
+
+	sections_load(state, payload){
+
+		state.wp.sections = payload.sections
+
+		let max = state.wp.sections.length
+		let count = 0
+
+		function wait_dom( index, id ) {
+
+			let dom = document.querySelector('[data-state="current"] #'+id)
+
+			if( dom == null )
+			{
+				setTimeout( () => { wait_dom( index, id) }, 1 )
+			}
+			else
+			{
+				count++
+				state.wp.sections[index].dom = dom
+				if( max == count )
+				{
+					state.wp = Object.assign({}, state.wp)
+				}
+			}
+
+			let bgColor = getField('background->color', state.wp.sections[index]).value
+
+			state.wp.sections[index].style = { "background" : bgColor }
+		}
+
+		state.wp.sections.forEach( (el, i) => {
+			wait_dom( i, el.post_name )
+		})
 	}
 }
 

@@ -1,5 +1,5 @@
 <template>
-	<div class="yt-bg">
+	<div class="yt-bg" :style='{"background":bgcolor}'>
 		<div v-if="main_audio.playing"> 
 			<youtube class="yt-iframe" :video-id="YtId" :player-vars="YtVars" @ready="YT_ready" @playing="YT_playing" @ended="YT_ended" ref="youtube"></youtube>
 		</div>
@@ -32,10 +32,10 @@ export default{
 	},
 	mounted(){
 		let $ = this.$
-		let bg = this.bgcolor //$(this.$el).parents('.section-wrap').css('background')
+		//let bg = this.bgcolor //$(this.$el).parents('.section-wrap').css('background')
 
-		$('.yt-bg').css('background', bg)
-		$(this.$el).parents('.section-wrap').addClass('force-no-bg')
+		//$('.yt-bg').css('background', bg)
+		$(this.$el).parents('.section').addClass('force-no-bg')
 
 	},
 	computed: {

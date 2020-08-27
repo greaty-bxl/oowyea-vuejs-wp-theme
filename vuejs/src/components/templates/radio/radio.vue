@@ -1,7 +1,7 @@
 <template>
 	<div :class="$style['section-wrap']" class="section-wrap">
 		
-		<VideoBg type="youtube" :bgcolor="'#00081D'" />
+		<VideoBg type="youtube" :bgcolor="bgYt" />
 
 		<div class="clear"></div>
 		<div>
@@ -22,15 +22,24 @@ import RadioPlayer from 'Organisms/radio-centered-player.vue'
 import AudioVisualizer from 'Organisms/audio-visualizer.vue'
 
 export default{
+	data(){
+		return {
+			bgYt: null
+		}
+	},
 	components:{
 		VideoBg,
 		RadioPlayer,
 		AudioVisualizer,
 	},
 	props: {
-		'post' : Object
+		'post' : Object,
+		'section' : Object
 	},
 	mounted() {
+		console.log(this.section.style.background);
+
+		this.bgYt = this.section.style.background
 		this.$emit('template_mounted', this)
 	},
 }
@@ -61,7 +70,6 @@ export default{
 }
 
 .section-wrap{
-	background-color: #000;
 	color: #fff;
 }
 

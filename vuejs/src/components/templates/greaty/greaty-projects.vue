@@ -117,12 +117,12 @@ export default {
 
 	});
 
-		// smart_fonts({
-		// '.smallTile' :54,
-		// '.text-homepage' : 45,
-		// '.role-greaty': 30,
-		// '.name-client': 22,
-		// })
+		smart_fonts({
+		'.smallTile' :54,
+		'.text-homepage' : 45,
+		'.role-greaty': 27,
+		'.name-client': 22,
+		})
 
 
 	}

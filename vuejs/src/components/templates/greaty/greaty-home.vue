@@ -3,11 +3,16 @@
     <div class="section-wrap">
         <div class="clear"></div>
 
+        <div class="banner">
+        	<lottie></lottie>
+        </div>
+        
+
 		<div class="div-text-homepage">
 
 			<div class="center-flex">
 
-				<Alpl class="text-homepage"> <h1 class="title-page">Home</h1>
+				<Alpl class="text-homepage">
 					Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
 				</Alpl>
 
@@ -38,7 +43,7 @@
 		</div>
 
 	
-	<textcotact>s
+	<textcotact>
 	</textcotact>
 
         <div class="clear"></div>
@@ -51,14 +56,17 @@
 import Alpl from 'Molecules/animation-line-per-line';
 import anime from 'animejs/lib/anime.es.js';
 import Anime3d from 'Molecules/animation-3d';
-import textcotact from './components/text-contact'
-import smart_fonts from "Libs/smart-fonts.js"
+import textcotact from './components/text-contact';
+import smart_fonts from 'Libs/smart-fonts.js';
+import lottie from "Molecules/Lottie";
 
 export default {
 	components: {
 		Alpl,
 		Anime3d,
 		textcotact,
+		// smart_fonts,
+		lottie
 
 	},
 	props: {
@@ -69,7 +77,7 @@ export default {
 
 	mounted(){
 
-
+		console.log(smart_fonts);
 
 		var $ = this.$
 
@@ -145,6 +153,7 @@ padding: 0;
 font-family: 'Open Sans', regular;
 
 }*/
+
 
 a{
 color: #e1e1e1;
@@ -362,7 +371,20 @@ strong {
 }
 			
 
+.banner{
+
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.banner div{
+
+	margin-top: auto;
+} 
+
 				@media screen and (min-width: 1100px) {
+
 
 						.post-client{
 
@@ -445,6 +467,18 @@ strong {
 				}
 
 				@media screen and (max-width: 1100px) and  (min-width: 600px) {
+
+						.banner{
+
+							min-height: 50vh;
+							display: flex;
+							flex-direction: column;
+						}
+
+						.banner div{
+
+							margin-top: auto;
+						} 
 
 						.text-homepage{
 
@@ -558,6 +592,19 @@ strong {
 
 
 				@media screen and (max-width: 600px) {
+
+
+						.banner{
+
+							min-height: 50vh;
+							display: flex;
+							flex-direction: column;
+						}
+
+						.banner div{
+
+							margin-top: auto;
+						}
 
 						.global-project{
 						z-index: 10;

@@ -18,7 +18,7 @@ import smart_fonts from "Libs/smart-fonts.js"
 import anime from 'animejs/lib/anime.es.js';
 export default {
 	components: {
-		anime
+		
 	},
 	props: {
 		'post' : Object
@@ -41,7 +41,7 @@ export default {
 			'.text-contact' :45,
 		})
 
-	
+
 			$('.div-text-contact').on('leave-screen', (event) => {
 
 			$(event.target).css("opacity","0");
@@ -81,21 +81,15 @@ export default {
 
 <style scoped>
 
-/*.div-text-contact{
-  font-size: 3em;
-  margin-left: 0;
-  margin-right: 0;
-  padding-top: 100px;
-  padding-bottom: 70px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap')
 
-}*/
 
 .text-contact a{
-font-family: "Open Sans", regular !important;
+font-family: 'Montserrat', sans-serif !important;
 color: white;
 }
 .text-contact {
-	font-family: "Open Sans", regular !important;
+	font-family: 'Montserrat', sans-serif !important;
 color: white;
 /*font-size: 0.6em !important;*/
 }
@@ -116,7 +110,7 @@ color: white;
 
 p{
 
-	font-family: "Open Sans", regular !important;
+	font-family: 'Montserrat', sans-serif !important;
 }	
 	
 
@@ -130,7 +124,7 @@ p{
 		margin-right: 0;
 		padding-top: 100px;
 		padding-bottom: 70px;
-		font-family: "Open Sans", regular !important;
+		font-family: 'Montserrat', sans-serif !important;
 		margin-left: 70px;
 		margin-right: 70px;
 		font-size: 35px;
@@ -140,6 +134,8 @@ p{
 	.text-contact strong{
 
 		display: inline !important;
+		font-family: 'Montserrat', sans-serif !important;
+		font-weight: 600;
 	}
 
         
@@ -151,7 +147,7 @@ p{
 
 		.div-text-contact{
 
-		font-family: "Open Sans", regular !important;
+		font-family: 'Montserrat', sans-serif !important;
 		width: 80%;
 		font-size: 2em;
 		color: white;
@@ -171,7 +167,7 @@ p{
 
         .div-text-contact{
 
-			font-family: "Open Sans", regular !important;
+			font-family: 'Montserrat', sans-serif !important;
 			color: white;
 			margin-left: 0;
 			margin-right: 0;

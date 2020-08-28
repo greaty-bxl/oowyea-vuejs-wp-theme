@@ -136,7 +136,7 @@ export default {
 	
 body div .section-wrap {
 
-font-family: 'Open Sans', regular;
+font-family: 'Montserrat', sans-serif;
 background-color: #282828; ;
 
 }
@@ -179,7 +179,7 @@ background-color: #282828; ;
 
 <style scoped >
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 
 
 	.notre-service{
@@ -291,7 +291,7 @@ background-color: #282828; ;
 
    /*font-size: 20px;*/
    margin-bottom: 5px;
-   font-family: 'Gotham Book Regular', sans-serif; 
+   font-family: 'Montserrat', sans-serif; 
 
    }
 
@@ -299,7 +299,7 @@ background-color: #282828; ;
 
    /*font-size: 12px;*/
    margin-top: 0px;
-   font-family: 'Gotham Book Regular', sans-serif; 
+   font-family: 'Montserrat', sans-serif; 
 
    }
 
@@ -482,7 +482,7 @@ background-color: #282828; ;
 	width: 100%;
 	font-size: 3.1em;
 	color: #e1e1e1;
-	font-family: "Open Sans", regular !important;
+	font-family: 'Montserrat', sans-serif!important;
 	font-weight: lighter;
 	;
 	}

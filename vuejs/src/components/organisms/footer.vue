@@ -12,7 +12,7 @@
 
 <div>
   <p class="on-screen">Greaty</p>
-  <p class="on-screen">Boulevard de l'Humanité 415,</p>
+  <p class="on-screen">Blvd de l'Humanité 415,</p>
   <p class="on-screen">1190 Bruxelles</p> 
 </div>
 
@@ -24,7 +24,7 @@
 
 <p class="on-screen"><a href="">Confidentialité</a></p>
 
-<p class="on-screen"><a href="">Conditions générales</a></p>
+<p class="on-screen"><a href="">C.G.V</a></p>
 
 </div>
 
@@ -48,18 +48,11 @@
 		mounted(){
 			var $ = this.$
 
-			$('p').on('leave-screen', (event) => {
+			$('p').css({
+				translateY: '10px',
+				opacity: 0,
+			});
 
-			$(event.target).css("opacity","0");
-
-				anime({
-					targets: event.target,
-					translateY: '10px',
-					opacity: 0,
-
-				});
-
-			})
 
 			$( "p " ).each( function( index , el) {
 
@@ -78,18 +71,21 @@
 
 			});
 
-			$('a').on('leave-screen', (event) => {
 
-			$(event.target).css("opacity","0");
 
-				anime({
-					targets: event.target,
-					translateY: '10px',
-					opacity: 0,
 
-				});
+			// $('a').on('leave-screen', (event) => {
 
-			})
+			// $(event.target).css("opacity","0");
+
+			// 	anime({
+			// 		targets: event.target,
+			// 		translateY: '10px',
+			// 		opacity: 0,
+
+			// 	});
+
+			// })
 
 			$( "a" ).each( function( index , el) {
 
@@ -108,6 +104,8 @@
 
 			});
 
+			this.$emit('template_mounted', this)
+
 		}
 	}
 
@@ -115,6 +113,7 @@
 </script>
 
 <style scoped>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 
 		nav{
 
@@ -154,7 +153,7 @@
 			color: #e1e1e1;
 		}
 		footer{
-		font-family: 'Gotham Book Regular', sans-serif; 
+		font-family: 'Montserrat', sans-serif; 
 		}
 
 		a{

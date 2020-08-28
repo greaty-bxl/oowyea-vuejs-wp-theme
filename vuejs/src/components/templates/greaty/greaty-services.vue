@@ -17,25 +17,84 @@
         </div>
 
     </div>
-<!--             <div class="div-text-homepage">
-                <div class="center-flex">
-
-                <Alpl class="text-homepage on-screen">Greaty est spécialisée dans la communication,
-                l’élaboration d’images de marque, les solutions digitales
-                et les supports imprimés.
-                </Alpl>
-
-                </div>
-            </div> -->
             <div class="firstSection">
                 <div class="grid-services  ">
                     <div class="item-services">
-                        <div class="item-text on-screen"><div class="smallTile">Stratégie</div><br><br>- Consultance graphique<br><br>- Audit stratégie<br><br>- Stratégie de communication<br><br>- Conception publicitaire</div>
-                        <div class="item-text on-screen"><div class="smallTile">Desing</div><br><br>- Direction artistique<br><br>- Identité visuelle<br><br>- Charte graphique<br><br>- Création de logo<br><br>- Brochure &amp; catalogue<br><br>- Magazine &amp; éditorial<br><br>- Rapport annuel <br><br>- Illustation<br><br>- Signalétique<br><br>- Matériels promotionnels<br><br>- Packaging<br><br>- Etc</div>
-                        <div class="item-text on-screen"><div class="smallTile">Impression</div><br><br>- Papeterie<br><br>- Panneau<br><br>- Bâche<br><br>- Stand<br><br>- Vitrine<br><br>- Autocollant<br><br>- Véhicule<br><br>- Textile<br><br>- Etc</div>
-                        <div class="item-text on-screen"><div class="smallTile">Digital design</div><br><br>- UI/UX design<br><br>- Direction artistique digitale<br><br>- Webdesign sites internet<br><br>- Webdesign applications<br><br>- Motion design</div>
-                        <div class="item-text on-screen"><div class="smallTile">Dev Web</div><br><br>- Intégration HTML5/CSS3<br><br>- Développement PHP/MYSQL<br><br>- Développement de sites Web<br><br>- Application mobile<br><br>- Développement frontend<br><br>- CMS<br><br>- Intranets<br><br>- Développement Backend<br><br>- E-Commerce / Webshops</div>
-                        <div class="item-text on-screen"><div class="smallTile">Tech Web</div><br><br>- (Web-)Hosting<br><br>- Domaines<br><br>- Serveur et stockage</div>
+                        <div class="item-text on-screen">
+                            <div class="smallTile">Stratégie</div>
+                                <ul>
+                                    <li>- Consultance graphique</li>
+                                    <li>- Audit stratégie</li>
+                                    <li>- Stratégie de communication</li>
+                                    <li>- Conception publicitaire</li>
+                                </ul>
+                        </div>
+
+                        <div class="item-text on-screen">
+                            
+                                <div class="smallTile">Design</div>
+                                    <ul>
+                                        <li>- Identité visuelle</li>
+                                        <li>- Charte graphique</li>
+                                        <li>- Création de logo</li>
+                                        <li>- Brochure &amp; catalogue</li>
+                                        <li>- Magazine &amp; éditorial</li>
+                                        <li>- Rapport annuel </li>
+                                        <li>- Illustation</li>
+                                        <li>- Matériels promotionnels</li>
+                                        <li>- Packaging</li>
+                                        <li>- Etc</li>
+                                    </ul>
+                        </div>
+
+                        <div class="item-text on-screen">
+                            <div class="smallTile">Impression</div>
+                                <ul>
+                                    <li>- Papeterie</li>
+                                    <li>- Panneau</li>
+                                    <li>- Bâche</li>
+                                    <li>- Stand</li>
+                                    <li>- Vitrine</li>
+                                    <li>- Autocollant</li>
+                                    <li>- Véhicule</li>
+                                    <li>- Textile</li>
+                                    <li>- Etc</li>
+                                </ul>
+                        </div>
+
+                        <div class="item-text on-screen">
+                            <div class="smallTile">Digital design</div>
+                                <ul>
+                                    <li>- UI/UX design</li>
+                                    <li>- Direction artistique digitale</li>
+                                    <li>- Webdesign sites internet</li>
+                                    <li>- Webdesign applications</li>
+                                    <li>- Motion design</li>
+                                </ul>
+                            </div>
+
+                        <div class="item-text on-screen">
+                            <div class="smallTile">Dev Web</div>
+                                <ul>
+                                    <li>- Intégration HTML5/CSS3</li>
+                                    <li>- Développement PHP/MYSQL</li>
+                                    <li>- Développement de sites Web</li>
+                                    <li>- Application mobile</li>
+                                    <li>- Développement frontend</li>
+                                    <li>- CMS</li>
+                                    <li>- Intranets</li>
+                                    <li>- Développement Backend</li>
+                                    <li>- E-Commerce / Webshops</li>
+                                </ul>
+                        </div>
+                        <div class="item-text on-screen">
+                            <div class="smallTile">Tech Web</div>
+                                <ul>
+                                    <li>- (Web-)Hosting</li>
+                                    <li>- Domaines</li>
+                                    <li>- Serveur et stockage</li>
+                                </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,8 +160,26 @@ export default {
 
 </script>
 
+<style >
+    
+    body div .section-wrap {
+
+    font-family: 'Montserrat', sans-serif;
+    background-color: #282828; ;
+
+    }
+
+
+</style>
 
 <style lang="scss" scoped>
+
+.smallTile{
+
+    font-family: 'Montserrat', sans-serif;
+    background-color: #282828; ;
+
+    }
 
 
 .title-page{
@@ -118,18 +195,11 @@ export default {
     padding-top: 9rem;
 }
 
-.smallTile {
-    font-family: 'Gotham-Bold';
-}
+// .smallTile {
+//     font-family: 'Gotham-Bold';
+// }
 
-.item-services {
-    display: grid;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(auto-fit, minmax(405px, 1fr));
-    grid-column-gap:50px;
-    grid-row-gap: 80px;
-    color: white;
-}
+
 .item-text {
     text-align: left;
     opacity: 0;
@@ -144,8 +214,17 @@ export default {
 
 }
 
+ul li{
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
+    list-style: none;
+    padding-bottom: 10px;
+    
+}
+ul{
+    padding-left: 0px;
+}
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
     .global-descriptif{
 
@@ -285,6 +364,16 @@ export default {
 
  @media screen and (min-width: 1100px) {
 
+
+        .item-services {
+            display: grid;
+            flex-wrap: wrap;
+            grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+            grid-column-gap:50px;
+            grid-row-gap: 80px;
+            color: white;
+        }
+
         .center-flex{
 
         min-height: 100vh;
@@ -309,7 +398,7 @@ export default {
         /*width: 100%;*/
         font-size: 3.3em;
         color: #e1e1e1;
-        font-family: "Open Sans", regular !important;
+
         font-weight: lighter;
         text-align: left;
 
@@ -322,64 +411,23 @@ export default {
         }
 
 
-        .client img{
-
-        width: 100%;
-
-        }
-
-        footer{
-        padding: 40px 30px;
-        display: flex;
-        -webkit-box-orient: vertical;
-        flex-direction: column;
-
-        }
-
-        .footer-text{
-
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        }
-
-        .reseaux-sociaux{
-        display: flex;
-        flex-direction: column;
-
-        }
-        .adresse-social {
-        text-align: left;
-
-        }
-
-
-
-        .reseaux-sociaux p {
-        margin: 5px  0px;
-        }
-
-        .confidentialite p {
-        margin: 5px  0px;
-        text-align: right;
-        }
-
- 
-        .g-project{
-                width: calc(50% - 70px) !important;
-                display: inline-block;
-                margin-bottom: 3%;
-        }
-
-
  }
 
  @media screen and (max-width: 1100px) and  (min-width: 600px) {
 
+        .item-services {
+            display: grid;
+            flex-wrap: wrap;
+            grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+            grid-column-gap:50px;
+            grid-row-gap: 80px;
+            color: white;
+        }
+
+
         .text-homepage{
 
-            font-family: "Open Sans", regular !important;
+            font-family: 'Open Sans', sans-serif!important;
             font-weight: lighter;
             color: white;
             /*padding-left: 5%;*/
@@ -482,6 +530,15 @@ export default {
 
  @media screen and (max-width: 600px) {
 
+        .item-services {
+            display: grid;
+            flex-wrap: wrap;
+            grid-template-columns: repeat(auto-fit, minmax(90%, 1fr));
+            grid-column-gap:50px;
+            grid-row-gap: 80px;
+            color: white;
+        }
+
         .global-project{
         z-index: 10;
         width: 100% !important;
@@ -533,7 +590,7 @@ export default {
             
             font-size: 3.1em;
             color: #e1e1e1;
-            font-family: "Open Sans", regular !important;
+            font-family: 'Open Sans', sans-serif!important;
             font-weight: lighter;
             text-align: left;
 

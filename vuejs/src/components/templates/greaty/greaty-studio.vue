@@ -80,7 +80,18 @@ export default {
 }
 </script>
 
+<style >
+	
+	.text-homepage{
+
+		font-family:'Montserrat', sans-serif !important; 
+	}
+</style>
+
 <style lang="scss" scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
 
 .div-text-homepage{
 
@@ -136,7 +147,7 @@ p{
 		/*width: 100%;*/
 		font-size: 3.3em;
 		color: #e1e1e1;
-		font-family: "Open Sans", regular !important;
+		font-family: 'Montserrat', sans-serif !important;
 		font-weight: lighter;
 		text-align: left;
 
@@ -191,7 +202,7 @@ p{
 
 		.text-homepage{
 
-			font-family: "Open Sans", regular !important;
+			font-family: 'Montserrat', sans-serif !important;
 			font-weight: lighter;
 			color: white;
 			/*padding-left: 5%;*/
@@ -363,7 +374,7 @@ p{
 			
 			font-size: 3.1em;
 			color: #e1e1e1;
-			font-family: "Open Sans", regular !important;
+			font-family: 'Montserrat', sans-serif !important;
 			font-weight: lighter;
 			text-align: left;
 

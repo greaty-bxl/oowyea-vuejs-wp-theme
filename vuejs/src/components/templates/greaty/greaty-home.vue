@@ -135,11 +135,19 @@ export default {
 
 </script>
 
+<style>
+	
+	body{
+
+		font-family: 'Montserrat', sans-serif;
+
+	}
+</style>
+
 
 <style scoped >
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 lottie-animation{
 
@@ -238,7 +246,7 @@ width: 100%;
 
 font-size: 20px;
 margin-bottom: 5px;
-font-family: "Open Sans", regular; 
+font-family: 'Montserrat', sans-serif; 
 
 }
 
@@ -246,7 +254,7 @@ font-family: "Open Sans", regular;
 
 font-size: 12px;
 margin-top: 0px;
-font-family: "Open Sans", regular; 
+font-family: 'Montserrat', sans-serif; 
 
 }
 
@@ -286,7 +294,7 @@ margin-left: 30px;
 @import url(https://fonts.googleapis.com/css?family=Karla);
 
 body {
-	font-family: "Open Sans", regular !important;
+	font-family: 'Montserrat', sans-serif !important;
 	font-weight: lighter;
 	text-align: center;
 	/*font-size: 50px;*/ 
@@ -409,7 +417,7 @@ strong {
 							/*width: 100%;*/
 							font-size: 3.3em;
 							color: #e1e1e1;
-							font-family: "Open Sans", regular !important;
+							font-family: 'Montserrat', sans-serif !important;
 							font-weight: lighter;
 							text-align: left;
 
@@ -491,7 +499,7 @@ strong {
 
 						.text-homepage{
 
-							font-family: "Open Sans", regular !important;
+							font-family: 'Montserrat', sans-serif !important;
 							font-weight: lighter;
 							color: white;
 							/*padding-left: 5%;*/
@@ -667,7 +675,7 @@ strong {
 							margin: auto 30px;
 							font-size: 3.1em;
 							color: #e1e1e1;
-							font-family: "Open Sans", regular !important;
+							font-family: 'Montserrat', sans-serif !important;
 							font-weight: lighter;
 							text-align: left;
 

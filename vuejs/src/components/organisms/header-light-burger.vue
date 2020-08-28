@@ -1,7 +1,7 @@
 <template>
 	<div id="header" class="header-greaty">
 		<div class="clear"></div>
-		<div id="header-logo"><Acf field="logo"/></div>
+		<div id="header-logo"><a href="http://localhost/template_greaty/wordpress/"><Acf field="logo"/></a></div>
 		<!-- <div id="header-menu"></div> -->
 		<div id="right-panel">
 			<div class="headerButton" style="pointer-events: auto;">
@@ -12,11 +12,15 @@
 					</div>
 					<ul class="bottomBody">
 						<li>ENTRER EN CONTACT</li><br>
-						<li><a href="tel:88002011486">8 800 201 1486</a></li>
-						<li><a href="mailto:hello@roky.rocks">hello@roky.rocks</a></li><br>
+						<li><a href="tel:88002011486">+32 (0) 471 72 18 08</a></li>
+						<li><a href="mailto:i[at]greaty.be">i[at]greaty.be</a></li><br>
 						<li><a href="https://www.instagram.com/rokystudio/" target="_blank">Instagram</a></li>
-						<li><a href="https://www.facebook.com/rokystudio/" target="_blank">Facebook</a></li>
+						<li><a href="https://www.facebook.com/greaty.be" target="_blank">Facebook</a></li>
 						<li><a href="https://www.linkedin.com/company/rokyrocks/" target="_blank">LinkedIn</a></li>
+						<li><a href="https://www.linkedin.com/company/rokyrocks/" target="_blank">GitHub</a></li>
+
+
+						
 					</ul>
 				</div>
 			</div>		
@@ -41,16 +45,17 @@ export default {
 	mounted(){
 		var $ = this.$
 
+		
 
-		$('.header-greaty').css('background-color', 'rgb(25, 26, 28)');
+		this.$emit('template_mounted', this)
 
-		// console.log('header', this.wp.acf);
+		// $('.header-greaty').css('background-color', 'rgb(25, 26, 28)');
 
 		var height_origin_taille = $('.headerButton').height()
 
-
-
 		var height_total = $('.headerMore').height()
+
+		console.log(height_total);
 
 		// var animation_rajouter =  parseInt(height_petit_point) - parseInt(height_total)
 
@@ -74,7 +79,7 @@ export default {
 
 		$('.headerButton').css('backdrop-filter', 'blur(20px)');
 		// backdrop-filter: blur(20px);
-
+		var passage = true
 
 		$('.headerMore').click(function() {
 
@@ -99,6 +104,15 @@ export default {
 
 			setTimeout(function() {
 
+				if ( passage == true) {
+
+					passage = false
+
+					height_origin_taille = height_origin_taille - 50
+				}
+
+			
+
 			$('.headerButton').animate({"height":  height_origin_taille  }, "fast", "swing");
 
 			}, 400);
@@ -106,6 +120,10 @@ export default {
 			$('.headerBody').find('ul').fadeTo('show/400/fast', 200, function() {
 
 			});
+
+
+			
+
 
 			// timer_close_menu = "";
 
@@ -203,17 +221,17 @@ export default {
 
 
 
-		$('.headerMore').hover(function() {
+		// $('.headerMore').hover(function() {
 
 
-		$('.headerMore').animate({"justify-content": 'space-between' }, "fast", "swing");
+		// $('.headerMore').animate({"justify-content": 'space-between' }, "fast", "swing");
 
 
-		}, function() {
+		// }, function() {
 
-			$('.headerMore ').animate({"justify-content": 'center' }, "fast", "swing");
+		// 	$('.headerMore ').animate({"justify-content": 'center' }, "fast", "swing");
 
-		});
+		// });
 
 		// var reload = true;
 
@@ -244,7 +262,8 @@ export default {
 }
 </script>
 
-<style  >
+<style>
+
 
 		@media (min-width: 1100px) {
 
@@ -314,7 +333,10 @@ export default {
 
 
 
+.bottomBody li {
 
+	margin-bottom: 3px;
+}
 
 .header-greaty{
 	/*position: fixed;*/
@@ -336,15 +358,15 @@ export default {
 	top: 20px;
 	right: 40px;
 	border-radius: 15px;
-	background-color: hsla(0,0%,100%,.2);
+	background-color: hsla(0,0%,100%,.2) !important;
 	width: auto;
     min-width: 30px;
     z-index: 10000;
     display: flex;
     flex-direction: row;
     align-content: center;
+    width: 45px ;
 
-	
 }
 
 .headerMore span {
@@ -354,7 +376,7 @@ export default {
     border-radius: 50%;
     background-color: #fff;
     display: block;
-    font-family: 'Open Sans', regular;
+    font-family: 'Montserrat', sans-serif;
 
 /*    -webkit-transition: .15s cubic-bezier(.445,.05,.55,.95);
     -o-transition: .15s cubic-bezier(.445,.05,.55,.95);
@@ -386,20 +408,21 @@ export default {
 .headerMore:hover{
 
 	justify-content: center;
-	animation-timing-function: ease;
-	transition-delay: 0.5s;
+	transition: ease;
+	/*animation-timing-function: ease;*/
+	transition-delay: 1s;
 }
 
 .headerMore :nth-child(2){
 
-	margin: 0 px;
+	margin: 3px;
 }
 .headerBody {
     /*position: absolute;*/
     left: 30px;
     top: 30px;
-    min-width: 200px;
-    width: auto;/* height: 340px; */
+    /*min-width: 200px;*/
+    width: auto;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -410,7 +433,7 @@ export default {
     -ms-flex-direction: column;
     flex-direction: column;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
+    /*-webkit-justify-content: space-between;*/
     -ms-flex-pack: justify;
     text-align: left;
     /* justify-content: space-between; */
@@ -419,19 +442,24 @@ export default {
 .headerBody .topBody li {
 
     list-style: none;
-    font-size: 2.1rem;
+    font-size: 1.4rem;
     line-height: 1.5;
     text-align: left;
     text-decoration: none;
-    font-family: 'Open Sans', regular;
+    font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
     
+}
+
+
+.headerBody .topBody li a:hover {
+    opacity: .75;
 }
 
 li{
 
 color: white;
-font-family: 'Open Sans', regular;
+font-family: 'Montserrat', sans-serif;
 font-weight: lighter;
 }
 
@@ -439,7 +467,7 @@ font-weight: lighter;
 
   font-weight: 200;
   text-decoration: none;
-  font-family: 'Open Sans', regular;
+  font-family: 'Montserrat', sans-serif;
   font-weight: lighter;
 }
 
@@ -448,14 +476,14 @@ font-weight: lighter;
 padding-left: 25px;
 padding-right: 75px;
 padding-top: 30px;
-padding-bottom: 20px;
+padding-bottom: 10px;
 
 }
 
 .bottomBody{
 
     padding-left: 25px;
-    padding-bottom: 25px;
+    /*padding-bottom: 25px;*/
     list-style-type: none;
 }
 
@@ -475,7 +503,7 @@ padding-bottom: 20px;
 .menu a{
 
 	list-style-type: none !important;
-	font-family: 'Open Sans', regular;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: lighter;
 	
 }
@@ -483,11 +511,19 @@ padding-bottom: 20px;
  .menu ul{
 
 	list-style-type: none !important;
-	font-family: 'Open Sans', regular;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: lighter;
 	
 }
 
 
 
+</style>
+
+<style scoped>
+	
+	a{
+
+		text-decoration: none;
+	}
 </style>

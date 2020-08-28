@@ -2,7 +2,7 @@
     <div class="section-wrap">
     <div class="clear"></div>
         <div class="textbox">
-        <div class="div-text-contact">
+        <div  class="div-text-contact on-screen">
             <p class="text-contact">
                 Vous avez une idée.<br>
                 Nous avons l'expertise pour la réaliser.<br>
@@ -15,9 +15,10 @@
 
 <script>
 import smart_fonts from "Libs/smart-fonts.js"
+import anime from 'animejs/lib/anime.es.js';
 export default {
 	components: {
-
+		anime
 	},
 	props: {
 		'post' : Object
@@ -39,6 +40,37 @@ export default {
 		smart_fonts({
 			'.text-contact' :45,
 		})
+
+	
+			$('.div-text-contact').on('leave-screen', (event) => {
+
+			$(event.target).css("opacity","0");
+
+				anime({
+					targets: event.target,
+					translateY: '100px',
+					opacity: 0,
+
+				});
+
+			})
+
+			$( ".div-text-contact" ).each( function( index , el) {
+
+			$(el).on('enter-screen', (event) => {
+				anime({
+					targets: event.target,
+					translateY: '0px',
+					opacity: 1,
+					easing: 'easeInOutSine',
+					duration: 500,
+					delay: index * 100
+				});
+
+			})
+
+
+		});
 
 
 	}

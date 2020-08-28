@@ -201,19 +201,17 @@ export default {
 
 
 
-		var padd_ori =  parseInt( $('.headerMore').css('padding-left') ) 
 
-		var padd =  parseInt( $('.headerMore').css('padding-left') ) + 2
 
 		$('.headerMore').hover(function() {
 
 
-		$('.headerMore').animate({"padding-left": padd + 'px', "padding-right": padd + 'px'  }, "fast", "swing");
+		$('.headerMore').animate({"justify-content": 'space-between' }, "fast", "swing");
 
 
 		}, function() {
 
-			$('.headerMore').animate({"padding-left": padd_ori + 'px', "padding-right": padd_ori + 'px'  }, "fast", "swing");
+			$('.headerMore ').animate({"justify-content": 'center' }, "fast", "swing");
 
 		});
 
@@ -342,6 +340,9 @@ export default {
 	width: auto;
     min-width: 30px;
     z-index: 10000;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
 
 	
 }
@@ -354,6 +355,7 @@ export default {
     background-color: #fff;
     display: block;
     font-family: 'Open Sans', regular;
+
 /*    -webkit-transition: .15s cubic-bezier(.445,.05,.55,.95);
     -o-transition: .15s cubic-bezier(.445,.05,.55,.95);
     transition: .15s cubic-bezier(.445,.05,.55,.95);*/
@@ -380,6 +382,17 @@ export default {
     align-items: center;
     padding: 0 12px;
     cursor: pointer;
+}
+.headerMore:hover{
+
+	justify-content: center;
+	animation-timing-function: ease;
+	transition-delay: 0.5s;
+}
+
+.headerMore :nth-child(2){
+
+	margin: 0 px;
 }
 .headerBody {
     /*position: absolute;*/

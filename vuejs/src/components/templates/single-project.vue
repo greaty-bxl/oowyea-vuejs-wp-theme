@@ -80,7 +80,7 @@ export default {
 		smart_fonts({
 		'.smallTile' :54,
 		'.text-homepage' : 45,
-		'.role-greaty-swiper': 27,
+		// '.role-greaty-swiper': 27,
 		'.name-client-swiper': 22,
 
 		})
@@ -96,33 +96,35 @@ export default {
 		data () {
 			return {
 				swiperOption1: {
-					initialSlide: 0,
-					loop: true,
-					allowTouchMove: true,
-					runCallbacksOnInit: true,
-					navigation: {
-							nextEl: '.flex-gauche',
-							prevEl: '.flex-droite',
-					},
-					breakpoints: {
-					    // when window width is >= 320px
-					    1100: {
-					      slidesPerView: 3,
+				initialSlide: 0,
+				loop: true,
+				allowTouchMove: true,
+				runCallbacksOnInit: true,
+				navigation: {
+				nextEl: '.flex-gauche',
+				prevEl: '.flex-droite',
+				},
+				breakpoints: {
+				// when window width is >= 320px
+				1100: {
+				slidesPerView: 3,
 
-					    },
+				},
 
-					    700: {
-					      slidesPerView: 2,
-					    },
+				700: {
+				slidesPerView: 2,
+				},
 
-					    600: {
-					      slidesPerView: 1,
-					    }
-					  }
+				600: {
+				slidesPerView: 1,
+				}
+				}
 				},
 
 			}
 		}
+
+		
 	
 }
 
@@ -162,7 +164,7 @@ background-color: #282828; ;
 }
 .swiper-slide{
 
-		    margin-left: 2.5%;
+    margin-left: 2.5%;
 }
 
 .swiper-container{
@@ -182,7 +184,7 @@ background-color: #282828; ;
 
 	.notre-service{
 
-	  font-size: 14px !important;
+		font-size: 14px !important;
 
 	}
 	.text-client-sigle{

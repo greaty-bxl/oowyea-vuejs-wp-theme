@@ -194,9 +194,8 @@ export default {
 
 <style>
 /* width */
-::-webkit-scrollbar {
+::-webkit-scrollbar { 
   width: 5px;
-
 }
 
 /* Track */

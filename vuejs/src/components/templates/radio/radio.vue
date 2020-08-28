@@ -37,8 +37,6 @@ export default{
 		'section' : Object
 	},
 	mounted() {
-		console.log(this.section.style.background);
-
 		this.bgYt = this.section.style.background
 		this.$emit('template_mounted', this)
 	},

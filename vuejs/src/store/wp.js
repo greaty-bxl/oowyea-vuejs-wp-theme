@@ -1,4 +1,4 @@
-import getField from "Libs/acf-get-field.js"
+//import getField from "Libs/acf-get-field.js"
 
 class wp{
 
@@ -40,9 +40,9 @@ class wp{
 				}
 			}
 
-			let bgColor = getField('background->color', state.wp.sections[index]).value
+			//let bgColor = getField('background->color', state.wp.sections[index]).value
 
-			state.wp.sections[index].style = { "background" : bgColor }
+			//state.wp.sections[index].style = { "background" : bgColor }
 		}
 
 		state.wp.sections.forEach( (el, i) => {

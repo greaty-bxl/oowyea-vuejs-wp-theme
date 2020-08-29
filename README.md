@@ -42,6 +42,8 @@ define('vuejs_server', 'http://localhost:8080');
 
 ## :mortar_board: Code References
 
+### [Z-Index of main elements](doc/front-rules/z-index.md)
+
 ### [Create a Vue.js WordPress page or hierarchy template](doc/code-references/create-a-vuejs-wordpress-page-or-hierarchy-templat.md)
 
 ### [Use JQuery in Vue.js](doc/code-references/wp-jquery-vue.md)

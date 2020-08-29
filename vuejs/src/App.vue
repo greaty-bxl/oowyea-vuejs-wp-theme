@@ -232,6 +232,7 @@ html{
   height: 100vh;
   width: 100%;
   overflow-y: auto;
+  z-index: 1000;
 }
 
 .clear{

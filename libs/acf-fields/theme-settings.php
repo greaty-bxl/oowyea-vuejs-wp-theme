@@ -20,5 +20,4 @@ function grt_get_acf_group($slug){
 if( function_exists('acf_add_local_field_group') ){
 	//remove conditionals for prod (only dev)
 	if(!grt_get_acf_group('group_header_style')) include GREATY_TEMPLATE_PATH.'/libs/acf-fields/header-style.php';
-	if(!grt_get_acf_group('group_page_style')) include GREATY_TEMPLATE_PATH.'/libs/acf-fields/page-style.php';
 } //endif

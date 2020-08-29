@@ -27,6 +27,7 @@
     <!-- Footer -->
     <Footer/>
     <AudioPlayerBottom />
+    <Editor />
   </div>
 </template>
 
@@ -40,6 +41,7 @@ import Header from 'Organisms/header-light-burger.vue'
 import Footer from 'Organisms/footer.vue'
 
 import AudioPlayerBottom from 'Organisms/audio-player-bottom.vue'
+import Editor from 'Organisms/editor.vue'
 
 //Functions
 //import is from 'is_js'
@@ -71,7 +73,8 @@ export default {
   components: {
     Header,
     Footer,
-    AudioPlayerBottom
+    AudioPlayerBottom,
+    Editor
   },
   created ()  {
     //automatically load templates
@@ -232,7 +235,7 @@ html{
   height: 100vh;
   width: 100%;
   overflow-y: auto;
-  z-index: 1000;
+  z-index: auto;
 }
 
 .clear{
@@ -243,7 +246,6 @@ html{
   display: block;
   min-height: 100vh;
   width: 100%;
-  /*background-color: #fff;*/
 }
 
 .section-wrap{

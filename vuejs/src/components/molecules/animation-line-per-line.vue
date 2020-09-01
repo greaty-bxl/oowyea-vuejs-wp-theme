@@ -18,9 +18,7 @@ export default{
 		let lines = {}
 		let i_lines = 0
 
-		// $( this.$el ).html(function (i, html) {
-		// 	return html.replace(/( )/g, '<span>$1</span>');
-		// })
+
 
 		var text_remplace = " ";
 
@@ -83,7 +81,7 @@ export default{
 		$( this.$el ).find('.char').css({
 			'display': 'inline-block',
 			'opacity': 0,
-			'translateY': 20
+			'translateY': 50
 		});
 
 		$( this.$el ).find('.word')
@@ -132,7 +130,7 @@ export default{
 					console.log('anime', '.char'+this._uid);
 					anime({
 						targets: '.char'+this._uid,
-						translateY: -50,
+						translateY: 0,
 						opacity: 1,
 						easing: 'cubicBezier(0.25, 0.46, 0.45, 0.94)',
 						delay: delay,

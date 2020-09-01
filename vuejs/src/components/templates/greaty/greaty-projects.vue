@@ -3,14 +3,14 @@
     <div class="section-wrap">
         <div class="clear"></div>
 
-
+        <!-- <h1>Projets</h1> -->
 
 		<div class="div-text-homepage">
 
 			<div class="center-flex">
 
-				<Alpl class="text-homepage">
-					Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
+				<Alpl class="text-homepage"><h1 class="title-page">Projets</h1>
+					Greaty trouve des solutions cohérentes issues d’une démarche ou rien n’est laissé au hasard.
 				</Alpl>
 
 			</div>
@@ -51,18 +51,32 @@
 <script>
 
 import Alpl from 'Molecules/animation-line-per-line';
-import anime from 'animejs/lib/anime.es.js';
+// import anime from 'animejs/lib/anime.es.js';
 import Anime3d from 'Molecules/animation-3d';
 import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
-// import lottie from "Molecules/Lottie";
+// import fixit from 'Libs/fix-it.js';
+// import Vue from 'vue'
+// import VueScrollmagic  from 'vue-scrollmagic';
+// import { TweenMax } from 'gsap'
+// Vue.use(VueScrollmagic)
+
+// import 'ScrollToPlugin'
+
+// Vue.use(VueScrollmagic, {
+//   vertical: true,
+//   globalSceneOptions: {},
+//   loglevel: 2,
+//   refreshInterval: 100
+// })
 
 export default {
 	components: {
 		Alpl,
 		Anime3d,
 		textcotact,
-		// smart_fonts,
+		// TweenMax
+		// VueScrollmagic
 		// lottie
 
 	},
@@ -76,50 +90,21 @@ export default {
 
 		console.log(smart_fonts);
 
-		var $ = this.$
+		// var $ = this.$
+
+		this.$emit('template_mounted', this)
 
 
+  
 
-		this.$emit('template_mounted', this);
+				smart_fonts({
+				'.smallTile' :54,
+				'.text-homepage' : 45,
+				// '.role-greaty': 27,
+				'.name-client': 22,
+				})
 
-
-		$('.global-project').on('leave-screen', (event) => {
-
-		$(event.target).css("opacity","0");
-
-			anime({
-				targets: event.target,
-				translateY: '100px',
-				opacity: 0,
-
-			});
-
-		})
-
-		$( ".global-project" ).each( function( index , el) {
-
-		$(el).on('enter-screen', (event) => {
-			anime({
-				targets: event.target,
-				translateY: '0px',
-				opacity: 1,
-				easing: 'easeInOutSine',
-				duration: 500,
-				delay: index * 100
-			});
-
-		})
-
-
-	});
-
-		smart_fonts({
-		'.smallTile' :54,
-		'.text-homepage' : 45,
-		// '.role-greaty': 27,
-		'.name-client': 22,
-		})
-
+	
 
 	}
 
@@ -138,19 +123,29 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
 
+#animate1{
+
+	transform: translateY(100px);
+}
+
 lottie-animation{
 
 	height: 50vh;
 	width: 50%;
 }
+
+.g-project{
+	opacity: 0;
+}
 	
-/*body {
-margin: 0 !important;
-padding: 0;
-font-family: 'Open Sans', regular;
+/*h1{
+
+
+	color: #e1e1e1;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: lighter;
 
 }*/
-
 
 a{
 color: #e1e1e1;
@@ -323,7 +318,10 @@ strong {
 
 .title-page{
 
-	font-size: 4em !important;
+	font-size: 10px !important;
+	padding-bottom: 5%;
+	text-transform: capitalize;
+	letter-spacing: 10px;
 }
 
 .div-text-homepage{
@@ -366,7 +364,7 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 70px;
+							/*padding-top: 70px;*/
 							/*padding-bottom: 150px;*/
 							width: 70% ;
 							margin: auto 70px;
@@ -377,12 +375,6 @@ strong {
 							font-weight: lighter;
 							text-align: left;
 
-						}
-
-						.text-homepage h1{
-
-							text-align: left;
-							margin: 5% 0px;
 						}
 
 
@@ -602,8 +594,13 @@ strong {
 
 						.title-page{
 
-							font-size: 2em !important;
+							font-size: 10px !important;
+							padding-bottom: 5%;
+							text-transform: capitalize;
+							letter-spacing: 10px;
+							padding-top: 20%;
 						}
+
 
 
 						.client img{

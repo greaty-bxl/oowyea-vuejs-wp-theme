@@ -5,11 +5,9 @@
 
 				<div class="center-flex" >
 
-					<Alpl class="text-homepage"><h1 class="title-page"></h1>
+					<Alpl class="text-homepage"><h1 class="title-page">Clients</h1>
 
-					Greaty est spécialisée dans la communication,
-					l’élaboration d’images de marque, les solutions digitales
-					et les supports imprimés.
+					Nous travaillons avec les petits et les grands. Marques en difficulté de reconnaissance et leaders du marché.
 
 					</Alpl>
 
@@ -38,6 +36,14 @@
 
 					</div>
 				</div>
+
+				<div class="globales-client-list">
+					
+					<div class="clientrow" v-for="child in wp.clients" :key="child.ID">
+						<p class="clientText" v-html="child.post_title" ></p>
+					</div>
+
+				</div>
 			<div>
 			<textcotact>
 			</textcotact>
@@ -62,17 +68,18 @@ export default {
 
 		var $ = this.$
 
+		console.log(this.wp);
+		
 		$(this.$el).css({
 			'justify-content':'center'
 		})
 		smart_fonts({
-			'h1' :54,
+			// 'h1' :54,
 			// 'p' : 14,
 			'.text-homepage' : 52.8
 
 		})
-	
-
+	  
 		//Important to let works basic functions
 		this.$emit('template_mounted', this)
 	
@@ -80,17 +87,61 @@ export default {
 }
 </script>
 
-<style >
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 	
 	.text-homepage{
 
 		font-family:'Montserrat', sans-serif !important; 
 	}
+
+
+	.globales-client-list{
+		display: flex;
+		flex-direction: column;
+		margin: 70px 70px;
+		font-family: 'Montserrat', sans-serif !important;
+		font-weight: lighter;
+	}
+
+	.globales-client-list div:last-child{
+
+		border-bottom-style: solid;
+		border-width: 0.5px 0.5px;
+	}
+
+	.clientrow{
+
+		width: 100%;
+		border-top-style: solid;
+		border-color: #e1e1e1;
+		border-width: 0.5px 0.5px;
+	}
+
+	.clientText{
+
+		padding-left: 35%;
+		color: #e1e1e1;
+
+	}
+
+	@media screen and (max-width: 600px ){
+
+		.globales-client-list{
+			display: flex;
+			flex-direction: column;
+			margin: 35px 35px;
+		}
+	}
+
+
 </style>
 
 <style lang="scss" scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
 
 
 .div-text-homepage{
@@ -113,7 +164,11 @@ export default {
 
 .title-page{
 
-	display: none;
+	font-size: 10px !important;
+	padding-bottom: 5%;
+	text-transform: capitalize;
+	letter-spacing: 10px;
+	// padding-top: 20%;
 }
 
 p{
@@ -140,7 +195,7 @@ p{
 
 		.text-homepage{
 
-		padding-top: 70px;
+		// padding-top: 70px;
 		/*padding-bottom: 150px;*/
 		width: 70% ;
 		margin: auto 70px;
@@ -152,13 +207,6 @@ p{
 		text-align: left;
 
 		}
-
-		.text-homepage h1{
-
-			text-align: left;
-			margin: 5% 0px;
-		}
-
 
 
 		.g-project{
@@ -339,10 +387,11 @@ p{
 
 		}
 
-		.title-page{
+	.title-page{
 
-			font-size: 2em !important;
-		}
+		padding-top: 20%;
+	}
+
 
 
 		.client img{

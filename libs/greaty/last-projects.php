@@ -14,6 +14,7 @@ function gtr_get_projects( $args = null ) {
 		$args = 
 		array( 
 			'post_type' => 'project',
+			'posts_per_page' => -1,
 			'post__not_in' =>  array($post->ID)
 		);
 	

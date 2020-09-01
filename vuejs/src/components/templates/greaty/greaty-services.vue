@@ -7,11 +7,8 @@
 
         <div class="center-flex" >
 
-            <Alpl class="text-homepage"><h1 class="title-page"></h1>
-
-                Greaty est spécialisée dans la communication,
-                                l’élaboration d’images de marque, les solutions digitales
-                                et les supports imprimés.
+            <Alpl class="text-homepage"><h1 class="title-page">Services</h1>
+                Greaty est spécialisée dans la communication, l’élaboration d’images de marque, les solutions digitales et les supports imprimés.
             </Alpl>
 
         </div>
@@ -182,10 +179,15 @@ export default {
     }
 
 
-.title-page{
+    .title-page{
 
-    display: none;
-}
+        font-size: 10px !important;
+        padding-bottom: 5%;
+        text-transform: capitalize;
+        letter-spacing: 10px;
+        // padding-top: 20%;
+    }
+
 
 .firstSection {
     padding: 0 70px;
@@ -391,7 +393,7 @@ ul{
 
         .text-homepage{
 
-        padding-top: 70px;
+        // padding-top: 70px;
         /*padding-bottom: 150px;*/
         width: 70% ;
         margin: auto 70px;
@@ -407,7 +409,7 @@ ul{
         .text-homepage h1{
 
             text-align: left;
-            margin: 5% 0px;
+            // margin: 5% 0px;
         }
 
 
@@ -543,8 +545,14 @@ ul{
         z-index: 10;
         width: 100% !important;
 
+        }
+
+        .title-page{
+
+            padding-top: 20%;
 
         }
+
 
         .g-project{
 

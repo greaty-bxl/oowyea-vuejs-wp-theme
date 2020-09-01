@@ -45,7 +45,7 @@ export default {
 	mounted(){
 		var $ = this.$
 
-		
+		var finish;
 
 		this.$emit('template_mounted', this)
 
@@ -81,93 +81,72 @@ export default {
 		// backdrop-filter: blur(20px);
 		var passage = true
 
+		finish = false
+
+		console.log(finish , '1');
+
 		$('.headerMore').click(function() {
 
-			var height_total = $(this).height()
 
-			$('.headerBody').find('a').css('color', color);
+			if ( finish == false ) {
 
-			$('.headerButton').css('overflow', 'hidden');
 
-			if ( $('.headerButton').hasClass( 'close' )) {
+				console.log(finish , '2');
 
-			$('.headerBody').find('a').css('color', 'white');
-			// .animate({"color":  'white !important'  }, "fast", "swing");
+				var height_total = $(this).height()
 
-			$('.headerButton').removeClass('close')
+				$('.headerBody').find('a').css('color', color);
 
-			$('.headerButton').addClass('open')
+				$('.headerButton').css('overflow', 'hidden');
 
-			$('.headerButton ').css('width', 'a');
+				if ( $('.headerButton').hasClass( 'close' )) {
 
-			$('.headerButton').animate({"width":  width_origin_taille  }, "fast", "swing");
+				$('.headerBody').find('a').css('color', 'white');
+				// .animate({"color":  'white !important'  }, "fast", "swing");
+
+				$('.headerButton').removeClass('close')
+
+				$('.headerButton').addClass('open')
+
+				$('.headerButton ').css('width', 'a');
+
+				$('.headerButton').animate({"width":  width_origin_taille  }, "fast", "swing");
+
+
 
 			setTimeout(function() {
 
 				if ( passage == true) {
 
-					passage = false
+				passage = false
 
-					height_origin_taille = height_origin_taille - 50
+				height_origin_taille = height_origin_taille - 50
 				}
 
-			
+				$('.headerButton').animate({"height":  height_origin_taille  }, "fast", "swing");
 
-			$('.headerButton').animate({"height":  height_origin_taille  }, "fast", "swing");
+				}, 200);
 
-			}, 400);
+				
 
-			$('.headerBody').find('ul').fadeTo('show/400/fast', 200, function() {
-
-			});
+				finish = false
 
 
-			
+			}
 
 
-			// timer_close_menu = "";
+			}
 
 
-			// //hover timer animation
-
-			// var timer_close_menu ;
-
-			// console.log(timer_close_menu);
-
-			// $(".headerButton").hover(function() {
-
-			// 	if ($(".headerButton").hasClass('open')) {
-
-			// 		timer_close_menu = setTimeout(function() {
-
-			// 		close()
-
-			// 		}, 2000 );
-			// 	}
-			// 	else{
-
-			// 		timer_close_menu = "";
-			// 	}
-
-
-			// }, function() {
-
-			// 			timer_close_menu = setTimeout(function() {
-
-			// 		close()
-
-			// 		}, 2000 );
-		
-			// });
-
-
-		}
-
-		else { 
+			else {
 
 			close()
 
-		}
+			}
+
+	
+
+		
 
 		function close(){
 
@@ -178,48 +157,61 @@ export default {
 
 			$('.headerButton').addClass('close')
 
-			$('.headerBody').find('ul').fadeTo('hide/400/fast', 200, function() {
+			$('.headerBody').find('ul').fadeTo('hide/400/fast', 10, function() {
 
 			});
 
+
 			$('.headerButton').animate({"height":  height_total  }, "fast", "swing");
 
-			setTimeout(function() {
+			// setTimeout(function() {
 
 			$('.headerButton').animate({"width":  width_button  }, "fast", "swing");
+	
+			// }, 150);
 
-			}, 150);
+			finish = false
+
 
 		}
 
 		// click external than the parents class menu function close
-      
-			// $(function() {
-			// 	$(".headerButton").on("click", function() {
-			// 	// e.stopPropagation()
-			// 	});
-			// 	$(document).on("click", function(e) {
-			// 	if ($(e.target).is(".headerButton") === false) {
+			var interupteur
 
-			// 		if ($(".headerButton").hasClass('open')) {
+			$('.headerButton').hover(function() {
 
-			// 			close()
-			// 		}
-					
-			// 	}
-			// 	});
-			// });
+			interupteur = false
+
+			console.log('false');
+
+			}, function() {
+
+					console.log('true');
+			interupteur = true
+
+			});
+
+			$(document).click(function() {
+
+			if (interupteur == true) {
+
+				if (finish == false) {
+
+					close()
+
+					// passage = true
+
+					console.log(finish , '6');
+
+				}
+
+			}
+
+			});
 
 		// click external than the parents class menu function close
 
-
-
 		});
-
-
-
-
-
 
 		// $('.headerMore').hover(function() {
 
@@ -256,7 +248,6 @@ export default {
 		// }
 
 		// });
-
 		
 	}
 }

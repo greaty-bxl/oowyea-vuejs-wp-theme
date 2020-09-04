@@ -11,6 +11,14 @@ Vue.prototype.wp = window.wp
 import pushHistory from 'Libs/push-history.js'
 Vue.prototype.pushHistory = pushHistory
 
+/* Wp data synch */
+import wp_options_synch from 'Libs/wp-options-synch.js'
+Vue.prototype.wp_options_synch = wp_options_synch
+
+/* Colors */
+import generate_schemes from 'Libs/generate-schemes.js'
+Vue.prototype.generate_schemes = generate_schemes
+
 /* Fontawesome-icon */
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon' 

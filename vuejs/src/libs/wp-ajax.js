@@ -1,11 +1,4 @@
-function isJson(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
-    }
-    return true;
-}
+import isJson from 'Libs/is-json.js'
 
 
 export default function (action, data = {}, callback) {
@@ -20,7 +13,6 @@ export default function (action, data = {}, callback) {
 			action: action, 
 			vars: data,
 			is_vue: true,
-			post_id: null
 		},
 	})
 	.done(function(data) {

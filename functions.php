@@ -47,6 +47,29 @@ include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
 
 
+//auto include php vue
+function auto_include_php_scripts($dir, &$results = array()) {
+    $files = scandir($dir);
+
+    foreach ($files as $key => $value) {
+        $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
+        if (!is_dir($path)) {
+            $info = pathinfo( $path );
+            if( $info['extension'] == 'php' )
+            {
+                include $path;
+                //$results[] = $path;    
+            }            
+        } else if ($value != "." && $value != "..") {
+            auto_include_php_scripts($path, $results);
+            //$results[] = $path;
+        }
+    }
+    return $results;
+}
+auto_include_php_scripts(GREATY_TEMPLATE_PATH.'/vuejs/src/wp');
+
+
 function get_oowyea_home()
 {
     echo "hello";

@@ -56,9 +56,11 @@ export default {
 
 	#editor-wrap-content {
 		position: fixed;
-		background: rgba(0,0,0,0.3);
+		background: rgba(255,255,255,0.6);
+		backdrop-filter: blur(4px);
 		width: 100vw;
 		height: 100vh;
+		overflow: auto;
 	}
 
 </style>

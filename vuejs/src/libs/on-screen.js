@@ -17,12 +17,19 @@ export default () => {
 
 	function scan_screen(){
 		$('.on-screen').each( (index, el) => {
-			var elTop = $(el).position().top +  $('#app').scrollTop()
+
+			var elTop = $(el).position().top +  $('#app').scrollTop() / 2.5
+			// var elTop = $(el).position().top +  $('#app').scrollTop() 
+
+		
 			var elBott = elTop + $(el).outerHeight()
 			var top = $('#app').scrollTop()
 			var bottom = $('#app').scrollTop() + $('#app').outerHeight()
 
-			if( elTop >= top - 1 && elBott < bottom )
+			// console.log(elTop);
+			// console.log(top);
+
+			if( elTop < top  && elBott < bottom )
 			{
 				if( $(el).data('screen-event') !== 'in-screen' )
 				{
@@ -32,6 +39,8 @@ export default () => {
 						'sens': sens,
 						'scrollingType': scrollingType
 					})
+
+					console.log('entree');
 				}
 			}
 			else if( elTop < top - 1 && elBott < top ||  elTop > bottom - 1 && elBott > bottom )
@@ -40,6 +49,8 @@ export default () => {
 				{
 					$(el).data('screen-event', 'out-screen')
 					leave(el)
+
+					console.log('sorti');
 				}
 			}
 		})
@@ -75,3 +86,4 @@ export default () => {
 	$(document).on('after_next_page', () => { scan_screen() })
 	scan_screen()
 }
+

@@ -1,16 +1,16 @@
 <template>
     <div class="section-wrap">
     <div class="clear"></div>
-        <div class="textbox">
+<!--         <div class="textbox">
         <div  class="div-text-contact on-screen">
             <p class="text-contact">
-                Vous avez une idée.<br>
+                Vous avez une idéew.<br>
                 Nous avons l'expertise pour la réaliser.<br>
                 Faites-nous un <u><strong><a href="">coucou</a></strong></u>  :)
             </p>
         </div>
-        </div>
-</div>	
+        </div> -->
+   </div>	
 </template>
 
 <script>
@@ -86,15 +86,18 @@ export default {
 
 .text-contact a{
 font-family: 'Montserrat', sans-serif !important;
-color: white;
-}
+color: #e1e1e1;
+font-weight: lighter;}
 .text-contact {
 	font-family: 'Montserrat', sans-serif !important;
-color: white;
+color: #e1e1e1;
+font-weight: lighter;
 /*font-size: 0.6em !important;*/
 }
 
 .textbox {
+	margin-bottom: auto;
+	margin-top: auto;
     text-align: left;
 }
 
@@ -105,7 +108,7 @@ color: white;
 }
 
 .text-contact a{
-		color: white;
+		color: #e1e1e1;
 	}
 
 p{
@@ -128,6 +131,7 @@ p{
 		margin-left: 70px;
 		margin-right: 70px;
 		font-size: 35px;
+		font-weight: lighter;
 
 	}
 
@@ -138,7 +142,11 @@ p{
 		font-weight: 600;
 	}
 
-        
+		.section-wrap{
+
+		height: 75vh;
+
+		}     
 	
 	}
 
@@ -154,8 +162,7 @@ p{
 		margin-left: 70px;
 		margin-right: 70px;
 		padding-top: 50px;
-		/*height: 100vh;*/
-
+		font-weight: lighter;
 		}
 		.text-homepage{
 
@@ -174,7 +181,7 @@ p{
 			padding-top: 50px;
 			padding-left: 30px !important;
 			padding-right: 30px !important;
-
+			font-weight: lighter;
 
 		}
 
@@ -195,9 +202,9 @@ p{
 
 		.text-contact{
 
-			font-size: 2.2em !important;
+		/*	font-size: 2.2em !important;
 			line-height: 1.8em;
-
+*/
 		}
     }
 </style>

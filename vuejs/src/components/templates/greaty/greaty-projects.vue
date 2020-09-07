@@ -9,15 +9,15 @@
 
 			<div class="center-flex">
 
-				<Alpl class="text-homepage"><h1 class="title-page">Projets</h1>
+				<div class="text-homepage on-screen"><h1 class="title-page">PROJETS</h1>
 					Greaty trouve des solutions cohérentes issues d’une démarche ou rien n’est laissé au hasard.
-				</Alpl>
+				</div>
 
 			</div>
 
 		</div>
 	
-		<div class="post-client">
+<!-- 		<div class="post-client">
 
 		<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
 			
@@ -37,11 +37,11 @@
 			
 		</Anime3d>
 
-		</div>
+		</div> -->
 
 	
-	<textcotact>
-	</textcotact>
+<!-- 	<textcotact>
+	</textcotact> -->
 
         <div class="clear"></div>
     </div>
@@ -50,10 +50,10 @@
 
 <script>
 
-import Alpl from 'Molecules/animation-line-per-line';
-// import anime from 'animejs/lib/anime.es.js';
-import Anime3d from 'Molecules/animation-3d';
-import textcotact from './components/text-contact';
+// import Alpl from 'Molecules/animation-line-per-line';
+import anime from 'animejs/lib/anime.es.js';
+// import Anime3d from 'Molecules/animation-3d';
+// import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
 // import fixit from 'Libs/fix-it.js';
 // import Vue from 'vue'
@@ -70,19 +70,20 @@ import smart_fonts from 'Libs/smart-fonts.js';
 //   refreshInterval: 100
 // })
 
-export default {
-	components: {
-		Alpl,
-		Anime3d,
-		textcotact,
-		// TweenMax
-		// VueScrollmagic
-		// lottie
+	export default {
 
-	},
-	props: {
-		'post' : Object
-	},
+		components: {
+
+			// Alpl,
+			// anime,
+			// Anime3d,
+			// textcotact,
+		
+		},
+
+		props: {
+			'post' : Object
+		},
 
 
 
@@ -90,19 +91,46 @@ export default {
 
 		console.log(smart_fonts);
 
-		// var $ = this.$
+		var $ = this.$
 
 		this.$emit('template_mounted', this)
 
 
-  
+			$('.global-project').on('leave-screen', (event) => {
 
-				smart_fonts({
-				'.smallTile' :54,
-				'.text-homepage' : 45,
-				// '.role-greaty': 27,
-				'.name-client': 22,
-				})
+			$(event.target).css("opacity","0");
+
+				anime({
+					targets: event.target,
+					translateY: '100px',
+					opacity: 0,
+
+				});
+
+			})
+
+			$( ".global-project" ).each( function( index , el) {
+
+			$(el).on('enter-screen', (event) => {
+				anime({
+					targets: event.target,
+					translateY: '0px',
+					opacity: 1,
+					easing: 'easeInOutSine',
+					duration: 500,
+					delay: index * 100
+				});
+
+			})
+
+
+		});
+
+		smart_fonts({
+		'.smallTile' :54,
+		'.text-homepage' : 45,
+		'.name-client': 22,
+		})
 
 	
 
@@ -134,9 +162,9 @@ lottie-animation{
 	width: 50%;
 }
 
-.g-project{
+/*.g-project{
 	opacity: 0;
-}
+}*/
 	
 /*h1{
 
@@ -584,6 +612,7 @@ strong {
 							display: inline-block;
 							padding-right: 30px;
 							padding-left: 30px;
+							padding-bottom: 5%
 
 						}
 						.div-text-project{
@@ -614,7 +643,7 @@ strong {
 
 						.row{
 
-							padding:  35px 35px;
+							padding:  30px 30px;
 							display: flex;
 							flex-direction: row;
 							justify-content: space-between;

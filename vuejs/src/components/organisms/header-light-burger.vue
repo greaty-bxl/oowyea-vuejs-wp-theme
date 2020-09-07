@@ -45,15 +45,15 @@ export default {
 	mounted(){
 		var $ = this.$
 
-		var finish;
 
 		this.$emit('template_mounted', this)
 
 		// $('.header-greaty').css('background-color', 'rgb(25, 26, 28)');
 
-		var height_origin_taille = $('.headerButton').height()
+		var height_origin_taille = $('.headerButton').outerHeight()
 
-		var height_total = $('.headerMore').height()
+		var height_total = $('.headerMore').outerHeight()
+ 
 
 		console.log(height_total);
 
@@ -79,19 +79,8 @@ export default {
 
 		$('.headerButton').css('backdrop-filter', 'blur(20px)');
 		// backdrop-filter: blur(20px);
-		var passage = true
-
-		finish = false
-
-		console.log(finish , '1');
 
 		$('.headerMore').click(function() {
-
-
-			if ( finish == false ) {
-
-
-				console.log(finish , '2');
 
 				var height_total = $(this).height()
 
@@ -112,41 +101,15 @@ export default {
 
 				$('.headerButton').animate({"width":  width_origin_taille  }, "fast", "swing");
 
-
-
-			setTimeout(function() {
-
-				if ( passage == true) {
-
-				passage = false
-
-				height_origin_taille = height_origin_taille - 50
-				}
-
 				$('.headerButton').animate({"height":  height_origin_taille  }, "fast", "swing");
 
-				}, 200);
-
-				
-
-				finish = false
-
-
 			}
-
-
-			}
-
 
 			else {
 
 			close()
 
 			}
-
-	
-
-		
 
 		function close(){
 
@@ -164,54 +127,71 @@ export default {
 
 			$('.headerButton').animate({"height":  height_total  }, "fast", "swing");
 
-			// setTimeout(function() {
 
 			$('.headerButton').animate({"width":  width_button  }, "fast", "swing");
 	
-			// }, 150);
 
-			finish = false
 
 
 		}
 
-		// click external than the parents class menu function close
-			var interupteur
+		$(document).on('click', function() {
 
-			$('.headerButton').hover(function() {
+			console.log(event.target);
 
-			interupteur = false
+		if($(event.target).parents('.headerButton').length != 0) {
+		// return false; // if you want to ignore the click completely
+		// return; // else
 
-			console.log('false');
+		console.log('1');
+		}
+		else {
+		close()
 
-			}, function() {
-
-					console.log('true');
-			interupteur = true
-
-			});
-
-			$(document).click(function() {
-
-			if (interupteur == true) {
-
-				if (finish == false) {
-
-					close()
-
-					// passage = true
-
-					console.log(finish , '6');
-
-				}
-
-			}
-
-			});
-
-		// click external than the parents class menu function close
+		}
 
 		});
+
+		});
+
+		// click external than the parents class menu function close
+
+
+
+		// $(document).click(function(){
+		//     var x = $(this).children('selector')();
+		//     if (!x.is('body')) {
+		//         console.log("It has it!");
+		//     } else {
+		//         console.log("It does not have it!");
+		//     }
+		// });
+
+		// $(document).click(function(event) {
+
+		// 	// $(this)
+			
+		// 	if ($(event.srcElement).has('.bottomBody')) {
+
+		// 	// 	console.log("PAS FErMER");
+
+		// 	}
+		// 	else{
+
+
+
+		// 	// 	close()
+		// 		console.log("n'a pas");
+		// 	}
+
+		// 	console.log($(this));
+
+
+		// });
+
+		// click external than the parents class menu function close
+
+		
 
 		// $('.headerMore').hover(function() {
 
@@ -255,12 +235,16 @@ export default {
 
 <style>
 
+	#header-logo img{
+
+		height: 70px;
+	}
+
 
 		@media (min-width: 1100px) {
 
 			#header-logo {
 
-				/*padding-left: 70px;*/
 				padding-top: 25px;
 				height: 70px;	
 
@@ -273,8 +257,13 @@ export default {
 			}
 
 			.headerButton{
+				/*padding-right: 30px;*/
 				top: 25px;
 
+			}
+			.bottomBody li {
+				font-size: 14px;
+				padding-bottom: 5px;
 			}
 
 
@@ -306,14 +295,22 @@ export default {
 
 			#header-logo img{
 
-			padding-left: 35px !important;
+			padding-left: 30px !important;
 			padding-top: 25px;
 			height: 70px;	
 
 		}
 
+		.bottomBody{
+			
+			font-size: 14px;
+			padding-right: 25px;
+		}
 
-
+		.bottomBody li {
+			font-size: 14px;
+			padding-bottom: 10px;
+		}
 
 			.headerButton{
 
@@ -339,7 +336,7 @@ export default {
 }
 
 /*li{
-	color: white;
+	color: #e1e1e1;;
 }*/
 
 .headerButton{
@@ -376,8 +373,8 @@ export default {
 
 .headerMore {
 
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     position: absolute;
     top: 0;
     right: 0;
@@ -398,10 +395,16 @@ export default {
 }
 .headerMore:hover{
 
-	justify-content: center;
+	/*justify-content: center;*/
 	transition: ease;
-	/*animation-timing-function: ease;*/
-	transition-delay: 1s;
+	/*transition-property: all;*/
+	/*transition-delay: 1s;*/
+	animation: moveAnim .7s alternate 1;
+	
+}
+@keyframes moveAnim {
+  from { justify-content: space-between }
+  to{ justify-content: center }
 }
 
 .headerMore :nth-child(2){
@@ -433,7 +436,7 @@ export default {
 .headerBody .topBody li {
 
     list-style: none;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     line-height: 1.5;
     text-align: left;
     text-decoration: none;
@@ -449,7 +452,7 @@ export default {
 
 li{
 
-color: white;
+color: #e1e1e1;;
 font-family: 'Montserrat', sans-serif;
 font-weight: lighter;
 }

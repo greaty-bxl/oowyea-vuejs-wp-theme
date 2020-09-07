@@ -1,86 +1,126 @@
 
 <template>
-		<div class="section-wrap">
-		<div class="clear"></div>
+    <div class="section-wrap">
+        <div class="clear"></div>
 
-		<div class="banner">
-		<lottie></lottie>
+        <!-- <h1>Projets</h1> -->
+
+		<div class="post-client">
+
+		<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
+			
+				<div class="icon global-project test__item on-screen" >
+				
+						<a :href="child.permalink" >
+							<div class="client">
+
+								<img class="image-client" height="100%" width="100%" :src="child.thumb" >
+								<p class="name-client" v-html="child.post_title" ></p>
+								<p class="role-greaty">Corporated Website</p>
+
+							</div>
+						</a>
+					
+				</div>
+			
+		</Anime3d>
+
 		</div>
 
-		<div class="clear"></div>
-		</div>
+	
+<!-- 	<textcotact>
+	</textcotact> -->
+
+        <div class="clear"></div>
+    </div>
+ 
 </template>
 
 <script>
 
 // import Alpl from 'Molecules/animation-line-per-line';
-// import anime from 'animejs/lib/anime.es.js';
-// import Anime3d from 'Molecules/animation-3d';
+import anime from 'animejs/lib/anime.es.js';
+import Anime3d from 'Molecules/animation-3d';
 // import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
-import lottie from "Molecules/Lottie";
+// import fixit from 'Libs/fix-it.js';
+// import Vue from 'vue'
+// import VueScrollmagic  from 'vue-scrollmagic';
+// import { TweenMax } from 'gsap'
+// Vue.use(VueScrollmagic)
 
-export default {
-	components: {
-		// Alpl,
-		// Anime3d,
-		// textcotact,
-		// smart_fonts,
-		lottie
+// import 'ScrollToPlugin'
 
-	},
-	props: {
-		'post' : Object
-	},
+// Vue.use(VueScrollmagic, {
+//   vertical: true,
+//   globalSceneOptions: {},
+//   loglevel: 2,
+//   refreshInterval: 100
+// })
+
+	export default {
+
+		components: {
+
+			// Alpl,
+			// anime,
+			Anime3d,
+			// textcotact,
+		
+		},
+
+		props: {
+			'post' : Object
+		},
 
 
 
 	mounted(){
 
-		// console.log(smart_fonts);
+		console.log(smart_fonts);
 
-		// var $ = this.$
+		var $ = this.$
 
-		this.$emit('template_mounted', this);
-
-
-		// $('.global-project').on('leave-screen', (event) => {
-
-		// $(event.target).css("opacity","0");
-
-		// 	anime({
-		// 		targets: event.target,
-		// 		translateY: '100px',
-		// 		opacity: 0,
-
-		// 	});
-
-		// })
-
-	// 	$( ".g-project" ).each( function( index , el) {
-
-	// 	$(el).on('enter-screen', (event) => {
-	// 		anime({
-	// 			targets: event.target,
-	// 			translateY: '0px',
-	// 			opacity: 1,
-	// 			easing: 'easeInOutSine',
-	// 			duration: 500,
-	// 			delay: index * 100
-	// 		});
-
-	// 	})
+		this.$emit('template_mounted', this)
 
 
-	// });
+			$('.global-project').on('leave-screen', (event) => {
+
+			$(event.target).css("opacity","0");
+
+				anime({
+					targets: event.target,
+					translateY: '100px',
+					opacity: 0,
+
+				});
+
+			})
+
+			$( ".global-project" ).each( function( index , el) {
+
+			$(el).on('enter-screen', (event) => {
+				anime({
+					targets: event.target,
+					translateY: '0px',
+					opacity: 1,
+					easing: 'easeInOutSine',
+					duration: 500,
+					delay: index * 100
+				});
+
+			})
+
+
+		});
 
 		smart_fonts({
 		'.smallTile' :54,
 		'.text-homepage' : 45,
-		// '.role-greaty': 12,
 		'.name-client': 22,
 		})
 
+	
 
 	}
 
@@ -93,35 +133,35 @@ export default {
 
 </script>
 
-<style>
-	
-	body{
-
-		font-family: 'Montserrat', sans-serif;
-		background-color: #282828;
-
-	}
-
-</style>
-
 
 <style scoped >
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
+
+
+#animate1{
+
+	transform: translateY(100px);
+}
 
 lottie-animation{
 
 	height: 50vh;
 	width: 50%;
 }
+
+/*.g-project{
+	opacity: 0;
+}*/
 	
-/*body {
-margin: 0 !important;
-padding: 0;
-font-family: 'Open Sans', regular;
+/*h1{
+
+
+	color: #e1e1e1;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: lighter;
 
 }*/
-
 
 a{
 color: #e1e1e1;
@@ -149,39 +189,6 @@ z-index: 20;
 
 text-align: left;
 }
-
-nav{
-
-width: 100%;
-/*height: 35px;*/
-/*background: #191a1c;*/
-/*box-shadow: 0 0 15px 20px #191a1c;*/
-}
-nav ul{
-list-style: none;
-display: flex;
-flex-wrap: wrap;
-align-items: left;
-justify-content: left;
-padding-top: 15px;
-padding-bottom: 15px;
-margin: 0;
-height: 100%;
-text-align: left;
-display: flex;
-flex-direction: column;
-
-}
-nav ul li{
-cursor: pointer;
-}
-
-.textbox {
-  margin:5em;
-  
-}
-    
-a{color: #e1e1e1 ;}
 
 
 .div-text-project{
@@ -327,7 +334,10 @@ strong {
 
 .title-page{
 
-	font-size: 4em !important;
+	font-size: 10px !important;
+	padding-bottom: 5%;
+	text-transform: capitalize;
+	letter-spacing: 10px;
 }
 
 .div-text-homepage{
@@ -370,8 +380,8 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 150px;
-							padding-bottom: 150px;
+							/*padding-top: 70px;*/
+							/*padding-bottom: 150px;*/
 							width: 70% ;
 							margin: auto 70px;
 							/*width: 100%;*/
@@ -381,12 +391,6 @@ strong {
 							font-weight: lighter;
 							text-align: left;
 
-						}
-
-						.text-homepage h1{
-
-							text-align: left;
-							margin: 5% 0px;
 						}
 
 
@@ -438,20 +442,18 @@ strong {
 								width: calc(50% - 70px) !important;
 								display: inline-block;
 								margin-bottom: 3%;
-
 						}
-						.global-project{
-
-							transform: translateY(100px);
-							opacity: 0;
-						}
-							
 
 
 				}
 
 				@media screen and (max-width: 1100px) and  (min-width: 600px) {
 
+						.post-client{
+
+							margin-top: 70px !important;
+						}
+Z
 						.banner{
 
 							min-height: 50vh;
@@ -472,6 +474,8 @@ strong {
 							/*padding-left: 5%;*/
 							height: auto;
 							text-align: left;
+							/*padding-top: 20%;*/
+							/*font-size: 35px;*/
 							display: block;
 							margin-top: 0px;
 							padding-left: 70px;
@@ -567,7 +571,7 @@ strong {
 						}
 						.div-text-homepage{
 
-							height: 70vh;
+							height: 100vh;
 						}
 
 				}
@@ -585,13 +589,12 @@ strong {
 
 						.banner div{
 
-							margin-top: 190px;
+							margin-top: auto;
 						}
 
 						.global-project{
 						z-index: 10;
 						width: 100% !important;
-
 
 						}
 
@@ -613,8 +616,13 @@ strong {
 
 						.title-page{
 
-							font-size: 2em !important;
+							font-size: 10px !important;
+							padding-bottom: 5%;
+							text-transform: capitalize;
+							letter-spacing: 10px;
+							padding-top: 20%;
 						}
+
 
 
 						.client img{
@@ -637,7 +645,7 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 75px;
+							padding-top: 150px;
 							padding-bottom: 5%;
 							margin: auto 30px;
 							font-size: 3.1em;

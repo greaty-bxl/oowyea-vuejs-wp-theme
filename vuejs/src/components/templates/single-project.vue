@@ -18,9 +18,9 @@
  <img class="image" :src="post.fields.image_projet.url " >
 </div>
 
-<div class="post-client">
+<!-- <div class="post-client">
 
-</div>
+</div> -->
 
 <div class="div-parent-slide-text">	
 	<swiper class="swiper1" :options="swiperOption1">
@@ -40,9 +40,9 @@
 	</swiper>
 
 </div>
-
+<!-- 
 <textcotact>
-</textcotact>
+</textcotact> -->
 
 <!-- <h1 v-html="this.wp.title">single</h1>
 <div v-html="this.wp.post_content"></div> -->
@@ -56,7 +56,7 @@
 
 	/*import Alpl from 'Molecules/animation-line-per-line';
 	import anime from 'animejs/lib/anime.es.js';*/
-	import textcotact from './greaty/components/text-contact';
+	// import textcotact from './greaty/components/text-contact';
 	// import Anime3d from 'Molecules/animation-3d';
 	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 	import 'swiper/css/swiper.css';
@@ -65,7 +65,7 @@
 export default {
 
 		components: {
-			textcotact,
+			// textcotact,
 			Swiper,
 			SwiperSlide,
 		},
@@ -100,9 +100,16 @@ export default {
 				loop: true,
 				allowTouchMove: true,
 				runCallbacksOnInit: true,
+				watchSlidesProgress: true,
+				watchSlidesVisibility: true,
+				speed: 700,
+				reachEnd: true,
 				navigation: {
 				nextEl: '.flex-gauche',
 				prevEl: '.flex-droite',
+				},
+				autoplay: {
+				delay: 2000,
 				},
 				breakpoints: {
 				// when window width is >= 320px
@@ -140,6 +147,10 @@ font-family: 'Montserrat', sans-serif;
 background-color: #282828; ;
 
 }
+body{
+
+	background-color: #282828;
+}
 
 .services-fourni ul{
  color: #e1e1e1;
@@ -156,16 +167,14 @@ background-color: #282828; ;
 .client-swiper{
 
 	width: 100%;
+	margin-left: 40px
 }
 .name-client-swiper-swiper{
 
 	margin-bottom: 2% !important;
 
 }
-.swiper-slide{
 
-    margin-left: 2.5%;
-}
 
 .swiper-container{
 
@@ -174,6 +183,38 @@ background-color: #282828; ;
 .text-client-sigle-span{
 
 	font-size: 16px !important;
+}
+.text-client-sigle-span p{
+
+	font-size: 16px !important;
+}
+
+@media screen and (max-width: 600px) {
+
+	.client-swiper{
+
+		width: 100%;
+		margin-left: 0px
+	}
+
+	.swiper-slide-active{
+
+		width: 90%  !important;
+		/*margin-left: 30 !important;*/
+	}
+
+	.swiper-slide-next{
+
+		width: 90%  !important;
+		margin-left: 10px !important;
+	}
+
+	.swiper-slide-prev img {
+
+		width: 90%  !important;
+		/*margin-left: 10px !important;*/
+
+	}
 }
 </style>
 
@@ -352,6 +393,11 @@ background-color: #282828; ;
 			margin: 0px 35px;
 		}
 
+		.swiper-slide{
+
+			margin-left: 20px;
+		}
+
 	}
 
 			/*********/
@@ -366,6 +412,10 @@ background-color: #282828; ;
 
 	@media screen and (max-width: 1100px) and  (min-width: 600px) {
 
+		.swiper-slide{
+
+			margin-left: 20px;
+		}
 
 		.global-descriptif{
 
@@ -374,7 +424,7 @@ background-color: #282828; ;
 			justify-content: center;
 			background-color: #282828;
 			min-height: 100vh;
-			padding-left: 70px;
+			/*padding-left: 70px;*/	
 			/*width: calc(100% - 200px);*/
 			/*padding:  70px 100px;*/
 			/*height: 125vh;*/
@@ -397,8 +447,8 @@ background-color: #282828; ;
 
 		}
 		.image{
-			width: calc(100% - 70px) !important;
-			margin: 35px 0px;
+			width: 100% !important;
+			margin: 30px 0px;
 		}
 
 		.client{
@@ -427,6 +477,16 @@ background-color: #282828; ;
 		/*background-color: white;*/
 		}
 
+		.swiper-slide{
+
+			width: 90%;
+		}
+
+		.all-description{
+
+			padding-left: 70px;
+		}
+
 	}
 
 /*********/
@@ -439,18 +499,31 @@ background-color: #282828; ;
 /*********/
 	@media screen and (max-width: 600px) {
 
+	.div-parent-slide-text{
+
+		padding-left: 30px;
+
+
+	}
+
+	.client-swiper{
+
+		padding-right: 15px;
+	}
+
 	.all-description{
 
 		height: 100%;
 		width: 80%;
 		background-color: #282828;
-		margin:  0px 35px;
+		margin:  0px 30px;
+		margin-bottom: 70px;
 
 	}
 
 	.post-client{
-		padding-left: 35px;
-		padding-right: 35px;
+		padding-left: 30px;
+		padding-right: 30px;
 	}
 
 	.g-project{
@@ -478,7 +551,7 @@ background-color: #282828; ;
 	padding-top: 10%;
 	padding-bottom: 5%;
 	width: 100% !important;
-	margin: auto 35px;
+	margin: auto 30px;
 	width: 100%;
 	font-size: 3.1em;
 	color: #e1e1e1;
@@ -487,20 +560,10 @@ background-color: #282828; ;
 	;
 	}
 	.post-client{
-		padding-left: 35px;
-		padding-right: 35px;
+		padding-left: 30px;
+		padding-right: 30px;
 		background-color: #282828;
 	}
-
-/*	.g-project{
-		z-index: 10;
-		width: calc(50% - 70px) !important;
-		height: auto;
-		min-height: 400px;
-		display: inline-block;
-
-
-	}*/
 
 	.client img{
 
@@ -511,6 +574,19 @@ background-color: #282828; ;
 
 	}
 
+	.info p{
+
+		margin-bottom: 10%;
+	}
+
+	}
+
+	..swiper-slide{
+
+			margin-left: 20px;
+		}{
+
+		margin-left: 0px !important;
 	}
 
 

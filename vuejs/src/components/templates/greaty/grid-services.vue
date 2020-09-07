@@ -3,7 +3,7 @@
 		<div class="clear"></div>
 
 
-    <div class="div-text-homepage">
+<!--     <div class="div-text-homepage">
 
         <div class="center-flex" >
 
@@ -13,17 +13,17 @@
 
         </div>
 
-    </div>
-<!--             <div class="firstSection">
-                <div class="grid-services  ">
+    </div> -->
+            <div class="firstSection">
+                <div class="grid-services">
                     <div class="item-services">
                         <div class="item-text on-screen">
                             <div class="smallTile">Stratégie</div>
                                 <ul>
-                                    <li>- Consultance graphique</li>
-                                    <li>- Audit stratégie</li>
-                                    <li>- Stratégie de communication</li>
-                                    <li>- Conception publicitaire</li>
+                                    <li> Consultance graphique</li>
+                                    <li> Audit stratégie</li>
+                                    <li> Stratégie de communication</li>
+                                    <li> Conception publicitaire</li>
                                 </ul>
                         </div>
 
@@ -31,70 +31,72 @@
                             
                                 <div class="smallTile">Design</div>
                                     <ul>
-                                        <li>- Identité visuelle</li>
-                                        <li>- Charte graphique</li>
-                                        <li>- Création de logo</li>
-                                        <li>- Brochure &amp; catalogue</li>
-                                        <li>- Magazine &amp; éditorial</li>
-                                        <li>- Rapport annuel </li>
-                                        <li>- Illustation</li>
-                                        <li>- Matériels promotionnels</li>
-                                        <li>- Packaging</li>
-                                        <li>- Etc</li>
+                                        <li> Identité visuelle</li>
+                                        <li> Charte graphique</li>
+                                        <li> Création de logo</li>
+                                        <li> Brochure &amp; catalogue</li>
+                                        <li> Magazine &amp; éditorial</li>
+                                        <li> Rapport annuel </li>
+                                        <li> Illustation</li>
+                                        <li> Matériels promotionnels</li>
+                                        <li> Packaging</li>
+                                        <li> Etc</li>
                                     </ul>
                         </div>
 
                         <div class="item-text on-screen">
                             <div class="smallTile">Impression</div>
                                 <ul>
-                                    <li>- Papeterie</li>
-                                    <li>- Panneau</li>
-                                    <li>- Bâche</li>
-                                    <li>- Stand</li>
-                                    <li>- Vitrine</li>
-                                    <li>- Autocollant</li>
-                                    <li>- Véhicule</li>
-                                    <li>- Textile</li>
-                                    <li>- Etc</li>
+                                    <li> Papeterie</li>
+                                    <li> Panneau</li>
+                                    <li> Bâche</li>
+                                    <li> Stand</li>
+                                    <li> Vitrine</li>
+                                    <li> Autocollant</li>
+                                    <li> Véhicule</li>
+                                    <li> Textile</li>
+                                    <li> Etc</li>
                                 </ul>
                         </div>
-
+              </div>
+              <div class="item-services">
                         <div class="item-text on-screen">
                             <div class="smallTile">Digital design</div>
                                 <ul>
-                                    <li>- UI/UX design</li>
-                                    <li>- Direction artistique digitale</li>
-                                    <li>- Webdesign sites internet</li>
-                                    <li>- Webdesign applications</li>
-                                    <li>- Motion design</li>
+                                    <li> UI/UX design</li>
+                                    <li> Direction artistique digitale</li>
+                                    <li> Webdesign sites internet</li>
+                                    <li> Webdesign applications</li>
+                                    <li> Motion design</li>
                                 </ul>
                             </div>
 
                         <div class="item-text on-screen">
                             <div class="smallTile">Dev Web</div>
                                 <ul>
-                                    <li>- Intégration HTML5/CSS3</li>
-                                    <li>- Développement PHP/MYSQL</li>
-                                    <li>- Développement de sites Web</li>
-                                    <li>- Application mobile</li>
-                                    <li>- Développement frontend</li>
-                                    <li>- CMS</li>
-                                    <li>- Intranets</li>
-                                    <li>- Développement Backend</li>
-                                    <li>- E-Commerce / Webshops</li>
+                                    <li> Intégration HTML5/CSS3</li>
+                                    <li> Développement PHP/MYSQL</li>
+                                    <li> Développement de sites Web</li>
+                                    <li> Application mobile</li>
+                                    <li> Développement frontend</li>
+                                    <li> CMS</li>
+                                    <li> Intranets</li>
+                                    <li> Développement Backend</li>
+                                    <li> E-Commerce / Webshops</li>
                                 </ul>
                         </div>
                         <div class="item-text on-screen">
                             <div class="smallTile">Tech Web</div>
                                 <ul>
-                                    <li>- (Web-)Hosting</li>
-                                    <li>- Domaines</li>
-                                    <li>- Serveur et stockage</li>
+                                    <li> (Web-)Hosting</li>
+                                    <li> Domaines</li>
+                                    <li> Serveur et stockage</li>
                                 </ul>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
+          
 <!--     <div>
         <textcotact>
         </textcotact>
@@ -108,11 +110,11 @@
 // import textcotact from './components/text-contact';
 import smart_fonts from "Libs/smart-fonts.js";
 import anime from 'animejs/lib/anime.es.js';
-import Alpl from 'Molecules/animation-line-per-line';
+// import Alpl from 'Molecules/animation-line-per-line';
 export default {
 	components: {
         // textcotact,
-        Alpl,
+        // Alpl,
 
 
 },
@@ -174,7 +176,8 @@ export default {
 .smallTile{
 
     font-family: 'Montserrat', sans-serif;
-    background-color: #282828; ;
+    background-color: #282828; 
+    color: #e1e1e1;
 
     }
 
@@ -190,7 +193,7 @@ export default {
 
 
 .firstSection {
-    padding: 0 70px;
+    padding: 0 auto;
 }
 
 .grid-services {
@@ -203,6 +206,7 @@ export default {
 
 
 .item-text {
+    margin-top: 5%;
     text-align: left;
     opacity: 0;
 }
@@ -265,7 +269,7 @@ ul{
 
         height: 100%;
         width: 90%;
-        /*background-color: white;*/
+        /*background-color: #e1e1e1;*/
         background-position: center;
         background-size: cover;
         background-repeat: none;
@@ -275,7 +279,7 @@ ul{
     p{
         text-align: left;
         margin-bottom: 10%;
-        color: white;
+        color: #e1e1e1;
     }
 
 
@@ -328,7 +332,7 @@ ul{
 
    width: 100%;
 
-   /*background-color: white;*/
+   /*background-color: #e1e1e1;*/
 
    }
 
@@ -353,7 +357,11 @@ ul{
         padding-right: 35px;
     }
 
+    ul li:before  {
 
+        content: "–";
+
+    }
 
     /*********/
 
@@ -368,20 +376,21 @@ ul{
 
 
         .item-services {
-            display: grid;
-            flex-wrap: wrap;
-            grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-            grid-column-gap:50px;
-            grid-row-gap: 80px;
-            color: white;
+            margin: 0px auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 90%;
+
+            
         }
 
         .center-flex{
 
         min-height: 100vh;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
+        // flex-direction: row;
+        // justify-content: center;
 
         }
 
@@ -411,6 +420,12 @@ ul{
             text-align: left;
             // margin: 5% 0px;
         }
+        .item-text{
+            // display: inline-block;
+            width: auto;
+            margin: 2.5% 4%;
+
+        }
 
 
  }
@@ -423,7 +438,7 @@ ul{
             grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
             grid-column-gap:50px;
             grid-row-gap: 80px;
-            color: white;
+            color: #e1e1e1;
         }
 
 
@@ -431,7 +446,7 @@ ul{
 
             // font-family: 'Open Sans', sans-serif!important;
             font-weight: lighter;
-            color: white;
+            color: #e1e1e1;
             /*padding-left: 5%;*/
             height: auto;
             text-align: left;
@@ -474,7 +489,7 @@ ul{
         .image-client{
 
         height: 100%;
-        background-color: white;
+        background-color: #e1e1e1;
         }
 
 
@@ -538,7 +553,7 @@ ul{
             grid-template-columns: repeat(auto-fit, minmax(90%, 1fr));
             grid-column-gap:50px;
             grid-row-gap: 80px;
-            color: white;
+            color: #e1e1e1;
         }
 
         .global-project{
@@ -575,7 +590,7 @@ ul{
             width: 100% !important;
             /*height: 60vh;*/
             min-height: 200px;
-            /*background-color: white;*/
+            /*background-color: #e1e1e1;*/
 
         }
 

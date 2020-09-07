@@ -1,14 +1,28 @@
 
 <template>
-		<div class="section-wrap">
-		<div class="clear"></div>
+    <div class="section-wrap">
+        <div class="clear"></div>
 
-		<div class="banner">
-		<lottie></lottie>
-		</div>
+   <!--      <div class="banner">
+        <lottie></lottie>
+        </div> -->
+        
 
-		<div class="clear"></div>
+		<div class="div-text-homepage">
+
+			<div class="center-flex">
+
+				<div class="text-homepage">
+					Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
+				</div>
+
+			</div>
 		</div>
+	
+
+        <div class="clear"></div>
+    </div>
+ 
 </template>
 
 <script>
@@ -18,7 +32,7 @@
 // import Anime3d from 'Molecules/animation-3d';
 // import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
-import lottie from "Molecules/Lottie";
+// import lottie from "Molecules/Lottie";
 
 export default {
 	components: {
@@ -26,7 +40,7 @@ export default {
 		// Anime3d,
 		// textcotact,
 		// smart_fonts,
-		lottie
+		// lottie
 
 	},
 	props: {
@@ -40,6 +54,15 @@ export default {
 		// console.log(smart_fonts);
 
 		// var $ = this.$
+
+			smart_fonts({
+		'.smallTile' :54,
+		'.text-homepage' : 45,
+		// '.role-greaty': 12,
+		'.name-client': 22,
+		})
+        console.log(this.wp);
+        
 
 		this.$emit('template_mounted', this);
 
@@ -74,13 +97,7 @@ export default {
 
 	// });
 
-		smart_fonts({
-		'.smallTile' :54,
-		'.text-homepage' : 45,
-		// '.role-greaty': 12,
-		'.name-client': 22,
-		})
-
+	
 
 	}
 

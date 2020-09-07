@@ -2,8 +2,8 @@
 
 define('is_vuejs_dev', true);
 
-// define('vuejs_server', 'http://192.168.1.3:8080/');
 define('vuejs_server', 'http://localhost:8080/');
+// define('vuejs_server', 'http://localhost:8080/');
 
 //Register Vue.js templates components 
 
@@ -33,7 +33,20 @@ $vue_templates = array(
     'greaty-single' => 'Greaty Single',
     'services-title' => 'Services title',
     'greaty-studio' => 'Greaty Studio',
-    'studio-title' => 'Studio Title'
+    'studio-title' => 'Studio Title',
+    'projets-3d' => 'Projets 3d',
+    'projets-3d-project' => 'Projets 3d project',
+    'descritifHome' => 'Descritif Home',
+    'descritifStudio' => 'Descritif studio',
+    'descritifProjets' => 'Descritif projets',
+    'video-animation' => 'Video animation',
+    'grid-services' => 'Grid Services',
+    'members' => 'Members',
+    'text-clients' => 'Text client',
+    'grid-clients' => 'Grid Clients',
 
+    
+
+    
 );
 

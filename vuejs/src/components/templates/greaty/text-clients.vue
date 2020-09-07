@@ -1,34 +1,9 @@
 <template>
 	<div class="section-wrap">
 		<div class="clear"></div>
-			<div class="div-text-studio">
 
-				<div class="center-flex" >
 
-					<div class="text-homepage on-screen"><h1 class="title-page">STUDIO</h1>
-
-					Greaty, c’est de la création graphique et digital sur mesure depuis 2013 mais surtout une expérience professionnelle dans le domaine graphique et digital depuis plus de
-					10 ans.
-
-					</div>
-
-				</div>
-
-			</div>
-<!-- 			<div class="div-members">
-				<div class="post-client">
-				<div class="member" v-for="child in wp.members" :key="child.ID">
-				<div>
-					<img class="image" width="100%" :src="child.thumb">
-				</div>
-					<p class="nom" v-html="child.post_title"></p>
-					<p class="fuction"  >Lorem Ipsum</p>
-				
-				</div>
-					
-				</div>
-			</div> -->
-<!-- 				<div class="div-text-homepage">
+				<div class="div-text-homepage">
 
 					<div class="center-flex" >
 
@@ -40,15 +15,8 @@
 
 					</div>
 
-				</div> -->
+				</div>
 
-	<!-- 			<div class="globales-client-list section-wrap">
-		
-					<div class="clientrow" v-for="child in wp.clients" :key="child.ID">
-						<p class="clientText" v-html="child.post_title" ></p>
-					</div>
-
-				</div> -->
 			<div>
 		<!-- 	<textcotact>
 			</textcotact> -->
@@ -59,11 +27,11 @@
 <script>
 import smart_fonts from "Libs/smart-fonts.js"
 // import textcotact from './components/text-contact'
-// import Alpl from 'Molecules/animation-line-per-line';
+import Alpl from 'Molecules/animation-line-per-line';
 export default {
 	components: {
 		// textcotact,
-		// Alpl,
+		Alpl,
 	},
 	props: {
 		'post' : Object
@@ -93,23 +61,6 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 	
-	.member{
-		color: #e1e1e1;
-	}
-
-	.div-members{
-
-		min-height: 100vh;
-		background-color: #282828;
-
-	}
-
-	.div-members p {
-
-		color: #282828;
-		font-family:'Montserrat', sans-serif !important;
-		/*font-weight: 600;*/
-	}
 
 	.text-homepage{
 
@@ -181,12 +132,6 @@ export default {
 			flex-direction: column;
 			align-content: flex-end;
 			margin: 30px 30px;
-		}
-
-		.member{
-
-			margin-bottom: 10%;
-
 		}
 
 
@@ -291,31 +236,10 @@ p{
 
 		}
 
-
-		.member{
-				width: 20% !important;
-				// display: inline-block;
-				margin: auto 0px;
-				// margin: 0px 35px;
-		}
-
-
-
-
-
-
-
 }
 
 @media screen and (max-width: 1100px) and  (min-width: 600px) {
 
-		.member{
-			width: calc(50% - 70px) !important;
-			display: inline-block;
-		/*	margin-bottom: 35px;
-			margin-top: 35px;*/
-			margin: 35px 35px;
-		}
 		.image{
 
 		// height: 60vh;
@@ -349,7 +273,7 @@ p{
 
 		.clientrow{
 
-			// width: calc( 100% - 140px ) ;
+			width: calc( 100% - 140px ) ;
 			border-top-style: solid;
 			border-color: #e1e1e1b0;
 			border-width: 0.5px 0.5px;
@@ -451,11 +375,6 @@ p{
 			display: inline-block;
 		}
 
-		.member p{
-
-			color: #e1e1e1;
-		}
-
 		.div-text-studio{
 			display: flex;
 			flex-direction: column;
@@ -474,16 +393,6 @@ p{
 		z-index: 10;
 		width: 100% !important;
 
-
-		}
-
-		.member{
-
-			width: calc(100% - 60px) !important;
-			height: auto;
-			display: inline-block;
-			padding-right: 30px;
-			padding-left: 30px;
 
 		}
 		.div-text-project{
@@ -528,7 +437,7 @@ p{
 			
 			font-size: 3.1em;
 			color: #e1e1e1;
-			font-family: 'Montserrat', sans-serif ;
+			font-family: 'Montserrat', sans-serif !important;
 			font-weight: lighter;
 			text-align: left;
 
@@ -551,7 +460,7 @@ p{
 
 		.clientrow{
 
-			width: 100% !important;
+			width:100% !important;
 		
 
 		}

@@ -1,21 +1,8 @@
 <template>
 	<div class="section-wrap">
 		<div class="clear"></div>
-			<div class="div-text-studio">
 
-				<div class="center-flex" >
-
-					<div class="text-homepage on-screen"><h1 class="title-page">STUDIO</h1>
-
-					Greaty, c’est de la création graphique et digital sur mesure depuis 2013 mais surtout une expérience professionnelle dans le domaine graphique et digital depuis plus de
-					10 ans.
-
-					</div>
-
-				</div>
-
-			</div>
-<!-- 			<div class="div-members">
+			<div class="div-members">
 				<div class="post-client">
 				<div class="member" v-for="child in wp.members" :key="child.ID">
 				<div>
@@ -27,8 +14,8 @@
 				</div>
 					
 				</div>
-			</div> -->
-<!-- 				<div class="div-text-homepage">
+			</div>
+				<!-- <div class="div-text-homepage">
 
 					<div class="center-flex" >
 
@@ -96,6 +83,7 @@ export default {
 	.member{
 		color: #e1e1e1;
 	}
+
 
 	.div-members{
 
@@ -172,6 +160,17 @@ export default {
 
 	}
 
+	@media screen and (max-width: 1100px min-width: 600px ){
+
+		.member{
+
+			margin-bottom: 35px !important ; 
+			margin-top: 35px !important;
+
+		}
+
+
+	}
 
 
 	@media screen and (max-width: 600px ){
@@ -185,7 +184,8 @@ export default {
 
 		.member{
 
-			margin-bottom: 10%;
+			margin-bottom: 35px;
+			margin-top: 35px;
 
 		}
 
@@ -285,7 +285,7 @@ p{
 		/*width: 100%;*/
 		font-size: 3.3em;
 		color: #e1e1e1;
-		font-family: 'Montserrat', sans-serif !important;
+		font-family: 'Montserrat', sans-serif;
 		font-weight: lighter;
 		text-align: left;
 
@@ -312,9 +312,10 @@ p{
 		.member{
 			width: calc(50% - 70px) !important;
 			display: inline-block;
-		/*	margin-bottom: 35px;
-			margin-top: 35px;*/
-			margin: 35px 35px;
+			margin-bottom: 10%;
+			margin: 35px;
+
+
 		}
 		.image{
 
@@ -528,7 +529,7 @@ p{
 			
 			font-size: 3.1em;
 			color: #e1e1e1;
-			font-family: 'Montserrat', sans-serif ;
+			font-family: 'Montserrat', sans-serif !important;
 			font-weight: lighter;
 			text-align: left;
 
@@ -551,7 +552,7 @@ p{
 
 		.clientrow{
 
-			width: 100% !important;
+			width: 100%;
 		
 
 		}

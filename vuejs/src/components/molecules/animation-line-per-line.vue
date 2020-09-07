@@ -30,7 +30,7 @@ export default{
 
 			if( i == 0)
 			{
-				text_remplace += '<span class="word">'
+				text_remplace += '<span class="word on-screen">'
 			}
 
 			if ( tets.charAt(i) == "<"){
@@ -51,11 +51,11 @@ export default{
 
 				if (tets.charAt(i) == " ") {
 
-					text_remplace += '</span><span class="space"> </span><span class="word">'
+					text_remplace += '</span><span class="space"> </span><span class="word on-screen">'
 
 				}
 				else if (tets.charAt(i) == "-") {
-					text_remplace += '<span class="char char'+this._uid+'">-</span></span><span class="word">'
+					text_remplace += '<span class="char char'+this._uid+'">-</span></span><span class="word on-screen">'
 				}
 				else
 				{
@@ -87,12 +87,12 @@ export default{
 		$( this.$el ).find('.word')
 		.first()
 		.addClass('on-screen')
-		// .on('leave-screen', () => {
-		// 	$( this.$el ).find('.char').css({
-		// 		'opacity': 0,
-		// 		'translateY': 20
-		// 	});
-		// })
+		.on('leave-screen', () => {
+			$( this.$el ).find('.char').css({
+				'opacity': 0,
+				'translateY': 20
+			});
+		})
 	
 		.on('enter-screen', () => {
 

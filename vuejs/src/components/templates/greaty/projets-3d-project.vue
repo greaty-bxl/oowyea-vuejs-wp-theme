@@ -84,20 +84,22 @@ import smart_fonts from 'Libs/smart-fonts.js';
 		this.$emit('template_mounted', this)
 
 
-			$('.global-project').on('leave-screen', (event) => {
+		$('.global-project').on('leave-screen', (event) => {
 
-			$(event.target).css("opacity","0");
+			$(event.target).css({
+				"opacity":"0",
+				transform: 'translateY(100px)',
+				opacity: 0,
+			});
 
-				anime({
-					targets: event.target,
-					translateY: '100px',
-					opacity: 0,
+			/*anime({
+				targets: event.target,
+				translateY: '100px',
+				opacity: 0,
+			});*/
+		})
 
-				});
-
-			})
-
-			$( ".global-project" ).each( function( index , el) {
+		$( ".global-project" ).each( function( index , el) {
 
 			$(el).on('enter-screen', (event) => {
 				anime({
@@ -108,10 +110,7 @@ import smart_fonts from 'Libs/smart-fonts.js';
 					duration: 500,
 					delay: index * 100
 				});
-
 			})
-
-
 		});
 
 		smart_fonts({

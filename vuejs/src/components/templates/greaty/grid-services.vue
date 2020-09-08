@@ -150,7 +150,7 @@ export default {
             
             smart_fonts({
             '.smallTile' :54,
-            '.item-text' : 24,
+            '.item-text' : 22,
             })
 	
             });

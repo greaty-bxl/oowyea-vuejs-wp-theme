@@ -19,7 +19,7 @@ export default () => {
 		$('.on-screen').each( (index, el) => {
 
 			var elTop = $(el).position().top +  $('#app').scrollTop() / 2.5
-			// var elTop = $(el).position().top +  $('#app').scrollTop() 
+			// var elTop2 = $(el).position().top +  $('#app').scrollTop() 
 
 		
 			var elBott = elTop + $(el).outerHeight()
@@ -28,6 +28,16 @@ export default () => {
 
 			// console.log(elTop);
 			// console.log(top);
+
+			if (last_scroll  <= elTop ) {
+
+				$(el).data('screen-event', 'in-screen')
+									$(el).trigger({
+										'type': 'enter-screen',
+										'sens': sens,
+										'scrollingType': scrollingType
+									})
+			}
 
 			if( elTop < top  && elBott < bottom )
 			{
@@ -43,7 +53,7 @@ export default () => {
 					console.log('entree');
 				}
 			}
-			else if( elTop < top - 1 && elBott < top ||  elTop > bottom - 1 && elBott > bottom )
+			else if( elTop < top - 1 && elBott < top &&  elTop > bottom - 1 && elBott > bottom )
 			{
 				if( $(el).data('screen-event') !== 'out-screen' )
 				{

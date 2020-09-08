@@ -30,7 +30,7 @@ export default{
 
 			if( i == 0)
 			{
-				text_remplace += '<span class="word on-screen">'
+				text_remplace += '<span class="word ">'
 			}
 
 			if ( tets.charAt(i) == "<"){
@@ -51,11 +51,11 @@ export default{
 
 				if (tets.charAt(i) == " ") {
 
-					text_remplace += '</span><span class="space"> </span><span class="word on-screen">'
+					text_remplace += '</span><span class="space"> </span><span class="word">'
 
 				}
 				else if (tets.charAt(i) == "-") {
-					text_remplace += '<span class="char char'+this._uid+'">-</span></span><span class="word on-screen">'
+					text_remplace += '<span class="char char'+this._uid+'">-</span></span><span class="word ">'
 				}
 				else
 				{
@@ -77,11 +77,18 @@ export default{
 		text_remplace += "</span>"
 
 		$( this.$el ).html( text_remplace )
-		$( this.$el ).find('.word').css('white-space', 'nowrap');
+		$( this.$el ).find('.word').css({'white-space': 'nowrap',
+			// 'width': '150px',
+			'display': 'inline-block',
+			'overflow': 'hidden',
+
+		});
 		$( this.$el ).find('.char').css({
 			'display': 'inline-block',
-			'opacity': 0,
-			'translateY': 50
+			'transform': 'translateY(100px)',
+
+			// 'overflow': 'hidden',
+			
 		});
 
 		$( this.$el ).find('.word')
@@ -89,14 +96,14 @@ export default{
 		.addClass('on-screen')
 		.on('leave-screen', () => {
 			$( this.$el ).find('.char').css({
-				'opacity': 0,
-				'translateY': 20
+				// 'opacity': 0,
+				'translateY': 500
 			});
 		})
 	
 		.on('enter-screen', () => {
 
-			console.log( 'my first word enter-screen' )
+			// console.log( 'my first word enter-screen' )
 			
 			$( this.$el ).find('.char').each(function(index, el) {
 				let newTop = Math.round( $(el).position().top )
@@ -119,29 +126,31 @@ export default{
 				//$("[data-lettertop="+ val +"]:first").addClass('line')
 			});*/
 
-			$.each(lines, (index, val) => {
+			$.each(lines, (/*index, val*/) => {
 
-				let delay = i_lines * 100
+				let delay = i_lines * 50
+
+				// console.log(i_lines);
 
 				setTimeout( ()=>{
 					/*$('[data-lettertop='+val+']').each( (index, el) => {
 							
 					});*/
-					console.log('anime', '.char'+this._uid);
+					// console.log('anime', '.char'+this._uid);
 					anime({
 						targets: '.char'+this._uid,
+						// opacity: 1,
 						translateY: 0,
-						opacity: 1,
 						easing: 'cubicBezier(0.25, 0.46, 0.45, 0.94)',
 						delay: delay,
-						duration: 700
+						// duration: 700
 					}) ;
 				}, 1 )
 					
-				console.log('enter', $('[data-lettertop='+val+']').length, i_lines );
+				// console.log('enter', $('[data-lettertop='+val+']').length, i_lines );
 
 
-				i_lines++
+				i_lines ++
 			});
 		});
 		
@@ -178,6 +187,7 @@ export default{
 	
 	.word{
 		text-align: left;
+		
 	}
 	
 </style>

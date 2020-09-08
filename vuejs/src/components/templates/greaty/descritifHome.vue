@@ -12,9 +12,8 @@
 
 			<div class="center-flex">
 
-				<div class="text-homepage">
-					Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
-				</div>
+				<Alpl class="text-homepage">Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
+				</Alpl>
 
 			</div>
 		</div>
@@ -27,7 +26,7 @@
 
 <script>
 
-// import Alpl from 'Molecules/animation-line-per-line';
+import Alpl from 'Molecules/animation-line-per-line';
 // import anime from 'animejs/lib/anime.es.js';
 // import Anime3d from 'Molecules/animation-3d';
 // import textcotact from './components/text-contact';
@@ -36,7 +35,7 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 export default {
 	components: {
-		// Alpl,
+		Alpl,
 		// Anime3d,
 		// textcotact,
 		// smart_fonts,

@@ -6,99 +6,16 @@
     <div class="div-text-homepage">
 
         <div class="center-flex" >
-
-            <Alpl class="text-homepage"><h1 class="title-page">Services</h1>
-                Greaty est spécialisée dans la communication, l’élaboration d’images de marque, les solutions digitales et les supports imprimés.
-            </Alpl>
-
+            <div class="div-text-homepage">
+                <Alpl class="title-page">Services</Alpl>
+                <Alpl class="text-homepage">
+                    Greaty est spécialisée dans la communication, l’élaboration d’images de marque, les solutions digitales et les supports imprimés.
+                </Alpl>
+            </div>
         </div>
 
     </div>
-<!--             <div class="firstSection">
-                <div class="grid-services  ">
-                    <div class="item-services">
-                        <div class="item-text on-screen">
-                            <div class="smallTile">Stratégie</div>
-                                <ul>
-                                    <li>- Consultance graphique</li>
-                                    <li>- Audit stratégie</li>
-                                    <li>- Stratégie de communication</li>
-                                    <li>- Conception publicitaire</li>
-                                </ul>
-                        </div>
 
-                        <div class="item-text on-screen">
-                            
-                                <div class="smallTile">Design</div>
-                                    <ul>
-                                        <li>- Identité visuelle</li>
-                                        <li>- Charte graphique</li>
-                                        <li>- Création de logo</li>
-                                        <li>- Brochure &amp; catalogue</li>
-                                        <li>- Magazine &amp; éditorial</li>
-                                        <li>- Rapport annuel </li>
-                                        <li>- Illustation</li>
-                                        <li>- Matériels promotionnels</li>
-                                        <li>- Packaging</li>
-                                        <li>- Etc</li>
-                                    </ul>
-                        </div>
-
-                        <div class="item-text on-screen">
-                            <div class="smallTile">Impression</div>
-                                <ul>
-                                    <li>- Papeterie</li>
-                                    <li>- Panneau</li>
-                                    <li>- Bâche</li>
-                                    <li>- Stand</li>
-                                    <li>- Vitrine</li>
-                                    <li>- Autocollant</li>
-                                    <li>- Véhicule</li>
-                                    <li>- Textile</li>
-                                    <li>- Etc</li>
-                                </ul>
-                        </div>
-
-                        <div class="item-text on-screen">
-                            <div class="smallTile">Digital design</div>
-                                <ul>
-                                    <li>- UI/UX design</li>
-                                    <li>- Direction artistique digitale</li>
-                                    <li>- Webdesign sites internet</li>
-                                    <li>- Webdesign applications</li>
-                                    <li>- Motion design</li>
-                                </ul>
-                            </div>
-
-                        <div class="item-text on-screen">
-                            <div class="smallTile">Dev Web</div>
-                                <ul>
-                                    <li>- Intégration HTML5/CSS3</li>
-                                    <li>- Développement PHP/MYSQL</li>
-                                    <li>- Développement de sites Web</li>
-                                    <li>- Application mobile</li>
-                                    <li>- Développement frontend</li>
-                                    <li>- CMS</li>
-                                    <li>- Intranets</li>
-                                    <li>- Développement Backend</li>
-                                    <li>- E-Commerce / Webshops</li>
-                                </ul>
-                        </div>
-                        <div class="item-text on-screen">
-                            <div class="smallTile">Tech Web</div>
-                                <ul>
-                                    <li>- (Web-)Hosting</li>
-                                    <li>- Domaines</li>
-                                    <li>- Serveur et stockage</li>
-                                </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-<!--     <div>
-        <textcotact>
-        </textcotact>
-    </div> -->
 	</div>
 </template>
  
@@ -148,7 +65,7 @@ export default {
             
             smart_fonts({
             '.smallTile' :54,
-            '.item-text' : 24,
+            '.item-text' : 22,
             })
 	
             });

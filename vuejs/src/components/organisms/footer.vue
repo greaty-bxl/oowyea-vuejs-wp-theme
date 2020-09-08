@@ -281,6 +281,14 @@
 
 		@media screen and (min-width: 1100px) {
 
+				.c-box__list--item {
+				/*	    display: flex;
+				/*justify-content: center;*/
+				margin: 0px 3% !important;
+				/*display: inline-block;*/
+				}
+
+
 				footer{
 
 				padding: 20px 70px;
@@ -834,21 +842,41 @@ p{
 
     .c-box__list--item {
         display: flex;
-        justify-content: center;
+        /*justify-content: center;*/
         align-content: center;
         align-items: center;
-        margin: 0px 3%;
+        margin: 0px 10%;
+        /*display: inline-block;*/
     }
 
-    @media (min-width: 768px) {
-        .c-box {
-            background: var(--gradient-reversed);
-        }
+		@media (max-width: 600px) {
 
-        .c-box__list--item {
-            display: inline-flex;
-           /* margin: 24px;*/
-        }
+		.c-box__list--item {
+		display: flex;
+		/*justify-content: center;*/
+		align-content: center;
+		align-items: center;
+		/*margin: 0px 10%;*/
+		padding-top: 10%;
+		margin: 0px 0px !important;
+		padding-left: 10px;
+		}
+
+
+		}
+
+		@media (min-width: 768px) {
+		.c-box {
+		background: var(--gradient-reversed);
+		}
+
+		.c-box__list--item {
+		display: inline-flex;
+		/* margin: 24px;*/
+		}
+
+
+
     }
 
     /*
@@ -857,9 +885,9 @@ p{
         Styling of the Emoji SVG's
     */
     .c-emoji {
-        height: 20px;
-        width: 20px;
-        padding: 5px;
+        height: 30px;
+        width: 30px;
+        /*padding: 5px;*/
     }
 
     /* 👍🏻 */

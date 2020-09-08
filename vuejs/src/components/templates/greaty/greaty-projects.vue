@@ -3,16 +3,16 @@
     <div class="section-wrap">
         <div class="clear"></div>
 
-        <!-- <h1>Projets</h1> -->
 
-		<div class="div-text-homepage">
-
+		<div >
+		
 			<div class="center-flex">
 
-				<div class="text-homepage on-screen"><h1 class="title-page">PROJETS</h1>
-					Greaty trouve des solutions cohérentes issues d’une démarche ou rien n’est laissé au hasard.
+				<div class="div-text-homepage">
+					<Alpl class="title-page">PROJETS</Alpl> 
+					<Alpl class="text-homepage  ">Greaty trouve des solutions cohérentes issues d’une démarche ou rien n’est laissé au hasard.
+					</Alpl>
 				</div>
-
 			</div>
 
 		</div>
@@ -50,8 +50,8 @@
 
 <script>
 
-// import Alpl from 'Molecules/animation-line-per-line';
-import anime from 'animejs/lib/anime.es.js';
+import Alpl from 'Molecules/animation-line-per-line';
+// import anime from 'animejs/lib/anime.es.js';
 // import Anime3d from 'Molecules/animation-3d';
 // import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
@@ -74,7 +74,7 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 		components: {
 
-			// Alpl,
+			Alpl,
 			// anime,
 			// Anime3d,
 			// textcotact,
@@ -91,40 +91,25 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 		console.log(smart_fonts);
 
-		var $ = this.$
+		// var $ = this.$
 
 		this.$emit('template_mounted', this)
 
 
-			$('.global-project').on('leave-screen', (event) => {
+			// $('.global-project').on('leave-screen', (event) => {
 
-			$(event.target).css("opacity","0");
+			// $(event.target).css("opacity","0");
 
-				anime({
-					targets: event.target,
-					translateY: '100px',
-					opacity: 0,
+			// 	anime({
+			// 		targets: event.target,
+			// 		translateY: '100px',
+			// 		opacity: 0,
 
-				});
+			// 	});
 
-			})
-
-			$( ".global-project" ).each( function( index , el) {
-
-			$(el).on('enter-screen', (event) => {
-				anime({
-					targets: event.target,
-					translateY: '0px',
-					opacity: 1,
-					easing: 'easeInOutSine',
-					duration: 500,
-					delay: index * 100
-				});
-
-			})
+			// })
 
 
-		});
 
 		smart_fonts({
 		'.smallTile' :54,
@@ -350,6 +335,11 @@ strong {
 	padding-bottom: 5%;
 	text-transform: capitalize;
 	letter-spacing: 10px;
+	color: #e1e1e1;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	text-align: left;
+	width: 20%;
 }
 
 .div-text-homepage{
@@ -357,6 +347,8 @@ strong {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
 
 }
 			
@@ -379,8 +371,9 @@ strong {
 
 							min-height: 100vh;
 							display: flex;
-							flex-direction: row;
+							flex-direction: column;
 							justify-content: center;
+							margin: auto 0px;
 
 						}
 
@@ -395,7 +388,7 @@ strong {
 							/*padding-top: 70px;*/
 							/*padding-bottom: 150px;*/
 							width: 70% ;
-							margin: auto 70px;
+							/*margin: auto 70px;*/
 							/*width: 100%;*/
 							font-size: 3.3em;
 							color: #e1e1e1;
@@ -456,6 +449,11 @@ strong {
 								margin-bottom: 3%;
 						}
 
+						.div-text-homepage{
+
+							width:  70%;
+						}
+
 
 				}
 
@@ -488,7 +486,7 @@ strong {
 							padding-left: 70px;
 							padding-right: 70px;
 							width: auto;
-							line-height: 60px;
+							/*line-height: 60px;*/
 
 						}
 
@@ -628,6 +626,7 @@ strong {
 							text-transform: capitalize;
 							letter-spacing: 10px;
 							padding-top: 20%;
+							text-align: left;
 						}
 
 

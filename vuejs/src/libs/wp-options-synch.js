@@ -25,9 +25,7 @@ export default function(option_keys, callback){
 			//console.log('load options', element, option[element])
 		}			
 	})
-
-	callback()
-
+	
 	option_keys.forEach( element => {
 		this.$watch(element, function(newValue/*, oldValue*/) {
 			/*if( newValue != oldValue && !arraysEqual(newValue, oldValue) )
@@ -41,4 +39,6 @@ export default function(option_keys, callback){
 			//}
 		});
 	})
+
+	callback()
 }

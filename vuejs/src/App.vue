@@ -35,7 +35,7 @@
 
 //Header
 //import Header from 'Organisms/header-light-burger.vue'
-import Header from 'Organisms/header-light-burger.vue'
+import Header from 'Organisms/header.vue'
 
 //Footer
 import Footer from 'Organisms/footer.vue'

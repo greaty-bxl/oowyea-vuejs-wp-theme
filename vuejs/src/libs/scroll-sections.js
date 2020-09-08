@@ -8,6 +8,9 @@ function scrollSection(vue){
 	var wait = 0;
 	var current_section = window.current_section;
 
+	var to_scroll
+	var sens = 1
+
 	function update_current_section()
 	{
 		window.current_section = current_section
@@ -43,8 +46,6 @@ function scrollSection(vue){
 	{
 		let new_scroll = $('#app').scrollTop()
 
-
-
 		if( new_scroll > last_scroll )
 		{
 			//auto scroll down
@@ -58,6 +59,9 @@ function scrollSection(vue){
 
 						new_scroll = $(el).position().top + new_scroll
 						animate_scroll_to( new_scroll )
+
+						to_scroll = new_scroll
+						sens = 1
 					}
 				}
 
@@ -70,6 +74,9 @@ function scrollSection(vue){
 					{
 						new_scroll = $(el).position().top + $(el).outerHeight() -  $('#app').outerHeight() + new_scroll
 						animate_scroll_to( new_scroll )	
+
+						to_scroll = new_scroll
+						sens = 1
 					}
 				}
 
@@ -89,16 +96,22 @@ function scrollSection(vue){
 
 						new_scroll = $(el).position().top + $(el).outerHeight() -  $('#app').outerHeight() + new_scroll
 						animate_scroll_to( new_scroll )	
+
+						to_scroll = new_scroll
+						sens = -1
 					}
 					else
 					{
 						//scroll up in section 
 						//auto scroll to begin of current section for biggest sections than 100vh
 						let topPos = $(el).position().top
-						if( topPos * -1 <= $('#app').outerHeight() / 5 )
+						if( topPos * -1 <= $('#app').outerHeight() / 3 )
 						{
 							new_scroll = $(el).position().top + new_scroll
 							animate_scroll_to( new_scroll )	
+
+							to_scroll = new_scroll
+							sens = -1
 						}
 					}
 					
@@ -117,11 +130,20 @@ function scrollSection(vue){
 			{
 				$('#app').data('scrolling', 'scroll-sections')
 				clearTimeout( timer )
-				timer = setTimeout( scroll_end , 150 )
+				timer = setTimeout( scroll_end , 250 )
 			}
 			else
 			{
 				last_scroll = $('#app').scrollTop()
+			}
+
+			let current_scroll = $('#app').scrollTop()
+
+			if( ( sens == 1 && current_scroll > to_scroll ) || ( sens == -1 && current_scroll < to_scroll ) )
+			{
+				wait = 0
+				$('#app').data('scrolling', '')
+				$('#app').stop()
 			}
 		});
 	});

@@ -52,8 +52,8 @@
 						:style="{'background':'#'+color}" 
 						v-bind:class="{ current: (key == manual_current_edit_color_key) }">
 						<div class="color-card-tools" v-if="colorSettings == 'manual'" >
-							<div class="remove" v-on:click="delete_color(key)"><v-icon name="trash-alt"></v-icon></div>
-							<div class="edit" v-on:click="edit_color(key)"><v-icon name="edit"></v-icon></div>
+							<div class="remove" title="Remove this color" v-on:click="delete_color(key)"><v-icon name="trash-alt"></v-icon></div>
+							<div class="edit" title="Edit this color" v-on:click="edit_color(key)"><v-icon name="edit"></v-icon></div>
 						</div>
 						#{{color}}
 						<div v-if="key == 0">- main -</div>
@@ -62,8 +62,7 @@
 				<br/>
 				<div id="preview-cards-mask">
 					<div id="preview-cards">
-						<div class="preview-card" :id="'preview-color-'+id" v-for="(scheme_style, id) in scheme_styles" :key="id">
-
+						<div class="preview-card clr-bg-1 clr-paragraph" :id="'preview-color-'+id" v-for="(scheme_style, id) in scheme_styles" :key="id">
 							<Style ref="css" :id="'preview-color-css-'+id">
 								#preview-color-{{id}}{
 									background-color: {{scheme_style['background']}};
@@ -71,30 +70,41 @@
 								#preview-color-{{id}} h1{
 									color: {{scheme_style['headline-1']}}
 								}
-								#preview-color-{{id}} h2, #preview-color-{{id}} label{
+								#preview-color-{{id}} h2{
 									color: {{scheme_style['headline-2']}}
 								}
-								#preview-color-{{id}} p{
+								#preview-color-{{id}}, #preview-color-{{id}} p{
 									color: {{scheme_style['paragraph']}}
 								}
 								#preview-color-{{id}} a{
 									color: {{scheme_style['link']}}
 								}
-								#preview-color-{{id}} button{
+								
+								#preview-color-{{id}} .btn-common{
+									color: {{scheme_style['cta-common-text']}} ;
+								}
+								#preview-color-{{id}} .btn-common{
+									background-color: {{scheme_style['cta-common-bg']}} ;
+								}
+
+								#preview-color-{{id}} .btn-rare{
 									color: {{scheme_style['cta-rare-text']}} ;
+								}
+								#preview-color-{{id}} .btn-rare{
 									background-color: {{scheme_style['cta-rare-bg']}} ;
 								}
 							</Style>
 							<div class="name">- {{id}} -</div>
-							<h1>Title</h1>
-							<h2>Subtitle</h2>
-							<p>
-								Content with <a href="#">link</a>
+							<h1 class="clr-headline-1">Title</h1>
+							<h2 class="clr-headline-2">Subtitle</h2>
+							<p >
+								Content with <a class="clr-link" href="#">link</a>
 							</p>
-							<label>Label</label><br/><br/>
+							<label class="clr-headline-2">Label</label><br/><br/>
 							<input type="text" name="" value="Input Value" /><br/><br/>
 							<input type="text" name="" placeholder="Placeholder" /><br/><br/>
-							<button>Send</button>
+							<button class="btn-common">Reset form</button>&nbsp;
+							<button class="btn-rare">Send</button>
 						</div>			
 					</div>
 				</div>
@@ -152,19 +162,56 @@ export default{
 
 		this.scheme = new ColorScheme
 
-		if( !this.colors.length ) this.update_main_color()
+		if( !this.colors.length )
+		{
+			this.mainColor = getRandomColor()
+			this.mainColor_object = this.mainColor
+			this.manual_current_color = this.mainColor
+			this.update_main_color()
+		}
 
 		this.mainColor_object = this.mainColor
 
 		this.wp_options_synch( this.theme_options, () => {
 			//loaded
-			setTimeout( ()=>{ this.init = true }, 5 )
+			setTimeout( ()=>{ this.init = true }, 1 )
 		})
 
+		if( is.desktop() )
+		{
+
+			const slider = document.querySelector('#preview-cards-mask');
+			let isDown = false;
+			let startX;
+			let scrollLeft;
+
+			slider.addEventListener('mousedown', (e) => {
+				isDown = true;
+				slider.classList.add('active');
+				startX = e.pageX - slider.offsetLeft;
+				scrollLeft = slider.scrollLeft;
+			});
+			slider.addEventListener('mouseleave', () => {
+				isDown = false;
+				slider.classList.remove('active');
+			});
+			slider.addEventListener('mouseup', () => {
+				isDown = false;
+				slider.classList.remove('active');
+			});
+			slider.addEventListener('mousemove', (e) => {
+				if(!isDown) return;
+				e.preventDefault();
+				const x = e.pageX - slider.offsetLeft;
+				const walk = (x - startX) * 3; //scroll-fast
+				slider.scrollLeft = scrollLeft - walk;
+				//console.log(walk);
+			});
+
+		}
 	},
 	watch: {
 		colors: function(){
-			console.log('colors change');
 			if( this.init == true 
 				||  Object.keys(this.scheme_styles).length == 0 ) 
 			{ 
@@ -229,6 +276,7 @@ export default{
 			}
 		},
 		edit_color: function (key) {
+			console.log('edit_color', key);
 			this.manual_change = 1
 			this.manual_current_edit_color_key = key
 
@@ -237,10 +285,24 @@ export default{
 		doing_manual_change: function(){
 			if( this.manual_current_edit_color_key != null )
 			{
-				let new_array = []
-				new_array[this.manual_current_edit_color_key] = this.manual_current_color.hex.substr(1)
+				//let new_array = []
+				let key = this.manual_current_edit_color_key
+				let newColor = this.manual_current_color.hex.substr(1)
+				//new_array[key] = newColor
 
-				this.colors = Object.assign( [], this.colors, new_array )
+				console.log('manual change', this.colors, newColor);
+				this.$set(this.colors, key, newColor);
+
+				console.log('manual change', this.colors, newColor);
+				
+				/*if( key == 0 )
+				{
+					this.mainColor = newColor
+					this.mainColor_object = newColor
+				}*/
+
+
+				//this.colors = Object.assign( [], this.colors, new_array )
 			}
 		},
 		delete_color: function (key) {
@@ -344,14 +406,19 @@ export default{
 		width: 100%;
 		overflow-y: hidden;
 		overflow-x: scroll;
+		cursor: move;
 	}
 
 	#preview-cards {	
 		transform: scale(0.5);
 		transform-origin: left top;
-		width: 200%;
+		min-width: calc(200% - 40px);
 		padding: 10px;
 		white-space: nowrap;
+	}
+	#preview-cards * {
+		pointer-events: none;
+		user-select: none;
 	}
 	#preview-cards .preview-card {
 		display: inline-block;

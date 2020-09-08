@@ -26,7 +26,8 @@ class option{
 
 				ajax_keys_queue[key] = key
 				ajax_queue[key] = value
-				
+				console.log('set_option', key, value)
+				this.state.option[key] = value
 			}
 		}
 
@@ -45,7 +46,7 @@ class option{
 			ajax_keys_queue = {}
 			ajax_queue = {}
 
-		}, 1500 )
+		}, 500 )
 
 		
 

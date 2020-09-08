@@ -18,7 +18,7 @@ export default {
 	},
 	data(){
 		return {
-			open: true,
+			open: false,
 		}
 	},
 	mounted(){

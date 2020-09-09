@@ -27,6 +27,7 @@ function scrollSection(vue){
 		if( !wait )
 		{
 			wait = 1
+			$('#app').data('scrolling', 'scroll-sections')
 			$("#app").stop()
 				.animate({scrollTop: pos + 'px'}, 500, 'easeInOutQuart')
 				.promise()
@@ -78,6 +79,10 @@ function scrollSection(vue){
 						to_scroll = new_scroll
 						sens = 1
 					}
+					else
+					{
+						$('#app').data('scrolling', '')
+					}
 				}
 
 			});
@@ -113,33 +118,34 @@ function scrollSection(vue){
 							to_scroll = new_scroll
 							sens = -1
 						}
-					}
-					
+					}	
 				}
 			});
 		}
 		last_scroll = new_scroll
 	}
 
+	let init = false
 	$('#app').on('section-top-ready', () => {
 		$('#app').on('scroll', () => 
 		{
 			let is_scrolling_by_what = $('#app').data('scrolling')
 
-			if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) )
+			if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) && init )
 			{
-				$('#app').data('scrolling', 'scroll-sections')
+				$('#app').data('scrolling', '')
 				clearTimeout( timer )
 				timer = setTimeout( scroll_end , 250 )
 			}
 			else
 			{
+				init = true
 				last_scroll = $('#app').scrollTop()
 			}
 
 			let current_scroll = $('#app').scrollTop()
 
-			if( ( sens == 1 && current_scroll > to_scroll ) || ( sens == -1 && current_scroll < to_scroll ) )
+			if( to_scroll && ( ( sens == 1 && current_scroll > to_scroll ) || ( sens == -1 && current_scroll < to_scroll ) ) )
 			{
 				wait = 0
 				$('#app').data('scrolling', '')

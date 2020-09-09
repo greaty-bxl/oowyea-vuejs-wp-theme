@@ -73,63 +73,7 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 				}*/
 
 				
-				let events = ['wheel', 'touchstart', 'touchmove', 'touchend']
-				var newTouchY;
-				var speed = 1
-				events.forEach( event =>{
-					$(el)[0].removeEventListener(event, null);
-
-					$(el)[0].addEventListener(event, (e) => { 
-
-						
-						if( e.type == 'touchstart')
-						{
-							scrollPos = $('#app').scrollTop()
-							console.log(e.touches[0].clientY);
-							touchY = e.touches[0].clientY
-						}
-						if( e.type == 'touchmove' )
-						{
-							newTouchY = e.touches[0].clientY
-							
-							//console.log( newTouchY - touchY );
-
-							$('#app').scrollTop( scrollPos - (newTouchY - touchY) )
-							
-							
-
-							speed+= 0.1
-						}
-
-						if( e.type == 'touchend' )
-						{
-							if( newTouchY < touchY )
-							{
-								if( !$('#app').data('scrolling') )
-								{
-									console.log( speed );
-									$("#app").stop()
-									.animate({scrollTop: $('#app').scrollTop() + (speed * 72) + 'px'}, 1000 / (speed), 'easeInOutQuart')
-								}
-								
-							}
-							else if( newTouchY > touchY )
-							{
-								if( !$('#app').data('scrolling') )
-								{
-									$("#app").stop()
-										.animate({scrollTop: $('#app').scrollTop() - (speed * 72) + 'px'}, 1000 / (speed), 'easeInOutQuart')
-								}
-							}
-
-							speed = 1
-						}
-						else
-						{
-							$(el).css('pointer-events', 'none')
-						}
-					},{passive: true});
-				})
+				
 				
 
 				/*$(el).unbind('wheel touchstart touchmove touchend').on('wheel touchstart touchmove touchend', function(e) 
@@ -194,4 +138,58 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 	$('#app').on('clone clone-move', () => {
 		update_position(vue, selector, top, left, state)
 	});
+
+	let events = ['wheel', 'touchstart', 'touchmove', 'touchend']
+	var newTouchY;
+	var speed = 1
+	events.forEach( event =>{
+		$(selector)[0].removeEventListener(event, null);
+
+		$(selector)[0].addEventListener(event, (e) => { 
+
+			
+			if( e.type == 'touchstart')
+			{
+				scrollPos = $('#app').scrollTop()
+				console.log(e.touches[0].clientY);
+				touchY = e.touches[0].clientY
+			}
+			if( e.type == 'touchmove' )
+			{
+				newTouchY = e.touches[0].clientY
+				
+				//console.log( newTouchY - touchY );
+
+				$('#app').scrollTop( scrollPos - (newTouchY - touchY) )
+
+				speed+= 0.1
+			}
+
+			if( e.type == 'touchend' )
+			{
+				if( newTouchY < touchY )
+				{
+					if( !$('#app').data('scrolling') )
+					{
+						console.log( speed );
+						$("#app").stop()
+						.animate({scrollTop: $('#app').scrollTop() + (speed * 55) + 'px'}, 500, 'easeInOutQuart')
+					}
+				}
+				else if( newTouchY > touchY )
+				{
+					if( !$('#app').data('scrolling') )
+					{
+						$("#app").stop()
+							.animate({scrollTop: $('#app').scrollTop() - (speed * 55) + 'px'}, 500, 'easeInOutQuart')
+					}
+				}
+				speed = 1
+			}
+			else
+			{
+				$(selector).css('pointer-events', 'none')
+			}
+		},{passive: true});
+	})
 }

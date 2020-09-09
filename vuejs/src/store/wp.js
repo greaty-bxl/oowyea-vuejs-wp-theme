@@ -39,10 +39,6 @@ class wp{
 					state.wp = Object.assign({}, state.wp)
 				}
 			}
-
-			//let bgColor = getField('background->color', state.wp.sections[index]).value
-
-			//state.wp.sections[index].style = { "background" : bgColor }
 		}
 
 		state.wp.sections.forEach( (el, i) => {

@@ -135,6 +135,10 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 		update_position(vue, selector, top, left, state)
 	});
 
+	$(window).on('resize',() => {
+		update_position(vue, selector, top, left, state)
+	});
+
 	$('#app').on('clone clone-move', () => {
 		update_position(vue, selector, top, left, state)
 	});
@@ -151,7 +155,7 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 			if( e.type == 'touchstart')
 			{
 				scrollPos = $('#app').scrollTop()
-				console.log(e.touches[0].clientY);
+				//console.log(e.touches[0].clientY);
 				touchY = e.touches[0].clientY
 			}
 			if( e.type == 'touchmove' )
@@ -171,7 +175,7 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 				{
 					if( !$('#app').data('scrolling') )
 					{
-						console.log( speed );
+						//console.log( speed );
 						$("#app").stop()
 						.animate({scrollTop: $('#app').scrollTop() + (speed * 55) + 'px'}, 500, 'easeInOutQuart')
 					}

@@ -276,7 +276,7 @@ export default{
 			}
 		},
 		edit_color: function (key) {
-			console.log('edit_color', key);
+			//console.log('edit_color', key);
 			this.manual_change = 1
 			this.manual_current_edit_color_key = key
 
@@ -290,10 +290,10 @@ export default{
 				let newColor = this.manual_current_color.hex.substr(1)
 				//new_array[key] = newColor
 
-				console.log('manual change', this.colors, newColor);
+				//console.log('manual change', this.colors, newColor);
 				this.$set(this.colors, key, newColor);
 
-				console.log('manual change', this.colors, newColor);
+				//console.log('manual change', this.colors, newColor);
 				
 				/*if( key == 0 )
 				{

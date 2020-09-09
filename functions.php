@@ -58,15 +58,13 @@ function auto_include_php_scripts($dir, &$results = array()) {
             if( $info['extension'] == 'php' )
             {
                 include $path;
-                //$results[] = $path;    
             }            
         } else if ($value != "." && $value != "..") {
             auto_include_php_scripts($path, $results);
-            //$results[] = $path;
         }
     }
-    return $results;
 }
+
 auto_include_php_scripts(GREATY_TEMPLATE_PATH.'/vuejs/src/wp');
 
 

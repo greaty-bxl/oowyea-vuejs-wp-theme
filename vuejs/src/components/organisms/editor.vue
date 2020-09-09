@@ -4,7 +4,7 @@
 			<div v-on:click="close_content"><button>close</button></div>
 			<Scheme />
 		</div>
-		<div v-else id="editor-open-bt" v-on:click="open_content"></div>
+		<div v-else id="editor-open-bt" v-on:click="open_content"><v-icon name="pen"/></div>
 	</div>
 </template>
 
@@ -27,7 +27,6 @@ export default {
 	methods: {
 		open_content : function () {
 			this.open = true
-			console.log('click');
 		},
 		close_content : function () {
 			this.open = false
@@ -46,12 +45,21 @@ export default {
 		height: 0;
 	}
 	#editor-open-bt{
+		display: flex;
+		flex-direction: column;
+		text-align: center;
 		position: fixed;
-		background: #CD2626;
-		width: 10vh;
-		height: 10vh;
-		bottom: 0;
-		right: 0;
+		background: #FFFFFF;
+		width: 40px;
+		height: 40px;
+		bottom: 3vh;
+		right: 3vh;
+		border-radius: 40px;
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.50);
+	}
+
+	#editor-open-bt > svg{
+		margin: auto;
 	}
 
 	#editor-wrap-content {

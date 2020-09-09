@@ -27,7 +27,7 @@
     <!-- Footer -->
     <Footer/>
     <AudioPlayerBottom />
-    <Editor />
+    <Editor v-if="wp.user_can.edit_theme_options" />
   </div>
 </template>
 
@@ -89,14 +89,7 @@ export default {
     });
   },
   mounted (){
-    console.log( 'App mounted' );
-    //console.log('wp', this.wp)
-    
-
-    /*this.$store.subscribe((mutation, state) => {
-      console.log(mutation, state);
-    })*/
-    
+    console.log( 'App mounted' );    
     
     this.pages['current'] = this.wp.sections
 
@@ -104,8 +97,6 @@ export default {
         type: 'sections_load',
         sections: this.pages['current'],
       })
-    
-
 
     this.$(document).ready( ($) => {
       //console.log('JQuery Ready', $, this.ajaxurl)
@@ -192,6 +183,12 @@ export default {
       smart_fonts()
     }
   },
+  computed: {
+    wp () {
+      //console.log(cap);
+      return this.$store.state.wp
+    }
+  }
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
 	<div id="header">
 		<div class="clear"></div>
-		<div id="header-logo"><Acf field="logo"/></div>
+		<div id="header-logo"><Acf field="logo->light"/></div>
 		<div id="header-menu"></div>
 		<div id="right-panel">
 			<div id="burger-menu" class="btn">

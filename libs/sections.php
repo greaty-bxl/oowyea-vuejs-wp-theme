@@ -4,6 +4,7 @@ function get_sections()
 {
 	global $wp_query;
 	global $post;
+	global $sections;
 
 	$sections = array();
 	$page_for_posts = get_option( 'page_for_posts' );
@@ -108,5 +109,5 @@ function get_sections()
 	wp_vue_add_var('sections', $sections);
 }
 
-add_action( 'wp_head', 'get_sections' );
-add_action( 'wp', 'get_sections' );
+add_action( 'wp_head', 'get_sections', 0);
+add_action( 'wp', 'get_sections', 0);

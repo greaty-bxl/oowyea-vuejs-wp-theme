@@ -106,7 +106,7 @@ function scrollSection(vue){
 		{
 			$('#app').data('scrolling', 'scroll-sections')
 			clearTimeout( timer )
-			timer = setTimeout( scroll_end , 250 )
+			timer = setTimeout( scroll_end , 50 )
 		}
 		else
 		{

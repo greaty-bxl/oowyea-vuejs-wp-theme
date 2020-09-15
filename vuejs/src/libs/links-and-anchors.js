@@ -92,9 +92,53 @@ export default function (vue)
 		/* Act on the event */
 		let href = $(event.target).prop('href')
 
+// Add proprietie css to current link
+		$('.menu-item').each(function() {
+
+			var url_link = $(this).find('a').attr('href');
+
+			$(this).removeClass('current-menu-item')
+			$(this).removeClass('current_page_item')
+
+			
+
+			$(this).find('a').css({
+						borderBottom: '0px solid white',
+					});
+
+			if ( href === url_link  ) {
+				$(this).find('a').css({
+							borderBottom: '1px solid white',
+						});
+				$(this).addClass('current-menu-item')
+				$(this).addClass('current_page_item')
+				console.log($(this));
+				console.log('entree');
+
+
+			}
+			
+		});
+
+
+
+
+		// console.log(href);
 		open_link(event, href)
 
 	});
+
+	$('.menu-item').each(function(index) {
+
+		if (  index == 0) {
+		
+			var acheref = $(this).find('a').attr('href')
+
+			$('#header-logo').find('a').attr('href', acheref);
+		}
+
+	});
+
 
 	window.onpopstate = function(event) {
 

@@ -5,12 +5,9 @@
 			<div class="div-members">
 				<div class="post-client">
 				<div class="member" v-for="child in wp.members" :key="child.ID">
-				<div>
 					<img class="image" width="100%" :src="child.thumb">
-				</div>
 					<p class="nom" v-html="child.post_title"></p>
-					<p class="fuction"  >Lorem Ipsum</p>
-				
+					<p class="fuction" v-html="child.post_content"></p>
 				</div>
 					
 				</div>
@@ -60,7 +57,7 @@ export default {
 
 		var $ = this.$
 
-		console.log(this.wp);
+		console.log(this.wp.members);
 		
 		$(this.$el).css({
 			'justify-content':'center'
@@ -82,6 +79,9 @@ export default {
 	
 	.member{
 		color: #e1e1e1;
+		padding-left: 5px;
+		padding-right: 5px;
+
 	}
 
 
@@ -160,6 +160,15 @@ export default {
 
 	}
 
+	.fuction p{
+
+
+		color: #e1e1e1 !important;
+
+
+
+	}
+
 	@media screen and (max-width: 1100px min-width: 600px ){
 
 		.member{
@@ -228,7 +237,7 @@ export default {
 
 
 .image {
-	background-image: url("https://images.unsplash.com/photo-1575659868234-aae7cc621f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");
+	background-image: url("	");
 }
 
 .div-text-homepage{
@@ -345,6 +354,7 @@ p{
 			padding-right: 70px;
 			width: auto;
 			min-height: 4em;
+			width: 80% ;
 
 		}
 
@@ -504,7 +514,7 @@ p{
 
 			width: 100% !important;
 			/*height: 60vh;*/
-			min-height: 200px;
+			// min-height: 200px;
 			/*background-color: #e1e1e1;*/
 
 		}
@@ -543,12 +553,12 @@ p{
 
 		}
 
-		.post-client{
+	/*	.post-client{
 
 			padding-top: 100px;
 			padding-bottom: 120px;
 
-		}
+		}*/
 
 		.clientrow{
 

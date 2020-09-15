@@ -12,7 +12,7 @@
 
 			<div class="center-flex">
 
-				<Alpl class="text-homepage">Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
+				<Alpl class="text-homepage ">Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
 				</Alpl>
 
 			</div>
@@ -56,7 +56,7 @@ export default {
 
 			smart_fonts({
 		'.smallTile' :54,
-		'.text-homepage' : 45,
+		'.text-homepage' : 52.8,
 		// '.role-greaty': 12,
 		'.name-client': 22,
 		})
@@ -388,7 +388,7 @@ strong {
 
 							padding-top: 150px;
 							padding-bottom: 150px;
-							width: 70% ;
+							width: 80% ;
 							margin: auto 70px;
 							/*width: 100%;*/
 							font-size: 3.3em;
@@ -583,7 +583,7 @@ strong {
 						}
 						.div-text-homepage{
 
-							height: 70vh;
+							height: 100vh;
 						}
 
 				}

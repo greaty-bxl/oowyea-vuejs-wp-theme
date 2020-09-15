@@ -76,7 +76,7 @@ export default {
 
 		smart_fonts({
 		'.smallTile' :54,
-		'.text-homepage' : 45,
+		'.text-homepage' : 52.8,
 		// '.role-greaty': 12,
 		'.name-client': 22,
 		})
@@ -99,6 +99,16 @@ export default {
 
 		font-family: 'Montserrat', sans-serif;
 		background-color: #282828;
+
+	}
+
+	@media screen and (max-width: 600px) {
+
+			.banner svg{
+
+				width: 200% !important;
+			}
+
 
 	}
 
@@ -372,8 +382,8 @@ strong {
 
 							padding-top: 150px;
 							padding-bottom: 150px;
-							width: 70% ;
-							margin: auto 70px;
+							width: 80% ;
+							margin: auto 0px !important;
 							/*width: 100%;*/
 							font-size: 3.3em;
 							color: #e1e1e1;
@@ -454,13 +464,13 @@ strong {
 
 						.banner{
 
-							min-height: 50vh;
+							min-height: 100vh;
 							display: flex;
 							flex-direction: column;
 						}
 
 						.banner div{
-
+							margin-bottom: auto;
 							margin-top: auto;
 						} 
 
@@ -567,7 +577,7 @@ strong {
 						}
 						.div-text-homepage{
 
-							height: 70vh;
+							height: 100vh;
 						}
 
 				}
@@ -662,6 +672,10 @@ strong {
 							padding-top: 100px;
 							padding-bottom: 120px;
 
+						}
+						.banner svg{
+
+							width: 200% !important;
 						}
 
 

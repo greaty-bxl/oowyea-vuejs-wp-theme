@@ -2,43 +2,46 @@
 <div class="section-wrap">
 <div class="clear"></div>
 
-<div class="global-descriptif">
-<div class="all-description">
+<div class="on-screen">
 
-	<div class="info">
-		<p><strong class="text-client-sigle">Client : </strong> <span class="text-client-sigle-span" v-html="this.wp.title"></span> </p>
-	<p class="text-client-sigle-span" v-html="post.fields.description_client"></p>
-		
+	<div class="global-descriptif">
+	<div class="all-description">
+
+		<div class="info">
+			<p><strong class="text-client-sigle">Client : </strong> <span class="text-client-sigle-span" v-html="this.wp.title"></span> </p>
+		<p class="text-client-sigle-span"  v-html="post.fields.description_client"></p>
+			
+		</div>
+			<p class="notre-service"><strong>Ce que nous avons réalisé :</strong> </p>
+		<div class="services-fourni" v-html="post.fields.liste_services"></div>
+	</div>	
+	<div class='div-images'>
+		<img class="image" v-for="item in post.acf_fields.image_projet"  :key="item.ID" :src="item.url" >
 	</div>
-		<p class="notre-service"><strong>Ce que nous avons réalisé :</strong> </p>
-	<div class="services-fourni" v-html="post.fields.liste_services"></div>
-	
-</div>
-<!-- <img :src="this.wp.thumb" > -->
- <img class="image" :src="post.fields.image_projet.url " >
-</div>
 
-<!-- <div class="post-client">
+	<!-- <div class="post-client">
 
-</div> -->
+	</div> -->
 
-<div class="div-parent-slide-text">	
-	<swiper class="swiper1" :options="swiperOption1">
+	<div class="div-parent-slide-text">	
+		<swiper class="swiper1" :options="swiperOption1">
 
-		<swiper-slide  class="slide-full-view" v-for="child in wp.projects" :key="child.ID" >
-			<a :href="child.permalink" >
-								<div class="client-swiper">
+			<swiper-slide  class="slide-full-view" v-for="child in wp.projects" :key="child.ID" >
+				<a :href="child.permalink" >
+									<div class="client-swiper">
+<!-- wp.projects -->
+										<img class="image-client" height="100%" width="100%"  v-if="child.thumb" :src="child.thumb" >
 
-									<img class="image-client-swiper" height="100%" width="100%" :src="child.thumb" >
-									<p class="name-client-swiper" v-html="child.post_title" ></p>
-									<p class="role-greaty-swiper">Corporated Website</p>
+										<video class="image-client" height="100%" width="100%" loop autoplay="true" :src="child.fields.video" v-else></video>										<p class="name-client-swiper" v-html="child.post_title" ></p>
+										<p class="role-greaty-swiper" v-html="child.post_content"></p>
 
-								</div>
-							</a>
-		</swiper-slide>
-	
-	</swiper>
+									</div>
+								</a>
+			</swiper-slide>
+		
+		</swiper>
 
+	</div>
 </div>
 <!-- 
 <textcotact>
@@ -47,6 +50,7 @@
 <!-- <h1 v-html="this.wp.title">single</h1>
 <div v-html="this.wp.post_content"></div> -->
 <div class="clear"></div>
+</div>
 </div>
 
  
@@ -75,7 +79,7 @@ export default {
 		},
 		mounted (){
 
-		console.log( this.wp.projects );
+		// console.log( this.wp );
 
 		smart_fonts({
 		'.smallTile' :54,
@@ -84,6 +88,10 @@ export default {
 		'.name-client-swiper': 22,
 
 		})
+
+		var $ = this.$
+
+			$('.text-client-sigle-span').find('a').attr('target', '_blank');
 
 
 		this.$emit('template_mounted', this)
@@ -108,9 +116,6 @@ export default {
 				nextEl: '.flex-gauche',
 				prevEl: '.flex-droite',
 				},
-				autoplay: {
-				delay: 2000,
-				},
 				breakpoints: {
 				// when window width is >= 320px
 				1100: {
@@ -131,6 +136,7 @@ export default {
 			}
 		}
 
+
 		
 	
 }
@@ -147,9 +153,34 @@ font-family: 'Montserrat', sans-serif;
 background-color: #282828; ;
 
 }
+
+.services-fourni ul li:before {
+
+	content:"· ";
+	list-style: inside;
+	color: #e1e1e1;
+	width: 1px;
+
+}
+
+.div-images{
+
+	display: flex;
+	flex-direction: column;
+}
+
+a {
+
+color: #e1e1e1;
+}
 body{
 
 	background-color: #282828;
+}
+
+.swiper1{
+
+	padding-top: 5%;
 }
 
 .services-fourni ul{
@@ -159,9 +190,17 @@ body{
  padding-left: 0px;
 }
 
+.services-fourni ul li{
+
+	font-size: 14px;
+	line-height: 30px;
+
+}
+
+
 .services-fourni{
 
-	padding-bottom: 5%;
+	padding-bottom: 70px;
 }
 
 .client-swiper{
@@ -172,6 +211,11 @@ body{
 .name-client-swiper-swiper{
 
 	margin-bottom: 2% !important;
+
+}
+
+.services-fourni ul li {
+
 
 }
 
@@ -215,12 +259,18 @@ body{
 		/*margin-left: 10px !important;*/
 
 	}
+
+
+
+
 }
 </style>
 
 <style scoped >
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
+
 
 
 	.notre-service{
@@ -284,7 +334,7 @@ body{
 	.notre-service{
 		
 		margin-top: 2.5%;
-		margin-bottom: 2.5%;
+		margin-bottom: 1%;
 
 
 	}
@@ -362,16 +412,40 @@ body{
 
 	@media (min-width: 1100px) {
 
+		.swiper-container{
+
+			margin-bottom: auto;
+			margin-top: auto;
+		}
+
+			.global-descriptif{
+
+			/*padding-top: 0px;*/
+			padding-bottom: 0px;
+
+			}
+
+		.div-parent-slide-text{
+
+			/*height: 100vh;*/
+			height: 100vh;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+
+
+		}
+
 		.image{
 
 			height: 100%;
-			width: calc(100% - 140px);
+			width: 100%;
 			/*background-color: white;*/
 			background-position: center;
 			background-size: cover;
 			background-repeat: none;
-			margin-left: 70px;
-			margin-right: 70px;
+	/*		margin-left: 70px;
+			margin-right: 70px;*/
 		}
 
 		.client img{
@@ -424,11 +498,16 @@ body{
 			justify-content: center;
 			background-color: #282828;
 			min-height: 100vh;
+			padding-bottom: 0px; 
 			/*padding-left: 70px;*/	
 			/*width: calc(100% - 200px);*/
 			/*padding:  70px 100px;*/
 			/*height: 125vh;*/
 
+		}
+		.swiper-container{
+
+			margin-top: 75px;
 		}
 
 		.g-project {
@@ -448,7 +527,7 @@ body{
 		}
 		.image{
 			width: 100% !important;
-			margin: 30px 0px;
+			/*margin: 30px 0px;*/
 		}
 
 		.client{

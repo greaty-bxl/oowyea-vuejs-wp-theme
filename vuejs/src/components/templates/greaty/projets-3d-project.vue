@@ -10,13 +10,17 @@
 		<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
 			
 				<div class="icon global-project test__item on-screen" >
-				
+					
 						<a :href="child.permalink" >
 							<div class="client">
 
-								<img class="image-client" height="100%" width="100%" :src="child.thumb" >
+								<img class="image-client" height="100%" width="100%"  v-if="child.thumb" :src="child.thumb" >
+
+								<video class="image-client" height="100%" width="100%" loop autoplay="true" :src="child.fields.video" v-else></video>
+
+
 								<p class="name-client" v-html="child.post_title" ></p>
-								<p class="role-greaty">Corporated Website</p>
+								<p class="role-greaty" v-html="child.post_content"></p>
 
 							</div>
 						</a>
@@ -77,45 +81,52 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 	mounted(){
 
-		console.log(smart_fonts);
+		// console.log(this.wp.projects);
 
 		var $ = this.$
 
 		this.$emit('template_mounted', this)
 
+		// $('.global-project').css({
+		// 	// "opacity":"0",
+		// 	transform: 'translateY(100px)',
+		// 	opacity: 0,
+		// });
 
-		$('.global-project').on('leave-screen', (event) => {
 
-			$(event.target).css({
-				"opacity":"0",
-				transform: 'translateY(100px)',
-				opacity: 0,
-			});
 
-			/*anime({
-				targets: event.target,
-				translateY: '100px',
-				opacity: 0,
-			});*/
-		})
 
-		$( ".global-project" ).each( function( index , el) {
+	$('.global-project').on('leave-screen', (event) => {
 
-			$(el).on('enter-screen', (event) => {
-				anime({
-					targets: event.target,
-					translateY: '0px',
-					opacity: 1,
-					easing: 'easeInOutSine',
-					duration: 500,
-					delay: index * 100
-				});
-			})
+		$(event.target).css({
+			// "opacity":"0",
+			// transform: 'translateY(100px)',
+			opacity: 0,
 		});
 
+		/*anime({
+			targets: event.target,
+			translateY: '100px',
+			opacity: 0,
+		});*/
+	})
+
+	$( ".global-project" ).each( function( index , el) {
+
+		$(el).on('enter-screen', (event) => {
+			anime({
+				targets: event.target,
+				// translateY: '0px',
+				opacity: 1,
+				easing: 'easeInOutSine',
+				duration: 500,
+				delay: index * 200
+			});
+		})
+	});
 		smart_fonts({
 		'.smallTile' :54,
-		'.text-homepage' : 45,
+		'.text-homepage' : 52.8,
 		'.name-client': 22,
 		})
 
@@ -131,6 +142,14 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 
 </script>
+
+<style type="text/css">
+	
+	.g-project{
+
+		overflow: hidden;
+	}
+</style>
 
 
 <style scoped >
@@ -374,7 +393,8 @@ strong {
 
 						.post-client{
 
-							padding:  30px 35px;
+							padding:  70px 35px;
+							
 						}
 
 						.text-homepage{

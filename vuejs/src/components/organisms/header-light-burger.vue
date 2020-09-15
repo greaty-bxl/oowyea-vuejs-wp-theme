@@ -12,12 +12,12 @@
 					</div>
 					<ul class="bottomBody">
 						<li>ENTRER EN CONTACT</li><br>
-						<li><a href="tel:88002011486">+32 (0) 471 72 18 08</a></li>
+						<li><a href="tel:+32 (0) 471 72 18 08">+32 (0) 471 72 18 08</a></li>
 						<li><a href="mailto:i[at]greaty.be">i[at]greaty.be</a></li><br>
-						<li><a href="https://www.instagram.com/rokystudio/" target="_blank">Instagram</a></li>
+						<li><a href="https://www.instagram.com/greaty_studio/" target="_blank">Instagram</a></li>
 						<li><a href="https://www.facebook.com/greaty.be" target="_blank">Facebook</a></li>
-						<li><a href="https://www.linkedin.com/company/rokyrocks/" target="_blank">LinkedIn</a></li>
-						<li><a href="https://www.linkedin.com/company/rokyrocks/" target="_blank">GitHub</a></li>
+						<li><a href="https://www.linkedin.com/company/9386991/admin/" target="_blank">LinkedIn</a></li>
+						<!-- <li><a href="https://www.linkedin.com/company/rokyrocks/" target="_blank">GitHub</a></li> -->
 
 
 						
@@ -44,7 +44,8 @@ export default {
 	},
 	mounted(){
 		var $ = this.$
-
+        
+        // console.log(this.wp.menus);
 
 		this.$emit('template_mounted', this)
 
@@ -55,7 +56,7 @@ export default {
 		var height_total = $('.headerMore').outerHeight()
  
 
-		console.log(height_total);
+		// console.log(height_total);
 
 		// var animation_rajouter =  parseInt(height_petit_point) - parseInt(height_total)
 
@@ -77,7 +78,7 @@ export default {
 
 		$('.headerBody').find('a').css('color', color);
 
-		$('.headerButton').css('backdrop-filter', 'blur(20px)');
+		// $('.headerButton').css('backdrop-filter', 'blur(20px)');
 		// backdrop-filter: blur(20px);
 
 		$('.headerMore').click(function() {
@@ -137,13 +138,13 @@ export default {
 
 		$(document).on('click', function() {
 
-			console.log(event.target);
+			// console.log(event.target);
 
 		if($(event.target).parents('.headerButton').length != 0) {
 		// return false; // if you want to ignore the click completely
 		// return; // else
 
-		console.log('1');
+		// console.log('1');
 		}
 		else {
 		close()
@@ -153,7 +154,28 @@ export default {
 		});
 
 		});
+			$('.current-menu-item').find('a').css({
+					borderBottom: '1px solid white',
+				});
 
+			// $('.menu-item').click(function() {
+			// 	setTimeout(function() {
+
+			// 		$('.current-menu-item').find('a').css({
+			// 				borderBottom: '1px solid white',
+			// 			});
+
+			// 	}, 10);
+				
+			// });
+
+				
+
+			
+			
+
+
+	
 		// click external than the parents class menu function close
 
 
@@ -234,6 +256,8 @@ export default {
 </script>
 
 <style>
+
+
 
 	#header-logo img{
 
@@ -346,7 +370,7 @@ export default {
 	top: 20px;
 	right: 40px;
 	border-radius: 15px;
-	background-color: hsla(0,0%,100%,.2) !important;
+	background-color: #6e6e6e !important;
 	width: auto;
     min-width: 30px;
     z-index: 10000;

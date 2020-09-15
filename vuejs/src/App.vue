@@ -108,7 +108,7 @@ export default {
 
         get_new_page( this, event.href, (wp) => {
 
-          console.log( wp )
+          // console.log( wp )
           
           this.pages['next'] = wp.sections
           

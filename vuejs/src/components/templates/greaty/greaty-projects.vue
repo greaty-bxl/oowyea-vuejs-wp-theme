@@ -4,14 +4,13 @@
         <div class="clear"></div>
 
 
-		<div >
+		<div>
 		
 			<div class="center-flex">
 
 				<div class="div-text-homepage">
 					<Alpl class="title-page">PROJETS</Alpl> 
-					<Alpl class="text-homepage  ">Greaty trouve des solutions cohérentes issues d’une démarche ou rien n’est laissé au hasard.
-					</Alpl>
+					<Alpl class="text-homepage  ">Greaty trouve des solutions cohérentes issues d’une démarche ou rien n’est laissé au hasard.</Alpl>
 				</div>
 			</div>
 
@@ -113,10 +112,12 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 		smart_fonts({
 		'.smallTile' :54,
-		'.text-homepage' : 45,
+		'.text-homepage' : 52.8,
 		'.name-client': 22,
 		})
 
+		
+		
 	
 
 	}
@@ -387,10 +388,10 @@ strong {
 
 							/*padding-top: 70px;*/
 							/*padding-bottom: 150px;*/
-							width: 70% ;
+							/*width: 70% ;*/
 							/*margin: auto 70px;*/
 							/*width: 100%;*/
-							font-size: 3.3em;
+							/*font-size: 3.3em;*/
 							color: #e1e1e1;
 							font-family: 'Montserrat', sans-serif !important;
 							font-weight: lighter;
@@ -451,7 +452,7 @@ strong {
 
 						.div-text-homepage{
 
-							width:  70%;
+							width:  80%;
 						}
 
 
@@ -579,10 +580,26 @@ strong {
 							height: 100vh;
 						}
 
+						.title-page{
+							font-size: 14px;
+							padding-left: 70px;
+						}
+
 				}
 
 
 				@media screen and (max-width: 600px) {
+
+						.center-flex{
+
+							min-height: 100vh;
+						/*	display: flex;
+							flex-direction: column;
+							justify-content: center;*/
+							margin: auto 0px;
+
+						}
+
 
 
 						.banner{
@@ -622,10 +639,10 @@ strong {
 						.title-page{
 
 							font-size: 10px !important;
-							padding-bottom: 5%;
+							padding-bottom: 7%;
 							text-transform: capitalize;
 							letter-spacing: 10px;
-							padding-top: 20%;
+							padding-top: 10%;
 							text-align: left;
 						}
 
@@ -651,7 +668,6 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 150px;
 							padding-bottom: 5%;
 							margin: auto 30px;
 							font-size: 3.1em;
@@ -659,6 +675,8 @@ strong {
 							font-family: 'Montserrat', sans-serif !important;
 							font-weight: lighter;
 							text-align: left;
+							width: calc(100% - 60px);
+
 
 						}
 
@@ -676,6 +694,26 @@ strong {
 							padding-top: 100px;
 							padding-bottom: 120px;
 
+						}
+
+						.text-homepage{
+
+							/*padding-top: 70px;*/
+							padding-top: 0px;
+							/*width: 70% ;*/
+							/*margin: auto 70px;*/
+							/*width: 100%;*/
+							font-size: 3.3em;
+							color: #e1e1e1;
+							font-family: 'Montserrat', sans-serif !important;
+							font-weight: lighter;
+							text-align: left;
+
+						}
+						.title-page{
+							margin-left: 30px;
+							margin-top: 95px;
+							width: auto;
 						}
 
 

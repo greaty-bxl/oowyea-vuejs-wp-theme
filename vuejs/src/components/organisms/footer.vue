@@ -6,37 +6,37 @@
 			<footer>
 
 			<div class="textbox">
-			<div  class="div-text-contact on-screen">
-			<div class="text-contact on-screen">
-			Vous avez une idée.<br>
-			Nous avons l'expertise pour la réaliser.<br>
-			Faites-nous un <u><strong><a href="">coucou</a></strong></u> 
-
+			<div  class="div-text-contact ">
+			<Alpl class="text-contact">Vous avez une idée.<br>
+				Nous avons l'expertise pour la réaliser.<br>
+				Faites-nous un <u><strong><a href="">coucou</a></strong> </u>
+			</Alpl>
 <li class="c-box__list--item">
+<!-- <?xml version="1.0" encoding="iso-8859-1"?> -->
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg class="c-emoji c-emoji-laugh" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.993 511.993" style="enable-background:new 0 0 511.993 511.993;" xml:space="preserve">
 <g transform="matrix(1.25 0 0 -1.25 0 45)">
 <g>
-    <g>
-        <path style="fill:#FFCC4D;" d="M349.614-23.981c79.974-79.974,79.974-209.658,0-289.633s-209.647-79.974-289.633,0
-            c-79.974,79.974-79.974,209.658,0,289.633C139.967,55.994,269.639,55.994,349.614-23.981"/>
-        <path style="fill:#664500;" d="M219.349-183.361c-39.754-39.754-70.758-61.486-109.739-87.768
-            c-8.875-6.019-21.936-21.948,0.023-43.895c43.884-43.884,149.163-48.321,219.432,21.948
-            c70.292,70.281,65.866,175.559,21.959,219.455c-21.959,21.948-37.888,8.886-43.895,0
-            C280.858-112.58,259.115-143.607,219.349-183.361"/>
-        <path style="fill:#FFFFFF;" d="M131.57-293.043c0,0,43.895,21.948,109.727,87.791c65.843,65.82,87.78,109.716,87.78,109.716
-            s21.948-65.843-54.852-142.655C197.402-314.99,131.57-293.043,131.57-293.043"/>
-        <g>
-            <path style="fill:#664500;" d="M142.618-143.88c-0.284-2.719-2.389-4.892-5.086-5.325c-0.182-0.011-18.421-3.049-39.219-23.848
-                c-20.787-20.787-23.825-39.026-23.859-39.196c-0.387-2.697-2.571-4.836-5.279-5.109c-2.719-0.319-5.313,1.24-6.303,3.812
-                c-0.637,1.661-15.303,40.858,9.887,66.048c25.202,25.202,64.398,10.524,66.059,9.887
-                C141.343-138.601,142.902-141.172,142.618-143.88"/>
-            <path style="fill:#664500;" d="M253.346-33.151c-0.273-2.708-2.367-4.892-5.074-5.325c-0.182-0.011-18.432-3.049-39.208-23.836
-                c-20.799-20.799-23.848-39.049-23.871-39.196c-0.387-2.708-2.56-4.824-5.279-5.131c-2.719-0.307-5.325,1.263-6.315,3.823
-                c-0.637,1.65-15.292,40.858,9.91,66.048c25.179,25.19,64.375,10.524,66.037,9.887C252.095-27.872,253.653-30.432,253.346-33.151
-                "/>
-        </g>
-    </g>
+<g>
+  <path style="fill:#FFCC4D;" d="M349.614-23.981c79.974-79.974,79.974-209.658,0-289.633s-209.647-79.974-289.633,0
+      c-79.974,79.974-79.974,209.658,0,289.633C139.967,55.994,269.639,55.994,349.614-23.981"/>
+  <path style="fill:#664500;" d="M219.349-183.361c-39.754-39.754-70.758-61.486-109.739-87.768
+      c-8.875-6.019-21.936-21.948,0.023-43.895c43.884-43.884,149.163-48.321,219.432,21.948
+      c70.292,70.281,65.866,175.559,21.959,219.455c-21.959,21.948-37.888,8.886-43.895,0
+      C280.858-112.58,259.115-143.607,219.349-183.361"/>
+  <path style="fill:#FFFFFF;" d="M131.57-293.043c0,0,43.895,21.948,109.727,87.791c65.843,65.82,87.78,109.716,87.78,109.716
+      s21.948-65.843-54.852-142.655C197.402-314.99,131.57-293.043,131.57-293.043"/>
+  <g>
+      <path style="fill:#664500;" d="M142.618-143.88c-0.284-2.719-2.389-4.892-5.086-5.325c-0.182-0.011-18.421-3.049-39.219-23.848
+          c-20.787-20.787-23.825-39.026-23.859-39.196c-0.387-2.697-2.571-4.836-5.279-5.109c-2.719-0.319-5.313,1.24-6.303,3.812
+          c-0.637,1.661-15.303,40.858,9.887,66.048c25.202,25.202,64.398,10.524,66.059,9.887
+          C141.343-138.601,142.902-141.172,142.618-143.88"/>
+      <path style="fill:#664500;" d="M253.346-33.151c-0.273-2.708-2.367-4.892-5.074-5.325c-0.182-0.011-18.432-3.049-39.208-23.836
+          c-20.799-20.799-23.848-39.049-23.871-39.196c-0.387-2.708-2.56-4.824-5.279-5.131c-2.719-0.307-5.325,1.263-6.315,3.823
+          c-0.637,1.65-15.292,40.858,9.91,66.048c25.179,25.19,64.375,10.524,66.037,9.887C252.095-27.872,253.653-30.432,253.346-33.151
+          "/>
+  </g>
+</g>
 </g>
 </g>
 <g>
@@ -72,22 +72,17 @@
 </svg>
 </li>
 
-<li class="c-box__list--item">	
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-</li>
-
 			</div>
 			</div>
-			</div>
-			<div class="footer-text">
+			<div class="footer-text on-screen">
 
 			<div class="adresse-social">
 
 			<div>
 
-			<p class="on-screen">Greaty</p>
-			<p class="on-screen">Blvd de l'Humanité 415,</p>
-			<p class="on-screen">1190 Bruxelles</p> 
+			<p class="">Greaty</p>
+			<p class="">Bd. de l'Humanité 415,</p>
+			<p class="">1190 Bruxelles</p> 
 
 			</div>
 
@@ -95,23 +90,21 @@
 
 			<div class="confidentialite">
 
-			<div>
 
-			<p class="on-screen">i[at]greaty.be</p>
-			<p class="on-screen">+32 (0) 471 72 18 08</p>
-			<p class="on-screen">BE 0 541 980 669</p> 
-
-			</div>
+			<p class="" > <a href="mailto:i[at]greaty.be"> i[at]greaty.be </a></p>
+			<p class="" > <a href="tel:+32 (0) 471 72 18 08">+32 (0) 471 72 18 08</a></p>
+			<p class=""><a href=""></a>Google Maps</p>
 
 			</div>
 
 			<div class="confidentialite">
 
-			<p class="on-screen"><a  href="">GREATY © 2020</a></p>
+			<p class=""><a>GREATY © 2020</a></p>
 
-			<p class="on-screen"><a href="">Confidentialité</a></p>
+			<p class=""><a>BE 0 541 980 669 </a></p>
 
-			<p class="on-screen"><a href="">C.G.V</a></p>
+			
+			<p class=""><a target="_blank" href="https://drive.google.com/file/d/1HHzzPe2Ds-C45aacgBNIrgyP0mwOUm9N/view?usp=sharing">C.G.V</a></p> 
 
 			</div>
 
@@ -128,102 +121,150 @@
 <script>
 
 	import smart_fonts from "Libs/smart-fonts.js"
-
+	import Alpl from 'Molecules/animation-line-per-line';
 	import anime from 'animejs/lib/anime.es.js';
 	export default {
-		// Alpl,
-		anime,
+
+		components:{
+			Alpl,
+			// anime,
+		},
+		
 
 		mounted(){
+
+
+
+		
+
+			this.$emit('template_mounted', this);
+
+			// anime.height()
 			var $ = this.$
 
-			$('p').css({
-				translateY: '0px',
-				opacity: 0,
-			});
+			$('.footer-text').on('leave-screen', (event) => {
 
-
-			$( "p " ).each( function( index , el) {
-
-			$(el).on('enter-screen', (event) => {
-				anime({
-					targets: event.target,
-					translateY: '10px',
-					opacity: 1,
-					easing: 'easeInOutSine',
-					duration: 500,
-					delay: index * 100
-				});
-
-			})
-
-
-			});
-
-				$('.div-text-contact').on('leave-screen', (event) => {
-
-				$(event.target).css("opacity","0");
-
-					anime({
-						targets: event.target,
-						translateY: '100px',
-						opacity: 0,
-
-					});
-
-				})
-
-				$( ".div-text-contact" ).each( function( index , el) {
-
-				$(el).on('enter-screen', (event) => {
-					anime({
-						targets: event.target,
-						translateY: '0px',
-						opacity: 1,
-						easing: 'easeInOutSine',
-						duration: 500,
-						delay: index * 100
-					});
-
-				})
-
-
-			});
-
-			$('a').on('leave-screen', (event) => {
-
-			// $(event.target).css("opacity","0");
-
-				anime({
-					targets: event.target,
-					translateY: '10px',
+				$(event.target).css({
+					// "opacity":"0",
+					// transform: 'translateY(20px)',
 					opacity: 0,
-
 				});
 
+					// alert('2')
 			})
 
-			$( "a" ).each( function( index , el) {
 
-			$(el).on('enter-screen', (event) => {
+			$('.footer-text').on('enter-screen', (event) => {
 				anime({
 					targets: event.target,
-					translateY: '10px',
+					// translateY: '0px',
 					opacity: 1,
 					easing: 'easeInOutSine',
 					duration: 500,
-					delay: index * 100
+					delay: 500
 				});
+
+				// alert('1')
 
 			})
 
+			// $('.c-box__list--item').on('leave-screen', (event) => {
 
-			});
+			// 	$(event.target).css({
+			// 		// "opacity":"0",
+			// 		// transform: 'translateY(20px)',
+			// 		opacity: 0,
+			// 	});
 
-			this.$emit('template_mounted', this)
+		
+			// })
+
+			// // $('.footer-text').css({
+			// // 	transform: 'translateY(20px)',
+			// // 	opacity: 0,
+			// // });
+
+
+			// // $('.footer-text').each( function() {
+
+			// $('.c-box__list--item').on('enter-screen', (event) => {
+			// 	anime({
+			// 		targets: event.target,
+			// 		// translateY: '0px',
+			// 		opacity: 1,
+			// 		easing: 'easeInOutSine',
+			// 		duration: 500,
+			// 		delay: 500
+			// 	});
+
+			// })
+
+			
+			// });
+
+
+			// 	$('.div-text-contact').css({
+			// 		transform: 'translateY(100px)',
+			// 		opacity: 0,
+			// 	});
+
+			// 	$( ".div-text-contact" ).each( function( index , el) {
+
+			// 	$(el).on('enter-screen', (event) => {
+			// 		anime({
+			// 			targets: event.target,
+			// 			translateY: '0px',
+			// 			opacity: 1,
+			// 			easing: 'easeInOutSine',
+			// 			duration: 500,
+			// 			delay: index * 500
+			// 		});
+
+			// 	})
+
+
+			// });
+
+
+			// 	$('a').css({
+			// 		transform: 'translateY(10px)',
+			// 		opacity: 0,
+			// 	});
+
+			// $('a').on('leave-screen', (event) => {
+
+			// // $(event.target).css("opacity","0");
+
+			// 	anime({
+			// 		targets: event.target,
+			// 		translateY: '10px',
+			// 		opacity: 0,
+
+			// 	});
+
+			// })
+
+			// $( "a" ).each( function( index , el) {
+
+			// $(el).on('enter-screen', (event) => {
+			// 	anime({
+			// 		targets: event.target,
+			// 		translateY: '10px',
+			// 		opacity: 1,
+			// 		easing: 'easeInOutSine',
+			// 		duration: 500,
+			// 		delay: index * 100
+			// 	});
+
+			// })
+
+
+			// });
+
+	
 
 			smart_fonts({
-				'.text-contact' :45,
+				'.text-contact' : 52.8,
 			})
 
 		}
@@ -234,6 +275,11 @@
 
 <style scoped>
 		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
+		footer{
+
+			overflow: hidden;
+		}
 		nav{
 		width: 100%;
 		/*height: 35px;*/
@@ -273,6 +319,10 @@
 		footer{
 		font-family: 'Montserrat', sans-serif; 
 		}
+		.word{
+
+			text-align: left;
+		}
 
 		a{
 			color: #e1e1e1;
@@ -295,7 +345,7 @@
 				display: flex;
 				-webkit-box-orient: vertical;
 				flex-direction: column;
-				min-height: calc(100vh - 60px);
+				min-height: calc(100vh - 80px);
 
 				}
 
@@ -440,10 +490,6 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			}
-			.on-screen{
-
-
 			}
 
 			.confidentialite{

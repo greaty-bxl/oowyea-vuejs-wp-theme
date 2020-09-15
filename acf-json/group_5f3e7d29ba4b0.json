@@ -6,7 +6,7 @@
             "key": "field_5f3e7d39776a1",
             "label": "image projet",
             "name": "image_projet",
-            "type": "image",
+            "type": "gallery",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,11 +16,12 @@
                 "id": ""
             },
             "acfe_permissions": "",
-            "acfe_uploader": "wp",
-            "acfe_thumbnail": 0,
             "return_format": "array",
             "preview_size": "medium",
+            "insert": "append",
             "library": "all",
+            "min": "",
+            "max": "",
             "min_width": "",
             "min_height": "",
             "min_size": "",
@@ -68,6 +69,23 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
+        },
+        {
+            "key": "field_5f5f7feeab8dc",
+            "label": "video",
+            "name": "video",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_permissions": "",
+            "default_value": "",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -95,5 +113,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1599061501
+    "modified": 1600094943
 }

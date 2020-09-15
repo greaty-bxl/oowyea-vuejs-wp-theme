@@ -2,11 +2,9 @@
 
 define('is_vuejs_dev', true);
 
-define('vuejs_server', 'http://localhost:8080/');
 // define('vuejs_server', 'http://localhost:8080/');
-
+define('vuejs_server', 'http://192.168.1.3:8080');
 //Register Vue.js templates components 
-
 //for the hierarchy
 $vue_hierarchy = array(
 	'404',
@@ -41,11 +39,12 @@ $vue_templates = array(
     'descritifProjets' => 'Descritif projets',
     'video-animation' => 'Video animation',
     'grid-services' => 'Grid Services',
+    'grid-services-2' => 'Grid Services 2',
     'members' => 'Members',
     'text-clients' => 'Text client',
     'grid-clients' => 'Grid Clients',
 
-    
+    // grid-services-2
 
     
 );

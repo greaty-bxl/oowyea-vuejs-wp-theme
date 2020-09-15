@@ -20,11 +20,11 @@ mounted(){
 
 	console.log(width_window);
 
-	if (width_window < '500')  {
+	if (width_window < '900')  {
 
-		var selector_1 =  ""
+		// var selector_1 =  ""
 
-		selector_1.remove()
+		// selector_1.remove()
 
 	}
 
@@ -50,7 +50,9 @@ mounted(){
 			// var topPost = 0
 		
 			function boxRollovers()
-			{
+			{	
+				selector = $(".g-project")
+
 				selector.on("mousemove",function(e){
 
 					var $this = $(this);
@@ -58,23 +60,23 @@ mounted(){
 					var YRel = e.pageY - $this.offset().top ;
 					var width = $this.width();
 
-					YAngle = -(0.5 - (XRel / width)) * 8; 
-					XAngle = (0.5 - (YRel / width)) * 8;
+					YAngle = -(0.5 - (XRel / width)) * 4; 
+					XAngle = (0.5 - (YRel / width)) * 4;
 					updateView($this.children(".icon"));
 
 				});
 
 				selector.on("mouseleave",function(){
 				oLayer = $(this).children(".icon");
-				oLayer.css({"transform":"perspective(525px) translateY(0px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
-				oLayer.find("strong").css({"transform":"perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+				oLayer.css({"transform":"perspective(1000px) translateY(0px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+				oLayer.find("strong").css({"transform":"perspective(1000px) translateZ(0) rotateX(0deg) rotateY(0deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
 				});
 				}
 
 				function updateView(oLayer)
 				{
-				oLayer.css({"transform":"perspective(525px) translateY(0px) translateZ(" + Z + "px) rotateX(" + XAngle + "deg) rotateY(" + YAngle + "deg)" ,"transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
-				oLayer.find("strong").css({"transform":"perspective(525px) translateZ(" + Z + "px) rotateX(" + (XAngle / 0.22) + "deg) rotateY(" + (YAngle / 0.66) + "deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+				oLayer.css({"transform":"perspective(1000px) translateY(0px) translateZ(" + Z + "px) rotateX(" + XAngle + "deg) rotateY(" + YAngle + "deg)" ,"transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
+				oLayer.find("strong").css({"transform":"perspective(1000px) translateZ(" + Z + "px) rotateX(" + (XAngle / 0.22) + "deg) rotateY(" + (YAngle / 0.66) + "deg)","transition":"all 300ms linear 0s","-webkit-transition":"all 300ms linear 0s"});
 				}
 
 

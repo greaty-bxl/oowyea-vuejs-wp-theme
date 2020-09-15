@@ -16,7 +16,7 @@ export default{
 		let $ = this.$
 
 		let lines = {}
-		let i_lines = 0
+		// let i_lines = 0
 
 
 
@@ -85,10 +85,8 @@ export default{
 		});
 		$( this.$el ).find('.char').css({
 			'display': 'inline-block',
-			'transform': 'translateY(100px)',
+			'transform': 'translateY(50px)',
 
-			// 'overflow': 'hidden',
-			
 		});
 
 		$( this.$el ).find('.word')
@@ -96,8 +94,8 @@ export default{
 		.addClass('on-screen')
 		.on('leave-screen', () => {
 			$( this.$el ).find('.char').css({
-				// 'opacity': 0,
-				'translateY': 500
+				'opacity': 0,
+				'translateY': 50,
 			});
 		})
 	
@@ -126,32 +124,32 @@ export default{
 				//$("[data-lettertop="+ val +"]:first").addClass('line')
 			});*/
 
-			$.each(lines, (/*index, val*/) => {
+			//$.each(lines, (/*index, val*/) => {
 
-				let delay = i_lines * 50
+				//let delay = i_lines * 50
 
 				// console.log(i_lines);
 
-				setTimeout( ()=>{
 					/*$('[data-lettertop='+val+']').each( (index, el) => {
 							
 					});*/
 					// console.log('anime', '.char'+this._uid);
 					anime({
 						targets: '.char'+this._uid,
-						// opacity: 1,
+						opacity: 1,
 						translateY: 0,
 						easing: 'cubicBezier(0.25, 0.46, 0.45, 0.94)',
-						delay: delay,
-						// duration: 700
+						duration: 500,
+						delay: 700,
+						
 					}) ;
-				}, 1 )
+		
 					
 				// console.log('enter', $('[data-lettertop='+val+']').length, i_lines );
 
 
-				i_lines ++
-			});
+				//i_lines ++
+			//});
 		});
 		
 		

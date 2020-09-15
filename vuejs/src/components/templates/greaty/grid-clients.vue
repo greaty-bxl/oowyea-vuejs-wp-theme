@@ -33,7 +33,6 @@ export default {
 	},
 	mounted (){
 
-
 		var $ = this.$
 
 		console.log(this.wp);
@@ -44,7 +43,7 @@ export default {
 		smart_fonts({
 		'.text-homepage' : 52.8
 		})
-
+		
 		//Important to let works basic functions
 		this.$emit('template_mounted', this)
 	
@@ -220,7 +219,7 @@ p{
 
 		// padding-top: 70px;
 		/*padding-bottom: 150px;*/
-		width: 70% ;
+		width: 80% ;
 		margin: auto 70px;
 		/*width: 100%;*/
 		font-size: 3.3em;

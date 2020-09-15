@@ -14,9 +14,11 @@
 						<a :href="child.permalink" >
 							<div class="client">
 
-								<img class="image-client" height="100%" width="100%" :src="child.thumb" >
+								<img class="image-client" height="100%" width="100%"  v-if="child.thumb" :src="child.thumb" >
+
+								<video class="image-client" height="100%" width="100%" loop autoplay="true" :src="child.fields.video" v-else></video>
 								<p class="name-client" v-html="child.post_title" ></p>
-								<p class="role-greaty">Corporated Website</p>
+								<p class="role-greaty" v-html="child.post_content" ></p>
 
 							</div>
 						</a>
@@ -39,8 +41,9 @@
 <script>
 
 // import Alpl from 'Molecules/animation-line-per-line';
-import anime from 'animejs/lib/anime.es.js';
+
 import Anime3d from 'Molecules/animation-3d';
+import anime from 'animejs/lib/anime.es.js';
 // import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
 // import fixit from 'Libs/fix-it.js';
@@ -83,40 +86,46 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 		this.$emit('template_mounted', this)
 
+		// $('.global-project').css({
+		// 	// "opacity":"0",
+		// 	transform: 'translateY(100px)',
+		// 	opacity: 0,
+		// });
+
+
 
 			$('.global-project').on('leave-screen', (event) => {
 
-			$(event.target).css("opacity","0");
+				$(event.target).css({
+					// "opacity":"0",
+					// transform: 'translateY(100px)',
+					opacity: 0,
+				});
 
-				anime({
+				/*anime({
 					targets: event.target,
 					translateY: '100px',
 					opacity: 0,
-
-				});
-
+				});*/
 			})
 
 			$( ".global-project" ).each( function( index , el) {
 
-			$(el).on('enter-screen', (event) => {
-				anime({
-					targets: event.target,
-					translateY: '0px',
-					opacity: 1,
-					easing: 'easeInOutSine',
-					duration: 500,
-					delay: index * 100
-				});
-
-			})
-
-
-		});
+				$(el).on('enter-screen', (event) => {
+					anime({
+						targets: event.target,
+						// translateY: '0px',
+						opacity: 1,
+						easing: 'easeInOutSine',
+						duration: 500,
+						delay: index * 200
+					});
+				})
+			});
 
 		smart_fonts({
 		'.smallTile' :54,
-		'.text-homepage' : 45,
+		'.text-homepage' : 52.8,
 		'.name-client': 22,
 		})
 
@@ -375,15 +384,16 @@ strong {
 
 						.post-client{
 
-							padding:  30px 35px;
+							padding:  70px 35px;
+							
 						}
 
 						.text-homepage{
 
 							/*padding-top: 70px;*/
 							/*padding-bottom: 150px;*/
-							width: 70% ;
-							margin: auto 70px;
+							width: 80% ;
+							margin: auto 0px;
 							/*width: 100%;*/
 							font-size: 3.3em;
 							color: #e1e1e1;

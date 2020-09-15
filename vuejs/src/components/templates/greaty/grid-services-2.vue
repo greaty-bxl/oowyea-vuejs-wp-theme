@@ -16,50 +16,41 @@
     </div> -->
             <div class="firstSection">
                 <div class="grid-services">
-                    <div class="item-services">
+              <div class="item-services">
                         <div class="item-text on-screen">
-                            <div class="smallTile">Stratégie</div>
+                            <div class="smallTile">Digital design</div>
                                 <ul>
-                                    <li> Consultance graphique</li>
-                                    <li> Audit stratégie</li>
-                                    <li> Stratégie de communication</li>
-                                    <li> Conception publicitaire</li>
+                                    <li> UI / UX design</li>
+                                    <li> Direction artistique digitale</li>
+                                    <li> Webdesign sites internet</li>
+                                    <li> Webdesign applications</li>
+                                    <li> Motion design</li>
+                                </ul>
+                            </div>
+
+                        <div class="item-text on-screen">
+                            <div class="smallTile">Dev Web</div>
+                                <ul>
+                                    <li> Intégration HTML5 / CSS3</li>
+                                    <li> Développement PHP / MYSQL</li>
+                                    <li> Développement de sites Web</li>
+                                    <li> Application mobile</li>
+                                    <li> Développement frontend</li>
+                                    <li> CMS</li>
+                                    <li> Intranets</li>
+                                    <li> Développement Backend</li>
+                                    <li> E-Commerce / Webshops</li>
                                 </ul>
                         </div>
-
                         <div class="item-text on-screen">
-                            
-                                <div class="smallTile">Design</div>
-                                    <ul>
-                                        <li> Identité visuelle</li>
-                                        <li> Charte graphique</li>
-                                        <li> Création de logo</li>
-                                        <li> Brochure &amp; catalogue</li>
-                                        <li> Magazine &amp; éditorial</li>
-                                        <li> Rapport annuel </li>
-                                        <li> Illustation</li>
-                                        <li> Matériels promotionnels</li>
-                                        <li> Packaging</li>
-                                        <li> Etc</li>
-                                    </ul>
-                        </div>
-
-                        <div class="item-text on-screen">
-                            <div class="smallTile">Impression</div>
+                            <div class="smallTile">Tech Web</div>
                                 <ul>
-                                    <li> Papeterie</li>
-                                    <li> Panneau</li>
-                                    <li> Bâche</li>
-                                    <li> Stand</li>
-                                    <li> Vitrine</li>
-                                    <li> Autocollant</li>
-                                    <li> Véhicule</li>
-                                    <li> Textile</li>
-                                    <li> Etc</li>
+                                    <li> (Web) Hosting</li>
+                                    <li> Domaines</li>
+                                    <li> Serveur et stockage</li>
                                 </ul>
                         </div>
-              </div>
-
+                    </div>
                 </div>
             </div>
           
@@ -75,7 +66,7 @@
 <script>
 // import textcotact from './components/text-contact';
 import smart_fonts from "Libs/smart-fonts.js";
-import anime from 'animejs/lib/anime.es.js';
+// import anime from 'animejs/lib/anime.es.js';
 // import Alpl from 'Molecules/animation-line-per-line';
 export default {
 	components: {
@@ -89,54 +80,51 @@ export default {
 	},
 	mounted (){
         
-        var $ = this.$
+        // var $ = this.$
 
+        this.$emit('template_mounted', this)
+
+
+            // $('.item-services').on('leave-screen', (event) => {
+
+            //     $(event.target).css({
+            //         // "opacity":"0",
+            //         transform: 'translateY(100px)',
+            //         opacity: 0,
+            //     });
+
+            // })
+
+            // $( ".item-services" ).each( function( index , el) {
+
+            //     $(el).on('enter-screen', (event) => {
+            //         anime({
+            //             targets: event.target,
+            //             translateY: '0px',
+            //             opacity: 1,
+            //             easing: 'easeInOutSine',
+            //             duration: 500,
+            //             delay: index * 500
+            //         });
+            //     })
+            // });
             //Important to let works basic functions
-
-            this.$emit('template_mounted', this)
-
+         
             /* var test =  document.getElementsByClassName("title"); */
             // $(".item-text").css("opacity","0");
 
-            $('.item-services').on('leave-screen', (event) => {
-
-                $(event.target).css({
-                    // "opacity":"0",
-                    // transform: 'translateY(100px)',
-                    opacity: 0,
-                });
-
-                /*anime({
-                    targets: event.target,
-                    translateY: '100px',
-                    opacity: 0,
-                });*/
-            })
-
-            $( ".item-services" ).each( function( index , el) {
-
-                $(el).on('enter-screen', (event) => {
-                    anime({
-                        targets: event.target,
-                        // translateY: '0px',
-                        opacity: 1,
-                        easing: 'easeInOutSine',
-                        duration: 500,
-                        delay: index * 500
-                    });
-                })
-            });
-        
-
+   
+            
             smart_fonts({
             '.smallTile' :54,
-            '.item-text' : 22,
+            '.item-text' : 20,
             })
-
+	
 	}
 }
 
 </script>
+
 
 <style >
     

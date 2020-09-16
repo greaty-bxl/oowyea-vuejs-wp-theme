@@ -20,7 +20,8 @@
             :cat="wp.wp_query.queried_object"
             :author="wp.wp_query.queried_object"
             :s="wp.wp_query.query_vars.s"
-            @template_mounted="template_mounted" ></component>
+            @template_mounted="template_mounted" 
+            class="section-wrap" ></component>
 
       </div>
     </div>

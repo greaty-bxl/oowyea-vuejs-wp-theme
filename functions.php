@@ -11,11 +11,11 @@
 define('GREATY_TEMPLATE_PATH', get_template_directory());
 define('GREATY_TEMPLATE_URL', get_template_directory_uri());
 
-/*include GREATY_TEMPLATE_PATH.'/security/security.php';
+/*include GREATY_TEMPLATE_PATH.'/security/security.php';*/
 include GREATY_TEMPLATE_PATH.'/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
-include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';*/
+include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
+//include GREATY_TEMPLATE_PATH.'/plugins/multi-domains/multi-domains.php';
 
-include GREATY_TEMPLATE_PATH.'/vue.config.php';
 
 /*------------------------------------*\
     Vue.js Libraries & functions
@@ -25,6 +25,9 @@ include GREATY_TEMPLATE_PATH.'/vue.config.php';
 $wp_vue_json;
 
 include GREATY_TEMPLATE_PATH.'/libs/get_vue_template.php';
+
+include GREATY_TEMPLATE_PATH.'/vue.config.php';
+
 include GREATY_TEMPLATE_PATH.'/libs/wp_vue_add_var.php';
 include GREATY_TEMPLATE_PATH.'/libs/vue-to-templates.php';
 include GREATY_TEMPLATE_PATH.'/libs/menus.php';
@@ -64,7 +67,6 @@ function auto_include_php_scripts($dir, &$results = array()) {
         }
     }
 }
-
 auto_include_php_scripts(GREATY_TEMPLATE_PATH.'/vuejs/src/wp');
 
 

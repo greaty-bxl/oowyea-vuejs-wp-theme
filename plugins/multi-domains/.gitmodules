@@ -1,0 +1,4 @@
+[submodule "extra"]
+	path = extra
+	url = git@github.com:wpmudev/wpmudev-dashboard-notification.git
+	branch = master

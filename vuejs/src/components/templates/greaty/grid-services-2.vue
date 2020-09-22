@@ -17,7 +17,7 @@
             <div class="firstSection">
                 <div class="grid-services">
               <div class="item-services">
-                        <div class="item-text on-screen">
+                        <div class="item-text">
                             <div class="smallTile">Digital design</div>
                                 <ul>
                                     <li> UI / UX design</li>
@@ -28,7 +28,7 @@
                                 </ul>
                             </div>
 
-                        <div class="item-text on-screen">
+                        <div class="item-text ">
                             <div class="smallTile">Dev Web</div>
                                 <ul>
                                     <li> Intégration HTML5 / CSS3</li>
@@ -42,7 +42,7 @@
                                     <li> E-Commerce / Webshops</li>
                                 </ul>
                         </div>
-                        <div class="item-text on-screen">
+                        <div class="item-text">
                             <div class="smallTile">Tech Web</div>
                                 <ul>
                                     <li> (Web) Hosting</li>
@@ -176,7 +176,6 @@ export default {
 .item-text {
     margin-top: 5%;
     text-align: left;
-    opacity: 0;
 }
 
 .div-text-homepage{

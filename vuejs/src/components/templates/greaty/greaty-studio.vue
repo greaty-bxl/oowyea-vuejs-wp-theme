@@ -7,7 +7,7 @@
 
 					<div class="div-text-homepage">
 						<Alpl class="title-page">STUDIO</Alpl> 
-						<Alpl class="text-homepage  ">Greaty, c’est de la création graphique et digital sur mesure depuis 2013 mais surtout une expérience professionnelle dans le domaine graphique et digital depuis plus de 10 ans.</Alpl>
+						<Alpl class="text-homepage  ">Greaty, c’est de la création graphique et digitale sur-mesure depuis 2013 mais surtout une expérience professionnelle dans le domaine graphique et digital depuis plus de 10 ans.</Alpl>
 					</div>
 				</div>
 
@@ -684,6 +684,11 @@ strong {
                         width:100%;
 
                     }
+                    .div-text-homepage{
+
+                        margin-bottom: 70px;
+                    }
+
 
                     .title-page{
 

@@ -278,7 +278,7 @@ p{
 
 		min-height: 100vh;
 
-		padding:  30px 35px;
+		// padding:  30px 35px;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;

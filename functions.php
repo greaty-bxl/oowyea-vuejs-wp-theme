@@ -488,4 +488,9 @@ remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altoget
 
 
 
+// add_filter ('wp_image_editors', 'wpse303391_change_graphic_editor');
+// function wpse303391_change_graphic_editor ($array) {
+//     return array( 'WP_Image_Editor_GD', 'WP_Image_Editor_Imagick' );
+//     }
+
 ?>

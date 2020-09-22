@@ -114,7 +114,7 @@ export default {
 	height: 70vh;
 
 }
-.swiper1{
+/*.swiper1{
 
 	width: 25%;
 	position: absolute;
@@ -126,7 +126,7 @@ export default {
 	flex-direction: column;
 
 
-}
+}*/
 
 .swiper{
 

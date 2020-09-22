@@ -15,18 +15,17 @@
 			<p class="notre-service"><strong>Ce que nous avons réalisé :</strong> </p>
 		<div class="services-fourni" v-html="post.fields.liste_services"></div>
 	</div>	
+
 	<div class='div-images'>
 		<img class="image" v-for="item in post.acf_fields.image_projet"  :key="item.ID" :src="item.url" >
 	</div>
 
-	<!-- <div class="post-client">
-
-	</div> -->
 
 	<div class="div-parent-slide-text">	
 		<swiper class="swiper1" :options="swiperOption1">
+			
+			<swiper-slide   class="slide-full-view" v-for="child in wp.projects" :key="child.ID"  >
 
-			<swiper-slide  class="slide-full-view" v-for="child in wp.projects" :key="child.ID" >
 				<a :href="child.permalink" >
 									<div class="client-swiper">
 <!-- wp.projects -->
@@ -79,22 +78,49 @@ export default {
 		},
 		mounted (){
 
-		// console.log( this.wp );
 
 		smart_fonts({
 		'.smallTile' :54,
 		'.text-homepage' : 45,
-		// '.role-greaty-swiper': 27,
 		'.name-client-swiper': 22,
 
 		})
 
 		var $ = this.$
 
-			$('.text-client-sigle-span').find('a').attr('target', '_blank');
+		$('.text-client-sigle-span').find('a').attr('target', '_blank');
 
+
+// function pour pas afficher le current slide
 
 		this.$emit('template_mounted', this)
+
+		setTimeout(function() {
+
+			$(window).scrollTop(0);
+
+		}, 50);
+	
+
+		var single = $('.info').find('span').text()
+
+		var slide_hide
+
+		$('.swiper-slide').each(function() {
+
+			slide_hide  = $(this).find('.name-client-swiper').text()
+
+			if (single === slide_hide ) {
+
+			$(this).hide();
+
+			}
+
+		});
+
+		$('.text-client-sigle-span').find('a').addClass('link')
+
+
 
 		},
 		name: 'swiper-example-default',
@@ -154,6 +180,13 @@ background-color: #282828; ;
 
 }
 
+.services-fourni  {
+
+	padding-bottom: 5%;
+
+}
+
+
 .services-fourni ul li:before {
 
 	content:"· ";
@@ -198,10 +231,6 @@ body{
 }
 
 
-.services-fourni{
-
-	padding-bottom: 70px;
-}
 
 .client-swiper{
 
@@ -259,6 +288,12 @@ body{
 		/*margin-left: 10px !important;*/
 
 	}
+
+	.services-fourni{
+
+		padding-bottom: 0px;
+	}
+
 
 
 
@@ -578,8 +613,23 @@ body{
 /*********/
 	@media screen and (max-width: 600px) {
 
-	.div-parent-slide-text{
+	.global-descriptif{
 
+
+		padding-bottom: 0px;
+
+	}
+
+
+	.swiper-container{
+
+		margin-bottom: auto;
+		margin-top: auto;
+	}
+
+	.div-parent-slide-text{
+		height: 100vh;
+		display: flex;
 		padding-left: 30px;
 
 

@@ -7,10 +7,11 @@ export default function (vue)
 	{
 		if( href ) if( href.search( vue.wp.options.siteurl ) === 0 ) var is_same_site = 1
 
-		
+		event.preventDefault();
 
+	
 		if( is_same_site ){
-			
+
 			event.preventDefault();
 
 			let section = $('.section[data-permalink="'+href+'"]')
@@ -66,7 +67,7 @@ export default function (vue)
 							$('#app').trigger('clone-move')
 						},
 						done: () => {
-							console.log( "done" );
+
 							$('#app').scrollTop( section.position().top + $('#app').scrollTop() )
 							clone.remove()
 
@@ -79,6 +80,9 @@ export default function (vue)
 			}
 			else
 			{
+
+				
+
 				$(document).trigger({
 					type:"new_page",
 					href: href,
@@ -87,43 +91,55 @@ export default function (vue)
 		}
 	}
 
+// on load
+
+
+
+
+
 	$(document).on('click', 'a', (event) => {
 
+		event.preventDefault();
+
 		/* Act on the event */
-		let href = $(event.target).prop('href')
+		let href = $(event.currentTarget).prop('href')
 
 // Add proprietie css to current link
+
 		$('.menu-item').each(function() {
 
 			var url_link = $(this).find('a').attr('href');
 
 			$(this).removeClass('current-menu-item')
 			$(this).removeClass('current_page_item')
-
 			
-
 			$(this).find('a').css({
 						borderBottom: '0px solid white',
 					});
 
+			
+
 			if ( href === url_link  ) {
+
+
+
 				$(this).find('a').css({
 							borderBottom: '1px solid white',
 						});
+					$(this).find('a').addClass('current-page')
+
+
 				$(this).addClass('current-menu-item')
 				$(this).addClass('current_page_item')
-				console.log($(this));
-				console.log('entree');
+			
+			}
+			else{
 
-
+				$(this).find('a').removeClass('current-page')
 			}
 			
 		});
 
-
-
-
-		// console.log(href);
 		open_link(event, href)
 
 	});

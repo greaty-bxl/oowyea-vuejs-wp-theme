@@ -1,7 +1,7 @@
 <template>
 	<div id="header" class="header-greaty">
 		<div class="clear"></div>
-		<div id="header-logo"><a href="http://localhost/template_greaty/wordpress/"><Acf field="logo"/></a></div>
+		<div id="header-logo"><a class="link" href=""><img src="https://greaty.be/wp-content/uploads/2020/09/Greaty_logo-01.svg"></a><!-- <Acf field="logo"/> --><!-- </a> --></div>
 		<!-- <div id="header-menu"></div> -->
 		<div id="right-panel">
 			<div class="headerButton" style="pointer-events: auto;">
@@ -18,9 +18,6 @@
 						<li><a href="https://www.facebook.com/greaty.be" target="_blank">Facebook</a></li>
 						<li><a href="https://www.linkedin.com/company/9386991/admin/" target="_blank">LinkedIn</a></li>
 						<!-- <li><a href="https://www.linkedin.com/company/rokyrocks/" target="_blank">GitHub</a></li> -->
-
-
-						
 					</ul>
 				</div>
 			</div>		
@@ -30,12 +27,12 @@
 </template>
 
 <script>
-import Acf from 'Organisms/acf.vue'
+// import Acf from 'Organisms/acf.vue'
 
 
 export default {
 	components:{
-		Acf
+		// Acf
 	},
 	data(){
 		return {
@@ -44,21 +41,13 @@ export default {
 	},
 	mounted(){
 		var $ = this.$
-        
-        // console.log(this.wp.menus);
 
 		this.$emit('template_mounted', this)
-
-		// $('.header-greaty').css('background-color', 'rgb(25, 26, 28)');
 
 		var height_origin_taille = $('.headerButton').outerHeight()
 
 		var height_total = $('.headerMore').outerHeight()
- 
 
-		// console.log(height_total);
-
-		// var animation_rajouter =  parseInt(height_petit_point) - parseInt(height_total)
 
 		$('.headerButton').css('overflow', 'hidden');
 
@@ -81,183 +70,205 @@ export default {
 		// $('.headerButton').css('backdrop-filter', 'blur(20px)');
 		// backdrop-filter: blur(20px);
 
-		$('.headerMore').click(function() {
 
-				var height_total = $(this).height()
+		// height_total = $(this).height()
+
+
+
+			function open(){
+
+
+				console.log('464484');
 
 				$('.headerBody').find('a').css('color', color);
 
 				$('.headerButton').css('overflow', 'hidden');
 
-				if ( $('.headerButton').hasClass( 'close' )) {
 
-				$('.headerBody').find('a').css('color', 'white');
-				// .animate({"color":  'white !important'  }, "fast", "swing");
+				// if ( $('.headerButton').hasClass( 'close' )) {
 
-				$('.headerButton').removeClass('close')
+					$('.headerBody').find('a').css('color', '#e1e1e1');
+					// .animate({"color":  'white !important'  }, "fast", "swing");
 
-				$('.headerButton').addClass('open')
+					$('.headerButton').removeClass('close')
 
-				$('.headerButton ').css('width', 'a');
+					$('.headerButton').addClass('open')
 
-				$('.headerButton').animate({"width":  width_origin_taille  }, "fast", "swing");
+					$('.headerButton ').css('width', 'a');
 
-				$('.headerButton').animate({"height":  height_origin_taille  }, "fast", "swing");
+					$('.headerButton').animate({"width":  width_origin_taille  }, "fast", "swing");
 
-			}
+					$('.headerButton').animate({"height":  height_origin_taille  }, "fast", "swing");
 
-			else {
-
-			close()
+				// }
 
 			}
-
-		function close(){
-
 			
-			$('.headerBody').find('a').animate({"color":  color  }, "fast", "swing");
+			function close(){
 
-			$('.headerButton').removeClass('open')
+				if ( $('.headerButton').hasClass( 'open' )) {
 
-			$('.headerButton').addClass('close')
+					$('.headerBody').find('a').animate({"color":  color  }, "fast", "swing");
 
-			$('.headerBody').find('ul').fadeTo('hide/400/fast', 10, function() {
+					$('.headerButton').removeClass('open')
 
-			});
+					$('.headerButton').addClass('close')
 
+					$('.headerBody').find('ul').fadeTo('hide/400/fast', 10, function() {
 
-			$('.headerButton').animate({"height":  height_total  }, "fast", "swing");
+					});
 
+					$('.headerButton').animate({"height":  height_total  }, "fast", "swing");
 
-			$('.headerButton').animate({"width":  width_button  }, "fast", "swing");
-	
+					$('.headerButton').animate({"width":  width_button  }, "fast", "swing");
 
+					$('.headerBody').find('a').animate({"color": '#e1e1e1 ' }, "fast", "swing");
 
+				}
 
-		}
+			}
+
 
 		$(document).on('click', function() {
 
-			// console.log(event.target);
 
 		if($(event.target).parents('.headerButton').length != 0) {
-		// return false; // if you want to ignore the click completely
-		// return; // else
 
-		// console.log('1');
+			console.log(event.target)
+
+			if ($(event.target).is('.headerMore')) {
+
+				if ($('.headerButton').hasClass('open')){
+
+					close()
+
+				}
+				else{
+
+
+					open()
+				}
+
+			}
+			else{
+
+				if ($(event.target).parents('.headerButton').length != 0) {
+
+
+
+
+					if ( $(event.target).parents('.bottomBody').length != 0 ) {
+
+						var href = $(event.target).attr("href");
+
+						window.open(href);
+
+						// window.location = href;
+					}
+					else{
+
+						console.log('qdqf2');
+
+						if ($(event.target).is('a')) {
+
+							// open()
+
+							console.log($(event.target));
+
+									close()
+
+						}
+
+						else{
+
+							open()
+
+							console.log('link');
+
+						}
+
+
+					}
+
+
+
+				}
+				else{
+
+					close()
+
+				}
+
+			}
+
+
 		}
 		else {
+
 		close()
+
+		// alert('6')
+
+		if ($(event.target).is('a')) {
+
+			if ($(event.target).attr('target')) {
+
+				var href1 = $(event.target).attr("href");
+
+				window.open(href1);
+			}
+
+			else{
+
+				// $(event.target).find('a').click()
+
+				var href2 = $(event.target).attr("href");
+
+
+				window.location = href2
+
+			}
+
+
+		}	
+
+
+		// $(event.target) .click(function(event) {
+		// 	
+		// 	});
 
 		}
 
 		});
 
-		});
-			$('.current-menu-item').find('a').css({
-					borderBottom: '1px solid white',
-				});
+		// $('.menu-item').click(function() {
 
-			// $('.menu-item').click(function() {
-			// 	setTimeout(function() {
+		// 	if ( $(this).hasClass('current-menu-item') ) {
 
-			// 		$('.current-menu-item').find('a').css({
-			// 				borderBottom: '1px solid white',
-			// 			});
-
-			// 	}, 10);
-				
-			// });
-
-				
-
-			
-			
-
-
-	
-		// click external than the parents class menu function close
-
-
-
-		// $(document).click(function(){
-		//     var x = $(this).children('selector')();
-		//     if (!x.is('body')) {
-		//         console.log("It has it!");
-		//     } else {
-		//         console.log("It does not have it!");
-		//     }
-		// });
-
-		// $(document).click(function(event) {
-
-		// 	// $(this)
-			
-		// 	if ($(event.srcElement).has('.bottomBody')) {
-
-		// 	// 	console.log("PAS FErMER");
-
+		// 		console.log('pas FErMER');
 		// 	}
 		// 	else{
 
+		// 		setTimeout(function() {
 
+		// 			close();
 
-		// 	// 	close()
-		// 		console.log("n'a pas");
+		// 		}, 200);
 		// 	}
-
-		// 	console.log($(this));
-
-
+			
 		// });
 
-		// click external than the parents class menu function close
-
-		
-
-		// $('.headerMore').hover(function() {
-
-
-		// $('.headerMore').animate({"justify-content": 'space-between' }, "fast", "swing");
-
-
-		// }, function() {
-
-		// 	$('.headerMore ').animate({"justify-content": 'center' }, "fast", "swing");
-
-		// });
-
-		// var reload = true;
-
-
-		// $(window).scroll(function() {
-
-		// 	var scroll = $(window).scrollTop();
-
-		// if (scroll == '0') {
-
-		// 	$('.logo').css('display', 'flex');
-		// }
-		// if (scroll >= '100') {
-
-		// 	if (reload == true) {
-
-		// 		reload = false
-
-		// 	}
-		// 	$('.logo').css('display', 'none');
-
-		// }
-
-		// });
-		
+	
+			$('.current-menu-item').find('a').css({
+					borderBottom: '1px solid white',
+				});	
 	}
 }
 </script>
 
 <style>
 
-
+	
 
 	#header-logo img{
 
@@ -338,7 +349,7 @@ export default {
 
 			.headerButton{
 
-			right: 35px !important;
+			right: 30px !important;
 			}
 
 		}

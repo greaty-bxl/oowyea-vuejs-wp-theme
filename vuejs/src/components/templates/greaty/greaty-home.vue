@@ -20,6 +20,8 @@
 import smart_fonts from 'Libs/smart-fonts.js';
 import lottie from "Molecules/Lottie";
 
+
+
 export default {
 	components: {
 		// Alpl,
@@ -76,7 +78,7 @@ export default {
 
 		smart_fonts({
 		'.smallTile' :54,
-		'.text-homepage' : 52.8,
+		'.text-homepage' : 50,
 		// '.role-greaty': 12,
 		'.name-client': 22,
 		})
@@ -102,15 +104,12 @@ export default {
 
 	}
 
-	@media screen and (max-width: 600px) {
 
-			.banner svg{
+	a:focus {
 
-				width: 200% !important;
-			}
-
-
+		    outline-width: 0px;
 	}
+
 
 </style>
 
@@ -588,14 +587,15 @@ strong {
 
 						.banner{
 
-							min-height: 50vh;
+							min-height: 100vh;
 							display: flex;
 							flex-direction: column;
 						}
 
 						.banner div{
 
-							margin-top: 190px;
+							margin-top: auto;
+							margin-bottom: auto !important;
 						}
 
 						.global-project{
@@ -673,11 +673,11 @@ strong {
 							padding-bottom: 120px;
 
 						}
-						.banner svg{
+		/*				.banner svg{
 
 							width: 200% !important;
 						}
-
+*/
 
 				}
 

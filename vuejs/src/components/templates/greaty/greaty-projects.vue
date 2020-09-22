@@ -9,38 +9,13 @@
 			<div class="center-flex">
 
 				<div class="div-text-homepage">
-					<Alpl class="title-page">PROJETS</Alpl> 
-					<Alpl class="text-homepage  ">Greaty trouve des solutions cohérentes issues d’une démarche ou rien n’est laissé au hasard.</Alpl>
+					
+					<Alpl class="text-homepage">Greaty trouve des solutions cohérentes issues d’une démarche où rien n’est laissé au hasard.</Alpl>
 				</div>
 			</div>
 
 		</div>
 	
-<!-- 		<div class="post-client">
-
-		<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
-			
-				<div class="icon global-project test__item on-screen" >
-				
-						<a :href="child.permalink" >
-							<div class="client">
-
-								<img class="image-client" height="100%" width="100%" :src="child.thumb" >
-								<p class="name-client" v-html="child.post_title" ></p>
-								<p class="role-greaty">Corporated Website</p>
-
-							</div>
-						</a>
-					
-				</div>
-			
-		</Anime3d>
-
-		</div> -->
-
-	
-<!-- 	<textcotact>
-	</textcotact> -->
 
         <div class="clear"></div>
     </div>
@@ -54,20 +29,6 @@ import Alpl from 'Molecules/animation-line-per-line';
 // import Anime3d from 'Molecules/animation-3d';
 // import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
-// import fixit from 'Libs/fix-it.js';
-// import Vue from 'vue'
-// import VueScrollmagic  from 'vue-scrollmagic';
-// import { TweenMax } from 'gsap'
-// Vue.use(VueScrollmagic)
-
-// import 'ScrollToPlugin'
-
-// Vue.use(VueScrollmagic, {
-//   vertical: true,
-//   globalSceneOptions: {},
-//   loglevel: 2,
-//   refreshInterval: 100
-// })
 
 	export default {
 
@@ -344,7 +305,7 @@ strong {
 }
 
 .div-text-homepage{
-
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -669,7 +630,7 @@ strong {
 						.text-homepage{
 
 							padding-bottom: 5%;
-							margin: auto 30px;
+							margin-left: 30px;
 							font-size: 3.1em;
 							color: #e1e1e1;
 							font-family: 'Montserrat', sans-serif !important;

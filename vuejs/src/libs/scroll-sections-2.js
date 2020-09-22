@@ -1,27 +1,20 @@
 import is from "is_js"
 
 function scrollSection(vue){
-	
-	var $ = vue.$;
 
-	var last_scroll = $('#app').scrollTop();
+	var last_scroll = 0;
 	var timer;
-	
+	var $ = vue.$;
 	var wait = 0;
-	var current_section = window.current_section;
-
-	var to_scroll
-	var sens = 1
-
+	var current_section;
+	
 	function update_current_section()
 	{
 		window.current_section = current_section
 		window.current_section_index =  $('#'+current_section).index()
 
-		// vue.$store.commit({
-		// 	type: 'section_change',
-		// 	current_section: vue.$store.state.wp.sections[window.current_section_index],
-		// })
+		let permalink = $('#'+current_section).data('permalink')
+		vue.pushHistory( permalink )
 	}
 	
 	function animate_scroll_to( pos )
@@ -29,10 +22,8 @@ function scrollSection(vue){
 		if( !wait && is.not.mobile() && is.not.tablet() )
 		{
 			wait = 1
-			$('#app').css('pointer-events', 'none');
-			$('#app').data('scrolling', 'scroll-sections')
 			$("#app").stop()
-				.animate({scrollTop: pos + 'px'}, 900, 'easeOutQuad')
+				.animate({scrollTop: pos + 'px'}, 777  , 'easeOutQuad')
 				.promise()
 				.then( () => {
 					setTimeout( () => {
@@ -40,8 +31,7 @@ function scrollSection(vue){
 						$('#app').data('scrolling', '')
 						let permalink = $('#'+current_section).data('permalink')
 						vue.pushHistory( permalink )
-						$('#app').css('pointer-events', 'auto');
-					}, 0)
+					}, 150)
 					
 			});
 		}
@@ -64,9 +54,6 @@ function scrollSection(vue){
 
 						new_scroll = $(el).position().top + new_scroll
 						animate_scroll_to( new_scroll )
-
-						to_scroll = new_scroll
-						sens = 1
 					}
 				}
 
@@ -79,13 +66,6 @@ function scrollSection(vue){
 					{
 						new_scroll = $(el).position().top + $(el).outerHeight() -  $('#app').outerHeight() + new_scroll
 						animate_scroll_to( new_scroll )	
-
-						to_scroll = new_scroll
-						sens = 1
-					}
-					else
-					{
-						$('#app').data('scrolling', '')
 					}
 				}
 
@@ -93,7 +73,6 @@ function scrollSection(vue){
 		}
 		else if ( new_scroll <= last_scroll )
 		{
-
 			//auto scroll up
 			$('.section').each(function(index, el) {
 				if( ($(el).position().top + new_scroll) <= new_scroll && ($(el).position().top + $(el).outerHeight() + new_scroll) > new_scroll )
@@ -105,9 +84,6 @@ function scrollSection(vue){
 
 						new_scroll = $(el).position().top + $(el).outerHeight() -  $('#app').outerHeight() + new_scroll
 						animate_scroll_to( new_scroll )	
-
-						to_scroll = new_scroll
-						sens = -1
 					}
 					else
 					{
@@ -118,45 +94,33 @@ function scrollSection(vue){
 						{
 							new_scroll = $(el).position().top + new_scroll
 							animate_scroll_to( new_scroll )	
-
-							to_scroll = new_scroll
-							sens = -1
 						}
-					}	
+					}
+					
 				}
 			});
 		}
 		last_scroll = new_scroll
 	}
 
-	let init = false
-	$('#app').on('section-top-ready', () => {
-		$('#app').on('scroll', () => 
+	$('#app').on('scroll', () => 
+	{
+		let is_scrolling_by_what = $('#app').data('scrolling')
+
+		if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) )
 		{
-			let is_scrolling_by_what = $('#app').data('scrolling')
-
-			if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) && init )
-			{
-				$('#app').data('scrolling', '')
-				clearTimeout( timer )
-				timer = setTimeout( scroll_end , 1 )
-			}
-			else
-			{
-				init = true
-				last_scroll = $('#app').scrollTop()
-			}
-
-			let current_scroll = $('#app').scrollTop()
-
-			if( to_scroll && ( ( sens == 1 && current_scroll > to_scroll ) || ( sens == -1 && current_scroll < to_scroll ) ) )
-			{
-				wait = 0
-				$('#app').data('scrolling', '')
-				$('#app').stop()
-			}
-		});
+			$('#app').data('scrolling', 'scroll-sections')
+			clearTimeout( timer )
+			timer = setTimeout( scroll_end , 10 )
+		}
+		else
+		{
+			last_scroll = $('#app').scrollTop()
+		}
 	});
+
+	current_section = $('.section').first().attr('id')
+	update_current_section()	
 }
 
 export default scrollSection 

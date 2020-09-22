@@ -7,13 +7,11 @@
 
         <div class="center-flex" >
             <div class="div-text-homepage">
-                <Alpl class="title-page">Services</Alpl>
+                <Alpl class="title-page">SERVICES</Alpl>
                 <Alpl class="text-homepage">Greaty est spécialisée dans la communication, l’élaboration d’images de marque, les solutions digitales et les supports imprimés.</Alpl>
             </div>
         </div>
-
-
-
+        
     </div>
 
 	</div>
@@ -24,7 +22,7 @@
 <script>
 // import textcotact from './components/text-contact';
 import smart_fonts from "Libs/smart-fonts.js";
-import anime from 'animejs/lib/anime.es.js';
+// import anime from 'animejs/lib/anime.es.js';
 import Alpl from 'Molecules/animation-line-per-line';
 export default {
 	components: {
@@ -38,38 +36,39 @@ export default {
 	},
 	mounted (){
         
-        var $ = this.$
+        // var $ = this.$
 
             //Important to let works basic functions
             this.$emit('template_mounted', this)
 
             /* var test =  document.getElementsByClassName("title"); */
-            $(".item-text").css("opacity","0");
+            // $(".item-text").css("opacity","0");
 
-            $('.item-text').on('leave-screen', (event) => {
-                $(event.target).css("opacity","0");
-            })
+            // $('.item-text').on('leave-screen', (event) => {
+            //     $(event.target).css("opacity","0");
+            // })
 
-            $( ".item-text" ).each( function(index, el) {
-                // console.log(el);
-                $(el).on('enter-screen', (event) => {
-                    anime({
-                        targets: event.target,
-                        // translateY: -100,
-                        opacity: 1,
-                        easing: 'easeInOutSine',
-                        duration: 200,
-                        delay: index * 50
-                        });
-                    })
+            // $( ".item-text" ).each( function(index, el) {
+            //     // console.log(el);
+            //     $(el).on('enter-screen', (event) => {
+            //         anime({
+            //             targets: event.target,
+            //             // translateY: -100,
+            //             opacity: 1,
+            //             easing: 'easeInOutSine',
+            //             duration: 200,
+            //             delay: index * 50
+            //             });
+            //         })
+            // });
             
             smart_fonts({
             '.smallTile' :54,
             '.item-text' : 22,
-            '.text-homepage' : 52.8,
+            '.text-homepage' :50,
             })
 	
-            });
+         
 	}
 }
 

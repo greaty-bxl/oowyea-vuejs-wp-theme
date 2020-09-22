@@ -9,7 +9,7 @@
 
 		<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
 			
-				<div class="icon global-project test__item on-screen" >
+				<div class="icon global-project test__item " >
 					
 						<a :href="child.permalink" >
 							<div class="client">
@@ -43,24 +43,9 @@
 <script>
 
 // import Alpl from 'Molecules/animation-line-per-line';
-import anime from 'animejs/lib/anime.es.js';
+// import anime from 'animejs/lib/anime.es.js';
 import Anime3d from 'Molecules/animation-3d';
-// import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
-// import fixit from 'Libs/fix-it.js';
-// import Vue from 'vue'
-// import VueScrollmagic  from 'vue-scrollmagic';
-// import { TweenMax } from 'gsap'
-// Vue.use(VueScrollmagic)
-
-// import 'ScrollToPlugin'
-
-// Vue.use(VueScrollmagic, {
-//   vertical: true,
-//   globalSceneOptions: {},
-//   loglevel: 2,
-//   refreshInterval: 100
-// })
 
 	export default {
 
@@ -81,9 +66,7 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 	mounted(){
 
-		// console.log(this.wp.projects);
-
-		var $ = this.$
+		this.wp = window.wp
 
 		this.$emit('template_mounted', this)
 
@@ -92,41 +75,40 @@ import smart_fonts from 'Libs/smart-fonts.js';
 		// 	transform: 'translateY(100px)',
 		// 	opacity: 0,
 		// });
+		
 
 
+		// $('.global-project').on('leave-screen', (event) => {
 
+		// 	$(event.target).css({
+		// 		// "opacity":"0",
+		// 		// transform: 'translateY(100px)',
+		// 		opacity: 0,
+		// 	});
 
-	$('.global-project').on('leave-screen', (event) => {
+		// 	/*anime({
+		// 		targets: event.target,
+		// 		translateY: '100px',
+		// 		opacity: 0,
+		// 	});*/
+		// })
 
-		$(event.target).css({
-			// "opacity":"0",
-			// transform: 'translateY(100px)',
-			opacity: 0,
-		});
+		// $( ".global-project" ).each( function( index , el) {
 
-		/*anime({
-			targets: event.target,
-			translateY: '100px',
-			opacity: 0,
-		});*/
-	})
-
-	$( ".global-project" ).each( function( index , el) {
-
-		$(el).on('enter-screen', (event) => {
-			anime({
-				targets: event.target,
-				// translateY: '0px',
-				opacity: 1,
-				easing: 'easeInOutSine',
-				duration: 500,
-				delay: index * 200
-			});
-		})
-	});
+		// 	$(el).on('enter-screen', (event) => {
+		// 		anime({
+		// 			targets: event.target,
+		// 			// translateY: '0px',
+		// 			opacity: 1,
+		// 			easing: 'easeInOutSine',
+		// 			duration: 500,
+		// 			delay: index * 200
+		// 		});
+		// 	})
+		// });
 		smart_fonts({
 		'.smallTile' :54,
-		'.text-homepage' : 52.8,
+		'.text-homepage' : 50,
 		'.name-client': 22,
 		})
 
@@ -145,10 +127,10 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 <style type="text/css">
 	
-	.g-project{
+	/*.g-project{
 
 		overflow: hidden;
-	}
+	}*/
 </style>
 
 

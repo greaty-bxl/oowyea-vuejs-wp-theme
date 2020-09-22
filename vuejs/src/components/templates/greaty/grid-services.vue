@@ -17,7 +17,7 @@
             <div class="firstSection">
                 <div class="grid-services">
                     <div class="item-services">
-                        <div class="item-text on-screen">
+                        <div class="item-text ">
                             <div class="smallTile">Stratégie</div>
                                 <ul>
                                     <li> Consultance graphique</li>
@@ -27,7 +27,7 @@
                                 </ul>
                         </div>
 
-                        <div class="item-text on-screen">
+                        <div class="item-text ">
                             
                                 <div class="smallTile">Design</div>
                                     <ul>
@@ -44,7 +44,7 @@
                                     </ul>
                         </div>
 
-                        <div class="item-text on-screen">
+                        <div class="item-text">
                             <div class="smallTile">Impression</div>
                                 <ul>
                                     <li> Papeterie</li>
@@ -75,7 +75,7 @@
 <script>
 // import textcotact from './components/text-contact';
 import smart_fonts from "Libs/smart-fonts.js";
-import anime from 'animejs/lib/anime.es.js';
+// import anime from 'animejs/lib/anime.es.js';
 // import Alpl from 'Molecules/animation-line-per-line';
 export default {
 	components: {
@@ -89,7 +89,7 @@ export default {
 	},
 	mounted (){
         
-        var $ = this.$
+        // var $ = this.$
 
             //Important to let works basic functions
 
@@ -98,34 +98,34 @@ export default {
             /* var test =  document.getElementsByClassName("title"); */
             // $(".item-text").css("opacity","0");
 
-            $('.item-services').on('leave-screen', (event) => {
+            // $('.item-services').on('leave-screen', (event) => {
 
-                $(event.target).css({
-                    // "opacity":"0",
-                    // transform: 'translateY(100px)',
-                    opacity: 0,
-                });
+            //     $(event.target).css({
+            //         // "opacity":"0",
+            //         // transform: 'translateY(100px)',
+            //         opacity: 0,
+            //     });
 
-                /*anime({
-                    targets: event.target,
-                    translateY: '100px',
-                    opacity: 0,
-                });*/
-            })
+            //     /*anime({
+            //         targets: event.target,
+            //         translateY: '100px',
+            //         opacity: 0,
+            //     });*/
+            // })
 
-            $( ".item-services" ).each( function( index , el) {
+            // $( ".item-services" ).each( function( index , el) {
 
-                $(el).on('enter-screen', (event) => {
-                    anime({
-                        targets: event.target,
-                        // translateY: '0px',
-                        opacity: 1,
-                        easing: 'easeInOutSine',
-                        duration: 500,
-                        delay: index * 500
-                    });
-                })
-            });
+            //     $(el).on('enter-screen', (event) => {
+            //         anime({
+            //             targets: event.target,
+            //             // translateY: '0px',
+            //             opacity: 1,
+            //             easing: 'easeInOutSine',
+            //             duration: 500,
+            //             delay: index * 500
+            //         });
+            //     })
+            // });
         
 
             smart_fonts({
@@ -188,7 +188,7 @@ export default {
 .item-text {
     margin-top: 5%;
     text-align: left;
-    opacity: 0;
+    // opacity: 0;
 }
 
 .div-text-homepage{

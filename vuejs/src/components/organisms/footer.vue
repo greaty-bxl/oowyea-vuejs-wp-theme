@@ -7,10 +7,10 @@
 
 			<div class="textbox">
 			<div  class="div-text-contact ">
-			<Alpl class="text-contact">Vous avez une idée.<br>
+			<div class="text-contact">Vous avez une idée.<br>
 				Nous avons l'expertise pour la réaliser.<br>
-				Faites-nous un <u><strong><a href="">coucou</a></strong> </u>
-			</Alpl>
+				Faites-nous un <u><strong><a href="mailto:i@greaty.be">coucou</a></strong> </u>
+			</div>
 <li class="c-box__list--item">
 <!-- <?xml version="1.0" encoding="iso-8859-1"?> -->
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -91,9 +91,9 @@
 			<div class="confidentialite">
 
 
-			<p class="" > <a href="mailto:i[at]greaty.be"> i[at]greaty.be </a></p>
+			<p class="" > <a href="mailto:i@greaty.be"> i[at]greaty.be </a></p>
 			<p class="" > <a href="tel:+32 (0) 471 72 18 08">+32 (0) 471 72 18 08</a></p>
-			<p class=""><a href=""></a>Google Maps</p>
+			<p class=""><a target="_blank" href="https://goo.gl/maps/CKLNBTXpS8xt7dL67">Google Maps</a></p>
 
 			</div>
 
@@ -121,12 +121,12 @@
 <script>
 
 	import smart_fonts from "Libs/smart-fonts.js"
-	import Alpl from 'Molecules/animation-line-per-line';
-	import anime from 'animejs/lib/anime.es.js';
+	// import Alpl from 'Molecules/animation-line-per-line';
+	// import anime from 'animejs/lib/anime.es.js';
 	export default {
 
 		components:{
-			Alpl,
+			// Alpl,
 			// anime,
 		},
 		
@@ -140,33 +140,33 @@
 			this.$emit('template_mounted', this);
 
 			// anime.height()
-			var $ = this.$
+			// var $ = this.$
 
-			$('.footer-text').on('leave-screen', (event) => {
+			// $('.footer-text').on('leave-screen', (event) => {
 
-				$(event.target).css({
-					// "opacity":"0",
-					// transform: 'translateY(20px)',
-					opacity: 0,
-				});
+			// 	$(event.target).css({
+			// 		// "opacity":"0",
+			// 		// transform: 'translateY(20px)',
+			// 		opacity: 0,
+			// 	});
 
-					// alert('2')
-			})
+			// 		// alert('2')
+			// })
 
 
-			$('.footer-text').on('enter-screen', (event) => {
-				anime({
-					targets: event.target,
-					// translateY: '0px',
-					opacity: 1,
-					easing: 'easeInOutSine',
-					duration: 500,
-					delay: 500
-				});
+			// $('.footer-text').on('enter-screen', (event) => {
+			// 	anime({
+			// 		targets: event.target,
+			// 		// translateY: '0px',
+			// 		opacity: 1,
+			// 		easing: 'easeInOutSine',
+			// 		duration: 500,
+			// 		delay: 500
+			// 	});
 
-				// alert('1')
+			// 	// alert('1')
 
-			})
+			// })
 
 			// $('.c-box__list--item').on('leave-screen', (event) => {
 

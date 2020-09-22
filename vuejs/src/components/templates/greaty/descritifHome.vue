@@ -11,8 +11,8 @@
 		<div class="div-text-homepage">
 
 			<div class="center-flex">
-
-				<Alpl class="text-homepage ">Greaty est un studio de création graphique et digital basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
+				<Alpl class="title-page">PROJETS</Alpl> 
+				<Alpl class="text-homepage ">Greaty est un studio de création graphique et digitale basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
 				</Alpl>
 
 			</div>
@@ -56,7 +56,7 @@ export default {
 
 			smart_fonts({
 		'.smallTile' :54,
-		'.text-homepage' : 52.8,
+		'.text-homepage' : 50,
 		// '.role-greaty': 12,
 		'.name-client': 22,
 		})
@@ -118,26 +118,41 @@ export default {
 
 	}
 
+	*:focus {
+		outline: 0;
+	}
+
 </style>
 
 
 <style scoped >
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
+
+
+#animate1{
+
+	transform: translateY(100px);
+}
 
 lottie-animation{
 
 	height: 50vh;
 	width: 50%;
 }
+
+/*.g-project{
+	opacity: 0;
+}*/
 	
-/*body {
-margin: 0 !important;
-padding: 0;
-font-family: 'Open Sans', regular;
+/*h1{
+
+
+	color: #e1e1e1;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: lighter;
 
 }*/
-
 
 a{
 color: #e1e1e1;
@@ -165,39 +180,6 @@ z-index: 20;
 
 text-align: left;
 }
-
-nav{
-
-width: 100%;
-/*height: 35px;*/
-/*background: #191a1c;*/
-/*box-shadow: 0 0 15px 20px #191a1c;*/
-}
-nav ul{
-list-style: none;
-display: flex;
-flex-wrap: wrap;
-align-items: left;
-justify-content: left;
-padding-top: 15px;
-padding-bottom: 15px;
-margin: 0;
-height: 100%;
-text-align: left;
-display: flex;
-flex-direction: column;
-
-}
-nav ul li{
-cursor: pointer;
-}
-
-.textbox {
-  margin:5em;
-  
-}
-    
-a{color: #e1e1e1 ;}
 
 
 .div-text-project{
@@ -343,7 +325,15 @@ strong {
 
 .title-page{
 
-	font-size: 4em !important;
+	font-size: 10px !important;
+	padding-bottom: 5%;
+	text-transform: capitalize;
+	letter-spacing: 10px;
+	color: #e1e1e1;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	text-align: left;
+	width: 20%;
 }
 
 .div-text-homepage{
@@ -351,6 +341,8 @@ strong {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
 
 }
 			
@@ -365,6 +357,7 @@ strong {
 .banner div{
 
 	margin-top: auto;
+	margin-bottom:auto
 } 
 
 				@media screen and (min-width: 1100px) {
@@ -373,8 +366,9 @@ strong {
 
 							min-height: 100vh;
 							display: flex;
-							flex-direction: row;
+							flex-direction: column;
 							justify-content: center;
+							margin: auto 0px;
 
 						}
 
@@ -386,23 +380,17 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 150px;
-							padding-bottom: 150px;
-							width: 80% ;
-							margin: auto 70px;
+							/*padding-top: 70px;*/
+							/*padding-bottom: 150px;*/
+							/*width: 70% ;*/
+							/*margin: auto 70px;*/
 							/*width: 100%;*/
-							font-size: 3.3em;
+							/*font-size: 3.3em;*/
 							color: #e1e1e1;
 							font-family: 'Montserrat', sans-serif !important;
 							font-weight: lighter;
 							text-align: left;
 
-						}
-
-						.text-homepage h1{
-
-							text-align: left;
-							margin: 5% 0px;
 						}
 
 
@@ -454,14 +442,12 @@ strong {
 								width: calc(50% - 70px) !important;
 								display: inline-block;
 								margin-bottom: 3%;
-
 						}
-						.global-project{
 
-							transform: translateY(100px);
-							opacity: 0;
+						.div-text-homepage{
+
+							width:  80%;
 						}
-							
 
 
 				}
@@ -488,12 +474,14 @@ strong {
 							/*padding-left: 5%;*/
 							height: auto;
 							text-align: left;
+							/*padding-top: 20%;*/
+							/*font-size: 35px;*/
 							display: block;
 							margin-top: 0px;
 							padding-left: 70px;
 							padding-right: 70px;
 							width: auto;
-							line-height: 60px;
+							/*line-height: 60px;*/
 
 						}
 
@@ -586,10 +574,26 @@ strong {
 							height: 100vh;
 						}
 
+						.title-page{
+							font-size: 14px;
+							padding-left: 70px;
+						}
+
 				}
 
 
 				@media screen and (max-width: 600px) {
+
+						.center-flex{
+
+							min-height: 100vh;
+						/*	display: flex;
+							flex-direction: column;
+							justify-content: center;*/
+							margin: auto 0px;
+
+						}
+
 
 
 						.banner{
@@ -601,13 +605,12 @@ strong {
 
 						.banner div{
 
-							margin-top: 190px;
+							margin-top: auto;
 						}
 
 						.global-project{
 						z-index: 10;
 						width: 100% !important;
-
 
 						}
 
@@ -629,8 +632,14 @@ strong {
 
 						.title-page{
 
-							font-size: 2em !important;
+							font-size: 10px !important;
+							padding-bottom: 7%;
+							text-transform: capitalize;
+							letter-spacing: 10px;
+							padding-top: 10%;
+							text-align: left;
 						}
+
 
 
 						.client img{
@@ -653,7 +662,6 @@ strong {
 
 						.text-homepage{
 
-							padding-top: 75px;
 							padding-bottom: 5%;
 							margin: auto 30px;
 							font-size: 3.1em;
@@ -661,6 +669,8 @@ strong {
 							font-family: 'Montserrat', sans-serif !important;
 							font-weight: lighter;
 							text-align: left;
+							width: calc(100% - 60px);
+
 
 						}
 
@@ -680,6 +690,26 @@ strong {
 
 						}
 
+						.text-homepage{
+
+							/*padding-top: 70px;*/
+							padding-top: 0px;
+							/*width: 70% ;*/
+							/*margin: auto 70px;*/
+							/*width: 100%;*/
+							font-size: 3.3em;
+							color: #e1e1e1;
+							font-family: 'Montserrat', sans-serif !important;
+							font-weight: lighter;
+							text-align: left;
+
+						}
+						.title-page{
+							margin-left: 30px;
+							margin-top: 95px;
+							width: auto;
+						}
+
 
 				}
 
@@ -687,6 +717,9 @@ strong {
 
 
 </style>
+
+
+
 
 
 

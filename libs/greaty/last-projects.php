@@ -11,29 +11,24 @@ function gtr_get_projects( $args = null ) {
 		'post_type' => 'project',
 	);
 
-	if( is_single() && $sections[0]->post_type == "project" ){
+	if( is_single() ){
 
 		$args =
 		array( 
 			'post_type' => 'project',
 			'posts_per_page' => -1,
-			'post__not_in' =>  array($post->ID)
+			// 'post__not_in' =>  array($post->ID)
 		);
 
-
 	}
-
 	if ( $sections[0]->template ==  "greaty-home" ) {
 
 		$args =
 		array( 
 			'post_type' => 'project',
-			'posts_per_page' => '8',
-			'post__not_in' =>  ''
+			'posts_per_page' => -1,
 
 		);
-
-
 	}
 	if ( $sections[0]->template ==  "greaty-projects") {
 
@@ -44,7 +39,7 @@ function gtr_get_projects( $args = null ) {
 			'post__not_in' =>  ''
 
 		);
-		
+
 
 	}
 

@@ -80,9 +80,6 @@ export default function (vue)
 			}
 			else
 			{
-
-				
-
 				$(document).trigger({
 					type:"new_page",
 					href: href,

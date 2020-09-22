@@ -104,6 +104,8 @@ export default {
       //new page with transition
       $(document).on('new_page', (event) => { /* event from: links-and-anchors.js */
         
+        console.log('new-page');
+        
         $('#app').data('scrolling', 'new-page')
 
         get_new_page( this, event.href, (wp) => {
@@ -125,9 +127,9 @@ export default {
                 this.pages['next'] = {}
 
                 $('#app').data('scrolling', '')
-
-                init_scrolltop(this)                 
-
+                
+                init_scrolltop(this)
+                
                 $(document).trigger('after_next_page')
 
               }, 1)

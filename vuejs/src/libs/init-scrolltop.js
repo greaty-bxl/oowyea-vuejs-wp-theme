@@ -10,7 +10,10 @@ export default function(vue){
 		{
 			$('#app').data('scrolling', 'init-scrolltop')
 
-			$('#app').scrollTop( section.position().top + $('#app').scrollTop() )
+			var newScroll = section.position().top + $('#app').scrollTop()
+			$('#app').scrollTop( newScroll )
+
+			console.log('newScroll', newScroll);
 
 			clearTimeout( timer )
 			timer = setTimeout( () => {
@@ -24,9 +27,9 @@ export default function(vue){
 					current_section: vue.$store.state.wp.sections[window.current_section_index],
 				})*/
 
-				$('#app').trigger('section-top-ready')
+				//$('#app').trigger('section-top-ready')
 				
-			}, 10)
+			}, 50)
 		}		
 	}
 	/*else

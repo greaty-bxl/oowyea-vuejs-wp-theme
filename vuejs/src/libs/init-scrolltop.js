@@ -36,7 +36,7 @@ export default function(vue){
 
 				$('#app').trigger('section-top-ready')
 				
-			}, 1)
+			}, 51)
 		}		
 	}
 	/*else

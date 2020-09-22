@@ -5,7 +5,7 @@ function scrollSection(vue){
 	var $ = vue.$;
 
 	var last_scroll = $('#app').scrollTop();
-	//var timer;
+	var timer;
 	
 	var wait = 0;
 	var current_section = window.current_section;
@@ -133,23 +133,30 @@ function scrollSection(vue){
 	let init = false
 	$('#app').on('section-top-ready', () => {
 		last_scroll = $('#app').scrollTop()
+		/*$('#app').stop()
+		clearTimeout( timer )*/
+	})
+	//$('#app').on('section-top-ready', () => {
+		//last_scroll = $('#app').scrollTop()
 		//new_scroll = last_scroll
-		sens = 1
-		$('#app').stop()
+		//sens = 1
+		//$('#app').stop()
 
-		$('#app').unbind('scroll')
+		//$('#app').unbind('scroll')
 		$('#app').on('scroll', () => 
 		{
+			
 			let is_scrolling_by_what = $('#app').data('scrolling')
 
 			console.log('is_scrolling_by_what', is_scrolling_by_what);
+			
 
 			if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) && init )
 			{
 				$('#app').data('scrolling', '')
-				//clearTimeout( timer )
-				scroll_end()
-				//timer = setTimeout( scroll_end , 150 )
+				
+				clearTimeout( timer )
+				timer = setTimeout( scroll_end , 50 )
 			}
 			else
 			{
@@ -166,7 +173,7 @@ function scrollSection(vue){
 				$('#app').stop()
 			}
 		});
-	});
+	//});
 }
 
 export default scrollSection 

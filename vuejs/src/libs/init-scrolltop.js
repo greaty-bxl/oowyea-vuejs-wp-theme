@@ -1,22 +1,6 @@
 export default function(vue){
 	var $ = vue.$
 	var timer
-
-	function check_position_top( desired_top, callback ){
-
-		if( desired_top != $('#app').scrollTop() )
-		{
-			clearTimeout( timer )
-			timer = setTimeout( () => { 
-				check_position_top( desired_top, callback )
-			}, 10)	
-		}
-		else
-		{
-			callback()
-		}
-		
-	}
 	
 	if( vue.wp.sections.length >= 1 )
 	{
@@ -35,8 +19,10 @@ export default function(vue){
 
 			console.log('newScroll', newScroll);
 
-			check_position_top(newScroll, ()=> {
+			
 
+			clearTimeout( timer )
+			timer = setTimeout( () => {
 				$('#app').data('scrolling', '')
 
 				window.current_section = section.attr('id')
@@ -48,25 +34,9 @@ export default function(vue){
 					current_section: vue.$store.state.wp.sections[window.current_section_index],
 				})*/
 
-				//$('#app').trigger('section-top-ready')
-			})
-
-			// clearTimeout( timer )
-			// timer = setTimeout( () => {
-			// 	$('#app').data('scrolling', '')
-
-			// 	window.current_section = section.attr('id')
-			// 	window.current_section_index =  section.index()
-
-			// 	$('#app').css('pointer-events', 'auto');
-			// 	/*vue.$store.commit({
-			// 		type: 'section_change',
-			// 		current_section: vue.$store.state.wp.sections[window.current_section_index],
-			// 	})*/
-
-			// 	//$('#app').trigger('section-top-ready')
+				$('#app').trigger('section-top-ready')
 				
-			// }, 1)
+			}, 1)
 		}		
 	}
 	/*else

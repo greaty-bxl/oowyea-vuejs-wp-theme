@@ -5,7 +5,7 @@ function scrollSection(vue){
 	var $ = vue.$;
 
 	var last_scroll = $('#app').scrollTop();
-	var timer;
+	//var timer;
 	
 	var wait = 0;
 	var current_section = window.current_section;
@@ -28,10 +28,9 @@ function scrollSection(vue){
 	{
 		if( !wait && is.not.mobile() && is.not.tablet() )
 		{
-			console.log('auto scroll');
+			console.log('auto scroll', pos, $('#app').data('scrolling') );
 
 			wait = 1
-			$('#app').css('pointer-events', 'none');
 			$('#app').data('scrolling', 'scroll-sections')
 			$("#app").stop()
 				.animate({scrollTop: pos + 'px'}, 900, 'easeOutQuad')
@@ -56,7 +55,7 @@ function scrollSection(vue){
 		if( new_scroll > last_scroll )
 		{
 			//auto scroll down
-			$('.section').each(function(index, el) {
+			$('.page:eq(0) .section').each(function(index, el) {
 				if( ($(el).position().top + new_scroll) > new_scroll && ($(el).position().top + new_scroll) < ( new_scroll + $('#app').outerHeight() ) )
 				{
 					if( current_section != $(el).attr('id') )
@@ -93,11 +92,11 @@ function scrollSection(vue){
 
 			});
 		}
-		else if ( new_scroll <= last_scroll )
+		else if ( new_scroll < last_scroll )
 		{
 
 			//auto scroll up
-			$('.section').each(function(index, el) {
+			$('.page:eq(0) .section').each(function(index, el) {
 				if( ($(el).position().top + new_scroll) <= new_scroll && ($(el).position().top + $(el).outerHeight() + new_scroll) > new_scroll )
 				{
 					if( current_section != $(el).attr('id') )
@@ -132,35 +131,42 @@ function scrollSection(vue){
 	}
 
 	let init = false
-	//$('#app').on('section-top-ready', () => {
-	$('#app').on('scroll', () => 
-	{
-		let is_scrolling_by_what = $('#app').data('scrolling')
+	$('#app').on('section-top-ready', () => {
+		last_scroll = $('#app').scrollTop()
+		//new_scroll = last_scroll
+		sens = 1
+		$('#app').stop()
 
-		console.log('is_scrolling_by_what', is_scrolling_by_what);
-
-		if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) && init )
+		$('#app').unbind('scroll')
+		$('#app').on('scroll', () => 
 		{
-			$('#app').data('scrolling', '')
-			clearTimeout( timer )
-			timer = setTimeout( scroll_end , 50 )
-		}
-		else
-		{
-			init = true
-			last_scroll = $('#app').scrollTop()
-		}
+			let is_scrolling_by_what = $('#app').data('scrolling')
 
-		let current_scroll = $('#app').scrollTop()
+			console.log('is_scrolling_by_what', is_scrolling_by_what);
 
-		if( to_scroll && ( ( sens == 1 && current_scroll > to_scroll ) || ( sens == -1 && current_scroll < to_scroll ) ) )
-		{
-			wait = 0
-			$('#app').data('scrolling', '')
-			$('#app').stop()
-		}
+			if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) && init )
+			{
+				$('#app').data('scrolling', '')
+				//clearTimeout( timer )
+				scroll_end()
+				//timer = setTimeout( scroll_end , 150 )
+			}
+			else
+			{
+				init = true
+				last_scroll = $('#app').scrollTop()
+			}
+
+			let current_scroll = $('#app').scrollTop()
+
+			if( to_scroll && ( ( sens == 1 && current_scroll > to_scroll ) || ( sens == -1 && current_scroll < to_scroll ) ) )
+			{
+				wait = 0
+				$('#app').data('scrolling', '')
+				$('#app').stop()
+			}
+		});
 	});
-	//});
 }
 
 export default scrollSection 

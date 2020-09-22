@@ -8,7 +8,7 @@
 	<div class="all-description">
 
 		<div class="info">
-			<p><strong class="text-client-sigle">Client : </strong> <span class="text-client-sigle-span" v-html="this.wp.title"></span> </p>
+			<p><strong class="text-client-sigle">Client : </strong> <span class="text-client-sigle-span" v-html="post.post_title"></span> </p>
 		<p class="text-client-sigle-span"  v-html="post.fields.description_client"></p>
 			
 		</div>
@@ -89,6 +89,8 @@ export default {
 		var $ = this.$
 
 		$('.text-client-sigle-span').find('a').attr('target', '_blank');
+
+		console.log(this.wp.title);
 
 
 // function pour pas afficher le current slide

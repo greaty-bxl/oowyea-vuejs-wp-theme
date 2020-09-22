@@ -107,7 +107,7 @@ export default {
 
 	a:focus {
 
-		    outline-width: 0px;
+		outline-width: 0px;
 	}
 
 

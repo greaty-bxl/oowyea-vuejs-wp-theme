@@ -25,7 +25,7 @@ export default function(vue, permalink, callback){
 		200, 
 		() => {
 
-			$('#app').scrollTop(0)
+			//$('#app').scrollTop(0)
 			
 			callback()
 

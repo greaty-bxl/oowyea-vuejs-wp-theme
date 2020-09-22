@@ -127,7 +127,7 @@ export default {
                 this.pages['next'] = {}
 
                 $('#app').data('scrolling', '')
-                
+
                 init_scrolltop(this)
                 
                 $(document).trigger('after_next_page')

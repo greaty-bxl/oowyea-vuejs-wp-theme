@@ -27,9 +27,10 @@ function scrollSection(vue){
 		if( !wait )
 		{
 			wait = 1
+			$('#app').css('pointer-events', 'none');
 			$('#app').data('scrolling', 'scroll-sections')
 			$("#app").stop()
-				.animate({scrollTop: pos + 'px'}, 500, 'easeInOutQuart')
+				.animate({scrollTop: pos + 'px'}, 777, 'easeOutQuad')
 				.promise()
 				.then( () => {
 					setTimeout( () => {
@@ -37,6 +38,7 @@ function scrollSection(vue){
 						$('#app').data('scrolling', '')
 						let permalink = $('#'+current_section).data('permalink')
 						vue.pushHistory( permalink )
+						$('#app').css('pointer-events', 'auto');
 					}, 0)
 					
 			});
@@ -135,7 +137,7 @@ function scrollSection(vue){
 			{
 				$('#app').data('scrolling', '')
 				clearTimeout( timer )
-				timer = setTimeout( scroll_end , 50 )
+				timer = setTimeout( scroll_end , 10 )
 			}
 			else
 			{

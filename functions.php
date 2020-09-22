@@ -14,7 +14,6 @@ define('GREATY_TEMPLATE_URL', get_template_directory_uri());
 /*include GREATY_TEMPLATE_PATH.'/security/security.php';*/
 include GREATY_TEMPLATE_PATH.'/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
 include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
-//include GREATY_TEMPLATE_PATH.'/plugins/multi-domains/multi-domains.php';
 
 
 /*------------------------------------*\

@@ -31,6 +31,7 @@ function scrollSection(vue){
 			console.log('auto scroll', pos, $('#app').data('scrolling') );
 
 			wait = 1
+			$('#app').css('pointer-events', 'none');
 			$('#app').data('scrolling', 'scroll-sections')
 			$("#app").stop()
 				.animate({scrollTop: pos + 'px'}, 900, 'easeOutQuad')

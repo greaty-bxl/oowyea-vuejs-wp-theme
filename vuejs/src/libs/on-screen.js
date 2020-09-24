@@ -18,7 +18,7 @@ export default () => {
 	function scan_screen(){
 		$('.on-screen').each( (index, el) => {
 
-			var elTop = $(el).position().top +  $('#app').scrollTop() / 1.5
+			var elTop = $(el).position().top +  $('#app').scrollTop()
 			// var elTop2 = $(el).position().top +  $('#app').scrollTop() 
 
 		
@@ -27,9 +27,9 @@ export default () => {
 			var bottom = $('#app').scrollTop() + $('#app').outerHeight() 
 
 
-			if( elTop < top  && elBott < bottom )
+			if( elTop > top  && elBott < bottom )
 			{
-				if( $(el).data('screen-event') !== 'in-screen' )
+				if( $(el).data('screen-event') !== 'in-screen' && $(el).data('screen-event') !== 'leaving-screen' )
 				{
 					$(el).data('screen-event', 'in-screen')
 					$(el).trigger({
@@ -43,7 +43,7 @@ export default () => {
 				}
 			}
 
-			if (last_scroll < elTop && elBott < bottom ) {
+			/*if (last_scroll < elTop && elBott < bottom ) {
 
 				// console.log(last_scroll , 'last_scroll');
 				// console.log(elTop , 'elTop');
@@ -56,21 +56,26 @@ export default () => {
 										'scrollingType': scrollingType
 									})
 									// console.log(el , '1');
-			}
+			}*/
 
-			else if( elTop < top - 1 && elBott < top &&  elTop > bottom - 1 && elBott > bottom )
+			else if( (elTop < top || elBott > bottom) && $(el).data('screen-event') == 'in-screen')
 			{
-				if( $(el).data('screen-event') !== 'out-screen' )
+				if( $(el).data('screen-event') !== 'leaving-screen' )
 				{
-					$(el).data('screen-event', 'out-screen')
+					$(el).data('screen-event', 'leaving-screen')
 					leave(el)
 
 					// console.log(el);
 
 
 
-					// console.log('sorti');
+					//console.log('leaving');
 				}
+			}
+
+			else if( elTop < top && elBott < top || elTop > bottom && elBott > bottom )
+			{
+				$(el).data('screen-event', '')
 			}
 
 		})

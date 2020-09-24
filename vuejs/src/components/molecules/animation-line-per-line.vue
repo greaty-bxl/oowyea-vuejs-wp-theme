@@ -92,10 +92,20 @@ export default{
 			.first()
 			.addClass('on-screen')
 			.on('leave-screen', () => {
-				$( this.$el ).find('.char').css({
+				/*$( this.$el ).find('.char').css({
 					'opacity': 0,
 					'translateY': 50,
-				});
+				});*/
+
+				anime({
+					targets: '.char'+this._uid,
+					opacity: 0,
+					translateY: 50,
+					easing: 'cubicBezier(0.25, 0.46, 0.45, 0.94)',
+					duration: 500,
+					delay: 0,
+					
+				}) ;
 			})
 			
 			.on('enter-screen', () => {
@@ -139,7 +149,7 @@ export default{
 							translateY: 0,
 							easing: 'cubicBezier(0.25, 0.46, 0.45, 0.94)',
 							duration: 500,
-							delay: 150,
+							delay: 400,
 							
 						}) ;
 			

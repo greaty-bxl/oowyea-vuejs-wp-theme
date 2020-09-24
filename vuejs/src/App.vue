@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <div class="page sections" v-for="(page, key) in pages" :key="key" :data-state="key">
+    <div id="fullpage" class="page sections" v-for="(page, key) in pages" :key="key" :data-state="key">
       <div class="section" 
         v-for="(section, key2) in page" 
         :key="section.post_name" 
@@ -41,13 +41,16 @@ import Footer from 'Organisms/footer.vue'
 //Functions
 import is from 'is_js'
 import init_scrolltop from 'Libs/init-scrolltop.js'
-import scrollSection from 'Libs/scroll-sections.js'
+//import scrollSection from 'Libs/scroll-sections.js'
+import scrollSection from 'Libs/scroll-sections-v2.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
 import smart_fonts from 'Libs/smart-fonts.js'
 import on_screen from 'Libs/on-screen.js'
 import acf_to_css from 'Libs/acf-to-css.js'
+
+//import fullpage from 'fullpage.js'
 
 
 function vue_key_to_name(str)
@@ -86,6 +89,11 @@ export default {
     // console.log('wp', this.wp)
 
     this.pages['current'] = this.wp.sections
+
+    this.$nextTick(() => {
+       // Scroll Down
+
+    })
 
 
     this.$(document).ready( ($) => {
@@ -184,7 +192,7 @@ html{
   color: #2c3e50;
   height: 100vh;
   width: 100%;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .clear{

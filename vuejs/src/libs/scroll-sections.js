@@ -34,7 +34,7 @@ function scrollSection(vue){
 			$('#app').css('pointer-events', 'none');
 			$('#app').data('scrolling', 'scroll-sections')
 			$("#app").stop()
-				.animate({scrollTop: pos + 'px'}, 900, 'easeOutQuad')
+				.animate({scrollTop: pos + 'px'}, 700, 'easeOutQuart')
 				.promise()
 				.then( () => {
 					setTimeout( () => {
@@ -157,7 +157,7 @@ function scrollSection(vue){
 				$('#app').data('scrolling', '')
 				
 				clearTimeout( timer )
-				timer = setTimeout( scroll_end , 50 )
+				timer = setTimeout( scroll_end , 10 )
 			}
 			else
 			{

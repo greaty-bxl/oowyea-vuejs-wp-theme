@@ -7,14 +7,14 @@
 
 		<div class="post-client">
 
-		<Anime3d class="g-project" v-for="child in wp.projects" :key="child.ID">
+		<Anime3d class="g-project anchor" v-for="child in wp.projects" :key="child.ID">
 			
 				<div class="icon global-project test__item " >
 					
 						<a :href="child.permalink" >
 							<div class="client">
 
-								<img class="image-client" height="100%" width="100%"  v-if="child.thumb" :src="child.thumb" >
+								<img class="image-client on-screen" height="100%" width="100%"  v-if="child.thumb" :src="child.thumb" >
 
 								<video class="image-client" height="100%" width="100%" loop autoplay="true" :src="child.fields.video" v-else></video>
 
@@ -59,6 +59,7 @@ import smart_fonts from 'Libs/smart-fonts.js';
 		},
 
 		props: {
+			'section' : Object,
 			'post' : Object
 		},
 
@@ -66,7 +67,64 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 	mounted(){
 
+		let $ = this.$
+
 		this.wp = window.wp
+
+		console.log( this.post );
+
+		$('.image-client').on('enter-screen', (event) => {
+
+			$(event.target).animate({
+				'opacity': 1,
+				},
+				800, function() {
+				/* stuff to do after animation is complete */
+			});
+			//console.log(event.target);
+
+			$({blurRadius: 10, translateY: 50}).animate({blurRadius: 0, translateY: 0}, {
+				duration: 800,
+				easing: 'easeInOutQuad', // or "linear"
+				// use jQuery UI or Easing plugin for more options
+				step: function() {
+					//console.log(this.blurRadius);
+					$(event.target).css({
+						"-webkit-filter": "blur("+this.blurRadius+"px)",
+						"filter": "blur("+this.blurRadius+"px)",
+						"transform": "translateY("+ this.translateY +"px)"
+					});
+				},
+
+			});
+		})
+
+		//on leave screen (also tiggered on init)
+		$('.image-client').on('leave-screen', (event) => {
+
+			$(event.target).animate({
+				'opacity': 0,
+				},
+				800, function() {
+				/* stuff to do after animation is complete */
+			});
+			//console.log(event.target);
+
+			$({blurRadius: 0, translateY: 0}).animate({blurRadius: 10, translateY: 50}, {
+				duration: 800,
+				easing: 'easeInOutQuad', // or "linear"
+				// use jQuery UI or Easing plugin for more options
+				step: function() {
+					//console.log(this.blurRadius);
+					$(event.target).css({
+						"-webkit-filter": "blur("+this.blurRadius+"px)",
+						"filter": "blur("+this.blurRadius+"px)",
+						"transform": "translateY("+ this.translateY +"px)"
+					});
+				},
+
+			});
+		})
 
 		this.$emit('template_mounted', this)
 
@@ -204,7 +262,9 @@ padding-right: auto;
 .image-client{
 
 width: 100%;
-
+-webkit-filter: blur(10px);
+filter: blur(10px);
+opacity: 0;
 /*background-color: white;*/
 
 }
@@ -375,7 +435,7 @@ strong {
 
 						.post-client{
 
-							padding:  70px 35px;
+							padding:  0px 35px;
 							
 						}
 
@@ -442,7 +502,7 @@ strong {
 						.g-project{
 								width: calc(50% - 70px) !important;
 								display: inline-block;
-								margin-bottom: 3%;
+								margin: 70px 0 1.5% 0;
 						}
 
 
@@ -452,9 +512,8 @@ strong {
 
 						.post-client{
 
-							margin-top: 70px !important;
+							margin-top: 00px !important;
 						}
-Z
 						.banner{
 
 							min-height: 50vh;
@@ -489,7 +548,8 @@ Z
 						.g-project {
 							padding-left: 10%;
 							padding-right: 10%;
-							padding-bottom: 5%
+							padding-top: 70px;
+							padding-bottom: 2.5%;
 						}
 
 	
@@ -606,7 +666,8 @@ Z
 							display: inline-block;
 							padding-right: 30px;
 							padding-left: 30px;
-							padding-bottom: 5%
+							padding-top: 70px;
+							padding-bottom: 2.5%;
 
 						}
 						.div-text-project{
@@ -668,7 +729,7 @@ Z
 
 						.post-client{
 
-							padding-top: 100px;
+							padding-top: 0px;
 							padding-bottom: 120px;
 
 						}

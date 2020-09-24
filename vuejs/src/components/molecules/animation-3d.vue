@@ -32,7 +32,7 @@ mounted(){
 
 
 			$(function(){
-			boxRollovers();
+			console.log( boxRollovers );
 		});
 
 

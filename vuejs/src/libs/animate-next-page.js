@@ -3,6 +3,7 @@ export default function(vue, permalink, callback){
 	var $ = vue.$
 
 	let next = $('[data-state="next"]')
+	let current = $('[data-state="current"]')
 
 	$('[data-state="next"]').css({
 		'position' : 'fixed',
@@ -10,31 +11,44 @@ export default function(vue, permalink, callback){
 		'top' : '0px',
 		'left' : '0px',
 		'height' : '100vh',
-		'overflow-y' : 'scroll',
+		'overflow' : 'hidden',
 		'opacity' : 0,
-		'display' : 'block'
+		'display' : 'block',
+		'z-index' : 2900
 	});
 
 	$('[data-state="next"]').find('.section').hide();
 
 	$('[data-permalink="'+permalink+'"]').show();
 
-	next.animate({
-		'opacity': 1,
+	current.animate({
+		'opacity': 0,
 		},
-		200, 
-		() => {
+		400, () => {
 
-			//$('#app').scrollTop(0)
-			
-			callback()
+			next.animate({
+				'opacity': 1,
+				},
+				400, 
+				() => {
 
-			setTimeout( () => {
-				$('[data-state="next"]').css({
-					'position' : 'relative',
-					'opacity' : 0,
-					'display' : 'none'
-				});
-			}, 2 )
+					//$('#app').scrollTop(0)
+					
+					callback()
+
+					setTimeout( () => {
+						current.css({
+							'opacity' : 1,
+						})
+
+						next.css({
+							'position' : 'relative',
+							'opacity' : 0,
+							'display' : 'none'
+						})
+
+					}, 2 )
+			});
 	});
+	
 }

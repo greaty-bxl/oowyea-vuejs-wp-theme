@@ -264,9 +264,31 @@ function scrollSection(vue){
 				})*/
 	}
 
+	function fake_scrollbar(){
+		let scrollbar = $('<div>')
+		$('#app').append( scrollbar )
+
+		let percent_screen_page = ( $('#app').outerHeight() / $('#app')[0].scrollHeight )
+		let barHeight = $('#app').outerHeight() * percent_screen_page
+
+		console.log( barHeight );
+
+		scrollbar.css({
+			'position': 'fixed',
+			'width' : '10px',
+			'height' : barHeight + 'px',
+			'background' : 'black',
+			'top': 0,
+			'right': 0,
+			'z-index' : 10000
+		});
+	}
+
 	if( is.desktop() )
 	{
 		$('#app').css('overflow', 'hidden');
+
+		fake_scrollbar()
 
 		window.addEventListener("wheel", event => {
 			const delta = Math.sign(event.deltaY);

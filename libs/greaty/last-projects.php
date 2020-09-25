@@ -9,6 +9,7 @@ function gtr_get_projects( $args = null ) {
 
 	$args = array(
 		'post_type' => 'project',
+		'posts_per_page' => -1,
 	);
 
 	if( is_single() ){

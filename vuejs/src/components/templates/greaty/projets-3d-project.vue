@@ -74,7 +74,7 @@ import smart_fonts from 'Libs/smart-fonts.js';
 		console.log( this.post );
 
 		$('.image-client').on('enter-screen', (event) => {
-
+			//console.log('enter-screen', event.target);
 			$(event.target).animate({
 				'opacity': 1,
 				},

@@ -13,6 +13,7 @@
     "fullpage.js": "^3.0.9",
     "gsap": "^3.5.1",
     "hotkeys-js": "^3.8.1",
+    "interactjs": "^1.9.22",
     "is_js": "^0.9.0",
     "lottie-vuejs": "^0.3.7",
     "lottie-web": "^5.7.2",

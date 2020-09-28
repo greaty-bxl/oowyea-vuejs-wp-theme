@@ -1,11 +1,19 @@
 import is from 'is_js'
 import anime from 'animejs'
-import hotkeys from 'hotkeys-js';
+import hotkeys from 'hotkeys-js'
+import interact from 'interactjs'
 
 function scrollSection(vue){
 
 	var $ = vue.$
 	var animating = false
+
+	let scrollbar = $('<div>')
+	let percent_screen_page
+	let barHeight
+	let scrollDragging = false
+
+	let duration
 
 	function find_current_section(){
 		let current
@@ -59,6 +67,22 @@ function scrollSection(vue){
 				current = $(el)
 			}
 		});
+
+		//if not current in screen then find the section who is the most in screen
+		if( is.undefined( current ) )
+		{
+			//let max_in_screen = 0
+
+			$('.section').each(function(index, el) {
+				//let relative_top = $(el).position().top + $('#app').scrollTop()
+				//let relative_bottom = relative_top + $(el).outerHeight()
+				//let app_relative_bottom = $('#app').scrollTop() + $('#app').outerHeight()
+				//let pos1 = $(el).position().top
+				//let pos2 = $('#app').scrollTop() - ( $(el).position().top + $(el).outerHeight() )
+
+				console.log('in screen',  $(el).position().top );
+			});
+		}
 
 		return current
 	}
@@ -187,9 +211,7 @@ function scrollSection(vue){
 					{
 						found_relative_top_anchor = relative_top_anchor
 						found = anchor
-						//console.log(anchor);
 					}
-					
 				});
 				
 
@@ -232,7 +254,7 @@ function scrollSection(vue){
 			}
 		}
 
-		let duration = new_top - $('#app').scrollTop()
+		duration = new_top - $('#app').scrollTop()
 		if( duration < 0 )
 		{
 			duration *= -1
@@ -241,10 +263,14 @@ function scrollSection(vue){
 		duration += 300
 
 		duration = Math.round( duration )
-		//console.log('duration', duration);
-		//$('.banner').remove()
 
 		animating = true
+
+		$('#app').trigger({
+			'type': 'before_scroll_to_section',
+			'new_top': new_top,
+		})
+
 		anime({
 			targets: '#app',
 			scrollTop: new_top,
@@ -253,42 +279,111 @@ function scrollSection(vue){
 			complete: function() {
 				animating = false
 				$('#app').css('scrolltop', new_top + 'px');
-			}
-		});		
 
-		/*$("#app").stop()
-				.animate({scrollTop: new_top + 'px'}, 900, 'easeOutQuad')
-				.promise()
-				.then( ()=>{
-					animating = false
-				})*/
+				$('#app').trigger({
+					'type': 'after_scroll_to_section',
+					'new_top': new_top,
+				})
+			}
+		});
 	}
 
-	function fake_scrollbar(){
-		let scrollbar = $('<div>')
-		$('#app').append( scrollbar )
-
-		let percent_screen_page = ( $('#app').outerHeight() / $('#app')[0].scrollHeight )
-		let barHeight = $('#app').outerHeight() * percent_screen_page
-
-		console.log( barHeight );
+	
+	function reset_scroll_sizes(){
+		percent_screen_page = ( $('#app').outerHeight() / $('#app')[0].scrollHeight )
+		barHeight = $('#app').outerHeight() * percent_screen_page
 
 		scrollbar.css({
 			'position': 'fixed',
 			'width' : '10px',
 			'height' : barHeight + 'px',
-			'background' : 'black',
+			'background' : 'rgba(0,0,0,0.7)',
 			'top': 0,
 			'right': 0,
-			'z-index' : 10000
+			'z-index' : 10000,
+			'transition': 'all'
 		});
 	}
+
+	function init_fake_scrollbar(){
+		
+		$('#app').append( scrollbar )
+
+		reset_scroll_sizes()
+
+		$('#app').on('before_scroll_to_section',  (event) => {
+
+			let percent_scroll = Math.round( event.new_top / ( $('#app')[0].scrollHeight - $('#app').outerHeight() ) * 100 ) / 100
+			let scrollbar_top = ( $('#app').outerHeight() - barHeight ) * percent_scroll
+
+			anime({
+				targets: scrollbar[0],
+				top: scrollbar_top,
+				duration: duration,
+				easing: 'easeInOutQuad',
+				complete: function() {
+					
+				}
+			});
+		});
+		
+		$(document).on('before_next_page', function() {
+			scrollbar.animate({
+				'opacity': 0,
+				'top': $('#app').outerHeight()
+				},
+				200);
+		});
+
+		$(document).on('after_next_page', function() {
+			reset_scroll_sizes()
+			scrollbar.animate({
+				'opacity': 1,
+				},
+				500);
+		});
+
+		interact( scrollbar[0] ).draggable({
+			cursorChecker(){
+				return false
+			},
+			listeners: {
+				move (event) {
+					//console.log('move', event.dy);
+
+					scrollDragging = true
+
+					let new_pos = scrollbar.position().top + event.dy
+
+					if( new_pos > 0 && new_pos + barHeight < $('#app').outerHeight() )
+					{
+						scrollbar.css('top', new_pos);	
+					}
+
+					let new_percent_scroll = Math.round( (scrollbar.position().top) /  ($('#app').outerHeight() - barHeight) * 100 ) / 100
+					let new_scroll_top = $('#app')[0].scrollHeight * new_percent_scroll
+					console.log( new_percent_scroll )
+					$('#app').scrollTop( new_scroll_top )
+
+				},
+				end () {
+					
+					scrollDragging = false
+				}
+			}
+		})
+
+		console.log('scrollDragging', scrollDragging);
+
+	}
+
+
 
 	if( is.desktop() )
 	{
 		$('#app').css('overflow', 'hidden');
 
-		fake_scrollbar()
+		init_fake_scrollbar()
 
 		window.addEventListener("wheel", event => {
 			const delta = Math.sign(event.deltaY);

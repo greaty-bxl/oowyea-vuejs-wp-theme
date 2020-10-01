@@ -1,4 +1,4 @@
-//init
+import is from 'is_js'
 export default () => {
 
 	var $ = window.jquery
@@ -19,7 +19,7 @@ export default () => {
 	function scan_screen(){
 		$('.on-screen').each( (index, el) => {
 
-			var elTop = $(el).position().top +  $('#app').scrollTop()
+			var elTop = $(el).offset().top +  $('#app').scrollTop()
 			// var elTop2 = $(el).position().top +  $('#app').scrollTop() 
 
 		
@@ -27,13 +27,24 @@ export default () => {
 			var top = $('#app').scrollTop()
 			var bottom = $('#app').scrollTop() + $('#app').outerHeight() 
 
+			//console.log( $(el).prop('class'), elBott, bottom );
 
-
-			if( elTop > top  && elBott < bottom )
+			if( 
+				(
+					elTop >= top  
+				)
+				&& 
+				(
+					//elBott < bottom 
+					is.within(elBott, bottom - 5, bottom + 5 )
+					||
+					elBott <= bottom 
+				)
+			)
 			{
 				if( $(el).data('screen-event') !== 'in-screen' /*&& $(el).data('screen-event') !== 'leaving-screen'*/ )
 				{
-					//console.log( 'enter', $(el), elTop, elBott, top, bottom, sens );
+					//console.log( 'enter', $(el).prop('class') );
 					$(el).data('screen-event', 'in-screen')
 					$(el).trigger({
 						'type': 'enter-screen',
@@ -44,46 +55,30 @@ export default () => {
 					// console.log('entree');
 				}
 			}
-
-			/*if (last_scroll < elTop && elBott < bottom ) {
-
-				// console.log(last_scroll , 'last_scroll');
-				// console.log(elTop , 'elTop');
-
-
-				$(el).data('screen-event', 'in-screen')
-									$(el).trigger({
-										'type': 'enter-screen',
-										'sens': sens,
-										'scrollingType': scrollingType
-									})
-									// console.log(el , '1');
-			}*/
-
-			else if( ( (elTop < top && sens == 1) || (elBott > bottom && sens == -1) ) && $(el).data('screen-event') == 'in-screen')
+			else if( 
+				( 
+					(elTop < top && sens == 1) 
+					|| 
+					(elBott > bottom && sens == -1) 
+					/*(
+						(
+							is.within(elBott, bottom - 5, bottom + 5 )
+							||
+							elBott > bottom 
+						)
+						&&
+						sens == -1
+					)*/
+				) 
+				&& 
+				$(el).data('screen-event') == 'in-screen')
 			{
 				if( $(el).data('screen-event') !== 'leaving-screen' )
-				{
-					//console.log( 'leave', $(el), elTop, elBott, top, bottom, sens );
-					
+				{					
 					$(el).data('screen-event', 'leaving-screen')
-					leave(el)	
-										
-
-					//console.log('leave');
-
-
-
-					//console.log('leaving');
+					leave(el)
 				}
 			}
-
-			/*if( elTop < top && elBott < top || elTop > bottom && elBott > bottom )
-			{*/
-				//$(el).data('screen-event', '')
-				/*leave(el)*/
-			//}
-
 		})
 	}
 

@@ -5,30 +5,43 @@ import interact from 'interactjs'
 
 function scrollSection(vue){
 
-	var $ = vue.$
-	var animating = false
+	let $ = vue.$
+	let animating = false
+
+	
 
 	let scrollbar = $('<div>')
 	let percent_screen_page
 	let barHeight
 	let scrollDragging = false
+	//let dragTop = 0
+	let dragSens = 1
 
 	let duration
 
 	function find_current_section(){
+		
 		let current
 
 		$('.section').each(function(index, el) {
 
-			let relative_top = $(el).position().top + $('#app').scrollTop()
+			let app_scrollTop = $('#app').scrollTop()
+
+			/*if( scrollDragging == true )
+			{
+				app_scrollTop = dragTop
+				console.log('find_current_section scrollDragging', dragTop);
+			}*/
+
+			let relative_top = $(el).offset().top + app_scrollTop
 			let relative_bottom = relative_top + $(el).outerHeight()
-			let app_relative_bottom = $('#app').scrollTop() + $('#app').outerHeight()
+			let app_relative_bottom = app_scrollTop + $('#app').outerHeight()
 			
 			//console.log( $(el).prop('id'), relative_top , $('#app').scrollTop() );
 			//console.log( $(el).prop('id'), relative_bottom , $('#app').scrollTop() + $('#app').outerHeight() + 2 );
 
 			if( (
-					is.within(relative_top, $('#app').scrollTop() - 5, $('#app').scrollTop() + 5 )
+					is.within(relative_top, app_scrollTop - 5, app_scrollTop + 5 )
 					&&
 					is.within($(el).outerHeight(), $('#app').outerHeight() - 5, $('#app').outerHeight() + 5 )
 				)
@@ -37,9 +50,9 @@ function scrollSection(vue){
 					$(el).outerHeight() > $('#app').outerHeight()
 					&&
 						(
-							is.within(relative_top, $('#app').scrollTop() - 5, $('#app').scrollTop() + 5 )
+							is.within(relative_top, app_scrollTop - 5, app_scrollTop + 5 )
 							||
-							relative_top < $('#app').scrollTop()
+							relative_top < app_scrollTop
 						)					
 					&&
 						(
@@ -53,14 +66,14 @@ function scrollSection(vue){
 				(
 					$(el).outerHeight() < $('#app').outerHeight()
 					&&
-					relative_top > $('#app').scrollTop()
+					relative_top > app_scrollTop
 					&&
 					/*(
 						is.within(relative_bottom, app_relative_bottom - 5, app_relative_bottom + 5 )
 						||
 						relative_bottom < app_relative_bottom
 					)*/	
-					relative_bottom <= $('#app').scrollTop() + $('#app').outerHeight() + 2
+					relative_bottom <= app_scrollTop + $('#app').outerHeight() + 2
 				)
 			)
 			{
@@ -71,16 +84,31 @@ function scrollSection(vue){
 		//if not current in screen then find the section who is the most in screen
 		if( is.undefined( current ) )
 		{
-			//let max_in_screen = 0
+			let max_in_screen = 0
+			let val = 0
+			//let element = null
 
 			$('.section').each(function(index, el) {
-				//let relative_top = $(el).position().top + $('#app').scrollTop()
-				//let relative_bottom = relative_top + $(el).outerHeight()
-				//let app_relative_bottom = $('#app').scrollTop() + $('#app').outerHeight()
-				//let pos1 = $(el).position().top
-				//let pos2 = $('#app').scrollTop() - ( $(el).position().top + $(el).outerHeight() )
+				let relative_top = $(el).offset().top + $('#app').scrollTop()
+				let relative_bottom = relative_top + $(el).outerHeight()
+				let app_relative_bottom = $('#app').scrollTop() + $('#app').outerHeight()
+				//let pos1 = $(el).offset().top
+				//let pos2 = $('#app').scrollTop() - ( $(el).offset().top + $(el).outerHeight() )
+				if( relative_top <= $('#app').scrollTop() && relative_bottom < app_relative_bottom )
+				{
+					val = relative_bottom - $('#app').scrollTop()
+				}
+				else if( relative_top > $('#app').scrollTop() && $(el).outerHeight() >= $('#app').outerHeight() )
+				{
+					val = app_relative_bottom - relative_top
+				}
 
-				console.log('in screen',  $(el).position().top );
+				if( val > max_in_screen )
+				{
+					max_in_screen = val
+					current = $(el)
+				}
+				//console.log('in screen', $(el).prop('id'), max_in_screen );
 			});
 		}
 
@@ -155,20 +183,31 @@ function scrollSection(vue){
 					
 					if( found == false )
 					{
-						//console.log( $(anchor).position().top, $('#app').scrollTop() );
-						relative_top_anchor = $(anchor).position().top +  $('#app').scrollTop()
+						//console.log( $(anchor).offset().top, $('#app').scrollTop() );
+						relative_top_anchor = $(anchor).offset().top +  $('#app').scrollTop()
 
-						if( relative_top_anchor > $('#app').scrollTop() + 1 )
+						if( 
+							relative_top_anchor > $('#app').scrollTop() + 1
+							
+							)
 						{
 							found = anchor
-							//console.log(anchor);
+							//console.log('anchor', anchor);
 						}
 					}
 				});
 				
 				//console.log( 'relative_top_anchor', relative_top_anchor, next );
 
-				if( found != false && relative_top_anchor < max_next && !force_bottom_section )
+				if( 
+					found != false 
+					&& 
+						(
+							is.within(relative_top_anchor, max_next - 10, max_next + 10 )
+							||
+							relative_top_anchor < max_next 
+						)
+					&& !force_bottom_section )
 				{
 					next = relative_top_anchor
 					//console.log( 'relative_top_anchor' );
@@ -204,10 +243,10 @@ function scrollSection(vue){
 
 				current.find('.anchor').each( (index, anchor) => {
 					
-					//console.log( $(anchor).position().top, $('#app').scrollTop() );
-					relative_top_anchor = $(anchor).position().top +  $('#app').scrollTop()
+					//console.log( $(anchor).offset().top, $('#app').scrollTop() );
+					relative_top_anchor = $(anchor).offset().top +  $('#app').scrollTop()
 
-					if( relative_top_anchor < $('#app').scrollTop() - 1 )
+					if( relative_top_anchor <= $('#app').scrollTop() - 1 )
 					{
 						found_relative_top_anchor = relative_top_anchor
 						found = anchor
@@ -215,7 +254,18 @@ function scrollSection(vue){
 				});
 				
 
-				if( found != false && found_relative_top_anchor != false && found_relative_top_anchor > max_next && !force_top_section )
+				if( 
+					found != false 
+					&& 
+					found_relative_top_anchor != false 
+					&& 
+						(
+							//found_relative_top_anchor > max_next 
+							is.within(found_relative_top_anchor, max_next - 5, max_next + 5 )
+							||
+							found_relative_top_anchor > max_next 
+						)
+					&& !force_top_section )
 				{
 					next = found_relative_top_anchor
 				}
@@ -227,12 +277,35 @@ function scrollSection(vue){
 			//console.log( 'next int', next )
 		}
 
-		//console.log( current.index(), $('.page .section').length - 2 );
+		if( scrollDragging && is.not.decimal( next ) && is.not.integer( next )  )
+		{
+			
+			//next = current
+		}
+
+		if( !next )
+		{
+			//next = 0
+		}
+
+		//console.log('in', scrollDragging, current, next);
 
 		return next
 	}
 
 	function go_to_next(delta){
+
+		let is_scrolling_by_what = $('#app').data('scrolling')
+		//console.log( 'scroll', find_current_section() );
+		if( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" )
+		{
+			$('#app').data('scrolling', 'scroll-sections')
+		}
+		else
+		{
+			return
+		}
+
 		if( animating == true )
 		{
 			return
@@ -241,19 +314,32 @@ function scrollSection(vue){
 		let next = find_next_section(delta)
 		let new_top
 
-		//console.log( is.decimal( next ) );
+		//console.log( next );
+
 		if( is.decimal( next ) || is.integer( next ) ){
 			new_top = next
 		}
 		else
 		{
-			new_top = next.position().top + $('#app').scrollTop()
-			if( next.outerHeight() > $('#app').outerHeight() && delta == -1 )
+			new_top = next.offset().top + $('#app').scrollTop()
+			// go bottom of big prev section
+			if( next.outerHeight() > $('#app').outerHeight() && delta == -1 && !scrollDragging )
 			{
 				new_top += next.outerHeight() - $('#app').outerHeight()
 			}
 		}
 
+		if( new_top > $('#app')[0].scrollHeight - $('#app').outerHeight() )
+		{
+			new_top = $('#app')[0].scrollHeight - $('#app').outerHeight()
+		}
+
+		//console.log('footer', new_top, $('#app')[0].scrollHeight - $('#app').outerHeight());
+
+		go_to( new_top )
+	}
+
+	function go_to( new_top ) {
 		duration = new_top - $('#app').scrollTop()
 		if( duration < 0 )
 		{
@@ -288,6 +374,10 @@ function scrollSection(vue){
 		});
 	}
 
+	function get_scroll_top(new_top){
+		let percent_scroll = Math.round( new_top / ( $('#app')[0].scrollHeight - $('#app').outerHeight() ) * 100 ) / 100
+		return ( $('#app').outerHeight() - barHeight ) * percent_scroll
+	}
 	
 	function reset_scroll_sizes(){
 		percent_screen_page = ( $('#app').outerHeight() / $('#app')[0].scrollHeight )
@@ -297,11 +387,12 @@ function scrollSection(vue){
 			'position': 'fixed',
 			'width' : '10px',
 			'height' : barHeight + 'px',
-			'background' : 'rgba(0,0,0,0.7)',
-			'top': 0,
+			'background' : '#6e6e6e',
+			'top': get_scroll_top( $('#app').scrollTop() ),
 			'right': 0,
 			'z-index' : 10000,
-			'transition': 'all'
+			//'transition': 'all'
+			'touch-action' : 'none'
 		});
 	}
 
@@ -313,18 +404,18 @@ function scrollSection(vue){
 
 		$('#app').on('before_scroll_to_section',  (event) => {
 
-			let percent_scroll = Math.round( event.new_top / ( $('#app')[0].scrollHeight - $('#app').outerHeight() ) * 100 ) / 100
-			let scrollbar_top = ( $('#app').outerHeight() - barHeight ) * percent_scroll
-
-			anime({
-				targets: scrollbar[0],
-				top: scrollbar_top,
-				duration: duration,
-				easing: 'easeInOutQuad',
-				complete: function() {
-					
-				}
-			});
+			if( scrollDragging == false )
+			{
+				anime({
+					targets: scrollbar[0],
+					top: get_scroll_top(event.new_top),
+					duration: duration,
+					easing: 'easeInOutQuad',
+					complete: function() {
+						
+					}
+				});
+			}
 		});
 		
 		$(document).on('before_next_page', function() {
@@ -343,37 +434,74 @@ function scrollSection(vue){
 				500);
 		});
 
+		$('#app').on('after_scroll_to_section', function() {
+			reset_scroll_sizes()
+		})
+
+		$('*').on('load', function() {
+			reset_scroll_sizes()
+		})
+
 		interact( scrollbar[0] ).draggable({
 			cursorChecker(){
 				return false
 			},
 			listeners: {
 				move (event) {
-					//console.log('move', event.dy);
+
+					if( event.dy > 0 )
+					{
+						dragSens = 1
+					}
+					else if( event.dy < 0 )
+					{
+						dragSens = -1
+					}
 
 					scrollDragging = true
 
-					let new_pos = scrollbar.position().top + event.dy
+					let new_pos = scrollbar.offset().top + event.dy
 
 					if( new_pos > 0 && new_pos + barHeight < $('#app').outerHeight() )
 					{
 						scrollbar.css('top', new_pos);	
 					}
 
-					let new_percent_scroll = Math.round( (scrollbar.position().top) /  ($('#app').outerHeight() - barHeight) * 100 ) / 100
+					let new_percent_scroll = Math.round( (scrollbar.offset().top) /  ($('#app').outerHeight() - barHeight) * 100 ) / 100
 					let new_scroll_top = $('#app')[0].scrollHeight * new_percent_scroll
-					console.log( new_percent_scroll )
-					$('#app').scrollTop( new_scroll_top )
 
+					$('#app').scrollTop( new_scroll_top )
+					//dragTop =  new_scroll_top
 				},
 				end () {
+
+					/*dragTop =  new_scroll_top
+
+					let current = find_current_section()
+
+					let new_top = current.offset().top + $('#app').scrollTop()
+					if( current.outerHeight() > $('#app').outerHeight() && dragSens == -1 )
+					{
+						new_top += current.outerHeight() - $('#app').outerHeight()
+					}
+
+					go_to( new_top )
+					console.log( event, dragSens, current )*/
 					
+					//go_to_next(dragSens)
+					//animating = false
+					//animation.pause()
 					scrollDragging = false
+
+					go_to_next(dragSens)
+
+					
 				}
 			}
 		})
 
-		console.log('scrollDragging', scrollDragging);
+		
+		//console.log('scrollDragging', scrollDragging);
 
 	}
 
@@ -403,13 +531,42 @@ function scrollSection(vue){
 				break;
 			}
 		});
+
+		//$('#app').scrollTop( 1000 )
 	}
 	else
 	{
 		$('#app').css('overflow-y', 'auto');
 	}
 
-	
+	function update_current_section()
+	{
+		window.current_section = find_current_section().prop('id')
+		//console.log(window.current_section);
+		if( window.current_section )
+		{
+			window.current_section_index =  $('#'+window.current_section).index()
+
+			let permalink = $('#'+window.current_section).data('permalink')
+			vue.pushHistory( permalink )
+		}
+		// vue.$store.commit({
+		// 	type: 'section_change',
+		// 	current_section: vue.$store.state.wp.sections[window.current_section_index],
+		// })
+	}
+	/*$('#app').on('after_scroll_to_section', function() {
+		update_current_section()
+	})*/
+	$('#app').on('scroll', function() {
+		let is_scrolling_by_what = $('#app').data('scrolling')
+		//console.log( 'scroll', find_current_section() );
+		if( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" )
+		{
+			$('#app').data('scrolling', 'scroll-sections')
+			update_current_section()	
+		}		
+	});
 }
 
 export default scrollSection 

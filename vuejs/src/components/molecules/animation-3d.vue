@@ -100,7 +100,7 @@ mounted(){
   font-size: 200%;  
   /*border-radius: 0.5em;*/
   /*padding:0.5em;*/
-  height: 100%;
+  /*height: 100%;*/
   /*height: 60vw !important;*/
 }
 

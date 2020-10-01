@@ -6,13 +6,15 @@ export default function(vue){
 	{
 		var section = $('.section[data-permalink="'+window.location.href+'"]')
 
+		console.log('scrolltop init', section);
+
 		if( $('#app') && section )
 		{
 			//$('#app').css('', 'value');
 			$('#app').css('pointer-events', 'none');
 			$('#app').data('scrolling', 'init-scrolltop')
 
-			var newScroll = section.position().top + $('#app').scrollTop()
+			var newScroll = section.offset().top + $('#app').scrollTop()
 			if( newScroll < 0 ) newScroll == 0
 
 			$('#app').scrollTop( newScroll )

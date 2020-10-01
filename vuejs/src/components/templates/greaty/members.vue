@@ -5,7 +5,7 @@
 			<div class="div-members">
 				<div class="post-client">
 				<div class="member" v-for="child in wp.members" :key="child.ID">
-					<img class="image" width="100%" :src="child.thumb">
+					<img class="image on-screen" width="100%" :src="child.thumb">
 					<p class="nom" v-html="child.post_title"></p>
 					<p class="fuction" v-html="child.post_content"></p>
 				</div>
@@ -66,6 +66,59 @@ export default {
 		'.text-homepage' : 52.8
 		})
 
+		$('.member .image').on('enter-screen', (event) => {
+			//console.log('enter-screen', event.target);
+			$(event.target).stop().animate({
+				'opacity': 1,
+				},
+				650, function() {
+				/* stuff to do after animation is complete */
+			});
+			//console.log(event.target);
+
+			$({blurRadius: 10, translateY: 50}).stop().animate({blurRadius: 0, translateY: 0}, {
+				duration: 700,
+				easing: 'easeInOutQuad', // or "linear"
+				// use jQuery UI or Easing plugin for more options
+				step: function() {
+					//console.log(this.blurRadius);
+					$(event.target).css({
+						"-webkit-filter": "blur("+this.blurRadius+"px)",
+						"filter": "blur("+this.blurRadius+"px)",
+						"transform": "translateY("+ this.translateY +"px)"
+					});
+				},
+
+			});
+		})
+
+		//on leave screen (also tiggered on init)
+		$('.member .image').on('leave-screen', (event) => {
+
+			$(event.target).stop().animate({
+				'opacity': 0,
+				},
+				800, function() {
+				/* stuff to do after animation is complete */
+			});
+			//console.log(event.target);
+
+			$({blurRadius: 0, translateY: 0}).stop().animate({blurRadius: 10, translateY: 50}, {
+				duration: 700,
+				easing: 'easeInOutQuad', // or "linear"
+				// use jQuery UI or Easing plugin for more options
+				step: function() {
+					//console.log(this.blurRadius);
+					$(event.target).css({
+						"-webkit-filter": "blur("+this.blurRadius+"px)",
+						"filter": "blur("+this.blurRadius+"px)",
+						"transform": "translateY("+ this.translateY +"px)"
+					});
+				},
+
+			});
+		})
+
 		//Important to let works basic functions
 		this.$emit('template_mounted', this)
 	
@@ -82,6 +135,10 @@ export default {
 		padding-left: 5px;
 		padding-right: 5px;
 
+	}
+
+	.member .image{
+		opacity: 0
 	}
 
 

@@ -288,7 +288,16 @@ font-family: 'Montserrat', sans-serif;
 .g-project {
 	padding-left: 35px ;
 	padding-right: 35px;
+	height: 100vh;
+	display: flex !important;
+	float: left;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
 }
+
+
 
 				/* maximum */
 
@@ -388,7 +397,7 @@ strong {
   font-size: 200%;  
   /*border-radius: 0.5em;*/
   /*padding:0.5em;*/
-  height: 100%;
+  /*height: 100%;*/
   /*height: 60vw !important;*/
 }
 
@@ -500,9 +509,9 @@ strong {
 
 		
 						.g-project{
-								width: calc(50% - 70px) !important;
-								display: inline-block;
-								margin: 70px 0 1.5% 0;
+								width: 50% !important;
+								/*display: inline-block;*/
+								/*margin: 70px 0 1.5% 0;*/
 						}
 
 
@@ -661,9 +670,9 @@ strong {
 
 						.g-project{
 
-							width: calc(100% - 70px) !important;
+							width: 100% !important;
 							height: auto;
-							display: inline-block;
+							/*display: inline-block;*/
 							padding-right: 30px;
 							padding-left: 30px;
 							padding-top: 70px;

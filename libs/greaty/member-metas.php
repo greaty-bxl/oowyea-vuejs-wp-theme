@@ -8,6 +8,7 @@ function gtr_get_member( $args3 = null ) {
 	$args3 = array(
 		'post_type' => 'member',
 		'posts_per_page' => -1,
+		'orderby' => 'rand'
 	);
 
     $members = get_posts($args3);

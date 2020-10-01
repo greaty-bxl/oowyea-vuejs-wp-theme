@@ -48,7 +48,7 @@
 
 <!-- <h1 v-html="this.wp.title">single</h1>
 <div v-html="this.wp.post_content"></div> -->
-<div class="clear"></div>
+
 </div>
 </div>
 

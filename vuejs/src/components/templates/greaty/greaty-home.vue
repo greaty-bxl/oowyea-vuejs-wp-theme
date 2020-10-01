@@ -1,13 +1,13 @@
 
 <template>
-		<div class="section-wrap">
-		<div class="clear"></div>
+		<div class="section-wrap greaty-home">
+			<div class="clear"></div>
 
-		<div class="banner">
-		<lottie></lottie>
-		</div>
+			<div class="banner">
+			<lottie class="on-screen"></lottie>
+			</div>
 
-		<div class="clear"></div>
+			<div class="clear"></div>
 		</div>
 </template>
 
@@ -38,12 +38,12 @@ export default {
 
 
 	mounted(){
-
+		var $ = this.$
 		// console.log(smart_fonts);
 
 		// var $ = this.$
 
-		this.$emit('template_mounted', this);
+		
 
 
 		// $('.global-project').on('leave-screen', (event) => {
@@ -75,6 +75,33 @@ export default {
 
 
 	// });
+
+	//console.log( 'test', $('.greaty-home .lottie') );
+
+		$('.greaty-home .lottie').on('enter-screen', (event) => {
+			//console.log('enter-screen', event.target);
+			$(event.target).animate({
+				'opacity': 1,
+				},
+				500, function() {
+				/* stuff to do after animation is complete */
+			});
+			
+		})
+
+		//on leave screen (also tiggered on init)
+		$('.greaty-home .lottie').on('leave-screen', (event) => {
+			//console.log('leave screen', event.target);
+			$(event.target).animate({
+				'opacity': 0,
+				},
+				800, function() {
+				/* stuff to do after animation is complete */
+			});
+		})
+
+		this.$emit('template_mounted', this);
+
 
 		smart_fonts({
 		'.smallTile' :54,
@@ -110,7 +137,9 @@ export default {
 		outline-width: 0px;
 	}
 
-
+	.lottie{
+		opacity: 0
+	}
 </style>
 
 
@@ -355,7 +384,7 @@ strong {
 	flex-direction: column;
 }
 
-.banner div{
+.banner .lottie{
 
 	margin-top: auto;
 } 

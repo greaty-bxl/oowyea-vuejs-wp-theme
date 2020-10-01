@@ -100,11 +100,13 @@ export default {
 
       // console.log('JQuery Ready', $, this.ajaxurl)
       
-      //init scroll if child
-      init_scrolltop(this)
+      
 
       //auto scroll next section
       scrollSection(this)
+
+      //init scroll if child
+      init_scrolltop(this)
 
       //navigate in the website
       links_and_anchors(this)

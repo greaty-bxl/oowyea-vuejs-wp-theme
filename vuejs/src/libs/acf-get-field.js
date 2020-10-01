@@ -28,10 +28,14 @@ export default function (field = String, section = Object)
 		else
 		{
 			var next_search = fields
+
 			$.each(sub_fields, function(index, val) {
-				next_search = next_search[val]
+				if( is.not.undefined( next_search[val] ) )
+				{
+					next_search = next_search[val]	
+				}
 			});
-			return next_search
+			return next_search				
 		}
 	}
 
@@ -82,13 +86,17 @@ export default function (field = String, section = Object)
 	else
 	{
 		let next_search = window.wp.acf.field_objects[sub_fields[0]]
-		$.each(sub_fields, function(index, val) {
-			if( index > 0 )
-			{
-				next_search = search_key_name( next_search['sub_fields'], val);
-			}
-		});
-		acf_field.type = next_search.type
+
+		if( next_search )
+		{
+			$.each(sub_fields, function(index, val) {
+				if( index > 0)
+				{
+					next_search = search_key_name( next_search['sub_fields'], val);
+				}
+			});
+			acf_field.type = next_search.type
+		}
 	}
 	
 

@@ -51,6 +51,7 @@ export default function (vue)
 				section.parent().prepend(clone)
 
 				$('#app').trigger('clone')
+				$('#app').trigger('before_next_page')
 
 				$('#app').data('scrolling', 'links-and-anchors')
 
@@ -75,6 +76,8 @@ export default function (vue)
 							timer = setTimeout( () => {
 								$('#app').data('scrolling', '')
 							}, 15)
+
+							$('#app').trigger('after_next_page')
 						}
 					});
 			}

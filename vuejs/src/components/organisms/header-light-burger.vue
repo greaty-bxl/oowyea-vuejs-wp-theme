@@ -259,9 +259,37 @@ export default {
 		// });
 
 	
-			$('.current-menu-item').find('a').css({
-					borderBottom: '1px solid white',
-				});	
+		$('.current-menu-item').find('a').css({
+			borderBottom: '1px solid white',
+		});	
+
+		if( !window.logo_not_fixed_check )
+		{
+			window.logo_not_fixed_check = 1
+
+			$(document).on('before_next_page', function() {
+				if( $('#app').scrollTop() > 100 )
+				{
+					$('#header-logo').css({
+						'top': '-250px',
+						'opacity': 0
+					});
+				}
+				
+			});
+
+			$(document).on('after_next_page', function() {
+
+				$('#header-logo').animate({
+					'top': 0,
+					'opacity': 1
+					},
+					500, function() {
+					/* stuff to do after animation is complete */
+				});
+			});	
+		}
+		
 	}
 }
 </script>
@@ -269,6 +297,9 @@ export default {
 <style>
 
 	
+	#header-logo {
+		z-index: 3000;
+	}
 
 	#header-logo img{
 

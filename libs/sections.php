@@ -84,6 +84,19 @@ function get_sections()
 		{
 			$sections[0]->children = apply_filters( 'posts_results', $wp_query->posts );
 		}
+		
+		if( $wp_query->is_404 )
+		{
+			$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+			$sections[0]->permalink = $actual_link;
+			$sections[0]->post_title = '404';
+
+			/*echo "<pre>";
+			print_r( $sections );
+			exit();*/
+		}
+		
 	}
 
 	//apply content filter

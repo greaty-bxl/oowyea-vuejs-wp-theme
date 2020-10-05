@@ -22,6 +22,10 @@
 				type: String,
 				value: 'auto'
 			},
+			animationData: {
+				type: String,
+				value: 'Assets/animation.json'
+			}
 		},
 		mounted(){
 

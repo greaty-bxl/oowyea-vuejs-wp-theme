@@ -47,23 +47,26 @@
 import Anime3d from 'Molecules/animation-3d';
 import smart_fonts from 'Libs/smart-fonts.js';
 
-	export default {
+//$ = window.jquery
 
-		components: {
+import velocity from 'velocity-animate'
+console.log(velocity);
 
-			// Alpl,
-			// anime,
-			Anime3d,
-			// textcotact,
-		
-		},
+export default {
 
-		props: {
-			'section' : Object,
-			'post' : Object
-		},
+	components: {
 
+		// Alpl,
+		// anime,
+		Anime3d,
+		// textcotact,
+	
+	},
 
+	props: {
+		'section' : Object,
+		'post' : Object
+	},
 
 	mounted(){
 
@@ -75,20 +78,19 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 		$('.image-client').on('enter-screen', (event) => {
 			//console.log('enter-screen', event.target);
-			$(event.target).animate({
+			/*$(event.target).velocity({
 				'opacity': 1,
 				},
-				800, function() {
-				/* stuff to do after animation is complete */
-			});
+				800);*/
+
 			//console.log(event.target);
 
-			$({blurRadius: 10, translateY: 50}).animate({blurRadius: 0, translateY: 0}, {
+			/*$({blurRadius: 10, translateY: 50}).velocity({blurRadius: 0, translateY: 0}, {
 				duration: 800,
 				easing: 'easeInOutQuad', // or "linear"
 				// use jQuery UI or Easing plugin for more options
 				step: function() {
-					//console.log(this.blurRadius);
+					console.log('step velocity');
 					$(event.target).css({
 						"-webkit-filter": "blur("+this.blurRadius+"px)",
 						"filter": "blur("+this.blurRadius+"px)",
@@ -96,21 +98,39 @@ import smart_fonts from 'Libs/smart-fonts.js';
 					});
 				},
 
+			});*/
+
+			$(event.target).velocity({
+				opacity: 1,
+			}, {
+				easing: "easeInOutQuad",
+				duration: 800,
+				progress: function(elements, complete) {
+
+					let translateY = (50 - 50 * complete)
+					let blurRadius = (10 - 10 * complete)
+
+					$(elements).css({
+						"-webkit-filter": "blur("+blurRadius+"px)",
+						"filter": "blur("+blurRadius+"px)",
+						"transform": "translateY("+ translateY +"px)"
+					});
+				}
 			});
 		})
 
 		//on leave screen (also tiggered on init)
 		$('.image-client').on('leave-screen', (event) => {
 
-			$(event.target).animate({
+			/*$(event.target).stop().animate({
 				'opacity': 0,
 				},
 				800, function() {
-				/* stuff to do after animation is complete */
-			});
-			//console.log(event.target);
 
-			$({blurRadius: 0, translateY: 0}).animate({blurRadius: 10, translateY: 50}, {
+			});*/
+			//console.log(event.target);
+			/*
+			$({blurRadius: 0, translateY: 0}).stop().animate({blurRadius: 10, translateY: 50}, {
 				duration: 800,
 				easing: 'easeInOutQuad', // or "linear"
 				// use jQuery UI or Easing plugin for more options
@@ -123,6 +143,24 @@ import smart_fonts from 'Libs/smart-fonts.js';
 					});
 				},
 
+			});*/
+
+			$(event.target).velocity({
+				opacity: 0,
+			}, {
+				easing: "easeInOutQuad",
+				duration: 800,
+				progress: function(elements, complete) {
+
+					let translateY = (50 * complete)
+					let blurRadius = (10 * complete)
+
+					$(elements).css({
+						"-webkit-filter": "blur("+blurRadius+"px)",
+						"filter": "blur("+blurRadius+"px)",
+						"transform": "translateY("+ translateY +"px)"
+					});
+				}
 			});
 		})
 

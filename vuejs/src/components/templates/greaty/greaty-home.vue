@@ -133,11 +133,11 @@ export default {
 
 
 	a:focus {
-
+		outline: none;
 		outline-width: 0px;
 	}
 
-	.lottie{
+	.greaty-home .lottie{
 		opacity: 0
 	}
 </style>

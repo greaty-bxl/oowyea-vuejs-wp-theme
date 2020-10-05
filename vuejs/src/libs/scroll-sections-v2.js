@@ -3,6 +3,11 @@ import anime from 'animejs'
 import hotkeys from 'hotkeys-js'
 import interact from 'interactjs'
 
+//$ = window.jquery
+
+import velocity from 'velocity-animate'
+console.log(velocity);
+
 function scrollSection(vue){
 
 	let $ = vue.$
@@ -357,7 +362,7 @@ function scrollSection(vue){
 			'new_top': new_top,
 		})
 
-		anime({
+		/*anime({
 			targets: '#app',
 			scrollTop: new_top,
 			duration: duration,
@@ -371,7 +376,48 @@ function scrollSection(vue){
 					'new_top': new_top,
 				})
 			}
+		});*/
+
+		$('#app').velocity({
+			tween: [new_top, $('#app').scrollTop()],
+		}, {
+			easing: "easeInOutQuad",
+			duration: duration,
+			progress: function(elements, complete, remaining, start, tweenValue) {
+				$('#app').scrollTop( tweenValue );
+			},
+			complete: function() {
+				
+				animating = false
+
+				$('#app').trigger({
+					'type': 'after_scroll_to_section',
+					'new_top': new_top,
+				})
+			}
 		});
+
+		//$('#app').scrollTop( new_top );
+
+		/*$('#app')
+			.velocity('stop')
+			.velocity('scroll', { duration: 750, offset: new_top });*/
+
+		/*$('#app').velocity({
+			'scrollTop': new_top + 'px',
+		}, {
+			easing: "easeInOutQuad",
+			duration: 800,
+			complete: function() {
+				animating = false
+				//$('#app').css('scrolltop', new_top + 'px');
+
+				$('#app').trigger({
+					'type': 'after_scroll_to_section',
+					'new_top': new_top,
+				})
+			}
+		});*/
 	}
 
 	function get_scroll_top(new_top){

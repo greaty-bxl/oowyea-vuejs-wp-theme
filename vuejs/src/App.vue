@@ -16,7 +16,7 @@
             :posts="section.children" 
             :tag="wp.wp_query.queried_object"
             :cat="wp.wp_query.queried_object"
-            :author="wp.wp_query.queried_object.data"
+            :author="wp.wp_query.queried_object"
             :s="wp.wp_query.query_vars.s"
             @template_mounted="template_mounted" ></component>
 
@@ -30,7 +30,7 @@
 <script>
 
 //Header
-//import Header from 'Organisms/header-light-burger.vue'
+//import Header from 'Organisms/header.vue'
 import Header from 'Organisms/header-light-burger.vue'
 
 

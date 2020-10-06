@@ -1,10 +1,14 @@
+import remove_get_from_url from "Libs/remove-get-from-url.js"
+
 export default function(vue){
 	var $ = vue.$
 	var timer
 	
 	if( vue.wp.sections.length >= 1 )
 	{
-		var section = $('.section[data-permalink="'+window.location.href+'"]')
+		var current_location = remove_get_from_url( window.location.href )
+
+		var section = $('.section[data-permalink="'+current_location+'"]')
 
 		console.log('scrolltop init', section);
 

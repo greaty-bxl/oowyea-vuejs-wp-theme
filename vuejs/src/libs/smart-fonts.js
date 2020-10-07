@@ -20,7 +20,18 @@ export default function (fonts = {}){
 
 			//console.log(fontSize, ( ( $('#app').innerHeight() + $('#app').innerWidth() / 2 ) / 999 ) * fontSize )
 
-			$( selector ).css('font-size', ( ( ( $('#app').innerHeight() + $('#app').innerWidth() + 5000 ) / 2 ) / 4200 ) * fontSize  + 'px' );
+			
+
+			if ($('#app').innerWidth() < '600' ) {
+
+				$( selector ).css('font-size', ( ( ( $('#app').innerHeight() + $('#app').innerWidth() + 2200 ) / 2 ) / 4200 ) * fontSize  + 'px' );
+			}
+			else{
+
+				$( selector ).css('font-size', ( ( ( $('#app').innerHeight() + $('#app').innerWidth() + 5000 ) / 2 ) / 4200 ) * fontSize  + 'px' );
+			}
+
+
 		});
 	}
 

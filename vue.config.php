@@ -1,6 +1,6 @@
 <?php
 
-define('is_vuejs_dev', true);
+define('is_vuejs_dev', false);
 // define('is_vuejs_dev', false);
 
 

@@ -3,10 +3,10 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-		<div  v-bind:style="{ 'background-image': 'url(' + this.wp.wp_query.post.thumb + ')' }"  class="section-home">
-			<div v-html="this.wp.wp_query.post.post_content" class="titre-home-section"></div>
-
+		<div  v-bind:style="{ 'background-image': 'url(' +this.wp.sections[0].acf_fields.image_home.url + ')' }"  class="section-home">
+			<div  v-bind:style="{ 'color':  this.wp.sections[0].acf_fields.fonts.h1.color  }" v-html="this.wp.sections[0].post_content" class="titre-home-section"></div>
 		</div>
+
 
 		<div class="clear"></div>
     </div>
@@ -37,7 +37,7 @@ export default {
 		smart_fonts({
 			'.titre-home' : 85,
 		})
-        console.log(this.wp.wp_query.post.post_content);
+        console.log(this.wp.sections);
         
 
 		this.$emit('template_mounted', this);
@@ -58,7 +58,7 @@ export default {
 
 		font-family: 'Montserrat';
 		font-weight: 500;
-		color: white;
+		/*color: white;*/
 
 	}
 
@@ -68,7 +68,7 @@ export default {
 	}
 
 	.section-home{
-
+		background-size: cover;
 		height: 100vh;
 		display: flex;
 		flex-direction: row;
@@ -81,6 +81,19 @@ export default {
 	.titre-home-section{
 		margin-top: auto;
 		margin-bottom: auto;
+	}
+
+	@media screen and (max-width: 900px){
+
+		.titre-home-section h1{
+			text-align: center !important;
+		}
+
+		.titre-home-section{
+
+			margin-left: 30px;
+			margin-right: 30px;
+		}
 	}
 
 

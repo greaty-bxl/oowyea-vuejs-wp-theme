@@ -3,10 +3,11 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-		<!-- 	<div class="section-a-propos">
-			<div v-html="this.wp.wp_query.post.post_content" class="titre-home-section"></div> -->
+			<div class="section-a-propos">
 
-		<!-- </div> -->
+				<div v-bind:style="{ 'color':  this.wp.sections[1].acf_fields.fonts.h1.color  }" v-html="this.wp.sections[1].post_content" class="titre-a-propos-section"></div>
+
+			</div>
 
 		<div class="clear"></div>
     </div>
@@ -35,9 +36,9 @@ export default {
 		// var $ = this.$
 
 		smart_fonts({
-			'.titre-home' : 85,
+			'.titre-a-propos' : 50,
 		})
-        console.log(this.wp.wp_query.post.post_content);
+        console.log(this.wp);
         
 
 		this.$emit('template_mounted', this);
@@ -71,9 +72,25 @@ export default {
 
 	}
 
-	.titre-home-section{
+	.titre-a-propos-section{
 		margin-top: auto;
 		margin-bottom: auto;
+		width: 70%;
+		line-height: 70px;
+	}
+
+	@media screen and (max-width: 900px){
+
+		.titre-a-propos-section h1{
+			text-align: center !important;
+			line-height: 35px;
+		}
+
+		.titre-a-propos-section{
+
+			margin-left: 30px;
+			margin-right: 30px;
+		}
 	}
 
 

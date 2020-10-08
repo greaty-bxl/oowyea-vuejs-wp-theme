@@ -31,7 +31,8 @@ $vue_templates = array(
     'phaser' => 'Phaser',
     'home' => 'Fromagerie home',
     'propos' => 'A propos',
-  
+    'a-propos-galerie' => 'A propos Galerie',
+    
     // grid-services-2
 
     

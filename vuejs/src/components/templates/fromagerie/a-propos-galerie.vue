@@ -5,21 +5,19 @@
 
 		<div class="section-a-propos-galerie">
 
-			<swiper class="swiper1" :options="swiperOption1">
-							
-				<swiper-slide height="100%" class="slide-a-propos"  v-for="child in wp.projects" :key="child.ID"  >
+			<h5 class="title-section">> A propos de nous</h5>
 
-					<div height="100%" class="a-propos-swiper">
+			<swiper class="swiper1" :options="swiperOption">
 
-						<div class="image-a-propos" height="100%"  v-bind:style="{ 'background-image': 'url(' + child.thumb + ')' }"></div>
-					
-					</div>
+				<swiper-slide  class="slide-a-propos"  v-for="child in wp.projects" :key="child.ID"  >
 
-			</swiper-slide>
-		
-		</swiper>
+					<div class="image-a-propos" height="100%" width="100%"  v-bind:style="{ 'background-image': 'url(' + child.thumb + ')' }"></div>
 
-			</div>
+				</swiper-slide>
+
+			</swiper>
+
+		</div>
 
 		<div class="clear"></div>
     </div>
@@ -56,7 +54,7 @@ export default {
 			'.titre-a-propos' : 50,
 		})
 
-        console.log(this.wp.sections[2].acf_fields.a_propos_galerie);
+        // console.log(this.wp.sections[2].acf_fields.a_propos_galerie);
         
 
 		this.$emit('template_mounted', this);
@@ -69,7 +67,7 @@ export default {
 	
 	data () {
 		return {
-			swiperOption1: {
+			swiperOption: {
 			initialSlide: 0,
 			loop: true,
 			allowTouchMove: true,
@@ -78,19 +76,15 @@ export default {
 			watchSlidesVisibility: true,
 			speed: 700,
 			reachEnd: true,
-			navigation: {
-			nextEl: '.flex-gauche',
-			prevEl: '.flex-droite',
-			},
+	
 			breakpoints: {
 			// when window width is >= 320px
 			1100: {
-			slidesPerView: 3,
+			slidesPerView: 18,
 
 			},
-
-			700: {
-			slidesPerView: 2,
+			1000: {
+			slidesPerView: 1,
 			},
 
 			600: {
@@ -116,11 +110,20 @@ export default {
 		outline: 0;
 	}
 
+	.title-section{
+		margin-top: 0px;
+		text-align: left;
+		padding-left: 70px;
+		font-size: 22px;
+		margin-bottom: 60px;
+
+	}
+
 	.section-a-propos-galerie{
 
 		height: 100vh;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: center;
 		align-content: center;
 
@@ -139,11 +142,13 @@ export default {
 	.slide-a-propos{
 
 		height: 60vh;
-		width: 100%;
+		width: 20vh;
 	}
 	.image-a-propos{
 
 		height: 100%;
+		width: 90%;
+
 	}
 
 	.a-propos-swiper{
@@ -151,24 +156,54 @@ export default {
 		height: 100%;
 	}
 
+	.swiper-wrapper{
+
+		height: 60vh;
+	}
+
+	.swiper-container{
+
+		margin-left: 10%;
+	}
 
 
-	@media screen and (max-width: 900px){
 
-		.titre-a-propos-section h1{
-			text-align: center !important;
-			line-height: 35px;
-		}
+	@media screen and (max-width: 900px) and (min-width: 600px){
+
 
 		.titre-a-propos-section{
 
 			margin-left: 30px;
 			margin-right: 30px;
 		}
+
+		.swiper-container{
+
+			margin-left: 70px;
+		}
+
+
+	}
+
+	@media screen and (max-width: 600px) {
+
+
+
+		.titre-a-propos-section{
+
+			margin-left: 30px;
+			margin-right: 30px;
+		}
+
+		.swiper-container{
+
+			margin-left: 30px;
+		}
+
 	}
 
 
-	.section-a-propos{
+/*	.section-a-propos{
 
 		height: 100vh;
 		display: flex;
@@ -178,7 +213,7 @@ export default {
 
 
 	}
-
+*/
 
 
 </style>

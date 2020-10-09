@@ -83,7 +83,7 @@ export default {
 
 		.titre-a-propos-section h1{
 			text-align: center !important;
-			line-height: 35px;
+			line-height: 50px;
 		}
 
 		.titre-a-propos-section{

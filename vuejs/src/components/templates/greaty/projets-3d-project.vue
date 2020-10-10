@@ -50,6 +50,7 @@ import smart_fonts from 'Libs/smart-fonts.js';
 //$ = window.jquery
 
 import velocity from 'velocity-animate'
+import is from "is_js"
 console.log(velocity);
 
 export default {
@@ -75,6 +76,9 @@ export default {
 		this.wp = window.wp
 
 		console.log( this.post );
+
+	if(  is.not.mobile()  )
+	{
 
 		$('.image-client').on('enter-screen', (event) => {
 			//console.log('enter-screen', event.target);
@@ -164,6 +168,14 @@ export default {
 			});
 		})
 
+
+		}
+		else{
+
+			$('.image-client').css('opacity', '1');
+			$('.image-client').css('-webkit-filter', 'blur(0px)');
+
+		}
 		this.$emit('template_mounted', this)
 
 		// $('.global-project').css({

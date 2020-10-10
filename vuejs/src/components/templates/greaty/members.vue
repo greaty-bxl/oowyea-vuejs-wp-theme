@@ -42,6 +42,7 @@
 
 <script>
 import smart_fonts from "Libs/smart-fonts.js"
+import is from "is_js"
 // import textcotact from './components/text-contact'
 // import Alpl from 'Molecules/animation-line-per-line';
 export default {
@@ -66,58 +67,70 @@ export default {
 		'.text-homepage' : 52.8
 		})
 
-		$('.member .image').on('enter-screen', (event) => {
-			//console.log('enter-screen', event.target);
-			$(event.target).stop().animate({
-				'opacity': 1,
-				},
-				650, function() {
-				/* stuff to do after animation is complete */
-			});
-			//console.log(event.target);
+		if(  is.not.mobile() )
+		{
 
-			$({blurRadius: 10, translateY: 50}).stop().animate({blurRadius: 0, translateY: 0}, {
-				duration: 700,
-				easing: 'easeInOutQuad', // or "linear"
-				// use jQuery UI or Easing plugin for more options
-				step: function() {
-					//console.log(this.blurRadius);
-					$(event.target).css({
-						"-webkit-filter": "blur("+this.blurRadius+"px)",
-						"filter": "blur("+this.blurRadius+"px)",
-						"transform": "translateY("+ this.translateY +"px)"
-					});
-				},
+			$('.member .image').on('enter-screen', (event) => {
+				//console.log('enter-screen', event.target);
+				$(event.target).stop().animate({
+					'opacity': 1,
+					},
+					650, function() {
+					/* stuff to do after animation is complete */
+				});
+				//console.log(event.target);
 
-			});
-		})
+				$({blurRadius: 10, translateY: 50}).stop().animate({blurRadius: 0, translateY: 0}, {
+					duration: 700,
+					easing: 'easeInOutQuad', // or "linear"
+					// use jQuery UI or Easing plugin for more options
+					step: function() {
+						//console.log(this.blurRadius);
+						$(event.target).css({
+							"-webkit-filter": "blur("+this.blurRadius+"px)",
+							"filter": "blur("+this.blurRadius+"px)",
+							"transform": "translateY("+ this.translateY +"px)"
+						});
+					},
 
-		//on leave screen (also tiggered on init)
-		$('.member .image').on('leave-screen', (event) => {
+				});
+			})
 
-			$(event.target).stop().animate({
-				'opacity': 0,
-				},
-				800, function() {
-				/* stuff to do after animation is complete */
-			});
-			//console.log(event.target);
+			//on leave screen (also tiggered on init)
+			$('.member .image').on('leave-screen', (event) => {
 
-			$({blurRadius: 0, translateY: 0}).stop().animate({blurRadius: 10, translateY: 50}, {
-				duration: 700,
-				easing: 'easeInOutQuad', // or "linear"
-				// use jQuery UI or Easing plugin for more options
-				step: function() {
-					//console.log(this.blurRadius);
-					$(event.target).css({
-						"-webkit-filter": "blur("+this.blurRadius+"px)",
-						"filter": "blur("+this.blurRadius+"px)",
-						"transform": "translateY("+ this.translateY +"px)"
-					});
-				},
+				$(event.target).stop().animate({
+					'opacity': 0,
+					},
+					800, function() {
+					/* stuff to do after animation is complete */
+				});
+				//console.log(event.target);
 
-			});
-		})
+				$({blurRadius: 0, translateY: 0}).stop().animate({blurRadius: 10, translateY: 50}, {
+					duration: 700,
+					easing: 'easeInOutQuad', // or "linear"
+					// use jQuery UI or Easing plugin for more options
+					step: function() {
+						//console.log(this.blurRadius);
+						$(event.target).css({
+							"-webkit-filter": "blur("+this.blurRadius+"px)",
+							"filter": "blur("+this.blurRadius+"px)",
+							"transform": "translateY("+ this.translateY +"px)"
+						});
+					},
+
+				});
+			})
+
+		}
+		else{
+
+			$('.member img').css('opacity', '1');
+			$('.member img').css('-webkit-filter', 'blur(0px)');
+		
+
+		}
 
 		//Important to let works basic functions
 		this.$emit('template_mounted', this)

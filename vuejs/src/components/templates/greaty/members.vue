@@ -67,7 +67,7 @@ export default {
 		'.text-homepage' : 52.8
 		})
 
-		if(  is.not.mobile() )
+		if(  is.not.mobile() && is.not.tablet() )
 		{
 
 			$('.member .image').on('enter-screen', (event) => {

@@ -77,7 +77,7 @@ export default {
 
 		console.log( this.post );
 
-	if(  is.not.mobile()  )
+	if(  is.not.mobile() && is.not.tablet()  )
 	{
 
 		$('.image-client').on('enter-screen', (event) => {
@@ -609,6 +609,7 @@ strong {
 							padding-right: 10%;
 							padding-top: 70px;
 							padding-bottom: 2.5%;
+							height: auto;
 						}
 
 	

@@ -22,7 +22,7 @@
 
 
 	<div class="div-parent-slide-text">	
-		<swiper class="swiper1" :options="swiperOption1">
+		<swiper class="swiper1" :options="swiperOption10">
 			
 			<swiper-slide   class="slide-full-view" v-for="child in wp.projects" :key="child.ID"  >
 
@@ -131,9 +131,11 @@ export default {
 		
 		data () {
 			return {
-				swiperOption1: {
+				swiperOption10: {
 				initialSlide: 0,
+				direction: 'horizontal',
 				loop: true,
+				// loop: true,
 				allowTouchMove: true,
 				runCallbacksOnInit: true,
 				watchSlidesProgress: true,
@@ -156,10 +158,10 @@ export default {
 				},
 
 				600: {
-				slidesPerView: 1,
+				slidesPerView: 2,
 				}
 				}
-				},
+				},	
 
 			}
 		}
@@ -269,24 +271,25 @@ body{
 	.client-swiper{
 
 		width: 100%;
-		margin-left: 0px
+		margin-left: 0px;
+		margin-right: 70px;
 	}
 
 	.swiper-slide-active{
 
-		width: 90%  !important;
+		/*width: 90%  !important;*/
 		/*margin-left: 30 !important;*/
 	}
 
-	.swiper-slide-next{
+	.swiper-slide{
 
-		width: 90%  !important;
+		/*width: 90%  !important;*/
 		margin-left: 10px !important;
 	}
 
 	.swiper-slide-prev img {
 
-		width: 90%  !important;
+		/*width: 90%  !important;*/
 		/*margin-left: 10px !important;*/
 
 	}
@@ -632,14 +635,14 @@ body{
 	.div-parent-slide-text{
 		height: 100vh;
 		display: flex;
-		padding-left: 30px;
+		/*padding-left: 30px;*/
 
 
 	}
 
 	.client-swiper{
-
-		padding-right: 15px;
+		width: 95%;
+		padding-left: 15px;
 	}
 
 	.all-description{

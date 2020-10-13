@@ -25,20 +25,35 @@ export default {
 
 	mounted(){
 
-		var $ = this.$
+		// var $ = this.$
 
 		this.$emit('template_mounted', this)
 
-		$(window).scroll(function () {
-			var sc = $(window).scrollTop()
-			if (sc > 150) {
-				$("#main-navbar-1").addClass("navbar-scroll")
-			} 
-			else {
-				$("#main-navbar-1").removeClass("navbar-scroll")
-			}
-		});
+		// $( ".section").on('leave-screen', (event) => {
 
+		// 	$(event.target).css({
+		// 		// "opacity":"0",
+		// 		// transform: 'translateY(100px)',
+		// 		opacity: 0,
+		// 	});
+
+		// 	anime({
+		// 		targets: event.target,
+		// 		translateY: '100px',
+		// 		opacity: 0,
+		// 	});
+		// })
+
+		// $( ".section" ).each( function( el) {
+
+
+
+		// 	$(el).on('enter-screen', () => {
+
+		// 		console.log('555');
+			
+		// 	})
+		// });
 	}
 
 }
@@ -53,7 +68,7 @@ export default {
 		/*position: absolute;*/
 	}
 	nav{
-		position: absolute;
+		position: fixed;
 		/*width: 100%;*/
 	}
 

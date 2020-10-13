@@ -3,19 +3,23 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-		<div class="section-a-propos-galerie">
+		<div class="globale-galerie">
+		
+			<div class="section-a-propos-galerie">
 
-			<h5 class="title-section">> A propos de nous</h5>
+				<h5 class="title-section">> A propos de nous</h5>
 
-			<swiper class="swiper1" :options="swiperOption">
+				<swiper class="swiper1" :options="swiperOption10">
 
-				<swiper-slide  class="slide-a-propos"  v-for="child in wp.projects" :key="child.ID"  >
+					<swiper-slide  class="slide-a-propos"  v-for="child in wp.projects" :key="child.ID"  >
 
-					<div class="image-a-propos" height="100%" width="100%"  v-bind:style="{ 'background-image': 'url(' + child.thumb + ')' }"></div>
+						<div class="image-a-propos" height="100%" width="100%"  v-bind:style="{ 'background-image': 'url(' + child.thumb + ')' }"></div>
 
-				</swiper-slide>
+					</swiper-slide>
 
-			</swiper>
+				</swiper>
+
+			</div>
 
 		</div>
 
@@ -51,7 +55,7 @@ export default {
 		// var $ = this.$
 
 		smart_fonts({
-			'.titre-a-propos' : 50,
+			'.title-section' : 25,
 		})
 
         // console.log(this.wp.sections[2].acf_fields.a_propos_galerie);
@@ -67,8 +71,9 @@ export default {
 	
 	data () {
 		return {
-			swiperOption: {
-			initialSlide: 0,
+
+			swiperOption10: {
+			initialSlide: 0,		
 			loop: true,
 			allowTouchMove: true,
 			runCallbacksOnInit: true,
@@ -80,22 +85,25 @@ export default {
 			breakpoints: {
 			// when window width is >= 320px
 			1100: {
-			slidesPerView: 18,
+			slidesPerView: 4,
 
 			},
-			1000: {
-			slidesPerView: 1,
+
+			400: {
+			slidesPerView: 1.2,
 			},
 
-			600: {
-			slidesPerView: 1,
-			}
-			}
+			100: {
+			slidesPerView: 1.1,
 			},
+
+
+			}
 
 		}
 	}
 
+}
 }
 
 
@@ -105,116 +113,82 @@ export default {
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
+	.image-a-propos{
+		height: 100%;
 
-	*:focus {
-		outline: 0;
 	}
 
-	.title-section{
-		margin-top: 0px;
-		text-align: left;
-		padding-left: 70px;
-		font-size: 22px;
-		margin-bottom: 60px;
+	.swiper-container-horizontal{
 
+		height: 55vh;
 	}
 
 	.section-a-propos-galerie{
 
-		height: 100vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-content: center;
-
+	/* 	margin-left: auto;
+		margin-right: auto;*/
+		
 
 	}
 
-	.titre-a-propos-section{
-		margin-top: auto;
-		margin-bottom: auto;
-		width: 70%;
-		line-height: 70px;
-	}
-
-	/*style swiper*/
-
-	.slide-a-propos{
-
-		height: 60vh;
-		width: 20vh;
-	}
 	.image-a-propos{
 
-		height: 100%;
 		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
 
 	}
 
-	.a-propos-swiper{
+	.globale-galerie{
 
-		height: 100%;
+		display: flex;
+		flex-direction: column;
+	/*	margin-top: auto;
+		margin-bottom: auto;*/
+
+	}
+	.title-section{
+
+		text-align: left;
+		margin-left: 70px;
+		margin-bottom: 7vh;
+		margin-top: 120px;
+		padding-top: 7vh;
 	}
 
-	.swiper-wrapper{
-
-		height: 60vh;
-	}
 
 	.swiper-container{
 
-		margin-left: 10%;
+		margin-left: 100px
+
 	}
 
 
+	@media screen and (max-width: 1100px) and (min-width: 600px){
 
-	@media screen and (max-width: 900px) and (min-width: 600px){
+		.swiper-container{
 
+			margin-left: 0px
+		}
 
-		.titre-a-propos-section{
+	}
 
-			margin-left: 30px;
-			margin-right: 30px;
+	@media screen and (max-width: 600px){
+
+		.title-section{
+
+			text-align: left;
+			margin-left: 30px
 		}
 
 		.swiper-container{
 
-			margin-left: 70px;
+			margin-left: 0px
 		}
 
 
-	}
-
-	@media screen and (max-width: 600px) {
-
-
-
-		.titre-a-propos-section{
-
-			margin-left: 30px;
-			margin-right: 30px;
-		}
-
-		.swiper-container{
-
-			margin-left: 30px;
-		}
 
 	}
-
-
-/*	.section-a-propos{
-
-		height: 100vh;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-content: center;
-
-
-	}
-*/
-
 
 </style>
 

@@ -26,8 +26,8 @@ function scrollSection(vue){
 	
 	function animate_scroll_to( pos )
 	{
-		if( !wait && is.not.mobile() && is.not.tablet() )
-		{
+		// if( !wait && is.not.mobile() && is.not.tablet() )
+		// {
 			console.log('auto scroll', pos, $('#app').data('scrolling') );
 
 			wait = 1
@@ -46,7 +46,7 @@ function scrollSection(vue){
 					}, 0)
 					
 			});
-		}
+		// }
 	}
 
 	function scroll_end()

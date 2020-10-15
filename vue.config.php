@@ -62,7 +62,7 @@ function is_hierarchical_template($name)
                 if( $info['extension'] == 'vue' )
                 {
                     preg_match('#templates\\\(.*)\\\#', $path, $matches, PREG_OFFSET_CAPTURE);
-                    if( $matches[1][0] )
+                    if( @$matches[1][0] )
                     {
                         $__dir = $matches[1][0];
                         $title_dir = ucwords( $__dir . ' - ' );

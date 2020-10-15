@@ -116,7 +116,15 @@ function get_vue_template($post = false)
 			),
 		);
 
-	$page_template = get_page_template_slug($post->ID);
+	if( is_object($post) )
+	{
+		$page_template = get_page_template_slug($post->ID);	
+	}
+	else
+	{
+		return;
+	}
+	
 
 	if( empty($page_template) )
 	{

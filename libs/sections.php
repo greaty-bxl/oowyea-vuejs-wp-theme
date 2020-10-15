@@ -5,6 +5,11 @@ function get_sections()
 	global $wp_query;
 	global $post;
 
+	if( is_admin() )
+	{
+		return;
+	}
+
 	$sections = array();
 	$page_for_posts = get_option( 'page_for_posts' );
 

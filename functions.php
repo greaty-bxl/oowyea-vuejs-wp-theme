@@ -39,6 +39,7 @@ include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
 
 // Code for greaty new site
 include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
+include GREATY_TEMPLATE_PATH.'/libs/fromagerie/fromagerie.php';
 
 // Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';

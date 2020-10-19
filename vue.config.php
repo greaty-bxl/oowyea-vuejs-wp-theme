@@ -19,6 +19,7 @@ $vue_hierarchy = array(
     'page',
     'search',
     'single',
+    'single-product',
     'single-project',
     'tag'
 );
@@ -32,6 +33,7 @@ $vue_templates = array(
     'home' => 'Fromagerie home',
     'propos' => 'A propos',
     'a-propos-galerie' => 'A propos Galerie',
+    'les-plateaux-fromages' => 'Les Plateaux Fromages',
     
     // grid-services-2
 

@@ -3,17 +3,21 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-		<div class="globale-galerie">
+		<div class="globale-plateaux-fromages">
 		
-			<div class="section-a-propos-galerie">
+			<div class="section-plateaux-fromages-plateaux-fromages">
 
-				<h5 class="title-section">> A propos de nous</h5>
+				<h5 class="title-section-plateaux-fromages">> Les Plateaux fromages</h5>
 
 				<swiper class="swiper1" :options="swiperOption10">
 
-					<swiper-slide  class="slide-a-propos"  v-for="child in wp.sections[2].acf_fields.a_propos_galerie" :key="child.ID"  >
+					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.plateaux_fromages" :key="child.ID"  >
 
-						<div class="image-a-propos" height="100%" width="100%"  v-bind:style="{ 'background-image': 'url(' + child.url + ')' }"></div>
+						<img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb">
+						<p v-html="child.metas._price[0] + ' €' " class="name-plateau-fromage"></p>
+						<p v-html="child.post_title" class="prix-plateau-fromage"></p>
+						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
+
 
 					</swiper-slide>
 
@@ -55,11 +59,12 @@ export default {
 		// var $ = this.$
 
 		smart_fonts({
-			'.title-section' : 25,
+			'.title-section-plateaux-fromages' : 25,
 		})
 
-        // console.log(this.wp.sections[2].acf_fields.a_propos_galerie);
-// 
+        // console.log(this.wp.sections[2].acf_fields.a_propos_plateaux-fromages);
+        
+
 		this.$emit('template_mounted', this);
 
 	},
@@ -84,7 +89,7 @@ export default {
 			breakpoints: {
 			// when window width is >= 320px
 			1100: {
-			slidesPerView: 4.2,
+			slidesPerView: 3.2,
 
 			},
 
@@ -111,49 +116,53 @@ export default {
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
-
-	.image-a-propos{
+    
+	.image-plateaux-fromages{
 
 		height: 100%;
-		background-size: cover;
+		/*background-size: cover;
 		background-repeat: no-repeat;
-		/*background: center;*/
+		background: center;*/
+		height: 40vh; 
 
 	}
 
-	
+	.swiper-container-plateaux-fromages{
 
-	.section-a-propos-galerie{
+		height: 40vh;
+	}
 
-	/* 	margin-left: auto;
-		margin-right: auto;*/
-		
+	.section-plateaux-fromages-plateaux-fromages{
 
 	}
 
-	.image-a-propos{
+	.prix-plateau-fromage{
 
-		width: 90%;
+		font-family: Montserrat-Bold !important;
+	}
+
+	.image-plateaux-fromages{
+
+		width: 95%;
 		/*margin-left: auto;*/
 		margin-right: auto;
 
 	}
 
-	.globale-galerie{
+	.globale-plateaux-fromages{
 
 		display: flex;
 		flex-direction: column;
-	/*	margin-top: auto;
-		margin-bottom: auto;*/
 
 	}
-	.title-section{
+	.title-section-plateaux-fromages{
 
 		text-align: left;
 		margin-left: 70px;
 		margin-bottom: 7vh;
 		margin-top: 120px;
 		padding-top: 7vh;
+
 	}
 
 
@@ -204,6 +213,37 @@ export default {
 
 	}
 
+	.slide-plateaux-fromages p {
+
+		text-align: left;
+		margin-top: 7px;
+		margin-bottom: 7px;
+
+	}
+
+	.slide-plateaux-fromages {
+
+		flex-direction: column;
+
+		display: flex;
+
+	}
+
+
+	.image-plateaux-fromages {
+		margin-bottom: 15px;
+		text-align: left !important;
+	}
+
+	.ajouter-au-panier a{
+
+		text-decoration: none;
+		color: #666666;
+
+	}
+
+
+
 </style>
 
 
@@ -211,10 +251,6 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
-.swiper-container-horizontal{
-
-	height: 55vh;
-}
 
 </style>
 

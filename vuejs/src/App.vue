@@ -36,7 +36,7 @@ import Header from 'Organisms/simple-header.vue'
 
 
 //Footer
-import Footer from 'Organisms/footer.vue'
+import Footer from 'Organisms/footer-fromagerie.vue'
 
 //Functions
 import is from 'is_js'

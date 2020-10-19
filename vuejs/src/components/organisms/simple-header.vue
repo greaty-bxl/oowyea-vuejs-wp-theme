@@ -5,9 +5,11 @@
 			<div class=" navbar-container">
 			<img class="navbar-brand" src="http://localhost/template_greaty/wp-content/uploads/2020/10/logo-blanc.svg">
 			<div id="navbar" class="navbar-collapse collapse">
-			<div v-html="wp.menus['burger-menu']" ></div>
+			<div class="menu_link" v-html="wp.menus['burger-menu']" ></div>
 			</div>
-
+				<div class="button-header">
+					<p>X</p>
+				</div>
 			</div>
 			</nav>
 			</header>
@@ -25,35 +27,15 @@ export default {
 
 	mounted(){
 
-		// var $ = this.$
+		var $ = this.$
 
 		this.$emit('template_mounted', this)
 
-		// $( ".section").on('leave-screen', (event) => {
-
-		// 	$(event.target).css({
-		// 		// "opacity":"0",
-		// 		// transform: 'translateY(100px)',
-		// 		opacity: 0,
-		// 	});
-
-		// 	anime({
-		// 		targets: event.target,
-		// 		translateY: '100px',
-		// 		opacity: 0,
-		// 	});
-		// })
-
-		// $( ".section" ).each( function( el) {
-
-
-
-		// 	$(el).on('enter-screen', () => {
-
-		// 		console.log('555');
+		$('.button-header').click(function(event) {
 			
-		// 	})
-		// });
+
+			$('#navbar div')
+		});
 	}
 
 }
@@ -83,7 +65,7 @@ export default {
 	}
 	nav img{
 
-		height: 70px;
+		height: 70px !important;
 	}
 	nav ul li {
 
@@ -107,6 +89,46 @@ export default {
 		text-decoration-line: none;
 
 	}
+	.button-header{
+		color: white;
+		font-size: 50px;
+		display: none;
+	}
+
+
+	.menu_link{
+
+		display: block;
+	}
+
+		@media screen and (max-width: 600px){
+
+			nav img{
+
+				height: 50px !important;
+			}
+
+			.button-header{
+
+				display: block;
+			}
+
+		/*	.menu_link{
+
+				display: none;
+			}*/
+
+			.menu{
+
+				flex-direction: column !important;
+				top: 50px;
+			}
+
+			#navbar div {
+			position: absolute;
+			top: 50px;
+			}
+		}
 
 
 </style>
@@ -128,6 +150,7 @@ export default {
 	nav{
 		margin:  50px 70px;
 		width: calc(100% - 140px);
+		/*background-color: black;*/
 	}
 
 	#navbar{
@@ -141,7 +164,7 @@ export default {
      @media screen and (max-width: 600px) {
 
 		nav{
-		margin:  50px 30px;
+		margin:  30px 30px;
 		width: calc(100% - 60px);
 		}
      }

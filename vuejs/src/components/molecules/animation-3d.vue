@@ -18,7 +18,7 @@ mounted(){
 
 	var width_window = $(window).width()
 
-	console.log(width_window);
+	//console.log(width_window);
 
 	if (width_window < '900')  {
 

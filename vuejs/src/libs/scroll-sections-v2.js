@@ -6,14 +6,14 @@ import interact from 'interactjs'
 //$ = window.jquery
 
 import velocity from 'velocity-animate'
-console.log(velocity);
+window.jquery.prototype.velocity = velocity
+
+/*console.log(velocity);*/
 
 function scrollSection(vue){
 
 	let $ = vue.$
-	let animating = false
-
-	
+	let animating = false	
 
 	let scrollbar = $('<div>')
 	let percent_screen_page
@@ -84,7 +84,11 @@ function scrollSection(vue){
 			{
 				current = $(el)
 			}
+
+
 		});
+
+		
 
 		//if not current in screen then find the section who is the most in screen
 		if( is.undefined( current ) )
@@ -113,7 +117,6 @@ function scrollSection(vue){
 					max_in_screen = val
 					current = $(el)
 				}
-				//console.log('in screen', $(el).prop('id'), max_in_screen );
 			});
 		}
 
@@ -152,12 +155,12 @@ function scrollSection(vue){
 				&&
 				current_relative_top < $('#app').scrollTop()
 				&&
-				/*(
+				(
 					is.within(current_relative_bottom, app_relative_bottom - 5, app_relative_bottom + 5 )
 					||
 					current_relative_bottom > app_relative_bottom
-				)*/
-				current_relative_bottom >= app_relative_bottom
+				)
+				//current_relative_bottom >= app_relative_bottom
 		)
 
 		//console.log('is_current_scrollable_down', is_current_scrollable_down, current.prop('id'), is_first, is_last, delta );
@@ -319,13 +322,16 @@ function scrollSection(vue){
 		let next = find_next_section(delta)
 		let new_top
 
-		//console.log( next );
-
 		if( is.decimal( next ) || is.integer( next ) ){
 			new_top = next
 		}
 		else
 		{
+			if( window.current_section == 'footer' && next.prop('id') == 'footer' && delta == 1 )
+			{
+				return
+			}
+
 			new_top = next.offset().top + $('#app').scrollTop()
 			// go bottom of big prev section
 			if( next.outerHeight() > $('#app').outerHeight() && delta == -1 && !scrollDragging )
@@ -341,10 +347,10 @@ function scrollSection(vue){
 
 		//console.log('footer', new_top, $('#app')[0].scrollHeight - $('#app').outerHeight());
 
-		go_to( new_top )
+		go_to( new_top, next )
 	}
 
-	function go_to( new_top ) {
+	function go_to( new_top, next ) {
 		duration = new_top - $('#app').scrollTop()
 		if( duration < 0 )
 		{
@@ -360,6 +366,8 @@ function scrollSection(vue){
 		$('#app').trigger({
 			'type': 'before_scroll_to_section',
 			'new_top': new_top,
+			'current' : window.current_section,
+			'next' : next
 		})
 
 		/*anime({
@@ -393,6 +401,8 @@ function scrollSection(vue){
 				$('#app').trigger({
 					'type': 'after_scroll_to_section',
 					'new_top': new_top,
+					'current' : window.current_section,
+					'next' : next
 				})
 			}
 		});
@@ -545,10 +555,6 @@ function scrollSection(vue){
 				}
 			}
 		})
-
-		
-		//console.log('scrollDragging', scrollDragging);
-
 	}
 
 

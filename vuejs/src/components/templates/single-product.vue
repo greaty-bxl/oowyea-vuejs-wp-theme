@@ -20,7 +20,7 @@
 
 					<div>				
 						<p class="nbrpersonne">Nombre de personnes :</p>
-						<input type="number" name="">
+						<input type="number"  name="">
 						
 					</div>
 
@@ -28,17 +28,18 @@
 						<p>Retrait en magasin ( gratuit )</p>
 					</div>				
 					<div>
-						<img class="bancontact"  src="http://localhost/template_greaty/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
+						<img class="bancontact"  src="http://greaty.digital.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
 					</div>
 
 					<div class="button-contener">
+						<p class="product woocommerce add_to_cart_inline " style="border: 4px solid rgb(204, 204, 204); padding: 12px; font-size: 11.9924px;"><del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>15,00</bdi></span></del> <ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>10,00</bdi></span></ins><a :href="this.wp.add_to_cart" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="572" data-product_sku="" aria-label="Add “Plateau fromage” to your cart" rel="nofollow">Add to cart</a></p>
 
-						<button>Ajouter au panier</button>
+						<!-- <button :href="this.wp.add_to_cart" >Ajouter au panier</button> -->
 						<button>Acheter</button>
 
 					</div>
 
-					<div class="retour">
+					<div   class="retour">
 						<a :href="this.wp.sections">
 							<p> Retour </p>
 						</a>	
@@ -60,7 +61,9 @@
 			'post' : Object
 		},
 		mounted (){
-			//var $ = this.$
+			// var $ = this.$
+
+			 // $('.retour').html('[add_to_cart id="99"]')
 			
 			this.$emit('template_mounted')
 
@@ -73,6 +76,11 @@
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
+	#header{
+
+		height: 0px;
+	}
 	.bancontact{
 
 		height: 40px !important;
@@ -116,7 +124,11 @@
 
 		display: flex;
 		flex-direction: row;
-		margin: auto auto;
+		margin-top: 150px;
+		margin-bottom: 50px;
+		margin-right: auto;
+		margin-left: auto;
+
 		width: 60vw;
 
 	}

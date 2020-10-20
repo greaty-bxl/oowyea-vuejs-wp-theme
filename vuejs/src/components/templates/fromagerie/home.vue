@@ -36,7 +36,7 @@ export default {
 		// var $ = this.$
 
 		smart_fonts({
-			'.titre-home' : 85,
+			'.titre-home' : 85 ,
 		})
         console.log(this.wp.sections);
         
@@ -58,7 +58,7 @@ export default {
 	body *{
 
 		font-family: 'Montserrat';
-		font-weight: 500;
+		font-weight: 500 ;
 		/*color: white;*/
 
 	}
@@ -86,7 +86,7 @@ export default {
 
 	@media screen and (max-width: 900px){
 
-		.titre-home-section h1{
+		.titre-home-section  *{
 			text-align: center !important;
 		}
 

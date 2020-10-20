@@ -24,7 +24,7 @@ export default function (fonts = {}){
 
 			if ($('#app').innerWidth() < '600' ) {
 
-				$( selector ).css('font-size', ( ( ( $('#app').innerHeight() + $('#app').innerWidth() + 2200 ) / 2 ) / 4200 ) * fontSize  + 'px' );
+				$( selector ).css('font-size', ( ( ( $('#app').innerHeight() + $('#app').innerWidth() + 2200 ) / 1.3 ) / 4200 ) * fontSize  + 'px' );
 			}
 			else{
 

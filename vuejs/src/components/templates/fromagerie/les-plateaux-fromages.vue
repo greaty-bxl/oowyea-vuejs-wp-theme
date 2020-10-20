@@ -9,13 +9,13 @@
 
 				<h5 class="title-section-plateaux-fromages">> Les Plateaux fromages</h5>
 
-				<swiper class="swiper1" :options="swiperOption10">
+				<swiper class="swiper3" :options="swiperOption10">
 
 					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.plateaux_fromages" :key="child.ID"  >
 
 						<img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb">
-						<p v-html="child.metas._price[0] + ' €' " class="name-plateau-fromage"></p>
-						<p v-html="child.post_title" class="prix-plateau-fromage"></p>
+						<p v-html="child.post_title" class="name-plateau-fromage"></p>
+						<p v-html="child.metas._price[0] + ' €' " class="prix-plateau-fromage"></p>
 						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
 
 
@@ -137,8 +137,10 @@ export default {
 	}
 
 	.prix-plateau-fromage{
-
-		font-family: Montserrat-Bold !important;
+		font-size: 18px !important;
+		/*font-family: Montserrat-Bold !important;*/
+		color: #4D4D4D !important;
+		font-weight: 600;
 	}
 
 	.image-plateaux-fromages{
@@ -146,6 +148,7 @@ export default {
 		width: 95%;
 		/*margin-left: auto;*/
 		margin-right: auto;
+
 
 	}
 
@@ -162,8 +165,17 @@ export default {
 		margin-bottom: 7vh;
 		margin-top: 120px;
 		padding-top: 7vh;
+		color: #70625B;
+
 
 	}
+
+	.name-plateau-fromage{
+
+		font-size: 18px !important;
+		color: #666666 !important;
+	}
+
 
 
 	.swiper-container{
@@ -235,6 +247,11 @@ export default {
 		text-align: left !important;
 	}
 
+	.ajouter-au-panier{
+
+		font-size: 14px !important;
+		color: #666666 !important;
+	}
 	.ajouter-au-panier a{
 
 		text-decoration: none;
@@ -251,6 +268,23 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
+
+@media screen and (max-width: 1100px) and (min-width: 600px){
+
+	.swiper-container-horizontal{
+
+		margin-left: 70px;
+	}
+}
+
+@media screen and (max-width: 600px){
+
+	.swiper-container-horizontal{
+
+		margin-left: 30px;
+	}
+
+}
 
 </style>
 

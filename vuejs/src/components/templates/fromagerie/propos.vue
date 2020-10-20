@@ -1,4 +1,3 @@
-
 <template>
     <div class="section-wrap">
 		<div class="clear"></div>
@@ -77,19 +76,27 @@ export default {
 		margin-bottom: auto;
 		width: 70%;
 		line-height: 70px;
+		color: #70625B;
+
 	}
 
-	@media screen and (max-width: 900px){
+	@media screen and (max-width: 1100px){
 
-		.titre-a-propos-section h1{
+		.titre-a-propos-section *{
 			text-align: center !important;
-			line-height: 50px;
+			/*line-height: 50px;*/
 		}
 
 		.titre-a-propos-section{
 
 			margin-left: 30px;
 			margin-right: 30px;
+		}
+
+		.titre-a-propos-section{
+
+			line-height: 30px;
+
 		}
 	}
 

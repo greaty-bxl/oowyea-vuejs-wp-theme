@@ -3,11 +3,11 @@
         <header>
 			<nav id="main-navbar-1" class="navbar navbar-default navbar-fixed-top">
 			<div class=" navbar-container">
-			<img class="navbar-brand" src="http://localhost/template_greaty/wp-content/uploads/2020/10/logo-blanc.svg">
+			<img class="navbar-brand" src="http://greaty.digital.brussels/wp-content/uploads/2020/10/logo-brun.svg">
 			<div id="navbar" class="navbar-collapse collapse">
 			<div class="menu_link" v-html="wp.menus['burger-menu']" ></div>
 			</div>
-				<div class="button-header">
+				<div class="button-header close-simple">
 					<p>X</p>
 				</div>
 			</div>
@@ -20,6 +20,7 @@
 
 <script>
 // import Acf from 'Organisms/acf.vue'
+// import anime from 'animejs/lib/anime.es.js';
 
 
 export default {
@@ -31,11 +32,41 @@ export default {
 
 		this.$emit('template_mounted', this)
 
-		$('.button-header').click(function(event) {
-			
+	$('.button-header').click(function() {
 
-			$('#navbar div')
-		});
+		if ($(this).hasClass('close-simple')) {
+
+			$(this).removeClass('close-simple')
+
+			$(this).addClass('open-simple')
+
+			$('.menu_link').animate({
+			
+				left: '0',
+				easing: 'easeInOutSine',
+				duration: 200,
+			});
+
+
+		}
+	
+		else {
+
+			$('.menu_link').animate({
+				// targets: $('.menu_link').target,
+				left: '50vh',
+				easing: 'easeInOutSine',
+				duration: 200,
+			});
+
+
+			$(this).removeClass('open-simple')
+			$(this).addClass('close-simple')
+
+		}
+
+	});
+
 	}
 
 }
@@ -44,6 +75,8 @@ export default {
 <style type="text/css">
 	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+
+
 	body *{
 
 		font-family: Montserrat,sans-serif!important;
@@ -51,12 +84,13 @@ export default {
 	}
 	nav{
 		position: fixed;
+		z-index: 1000;
 		/*width: 100%;*/
 	}
 
 	.navbar-collapse a{
 
-		color: #FFFFFF;
+		color: #70625B;
 	}
 	.navbar-collapse ul{
 
@@ -69,7 +103,7 @@ export default {
 	}
 	nav ul li {
 
-		line-height: 0;
+		/*line-height: 0;*/
 		margin-bottom: 15px;
 		margin-left: 10px;
 		margin-right: 10px;
@@ -122,11 +156,12 @@ export default {
 
 				flex-direction: column !important;
 				top: 50px;
+				left: 50vw;
 			}
 
 			#navbar div {
-			position: absolute;
-			top: 50px;
+				position: absolute;
+				top: 50px;
 			}
 		}
 
@@ -160,14 +195,19 @@ export default {
 		align-content: center;
 		flex-direction: row;
 	}
+		@media screen and (max-width: 600px) {
 
-     @media screen and (max-width: 600px) {
+			nav{
+			margin:  30px 30px;
+			width: calc(100% - 60px);
+			}
+	/*		.menu_link{
 
-		nav{
-		margin:  30px 30px;
-		width: calc(100% - 60px);
+			left: 50vh;
+
+			}*/
 		}
-     }
+
 
    
 </style>

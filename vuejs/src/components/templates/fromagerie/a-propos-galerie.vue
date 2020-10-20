@@ -7,9 +7,9 @@
 		
 			<div class="section-a-propos-galerie">
 
-				<h5 class="title-section">> A propos de nous</h5>
+				<h5 class="title-section"> A propos de nous</h5>
 
-				<swiper class="swiper1" :options="swiperOption10">
+				<swiper class="swiper2" :options="swiperOption10">
 
 					<swiper-slide  class="slide-a-propos"  v-for="child in wp.sections[2].acf_fields.a_propos_galerie" :key="child.ID"  >
 
@@ -154,6 +154,8 @@ export default {
 		margin-bottom: 7vh;
 		margin-top: 120px;
 		padding-top: 7vh;
+		color: #70625b;
+
 	}
 
 
@@ -169,6 +171,11 @@ export default {
 		.swiper-container{
 
 			margin-left: 0px
+		}
+
+		.swiper2{
+
+			margin-left: 70px;
 		}
 
 	}
@@ -214,7 +221,25 @@ export default {
 .swiper-container-horizontal{
 
 	height: 55vh;
+
 }
+
+	@media screen and (max-width: 1100px) and (min-width: 600px){
+
+		.swiper-container-horizontal{
+
+			margin-left: 70px;
+		}
+	}
+
+	@media screen and (max-width: 600px){
+
+		.swiper-container-horizontal{
+
+			margin-left: 30px;
+		}
+
+	}
 
 </style>
 

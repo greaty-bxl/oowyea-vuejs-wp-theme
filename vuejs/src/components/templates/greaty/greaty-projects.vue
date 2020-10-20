@@ -48,7 +48,7 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 	mounted(){
 
-		console.log(smart_fonts);
+		//console.log(smart_fonts);
 
 		// var $ = this.$
 

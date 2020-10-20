@@ -44,6 +44,7 @@
 
 import Anime3d from 'Molecules/animation-3d';
 import anime from 'animejs/lib/anime.es.js';
+import is from "is_js"
 // import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
 // import fixit from 'Libs/fix-it.js';
@@ -92,7 +93,8 @@ import smart_fonts from 'Libs/smart-fonts.js';
 		// 	opacity: 0,
 		// });
 
-
+		if(  is.not.mobile() && is.not.tablet() )
+		{
 
 			$('.global-project').on('leave-screen', (event) => {
 
@@ -122,6 +124,8 @@ import smart_fonts from 'Libs/smart-fonts.js';
 					});
 				})
 			});
+
+		}
 
 		smart_fonts({
 		'.smallTile' :54,

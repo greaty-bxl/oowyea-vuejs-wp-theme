@@ -367,7 +367,8 @@ function scrollSection(vue){
 			'type': 'before_scroll_to_section',
 			'new_top': new_top,
 			'current' : window.current_section,
-			'next' : next
+			'next' : next,
+			'duration': duration
 		})
 
 		/*anime({
@@ -402,7 +403,9 @@ function scrollSection(vue){
 					'type': 'after_scroll_to_section',
 					'new_top': new_top,
 					'current' : window.current_section,
-					'next' : next
+					'next' : next,
+					'duration': duration,
+
 				})
 			}
 		});

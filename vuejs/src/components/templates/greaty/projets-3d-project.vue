@@ -50,8 +50,10 @@ import smart_fonts from 'Libs/smart-fonts.js';
 //$ = window.jquery
 
 import velocity from 'velocity-animate'
+window.jquery.prototype.velocity = velocity
+
 import is from "is_js"
-console.log(velocity);
+
 
 export default {
 

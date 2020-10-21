@@ -1,7 +1,11 @@
+//import is from 'is_js'
+
+let scrollPos = 0
+
 export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 	var $ = vue.$
 	var touchY;
-	var speed = 1
+	
 
 	function update_position(vue, selector, top, left, state) {
 
@@ -60,51 +64,67 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 				'touch-action': 'none',
 			});
 
-			
+			/*if( is.mobile() )
+			{*/
+				/*let my_listener = function (e){
+					console.log('passive', e);
 
-			$(el).unbind('wheel touchstart touchmove touchend').on('wheel touchstart touchmove touchend', function(e) 
-			{
-				if( e.type == 'touchstart')
-				{
-					touchY = e.originalEvent.touches[0].clientY
-				}
-				if( e.type == 'touchmove' )
-				{
-					var newTouchY = e.originalEvent.touches[0].clientY
 					
-					if( newTouchY < touchY )
-					{
-						$('#app').scrollTop( $('#app').scrollTop(  ) + 7 )
-						if( !$('#app').data('scrolling') )
-						{
-							$("#app").stop()
-							.animate({scrollTop: $('#app').scrollTop(  ) + ( 72 * speed ) + 'px'}, 100, 'easeInOutQuart')
-						}
-						
-					}
-					else if( newTouchY > touchY )
-					{
-						$('#app').scrollTop( $('#app').scrollTop(  ) - 7 )
-						if( !$('#app').data('scrolling') )
-						{
-							$("#app").stop()
-								.animate({scrollTop: $('#app').scrollTop(  ) - ( 72 * speed ) + 'px'}, 100, 'easeInOutQuart')
-						}
-					}
+				}*/
 
-					speed+= 0.1
-				}
-
-				if( e.type == 'touchend' )
-				{
-					speed = 1
-				}
-				else
-				{
-					$(this).css('pointer-events', 'none')
-				}
 				
-			});
+				
+				
+
+				/*$(el).unbind('wheel touchstart touchmove touchend').on('wheel touchstart touchmove touchend', function(e) 
+				{
+					console.log('jquery touch', e);
+				});*/
+
+				/*$(el).unbind('wheel touchstart touchmove touchend').on('wheel touchstart touchmove touchend', function(e) 
+				{
+					if( e.type == 'touchstart')
+					{
+						touchY = e.originalEvent.touches[0].clientY
+					}
+					if( e.type == 'touchmove' )
+					{
+						var newTouchY = e.originalEvent.touches[0].clientY
+						
+						if( newTouchY < touchY )
+						{
+							$('#app').scrollTop( $('#app').scrollTop(  ) + 7 )
+							if( !$('#app').data('scrolling') )
+							{
+								$("#app").stop()
+								.animate({scrollTop: $('#app').scrollTop(  ) + ( 72 * speed ) + 'px'}, 100, 'easeInOutQuart')
+							}
+							
+						}
+						else if( newTouchY > touchY )
+						{
+							$('#app').scrollTop( $('#app').scrollTop(  ) - 7 )
+							if( !$('#app').data('scrolling') )
+							{
+								$("#app").stop()
+									.animate({scrollTop: $('#app').scrollTop(  ) - ( 72 * speed ) + 'px'}, 100, 'easeInOutQuart')
+							}
+						}
+
+						speed+= 0.1
+					}
+
+					if( e.type == 'touchend' )
+					{
+						speed = 1
+					}
+					else
+					{
+						$(this).css('pointer-events', 'none')
+					}
+					
+				});*/
+			//}
 
 		});
 	}
@@ -115,7 +135,65 @@ export default (vue, selector, top = 0, left = 0, state = 'auto') => {
 		update_position(vue, selector, top, left, state)
 	});
 
+	$(window).on('resize',() => {
+		update_position(vue, selector, top, left, state)
+	});
+
 	$('#app').on('clone clone-move', () => {
 		update_position(vue, selector, top, left, state)
 	});
+
+	let events = ['wheel', 'touchstart', 'touchmove', 'touchend']
+	var newTouchY;
+	var speed = 1
+	events.forEach( event =>{
+		$(selector)[0].removeEventListener(event, null);
+
+		$(selector)[0].addEventListener(event, (e) => { 
+
+			
+			if( e.type == 'touchstart')
+			{
+				scrollPos = $('#app').scrollTop()
+				//console.log(e.touches[0].clientY);
+				touchY = e.touches[0].clientY
+			}
+			if( e.type == 'touchmove' )
+			{
+				newTouchY = e.touches[0].clientY
+				
+				//console.log( newTouchY - touchY );
+
+				$('#app').scrollTop( scrollPos - (newTouchY - touchY) )
+
+				speed+= 0.1
+			}
+
+			if( e.type == 'touchend' )
+			{
+				if( newTouchY < touchY )
+				{
+					if( !$('#app').data('scrolling') )
+					{
+						//console.log( speed );
+						$("#app").stop()
+						.animate({scrollTop: $('#app').scrollTop() + (speed * 55) + 'px'}, 500, 'easeInOutQuart')
+					}
+				}
+				else if( newTouchY > touchY )
+				{
+					if( !$('#app').data('scrolling') )
+					{
+						$("#app").stop()
+							.animate({scrollTop: $('#app').scrollTop() - (speed * 55) + 'px'}, 500, 'easeInOutQuart')
+					}
+				}
+				speed = 1
+			}
+			else
+			{
+				$(selector).css('pointer-events', 'none')
+			}
+		},{passive: true});
+	})
 }

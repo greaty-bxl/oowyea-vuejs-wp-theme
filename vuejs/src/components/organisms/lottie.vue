@@ -1,5 +1,5 @@
 <template>
-	<div :style="{ 'width': width, 'height': height }"></div>
+	<div :style="{ 'width': width, 'height': height }" v-on:click="click"></div>
 </template>
 
 <script>
@@ -29,34 +29,31 @@
 				container: this.$el, // the dom element that will contain the animation
 				renderer: 'svg',
 				loop: false,
-				autoplay: true,
+				autoplay: false,
 				animationData: require('Assets/star-anim.json'),
-				
 			});
-			this.anim.setSpeed(1)
-
 		},
 		methods:{
 			click: function(){
 
-				// if( this.selected == false )
-				// {
-				// 	this.anim.pause()
-					// this.selected = true
+				if( this.selected == false )
+				{
+					this.anim.pause()
+					this.selected = true
 					//this.animating = true
-					this.anim.setSpeed(1)
-				// 	this.anim.setDirection(1)
-				// 	this.anim.play()
-				// // }
-				// // else if( this.animating == false )
-				// // {
-				// 	this.anim.pause()
-				// 	this.selected = false
-				// 	//this.animating = true
-				// 	this.anim.setSpeed(5)
-				// 	this.anim.setDirection(-1)
-				// 	this.anim.play()
-				// }
+					this.anim.setSpeed(3)
+					this.anim.setDirection(1)
+					this.anim.play()
+				}
+				else if( this.animating == false )
+				{
+					this.anim.pause()
+					this.selected = false
+					//this.animating = true
+					this.anim.setSpeed(5)
+					this.anim.setDirection(-1)
+					this.anim.play()
+				}
 			}
 		}
 	}

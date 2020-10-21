@@ -87,6 +87,8 @@ export default function (vue)
 					type:"new_page",
 					href: href,
 				})
+
+				//console.log('new page');
 			}
 		}
 	}
@@ -141,7 +143,6 @@ export default function (vue)
 		});
 
 		open_link(event, href)
-
 	});
 
 	$('.menu-item').each(function(index) {
@@ -157,7 +158,6 @@ export default function (vue)
 
 
 	window.onpopstate = function(event) {
-
 		open_link(event, document.location.href, false)
 	};
 }

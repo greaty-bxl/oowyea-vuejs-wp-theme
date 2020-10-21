@@ -1,5 +1,3 @@
-import is from "is_js"
-
 function scrollSection(vue){
 	
 	var $ = vue.$;
@@ -18,23 +16,21 @@ function scrollSection(vue){
 		window.current_section = current_section
 		window.current_section_index =  $('#'+current_section).index()
 
-		// vue.$store.commit({
-		// 	type: 'section_change',
-		// 	current_section: vue.$store.state.wp.sections[window.current_section_index],
-		// })
+		vue.$store.commit({
+			type: 'section_change',
+			current_section: vue.$store.state.wp.sections[window.current_section_index],
+		})
 	}
 	
 	function animate_scroll_to( pos )
 	{
-		// if( !wait && is.not.mobile() && is.not.tablet() )
-		// {
-			console.log('auto scroll', pos, $('#app').data('scrolling') );
-
+		if( !wait )
+		{
 			wait = 1
 			$('#app').css('pointer-events', 'none');
 			$('#app').data('scrolling', 'scroll-sections')
 			$("#app").stop()
-				.animate({scrollTop: pos + 'px'}, 700, 'easeOutQuart')
+				.animate({scrollTop: pos + 'px'}, 777, 'easeOutQuad')
 				.promise()
 				.then( () => {
 					setTimeout( () => {
@@ -46,7 +42,7 @@ function scrollSection(vue){
 					}, 0)
 					
 			});
-		// }
+		}
 	}
 
 	function scroll_end()
@@ -56,7 +52,7 @@ function scrollSection(vue){
 		if( new_scroll > last_scroll )
 		{
 			//auto scroll down
-			$('.page:eq(0) .section').each(function(index, el) {
+			$('.section').each(function(index, el) {
 				if( ($(el).position().top + new_scroll) > new_scroll && ($(el).position().top + new_scroll) < ( new_scroll + $('#app').outerHeight() ) )
 				{
 					if( current_section != $(el).attr('id') )
@@ -93,11 +89,11 @@ function scrollSection(vue){
 
 			});
 		}
-		else if ( new_scroll < last_scroll )
+		else if ( new_scroll <= last_scroll )
 		{
 
 			//auto scroll up
-			$('.page:eq(0) .section').each(function(index, el) {
+			$('.section').each(function(index, el) {
 				if( ($(el).position().top + new_scroll) <= new_scroll && ($(el).position().top + $(el).outerHeight() + new_scroll) > new_scroll )
 				{
 					if( current_section != $(el).attr('id') )
@@ -133,29 +129,13 @@ function scrollSection(vue){
 
 	let init = false
 	$('#app').on('section-top-ready', () => {
-		last_scroll = $('#app').scrollTop()
-		/*$('#app').stop()
-		clearTimeout( timer )*/
-	})
-	//$('#app').on('section-top-ready', () => {
-		//last_scroll = $('#app').scrollTop()
-		//new_scroll = last_scroll
-		//sens = 1
-		//$('#app').stop()
-
-		//$('#app').unbind('scroll')
 		$('#app').on('scroll', () => 
 		{
-			
 			let is_scrolling_by_what = $('#app').data('scrolling')
-
-			console.log('is_scrolling_by_what', is_scrolling_by_what);
-			
 
 			if( !wait && ( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" ) && init )
 			{
 				$('#app').data('scrolling', '')
-				
 				clearTimeout( timer )
 				timer = setTimeout( scroll_end , 10 )
 			}
@@ -174,7 +154,7 @@ function scrollSection(vue){
 				$('#app').stop()
 			}
 		});
-	//});
+	});
 }
 
 export default scrollSection 

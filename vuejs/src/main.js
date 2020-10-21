@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import store from './store/index.js'
 
 Vue.config.productionTip = false
 
@@ -9,6 +10,14 @@ Vue.prototype.wp = window.wp
 
 import pushHistory from 'Libs/push-history.js'
 Vue.prototype.pushHistory = pushHistory
+
+/* Wp data synch */
+import wp_options_synch from 'Libs/wp-options-synch.js'
+Vue.prototype.wp_options_synch = wp_options_synch
+
+/* Colors */
+import generate_schemes from 'Libs/generate-schemes.js'
+Vue.prototype.generate_schemes = generate_schemes
 
 /* Fontawesome-icon */
 import 'vue-awesome/icons'
@@ -20,7 +29,8 @@ Vue.component('v-icon', Icon)
 if( process.env.NODE_ENV === 'development' ) console.log('development mode')
 
 new Vue({
-  render: h => h(App),
+	store,
+	render: h => h(App),
 }).$mount('#app')
 
 window.vue = Vue

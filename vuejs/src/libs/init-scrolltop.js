@@ -33,12 +33,12 @@ export default function(vue){
 
 				window.current_section = section.attr('id')
 				window.current_section_index =  section.index()
-
+				
 				$('#app').css('pointer-events', 'auto');
-				/*vue.$store.commit({
+				vue.$store.commit({
 					type: 'section_change',
 					current_section: vue.$store.state.wp.sections[window.current_section_index],
-				})*/
+				})
 
 				$('#app').trigger('section-top-ready')
 				

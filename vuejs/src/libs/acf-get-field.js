@@ -19,6 +19,8 @@ export default function (field = String, section = Object)
 		field = sub_fields[0]
 	}	
 
+	console.log(field);
+
 	function get_field_or_subs(fields) 
 	{
 		if( !is_sub_fields )

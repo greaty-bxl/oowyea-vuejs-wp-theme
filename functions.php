@@ -8,11 +8,10 @@
 define('GREATY_TEMPLATE_PATH', get_template_directory());
 define('GREATY_TEMPLATE_URL', get_template_directory_uri());
 
-include GREATY_TEMPLATE_PATH.'/security/security.php';
+/*include GREATY_TEMPLATE_PATH.'/security/security.php';*/
 include GREATY_TEMPLATE_PATH.'/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
 include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
 
-include GREATY_TEMPLATE_PATH.'/vue.config.php';
 
 /*------------------------------------*\
     Vue.js Libraries & functions
@@ -22,6 +21,9 @@ include GREATY_TEMPLATE_PATH.'/vue.config.php';
 $wp_vue_json;
 
 include GREATY_TEMPLATE_PATH.'/libs/get_vue_template.php';
+
+include GREATY_TEMPLATE_PATH.'/vue.config.php';
+
 include GREATY_TEMPLATE_PATH.'/libs/wp_vue_add_var.php';
 include GREATY_TEMPLATE_PATH.'/libs/vue-to-templates.php';
 include GREATY_TEMPLATE_PATH.'/libs/menus.php';
@@ -33,6 +35,9 @@ include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
 include GREATY_TEMPLATE_PATH.'/libs/image-sizes.php';
 include GREATY_TEMPLATE_PATH.'/libs/mime-types.php';
 
+//include GREATY_TEMPLATE_PATH.'/libs/radio.php';
+
+
 
 // Playing with Phaser (do not include in Greaty Theme)
 include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
@@ -43,6 +48,41 @@ include GREATY_TEMPLATE_PATH.'/libs/fromagerie/fromagerie.php';
 
 // Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
+
+
+//auto include php vue
+function auto_include_php_scripts($dir, &$results = array()) {
+    $files = scandir($dir);
+
+    foreach ($files as $key => $value) {
+        $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
+        if (!is_dir($path)) {
+            $info = pathinfo( $path );
+            if( $info['extension'] == 'php' )
+            {
+                include $path;
+            }            
+        } else if ($value != "." && $value != "..") {
+            auto_include_php_scripts($path, $results);
+        }
+    }
+}
+auto_include_php_scripts(GREATY_TEMPLATE_PATH.'/vuejs/src/wp');
+
+
+function get_oowyea_home()
+{
+    echo "hello";
+}
+
+function oowyea_menus()
+{
+    add_menu_page( 'oowYea', 'oowYea', 'edit_theme_options', 'oowyea-home', 'get_oowyea_home');
+    //add_submenu_page( 'oowyea-home', 'Vue builder', 'Vue builder', 'edit_theme_options', 'vue-builder', 'get_vuejs_builder' );
+}
+
+
+add_action( 'admin_menu', 'oowyea_menus' );
 
 /*------------------------------------*\
 	Theme Support
@@ -110,6 +150,7 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Theme General Settings',
         'menu_title'    => 'Theme Settings',
         'menu_slug'     => 'greaty-theme-general-settings',
+        'parent_slug'   => 'oowyea-home',
         'capability'    => 'edit_posts',
         'redirect'      => false
     ));
@@ -485,6 +526,7 @@ add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove 
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
 
 // Remove Filters
+
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
 
@@ -493,5 +535,3 @@ remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altoget
 // function wpse303391_change_graphic_editor ($array) {
 //     return array( 'WP_Image_Editor_GD', 'WP_Image_Editor_Imagick' );
 //     }
-
-?>

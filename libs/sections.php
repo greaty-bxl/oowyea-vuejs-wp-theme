@@ -6,6 +6,11 @@ function get_sections()
 	global $post;
 	global $sections;
 
+	if( is_admin() )
+	{
+		return;
+	}
+
 	$sections = array();
 	$page_for_posts = get_option( 'page_for_posts' );
 
@@ -67,6 +72,8 @@ function get_sections()
 				$post = $clonePost;
 			}
 		}
+
+		$sections = apply_filters( 'posts_results', $sections ) ;
 	}
 	else
 	{

@@ -605,10 +605,10 @@ function scrollSection(vue){
 			let permalink = $('#'+window.current_section).data('permalink')
 			vue.pushHistory( permalink )
 		}
-		// vue.$store.commit({
-		// 	type: 'section_change',
-		// 	current_section: vue.$store.state.wp.sections[window.current_section_index],
-		// })
+		vue.$store.commit({
+			type: 'section_change',
+			current_section: vue.$store.state.wp.sections[window.current_section_index],
+		})
 	}
 	/*$('#app').on('after_scroll_to_section', function() {
 		update_current_section()

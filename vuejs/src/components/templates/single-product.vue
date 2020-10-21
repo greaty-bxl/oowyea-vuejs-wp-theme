@@ -63,7 +63,7 @@
 		mounted (){
 			// var $ = this.$
 
-			 // $('.retour').html('[add_to_cart id="99"]')
+			// $('.retour').html('[add_to_cart id="99"]')
 			
 			this.$emit('template_mounted')
 

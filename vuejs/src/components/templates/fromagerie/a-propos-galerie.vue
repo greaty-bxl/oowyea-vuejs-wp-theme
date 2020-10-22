@@ -152,7 +152,7 @@ export default {
 		text-align: left;
 		margin-left: 70px;
 		margin-bottom: 7vh;
-		margin-top: 120px;
+		margin-top: 100px;
 		padding-top: 7vh;
 		color: #70625b;
 
@@ -161,7 +161,7 @@ export default {
 
 	.swiper-container{
 
-		margin-left: 170px;
+		margin-left: 140px;
 
 	}
 

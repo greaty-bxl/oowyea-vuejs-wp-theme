@@ -7,9 +7,11 @@
 			<div id="navbar" class="navbar-collapse collapse">
 			<div class="menu_link" v-html="wp.menus['burger-menu']" ></div>
 			</div>
-				<div class="button-header close-simple">
-					<p>X</p>
-				</div>
+
+	<div class="icon button-header close-simple">
+	<div class="burger"></div>
+	</div>
+
 			</div>
 			</nav>
 			</header>
@@ -19,8 +21,7 @@
 </template>
 
 <script>
-// import Acf from 'Organisms/acf.vue'
-// import anime from 'animejs/lib/anime.es.js';
+import is from "is_js"
 
 
 export default {
@@ -34,19 +35,37 @@ export default {
 
 	$('.button-header').click(function() {
 
+		$(this).toggleClass('active');
+
 		if ($(this).hasClass('close-simple')) {
 
 			$(this).removeClass('close-simple')
 
 			$(this).addClass('open-simple')
 
-			$('.menu_link').animate({
-			
-				left: '0',
-				easing: 'easeInOutSine',
-				duration: 200,
-			});
+			if ( is.not.mobile() && is.not.tablet() ) {
 
+				$('.menu_link').animate({
+					// targets: $('.menu_link').target,
+					left: '80vw',
+					easing: 'easeInOutSine',
+					duration: 200,
+				});
+
+			}
+			else{
+
+				$('.menu_link').animate({
+					
+						left: '0',
+						easing: 'easeInOutSine',
+						duration: 200,
+					});
+
+
+			}
+
+	
 
 		}
 	
@@ -54,7 +73,7 @@ export default {
 
 			$('.menu_link').animate({
 				// targets: $('.menu_link').target,
-				left: '50vh',
+				left: '100vw',
 				easing: 'easeInOutSine',
 				duration: 200,
 			});
@@ -99,7 +118,7 @@ export default {
 	}
 	nav img{
 
-		height: 70px !important;
+		height: 50px !important;
 	}
 	nav ul li {
 
@@ -124,18 +143,20 @@ export default {
 
 	}
 	.button-header{
-		color: white;
+		color: black;
 		font-size: 50px;
-		display: none;
+		/*display: none;*/
 	}
 
 
 	.menu_link{
 
-		display: block;
+		/*display: block;*/
+		width: 20vw;
+		left: 100vw;
 	}
 
-		@media screen and (max-width: 600px){
+		
 
 			nav img{
 
@@ -145,23 +166,42 @@ export default {
 			.button-header{
 
 				display: block;
+				z-index: 1000;
 			}
 
-		/*	.menu_link{
+			.menu_link{
 
-				display: none;
-			}*/
+				/*display: block;*/
+				background-color: white;
+				left: 100vw;
+				/*min-width: 100vw;*/
+				height: 100vh;
+				bottom: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
 
 			.menu{
 
 				flex-direction: column !important;
-				top: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				left: 50vw;
 			}
 
 			#navbar div {
-				position: absolute;
-				top: 50px;
+				position: fixed;
+				/*top: 50px;*/
+			}
+		@media screen and (max-width: 1100px){
+
+			.menu_link{
+
+				min-width: 100vw;
+
 			}
 		}
 
@@ -201,14 +241,60 @@ export default {
 			margin:  30px 30px;
 			width: calc(100% - 60px);
 			}
-	/*		.menu_link{
 
-			left: 50vh;
-
-			}*/
 		}
 
 
+		.icon{
+		  /*position: absolute;*/
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%,-50%);
+		  width: 40px;
+		  height: 40px;
+		  cursor: pointer;
+		  background-color: #70625b;
+		}
+		.burger{
+		  width: 30px;
+		  height: 4px;
+		  background-color: #fff;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%,-50%);
+		  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		  transition: 0.5s;
+		}
+		.burger::before,
+		.burger::after{
+		  content: '';
+		  position: absolute;
+		  width: 30px;
+		  height: 3.3px;
+		  left: 0;
+		  background: #fff;
+		  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		  transition: 0.5s;
+		}
+		.burger::before{
+		  top: -8px;
+		}
+		.burger::after{
+		  top: 8px;
+		}
+
+		.icon.active .burger{
+		  background: rgba(0,0,0,0);
+		}
+		.icon.active .burger::before{
+		  top: 0;
+		  transform: rotate(45deg);
+		}
+		.icon.active .burger::after{
+		  top: 0;
+		  transform: rotate(135deg);
+		}
    
 </style>
 

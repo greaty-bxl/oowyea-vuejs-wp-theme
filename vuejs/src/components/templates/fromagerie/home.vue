@@ -58,7 +58,7 @@ export default {
 	body *{
 
 		font-family: 'Montserrat';
-		font-weight: 500 ;
+		font-weight: 400 ;
 		/*color: white;*/
 
 	}
@@ -79,9 +79,12 @@ export default {
 
 	}
 
+
+
 	.titre-home-section{
 		margin-top: auto;
 		margin-bottom: auto;
+		font-weight: 400 !important;
 	}
 
 	@media screen and (max-width: 900px){

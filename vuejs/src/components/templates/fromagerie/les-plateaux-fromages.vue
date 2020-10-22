@@ -1,4 +1,3 @@
-
 <template>
     <div class="section-wrap">
 		<div class="clear"></div>
@@ -7,13 +6,37 @@
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
-				<h5 class="title-section-plateaux-fromages">> Les Plateaux fromages</h5>
+				<h5 class="title-section-plateaux-fromages"> Les Plateaux fromages</h5>
 
 				<swiper class="swiper3" :options="swiperOption10">
 
 					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.plateaux_fromages" :key="child.ID"  >
 
-						<img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb">
+						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
+						<p v-html="child.post_title" class="name-plateau-fromage"></p>
+						<p v-html="child.metas._price[0] + ' €' " class="prix-plateau-fromage"></p>
+						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
+
+
+					</swiper-slide>
+
+				</swiper>
+
+			</div>
+
+		</div>
+
+		<div class="globale-plateaux-fromages">
+		
+			<div class="section-plateaux-fromages-plateaux-fromages">
+
+				<h5 class="title-section-les-asortiments-de-fromages"> Les Plateaux fromages</h5>
+<!-- > Les Assortiments de fromages -->
+				<swiper class="swiper3" :options="swiperOption10">
+
+					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.plateaux_fromages" :key="child.ID"  >
+
+						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
 						<p v-html="child.metas._price[0] + ' €' " class="prix-plateau-fromage"></p>
 						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
@@ -54,12 +77,13 @@ export default {
 
 	mounted(){
 
-		// console.log(smart_fonts);
+		console.log(this.wp);
 
 		// var $ = this.$
 
 		smart_fonts({
 			'.title-section-plateaux-fromages' : 25,
+			'.title-section-les-asortiments-de-fromages' : 25,
 		})
 
         // console.log(this.wp.sections[2].acf_fields.a_propos_plateaux-fromages);
@@ -89,7 +113,7 @@ export default {
 			breakpoints: {
 			// when window width is >= 320px
 			1100: {
-			slidesPerView: 3.2,
+			slidesPerView: 3.5,
 
 			},
 
@@ -123,7 +147,7 @@ export default {
 		/*background-size: cover;
 		background-repeat: no-repeat;
 		background: center;*/
-		height: 40vh; 
+		height: 33vh; 
 
 	}
 
@@ -162,9 +186,22 @@ export default {
 
 		text-align: left;
 		margin-left: 70px;
-		margin-bottom: 7vh;
-		margin-top: 120px;
-		padding-top: 7vh;
+		margin-bottom: 25px;
+		/*margin-top: 0px !important;*/
+		margin-top: 125px;
+		/*padding-top: 4vh;*/
+		color: #70625B;
+
+
+	}
+	.title-section-les-asortiments-de-fromages{
+
+		text-align: left;
+		margin-left: 70px;
+		margin-bottom: 25px;
+		/*margin-top: 0px !important;*/
+		margin-top: 25px;
+		/*padding-top: 4vh;*/
 		color: #70625B;
 
 
@@ -174,13 +211,14 @@ export default {
 
 		font-size: 18px !important;
 		color: #666666 !important;
+		margin-bottom: 0px
 	}
 
 
 
 	.swiper-container{
 
-		margin-left: 170px;
+		margin-left: 140px;
 
 	}
 
@@ -221,6 +259,15 @@ export default {
 			font-size: 22px !important;
 		}
 
+		.title-section-plateaux-fromages{
+			font-size: 22px !important;
+			margin-left: 30px;
+		}
+		.title-section-les-asortiments-de-fromages{
+			font-size: 22px !important;
+			margin-left: 30px;
+		}
+
 
 
 	}
@@ -228,8 +275,8 @@ export default {
 	.slide-plateaux-fromages p {
 
 		text-align: left;
-		margin-top: 7px;
-		margin-bottom: 7px;
+		margin-top: 5px;
+		margin-bottom: 5px;
 
 	}
 
@@ -284,6 +331,10 @@ export default {
 		margin-left: 30px;
 	}
 
+}
+
+a {
+	display: flex;	
 }
 
 </style>

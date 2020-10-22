@@ -12,7 +12,7 @@ function gtr_get_plateaux_fromages( $plateaux_fromages_1 = null ) {
 
     $plateaux_fromages = get_posts($args4);
 
-    // $plateaux_fromages = apply_filters( 'posts_results', $plateaux_fromages ) ;
+    $plateaux_fromages = apply_filters( 'posts_results', $plateaux_fromages ) ;
 
     wp_vue_add_var('plateaux_fromages', $plateaux_fromages);
        

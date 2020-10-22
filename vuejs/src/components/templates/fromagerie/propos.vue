@@ -67,6 +67,7 @@ export default {
 		flex-direction: row;
 		justify-content: center;
 		align-content: center;
+		background: #A59890;
 
 
 	}
@@ -76,15 +77,17 @@ export default {
 		margin-bottom: auto;
 		width: 70%;
 		line-height: 70px;
-		color: #70625B;
+		color: white;
 
 	}
+
+	.section-a-propos{}
 
 	@media screen and (max-width: 1100px){
 
 		.titre-a-propos-section *{
 			text-align: center !important;
-			/*line-height: 50px;*/
+			line-height: 50px;
 		}
 
 		.titre-a-propos-section{

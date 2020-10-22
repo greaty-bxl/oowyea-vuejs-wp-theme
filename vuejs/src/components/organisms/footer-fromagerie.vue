@@ -72,6 +72,8 @@
 
 		color: #70625B;
 		text-align: left;
+		font-weight: 500;
+	
 	}
 
 	.contener-header{
@@ -79,6 +81,8 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		padding-bottom: 50px;
+		padding-top: 50px;
 	}
 
 	.contener-header div{
@@ -99,6 +103,7 @@
 	footer *{
 
 		font-size: 14px !important;
+		line-height: 25px;
 	}
 
 	div p {

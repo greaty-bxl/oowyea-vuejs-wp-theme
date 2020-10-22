@@ -1,0 +1,303 @@
+
+<template>
+    <div class="section-wrap">
+		<div class="clear"></div>
+
+		<div class="globale-contact">
+		
+			<div class="section-a-propos-galerie">
+
+				<h5 class="title-section-contact"> Contact</h5>
+
+				<div class="contener-contact">
+											
+						<div class="contener-contact-child" >
+
+							<div>
+								<p class="sous-titre-contact">Magasin</p> 
+								<p class="text-sous-titre-contact">Bd. Sylvain Dupuis 373<br>1070 Bruxelles<br>Belgique</p>
+							</div>
+					
+						</div>	
+
+						<div class="contener-contact-child" >
+							
+							<p class="sous-titre-contact ">Commandes et <br> demandes spéciales</p> 
+
+							<div>
+								<form action="" method="get" class="form-example" >
+									
+									<input class="input-contact"  placeholder="Prénom"  type="" name="">
+									<input class="input-contact" placeholder="E-mail" type="" name="">
+									<input class="input-contact" placeholder="Téléphone" type="" name="">
+									<input class="input-contact" placeholder="Nombre de personnes" type="" name="">
+									<textarea class="input-contact" placeholder="Message" type="" name=""></textarea>
+									<button class="button-envoyer">Envoyer</button>
+								</form>
+								
+							</div>
+
+						</div>
+
+						<div class="contener-contact-child" >
+
+							<div>
+								<p class="sous-titre-contact">Aide</p> 
+								<p class="text-sous-titre-contact" >Politique de confidentialité</p>
+							</div>
+
+							<div>
+								<p class="sous-titre-contact">Suivez-nous</p> 
+								<a class="text-sous-titre-contact"  href="">Facebook</a>
+								<a class="text-sous-titre-contact" href="">Instagram</a>
+							</div>
+						</div>
+													
+					</div>
+
+			</div>
+
+		</div>
+
+		<div class="clear"></div>
+    </div>
+ 
+</template>
+
+<script>
+
+import smart_fonts from 'Libs/smart-fonts.js';
+
+export default {
+
+	props: {
+		'post' : Object
+	},
+
+
+
+	mounted(){
+
+		// console.log(smart_fonts);
+
+		// var $ = this.$
+
+		smart_fonts({
+			'.title-section-contact' : 25,
+			'.sous-titre-contact' : 27,
+			'.text-sous-titre-contact' : 18,
+			'.button-envoyer' : 18,
+			'.input-contact' : 18,
+		})
+
+        // console.log(this.wp.sections[2].acf_fields.a_propos_galerie);
+// 
+		this.$emit('template_mounted', this);
+
+	},
+
+}
+
+
+
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+.contener-contact{
+width: 65%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+text-align: left;
+margin-left: auto;
+margin-right: auto;
+}
+
+.section-a-propos-galerie{
+
+min-height: 100vh;
+}
+
+
+.title-section-contact{
+
+text-align: left;
+margin-left: 70px;
+margin-bottom: 25px;
+margin-top: 100px;
+padding-top: 25px;
+color: #70625b;
+font-weight: 500;
+
+}
+
+.section-a-propos-galerie *{
+
+	font-weight: 500;
+}
+
+
+	.contener-contact form{
+
+		display: flex;
+		flex-direction: column;
+		/*justify-content: space-between;*/
+	}
+
+	.contener-contact-child div{
+
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 30px;
+
+
+	}
+
+	.sous-titre-contact{
+
+		color: #70625B;
+		margin-bottom: 10px;
+		font-weight: 500;
+	}
+
+	.text-sous-titre-contact{
+
+		color: #666666;
+		line-height: 25px;
+	}
+	.globale-contact{
+
+		height: 100vh
+	}
+
+/*	.commande{
+
+		width: 50%;
+	}
+*/
+
+
+
+	@media screen and (max-width: 1100px) and (min-width: 600px){
+
+		.contener-contact{
+
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			text-align: left;
+			margin-left: 70px;
+			margin-right: 70px;
+		}
+
+		.globale-contact{
+
+			height: auto;
+		}
+	
+
+	}
+
+	@media screen and (max-width: 600px){
+
+		.contener-contact{
+
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			text-align: left;
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+		.title-section-contact{
+
+			text-align: left;
+			padding-left: 30px;
+			margin-bottom: 5vh;
+			margin-top: 120px;
+			padding-top: 5vh;
+			font-size: 22px !important;
+		}
+
+		.globale-contact{
+
+			height: auto;
+		}
+
+	}
+
+</style>
+
+
+<style scoped >
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
+
+	a{
+		text-decoration-line: none;
+		color: #666666;
+	}
+
+	input{
+
+		border: 1px solid #A59890 !important;
+		margin-top: 15px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		color: #666666;
+		padding-left: 15px;
+
+	}
+
+	textarea{
+		padding-top: 10px;
+		border: 1px solid #A59890 !important;
+		margin-top: 15px;
+		min-height: 100px;
+		padding-left: 15px;
+	}
+
+	button{
+
+		margin-top: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background: #A59890;
+		color: white;
+		border: solid #A59890;
+		border-width: 1px;
+		font-weight: bold;
+
+	}
+
+	button:hover{
+
+		color: #A59890;
+		background: white;
+		/*border: 1px ;*/
+	/*	border: solid #A59890;
+		border-width: 1px;*/
+		transition-delay: 200;
+	}
+
+	@media screen and (max-width: 1100px) and (min-width: 600px){
+
+		
+	}
+
+	@media screen and (max-width: 600px){
+
+	
+
+	}
+
+</style>
+
+
+
+
+
+

@@ -85,6 +85,7 @@ export default {
 		margin-top: auto;
 		margin-bottom: auto;
 		font-weight: 400 !important;
+		color: white;
 	}
 
 	@media screen and (max-width: 900px){

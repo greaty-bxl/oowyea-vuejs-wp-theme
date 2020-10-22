@@ -35,7 +35,7 @@
 						<p class="product woocommerce add_to_cart_inline " style="border: 4px solid rgb(204, 204, 204); padding: 12px; font-size: 11.9924px;"><del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>15,00</bdi></span></del> <ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>10,00</bdi></span></ins><a :href="this.wp.add_to_cart" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="572" data-product_sku="" aria-label="Add “Plateau fromage” to your cart" rel="nofollow">Add to cart</a></p>
 
 						<!-- <button :href="this.wp.add_to_cart" >Ajouter au panier</button> -->
-						<button>Acheter</button>
+						<!-- <button>Acheter</button> -->
 
 					</div>
 
@@ -96,29 +96,40 @@
 		flex-direction: column;
 
 	}
-	.button-contener button:nth-child(2){
+	.button-contener a{
 
+		width: 100%;
+		
+		padding: 20px 0px !important;
+	}
+
+	.button-contener p{
+		padding: 0px !important;
 		margin-top: 15px;
-		background-color: #A59890;
+		/*background-color: #A59890;*/
 		color: white;
 		border-width: 0 ;
+		border:0px !important ;
+		text-align: center;
 
 	}
 
-	.button-contener button:nth-child(1){
+
+
+/*	.button-contener button{
 
 		background-color: #70625B;
 		color: white;
 		border-width: 0 ;
-	}
+	}*/
 
 
-	.button-contener button{
+/*	.button-contener button{
 
 		text-align: center;
-		padding: 15px 0px;
+		padding: 20px 0px;
 
-	}
+	}*/
 	
 	.content-single{
 
@@ -236,6 +247,8 @@
 
 	}
 
+
+
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
 
 		.content-single{
@@ -263,7 +276,7 @@
 
 			padding-top: 20px;
 		}
-		.button-contener button{
+		.button-contener p{
 
 			width: 50%;
 			/*padding: 10px 0px;*/
@@ -298,9 +311,15 @@
 
 		}
 
-		.button-contener button{
+		.button-contener p{
 
 			width: 50%;
+			/*padding: 10px 0px;*/
+
+		}
+		.button-contener a{
+
+			width: 100%;
 			/*padding: 10px 0px;*/
 
 		}
@@ -312,6 +331,19 @@
 
 <style scoped>
 
+	.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
 
+		text-align: center;
+	}
+
+	.content-single del{
+
+		display: none !important;
+	}
+
+	.content-single bdi {
+
+		display: none !important;
+	}
 
 </style>

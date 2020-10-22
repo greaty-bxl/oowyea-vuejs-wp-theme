@@ -246,14 +246,20 @@ export default {
 			margin:  30px 30px;
 			width: calc(100% - 60px);
 			}
+			.icon{
+	
+			left: 92% !important;
+		
+			}
 
 		}
 
 
 		.icon{
-		/*position: absolute;*/
-		top: 50%;
-		left: 50%;
+		position: absolute;
+		margin-top: 20px;
+		/*top: 50%;*/
+		left: 96%;
 		transform: translate(-50%,-50%);
 		width: 45px;
 		height: 40px;

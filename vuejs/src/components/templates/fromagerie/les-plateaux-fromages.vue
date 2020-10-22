@@ -186,10 +186,10 @@ export default {
 
 		text-align: left;
 		margin-left: 70px;
-		margin-bottom: 7vh;
+		margin-bottom: 5vh;
 		/*margin-top: 0px !important;*/
 		margin-top: 100px;
-		padding-top: 7vh;
+		padding-top: 5vh;
 		color: #70625B;
 
 
@@ -198,12 +198,30 @@ export default {
 
 		text-align: left;
 		margin-left: 70px;
-		margin-bottom: 25px;
+		margin-bottom: 5vh;
 		/*margin-top: 0px !important;*/
-		margin-top: 25px;
+		margin-top: 5vh;
 		/*padding-top: 4vh;*/
 		color: #70625B;
 
+
+	}
+
+	@media screen and (max-width: 4000px) and (min-width: 1700px){
+
+		.title-section-les-asortiments-de-fromages{
+
+			margin-bottom: 7vh;
+			margin-top: 7vh;
+
+		}
+
+		.title-section-plateaux-fromages{
+
+			margin-bottom: 7vh;
+			padding-top: 7vh;
+
+		}
 
 	}
 
@@ -306,15 +324,17 @@ export default {
 
 	}
 
-
-
 </style>
-
 
 <style scoped >
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
 
+	.section-wrap{
+
+		padding-bottom: 100px;
+		background-color: #F2F2F2;
+	}
 
 @media screen and (max-width: 1100px) and (min-width: 600px){
 
@@ -322,6 +342,12 @@ export default {
 
 		margin-left: 70px;
 	}
+
+	h5{
+
+		font-size: 26px !important;
+	}
+
 }
 
 @media screen and (max-width: 600px){
@@ -331,11 +357,14 @@ export default {
 		margin-left: 30px;
 	}
 
+
 }
 
 a {
 	display: flex;	
 }
+
+
 
 </style>
 

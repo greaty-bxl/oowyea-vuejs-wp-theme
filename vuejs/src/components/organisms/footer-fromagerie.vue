@@ -125,7 +125,20 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+			/*padding-bottom: 30px;*/
 		}
+
+		
+	}
+
+	@media screen and ( max-width: 1100px) and ( min-width: 600px){
+
+		.contener-header{
+
+			flex-direction: column;
+			padding-bottom: 70px;
+		}
+
 	}
 
 </style>

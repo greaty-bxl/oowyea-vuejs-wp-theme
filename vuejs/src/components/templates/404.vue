@@ -2,7 +2,7 @@
 	<div class="section-wrap">
 		<div class="clear"></div>
 		<h1>404</h1>
-		<p>404 template</p>
+		<p>...</p>
 		
 		<div class="clear"></div>
 	</div>

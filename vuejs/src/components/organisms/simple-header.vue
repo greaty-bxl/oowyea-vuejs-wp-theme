@@ -246,54 +246,54 @@ export default {
 
 
 		.icon{
-		  /*position: absolute;*/
-		  top: 50%;
-		  left: 50%;
-		  transform: translate(-50%,-50%);
-		  width: 40px;
-		  height: 40px;
-		  cursor: pointer;
-		  background-color: #70625b;
+		/*position: absolute;*/
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 45px;
+		height: 40px;
+		cursor: pointer;
+		background-color: #70625b;
 		}
 		.burger{
-		  width: 30px;
-		  height: 4px;
-		  background-color: #fff;
-		  position: absolute;
-		  top: 50%;
-		  left: 50%;
-		  transform: translate(-50%,-50%);
-		  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-		  transition: 0.5s;
+		width: 30px;
+		height: 4px;
+		background-color: #fff;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		transition: 0.5s;
 		}
 		.burger::before,
 		.burger::after{
-		  content: '';
-		  position: absolute;
-		  width: 30px;
-		  height: 3.3px;
-		  left: 0;
-		  background: #fff;
-		  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-		  transition: 0.5s;
+		content: '';
+		position: absolute;
+		width: 30px;
+		height: 3.3px;
+		left: 0;
+		background: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		transition: 0.5s;
 		}
 		.burger::before{
-		  top: -8px;
+		top: -8px;
 		}
 		.burger::after{
-		  top: 8px;
+		top: 9px;
 		}
 
 		.icon.active .burger{
-		  background: rgba(0,0,0,0);
+		background: rgba(0,0,0,0);
 		}
 		.icon.active .burger::before{
-		  top: 0;
-		  transform: rotate(45deg);
+		top: 0;
+		transform: rotate(45deg);
 		}
 		.icon.active .burger::after{
-		  top: 0;
-		  transform: rotate(135deg);
+		top: 0;
+		transform: rotate(135deg);
 		}
    
 </style>

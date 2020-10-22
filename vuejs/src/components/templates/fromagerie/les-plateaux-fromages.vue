@@ -186,10 +186,10 @@ export default {
 
 		text-align: left;
 		margin-left: 70px;
-		margin-bottom: 25px;
+		margin-bottom: 7vh;
 		/*margin-top: 0px !important;*/
-		margin-top: 125px;
-		/*padding-top: 4vh;*/
+		margin-top: 100px;
+		padding-top: 7vh;
 		color: #70625B;
 
 

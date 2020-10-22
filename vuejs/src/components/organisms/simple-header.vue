@@ -3,7 +3,8 @@
         <header>
 			<nav id="main-navbar-1" class="navbar navbar-default navbar-fixed-top">
 			<div class=" navbar-container">
-			<img class="navbar-brand" src="http://greaty.digital.brussels/wp-content/uploads/2020/10/logo-brun.svg">
+				<Acf field="logo" />
+			<!-- <img class="navbar-brand" src="http://greaty.digital.brussels/wp-content/uploads/2020/10/logo-brun.svg"> -->
 			<div id="navbar" class="navbar-collapse collapse">
 			<div class="menu_link" v-html="wp.menus['burger-menu']" ></div>
 			</div>
@@ -22,10 +23,14 @@
 
 <script>
 import is from "is_js"
+import Acf from "Organisms/acf"
 
 
 export default {
 
+	components:{
+		Acf
+	},
 
 	mounted(){
 

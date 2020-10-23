@@ -327,7 +327,15 @@ function scrollSection(vue){
 		}
 		else
 		{
-			if( window.current_section == 'footer' && next.prop('id') == 'footer' && delta == 1 )
+			//console.log('test', $('#app').scrollTop() + $('#app').innerHeight(), $('#app')[0].scrollHeight );
+			//console.log( is.within($('#app').scrollTop() + $('#app').innerHeight(), $('#app')[0].scrollHeight - 5, $('#app')[0].scrollHeight + 5 ) );
+
+			//if( window.current_section == 'footer' && next.prop('id') == 'footer' && delta == 1 )
+			if( 
+				is.within( $('#app').scrollTop() + $('#app').innerHeight(), $('#app')[0].scrollHeight - 5, $('#app')[0].scrollHeight + 5 ) && delta == 1 
+				||
+				$('#app').scrollTop() == 0 && delta == -1
+			)
 			{
 				return
 			}

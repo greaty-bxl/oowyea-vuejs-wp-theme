@@ -27,9 +27,31 @@ add_action( 'wp', 'gtr_get_assortiments_de_fromages' ); // json page transition
 
 
 
-  // $query_args = array( 'post__not_in' => array( $post->ID ), 'posts_per_page' => 5, 'no_found_rows' => 1, 'post_status' => 'publish', 'post_type' => 'product', 'tax_query' => array( 
-  //   array(
-  //     'taxonomy' => 'product_cat',
-  //     'field' => 'id',
-  //     'terms' => $cats_array
-  //   )));
+  //     $productByCat = array();
+      
+  //     foreach ($posts as $key => $post_temp) 
+  //     {
+  //       $posts[$key]->permalink = get_permalink( $post_temp->ID )
+  // ;
+  //       $posts[$key]->image_hover = get_field( 'image_hover', $post_temp->ID ); 
+
+  //       $posts[$key]->price = get_post_meta($post_temp->ID);
+
+  //       $terms = wp_get_post_terms( $post_temp->ID, 'product_cat' );
+
+  //       foreach ($terms as $term) 
+  //       {
+  //         if( !isset( $productByCat[ $term->term_id ]['object'] ) )
+  //         {
+  //           $productByCat[ $term->term_id ]['object'] = $term;  
+
+  //           $productByCat[ $term->term_id ]['object']->img =  wp_get_attachment_url( get_woocommerce_term_meta( $term->term_id, 'thumbnail_id', true )
+  //  );
+  //           $productByCat[ $term->term_id ]['object']->link = get_term_link( $term );
+        
+  //         } 
+
+  //         $productByCat[ $term->term_id ]['posts'][] = $posts[$key];
+
+  //       }
+  //     }

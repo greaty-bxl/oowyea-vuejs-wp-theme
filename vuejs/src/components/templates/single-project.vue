@@ -180,7 +180,7 @@ export default {
 body div .section-wrap {
 
 font-family: 'Montserrat', sans-serif;
-background-color: #282828; ;
+/*background-color: #282828; ;*/
 
 }
 
@@ -212,7 +212,7 @@ color: #e1e1e1;
 }
 body{
 
-	background-color: #282828;
+	/*background-color: #282828;*/
 }
 
 .swiper1{
@@ -253,10 +253,10 @@ body{
 }
 
 
-.swiper-container{
+/*.swiper-container{
 
 	margin-bottom: 75px;
-}
+}*/
 .text-client-sigle-span{
 
 	font-size: 16px !important;

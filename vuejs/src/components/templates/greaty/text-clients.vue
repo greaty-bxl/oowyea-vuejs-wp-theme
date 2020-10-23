@@ -51,7 +51,7 @@ export default {
 
     body{
 
-        background-color: #282828;
+        /*background-color: #282828;*/
     }
     
     .member{

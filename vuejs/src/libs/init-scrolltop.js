@@ -10,7 +10,7 @@ export default function(vue){
 
 		var section = $('.section[data-permalink="'+current_location+'"]')
 
-		console.log('scrolltop init', section);
+		//console.log('scrolltop init', section);
 
 		if( $('#app') && section )
 		{
@@ -23,7 +23,7 @@ export default function(vue){
 
 			$('#app').scrollTop( newScroll )
 
-			console.log('newScroll', newScroll);
+			//console.log('newScroll', newScroll);
 
 			
 

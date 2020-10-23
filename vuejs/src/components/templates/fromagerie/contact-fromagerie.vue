@@ -142,6 +142,7 @@ font-weight: 500;
 
 		display: flex;
 		flex-direction: column;
+		max-width: 20vw;
 		/*justify-content: space-between;*/
 	}
 
@@ -171,11 +172,24 @@ font-weight: 500;
 		height: 100vh
 	}
 
-/*	.commande{
 
-		width: 50%;
+	@media screen and (max-width: 4000px) and (min-width: 1700px){
+
+		.title-section-les-asortiments-de-fromages{
+
+			margin-bottom: 7vh;
+			margin-top: 7vh;
+
+		}
+
+		.title-section-contact{
+
+			margin-bottom: 7vh;
+			padding-top: 7vh;
+
+		}
+
 	}
-*/
 
 
 
@@ -183,7 +197,7 @@ font-weight: 500;
 
 		.contener-contact{
 
-			width: 100%;
+			/*width: 100%;*/
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
@@ -196,6 +210,19 @@ font-weight: 500;
 
 			height: auto;
 		}
+
+		.contener-contact form{
+
+			max-width: 80% !important;
+			/*justify-content: space-between;*/
+		}
+
+		.contener-contact-child div{
+
+			margin-bottom: 40px;
+
+
+		}
 	
 
 	}
@@ -204,11 +231,12 @@ font-weight: 500;
 
 		.contener-contact{
 
-			width: 100%;
+			/*width: 100%;*/
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
 			text-align: left;
+			width: calc( 100% - 60px);
 			padding-left: 30px;
 			padding-right: 30px;
 		}
@@ -220,11 +248,19 @@ font-weight: 500;
 			margin-top: 120px;
 			padding-top: 5vh;
 			font-size: 22px !important;
+			margin-left: 0px;
 		}
 
 		.globale-contact{
 
 			height: auto;
+		}
+
+
+		.contener-contact form{
+
+			max-width: 100%;
+			/*justify-content: space-between;*/
 		}
 
 	}
@@ -285,12 +321,16 @@ font-weight: 500;
 
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 
-		
+		h5{
+
+			font-size: 26px !important;
+		}
 	}
 
 	@media screen and (max-width: 600px){
 
-	
+
+
 
 	}
 

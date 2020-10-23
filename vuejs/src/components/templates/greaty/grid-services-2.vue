@@ -131,7 +131,7 @@ export default {
     body {
 
     font-family: 'Montserrat', sans-serif;
-    background-color: #282828; ;
+    /*background-color: #282828; ;*/
 
     }
 

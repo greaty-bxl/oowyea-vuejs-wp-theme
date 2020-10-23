@@ -38,7 +38,7 @@ export default {
 		smart_fonts({
 			'.titre-home' : 85 ,
 		})
-        console.log(this.wp.sections);
+        console.log(this.wp);
         
 
 		this.$emit('template_mounted', this);

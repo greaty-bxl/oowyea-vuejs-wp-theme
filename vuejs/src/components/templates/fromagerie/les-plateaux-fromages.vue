@@ -9,12 +9,12 @@
 				<h5 class="title-section-plateaux-fromages"> Les Plateaux fromages</h5>
 
 				<swiper class="swiper3" :options="swiperOption10">
-
+ []
 					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.plateaux_fromages" :key="child.ID"  >
 
 						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
-						<p v-html="child.metas._price[0] + ' €' " class="prix-plateau-fromage"></p>
+						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>
 						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
 
 
@@ -30,11 +30,11 @@
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
-				<h5 class="title-section-les-asortiments-de-fromages"> Les Plateaux fromages</h5>
+				<h5 class="title-section-les-asortiments-de-fromages">Les Assortiments de fromages</h5>
 <!-- > Les Assortiments de fromages -->
-				<swiper class="swiper3" :options="swiperOption10">
+			<!-- 	<swiper class="swiper3" :options="swiperOption10">
 
-					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.plateaux_fromages" :key="child.ID"  >
+					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.assortiments_de_fromages" :key="child.ID"  >
 
 						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
@@ -44,7 +44,7 @@
 
 					</swiper-slide>
 
-				</swiper>
+				</swiper> -->
 
 			</div>
 

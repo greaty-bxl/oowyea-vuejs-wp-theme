@@ -7,7 +7,7 @@ function gtr_get_plateaux_fromages( $plateaux_fromages_1 = null ) {
 	$args4 = array(
 		'post_type' => 'product',
 		'posts_per_page' => -1,
-		'category' => 'plateau-fromage'
+		// 'category' => 'plateau-fromage'
 	);
 
     $plateaux_fromages = get_posts($args4);

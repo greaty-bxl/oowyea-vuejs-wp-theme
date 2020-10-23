@@ -4,13 +4,19 @@ function gtr_get_assortiments_de_fromages( $assortiments_de_fromages_1 = null ) 
 
 	global $posts;
 
-	$args4 = array(
+	$args6 = array(
 		'post_type' => 'product',
 		'posts_per_page' => -1,
-		'category' => 'assortiments-de-fromages'
+		// 'taxonomy' =>  array( 'slug' =>  )
 	);
 
-    $assortiments_de_fromages = get_posts($args4);
+	$args6['tax_query'] = array(
+		'taxonomy' =>  'assortiments-de-fromages',
+		'posts_per_page' => -1,
+		'field' => 'slug',
+	);
+
+    $assortiments_de_fromages = get_posts($args6);
 
     $assortiments_de_fromages = apply_filters( 'posts_results', $assortiments_de_fromages ) ;
 

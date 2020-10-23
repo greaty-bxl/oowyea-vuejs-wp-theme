@@ -7,7 +7,7 @@ function gtr_get_les_confits( $les_confits_1 = null ) {
 	$args4 = array(
 		'post_type' => 'product',
 		'posts_per_page' => -1,
-		'category' => 'les-confits'
+		'taxonomy' => 'les-confits'
 	);
 
     $les_confits = get_posts($args4);

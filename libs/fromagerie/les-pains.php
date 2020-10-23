@@ -4,13 +4,14 @@ function gtr_get_les_pains( $les_pains_1 = null ) {
 
 	global $posts;
 
-	$args4 = array(
+	$args5 = array(
 		'post_type' => 'product',
+		'category' => 'les-pains',
 		'posts_per_page' => -1,
-		'category' => 'les-pains'
+		
 	);
 
-    $les_pains = get_posts($args4);
+    $les_pains = get_posts($args5);
 
     $les_pains = apply_filters( 'posts_results', $les_pains ) ;
 

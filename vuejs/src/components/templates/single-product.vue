@@ -145,8 +145,8 @@
 	}
 	.image-single{
 
-		height: 30vw !important;
-		width: 30vw;
+		/*height: 30vw !important;*/
+		width: 35vw;
 	}
 
 	.single-text p{

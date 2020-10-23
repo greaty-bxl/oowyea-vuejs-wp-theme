@@ -10,7 +10,6 @@
         :data-index="key2"
         :data-title="section.post_title"
         :style="section.style" >
-
           <component   
             :section="section" 
             :is="Templates[section.template]"

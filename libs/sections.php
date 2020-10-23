@@ -98,10 +98,7 @@ function get_sections()
 
 			$sections[0]->permalink = $actual_link;
 			$sections[0]->post_title = '404';
-
-			/*echo "<pre>";
-			print_r( $sections );
-			exit();*/
+			$sections[0]->template = '404' ;
 		}
 		
 	}

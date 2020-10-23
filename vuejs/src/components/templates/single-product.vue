@@ -14,7 +14,7 @@
 					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
 					</div>
 					<div>				
-						<p v-html="this.post.metas._regular_price[0] +' €' " class="price-single montserrat-bold"> </p>
+						<p v-html="this.post.metas._regular_price +' €' " class="price-single montserrat-bold"> </p>
 						<p>Taxes incluses</p>
 					</div>
 

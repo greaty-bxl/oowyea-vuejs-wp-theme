@@ -33,7 +33,7 @@ export default function(vue){
 
 				window.current_section = section.attr('id')
 				window.current_section_index =  section.index()
-				
+				console.log(section.index());
 				$('#app').css('pointer-events', 'auto');
 				vue.$store.commit({
 					type: 'section_change',

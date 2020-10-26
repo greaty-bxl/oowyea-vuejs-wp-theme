@@ -44,6 +44,10 @@ function isJson($string)
 	return (json_last_error() == JSON_ERROR_NONE);
 }
 
+function isHTML($string){
+ return $string != strip_tags($string) ? true:false;
+}
+
 function wp_vue_add_var($key, $value)
 {
 	global $is_wp_head;
@@ -61,9 +65,23 @@ function wp_vue_add_var($key, $value)
 	}
 	elseif ($is_wp_head) 
 	{
-		?>
-		<script type="text/javascript">window.wp['<?= $key ?>'] = '<?= $value ?>'</script>
-		<?php
+		if( isHTML( $value ) )
+		{
+			//$value = array( $value );
+			$value = json_encode( $value );
+			?>
+			<script type="text/javascript">window.wp['<?= $key ?>'] = <?= $value ?></script>
+			<?php
+		}
+		else
+		{
+
+
+			?>
+			<script type="text/javascript">window.wp['<?= $key ?>'] = '<?= $value ?>'</script>
+			<?php
+
+		}
 	}
 	elseif ( isset( $_GET['add_to_json'] ) )
 	{

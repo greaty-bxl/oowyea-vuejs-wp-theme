@@ -24,6 +24,7 @@ function init_classics_wp_variables()
 	wp_vue_add_var('wp', $wp );
 	wp_vue_add_var('wp_query', $wp_query );
 	wp_vue_add_var('title', html_entity_decode( get_the_title() ) );
+	wp_vue_add_var('body_class', implode(" ", get_body_class() ) );
 
 	$options =  unserialize_in_array( wp_load_alloptions() );
 	wp_vue_add_var('options', $options );

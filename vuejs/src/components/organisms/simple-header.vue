@@ -8,7 +8,7 @@
 			<div id="navbar" class="navbar-collapse collapse">
 			<div class="menu_link" v-html="wp.menus['burger-menu']" ></div>
 			</div>
-
+	<!-- <div class="iconUser"></div> -->
 	<div class="icon button-header close-simple">
 	<div class="burger"></div>
 	</div>
@@ -312,6 +312,9 @@ export default {
 		top: 0;
 		transform: rotate(135deg);
 		}
+
+
+		
    
 </style>
 

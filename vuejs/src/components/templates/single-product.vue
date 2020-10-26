@@ -171,14 +171,14 @@
 	.single-text p {
 
 		font-size: 16px !important;
-		font-weight: 600;
+		font-weight: 500;
 
 	}
 
 	.single-text li {
 
 		font-size: 16px !important;
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	.content-single ul li{

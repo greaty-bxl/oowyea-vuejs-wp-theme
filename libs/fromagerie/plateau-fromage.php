@@ -10,9 +10,11 @@ function gtr_get_plateaux_fromages( $plateaux_fromages_1 = null ) {
 		'tax_query' =>  array( 
 					
 				array(
-				'relation' => 'AND',
-				'taxonomy' =>  'plateau-fromage',
-				'field' => 'slug',
+				'taxonomy'      => 'product_cat',
+				// 'relation' => 'AND',
+				'terms'  => 18,
+				// 'taxonomy' =>  'plateau-fromage',
+				// 'field' => 'slug',
 				)
 					 
 		)

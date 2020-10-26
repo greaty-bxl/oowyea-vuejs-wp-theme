@@ -1,728 +1,349 @@
+
 <template>
-<div class="section-wrap">
-<div class="clear"></div>
-
-<div class="on-screen">
-
-	<div class="global-descriptif">
-	<div class="all-description">
-
-		<div class="info">
-			<p><strong class="text-client-sigle">Client : </strong> <span class="text-client-sigle-span" v-html="post.post_title"></span> </p>
-		<p class="text-client-sigle-span"  v-html="post.fields.description_client"></p>
+	<div class="section-wrap">
+		<div class="clear"></div>
 			
-		</div>
-			<p class="notre-service"><strong>Ce que nous avons réalisé :</strong> </p>
-		<div class="services-fourni" v-html="post.fields.liste_services"></div>
-	</div>	
+			<div class="content-single">
+				<div>
+					<img class="image-single" :src="this.post.thumb">
+				</div>
+				<div class="single-text"> 
+					<h2 class="montserrat-bold title-single-fromagerie">Colis</h2>
+				
+						<p>Composition :</p>
+					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
+					</div>
+					<div>				
+						<p v-html="this.post.metas._regular_price +' €' " class="price-single montserrat-bold"> </p>
+						<p>Taxes incluses</p>
+					</div>
 
-	<div class='div-images'>
-		<img class="image" v-for="item in post.acf_fields.image_projet"  :key="item.ID" :src="item.url" >
-	</div>
+					<div>				
+						<p class="nbrpersonne">Nombre de personnes :</p>
+						<input type="number"  name="">
+						
+					</div>
 
+					<div>
+						<p>Retrait en magasin ( gratuit )</p>
+					</div>				
+					<div>
+						<img class="bancontact"  src="http://greaty.digital.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
+					</div>
 
-	<div class="div-parent-slide-text">	
-		<swiper class="swiper1" :options="swiperOption10">
-			
-			<swiper-slide   class="slide-full-view" v-for="child in wp.projects" :key="child.ID"  >
+					<div class="button-contener">
+						<p class="product woocommerce add_to_cart_inline " style="border: 4px solid rgb(204, 204, 204); padding: 12px; font-size: 11.9924px;"><del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>15,00</bdi></span></del> <ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>10,00</bdi></span></ins><a :href="this.wp.add_to_cart" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="572" data-product_sku="" aria-label="Add “Plateau fromage” to your cart" rel="nofollow">Add to cart</a></p>
 
-				<a :href="child.permalink" >
-									<div class="client-swiper">
-<!-- wp.projects -->
-										<img class="image-client" height="100%" width="100%"  v-if="child.thumb" :src="child.thumb" >
+						<!-- <button :href="this.wp.add_to_cart" >Ajouter au panier</button> -->
+						<!-- <button>Acheter</button> -->
 
-										<video class="image-client" height="100%" width="100%" loop autoplay="true" :src="child.fields.video" v-else></video>										<p class="name-client-swiper" v-html="child.post_title" ></p>
-										<p class="role-greaty-swiper" v-html="child.post_content"></p>
+					</div>
 
-									</div>
-								</a>
-			</swiper-slide>
+					<div   class="retour">
+						<a :href="this.wp.sections">
+							<p> Retour </p>
+						</a>	
+					</div>
+					
+				</div>
+			</div>
 		
-		</swiper>
-
+		<div class="clear"></div>
 	</div>
-</div>
-<!-- 
-<textcotact>
-</textcotact> -->
-
-<!-- <h1 v-html="this.wp.title">single</h1>
-<div v-html="this.wp.post_content"></div> -->
-
-</div>
-</div>
-
- 
 </template>
 
 <script>
-
-	/*import Alpl from 'Molecules/animation-line-per-line';
-	import anime from 'animejs/lib/anime.es.js';*/
-	// import textcotact from './greaty/components/text-contact';
-	// import Anime3d from 'Molecules/animation-3d';
-	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-	import 'swiper/css/swiper.css';
-	import smart_fonts from 'Libs/smart-fonts.js';
-
-export default {
-
+	export default {
 		components: {
-			// textcotact,
-			Swiper,
-			SwiperSlide,
+			
 		},
-
 		props: {
 			'post' : Object
 		},
 		mounted (){
+			// var $ = this.$
 
+			// $('.retour').html('[add_to_cart id="99"]')
+			
+			this.$emit('template_mounted')
 
-		smart_fonts({
-		'.smallTile' :54,
-		'.text-homepage' : 45,
-		'.name-client-swiper': 22,
+			console.log(this.wp);
 
-		})
-
-		var $ = this.$
-
-		$('.text-client-sigle-span').find('a').attr('target', '_blank');
-
-		console.log(this.wp.title);
-
-
-// function pour pas afficher le current slide
-
-		this.$emit('template_mounted', this)
-
-		setTimeout(function() {
-
-			$(window).scrollTop(0);
-
-		}, 50);
-	
-
-		var single = $('.info').find('span').text()
-
-		var slide_hide
-
-		$('.swiper-slide').each(function() {
-
-			slide_hide  = $(this).find('.name-client-swiper').text()
-
-			if (single === slide_hide ) {
-
-			$(this).hide();
-
-			}
-
-		});
-
-		$('.text-client-sigle-span').find('a').addClass('link')
-
-
-
-		},
-		name: 'swiper-example-default',
-		title: 'Default',
-		init: true,
-		
-		data () {
-			return {
-				swiperOption10: {
-				initialSlide: 0,
-				direction: 'horizontal',
-				loop: true,
-				// loop: true,
-				allowTouchMove: true,
-				runCallbacksOnInit: true,
-				watchSlidesProgress: true,
-				watchSlidesVisibility: true,
-				speed: 700,
-				reachEnd: true,
-				navigation: {
-				nextEl: '.flex-gauche',
-				prevEl: '.flex-droite',
-				},
-				breakpoints: {
-				// when window width is >= 320px
-				1100: {
-				slidesPerView: 3,
-
-				},
-
-				700: {
-				slidesPerView: 2,
-				},
-
-				600: {
-				slidesPerView: 2,
-				}
-				}
-				},	
-
-			}
 		}
-
-
-		
-	
-}
-
-
-
+	}
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
+	#header{
+
+		height: 0px;
+	}
+	.bancontact{
+
+		height: 40px !important;
+	}
+
+	.list-colis{
+		padding-top: 0px !important;
+	}
 	
-body div .section-wrap {
-
-font-family: 'Montserrat', sans-serif;
-/*background-color: #282828; ;*/
-
-}
-
-.services-fourni  {
-
-	padding-bottom: 5%;
-
-}
-
-
-.services-fourni ul li:before {
-
-	content:"· ";
-	list-style: inside;
-	color: #e1e1e1;
-	width: 1px;
-
-}
-
-.div-images{
-
-	display: flex;
-	flex-direction: column;
-}
-
-a {
-
-color: #e1e1e1;
-}
-body{
-
-	/*background-color: #282828;*/
-}
-
-.swiper1{
-
-	padding-top: 5%;
-}
-
-.services-fourni ul{
- color: #e1e1e1;
- list-style-type: none;
- text-align: left;
- padding-left: 0px;
-}
-
-.services-fourni ul li{
-
-	font-size: 14px;
-	line-height: 30px;
-
-}
-
-
-
-.client-swiper{
-
-	width: 100%;
-	margin-left: 40px
-}
-.name-client-swiper-swiper{
-
-	margin-bottom: 2% !important;
-
-}
-
-.services-fourni ul li {
-
-
-}
-
-
-/*.swiper-container{
-
-	margin-bottom: 75px;
-}*/
-.text-client-sigle-span{
-
-	font-size: 16px !important;
-}
-.text-client-sigle-span p{
-
-	font-size: 16px !important;
-}
-
-@media screen and (max-width: 600px) {
-
-	.client-swiper{
-
-		width: 100%;
-		margin-left: 0px;
-		margin-right: 70px;
-	}
-
-	.swiper-slide-active{
-
-		/*width: 90%  !important;*/
-		/*margin-left: 30 !important;*/
-	}
-
-	.swiper-slide{
-
-		/*width: 90%  !important;*/
-		margin-left: 10px !important;
-	}
-
-	.swiper-slide-prev img {
-
-		/*width: 90%  !important;*/
-		/*margin-left: 10px !important;*/
-
-	}
-
-	.services-fourni{
-
-		padding-bottom: 0px;
-	}
-
-
-
-
-
-}
-</style>
-
-<style scoped >
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
-
-
-
-
-	.notre-service{
-
-		font-size: 14px !important;
-
-	}
-	.text-client-sigle{
-
-		font-size: 14px !important;
-	}
-
-
-
-	.global-descriptif{
+	.button-contener{
 
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		background-color: #282828;
-		min-height: 100vh;
-		padding-top: 150px;
-		padding-bottom: 150px;
 
 	}
+	.button-contener a{
 
-	.services-fourni ul{
-		color: #e1e1e1;
-		list-style-type: none;
-		text-align: left;
-		padding-left: 0px;
+		width: 100%;
+		
+		padding: 20px 0px !important;
 	}
 
-	.all-description{
-
-		height: 100%;
-		width: 80%;
-		background-color: #282828;
-		margin:  0px 70px;
-
-	}
-
-	.all-description p{
-
-		line-height: 30px;
-/*		font-size: 18px !important;*/
-	}
-	p{
-		text-align: left;
-		margin-bottom: 10%;
+	.button-contener p{
+		padding: 0px !important;
+		margin-top: 15px;
+		/*background-color: #A59890;*/
 		color: white;
+		border-width: 0 ;
+		border:0px !important ;
+		text-align: center;
+
 	}
 
 
-	.info p {
+
+/*	.button-contener button{
+
+		background-color: #70625B;
+		color: white;
+		border-width: 0 ;
+	}*/
+
+
+/*	.button-contener button{
+
+		text-align: center;
+		padding: 20px 0px;
+
+	}*/
+	
+	.content-single{
+
+		display: flex;
+		flex-direction: row;
+		margin-top: 150px;
+		margin-bottom: 50px;
+		margin-right: auto;
+		margin-left: auto;
+
+		width: 60vw;
+
+	}
+	.image-single{
+
+		/*height: 30vw !important;*/
+		width: 35vw;
+	}
+
+	.single-text p{
+
+		margin: 0px;
+		/*padding-top: 16px;*/
+	}
+
+
+	.single-text div{
+
+		/*margin: 0px;*/
+		padding-top: 16px;
+	}
+
+	.single-text{
+
+		/*height: 30vw !important;*/
+		/*width: 30vw;*/
+		padding-left: 5vh;
+	}
+	.single-text p {
+
+		font-size: 16px !important;
+		font-weight: 500;
+
+	}
+
+	.single-text li {
+
+		font-size: 16px !important;
+		font-weight: 500;
+	}
+
+	.content-single ul li{
+
+		list-style: none;
+
+	}
+	.content-single ul{
+
+		padding-left: 0;
+	}
+
+	.content-single *{
+
+		text-align: left;
+		color: #4D4D4D;
 		
-		margin-bottom: 2.5%;
-
 	}
 
-	.notre-service{
-		
-		margin-top: 2.5%;
-		margin-bottom: 1%;
+	.montserrat-bold{
 
-
+		font-family: 'Montserrat', sans-serif !important;
+		font-weight: bold !important;
 	}
 
-   a{
-   color: #e1e1e1;
-   text-decoration: none;
-   }
+	.price-single{
 
-   p{
+		font-size: 20px !important;
+	}
 
-	color: #e1e1e1 ;
-	text-align: left;
+	.title-single-fromagerie{
 
-   }
+		font-size: 25px !important;
+	}
 
-   .global-project p{
+	.content-single input{
+		margin-top: 5px;
+		height: 30px;
+		width: 30%;
+	}
 
-   text-align: left;
-   }
+	.single-text div p:nth-child(2){
 
+		padding-top: 10px;
+	}
 
+	.single-text ul li{
 
-   a{color: #e1e1e1 ;}
+		padding-top: 3px;
+	}
 
-   .div-text-homepage{
-   display: flex;
-   /*height: 100vh;/*/
-   width: 80%;
-   /*padding-top: 100px;*/
-   padding-left: auto;
-   padding-right: auto;
+	.nbrpersonne{
 
-   }
+		padding-bottom: 10px !important;
+	}
 
-   .image-client{
+	.retour{
 
-   width: 100%;
+		padding-top: 40px !important;
+	}
 
-   /*background-color: white;*/
+	.retour a{
 
-   }
+		text-decoration-line: none;
+		color: #A59890;
 
-   .name-client-swiper{
-
-   /*font-size: 20px;*/
-   margin-bottom: 5px;
-   font-family: 'Montserrat', sans-serif; 
-
-   }
-
-   .role-greaty-swiper{
-
-   /*font-size: 12px;*/
-   margin-top: 0px;
-   font-family: 'Montserrat', sans-serif; 
-
-   }
-
-	.g-project {
-		padding-left: 35px;
-		padding-right: 35px;
 	}
 
 
 
-	/*********/
+	@media screen and (max-width: 1100px) and (min-width: 600px ) {
 
-
-	/*DESCKTOP*/
-  
-
-
-	/*********/
-
-	@media (min-width: 1100px) {
-
-		.swiper-container{
-
-			margin-bottom: auto;
-			margin-top: auto;
-		}
-
-			.global-descriptif{
-
-			/*padding-top: 0px;*/
-			padding-bottom: 0px;
-
-			}
-
-		.div-parent-slide-text{
-
-			/*height: 100vh;*/
-			height: 100vh;
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-
-
-		}
-
-		.image{
-
-			height: 100%;
-			width: 100%;
-			/*background-color: white;*/
-			background-position: center;
-			background-size: cover;
-			background-repeat: none;
-	/*		margin-left: 70px;
-			margin-right: 70px;*/
-		}
-
-		.client img{
-
-		width: 90%;
-		height: auto;
-
-		}
-
-		.g-project{
-				width: calc(50% - 70px) !important;
-				display: inline-block;
-				margin-bottom: 3%;
-		}
-
-
-		.post-client{
-
-			margin: 0px 35px;
-		}
-
-		.swiper-slide{
-
-			margin-left: 20px;
-		}
-
-	}
-
-			/*********/
-
-
-			/*Tablette*/
-
-
-
-			/*********/
-
-
-	@media screen and (max-width: 1100px) and  (min-width: 600px) {
-
-		.swiper-slide{
-
-			margin-left: 20px;
-		}
-
-		.global-descriptif{
+		.content-single{
 
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
-			background-color: #282828;
-			min-height: 100vh;
-			padding-bottom: 0px; 
-			/*padding-left: 70px;*/	
-			/*width: calc(100% - 200px);*/
-			/*padding:  70px 100px;*/
-			/*height: 125vh;*/
-
-		}
-		.swiper-container{
-
-			margin-top: 75px;
+			margin-top: 150px;
+			margin-bottom: 150px;
 		}
 
-		.g-project {
-			padding-left: 70px;
-			padding-right: 70px;
-			padding-bottom: 5%;
-			width: calc(100% - 140px) !important;
-		}
+		.single-text{
 
-		.all-description{
-
-			height: 100%;
-			width: 80%;
-			background-color: #282828;
-			margin: 0px 0px;
-
-		}
-		.image{
-			width: 100% !important;
-			/*margin: 30px 0px;*/
-		}
-
-		.client{
-
-		width: 90% !important;
-		/*height: 60vw;*/
-
-		margin-left: auto;
-		margin-right: auto;
-
+		padding-left: 0;
+		padding-top: 5vh;
 
 		}
 
-		.global-project{
-		z-index: 10;
-		width: 100% !important;
-		/*margin-left: auto;
-		margin-right: auto;*/
-		/*margin: 20px !important;*/
+		.image-single {
+			height: 60vw !important;
+			width: 60vw;
+		}
+
+		.single-text div{
+
+
+			padding-top: 20px;
+		}
+		.button-contener p{
+
+			width: 50%;
+			/*padding: 10px 0px;*/
+
+		}
+	}
+
+	@media screen and (max-width: 600px){
+
+		.content-single{
+
+			display: flex;
+			flex-direction: column;
+			padding-top: 0vh;
+			margin-bottom: 50px;
+			margin-top: 130px;
+			margin-left: 30px;
+			margin-right: 30px;
+			width: auto;
+		}
+
+		.single-text{
+
+			padding-left: 0;
+			padding-top: 2.5vh;
+
+		}
+		.image-single {
+
+			height: 85vw !important;
+			width: 85vw;
 
 		}
 
-		.image-client{
+		.button-contener p{
 
-		height: 100%;
-		/*background-color: white;*/
+			width: 50%;
+			/*padding: 10px 0px;*/
+
 		}
+		.button-contener a{
 
-		.swiper-slide{
+			width: 100%;
+			/*padding: 10px 0px;*/
 
-			width: 90%;
-		}
-
-		.all-description{
-
-			padding-left: 70px;
 		}
 
 	}
 
-/*********/
 
+</style>
 
- /*GSM*/
+<style scoped>
 
+	.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
 
-
-/*********/
-	@media screen and (max-width: 600px) {
-
-	.global-descriptif{
-
-
-		padding-bottom: 0px;
-
+		text-align: center;
 	}
 
+	.content-single del{
 
-	.swiper-container{
-
-		margin-bottom: auto;
-		margin-top: auto;
+		display: none !important;
 	}
 
-	.div-parent-slide-text{
-		height: 100vh;
-		display: flex;
-		/*padding-left: 30px;*/
+	.content-single bdi {
 
-
+		display: none !important;
 	}
-
-	.client-swiper{
-		width: 95%;
-		padding-left: 15px;
-	}
-
-	.all-description{
-
-		height: 100%;
-		width: 80%;
-		background-color: #282828;
-		margin:  0px 30px;
-		margin-bottom: 70px;
-
-	}
-
-	.post-client{
-		padding-left: 30px;
-		padding-right: 30px;
-	}
-
-	.g-project{
-
-		z-index: 10;
-		width: 100%;
-		height: auto;
-		/*min-height: 400px;*/
-		padding-left: 0px;
-		padding-right: 0px;
-		padding-bottom: 5%;
-		display: inline-block;
-
-	}
-
-
-	.image{
-
-		width:100%;
-
-	}
-
-
-	.text-homepage{
-	padding-top: 10%;
-	padding-bottom: 5%;
-	width: 100% !important;
-	margin: auto 30px;
-	width: 100%;
-	font-size: 3.1em;
-	color: #e1e1e1;
-	font-family: 'Montserrat', sans-serif!important;
-	font-weight: lighter;
-	;
-	}
-	.post-client{
-		padding-left: 30px;
-		padding-right: 30px;
-		background-color: #282828;
-	}
-
-	.client img{
-
-	width: 100% !important;
-/*	height: 60vh;
-	min-height: 400px;*/
-	/*background-color: white;*/
-
-	}
-
-	.info p{
-
-		margin-bottom: 10%;
-	}
-
-	}
-
-	..swiper-slide{
-
-			margin-left: 20px;
-		}{
-
-		margin-left: 0px !important;
-	}
-
-
 
 </style>

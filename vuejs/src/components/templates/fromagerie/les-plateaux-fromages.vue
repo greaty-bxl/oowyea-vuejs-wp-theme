@@ -271,9 +271,13 @@ export default {
 		text-align: left;
 		margin-left: 70px;
 		margin-bottom: 5vh;
+<<<<<<< Updated upstream
 		/*margin-top: 0px !important;*/
 		margin-top: 5vh;
 		/*padding-top: 4vh;*/
+=======
+		margin-top: 5vh;
+>>>>>>> Stashed changes
 		color: #70625B;
 
 
@@ -309,6 +313,22 @@ export default {
 	.swiper-container{
 
 		margin-left: 140px;
+
+	}
+
+	@media screen and (max-width: 4000px) and (min-width: 1400px){
+
+		.title-section-plateaux-fromages{
+			padding-top: 100px;
+			margin-bottom: 7vh;
+			margin-top: 7vh;
+
+		}
+		.title-section-les-asortiments-de-fromages{
+			margin-bottom: 7vh;
+			margin-top: 7vh;
+
+		}
 
 	}
 

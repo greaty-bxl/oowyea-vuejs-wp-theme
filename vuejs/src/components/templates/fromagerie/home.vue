@@ -38,7 +38,11 @@ export default {
 		smart_fonts({
 			'.titre-home' : 85 ,
 		})
+<<<<<<< Updated upstream
         console.log(this.wp);
+=======
+        console.log(this.wp.sections[0].acf_fields.fonts.h1.color);
+>>>>>>> Stashed changes
         
 
 		this.$emit('template_mounted', this);
@@ -85,7 +89,11 @@ export default {
 		margin-top: auto;
 		margin-bottom: auto;
 		font-weight: 400 !important;
+<<<<<<< Updated upstream
 		color: white;
+=======
+		color: white !important;
+>>>>>>> Stashed changes
 	}
 
 	@media screen and (max-width: 900px){

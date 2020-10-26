@@ -109,8 +109,8 @@ export default {
 		.section-a-propos{
 
 		height: 100vh;
-		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-top: 50px;
+		padding-bottom: 50px;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;

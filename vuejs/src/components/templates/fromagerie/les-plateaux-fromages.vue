@@ -2,11 +2,11 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-		<div class="globale-plateaux-fromages">
+		<div class="globale-plateaux-fromages anchor">
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
-				<h5 class="title-section-plateaux-fromages"> Les Plateaux fromages</h5>
+				<h5 class="title-section-plateaux-fromages"> Les Plateaux</h5>
 
 				<swiper class="swiper3" :options="swiperOption10">
 
@@ -26,7 +26,7 @@
 
 		</div>
 
-		<div class="globale-plateaux-fromages">
+		<div class="globale-plateaux-fromages anchor">
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
@@ -50,7 +50,7 @@
 
 		</div>
 
-		<div class="globale-plateaux-fromages">
+		<div class="globale-plateaux-fromages anchor">
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
@@ -74,7 +74,7 @@
 
 		</div>
 
-		<div class="globale-plateaux-fromages">
+		<div class="globale-plateaux-fromages anchor" id="pain">
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 

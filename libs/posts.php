@@ -13,6 +13,7 @@ function my_posts_results_filter( $posts ) {
 		$posts[$key2]->metas = get_post_meta( $child->ID );
 		$posts[$key2]->thumb = get_the_post_thumbnail_url( $child->ID );
 	    // $posts[$key2]->fields = get_field( 'image_projet' );
+	    $posts[$key2]->terms = get_the_terms( $child->ID, 'product_cat' );
 	    $posts[$key2]->fields = get_fields( $child->ID );
 
 	    

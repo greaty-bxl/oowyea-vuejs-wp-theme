@@ -18,12 +18,6 @@
 						<p>Taxes incluses</p>
 					</div>
 
-					<!-- <div>				
-						<p class="nbrpersonne">Nombre de personnes :</p>
-						<input type="number"  name="">
-						
-					</div> -->
-
 					<div>
 						<p>Retrait en magasin ( gratuit )</p>
 					</div>				
@@ -31,12 +25,16 @@
 						<img class="bancontact"  src="http://greaty.digital.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
 					</div>
 
+					<div>				
+						<p class="nbrpersonne">Nombre de personnes :</p>	
+					</div>
+
 					<div class="button-contener" v-html="add_to_cart">
 
 					</div>
 
 					<div   class="retour">
-						<a :href="this.wp.sections">
+						<a :href="this.wp.sections[3].permalink">
 							<p> Retour </p>
 						</a>	
 					</div>
@@ -57,10 +55,22 @@
 			'post' : Object
 		},
 		mounted (){
-			// var $ = this.$
+			var $ = this.$
 
 			// $('.retour').html('[add_to_cart id="99"]')
 			console.log( this.$store.state.wp.add_to_cart );
+			console.log( this.wp);
+
+
+
+		if ( this.post.terms[0].slug === "plateau-fromage" ) {
+			console.log('');
+		}
+		else{
+
+		$('.nbrpersonne').html("Quantité")
+
+		}
 			
 			this.$emit('template_mounted')
 		},
@@ -119,20 +129,37 @@
 
 
 
-/*	.button-contener button{
+	.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
 
-		background-color: #70625B;
-		color: white;
-		border-width: 0 ;
-	}*/
+	background-color: #70625B;
+	color: white;
+	border-width: 0;
+	margin-top: 16px;
+	border: solid #70625B;
+	border-width: 1px;
+	min-width: 200px;
+	width: 40%;
+	padding-top: 20px;
+	padding-bottom: 20px;
 
 
-/*	.button-contener button{
+	}
+
+	.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
+
+		background-color: white;
+		color: #70625B;
+		transition: 200;
+
+	} 
+
+
+	.button-contener button{
 
 		text-align: center;
 		padding: 20px 0px;
 
-	}*/
+	}
 	
 	.content-single{
 

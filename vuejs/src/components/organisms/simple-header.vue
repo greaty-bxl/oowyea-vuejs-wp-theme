@@ -3,7 +3,7 @@
         <header>
 			<nav id="main-navbar-1" class="navbar navbar-default navbar-fixed-top">
 			<div class=" navbar-container">
-				<Acf field="logo" />
+			<a :href="this.wp.sections[0].permalink"><Acf field="logo" /></a>
 			<!-- <img class="navbar-brand" src="http://greaty.digital.brussels/wp-content/uploads/2020/10/logo-brun.svg"> -->
 			<div id="navbar" class="navbar-collapse collapse">
 			<div class="menu_link" v-html="wp.menus['burger-menu']" ></div>
@@ -36,9 +36,9 @@ export default {
 
 	mounted(){
 
-		var $ = this.$
+	var $ = this.$
 
-		this.$emit('template_mounted', this)
+	this.$emit('template_mounted', this)
 
 	var width = $(window).width()
 
@@ -130,7 +130,7 @@ export default {
 
 	});
 	
-
+	console.log(this.wp.sections[0].permalink);
 
 
 	smart_fonts({

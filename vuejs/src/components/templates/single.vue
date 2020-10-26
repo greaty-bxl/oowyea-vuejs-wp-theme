@@ -35,7 +35,7 @@
 					
 					<div class="contener-single">
 						<form action="" method="get" class="form-example"  >
-							<input v-html="" class="input-single-title"    type="" name="">
+							<input class="input-single-title"    type="" name="">
 							<input class="input-single"  placeholder="Prénom"  type="" name="">
 							<input class="input-single" placeholder="E-mail" type="" name="">
 							<input class="input-single" placeholder="Téléphone" type="" name="">
@@ -46,7 +46,7 @@
 						</form>
 					</div>
 					<div   class="retour">
-						<a :href="this.wp.sections">
+						<a :href="this.wp.sections[3].permalink">
 							<p> Retour </p>
 						</a>	
 					</div>
@@ -293,6 +293,11 @@
 		.content-single input{
 		
 			width: auto;
+			font-size: 18px !important;
+		}
+		.content-single textarea{
+		
+			font-size: 18px !important;
 		}
 
 		.single-text-post {
@@ -464,6 +469,11 @@
 
 			max-width: 80% !important;
 			/*justify-content: space-between;*/
+		}
+
+		p{
+
+			font-size: 18px !important;
 		}
 
 

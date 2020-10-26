@@ -176,6 +176,7 @@ export default {
 
       function replace_body_class( new_class )
       {
+        console.log( 'replace_body_class', new_class );
         $('body').removeClass(old_class) 
         $('body').addClass(new_class) 
         old_class = new_class
@@ -189,7 +190,7 @@ export default {
       })
 
       $(document).on('after_data_next_page', ()=> {
-        replace_body_class( this.$store.state.wp );
+        replace_body_class( this.$store.state.wp.body_class );
       });
 
 

@@ -58,7 +58,7 @@
 
 				<swiper class="swiper3" :options="swiperOption10">
 
-					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.posts_assortiments" :key="child.ID"  >
+					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.les_pains" :key="child.ID"  >
 
 						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
@@ -271,14 +271,9 @@ export default {
 		text-align: left;
 		margin-left: 70px;
 		margin-bottom: 5vh;
-<<<<<<< Updated upstream
 		/*margin-top: 0px !important;*/
 		margin-top: 5vh;
 		/*padding-top: 4vh;*/
-=======
-		margin-top: 5vh;
->>>>>>> Stashed changes
-		color: #70625B;
 
 
 	}

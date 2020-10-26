@@ -160,16 +160,9 @@ export default {
 	}
 
 
-<<<<<<< Updated upstream
 	.menu{
 		padding-left: 0px;
-=======
-	.menu_link{
 
-		/*display: none;*/
-		width: 20vw;
-		left: 100vw;
->>>>>>> Stashed changes
 	}
 
 		
@@ -283,18 +276,11 @@ export default {
 
 
 		.icon{
-<<<<<<< Updated upstream
+
 		position: absolute;
 		display: block;
 		left: calc( 100% - 45px );
 		width: 45px;
-=======
-		/*position: absolute;*/
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%,-50%);
-		/*width: 45px;*/
->>>>>>> Stashed changes
 		height: 40px;
 		cursor: pointer;
 		background-color: #70625b;

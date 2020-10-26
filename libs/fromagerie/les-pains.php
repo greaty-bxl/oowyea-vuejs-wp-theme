@@ -6,8 +6,15 @@ function gtr_get_les_pains( $les_pains_1 = null ) {
 
 	$args5 = array(
 		'post_type' => 'product',
-		'category' => 'les-pains',
 		'posts_per_page' => -1,
+		'tax_query' =>  array( 
+							
+						array(
+						'taxonomy'      => 'product_cat',
+						'terms'  => 20,
+						)
+							 
+				)
 		
 	);
 

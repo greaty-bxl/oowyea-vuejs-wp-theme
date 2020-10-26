@@ -142,11 +142,7 @@ font-weight: 500;
 
 		display: flex;
 		flex-direction: column;
-<<<<<<< Updated upstream
 		max-width: 20vw;
-=======
-		width: 20vw;
->>>>>>> Stashed changes
 		/*justify-content: space-between;*/
 	}
 
@@ -194,23 +190,6 @@ font-weight: 500;
 		}
 
 	}
-<<<<<<< Updated upstream
-=======
-*/	
-	
-	@media screen and (max-width: 4000px) and (min-width: 1400px){
-
-		.title-section-contact{
-			padding-top: 100px;
-			margin-bottom: 7vh;
-			margin-top: 7vh;
-
-		}
-
->>>>>>> Stashed changes
-
-	}
-
 
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 
@@ -229,7 +208,6 @@ font-weight: 500;
 
 			height: auto;
 		}
-<<<<<<< Updated upstream
 
 		.contener-contact form{
 
@@ -241,14 +219,8 @@ font-weight: 500;
 
 			margin-bottom: 40px;
 
-
-=======
-		.contener-contact form{
-
-			width: 80%;
->>>>>>> Stashed changes
 		}
-	
+
 
 	}
 
@@ -281,17 +253,11 @@ font-weight: 500;
 			height: auto;
 		}
 
-<<<<<<< Updated upstream
 
 		.contener-contact form{
 
 			max-width: 100%;
 			/*justify-content: space-between;*/
-=======
-		.contener-contact form{
-
-			width: 80%;
->>>>>>> Stashed changes
 		}
 
 	}

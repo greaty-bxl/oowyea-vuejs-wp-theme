@@ -24,6 +24,8 @@
 <script>
 import is from "is_js"
 import Acf from "Organisms/acf"
+import smart_fonts from 'Libs/smart-fonts.js';
+
 
 
 export default {
@@ -70,8 +72,6 @@ export default {
 
 			}
 
-	
-
 		}
 	
 		else {
@@ -88,6 +88,12 @@ export default {
 			$(this).addClass('close-simple')
 
 		}
+
+		smart_fonts({
+			'.menu-item-type-post_type' : 22,
+			
+		})
+
 
 	});
 
@@ -154,48 +160,54 @@ export default {
 	}
 
 
-	.menu_link{
-
-		/*display: block;*/
-		width: 20vw;
-		left: 100vw;
+	.menu{
+		padding-left: 0px;
 	}
 
 		
 
-			nav img{
+	nav img{
 
-				height: 50px !important;
-			}
+		height: 50px !important;
 
-			.button-header{
+	}
 
-				display: block;
-				z-index: 1000;
-			}
+	.button-header{
 
-			.menu_link{
+		display: block;
+		z-index: 1000;
+	}
 
-				/*display: block;*/
-				background-color: white;
-				left: 100vw;
-				/*min-width: 100vw;*/
-				height: 100vh;
-				bottom: 0;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
+	.menu_link{
+
+		width: 20vw;
+		background-color: white;
+		left: 100vw;
+		height: 100vh;
+		bottom: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #70625b;
+
+	}
 
 
-			.menu{
+	.menu{
 
-				flex-direction: column !important;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				left: 50vw;
-			}
+		flex-direction: column !important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		left: 50vw;
+		
+	}
+
+	.menu a {
+
+		color: white !important;
+
+	}
 
 			#navbar div {
 				position: fixed;
@@ -246,21 +258,15 @@ export default {
 			margin:  30px 30px;
 			width: calc(100% - 60px);
 			}
-			.icon{
 	
-			left: 92% !important;
-		
-			}
 
 		}
 
 
 		.icon{
 		position: absolute;
-		margin-top: 20px;
-		/*top: 50%;*/
-		left: 96%;
-		transform: translate(-50%,-50%);
+		display: block;
+		left: calc( 100% - 45px );
 		width: 45px;
 		height: 40px;
 		cursor: pointer;

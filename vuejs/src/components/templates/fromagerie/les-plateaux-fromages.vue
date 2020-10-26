@@ -77,7 +77,7 @@ export default {
 
 	mounted(){
 
-		console.log(this.wp);
+		console.log(this.wp.plateaux_fromages);
 
 		// var $ = this.$
 

@@ -8,8 +8,14 @@ function gtr_get_plateaux_fromages( $plateaux_fromages_1 = null ) {
 		'post_type' => 'product',
 		'posts_per_page' => -1,
 		'tax_query' =>  array( 
-					'taxonomy' =>  'plateau-fromage',
-					'field' => 'slug',  )
+					
+				array(
+				'relation' => 'AND',
+				'taxonomy' =>  'plateau-fromage',
+				'field' => 'slug',
+				)
+					 
+		)
 	);
 
     $plateaux_fromages = get_posts($args4);

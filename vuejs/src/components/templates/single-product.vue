@@ -18,11 +18,11 @@
 						<p>Taxes incluses</p>
 					</div>
 
-					<div>				
+					<!-- <div>				
 						<p class="nbrpersonne">Nombre de personnes :</p>
 						<input type="number"  name="">
 						
-					</div>
+					</div> -->
 
 					<div>
 						<p>Retrait en magasin ( gratuit )</p>
@@ -31,8 +31,8 @@
 						<img class="bancontact"  src="http://greaty.digital.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
 					</div>
 
-					<div class="button-contener">
-						<p class="product woocommerce add_to_cart_inline " style="border: 4px solid rgb(204, 204, 204); padding: 12px; font-size: 11.9924px;"><del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>15,00</bdi></span></del> <ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>10,00</bdi></span></ins><a :href="this.wp.add_to_cart" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="572" data-product_sku="" aria-label="Add “Plateau fromage” to your cart" rel="nofollow">Add to cart</a></p>
+					<div class="button-contener" v-html="add_to_cart">
+						<!-- <p class="product woocommerce add_to_cart_inline " style="border: 4px solid rgb(204, 204, 204); padding: 12px; font-size: 11.9924px;"><del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>15,00</bdi></span></del> <ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>10,00</bdi></span></ins><a :href="this.wp.add_to_cart" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="572" data-product_sku="" aria-label="Add “Plateau fromage” to your cart" rel="nofollow">Add to cart</a></p> -->
 
 						<!-- <button :href="this.wp.add_to_cart" >Ajouter au panier</button> -->
 						<!-- <button>Acheter</button> -->
@@ -64,11 +64,14 @@
 			// var $ = this.$
 
 			// $('.retour').html('[add_to_cart id="99"]')
+			console.log( this.$store.state.wp.add_to_cart );
 			
 			this.$emit('template_mounted')
-
-			console.log(this.wp);
-
+		},
+		computed: {
+			add_to_cart () {
+				return this.$store.state.wp.add_to_cart
+			}
 		}
 	}
 </script>

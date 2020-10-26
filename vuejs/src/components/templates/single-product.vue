@@ -32,10 +32,6 @@
 					</div>
 
 					<div class="button-contener" v-html="add_to_cart">
-						<!-- <p class="product woocommerce add_to_cart_inline " style="border: 4px solid rgb(204, 204, 204); padding: 12px; font-size: 11.9924px;"><del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>15,00</bdi></span></del> <ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">€</span>10,00</bdi></span></ins><a :href="this.wp.add_to_cart" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="572" data-product_sku="" aria-label="Add “Plateau fromage” to your cart" rel="nofollow">Add to cart</a></p> -->
-
-						<!-- <button :href="this.wp.add_to_cart" >Ajouter au panier</button> -->
-						<!-- <button>Acheter</button> -->
 
 					</div>
 
@@ -90,6 +86,10 @@
 	}
 
 	.list-colis{
+		padding-top: 0px !important;
+	}
+
+	.list-colis p {
 		padding-top: 0px !important;
 	}
 	

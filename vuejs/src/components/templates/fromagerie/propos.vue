@@ -87,7 +87,7 @@ export default {
 
 		.titre-a-propos-section *{
 			text-align: center !important;
-			line-height: 50px;
+			line-height: 60px;
 		}
 
 		.titre-a-propos-section{
@@ -100,8 +100,34 @@ export default {
 
 			line-height: 30px;
 
+
 		}
 	}
+
+		@media screen and (max-width: 600px){
+
+		.section-a-propos{
+
+		height: 100vh;
+		padding-top: 100px;
+		padding-bottom: 100px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-content: center;
+		background: #A59890;
+		line-height: 50px;
+
+		}
+
+		.titre-a-propos-section *{
+			text-align: center !important;
+			line-height: 40px;
+		}
+	}
+
+
+
 
 
 </style>

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import is from "is_js"
+// import is from "is_js"
 import Acf from "Organisms/acf"
 import smart_fonts from 'Libs/smart-fonts.js';
 
@@ -40,6 +40,43 @@ export default {
 
 		this.$emit('template_mounted', this)
 
+	var width = $(window).width()
+
+	$(window).on('resize', function(){
+		setTimeout(function() {
+
+		width = $(window).width()
+
+		}, 50);
+
+	});
+
+	$('.menu-item').click(function() {
+
+		if ($(this).hasClass('close-simple')){
+
+			console.log('qhsd');
+		}
+
+		else{
+
+			$('.menu_link').animate({
+				// targets: $('.menu_link').target,
+				left: '100vw',
+				easing: 'easeInOutSine',
+				duration: 200,
+			});
+
+
+			$('.button-header').removeClass('open-simple')
+			$('.button-header').removeClass('active')
+			$('.button-header').addClass('close-simple')
+		}
+
+
+
+	});
+
 	$('.button-header').click(function() {
 
 		$(this).toggleClass('active');
@@ -50,7 +87,9 @@ export default {
 
 			$(this).addClass('open-simple')
 
-			if ( is.not.mobile() && is.not.tablet() ) {
+		
+
+			if ( width > 1100 ) {
 
 				$('.menu_link').animate({
 					// targets: $('.menu_link').target,
@@ -89,13 +128,15 @@ export default {
 
 		}
 
-		smart_fonts({
-			'.menu-item-type-post_type' : 22,
-			
-		})
-
-
 	});
+	
+
+
+
+	smart_fonts({
+		'.menu-item-type-post_type' : 22,
+		
+	})
 
 	}
 
@@ -284,7 +325,7 @@ export default {
 		height: 40px;
 		cursor: pointer;
 		background-color: #70625b;
-		margin-top: 20px;
+		/*margin-top: 20px;*/
 		}
 		.burger{
 		width: 30px;

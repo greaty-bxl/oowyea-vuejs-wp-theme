@@ -7,7 +7,7 @@
 		
 			<div class="section-a-propos-galerie">
 
-				<h5 class="title-section"> A propos de nous</h5>
+				<h5 class="title-section-galerie"> A propos de nous</h5>
 
 				<swiper class="swiper2" :options="swiperOption10">
 
@@ -55,7 +55,7 @@ export default {
 		// var $ = this.$
 
 		smart_fonts({
-			'.title-section' : 25,
+			'.title-section-galerie' : 25,
 		})
 
         // console.log(this.wp.sections[2].acf_fields.a_propos_galerie);
@@ -140,14 +140,14 @@ export default {
 	}
 
 	.globale-galerie{
-
+		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
 	/*	margin-top: auto;
 		margin-bottom: auto;*/
 
 	}
-	.title-section{
+	.title-section-galerie{
 
 		text-align: left;
 		margin-left: 70px;
@@ -182,7 +182,7 @@ export default {
 
 	@media screen and (max-width: 600px){
 
-		.title-section{
+		.title-section-galerie{
 
 			text-align: left;
 			margin-left: 30px
@@ -193,18 +193,23 @@ export default {
 			margin-left: 0px
 		}
 
-		.title-section{
+		.title-section-galerie{
 
 			/*text-align: left;*/
 			margin-left: 30px;
 			margin-bottom: 5vh;
-			margin-top: 120px;
+			margin-top: 100px;
 			padding-top: 5vh;
 		}
 
-		.title-section{
+		.title-section-galerie{
 
 			font-size: 22px !important;
+		}
+
+		.section-a-propos-galerie{
+
+			padding-bottom: 70px;
 		}
 
 

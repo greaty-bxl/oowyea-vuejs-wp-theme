@@ -5,7 +5,7 @@
 
 		<div class="globale-contact">
 		
-			<div class="section-a-propos-galerie">
+			<div class="section-a-propos-contact">
 
 				<h5 class="title-section-contact"> Contact</h5>
 
@@ -114,7 +114,7 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.section-a-propos-galerie{
+.section-a-propos-contact{
 
 min-height: 100vh;
 }
@@ -132,9 +132,9 @@ font-weight: 500;
 
 }
 
-.section-a-propos-galerie *{
+.section-a-propos-contact *{
 
-	font-weight: 500;
+	font-weight: 400;
 }
 
 
@@ -142,6 +142,12 @@ font-weight: 500;
 
 		display: flex;
 		flex-direction: column;
+		width: 20vw;
+		/*justify-content: space-between;*/
+	}
+	.contener-contact textarea{
+
+
 		max-width: 20vw;
 		/*justify-content: space-between;*/
 	}
@@ -189,6 +195,8 @@ font-weight: 500;
 
 		}
 
+
+
 	}
 
 	@media screen and (max-width: 1100px) and (min-width: 600px){
@@ -212,6 +220,17 @@ font-weight: 500;
 		.contener-contact form{
 
 			max-width: 80% !important;
+			font-size: 18px !important;
+			width: 50vw;
+			max-width: auto !important;
+
+			/*justify-content: space-between;*/
+		}
+		.contener-contact textarea{
+
+			font-size: 18px !important;
+			/*width: 50vw;*/
+			max-width: 100% !important;
 			/*justify-content: space-between;*/
 		}
 
@@ -220,6 +239,17 @@ font-weight: 500;
 			margin-bottom: 40px;
 
 		}
+
+		.section-a-propos-contact{
+
+		min-height: auto;
+		}
+
+		.text-sous-titre-contact{
+
+			font-size: 18px !important;
+		}
+
 
 
 	}
@@ -257,8 +287,27 @@ font-weight: 500;
 		.contener-contact form{
 
 			max-width: 100%;
+			width: 100%
 			/*justify-content: space-between;*/
 		}
+
+		.contener-contact textarea {
+
+			/*width: 100%;*/
+			max-width: 100%;
+
+		}
+
+		.section-a-propos-contact{
+
+		min-height: auto;
+		}
+
+		.text-sous-titre-contact{
+
+			font-size: 14px !important;
+		}
+
 
 	}
 
@@ -283,6 +332,21 @@ font-weight: 500;
 		color: #666666;
 		padding-left: 15px;
 
+	}
+
+	@media screen and (max-width: 600px){
+
+
+		input{
+
+			font-size: 14px !important;
+
+		}
+
+		textarea{
+
+			font-size: 14px !important;
+		}
 	}
 
 	textarea{

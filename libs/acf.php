@@ -38,7 +38,7 @@ function vue_get_acf_option()
 
 	foreach ( array_diff(scandir(GREATY_TEMPLATE_PATH.'/acf-json'), array('..', '.')) as $key => $value) {
 
-		$local_file = str_replace('/', '\\', GREATY_TEMPLATE_PATH . '/acf-json/' . $value);
+		$local_file = /*str_replace('/', '\\',*/ GREATY_TEMPLATE_PATH . '/acf-json/' . $value/*)*/;
 
 		if ( $wp_filesystem->exists( $local_file ) ) 
 		{

@@ -83,8 +83,8 @@ export default function (field = String, section = Object)
 
 	if( !is_sub_fields )
 	{	
-
-			acf_field.type = window.wp.acf.field_objects[field].type
+		//console.log( window.wp.acf.field_objects );
+		if( window.wp.acf.field_objects[field] ) acf_field.type = window.wp.acf.field_objects[field].type
 		
 	}
 	else

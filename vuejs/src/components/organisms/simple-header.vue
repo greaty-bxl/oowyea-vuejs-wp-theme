@@ -4,11 +4,12 @@
 			<nav id="main-navbar-1" class="navbar navbar-default navbar-fixed-top">
 			<div class=" navbar-container">
 			<a :href="this.wp.sections[0].permalink"><Acf field="logo" /></a>
-			<!-- <img class="navbar-brand" src="http://greaty.digital.brussels/wp-content/uploads/2020/10/logo-brun.svg"> -->
+
 			<div id="navbar" class="navbar-collapse collapse">
-			<div class="menu_link" v-html="wp.menus['burger-menu']" ></div>
+				<div class="menu_link" v-html="wp.menus['burger-menu']" >
+				</div>
 			</div>
-	<!-- <div class="iconUser"></div> -->
+
 	<div class="icon button-header close-simple">
 	<div class="burger"></div>
 	</div>
@@ -20,7 +21,7 @@
 
 	</div>
 </template>
-
+	
 <script>
 // import is from "is_js"
 import Acf from "Organisms/acf"
@@ -93,7 +94,7 @@ export default {
 
 				$('.menu_link').animate({
 					// targets: $('.menu_link').target,
-					left: '80vw',
+					left: '70vw',
 					easing: 'easeInOutSine',
 					duration: 200,
 				});
@@ -107,8 +108,6 @@ export default {
 						easing: 'easeInOutSine',
 						duration: 200,
 					});
-
-
 			}
 
 		}
@@ -130,8 +129,7 @@ export default {
 
 	});
 	
-	console.log(this.wp.sections[0].permalink);
-
+// espace betwen list woocommerce and other pag
 
 	smart_fonts({
 		'.menu-item-type-post_type' : 22,
@@ -222,7 +220,7 @@ export default {
 
 	.menu_link{
 
-		width: 20vw;
+		width: 30vw;
 		background-color: white;
 		left: 100vw;
 		height: 100vh;
@@ -263,6 +261,11 @@ export default {
 				min-width: 100vw;
 
 			}
+		}
+
+		.menu li:nth-child(9){
+
+			padding-bottom: 50px;
 		}
 
 

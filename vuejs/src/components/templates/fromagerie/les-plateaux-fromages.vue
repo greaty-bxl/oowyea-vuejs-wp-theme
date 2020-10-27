@@ -26,102 +26,6 @@
 
 		</div>
 
-		<div class="globale-plateaux-fromages anchor">
-		
-			<div class="section-plateaux-fromages-plateaux-fromages">
-
-				<h5 class="title-section-les-asortiments-de-fromages">Les Assortiments de fromages</h5>
-
-				<swiper class="swiper3" :options="swiperOption10">
-
-					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.posts_assortiments" :key="child.ID"  >
-
-						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
-						<p v-html="child.post_title" class="name-plateau-fromage"></p>
-						<!-- <p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p> -->
-						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
-
-
-					</swiper-slide>
-
-				</swiper>
-
-			</div>
-
-		</div>
-
-		<div class="globale-plateaux-fromages anchor">
-		
-			<div class="section-plateaux-fromages-plateaux-fromages">
-
-				<h5 class="title-section-les-asortiments-de-fromages">Les pains</h5>
-
-				<swiper class="swiper3" :options="swiperOption10">
-
-					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.les_pains" :key="child.ID"  >
-
-						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
-						<p v-html="child.post_title" class="name-plateau-fromage"></p>
-						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>
-						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
-
-
-					</swiper-slide>
-
-				</swiper>
-
-			</div>
-
-		</div>
-
-		<div class="globale-plateaux-fromages anchor" id="pain">
-		
-			<div class="section-plateaux-fromages-plateaux-fromages">
-
-				<h5 class="title-section-les-asortiments-de-fromages">Les confits</h5>
-
-				<swiper class="swiper3" :options="swiperOption10">
-
-					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.les_confits" :key="child.ID"  >
-
-						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
-						<p v-html="child.post_title" class="name-plateau-fromage"></p>
-						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>
-						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
-
-
-					</swiper-slide>
-
-				</swiper>
-
-			</div>
-
-		</div>
-
-		<div class="globale-plateaux-fromages">
-		
-			<div class="section-plateaux-fromages-plateaux-fromages">
-
-				<h5 class="title-section-les-asortiments-de-fromages">Les vins</h5>
-
-				<swiper class="swiper3" :options="swiperOption10">
-
-					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.les_vins" :key="child.ID"  >
-
-						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
-						<p v-html="child.post_title" class="name-plateau-fromage"></p>
-						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>
-						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
-
-
-					</swiper-slide>
-
-				</swiper>
-
-			</div>
-
-		</div>
-
 		<div class="clear"></div>
     </div>
  
@@ -411,15 +315,20 @@ export default {
 
 	}
 
+	#les-plateaux-fromages{
+
+		min-height: auto !important;
+
+	}
+
 </style>
 
 <style scoped >
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
-
+	
 	.section-wrap{
-
-		padding-bottom: 100px;
+		min-height: auto !important;
 		background-color: #F2F2F2;
 	}
 
@@ -454,7 +363,6 @@ a {
 
 
 </style>
-
 
 
 

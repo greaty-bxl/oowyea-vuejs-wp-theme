@@ -13,3 +13,5 @@ include GREATY_TEMPLATE_PATH.'/libs/fromagerie/assortiments-de-fromages.php';
 include GREATY_TEMPLATE_PATH.'/libs/fromagerie/les-vins.php';
 
 include GREATY_TEMPLATE_PATH.'/libs/fromagerie/les-pains.php';
+
+include GREATY_TEMPLATE_PATH.'/libs/fromagerie/cart.php';

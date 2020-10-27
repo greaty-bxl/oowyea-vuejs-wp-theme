@@ -58,7 +58,7 @@
 			var $ = this.$
 
 			// $('.retour').html('[add_to_cart id="99"]')
-			console.log( this.$store.state.wp.add_to_cart );
+			console.log( this.$store.state.wp.cart );
 			console.log( this.wp);
 
 

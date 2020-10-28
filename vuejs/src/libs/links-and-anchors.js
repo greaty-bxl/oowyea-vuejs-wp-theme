@@ -78,6 +78,16 @@ export default function (vue)
 							}, 15)
 
 							$('#app').trigger('after_next_page')
+
+							console.log( 'after anchor', section.index() );
+
+							if( vue.$store.state.wp.sections[section.index()] )
+							{
+								vue.$store.commit({
+									type: 'section_change',
+									current_section: vue.$store.state.wp.sections[section.index()],
+								})	
+							}							
 						}
 					});
 			}

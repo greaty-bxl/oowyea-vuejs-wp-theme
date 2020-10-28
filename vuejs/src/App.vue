@@ -176,7 +176,6 @@ export default {
 
       function replace_body_class( new_class )
       {
-        console.log( 'replace_body_class', new_class );
         $('body').removeClass(old_class) 
         $('body').addClass(new_class) 
         old_class = new_class

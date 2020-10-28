@@ -10,11 +10,11 @@
 				<div class="single-text"> 
 					<h2 class="montserrat-bold title-single-fromagerie">Colis</h2>
 				
-						<p>Composition :</p>
+					<p class="composition">Composition :</p>
 					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
 					</div>
 					<div>				
-						<p v-html="this.post.metas._regular_price +' €' " class="price-single montserrat-bold"> </p>
+						<p v-html="this.post.metas._price +' €' " class="price-single montserrat-bold"> </p>
 						<p>Taxes incluses</p>
 					</div>
 
@@ -34,7 +34,7 @@
 					</div>
 
 					<div   class="retour">
-						<a :href="this.wp.sections[3].permalink">
+						<a >
 							<p> Retour </p>
 						</a>	
 					</div>
@@ -127,6 +127,11 @@
 
 	}
 
+	.composition{
+
+		margin-bottom: 15px !important;
+	}
+
 
 
 	.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
@@ -201,7 +206,7 @@
 	.single-text p {
 
 		font-size: 16px !important;
-		font-weight: 500;
+		font-weight: 400;
 
 	}
 
@@ -277,6 +282,13 @@
 
 	}
 
+	.woocommerce .quantity .qty{
+
+		width: 8vw;
+	}
+
+	
+
 
 
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
@@ -312,6 +324,12 @@
 			/*padding: 10px 0px;*/
 
 		}
+
+		.woocommerce .quantity .qty{
+
+			width: 140px;
+		}
+
 	}
 
 	@media screen and (max-width: 600px){
@@ -354,7 +372,14 @@
 
 		}
 
+		.woocommerce .quantity .qty{
+
+			width: 70px;
+		}
+
+
 	}
+
 
 
 </style>
@@ -375,5 +400,6 @@
 
 		display: none !important;
 	}
+
 
 </style>

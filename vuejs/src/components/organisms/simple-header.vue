@@ -3,7 +3,7 @@
         <header>
 			<nav id="main-navbar-1" class="navbar navbar-default navbar-fixed-top">
 			<div class=" navbar-container">
-			<a :href="this.wp.sections[0].permalink"><Acf field="logo" /></a>
+			<a><Acf field="logo" /></a>
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<div class="menu_link" v-html="wp.menus['burger-menu']" >
@@ -263,7 +263,7 @@ export default {
 			}
 		}
 
-		.menu li:nth-child(9){
+		.menu li:nth-child(8){
 
 			padding-bottom: 50px;
 		}

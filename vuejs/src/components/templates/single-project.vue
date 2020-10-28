@@ -40,7 +40,7 @@
 					</div>
 
 					<div   class="retour">
-						<a :href="this.wp.sections">
+						<a>
 							<p> Retour </p>
 						</a>	
 					</div>
@@ -171,7 +171,7 @@
 	.single-text p {
 
 		font-size: 16px !important;
-		font-weight: 500;
+		font-weight: 400;
 
 	}
 
@@ -282,10 +282,21 @@
 			/*padding: 10px 0px;*/
 
 		}
+
+		.single-text p{
+
+			line-height: 24px
+
+		}
 	}
 
 	@media screen and (max-width: 600px){
 
+		.single-text p{
+
+			line-height: 20px !important;
+
+		}
 		.content-single{
 
 			display: flex;

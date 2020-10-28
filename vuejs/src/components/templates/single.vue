@@ -20,7 +20,7 @@
 
 					<div>				
 						<p class="nbrpersonne">Nombre de personnes :</p>
-						<input type="number"  name="">
+					<!-- 	<input type="number"  name=""> -->
 						
 					</div>
 <!-- 
@@ -40,13 +40,13 @@
 							<input class="input-single" placeholder="E-mail" type="" name="">
 							<input class="input-single" placeholder="Téléphone" type="" name="">
 							<input class="input-single" placeholder="Nombre de personnes" type="" name="">
-							<input class="input-single" placeholder="Assortiments en plat ou dessert " type="" name="">
-							<textarea class="input-single" placeholder="Message" type="" name=""></textarea>
+							<input class="input-single title-21 " placeholder="Assortiments en plat ou dessert " disabled type="" name="">
+							<textarea class="input-single "  type="" name=""></textarea>
 							<button class="button-envoyer">Envoyer</button>
 						</form>
 					</div>
 					<div   class="retour">
-						<a :href="this.wp.sections[3].permalink">
+						<a>
 							<p> Retour </p>
 						</a>	
 					</div>
@@ -72,9 +72,15 @@
 			'post' : Object
 		},
 		mounted (){
-			// var $ = this.$
+			var $ = this.$
 
 			// $('.retour').html('[add_to_cart id="99"]')
+
+			
+
+			$('.title-21').attr('placeholder', this.post.post_title );
+			$('.title-21').attr('value', this.post.post_title );
+
 			
 			this.$emit('template_mounted')
 
@@ -323,6 +329,12 @@
 			/*padding: 10px 0px;*/
 
 		}
+
+		.single-text p{
+
+			line-height: 22px !important;
+
+		}
 	}
 
 	@media screen and (max-width: 600px){
@@ -368,6 +380,17 @@
 			width: 100%;
 			/*padding: 10px 0px;*/
 
+		}
+
+		.single-text p{
+
+			line-height: 20px !important;
+
+		}
+
+		.woocommerce .quantity .qty{
+
+			width: 70px !important;
 		}
 
 	}

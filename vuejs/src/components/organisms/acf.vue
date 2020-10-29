@@ -52,9 +52,8 @@ export default{
 						section = new_section
 
 						let new_val = acf_get_field( this.field, section )
-
-						if( new_val.value != this.acf_field.value ){
-							console.log( 'ACF update header' )
+						
+						if( JSON.stringify(new_val) != JSON.stringify(this.acf_field) ){
 							this.acf_field = new_val	
 						} 
 					}

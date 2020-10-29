@@ -331,6 +331,7 @@ font-weight: 500;
 		padding-bottom: 10px;
 		color: #666666;
 		padding-left: 15px;
+		line-height: 30px;
 
 	}
 
@@ -360,14 +361,19 @@ font-weight: 500;
 	button{
 
 		margin-top: 20px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		background: #A59890;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		background: #70625b;
 		color: white;
-		border: solid #A59890;
+		border: solid #70625b!important;
 		border-width: 1px;
 		font-weight: bold;
+		font-size: 16px !important;
 
+	}
+
+	input:focus {
+	color: #70625b !important;
 	}
 
 	button:hover{

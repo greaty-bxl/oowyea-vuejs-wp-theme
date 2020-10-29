@@ -229,6 +229,7 @@ export default {
 		align-items: center;
 		justify-content: center;
 		background-color: #70625b;
+		z-index: 10000;
 
 	}
 
@@ -254,7 +255,7 @@ export default {
 				/*display: none*/
 				/*top: 50px;*/
 			}
-		@media screen and (max-width: 1100px) and (min-width: 60px) {
+		@media screen and (max-width: 1100px) and (min-width: 600px) {
 
 			.menu_link{
 
@@ -266,7 +267,80 @@ export default {
 
 				font-size: 20px !important;
 			}
+
+			nav{
+				position: static;
+				z-index: 1000;
+				margin: 0px !important; 
+			}
+
+			nav img
+			{
+				max-width: 100%;
+				position: absolute;
+				top: 70px !important;
+				left: 70px !important;
+				margin: 0px !important;
+			}
+
+			nav .icon
+			{
+
+				position: fixed !important;
+				left: calc( 100% - 115px ) !important;
+				left: 100%;
+				top: 70px;
+
+			}
+
+			.menu_link{
+
+				width: 100vw;
+			}
+
 		}
+
+
+		@media screen and (max-width: 600px){
+
+			nav{
+				position: static;
+				z-index: 1000;
+				margin: 0px !important; 
+			}
+
+			nav img
+			{
+				max-width: 100%;
+				position: absolute;
+				top: 30px !important;
+				left: 30px !important;
+				margin: 0px !important;
+			}
+
+			nav .icon
+			{
+
+				position: fixed !important;
+				left: calc( 100% - 75px ) !important;
+				left: 100%;
+				top: 30px;
+
+			}
+
+			
+			.menu_link{
+
+				width: 100vw;
+			}
+
+
+
+		}
+
+
+
+
 
 		.menu li:nth-child(9){
 
@@ -333,6 +407,8 @@ export default {
 		height: 40px;
 		cursor: pointer;
 		background-color: #70625b;
+		z-index: 11000;
+		
 		/*margin-top: 20px;*/
 		}
 		.burger{

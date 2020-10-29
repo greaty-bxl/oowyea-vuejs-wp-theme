@@ -49,7 +49,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
 	
-	#checkout button {
+/*	#checkout button {
 
 		background-color: #70625B !important;
 		color: white !important;
@@ -62,7 +62,6 @@ export default {
 		padding-top: 25px;
 		padding-bottom: 25px;
 		line-height: 0;
-		border-radius: 0px;
 
 
 
@@ -76,7 +75,7 @@ export default {
 
 	}
 
-	#checkout div p{
+	div p{
 
 		font-family: 'Montserrat', sans-serif !important;
 		font-size: 18px;
@@ -104,7 +103,6 @@ export default {
 
 	}
 
-
 	.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
 
 		background-color: white;
@@ -113,7 +111,7 @@ export default {
 
 	}
 
-	#checkout #add_payment_method table.cart img, .woocommerce-cart table.cart img, .woocommerce-checkout table.cart img {
+	#add_payment_method table.cart img, .woocommerce-cart table.cart img, .woocommerce-checkout table.cart img {
 
 		width: 100px;
 	}
@@ -148,10 +146,10 @@ export default {
 
 	#checkout .woocommerce table.shop_table td{
 
-		border: 1px solid #A59890 !important;
-	}
+		/*border: 1px solid #A59890 !important;*/
+	/*}*/
 
-	@media screen and (max-width: 600px){
+/*	@media screen and (max-width: 600px){
 
 		#checkout .woocommerce a{
 
@@ -159,61 +157,32 @@ export default {
 			color: #70625B;
 			font-weight: bold;
 
-		}
-		#checkout .woocommerce{
+		}*/
+/**
+/*		#checkout .woocommerce{
 
 			margin: 100px 30px;
 			width: auto;
 		
-		}
+		}*/
 
-		#checkout .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
+/*		.woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
 
 			display: flex!important;
 			flex-direction: column;
 
 		}
 
-		#checkout .woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last{
+		.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last{
 
 			width: 100%;
 			text-align: center;
 		}
 
-		#checkout .section-wrap{
-
-			min-height: auto !important;
-		}
-
-		#checkout{
-
-			min-height: auto !important;
-		}
-
 	
-	}
-
-	@media screen and (max-width: 1100px) and (min-width: 600px){
-
-		#checkout .woocommerce{
-
-		margin: 150px 70px !important;
-		width: calc(100% - 140px);
-
-		}
-
-		#checkout .section-wrap{
-
-			min-height: auto !important;
-		}
-
-		#checkout{
-
-			min-height: auto !important;
-		}
 
 	}
-
+*/
 
 </style>
 

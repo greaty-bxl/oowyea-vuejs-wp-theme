@@ -137,7 +137,7 @@
 		padding-bottom: 20px !important;
 		background-color: #70625B !important;
 		width: 100%;
-		font-size: 16px;
+		font-size: 16px !important;
 	}
 
 	.button-envoyer:hover{
@@ -297,7 +297,6 @@
 	}
 
 
-
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
 
 		.content-single{
@@ -369,6 +368,12 @@
 		.content-single input{
 		
 			width: auto;
+			font-size: 15px !important;
+		}
+
+		.content-single textarea{
+
+			font-size: 15px !important;
 		}
 
 		.single-text-post {
@@ -409,6 +414,11 @@
 		}
 
 	}
+
+	input:focus {
+	color: #70625b !important;
+	}
+
 
 
 </style>
@@ -459,9 +469,9 @@
 		margin-top: 20px;
 		padding-top: 10px;
 		padding-bottom: 10px;
-		background: #A59890;
+		background: #70625b;
 		color: white;
-		border: solid #A59890;
+		border: solid #70625b;
 		border-width: 1px;
 		font-weight: bold;
 

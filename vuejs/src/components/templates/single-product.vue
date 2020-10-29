@@ -5,16 +5,16 @@
 			
 			<div class="content-single">
 				<div>
-					<img class="image-single" :src="this.post.thumb">
+					<img class="image-single" :src="post.thumb">
 				</div>
 				<div class="single-text"> 
 					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
 				
 					<p class="composition">Composition :</p>
-					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
+					<div v-html="post.acf_fields.list_colis" class="list-colis">
 					</div>
 					<div>				
-						<p v-html="this.post.metas._price +' €' " class="price-single montserrat-bold"> </p>
+						<p v-html="post.metas._price +' €' " class="price-single montserrat-bold"> </p>
 						<p>Taxes incluses</p>
 					</div>
 
@@ -132,6 +132,9 @@
 		margin-bottom: 15px !important;
 	}
 
+	input:focus {
+		color: #70625b !important;
+	}
 
 
 	.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{

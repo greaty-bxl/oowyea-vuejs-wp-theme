@@ -116,11 +116,23 @@ export default {
 
 <style>
    
-	#pains{
 
-		min-height: auto !important;
+#appareils .section-wrap {
 
-	}
+	display: block;
+	min-height: auto;
+
+}
+
+#appareils{
+
+	min-height: auto;
+}
+
+#appareils .section-wrap{
+
+	padding-bottom: 120px;
+}
 
 </style>
 

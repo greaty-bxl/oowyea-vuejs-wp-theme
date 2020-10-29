@@ -176,7 +176,7 @@ export default {
 		margin-bottom: 15px;
 		margin-left: 10px;
 		margin-right: 10px;
-		font-size: 15px;
+		font-size: 18px !important;
 		list-style: none;
 	}
 

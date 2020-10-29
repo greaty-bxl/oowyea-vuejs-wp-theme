@@ -2,7 +2,7 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-		<div class="globale-plateaux-fromages anchor">
+		<div class="globale-plateaux-fromages">
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
@@ -116,13 +116,13 @@ export default {
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
+
+
     
 	.image-plateaux-fromages{
 
 		height: 100%;
-		/*background-size: cover;
-		background-repeat: no-repeat;
-		background: center;*/
 		height: 33vh; 
 
 	}
@@ -161,7 +161,7 @@ export default {
 	.title-section-plateaux-fromages{
 
 		text-align: left;
-		margin-left: 70px;
+		margin-left: 140px;
 		margin-bottom: 5vh;
 		/*margin-top: 0px !important;*/
 		margin-top: 100px;
@@ -173,7 +173,7 @@ export default {
 	.title-section-les-asortiments-de-fromages{
 
 		text-align: left;
-		margin-left: 70px;
+		margin-left: 140px;
 		margin-bottom: 5vh;
 		/*margin-top: 0px !important;*/
 		margin-top: 5vh;
@@ -188,6 +188,7 @@ export default {
 
 			margin-bottom: 7vh;
 			margin-top: 7vh;
+
 
 		}
 
@@ -238,6 +239,20 @@ export default {
 
 			margin-left: 0px
 		}
+		.title-section-les-asortiments-de-fromages{
+			margin-left: 0px;
+			text-align:center;
+
+		}
+		.title-section-plateaux-fromages{
+
+			margin-left: 0px;
+			text-align:center;
+
+		}
+
+
+
 
 	}
 
@@ -321,6 +336,11 @@ export default {
 
 	}
 
+	#les-plateaux{
+
+		min-height: auto !important;
+	}
+
 </style>
 
 <style scoped >
@@ -331,6 +351,12 @@ export default {
 		min-height: auto !important;
 		background-color: #F2F2F2;
 	}
+
+/*	.section{
+
+		min-height: auto !important;
+
+	}*/
 
 @media screen and (max-width: 1100px) and (min-width: 600px){
 

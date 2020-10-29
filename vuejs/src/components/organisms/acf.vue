@@ -48,9 +48,14 @@ export default{
 					let new_section = this.$store.state.wp.current_section
 					if( new_section != section )
 					{
-						//console.log( 'ACF update header' )
+						
 						section = new_section
-						this.acf_field = acf_get_field( this.field, section )
+
+						let new_val = acf_get_field( this.field, section )
+						
+						if( JSON.stringify(new_val) != JSON.stringify(this.acf_field) ){
+							this.acf_field = new_val	
+						} 
 					}
 				}
 				//console.log('acf mutation', mutation);

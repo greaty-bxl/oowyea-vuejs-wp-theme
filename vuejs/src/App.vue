@@ -26,6 +26,9 @@
     </div>
     <!-- Footer -->
     <Footer/>
+    <div id="page-loader">
+      <v-icon name="spinner" class="fa-pulse"></v-icon>
+    </div>
     <!-- <AudioPlayerBottom />
     <Editor v-if="wp.user_can.edit_theme_options" /> -->
   </div>
@@ -133,7 +136,7 @@ export default {
 
           //console.log( 'app get page', wp )
           let new_sections = wp.sections
-          this.wp = wp
+          //this.wp = wp
           this.$store.state.wp = wp
 
           $(document).trigger('after_data_next_page')
@@ -300,5 +303,22 @@ html{
 
 .page[data-state="next"]{
   z-index: 1000;
+}
+
+#page-loader{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 8000;
+}
+#page-loader .fa-icon{
+  height: 5vh;
+  width: 5vh;
+  color: rgba(255,255,255,0.5);
 }
 </style>

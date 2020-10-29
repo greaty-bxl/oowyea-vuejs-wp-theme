@@ -136,7 +136,7 @@ export default {
 
           //console.log( 'app get page', wp )
           let new_sections = wp.sections
-          this.wp = wp
+          //this.wp = wp
           this.$store.state.wp = wp
 
           $(document).trigger('after_data_next_page')

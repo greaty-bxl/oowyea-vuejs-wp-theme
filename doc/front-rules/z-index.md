@@ -7,3 +7,4 @@
 - #editor			5000
 - .notification		6000
 - #alert			7000
+- #page-loader		8000

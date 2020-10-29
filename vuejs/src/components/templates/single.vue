@@ -8,30 +8,21 @@
 					<img class="image-single" :src="this.post.thumb">
 				</div>
 				<div class="single-text-post "> 
-					<h2 class="montserrat-bold title-single-fromagerie">Colis</h2>
+					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
 				
 						<p>Composition :</p>
 					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
 					</div>
 					<div>				
 						<!-- <p v-html="this.post.metas._regular_price +' €' " class="price-single montserrat-bold"> </p> -->
-						<p>Taxes incluses</p>
 					</div>
 
 					<div>				
-						<p class="nbrpersonne">Nombre de personnes :</p>
 					<!-- 	<input type="number"  name=""> -->
 						
-					</div>
-<!-- 
-					<div>
-						<p>Retrait en magasin ( gratuit )</p>
-					</div>	 -->			
-					<div>
-						<img class="bancontact"  src="http://greaty.digital.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
-					</div>
+					</div>			
 
-					<h2 class="montserrat-bold title-single-fromagerie">Commandes et demandes spéciales</h2>
+					<h2 class="montserrat-bold title-single-fromagerie-1">Commandes et demandes spéciales</h2>
 					
 					<div class="contener-single">
 						<form action="" method="get" class="form-example"  >
@@ -41,15 +32,14 @@
 							<input class="input-single" placeholder="Téléphone" type="" name="">
 							<input class="input-single" placeholder="Nombre de personnes" type="" name="">
 							<input class="input-single title-21 " placeholder="Assortiments en plat ou dessert " disabled type="" name="">
-							<textarea class="input-single "  type="" name=""></textarea>
+							<textarea class="input-single " placeholder="Messsage"  type="" name=""></textarea>
 							<button class="button-envoyer">Envoyer</button>
 						</form>
 					</div>
-					<div   class="retour">
 						<a>
-							<p> Retour </p>
+							<p class="retour" > Retour </p>
 						</a>	
-					</div>
+			
 
 
 					
@@ -143,7 +133,23 @@
 	.button-envoyer{
 
 		text-align: center !important;
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
+		background-color: #70625B !important;
+		width: 100%;
+		font-size: 16px;
 	}
+
+	.button-envoyer:hover{
+
+		text-align: center !important;
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
+		background-color: white !important;
+		color: #70625B !important;
+		width: 100%
+	}
+
 
 
 
@@ -239,6 +245,7 @@
 
 		font-family: 'Montserrat', sans-serif !important;
 		font-weight: bold !important;
+		color: #70625B;
 	}
 
 	.price-single{
@@ -249,6 +256,10 @@
 	.title-single-fromagerie{
 
 		font-size: 25px !important;
+	}
+	.title-single-fromagerie-1{
+
+		font-size: 20px !important;
 	}
 
 	.content-single input{
@@ -274,13 +285,14 @@
 
 	.retour{
 
-		padding-top: 40px !important;
+		padding-top: 30px !important;
+		color: #A59890 !important;
 	}
 
 	.retour a{
 
 		text-decoration-line: none;
-		color: #A59890;
+		color: #A59890 !important;
 
 	}
 
@@ -294,6 +306,9 @@
 			flex-direction: column;
 			margin-top: 150px;
 			margin-bottom: 150px;
+			margin-right: 70px;
+			margin-left: 70px;
+
 		}
 
 		.content-single input{
@@ -460,6 +475,10 @@
 	/*	border: solid #A59890;
 		border-width: 1px;*/
 		transition-delay: 200;
+	}
+
+	.contener-single{
+		padding-top: 0px;
 	}
 
 	@media screen and (max-width: 1100px) and (min-width: 600px){

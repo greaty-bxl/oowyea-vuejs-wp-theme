@@ -8,7 +8,7 @@
 					<img class="image-single" :src="this.post.thumb">
 				</div>
 				<div class="single-text"> 
-					<h2 class="montserrat-bold title-single-fromagerie">Colis</h2>
+					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
 				
 					<p class="composition">Composition :</p>
 					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
@@ -19,7 +19,7 @@
 					</div>
 
 					<div>
-						<p>Retrait en magasin ( gratuit )</p>
+						<p>Retrait en magasin</p>
 					</div>				
 					<div>
 						<img class="bancontact"  src="http://greaty.digital.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
@@ -61,7 +61,7 @@
 			console.log( this.$store.state.wp.cart );
 			console.log( this.wp);
 
-
+		// $('nav').css('background-color', 'white');
 
 		if ( this.post.terms[0].slug === "plateau-fromage" ) {
 			console.log('');
@@ -104,7 +104,7 @@
 	}
 	
 	.button-contener{
-
+		padding-top: 0 !important;
 		display: flex;
 		flex-direction: column;
 
@@ -139,13 +139,14 @@
 	background-color: #70625B;
 	color: white;
 	border-width: 0;
-	margin-top: 16px;
+	margin-top: 35px;
 	border: solid #70625B;
 	border-width: 1px;
 	min-width: 200px;
 	width: 40%;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	font-size: 16px;
 
 
 	}
@@ -155,6 +156,7 @@
 		background-color: white;
 		color: #70625B;
 		transition: 200;
+
 
 	} 
 
@@ -234,7 +236,7 @@
 	}
 
 	.montserrat-bold{
-
+        color: #70625B;
 		font-family: 'Montserrat', sans-serif !important;
 		font-weight: bold !important;
 	}
@@ -272,7 +274,7 @@
 
 	.retour{
 
-		padding-top: 40px !important;
+		padding-top: 30px !important;
 	}
 
 	.retour a{
@@ -284,7 +286,14 @@
 
 	.woocommerce .quantity .qty{
 
-		width: 8vw;
+		width: 70px;
+		padding-top: 7px;
+		padding-bottom: 7px;
+	}
+
+	.quantity{
+
+		padding-top: 0px !important;
 	}
 
 	
@@ -325,9 +334,10 @@
 
 		}
 
-		.woocommerce .quantity .qty{
+		.content-single{
 
-			width: 140px;
+			margin-left: 70px;
+			margin-right: 70px;
 		}
 
 	}
@@ -378,6 +388,11 @@
 		}
 
 
+	}
+
+	.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
+
+		border-radius: 0 !important;
 	}
 
 

@@ -77,14 +77,12 @@ export default {
 		width: 100px;
 	}
 
-	.woocommerce{
+/*	.woocommerce{
 
 		margin: 120px auto;
 		width: 50vw;
 
-	
-
-	}
+	}*/
 
 	.woocommerce a{
 

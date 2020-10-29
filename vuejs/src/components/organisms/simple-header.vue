@@ -254,16 +254,21 @@ export default {
 				/*display: none*/
 				/*top: 50px;*/
 			}
-		@media screen and (max-width: 1100px){
+		@media screen and (max-width: 1100px) and (min-width: 60px) {
 
 			.menu_link{
 
 				min-width: 100vw;
 
 			}
+
+			nav ul li{
+
+				font-size: 20px !important;
+			}
 		}
 
-		.menu li:nth-child(8){
+		.menu li:nth-child(9){
 
 			padding-bottom: 50px;
 		}

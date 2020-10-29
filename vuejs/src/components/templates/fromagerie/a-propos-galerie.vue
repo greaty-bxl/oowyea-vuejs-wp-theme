@@ -11,7 +11,7 @@
 
 				<swiper class="swiper2" :options="swiperOption10">
 
-					<swiper-slide  class="slide-a-propos"  v-for="child in wp.sections[2].acf_fields.a_propos_galerie" :key="child.ID"  >
+					<swiper-slide  class="slide-a-propos"  v-for="child in post.acf_fields.a_propos_galerie" :key="child.ID"  >
 
 						<div class="image-a-propos" height="100%" width="100%"  v-bind:style="{ 'background-image': 'url(' + child.url + ')' }"></div>
 

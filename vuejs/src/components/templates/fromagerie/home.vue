@@ -3,8 +3,8 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-		<div  v-bind:style="{ 'background-image': 'url(' +this.wp.sections[0].acf_fields.image_home.url + ')' }"  class="section-home">
-			<div  v-bind:style="{'color':  this.wp.sections[0].acf_fields.fonts.h1.color + ' !important'   }" v-html="this.wp.sections[0].post_content" class="titre-home-section">
+		<div  v-bind:style="{ 'background-image': 'url(' +post.acf_fields.image_home.url + ')' }"  class="section-home">
+			<div  v-bind:style="{'color':  post.acf_fields.fonts.h1.color + ' !important'   }" v-html="post.post_content" class="titre-home-section">
 			</div>
 		</div>
 

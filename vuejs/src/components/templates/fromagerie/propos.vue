@@ -4,7 +4,7 @@
 
 			<div class="section-a-propos">
 
-				<div v-bind:style="{ 'color':  this.wp.sections[1].acf_fields.fonts.h1.color  }" v-html="this.wp.sections[1].post_content" class="titre-a-propos-section"></div>
+				<div v-bind:style="{ 'color':  post.acf_fields.fonts.h1.color  }" v-html="post.post_content" class="titre-a-propos-section"></div>
 
 			</div>
 

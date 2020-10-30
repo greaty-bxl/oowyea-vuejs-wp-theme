@@ -82,9 +82,9 @@ define('vuejs_server', 'http://localhost:8080');
 	- [ ] single
 	- [ ] tag
 - [ ] Support Woocommerce hierarchy
-- [ ] Make appear an animated loading gif/svg if load page take more than 500ms  
+- [x] Make appear an animated loading gif/svg if load page take more than 500ms  
 - [ ] wp images, lazy load
-- [ ] use swipper slider for horizontal post list
+- [x] use swipper slider for horizontal post list
 - [x] on element enter in or leave screen (enter-screen / leave-screen, jquery event)
 - [x] elements fixed in section
 - [ ] scroll with gradient opacity

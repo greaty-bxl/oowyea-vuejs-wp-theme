@@ -6,7 +6,7 @@
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
-				<h5 class="title-section-plateaux-fromages"> Les Plateaux</h5>
+				<h5 class="title-section-plateaux-fromages">Plateaux</h5>
 
 				<swiper class="swiper3" :options="swiperOption10">
 
@@ -123,7 +123,7 @@ export default {
 	.image-plateaux-fromages{
 
 		height: 100%;
-		height: 33vh; 
+		/*height: 33vh; */
 
 	}
 
@@ -240,14 +240,13 @@ export default {
 			margin-left: 0px
 		}
 		.title-section-les-asortiments-de-fromages{
-			margin-left: 0px;
-			text-align:center;
-
+			margin-left: 70px !important;
+			text-align: left !important;
 		}
 		.title-section-plateaux-fromages{
 
-			margin-left: 0px;
-			text-align:center;
+			margin-left: 70px !important;
+			text-align: left !important;
 
 		}
 

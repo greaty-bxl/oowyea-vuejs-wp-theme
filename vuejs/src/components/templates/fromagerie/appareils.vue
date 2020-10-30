@@ -6,17 +6,16 @@
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
-				<h5 class="title-section-les-asortiments-de-fromages">Les appareils</h5>
+				<h5 class="title-section-les-asortiments-de-fromages">Appareils</h5>
 
 				<swiper class="swiper3" :options="swiperOption10">
 
-					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.les_pains" :key="child.ID"  >
+					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.appareils" :key="child.ID"  >
 
 						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
 						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>
-						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
-
+						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Voir plus</a>  </p>
 
 					</swiper-slide>
 
@@ -53,7 +52,7 @@ export default {
 
 	mounted(){
 
-		console.log(this.wp.plateaux_fromages);
+		console.log(this.wp.appareils);
 
 		// var $ = this.$
 

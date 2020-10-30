@@ -150,7 +150,7 @@ export default {
 	.title-section-galerie{
 
 		text-align: left;
-		margin-left: 70px;
+		margin-left: 140px;
 		margin-bottom: 7vh;
 		margin-top: 100px;
 		padding-top: 7vh;
@@ -176,6 +176,12 @@ export default {
 		.swiper2{
 
 			margin-left: 70px;
+		}
+
+		.title-section-galerie{
+
+			text-align: left;
+			margin-left: 70px
 		}
 
 	}

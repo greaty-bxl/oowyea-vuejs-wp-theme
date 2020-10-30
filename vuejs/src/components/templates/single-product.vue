@@ -4,13 +4,14 @@
 		<div class="clear"></div>
 			
 			<div class="content-single">
-				<div>
+				<div class="div-image-single">
 					<img class="image-single" :src="post.thumb">
 				</div>
 				<div class="single-text"> 
 					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
 				
 					<p class="composition">Composition :</p>
+
 					<div v-html="post.acf_fields.list_colis" class="list-colis">
 					</div>
 					<div>				
@@ -185,8 +186,8 @@
 	}
 	.image-single{
 
-		/*height: 30vw !important;*/
-		width: 35vw;
+		/*height: auto !important;*/
+		width: 40vw  !important;
 	}
 
 	.single-text p{
@@ -321,8 +322,8 @@
 		}
 
 		.image-single {
-			height: 60vw !important;
-			width: 60vw;
+			/*height: 60vw !important;*/
+			width: 80vw !important;
 		}
 
 		.single-text div{
@@ -367,8 +368,7 @@
 		}
 		.image-single {
 
-			height: 85vw !important;
-			width: 85vw;
+			width: calc(100vw - 60px) !important;
 
 		}
 

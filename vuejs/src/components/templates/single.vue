@@ -5,7 +5,7 @@
 			
 			<div class="content-single">
 				<div>
-					<img class="image-single" :src="this.post.thumb">
+					<img class="image-single-post" :src="this.post.thumb">
 				</div>
 				<div class="single-text-post "> 
 					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
@@ -180,10 +180,9 @@
 		width: 60vw;
 
 	}
-	.image-single{
+	.image-single-post{
 
-		/*height: 30vw !important;*/
-		width: 35vw;
+		width: 40vw;
 	}
 
 	.single-text-post  p{
@@ -327,9 +326,9 @@
 
 		}
 
-		.image-single {
-			height: 60vw !important;
-			width: 60vw;
+		.image-single-post {
+			/*height: 60vw;*/
+			width: 60vw !important;
 		}
 
 		.single-text-post  div{
@@ -382,10 +381,9 @@
 			padding-top: 2.5vh;
 
 		}
-		.image-single {
+		.image-single-post {
 
-			height: 85vw !important;
-			width: 85vw;
+			width: calc(100vw - 60px) !important;
 
 		}
 

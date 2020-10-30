@@ -6,7 +6,7 @@
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
-				<h5 class="title-section-les-asortiments-de-fromages">Les vins</h5>
+				<h5 class="title-section-les-asortiments-de-fromages">Vins</h5>
 
 				<swiper class="swiper3" :options="swiperOption10">
 

@@ -1,9 +1,14 @@
+import is from "is_js"
+
 let last_title
 export default function(url){
 	
 	var $ = this.$
 
-	if( history.pushState instanceof Function && url != document.location.href ) history.pushState({urlPath:url},"",url)
+	if( history.pushState instanceof Function && url != document.location.href && is.not.undefined(url) )
+	{
+		history.pushState({urlPath:url},"",url)	
+	} 
 
 	setTimeout( () => {
 		var new_title = $('.section[data-permalink="'+url+'"]').data('title')

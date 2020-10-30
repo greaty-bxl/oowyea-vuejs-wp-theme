@@ -36,7 +36,7 @@
 
 					<div   class="retour">
 						<a >
-							<p> Retour </p>
+							<p><button onclick="window.history.back()">Retour</button></p>
 						</a>	
 					</div>
 					

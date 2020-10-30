@@ -24,14 +24,16 @@ export default function (vue)
 
 				var start
 
-				if( section.position().top + $('#app').scrollTop() > $('#app').scrollTop() )
+				/*if( section.position().top + $('#app').scrollTop() > $('#app').scrollTop() )
 				{
 					start = '100vh'; 
 				}
 				else
 				{
 					start = '-100vh';
-				}
+				}*/
+
+				start = 0
 
 				var clone = section.clone()
 
@@ -44,9 +46,15 @@ export default function (vue)
 					'width': section.width(),
 					'height': '100vh',
 					'overflow':'hidden',
-					'opacity': 1,
+					'opacity': 0,
 					'z-index': 2000
 				});
+
+				clone.find('.section-wrap').css({
+					'height': '100vh',
+					'min-height': '100vh'
+				});
+				console.log( clone.find('.section-wrap') );
 
 				section.parent().prepend(clone)
 
@@ -63,14 +71,21 @@ export default function (vue)
 					},
 					{
 						duration: 444,
-						ease: 'easeOutQuart',
+						ease: 'easeInOutQuad',
 						step: () => {
 							$('#app').trigger('clone-move')
 						},
 						done: () => {
 
 							$('#app').scrollTop( section.position().top + $('#app').scrollTop() )
-							clone.remove()
+							
+
+							clone.animate({
+								opacity: 0,
+								},
+								150, function() {
+									clone.remove()
+							});
 
 							clearTimeout( timer )
 							timer = setTimeout( () => {

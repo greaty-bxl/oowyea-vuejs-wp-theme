@@ -17,9 +17,17 @@
 								<p class="sous-titre-contact">Magasin</p> 
 								<p class="text-sous-titre-contact">Bd. Sylvain Dupuis 373<br>1070 Bruxelles<br>Belgique</p>
 							</div>
-					
-						</div>	
 
+							<div>
+								<p class="sous-titre-contact">Horaires</p> 
+							</div>
+					
+						</div>
+
+			
+
+
+						
 						<div class="contener-contact-child" >
 							
 							<p class="sous-titre-contact ">Commandes et <br> demandes spéciales</p> 
@@ -117,6 +125,11 @@ margin-right: auto;
 .section-a-propos-contact{
 
 min-height: 100vh;
+}
+
+#contact{
+
+	background-color: white;
 }
 
 

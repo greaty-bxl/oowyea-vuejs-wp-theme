@@ -9,8 +9,6 @@
 				</div>
 				<div class="single-text"> 
 					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
-				
-					<p class="composition">Composition :</p>
 
 					<div v-html="post.acf_fields.list_colis" class="list-colis">
 					</div>
@@ -34,10 +32,10 @@
 
 					</div>
 
-					<div   class="retour">
-						<a >
-							<p><button onclick="window.history.back()">Retour</button></p>
-						</a>	
+					<div  class="retour">
+						
+							<button onclick="window.history.back()">Retour</button>
+						
 					</div>
 					
 				</div>
@@ -101,7 +99,7 @@
 	}
 
 	.list-colis p {
-		padding-top: 0px !important;
+		padding-top: 16px !important;
 	}
 	
 	.button-contener{
@@ -136,6 +134,15 @@
 	input:focus {
 		color: #70625b !important;
 	}
+
+	button:focus {
+		color: #70625b !important;
+	}
+
+	*:focus {
+		outline: none !important;
+	}
+
 
 
 	.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
@@ -188,6 +195,7 @@
 
 		/*height: auto !important;*/
 		width: 40vw  !important;
+		min-width: 600px;
 	}
 
 	.single-text p{
@@ -213,6 +221,7 @@
 
 		font-size: 16px !important;
 		font-weight: 400;
+		line-height: 24px;
 
 	}
 
@@ -281,12 +290,16 @@
 		padding-top: 30px !important;
 	}
 
-	.retour a{
-
+	.retour button{
+		font-size: 16px !important;
+		border: none;
+		background-color: white;
 		text-decoration-line: none;
-		color: #A59890;
+		color: #70625B !important;
+		padding-left: 0px;
 
 	}
+
 
 	.woocommerce .quantity .qty{
 
@@ -322,7 +335,7 @@
 		}
 
 		.image-single {
-			/*height: 60vw !important;*/
+			min-width: auto !important;
 			width: 80vw !important;
 		}
 
@@ -367,7 +380,7 @@
 
 		}
 		.image-single {
-
+			min-width: auto !important;
 			width: calc(100vw - 60px) !important;
 
 		}

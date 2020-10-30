@@ -9,8 +9,7 @@
 				</div>
 				<div class="single-text-post "> 
 					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
-				
-						<p>Composition :</p>
+
 					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
 					</div>
 					<div>				
@@ -36,9 +35,13 @@
 							<button class="button-envoyer">Envoyer</button>
 						</form>
 					</div>
-						<a>
-							<p class="retour" > Retour </p>
-						</a>	
+
+					<div class="retour">
+						
+						<button onclick="window.history.back()">Retour</button>
+
+					</div>
+					
 			
 
 
@@ -105,6 +108,11 @@
 	.list-colis{
 		padding-top: 0px !important;
 	}
+
+	.list-colis p {
+		padding-top: 16px !important;
+	}
+	
 	
 	.button-contener{
 
@@ -181,21 +189,29 @@
 
 	}
 	.image-single-post{
-
+		min-width: auto !important;
 		width: 40vw;
 	}
 
 	.single-text-post  p{
 
 		margin: 0px;
+		font-weight: 400 !important;
+		line-height: 24px;
+		
 		/*padding-top: 16px;*/
 	}
+.single-text-post li{
 
+	font-weight: 400 !important;
+
+}
 
 	.single-text-post  div{
 
 		/*margin: 0px;*/
 		padding-top: 16px;
+
 	}
 
 	.single-text-post {
@@ -288,10 +304,15 @@
 		color: #A59890 !important;
 	}
 
-	.retour a{
-
-		text-decoration-line: none;
-		color: #A59890 !important;
+	.retour button{
+		font-size: 16px !important;
+		border: none !important;
+		background-color: white !important;
+		text-decoration-line: none !important;
+		font-weight: 400 !important;
+		color: #70625B !important;
+		padding-left: 0px !important;
+		margin-top: 0px !important;
 
 	}
 
@@ -328,6 +349,7 @@
 
 		.image-single-post {
 			/*height: 60vw;*/
+			min-width: 600px !important;
 			width: 60vw !important;
 		}
 
@@ -345,7 +367,7 @@
 
 		.single-text p{
 
-			line-height: 22px !important;
+			line-height: 24px !important;
 
 		}
 	}
@@ -382,7 +404,7 @@
 
 		}
 		.image-single-post {
-
+			min-width: auto !important;
 			width: calc(100vw - 60px) !important;
 
 		}

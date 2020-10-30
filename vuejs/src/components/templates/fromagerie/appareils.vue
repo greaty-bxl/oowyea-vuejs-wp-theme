@@ -2,7 +2,7 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-		<div class="globale-plateaux-fromages anchor">
+		<div class="globale-plateaux-fromages ">
 		
 			<div class="section-plateaux-fromages-plateaux-fromages">
 
@@ -15,7 +15,7 @@
 						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
 						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>
-						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Voir plus</a>  </p>
+						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">En savoir plus</a>  </p>
 
 					</swiper-slide>
 
@@ -54,16 +54,12 @@ export default {
 
 		console.log(this.wp.appareils);
 
-		// var $ = this.$
 
 		smart_fonts({
 			'.title-section-plateaux-fromages' : 25,
 			'.title-section-les-asortiments-de-fromages' : 25,
 		})
-
-        // console.log(this.wp.sections[2].acf_fields.a_propos_plateaux-fromages);
         
-
 		this.$emit('template_mounted', this);
 
 	},
@@ -108,9 +104,6 @@ export default {
 
 }
 }
-
-
-
 </script>
 
 <style>
@@ -127,12 +120,6 @@ export default {
 
 	min-height: auto;
 }
-
-#appareils .section-wrap{
-
-	padding-bottom: 120px;
-}
-
 </style>
 
 <style scoped >

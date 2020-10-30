@@ -15,7 +15,7 @@
 						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
 						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>
-						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">Ajouter au panier</a>  </p>
+						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">En savoir plus</a>  </p>
 
 
 					</swiper-slide>
@@ -175,6 +175,7 @@ export default {
 		text-align: left;
 		margin-left: 140px;
 		margin-bottom: 5vh;
+		color: #70625B;
 		/*margin-top: 0px !important;*/
 		margin-top: 5vh;
 		/*padding-top: 4vh;*/
@@ -249,8 +250,6 @@ export default {
 			text-align: left !important;
 
 		}
-
-
 
 
 	}

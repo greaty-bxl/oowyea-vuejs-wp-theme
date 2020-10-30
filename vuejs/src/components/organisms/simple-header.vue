@@ -3,7 +3,7 @@
         <header>
 			<nav id="main-navbar-1" class="navbar navbar-default navbar-fixed-top">
 			<div class=" navbar-container">
-			<a><Acf field="logo" /></a>
+			<a class="logo-link"><Acf field="logo" /></a>
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<div class="menu_link" v-html="wp.menus['burger-menu']" >
@@ -74,8 +74,6 @@ export default {
 			$('.button-header').addClass('close-simple')
 		}
 
-
-
 	});
 
 	$('.button-header').click(function() {
@@ -129,7 +127,17 @@ export default {
 
 	});
 	
-// espace betwen list woocommerce and other pag
+// add link home to logo
+
+   var href_home = $('.menu-item-home').find('a').attr('href');
+
+   console.log(href_home);
+
+   $('.logo-link').attr('href', href_home);
+
+
+// end link home to logo
+
 
 	smart_fonts({
 		'.menu-item-type-post_type' : 22,
@@ -153,7 +161,7 @@ export default {
 	}
 	nav{
 		position: fixed;
-		z-index: 1000;
+		/*z-index: 1000;*/
 		/*width: 100%;*/
 	}
 
@@ -215,7 +223,7 @@ export default {
 	.button-header{
 
 		display: block;
-		z-index: 1000;
+		/*z-index: 1000;*/
 	}
 
 	.menu_link{
@@ -229,7 +237,7 @@ export default {
 		align-items: center;
 		justify-content: center;
 		background-color: #70625b;
-		z-index: 10000;
+		/*z-index: 10000;*/
 
 	}
 
@@ -270,7 +278,7 @@ export default {
 
 			nav{
 				position: static;
-				z-index: 1000;
+				/*z-index: 1000;*/
 				margin: 0px !important; 
 			}
 

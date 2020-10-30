@@ -18,7 +18,7 @@
 					<a href="">Instagram</a>
 				</div>
 				<div>
-					<a href="">livraison</a>
+					<a href="">Livraison</a>
 					<a href="">Politique de confidentialité</a>
 					<a href="">Fromagerie Westland © 2020</a>
 				</div>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <div id="fullpage" class="page sections" v-for="(page, key) in pages" :key="key" :data-state="key">
+    <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
       <div class="section" 
         v-for="(section, key2) in page" 
         :key="section.post_name" 
@@ -75,7 +75,14 @@ export default {
   data(){
     return {
       Templates: {},
-      pages:{'current':{},'next':{}}
+      pages:{
+        'current':{},
+        'next':{}
+      },
+      classes:{
+        'current': 'hello',
+        'next': 'bey',
+      }
     }
   },
   components: {
@@ -101,6 +108,7 @@ export default {
     console.log( 'App mounted' );    
     
     this.pages['current'] = this.wp.sections
+    this.classes['current'] = this.wp.body_class
 
     this.$store.commit({
         type: 'sections_load',
@@ -131,9 +139,7 @@ export default {
         $('#app').data('scrolling', 'new-page')
 
         get_new_page( this, event.href, (wp) => {
-
           
-
           //console.log( 'app get page', wp )
           let new_sections = wp.sections
           //this.wp = wp
@@ -143,6 +149,7 @@ export default {
 
           //console.log( 'app get page this', this.wp )
           this.pages['next'] = new_sections
+          this.classes['next'] = wp.body_class
           
           setTimeout( ()=>{
 
@@ -151,6 +158,7 @@ export default {
             animate_next_page( this, event.href, () => {
               
               this.pages['current'] = wp.sections
+              this.classes['current'] = wp.body_class
 
               this.$store.commit({
                 type: 'sections_load',
@@ -160,6 +168,7 @@ export default {
               setTimeout( ()=>{ 
                 
                 this.pages['next'] = {}
+                this.classes['next'] = ''
 
                 $('#app').data('scrolling', '')
 
@@ -175,7 +184,6 @@ export default {
 
       //replace body class
       let old_class = this.wp.body_class;
-      //console.log('old_class', old_class);
 
       function replace_body_class( new_class )
       {
@@ -184,12 +192,12 @@ export default {
         old_class = new_class
       }
 
-      this.$store.subscribe((mutation, state) => {
+      /*this.$store.subscribe((mutation, state) => {
         if( mutation.type == 'section_change' )
         {
           replace_body_class( state.wp.body_class )
         }        
-      })
+      })*/
 
       $(document).on('after_data_next_page', ()=> {
         replace_body_class( this.$store.state.wp.body_class );

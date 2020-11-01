@@ -15,3 +15,5 @@ include GREATY_TEMPLATE_PATH.'/libs/fromagerie/les-vins.php';
 include GREATY_TEMPLATE_PATH.'/libs/fromagerie/les-pains.php';
 
 include GREATY_TEMPLATE_PATH.'/libs/fromagerie/appareil.php';
+
+include GREATY_TEMPLATE_PATH.'/libs/fromagerie/count.php';

@@ -2,21 +2,23 @@
 	<div id="header" class="header-greaty">
         <header>
 			<nav id="main-navbar-1" class="navbar navbar-default navbar-fixed-top">
-			<div class=" navbar-container">
-			<a class="logo-link"><Acf field="logo" /></a>
+				<div class=" navbar-container">
+					<a class="logo-link"><Acf field="logo" /></a>
 
-			<div id="navbar" class="navbar-collapse collapse">
-				<div class="menu_link" v-html="wp.menus['burger-menu']" >
+					<div id="navbar" class="navbar-collapse collapse">
+						<div class="menu_link" v-html="wp.menus['burger-menu']" >
+						</div>
+					</div>
+
+					<div class="count" v-html="count"></div>
+
+					<div class="icon button-header close-simple">
+					<div class="burger"></div>
+					</div>
+
 				</div>
-			</div>
-
-	<div class="icon button-header close-simple">
-	<div class="burger"></div>
-	</div>
-
-			</div>
 			</nav>
-			</header>
+		</header>
 		<div class="clear"></div>
 
 	</div>
@@ -139,12 +141,20 @@ export default {
 // end link home to logo
 
 
+
 	smart_fonts({
 		'.menu-item-type-post_type' : 22,
 		
 	})
 
+	},
+
+	computed: {
+		count () {
+			return this.$store.state.wp.count
+		}
 	}
+
 
 }
 </script>
@@ -258,11 +268,26 @@ export default {
 
 	}
 
-			#navbar div {
-				position: fixed;
-				/*display: none*/
-				/*top: 50px;*/
-			}
+	#navbar div {
+		position: fixed;
+		/*display: none*/
+		/*top: 50px;*/
+	}
+
+	.count{
+
+		position: absolute;
+		display: block;
+		left: calc( 100% - 160px );
+		padding: 5px;
+		cursor: pointer;
+		background-color: #70625b;
+		z-index: 11000;
+		/* margin-top: 20px; */
+		top: 80px;
+		color: white;
+		border-radius: 20px;
+	}
 		@media screen and (max-width: 1100px) and (min-width: 600px) {
 
 			.menu_link{

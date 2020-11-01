@@ -13,7 +13,7 @@ function gtr_get_add_to_cart( ) {
 		// $plateaux_fromages = apply_filters( 'posts_results', $plateaux_fromages ) ;
 		//$add_to_cart = 'test';
 
-		$count = do_shortcode( 'owy_woo_get_cart_contents_count');
+		$count = do_shortcode( '[owy_woo_get_cart_contents_count]');
 
 		wp_vue_add_var('add_to_cart', $add_to_cart);
 		wp_vue_add_var('count', $count);

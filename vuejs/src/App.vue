@@ -309,6 +309,10 @@ html{
   z-index: 3000;
 }
 
+.page{
+  min-height: 100vh;
+}
+
 .page[data-state="next"]{
   z-index: 1000;
 }

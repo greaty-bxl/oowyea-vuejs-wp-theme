@@ -245,10 +245,10 @@ export default {
     }
   },
   computed: {
-    wp () {
+    /*wp () {
       //console.log(cap);
       return this.$store.state.wp
-    }
+    }*/
   }
 }
 </script>

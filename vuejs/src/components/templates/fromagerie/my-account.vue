@@ -48,8 +48,14 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
-	
-/*	#checkout button {
+
+	#my-account a{
+
+		color: #70625B;
+	}
+
+	/*
+	#my-account  button {
 
 		background-color: #70625B !important;
 		color: white !important;
@@ -67,7 +73,7 @@ export default {
 
 	}
 
-	#checkout button:hover {
+	#my-account  button:hover {
 
 		background-color: white !important;
 		color: #70625B !important;
@@ -83,7 +89,7 @@ export default {
 
 
 
-	#checkout input.button.alt{
+	#my-account  input.button.alt{
 
 		border: solid #70625B;
 		border-width: 1px;
@@ -92,7 +98,7 @@ export default {
 
 	}
 
-	#checkout input{
+	#my-account  input{
 
 		border: 1px solid #A59890 !important;
 		margin-top: 15px;
@@ -116,7 +122,7 @@ export default {
 		width: 100px;
 	}
 
-	#checkout .woocommerce{
+	#my-account  .woocommerce{
 
 		margin: 120px auto;
 		width: 50vw;
@@ -125,7 +131,7 @@ export default {
 
 	}
 
-	#checkout .woocommerce a{
+	#my-account  .woocommerce a{
 
 		text-decoration-line: none;
 		color: #70625B;
@@ -133,40 +139,37 @@ export default {
 
 	}
 
-	#checkout .woocommerce table.shop_table th{
+	#my-account  .woocommerce table.shop_table th{
 
 		color: #70625B;
 		font-size: 18px;
 	}
 
-	#checkout .woocommerce table.shop_table{
+	#my-account  .woocommerce table.shop_table{
 
 	border: 1px solid #A59890 !important;
 	}
 
-	#checkout .woocommerce table.shop_table td{
+	#my-account  .woocommerce table.shop_table td{
 
-		/*border: 1px solid #A59890 !important;*/
-	/*}*/
+		border: 1px solid #A59890 !important;
+	}
+	@media screen and (max-width: 600px){
 
-/*	@media screen and (max-width: 600px){
-
-		#checkout .woocommerce a{
+		#my-account  .woocommerce a{
 
 			text-decoration-line: none;
 			color: #70625B;
 			font-weight: bold;
 
-		}*/
-/**
-/*		#checkout .woocommerce{
+		}
+		#my-account  .woocommerce{
 
 			margin: 100px 30px;
 			width: auto;
 		
-		}*/
-
-/*		.woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
+		}
+	.woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
 
 			display: flex!important;
 			flex-direction: column;
@@ -181,8 +184,8 @@ export default {
 
 	
 
-	}
-*/
+	}*/
+
 
 </style>
 

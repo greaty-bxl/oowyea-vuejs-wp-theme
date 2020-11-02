@@ -411,6 +411,12 @@
 		border-radius: 0 !important;
 	}
 
+	.page
+	{
+
+		     min-height: auto; 
+	}
+
 
 
 </style>

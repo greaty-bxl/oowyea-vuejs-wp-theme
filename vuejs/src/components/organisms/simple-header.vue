@@ -10,7 +10,11 @@
 						</div>
 					</div>
 
-					<div class="count" v-html="count"></div>
+					<div class="count">
+						<a href="">
+							<p v-html="count" ></p>
+						</a>
+					</div>
 
 					<div class="icon button-header close-simple">
 					<div class="burger"></div>
@@ -133,14 +137,13 @@ export default {
 
    var href_home = $('.menu-item-home').find('a').attr('href');
 
-   console.log(href_home);
-
    $('.logo-link').attr('href', href_home);
-
 
 // end link home to logo
 
+	var last = $('.menu').children().last().find('a').attr('href');
 
+	$('.count').find('a').attr('href', last);
 
 	smart_fonts({
 		'.menu-item-type-post_type' : 22,
@@ -171,6 +174,7 @@ export default {
 	}
 	nav{
 		position: fixed;
+		z-index: 10;
 		/*z-index: 1000;*/
 		/*width: 100%;*/
 	}
@@ -247,7 +251,7 @@ export default {
 		align-items: center;
 		justify-content: center;
 		background-color: #70625b;
-		/*z-index: 10000;*/
+		z-index: 1000;
 
 	}
 
@@ -278,16 +282,46 @@ export default {
 
 		position: absolute;
 		display: block;
-		left: calc( 100% - 160px );
+		left: calc( 100% - 90px );
 		padding: 5px;
 		cursor: pointer;
 		background-color: #70625b;
 		z-index: 11000;
 		/* margin-top: 20px; */
-		top: 80px;
+		top: 9px;
 		color: white;
 		border-radius: 20px;
+		height: 16px;
+		width: 16px;
+		display: flex;
+		justify-content: center;
 	}
+
+	.count:hover {
+
+		background-color: white;
+		color: #70625b;
+		transition: 200;
+	
+	}
+
+	.count a{
+		text-decoration-line: none;
+	}
+
+	.count p{
+
+		font-size: 13px;
+		color: white;
+
+	}
+
+	.count p:hover{
+
+		color: #70625b;
+
+	}
+
 		@media screen and (max-width: 1100px) and (min-width: 600px) {
 
 			.menu_link{
@@ -331,10 +365,44 @@ export default {
 				width: 100vw;
 			}
 
+
+
+			.count {
+
+				left: calc( 100% - 155px );
+				padding: 5px;
+				cursor: pointer;
+				background-color: #70625b;
+				color: white;
+				border-radius: 20px;
+				height: 16px;
+				width: 16px;
+				display: flex;
+				justify-content: center;
+				top: 75px;
+			}
+
 		}
 
 
 		@media screen and (max-width: 600px){
+
+
+			.count {
+
+				left: calc( 100% - 110px );
+				padding: 5px;
+				cursor: pointer;
+				z-index: 11000;
+				/* margin-top: 20px; */
+				top: 35px;
+				color: white;
+				border-radius: 20px;
+				height: 16px;
+				width: 16px;
+				display: flex;
+				justify-content: center;
+				}
 
 			nav{
 				position: static;

@@ -166,20 +166,27 @@ export default {
                 type: 'sections_load',
                 sections: this.pages['current'],
               })
-            
-              setTimeout( ()=>{                 
+              
+              
 
-                $('#app').data('scrolling', '')
+              setTimeout( ()=>{
 
                 init_scrolltop(this)
 
-                this.pages['next'] = {}
-                this.classes['next'] = ''
-                
-                
-                $(document).trigger('after_next_page')
+                setTimeout( ()=>{
 
-              }, 50)
+                  $('#app').data('scrolling', '')
+
+                  this.pages['next'] = {}
+                  this.classes['next'] = ''
+
+                  $(document).trigger('after_next_page')
+                }, 250 )
+                
+                
+                
+
+              }, 1)
             })
           },1)
         })

@@ -1,27 +1,29 @@
 <template>
   <div id="app">
     <Header/>
-    <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
-      <div class="section" 
-        v-for="(section, key2) in page" 
-        :key="section.post_name" 
-        :id="section.post_name" 
-        :data-permalink="section.permalink"
-        :data-index="key2"
-        :data-title="section.post_title"
-        :style="section.style" >
-          <component   
-            :section="section" 
-            :is="Templates[section.template]"
-            :post="section" 
-            :posts="section.children" 
-            :tag="wp.wp_query.queried_object"
-            :cat="wp.wp_query.queried_object"
-            :author="wp.wp_query.queried_object"
-            :s="wp.wp_query.query_vars.s"
-            @template_mounted="template_mounted" 
-            class="section-wrap" ></component>
+    <div id="pages">
+      <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
+        <div class="section" 
+          v-for="(section, key2) in page" 
+          :key="section.post_name" 
+          :id="section.post_name" 
+          :data-permalink="section.permalink"
+          :data-index="key2"
+          :data-title="section.post_title"
+          :style="section.style" >
+            <component   
+              :section="section" 
+              :is="Templates[section.template]"
+              :post="section" 
+              :posts="section.children" 
+              :tag="wp.wp_query.queried_object"
+              :cat="wp.wp_query.queried_object"
+              :author="wp.wp_query.queried_object"
+              :s="wp.wp_query.query_vars.s"
+              @template_mounted="template_mounted" 
+              class="section-wrap" ></component>
 
+        </div>
       </div>
     </div>
     <!-- Footer -->
@@ -126,7 +128,7 @@ export default {
       scrollSection(this)
 
       //init scroll if child
-      init_scrolltop(this)
+      //init_scrolltop(this)
 
       //navigate in the website
       links_and_anchors(this)
@@ -165,43 +167,44 @@ export default {
                 sections: this.pages['current'],
               })
             
-              setTimeout( ()=>{ 
-                
-                this.pages['next'] = {}
-                this.classes['next'] = ''
+              setTimeout( ()=>{                 
 
                 $('#app').data('scrolling', '')
 
                 init_scrolltop(this)
+
+                this.pages['next'] = {}
+                this.classes['next'] = ''
+                
                 
                 $(document).trigger('after_next_page')
 
-              }, 1)
+              }, 50)
             })
           },1)
         })
       });
 
       //replace body class
-      let old_class = this.wp.body_class;
+      //let old_class = this.wp.body_class;
 
-      function replace_body_class( new_class )
+      /*function replace_body_class( new_class )
       {
         $('body').removeClass(old_class) 
         $('body').addClass(new_class) 
         old_class = new_class
-      }
+      }*/
 
       /*this.$store.subscribe((mutation, state) => {
         if( mutation.type == 'section_change' )
         {
           replace_body_class( state.wp.body_class )
         }        
-      })*/
+      })
 
       $(document).on('after_data_next_page', ()=> {
         replace_body_class( this.$store.state.wp.body_class );
-      });
+      });*/
 
 
 
@@ -309,7 +312,7 @@ html{
   z-index: 3000;
 }
 
-.page{
+#pages{
   min-height: 100vh;
 }
 

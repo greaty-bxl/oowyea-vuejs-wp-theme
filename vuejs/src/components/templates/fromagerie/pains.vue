@@ -12,7 +12,9 @@
 
 					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.les_pains" :key="child.ID"  >
 
-						<a target="_blank" :href="child.permalink"><img  class="image-plateaux-fromages" height="100%" width="100%" :src="child.thumb"></a>
+						<a target="_blank" :href="child.permalink">
+							<img  class="image-plateaux-fromages swiper-lazy" height="100%" width="100%" :data-src="child.thumb">
+						</a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
 						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>
 						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">En savoir plus</a>  </p>
@@ -77,29 +79,35 @@ export default {
 		return {
 
 			swiperOption10: {
-			initialSlide: 0,		
-			loop: false,
-			allowTouchMove: true,
-			runCallbacksOnInit: true,
-			watchSlidesProgress: true,
-			watchSlidesVisibility: true,
-			speed: 700,
-			reachEnd: true,
-	
-			breakpoints: {
-			// when window width is >= 320px
-			1100: {
-			slidesPerView: 3.5,
+				initialSlide: 0,	
 
-			},
+				// Disable preloading of all images
+				// Enable lazy loading
+				preloadImages: false,
+				lazy: true,
+					
+				loop: false,
+				allowTouchMove: true,
+				runCallbacksOnInit: true,
+				watchSlidesProgress: true,
+				watchSlidesVisibility: true,
+				speed: 700,
+				reachEnd: true,
+		
+				breakpoints: {
+				// when window width is >= 320px
+				1100: {
+				slidesPerView: 3.5,
 
-			400: {
-			slidesPerView: 1.7,
-			},
+				},
 
-			100: {
-			slidesPerView: 1.1,
-			},
+				400: {
+				slidesPerView: 1.7,
+				},
+
+				100: {
+				slidesPerView: 1.1,
+				},
 
 
 			}

@@ -73,7 +73,7 @@ export default {
 
 	name: 'swiper-example-default',
 	title: 'Default',
-	init: false,
+	init: true,
 	
 	data () {
 		return {

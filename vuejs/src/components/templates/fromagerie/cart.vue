@@ -46,10 +46,10 @@ export default {
 
 <style>
 
-	#cart.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
+	#cart.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt a{
 
 		background-color: #70625B;
-		color: white;
+		color: white !important;
 		border-width: 0;
 		margin-top: 16px;
 		border: solid #70625B;
@@ -65,16 +65,22 @@ export default {
 
 	}
 
+	#cart button:hover{
+
+		background-color: white !important;
+		color: #70625B  !important;
+	}
+
 	#cart button{
 
 		background-color: #70625B;
 		color: white;
 		border-width: 0;
-		margin-top: 16px;
+		/*margin-top: 16px;*/
 		border: solid #70625B;
 		border-width: 1px;
-		padding-top: 10px;
-		padding-bottom: 10px;
+		padding-top: 20px;
+		padding-bottom: 20px;
 		line-height: 0;
 		border-radius: 0px;
 
@@ -91,7 +97,7 @@ export default {
 	#cart.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
 
 		background-color: white;
-		color: #70625B;
+		color: #70625B !important;
 		transition: 200;
 
 	}
@@ -147,6 +153,17 @@ export default {
 
 	@media screen and (max-width: 600px){
 
+		#cart button{
+
+
+			margin-top: 16px;
+			width: 50%;
+			margin-left: auto;
+			margin-right: auto;
+
+
+		}
+
 		#cart.woocommerce a{
 
 			text-decoration-line: none;
@@ -193,31 +210,32 @@ export default {
 		}
 
 	}
-	@media screen and (max-width: 1100px) and (min-width: 600px){
+		@media screen and (max-width: 1100px) and (min-width: 600px){
 
-		#cart .woocommerce{
+			#cart .woocommerce{
 
-		margin: 150px 70px !important;
-		width: calc(100% - 140px)!important;
+			margin: 150px 70px !important;
+			width: calc(100% - 140px)!important;
+			padding-top: 100px;
+
+			}
+
+			#cart .section-wrap{
+
+				min-height: auto !important;
+			}
+
+			#cart{
+
+				min-height: auto !important;
+			}
+
 
 		}
-
-		#cart .section-wrap{
-
-			min-height: auto !important;
-		}
-
-		#cart{
-
-			min-height: auto !important;
-		}
-	}
 
 	#cart .woocommerce{
-
 		margin: 120px auto;
 		width: 50vw;
-
 	}
 
 

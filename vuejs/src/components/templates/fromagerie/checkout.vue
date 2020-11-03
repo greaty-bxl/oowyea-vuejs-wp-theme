@@ -58,13 +58,10 @@ export default {
 		border: solid #70625B;
 		border-width: 1px;
 		min-width: 200px;
-		width: 40%;
 		padding-top: 25px;
 		padding-bottom: 25px;
 		line-height: 0;
 		border-radius: 0px;
-
-
 
 	}
 
@@ -141,16 +138,16 @@ export default {
 		font-size: 18px;
 	}
 
-	#checkout .woocommerce table.shop_table{
+/*	#checkout .woocommerce table.shop_table{
 
 	border: 1px solid #A59890 !important;
 	}
-
-	#checkout .woocommerce table.shop_table td{
+*/
+/*	#checkout .woocommerce table.shop_table td{
 
 		border: 1px solid #A59890 !important;
 	}
-
+*/
 	@media screen and (max-width: 600px){
 
 		#checkout .woocommerce a{
@@ -214,6 +211,15 @@ export default {
 
 	}
 
+/*	#checkout .woocommerce table.shop_table td{
+
+		border: none !important;
+	}*/
+
+	#checkout .woocommerce .shop_table  {
+		border: 1px solid #70625B !important;
+	}
+	
 
 </style>
 

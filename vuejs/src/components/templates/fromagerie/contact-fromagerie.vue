@@ -20,6 +20,7 @@
 
 							<div>
 								<p class="sous-titre-contact">Horaires</p> 
+								<p class="text-sous-titre-contact">Lun-Sam:9h-19h<br/>Vendredi:9h-20h</p>
 							</div>
 					
 						</div>
@@ -407,12 +408,6 @@ font-weight: 500;
 		}
 	}
 
-	@media screen and (max-width: 600px){
-
-
-
-
-	}
 
 </style>
 

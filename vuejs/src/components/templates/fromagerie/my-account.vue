@@ -49,12 +49,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
 
-	#my-account a{
 
-		color: #70625B;
-	}
-
-	/*
+	
 	#my-account  button {
 
 		background-color: #70625B !important;
@@ -122,12 +118,16 @@ export default {
 		width: 100px;
 	}
 
-	#my-account  .woocommerce{
+	#my-account .woocommerce{
 
-		margin: 120px auto;
-		width: 50vw;
+		margin-top: 70px;
+		min-height: calc(100vh - 120px);
+		display: flex;
+	}
 
-	
+	#my-account nav{
+
+		position: static !important;
 
 	}
 
@@ -137,6 +137,27 @@ export default {
 		color: #70625B;
 		font-weight: 500;
 
+	}
+
+	#my-account .woocommerce-MyAccount-navigation{
+
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: auto;
+
+	}
+
+	#my-account .woocommerce-MyAccount-content{
+
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-right: auto;
+
+	}
+
+	.woocommerce-account .woocommerce-MyAccount-content{
+
+		width: 40%;
 	}
 
 	#my-account  .woocommerce table.shop_table th{
@@ -154,6 +175,7 @@ export default {
 
 		border: 1px solid #A59890 !important;
 	}
+
 	@media screen and (max-width: 600px){
 
 		#my-account  .woocommerce a{
@@ -182,10 +204,37 @@ export default {
 			text-align: center;
 		}
 
+	}
+	@media screen and (max-width: 1100px) and (min-width: 600px){
+
+		#my-account .woocommerce {
+		    margin-top: 70px;
+		    min-height: calc(100vh - 120px);
+		    display: flex;
+		    flex-direction: column;
+		}
+
+		#my-account .woocommerce-MyAccount-content{
+
+			margin-left: auto;
+			width: 80%;
+
+		}
+
+		#my-account .woocommerce-MyAccount-navigation{
+
+			padding-top: 120px;
+		}
+
+		#my-account .woocommerce-account .woocommerce-MyAccount-content {
+		    width: 80%;
+		}
+
+	}	
+
+
+
 	
-
-	}*/
-
 
 </style>
 

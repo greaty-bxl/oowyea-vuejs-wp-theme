@@ -65,6 +65,11 @@ export default {
 
 	}
 
+	.woocommerce #content table.cart td.actions .input-text, .woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text {
+
+		width: 150px;
+	}
+
 	#cart button:hover{
 
 		background-color: white !important;
@@ -207,6 +212,11 @@ export default {
 			padding-top: 20px;
 			padding-bottom: 20px;
 
+		}
+
+		#cart button{
+
+		width: 70%;
 		}
 
 	}

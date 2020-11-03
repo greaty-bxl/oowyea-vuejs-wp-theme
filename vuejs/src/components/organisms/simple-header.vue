@@ -296,15 +296,6 @@ export default {
 		display: flex;
 		justify-content: center;
 	}
-
-	.count:hover {
-
-		background-color: white;
-		color: #70625b;
-		transition: 200;
-	
-	}
-
 	.count a{
 		text-decoration-line: none;
 	}
@@ -316,11 +307,6 @@ export default {
 
 	}
 
-	.count p:hover{
-
-		color: #70625b;
-
-	}
 
 		@media screen and (max-width: 1100px) and (min-width: 600px) {
 

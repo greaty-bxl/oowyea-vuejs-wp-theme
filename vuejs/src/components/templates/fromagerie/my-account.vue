@@ -176,6 +176,12 @@ export default {
 		border: 1px solid #A59890 !important;
 	}
 
+
+	#my-account .woocommerce-MyAccount-navigation ul{
+
+	padding-left: 0px;
+	}
+
 	@media screen and (max-width: 600px){
 
 		#my-account  .woocommerce a{
@@ -189,9 +195,9 @@ export default {
 
 			margin: 100px 30px;
 			width: auto;
-		
+
 		}
-	.woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
+		.woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
 
 			display: flex!important;
 			flex-direction: column;
@@ -203,15 +209,47 @@ export default {
 			width: 100%;
 			text-align: center;
 		}
+		#my-account .woocommerce {
+			margin-top: 70px;
+			min-height: calc(100vh - 120px);
+			display: flex;
+			flex-direction: column;
+		}
+
+		#my-account .woocommerce-MyAccount-content{
+
+			margin-left: auto;
+			width: 95%;
+
+		}
+
+		#my-account .woocommerce-MyAccount-navigation{
+
+			padding-top: 50px;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			padding-bottom: 50px;
+		}
+
+		#my-account .woocommerce-account .woocommerce-MyAccount-content {
+
+			width: 80%;
+			
+		}
+
+		#my-account .woocommerce ul{
+
+			padding-left: 0px;
+		}
 
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 
 		#my-account .woocommerce {
-		    margin-top: 70px;
-		    min-height: calc(100vh - 120px);
-		    display: flex;
-		    flex-direction: column;
+			margin-top: 70px;
+			min-height: calc(100vh - 120px);
+			display: flex;
+			flex-direction: column;
 		}
 
 		#my-account .woocommerce-MyAccount-content{
@@ -224,17 +262,27 @@ export default {
 		#my-account .woocommerce-MyAccount-navigation{
 
 			padding-top: 120px;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			padding-bottom: 50px;
 		}
 
 		#my-account .woocommerce-account .woocommerce-MyAccount-content {
-		    width: 80%;
+
+			width: 80%;
+
 		}
 
-	}	
+	}
+
+
+#app{
+
+	pointer-events: initial !important;
+}
 
 
 
-	
 
 </style>
 

@@ -73,7 +73,6 @@ export default {
 
 			swiperOption10: {
 			initialSlide: 0,		
-			loop: true,
 			allowTouchMove: true,
 			runCallbacksOnInit: true,
 			watchSlidesProgress: true,

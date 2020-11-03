@@ -51,8 +51,10 @@
 						<div class="contener-contact-child" >
 
 							<div>
-								<p class="sous-titre-contact">Aide</p> 
-								<p class="text-sous-titre-contact" >Politique de confidentialité</p>
+								<p class="sous-titre-contact">Aide</p>
+								<a class="text-sous-titre-contact" target="_blank"  href="">Politique de confidentialité</a>
+								<a class="text-sous-titre-contact" target="_blank" href="">Livraison</a>
+								
 							</div>
 
 							<div>

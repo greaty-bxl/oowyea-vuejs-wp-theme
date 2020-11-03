@@ -9,10 +9,13 @@ export default function(vue){
 		var current_location = remove_get_from_url( window.location.href )
 
 		var section = $('.section[data-permalink="'+current_location+'"]')
-
+		if( section.length == 0 )
+		{
+			section = $('.section').first() 
+		}
 		//console.log('scrolltop init', section);
 
-		if( $('#app') && section )
+		if( $('#app') && section.length )
 		{
 			//$('#app').css('', 'value');
 			$('#app').css('pointer-events', 'none');

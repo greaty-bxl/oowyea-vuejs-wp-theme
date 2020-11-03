@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <div id="pages">
+    <!-- <div id="pages"> -->
       <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
         <div class="section" 
           v-for="(section, key2) in page" 
@@ -22,10 +22,9 @@
               :s="wp.wp_query.query_vars.s"
               @template_mounted="template_mounted" 
               class="section-wrap" ></component>
-
         </div>
       </div>
-    </div>
+    <!-- </div> -->
     <!-- Footer -->
     <Footer/>
     <div id="page-loader">
@@ -82,8 +81,8 @@ export default {
         'next':{}
       },
       classes:{
-        'current': 'hello',
-        'next': 'bey',
+        'current': '',
+        'next': '',
       }
     }
   },
@@ -166,8 +165,6 @@ export default {
                 type: 'sections_load',
                 sections: this.pages['current'],
               })
-              
-              
 
               setTimeout( ()=>{
 
@@ -182,9 +179,6 @@ export default {
 
                   $(document).trigger('after_next_page')
                 }, 250 )
-                
-                
-                
 
               }, 1)
             })
@@ -245,10 +239,10 @@ export default {
     }
   },
   computed: {
-    /*wp () {
+    wp () {
       //console.log(cap);
       return this.$store.state.wp
-    }*/
+    }
   }
 }
 </script>
@@ -319,9 +313,9 @@ html{
   z-index: 3000;
 }
 
-#pages{
+/*#pages{
   min-height: 100vh;
-}
+}*/
 
 .page[data-state="next"]{
   z-index: 1000;

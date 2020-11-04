@@ -1,9 +1,7 @@
 <template>
-	<div id="footer" class="section">
+	<div id="footer-2" class="section-footer">
 		<div class="clear"></div>
 
-		<section>	
-			<footer>
 
 			<div class="contener-header">
 				<div>
@@ -24,10 +22,7 @@
 				</div>
 			</div>
 
-			</footer>
-
-		</section>
-		
+	
 		<div class="clear"></div>
 	</div>
 </template>
@@ -63,6 +58,7 @@
 
 <style>
 
+
 	.contener-header a{
 
 		text-decoration-line: none;
@@ -93,14 +89,15 @@
 
 	}
 
-	footer{
+	#footer-2{
 
 		padding-left: 70px;
 		padding-right: 70px;
 		font-size: 14px;
+		/*min-height: auto !important;*/
 	}
 
-	footer *{
+	#footer-2 *{
 
 		font-size: 14px !important;
 		line-height: 25px;
@@ -113,7 +110,7 @@
 
 	@media screen and ( max-width: 600px){
 
-		footer{
+		#footer-2{
 
 			padding-left: 30px;
 			padding-right: 30px;
@@ -125,7 +122,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			/*padding-bottom: 30px;*/
+			
 		}
 
 		
@@ -142,11 +139,14 @@
 	}
 
 </style>
-<style scoped>
 
-	.section{
+<style scoped>
+	
+/*	.section-footer{
 
 		min-height: auto;
-	}
-	
+		opacity: 1;
+	}*/
+
+
 </style>

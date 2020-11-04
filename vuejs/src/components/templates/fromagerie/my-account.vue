@@ -60,7 +60,7 @@ export default {
 		border: solid #70625B;
 		border-width: 1px;
 		min-width: 200px;
-		width: 40%;
+		/*width: 40%;*/
 		padding-top: 25px;
 		padding-bottom: 25px;
 		line-height: 0;
@@ -180,7 +180,55 @@ export default {
 	#my-account .woocommerce-MyAccount-navigation ul{
 
 	padding-left: 0px;
+
 	}
+
+	#my-account .edit{
+
+		padding-right: 10px !important;
+		padding-top: 5px !important;
+		padding-left: 10px !important;
+		padding-bottom: 5px !important;
+		color: white !important;
+		background-color: #70625B !important;
+		border: solid #70625B;
+		border-width: 1px;
+	}
+
+	#my-account .edit:hover{
+
+		color: #70625B!important;
+		background-color: white!important;
+	}
+
+	#my-account .woocommerce-MyAccount-content {
+
+		/*text-align: left;*/
+	}
+
+	#my-account .woocommerce-MyAccount-content p {
+
+		/*margin-top: 16px;*/
+	}
+
+    #my-account header{
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 16px;
+		padding-bottom: 16px;
+
+	}
+
+
+	#my-account .woocommerce-MyAccount-content a{
+
+		/*color: #70625b !important;*/
+		font-weight: 600;
+	}
+
+
 
 	@media screen and (max-width: 600px){
 
@@ -274,12 +322,6 @@ export default {
 		}
 
 	}
-
-
-#app{
-
-	pointer-events: initial !important;
-}
 
 
 

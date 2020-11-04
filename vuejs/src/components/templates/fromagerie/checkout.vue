@@ -101,6 +101,12 @@ export default {
 
 	}
 
+	#checkout .shop_table td{
+
+		font-size: 16px !important;
+	}
+
+
 
 	.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
 

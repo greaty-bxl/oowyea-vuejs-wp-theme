@@ -149,7 +149,6 @@
 
 	background-color: #70625B;
 	color: white;
-	border-width: 0;
 	margin-top: 35px;
 	border: solid #70625B;
 	border-width: 1px;

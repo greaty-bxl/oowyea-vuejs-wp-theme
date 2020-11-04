@@ -93,6 +93,7 @@ function is_hierarchical_template($name)
     }
     get_vue_templates(GREATY_TEMPLATE_PATH.'/vuejs/src/components/templates');
 
+    define( 'WP_DEBUG', true );
     /*echo "<pre>";
     print_r( $vue_hierarchy );
     echo "<pre>";

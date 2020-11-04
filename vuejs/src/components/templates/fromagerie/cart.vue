@@ -162,9 +162,10 @@ export default {
 
 
 			margin-top: 16px;
-			width: 50%;
+			width: 100% !important;
 			margin-left: auto;
 			margin-right: auto;
+			font-size: 16px !important;
 
 
 		}
@@ -216,7 +217,7 @@ export default {
 
 		#cart button{
 
-		width: 70%;
+			width: 70%;
 		}
 
 	}

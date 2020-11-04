@@ -1,5 +1,5 @@
 <template>
-	<div id="footer-2" class="section-footer">
+	<div id="footer" class="section">
 		<div class="clear"></div>
 
 
@@ -89,15 +89,15 @@
 
 	}
 
-	#footer-2{
+	#footer{
 
 		padding-left: 70px;
 		padding-right: 70px;
 		font-size: 14px;
-		/*min-height: auto !important;*/
+		min-height: auto !important;
 	}
 
-	#footer-2 *{
+	#footer *{
 
 		font-size: 14px !important;
 		line-height: 25px;
@@ -110,7 +110,7 @@
 
 	@media screen and ( max-width: 600px){
 
-		#footer-2{
+		#footer{
 
 			padding-left: 30px;
 			padding-right: 30px;

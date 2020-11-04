@@ -41,9 +41,6 @@ function scrollSection(vue){
 			let relative_top = $(el).offset().top + app_scrollTop
 			let relative_bottom = relative_top + $(el).outerHeight()
 			let app_relative_bottom = app_scrollTop + $('#app').outerHeight()
-			
-			//console.log( $(el).prop('id'), relative_top , $('#app').scrollTop() );
-			//console.log( $(el).prop('id'), relative_bottom , $('#app').scrollTop() + $('#app').outerHeight() + 2 );
 
 			if( (
 					is.within(relative_top, app_scrollTop - 5, app_scrollTop + 5 )
@@ -379,23 +376,25 @@ function scrollSection(vue){
 			'duration': duration
 		})
 
-		/*anime({
+		anime({
 			targets: '#app',
 			scrollTop: new_top,
 			duration: duration,
 			easing: 'easeInOutQuad',
 			complete: function() {
 				animating = false
-				$('#app').css('scrolltop', new_top + 'px');
-
+				
 				$('#app').trigger({
 					'type': 'after_scroll_to_section',
 					'new_top': new_top,
+					'current' : window.current_section,
+					'next' : next,
+					'duration': duration,
 				})
 			}
-		});*/
+		});
 
-		$('#app').velocity({
+		/*$('#app').velocity({
 			tween: [new_top, $('#app').scrollTop()],
 		}, {
 			easing: "easeInOutQuad",
@@ -413,10 +412,9 @@ function scrollSection(vue){
 					'current' : window.current_section,
 					'next' : next,
 					'duration': duration,
-
 				})
 			}
-		});
+		});*/
 
 		//$('#app').scrollTop( new_top );
 
@@ -595,9 +593,6 @@ function scrollSection(vue){
 			}
 		});
 
-		// $('#app').css('overflow-y', 'auto');
-
-		$('#app').scrollTop( 1000 )
 	}
 	else
 	{

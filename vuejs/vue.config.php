@@ -2,7 +2,7 @@
 
 define('is_vuejs_dev', false);
 define('vuejs_server', 'http://localhost:8080/');
-define( 'WP_DEBUG', true );
+// define( 'WP_DEBUG', true );
 
 //Register Vue.js templates components 
 

@@ -57,7 +57,7 @@ export default {
 
 		console.log(this.wp.plateaux_fromages);
 
-		// var $ = this.$
+		
 
 		smart_fonts({
 			'.title-section-plateaux-fromages' : 25,

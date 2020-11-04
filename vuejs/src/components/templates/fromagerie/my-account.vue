@@ -1,14 +1,16 @@
 <template>
 
+	<div>
+	<h5 class="title-compte">Mon compte</h5>
 	<div v-html="post.post_content" >
-
+	</div>	
 	</div>
 
 </template>
 
 <script>
 
-// import smart_fonts from 'Libs/smart-fonts.js';
+import smart_fonts from 'Libs/smart-fonts.js';
 // import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 // import 'swiper/css/swiper.css';
 
@@ -28,10 +30,12 @@ export default {
 
 
 	mounted(){
-
 	
 		this.$emit('template_mounted', this);
 		console.log(this.wp);
+		smart_fonts({
+			'.title-compte' : 25,
+		})
 
 	},
 
@@ -48,8 +52,17 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
+	
+	#my-account .woocommerce-MyAccount-navigation-link--edit-address a{
+ 
+		display: none !important;
+	}
 
 
+	#my-account .is-active{
+
+
+	}
 	
 	#my-account  button {
 
@@ -120,8 +133,8 @@ export default {
 
 	#my-account .woocommerce{
 
-		margin-top: 70px;
-		min-height: calc(100vh - 120px);
+		margin-top: 5vh;
+		/*min-height: calc(100vh - 230px);*/
 		display: flex;
 	}
 
@@ -259,7 +272,7 @@ export default {
 		}
 		#my-account .woocommerce {
 			margin-top: 70px;
-			min-height: calc(100vh - 120px);
+			/*min-height: calc(100vh - 120px);*/
 			display: flex;
 			flex-direction: column;
 		}
@@ -273,7 +286,7 @@ export default {
 
 		#my-account .woocommerce-MyAccount-navigation{
 
-			padding-top: 50px;
+			padding-top: 0px;
 			margin-left: auto !important;
 			margin-right: auto !important;
 			padding-bottom: 50px;
@@ -290,12 +303,17 @@ export default {
 			padding-left: 0px;
 		}
 
+		.title-compte{
+			font-size: 22px !important;
+			margin-left: 30px !important;
+		}
+
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 
 		#my-account .woocommerce {
 			margin-top: 70px;
-			min-height: calc(100vh - 120px);
+			/*min-height: calc(100vh - 120px);*/
 			display: flex;
 			flex-direction: column;
 		}
@@ -309,10 +327,10 @@ export default {
 
 		#my-account .woocommerce-MyAccount-navigation{
 
-			padding-top: 120px;
+			/*padding-top: 120px;*/
 			margin-left: auto !important;
 			margin-right: auto !important;
-			padding-bottom: 50px;
+			padding-bottom: 100px;
 		}
 
 		#my-account .woocommerce-account .woocommerce-MyAccount-content {
@@ -321,10 +339,56 @@ export default {
 
 		}
 
+
+		.title-compte{
+
+			margin-left: 70px !important;
+			text-align: left !important;
+
+		}
+
+
 	}
 
 
 
+	.title-compte{
+
+		text-align: left;
+		margin-left: 140px;
+		margin-bottom: 5vh;
+		/*margin-top: 0px !important;*/
+		margin-top: 100px;
+		padding-top: 5vh;
+		color: #70625B;
+		font-weight: 500;
+
+
+	}
+
+
+	@media screen and (max-width: 4000px) and (min-width: 1700px){
+
+		.title-compte{
+
+			margin-bottom: 7vh;
+			padding-top: 7vh;
+
+		}
+
+	}
+
+
+/*	@media screen and (max-width: 4000px) and (min-width: 1400px){
+
+		.title-compte{
+			padding-top: 100px;
+			margin-bottom: 7vh;
+			margin-top: 7vh;
+
+		}
+
+	}*/
 
 </style>
 

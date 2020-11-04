@@ -1,6 +1,12 @@
 <template>
 
-	<div v-html="post.post_content" >
+	<div>
+
+		<h5 class="title-compte">Mon panier</h5>
+		<div v-html="post.post_content">
+
+	</div>
+	
 
 	</div>
 
@@ -8,7 +14,7 @@
 
 <script>
 
-// import smart_fonts from 'Libs/smart-fonts.js';
+import smart_fonts from 'Libs/smart-fonts.js';
 // import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 // import 'swiper/css/swiper.css';
 
@@ -32,6 +38,10 @@ export default {
 	
 		this.$emit('template_mounted', this);
 		console.log(this.wp);
+		smart_fonts({
+			'.title-compte' : 25,
+		})
+
 
 	},
 
@@ -114,7 +124,7 @@ export default {
 
 	#cart.woocommerce{
 
-		margin: 120px auto;
+		margin: 5vh auto;
 		width: 50vw;
 
 	}
@@ -155,6 +165,28 @@ export default {
 		color: #70625B;
 		font-size: 18px;
 	}
+
+	
+	#cart .woocommerce{
+		margin: 5vh auto;
+		width: 50vw;
+	}
+
+
+	.title-compte{
+
+	text-align: left;
+	margin-left: 140px;
+	margin-bottom: 5vh;
+	/*margin-top: 0px !important;*/
+	margin-top: 100px;
+	padding-top: 5vh;
+	color: #70625B;
+	font-weight: 500;
+
+
+	}
+
 
 	@media screen and (max-width: 600px){
 
@@ -220,14 +252,19 @@ export default {
 			width: 70%;
 		}
 
+		.title-compte{
+			font-size: 22px !important;
+			margin-left: 30px !important;
+		}
+
 	}
 		@media screen and (max-width: 1100px) and (min-width: 600px){
 
 			#cart .woocommerce{
 
-			margin: 150px 70px !important;
+			/*margin: 150px 70px !important;*/
 			width: calc(100% - 140px)!important;
-			padding-top: 100px;
+			/*padding-top: 100px;*/
 
 			}
 
@@ -241,13 +278,16 @@ export default {
 				min-height: auto !important;
 			}
 
+			.title-compte{
+
+				margin-left: 70px !important;
+				text-align: left !important;
+
+			}
+
 
 		}
 
-	#cart .woocommerce{
-		margin: 120px auto;
-		width: 50vw;
-	}
 
 
 </style>

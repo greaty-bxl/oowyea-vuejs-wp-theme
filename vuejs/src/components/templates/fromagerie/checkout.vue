@@ -1,14 +1,18 @@
 <template>
 
-	<div v-html="post.post_content" >
-
+	<div>
+		<h5 class="title-home">Paiement</h5>
+		<div v-html="post.post_content" >
+		</div>
 	</div>
+	
+
 
 </template>
 
 <script>
 
-// import smart_fonts from 'Libs/smart-fonts.js';
+import smart_fonts from 'Libs/smart-fonts.js';
 // import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 // import 'swiper/css/swiper.css';
 
@@ -33,6 +37,10 @@ export default {
 		this.$emit('template_mounted', this);
 		console.log(this.wp);
 
+			smart_fonts({
+			'.title-home' : 25,
+		})
+
 	},
 
 
@@ -48,7 +56,13 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
-	
+	#checkout h3{
+
+		font-size: 16px;
+		color: #70625B
+
+	}
+
 	#checkout button {
 
 		background-color: #70625B !important;
@@ -62,6 +76,7 @@ export default {
 		padding-bottom: 25px;
 		line-height: 0;
 		border-radius: 0px;
+		margin-bottom: 16px;
 
 	}
 
@@ -123,7 +138,7 @@ export default {
 
 	#checkout .woocommerce{
 
-		margin: 120px auto;
+		margin: 5vh auto;
 		width: 50vw;
 
 	
@@ -143,6 +158,8 @@ export default {
 		color: #70625B;
 		font-size: 18px;
 	}
+
+
 
 /*	#checkout .woocommerce table.shop_table{
 
@@ -193,7 +210,19 @@ export default {
 			min-height: auto !important;
 		}
 
-	
+		#checkout button {
+
+			min-width: 250px;
+			font-size: 16px;
+
+		}
+
+		.title-home{
+			font-size: 22px !important;
+			margin-left: 30px !important;
+		}
+
+
 	}
 
 	@media screen and (max-width: 1100px) and (min-width: 600px){
@@ -215,6 +244,28 @@ export default {
 			min-height: auto !important;
 		}
 
+
+		.title-home{
+
+			margin-left: 70px !important;
+			text-align: left !important;
+
+		}
+
+	}
+
+	.title-home{
+
+		text-align: left;
+		margin-left: 140px;
+		margin-bottom: 5vh;
+		/*margin-top: 0px !important;*/
+		margin-top: 100px;
+		padding-top: 5vh;
+		color: #70625B;
+		font-weight: 500;
+
+
 	}
 
 /*	#checkout .woocommerce table.shop_table td{
@@ -225,6 +276,18 @@ export default {
 	#checkout .woocommerce .shop_table  {
 		border: 1px solid #70625B !important;
 	}
+
+	@media screen and (max-width: 4000px) and (min-width: 1700px){
+
+		.title-home{
+
+			margin-bottom: 7vh;
+			padding-top: 7vh;
+
+		}
+
+	}
+
 	
 
 </style>

@@ -18,5 +18,4 @@ function gtr_get_posts_assortiments( $posts_assortiments_1 = null ) {
        
 
 };
-add_action( 'wp_head', 'gtr_get_posts_assortiments' ); // used on load
-add_action( 'wp', 'gtr_get_posts_assortiments' ); // json page transition
+add_action( 'vue_vars', 'gtr_get_posts_assortiments' ); // used on load

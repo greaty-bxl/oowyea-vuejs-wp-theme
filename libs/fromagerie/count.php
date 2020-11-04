@@ -10,5 +10,5 @@ function gtr_get_count( ) {
 	}
 	
 };
-add_action( 'wp_head', 'gtr_get_count' ); // used on load
-add_action( 'wp', 'gtr_get_count' ); // json page transition
+add_action( 'vue_vars', 'gtr_get_count' ); // used on load
+//add_action( 'wp', 'gtr_get_count' ); // json page transition

@@ -15,5 +15,4 @@ function get_menus()
 	wp_vue_add_var('menus', $menus);
 }
 
-add_action( 'wp_head', 'get_menus' );
-add_action( 'wp', 'get_menus' );
+add_action( 'vue_vars', 'get_menus' );

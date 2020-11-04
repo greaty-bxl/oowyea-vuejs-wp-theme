@@ -30,10 +30,25 @@ function init_classics_wp_variables()
 	wp_vue_add_var('options', $options );
 	wp_vue_add_var('upload_baseurl', wp_get_upload_dir()['baseurl'] );
 }
+add_action( 'vue_vars', 'init_classics_wp_variables' );
 
-add_action( 'wp_head', 'init_classics_wp_variables' );
-add_action( 'wp', 'init_classics_wp_variables' );
+//execute one time the action, or in wp or in head
+function init_add_action_vue_vars_hooks($val)
+{
+	if( !is_admin() )
+	{
+		do_action( 'vue_vars' );	
+	}
+}
 
+if( isset( $_GET['add_to_json'] ) )
+{	
+	add_action( 'wp', 'init_add_action_vue_vars_hooks' );
+}
+else
+{
+	add_action( 'wp_head', 'init_add_action_vue_vars_hooks' );	
+}
 
 /* Add wordpress php variables as javascript vue variable or add in json return */
 

@@ -113,4 +113,3 @@ function is_wp_head_true()
 }
 
 add_action( 'wp_head', 'is_wp_head_true', 0 );
-

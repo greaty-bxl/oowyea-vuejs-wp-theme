@@ -14,5 +14,4 @@ function get_wp_sidebars()
 	wp_vue_add_var('sidebars', $sidebars);
 }
 
-add_action( 'wp_head', 'get_wp_sidebars' );
-add_action( 'wp', 'get_wp_sidebars' );
+add_action( 'vue_vars', 'get_wp_sidebars' );

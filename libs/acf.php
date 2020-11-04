@@ -54,5 +54,5 @@ function vue_get_acf_option()
 
 	wp_vue_add_var('acf', $acf);
 }
-add_action( 'wp_head', 'vue_get_acf_option' );
-add_action( 'wp', 'vue_get_acf_option' );
+add_action( 'vue_vars', 'vue_get_acf_option' );
+//add_action( 'wp', 'vue_get_acf_option' );

@@ -26,5 +26,4 @@ function gtr_get_appareils( $appareils_1 = null ) {
        
        
 };
-add_action( 'wp_head', 'gtr_get_appareils' ); // used on load
-add_action( 'wp', 'gtr_get_appareils' ); // json page transition
+add_action( 'vue_vars', 'gtr_get_appareils' ); // used on load

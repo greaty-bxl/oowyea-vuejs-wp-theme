@@ -27,5 +27,4 @@ function gtr_get_les_pains( $les_pains_1 = null ) {
 
        
 };
-add_action( 'wp_head', 'gtr_get_les_pains' ); // used on load
-add_action( 'wp', 'gtr_get_les_pains' ); // json page transition
+add_action( 'vue_vars', 'gtr_get_les_pains' ); // used on load

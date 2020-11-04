@@ -29,5 +29,4 @@ function gtr_get_plateaux_fromages( $plateaux_fromages_1 = null ) {
 
        
 };
-add_action( 'wp_head', 'gtr_get_plateaux_fromages' ); // used on load
-add_action( 'wp', 'gtr_get_plateaux_fromages' ); // json page transition
+add_action( 'vue_vars', 'gtr_get_plateaux_fromages' ); // used on load

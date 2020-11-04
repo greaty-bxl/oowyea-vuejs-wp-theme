@@ -23,5 +23,4 @@ function gtr_get_add_to_cart( ) {
 
        
 };
-add_action( 'wp_head', 'gtr_get_add_to_cart' ); // used on load
-add_action( 'wp', 'gtr_get_add_to_cart' ); // json page transition
+add_action( 'vue_vars', 'gtr_get_add_to_cart' ); // used on load

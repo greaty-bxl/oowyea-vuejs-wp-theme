@@ -572,16 +572,16 @@ function scrollSection(vue){
 
 	if( is.desktop() )
 	{
-		$('#app').css('overflow', 'hidden');
+		// $('#app').css('overflow', 'hidden');
 
 		init_fake_scrollbar()
 
-		window.addEventListener("wheel", event => {
-			const delta = Math.sign(event.deltaY);
-			//console.info(delta, find_next_section(delta) );
+		// window.addEventListener("wheel", event => {
+		// 	const delta = Math.sign(event.deltaY);
+		// 	//console.info(delta, find_next_section(delta) );
 			
-			go_to_next(delta)		
-		});
+		// 	go_to_next(delta)		
+		// });
 
 		hotkeys('up, down', function(event, handler){
 			// Prevent the default refresh event under WINDOWS system
@@ -595,9 +595,9 @@ function scrollSection(vue){
 			}
 		});
 
-		// $('#app').css('overflow-y', 'auto');
+		$('#app').css('overflow-y', 'auto');
 
-		$('#app').scrollTop( 1000 )
+		//$('#app').scrollTop( 1000 )
 	}
 	else
 	{

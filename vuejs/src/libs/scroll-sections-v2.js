@@ -362,7 +362,7 @@ function scrollSection(vue){
 			duration *= -1
 		}
 
-		duration += 300
+		duration += 450
 
 		duration = Math.round( duration )
 
@@ -383,7 +383,7 @@ function scrollSection(vue){
 			easing: 'easeInOutQuad',
 			complete: function() {
 				animating = false
-				
+
 				$('#app').trigger({
 					'type': 'after_scroll_to_section',
 					'new_top': new_top,

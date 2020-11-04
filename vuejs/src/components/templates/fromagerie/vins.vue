@@ -73,7 +73,7 @@ export default {
 
 	name: 'swiper-example-default',
 	title: 'Default',
-	init: true,
+	init: false,
 	
 	data () {
 		return {
@@ -85,7 +85,7 @@ export default {
 				// Enable lazy loading
 				preloadImages: false,
 				lazy: true,
-					
+
 				loop: false,
 				allowTouchMove: true,
 				runCallbacksOnInit: true,

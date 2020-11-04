@@ -72,14 +72,14 @@ export default {
 
 	name: 'swiper-example-default',
 	title: 'Default',
-	init: true,
+	init: false,
 	
 	data () {
 		return {
 
 			swiperOption10: {
 				initialSlide: 0,	
-				
+
 				// Disable preloading of all images
 				// Enable lazy loading
 				preloadImages: false,

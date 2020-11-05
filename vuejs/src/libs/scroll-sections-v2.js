@@ -539,23 +539,7 @@ function scrollSection(vue){
 					//dragTop =  new_scroll_top
 				},
 				end () {
-
-					/*dragTop =  new_scroll_top
-
-					let current = find_current_section()
-
-					let new_top = current.offset().top + $('#app').scrollTop()
-					if( current.outerHeight() > $('#app').outerHeight() && dragSens == -1 )
-					{
-						new_top += current.outerHeight() - $('#app').outerHeight()
-					}
-
-					go_to( new_top )
-					console.log( event, dragSens, current )*/
 					
-					//go_to_next(dragSens)
-					//animating = false
-					//animation.pause()
 					scrollDragging = false
 
 					go_to_next(dragSens)

@@ -23,8 +23,12 @@ export default function (vue)
 			let section = $('.section[data-permalink="'+href+'"]')
 			let is_section = section.length
 
+			if( $('body').hasClass('woocommerce-account') && event ) is_section = 0
+
 			if( is_section )
 			{
+
+				console.log('is section');
 
 				if( document.location.href == href && push ) return
 

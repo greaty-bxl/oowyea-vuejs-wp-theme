@@ -529,7 +529,7 @@
 
 		display: flex;
 		flex-direction: column;
-		max-width: 20vw;
+		min-width: 20vw;
 		/*justify-content: space-between;*/
 	}
 	

@@ -98,6 +98,7 @@ export default {
 		padding-bottom: 20px;
 		line-height: 0;
 		border-radius: 0px;
+		font-size: 16px !important
 
 	}
 
@@ -218,7 +219,7 @@ export default {
 
 		#cart .woocommerce{
 
-		margin: 120px 30px !important;
+		margin: 30px 30px !important;
 		width: calc(100% - 60px)!important;
 
 		}
@@ -262,7 +263,7 @@ export default {
 
 			#cart .woocommerce{
 
-			/*margin: 150px 70px !important;*/
+			margin-top:0px !important;
 			width: calc(100% - 140px)!important;
 			/*padding-top: 100px;*/
 

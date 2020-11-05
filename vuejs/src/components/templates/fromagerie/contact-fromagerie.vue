@@ -52,9 +52,9 @@
 
 							<div>
 								<p class="sous-titre-contact">Aide</p>
-								<a class="text-sous-titre-contact" target="_blank"  href="">Politique de confidentialité</a>
-								<a class="text-sous-titre-contact" target="_blank" href="">Livraison</a>
-								
+								<a class="text-sous-titre-contact" target="_blank" href="http://greaty.digital.brussels/livraison/">Retrait en magasin</a>
+								<a class="text-sous-titre-contact" target="_blank" href="http://greaty.digital.brussels/conditions-generales-de-ventehttp://greaty.digital.brussels/livraison/">Conditions générales de vente</a>
+								<a class="text-sous-titre-contact" target="_blank" href="http://greaty.digital.brussels/politique-de-confidentialite-2/">Politique de confidentialité</a>	
 							</div>
 
 							<div>

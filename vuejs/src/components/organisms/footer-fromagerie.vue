@@ -1,5 +1,5 @@
 <template>
-	<div id="footer" class="section">
+	<div id="footer" class="section-footer">
 		<div class="clear"></div>
 
 
@@ -9,16 +9,17 @@
 				</div>
 				<div> 
 					<p>Lun Sam : 9h - 19h <br> Vendredi : 9h - 20h</p>
-					<!-- <p></p> -->
 				</div>
 				<div> 
-					<a href="">Facebook</a>
-					<a href="">Instagram</a>
+					<a href="https://www.facebook.com/fromageriewestland">Facebook</a>
+					<a href="https://www.instagram.com/fromageriewestland/?hl=fr">Instagram</a>
 				</div>
 				<div>
-					<a href="">Livraison</a>
-					<a href="">Politique de confidentialité</a>
-					<a href="">Fromagerie Westland © 2020</a>
+					<a target="_blank" href="http://greaty.digital.brussels/livraison/">Retrait en magasin</a>
+					<a target="_blank" href="http://greaty.digital.brussels/politique-de-confidentialite-2/">Politique de confidentialité</a>
+					<a target="_blank" href="http://greaty.digital.brussels/conditions-generales-de-vente/">Conditions générales de vente</a>
+					<p>Fromagerie Westland © 2020</p>
+
 				</div>
 			</div>
 
@@ -94,7 +95,7 @@
 		padding-left: 70px;
 		padding-right: 70px;
 		font-size: 14px;
-		min-height: auto !important;
+		/*min-height: auto !important;*/
 	}
 
 	#footer *{

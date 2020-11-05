@@ -58,11 +58,12 @@ export default {
 		display: none !important;
 	}
 
+	#my-account .is-active a{
 
-	#my-account .is-active{
-
+		border-bottom: 2px solid #70625B !important;
 
 	}
+
 	
 	#my-account  button {
 
@@ -271,8 +272,7 @@ export default {
 			text-align: center;
 		}
 		#my-account .woocommerce {
-			margin-top: 70px;
-			/*min-height: calc(100vh - 120px);*/
+			margin-top: 20px;
 			display: flex;
 			flex-direction: column;
 		}

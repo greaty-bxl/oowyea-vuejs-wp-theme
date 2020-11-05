@@ -77,6 +77,7 @@ export default {
 		line-height: 0;
 		border-radius: 0px;
 		margin-bottom: 16px;
+		font-size: 18px;
 
 	}
 
@@ -182,7 +183,7 @@ export default {
 		}
 		#checkout .woocommerce{
 
-			margin: 100px 30px;
+			margin: 30px 30px;
 			width: auto;
 		
 		}
@@ -229,7 +230,7 @@ export default {
 
 		#checkout .woocommerce{
 
-		margin: 150px 70px !important;
+		margin: 0px 70px !important;
 		width: calc(100% - 140px);
 
 		}
@@ -252,9 +253,14 @@ export default {
 
 		}
 
+		#checkout button{
+
+			font-size: 18px;
+		}
+
 	}
 
-	.title-home{
+	#checkout .title-home{
 
 		text-align: left;
 		margin-left: 140px;
@@ -268,14 +274,11 @@ export default {
 
 	}
 
-/*	#checkout .woocommerce table.shop_table td{
-
-		border: none !important;
-	}*/
-
-	#checkout .woocommerce .shop_table  {
-		border: 1px solid #70625B !important;
-	}
+	#checkout.woocommerce #payment #place_order, .woocommerce-page #payment #place_order
+		#checkout .woocommerce .shop_table  {
+			border: 1px solid #70625B !important;
+			font-size: 18px
+		}
 
 	@media screen and (max-width: 4000px) and (min-width: 1700px){
 

@@ -10,12 +10,11 @@
 						</div>
 					</div>
 
-					<div class="count">
-						<a href="">
-							<p v-html="count" ></p>
-						</a>
-					</div>
-
+					<a href="">
+						<div class="count">
+								<p v-html="count" ></p>							
+						</div>
+					</a>
 					<div class="icon button-header close-simple">
 					<div class="burger"></div>
 					</div>
@@ -78,6 +77,7 @@ export default {
 			$('.button-header').removeClass('open-simple')
 			$('.button-header').removeClass('active')
 			$('.button-header').addClass('close-simple')
+			$('.count').removeClass('changement-couleur')
 		}
 
 	});
@@ -92,8 +92,8 @@ export default {
 
 			$(this).addClass('open-simple')
 
+			$('.count').addClass('changement-couleur')
 		
-
 			if ( width > 1100 ) {
 
 				$('.menu_link').animate({
@@ -125,9 +125,10 @@ export default {
 				duration: 200,
 			});
 
-
+			
 			$(this).removeClass('open-simple')
 			$(this).addClass('close-simple')
+			$('.count').removeClass('changement-couleur')
 
 		}
 
@@ -135,15 +136,16 @@ export default {
 	
 // add link home to logo
 
-   var href_home = $('.menu-item-home').find('a').attr('href');
+   var href_home = $('.menu-item-home').parent('a').attr('href');
 
    $('.logo-link').attr('href', href_home);
 
 // end link home to logo
 
 	var last = $('.menu').children().last().find('a').attr('href');
+	console.log(last);
 
-	$('.count').find('a').attr('href', last);
+	$('.count').parent('a').attr('href', last);
 
 	smart_fonts({
 		'.menu-item-type-post_type' : 22,
@@ -166,6 +168,10 @@ export default {
 	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 
+	#header {
+	z-index: 3000;
+	height: 0;
+	}
 
 	body *{
 
@@ -286,26 +292,37 @@ export default {
 		padding: 5px;
 		cursor: pointer;
 		background-color: #70625b;
-		z-index: 11000;
-		/* margin-top: 20px; */
 		top: 9px;
 		color: white;
 		border-radius: 20px;
-		height: 16px;
-		width: 16px;
+		height: 17px;
+		width: 17px;
 		display: flex;
 		justify-content: center;
+		transition: 0.5s;
+		font-size: 15px !important;
+		line-height: 18px;
+
 	}
+
+	.changement-couleur {
+
+		color: #70625b !important;
+		background-color: white !important ;
+		transition: 0.5s;
+		z-index: 10000;
+	}
+
 	.count a{
 		text-decoration-line: none;
 	}
 
-	.count p{
+/*	.count p{
 
 		font-size: 13px;
 		color: white;
 
-	}
+	}*/
 
 
 		@media screen and (max-width: 1100px) and (min-width: 600px) {
@@ -351,8 +368,6 @@ export default {
 				width: 100vw;
 			}
 
-
-
 			.count {
 
 				left: calc( 100% - 155px );
@@ -366,6 +381,7 @@ export default {
 				display: flex;
 				justify-content: center;
 				top: 75px;
+				position: fixed;
 			}
 
 		}
@@ -376,11 +392,11 @@ export default {
 
 			.count {
 
-				left: calc( 100% - 110px );
+				left: calc( 100% - 115px );
 				padding: 5px;
 				cursor: pointer;
 				z-index: 11000;
-				/* margin-top: 20px; */
+				position: fixed;
 				top: 35px;
 				color: white;
 				border-radius: 20px;
@@ -424,10 +440,6 @@ export default {
 
 
 		}
-
-
-
-
 
 		.menu li:nth-child(9){
 

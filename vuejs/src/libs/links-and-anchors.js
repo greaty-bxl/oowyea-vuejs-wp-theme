@@ -5,9 +5,15 @@ export default function (vue)
 
 	function open_link(event, href, push = true)
 	{
-		if( href ) if( href.search( vue.wp.options.siteurl ) === 0 ) var is_same_site = 1
+		var is_same_site = 0
 
-		event.preventDefault();
+		if( href )
+		{
+			if( href.search( vue.wp.options.siteurl ) === 0 ) is_same_site = 1
+			if( href.search( '_wpnonce' ) >= 0 ) is_same_site = 0
+		}
+
+		//event.preventDefault();
 
 	
 		if( is_same_site ){
@@ -17,8 +23,12 @@ export default function (vue)
 			let section = $('.section[data-permalink="'+href+'"]')
 			let is_section = section.length
 
+			if( $('body').hasClass('woocommerce-account') && event ) is_section = 0
+
 			if( is_section )
 			{
+
+				console.log('is section');
 
 				if( document.location.href == href && push ) return
 
@@ -105,6 +115,8 @@ export default function (vue)
 							}							
 						}
 					});
+
+					return true
 			}
 			else
 			{
@@ -113,8 +125,12 @@ export default function (vue)
 					href: href,
 				})
 
-				//console.log('new page');
+				return true
 			}
+		}
+		else
+		{
+			return false
 		}
 	}
 
@@ -126,7 +142,7 @@ export default function (vue)
 
 	$(document).on('click', 'a', (event) => {
 
-		event.preventDefault();
+		//event.preventDefault();
 
 		/* Act on the event */
 		let href = $(event.currentTarget).prop('href')
@@ -167,7 +183,10 @@ export default function (vue)
 			
 		});
 
-		open_link(event, href)
+		if ( open_link(event, href) )
+		{
+			event.preventDefault();
+		}
 	});
 
 	$('.menu-item').each(function(index) {

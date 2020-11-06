@@ -79,7 +79,9 @@
 		flex-direction: row;
 		justify-content: space-between;
 		padding-bottom: 50px;
-		padding-top: 50px;
+		padding-top: 150px;
+		padding-left: 70px;
+		padding-right: 70px;
 	}
 
 	.contener-header div{
@@ -92,10 +94,8 @@
 
 	#footer{
 
-		padding-left: 70px;
-		padding-right: 70px;
 		font-size: 14px;
-		/*min-height: auto !important;*/
+		min-height: auto !important;
 	}
 
 	#footer *{
@@ -112,9 +112,6 @@
 	@media screen and ( max-width: 600px){
 
 		#footer{
-
-			padding-left: 30px;
-			padding-right: 30px;
 			padding-bottom: 30px;
 		}
 
@@ -123,6 +120,8 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+			padding-left: 30px;
+			padding-right: 30px;
 			
 		}
 

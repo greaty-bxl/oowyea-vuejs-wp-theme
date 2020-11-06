@@ -110,6 +110,29 @@ export default {
 
 	}
 
+	#cart .return-to-shop a{
+
+		background-color: #70625B;
+		color: white;
+		border-width: 0;
+		/*margin-top: 16px;*/
+		border: solid #70625B;
+		border-width: 1px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		line-height: 0;
+		border-radius: 0px;
+		font-size: 16px !important
+	}
+
+	#cart .return-to-shop a:hover {
+
+		background-color: white;
+		color: #70625B;
+		transition: 200;
+
+	}
+
 	#cart.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
 
 		background-color: white;
@@ -193,15 +216,20 @@ export default {
 
 		#cart button{
 
-
 			margin-top: 16px;
 			width: 100% !important;
 			margin-left: auto;
 			margin-right: auto;
 			font-size: 16px !important;
 
-
 		}
+
+
+		#cart .return-to-shop a{
+
+			font-size: 16px !important;
+
+		}      
 
 		#cart.woocommerce a{
 

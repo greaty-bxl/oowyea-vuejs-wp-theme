@@ -83,6 +83,11 @@ export default {
 
 	}
 
+	#my-account div p{
+
+		line-height: 24px;
+	}
+
 	#my-account  button:hover {
 
 		background-color: white !important;
@@ -91,10 +96,11 @@ export default {
 
 	}
 
-	div p{
+	#my-account div p{
 
 		font-family: 'Montserrat', sans-serif !important;
 		font-size: 18px;
+		line-height: 22px;
 	}
 
 
@@ -155,7 +161,7 @@ export default {
 
 	#my-account .woocommerce-MyAccount-navigation{
 
-		margin-top: auto;
+		/*margin-top: auto;*/
 		margin-bottom: auto;
 		margin-left: auto;
 
@@ -242,6 +248,19 @@ export default {
 		font-weight: 600;
 	}
 
+	#my-account .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
+
+		margin-left: 70px;
+		margin-right: auto;
+	}
+
+	#my-account h2{
+
+		margin-left: auto !important;
+		color: #70625B;
+		font-weight: 500;
+	}
+
 
 
 	@media screen and (max-width: 600px){
@@ -308,6 +327,29 @@ export default {
 			margin-left: 30px !important;
 		}
 
+		#my-account .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
+
+				margin-left: 0px;
+				margin-right: 0px;
+				
+			}
+
+			#my-account h2{
+				color: #70625B;
+				font-weight: 500;
+				text-align: left;
+				margin-left: 0px !important;
+				font-size: 18px;
+			}
+
+		#my-account div p{
+
+			font-family: 'Montserrat', sans-serif !important;
+			font-size: 18px;
+			line-height: 22px;
+		}
+
+
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 
@@ -346,6 +388,29 @@ export default {
 			text-align: left !important;
 
 		}
+
+		#my-account .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
+
+			margin-left: 70px;
+			margin-right: 70px;
+
+		}
+
+		#my-account h2{
+			color: #70625B;
+			font-weight: 500;
+			text-align: left;
+			margin-left: 70px !important;
+			font-size: 18px;
+		}
+
+		#my-account div p{
+
+			font-family: 'Montserrat', sans-serif !important;
+			font-size: 18px;
+			line-height: 22px;
+		}
+
 
 
 	}

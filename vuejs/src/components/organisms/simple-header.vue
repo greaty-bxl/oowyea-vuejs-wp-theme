@@ -173,7 +173,7 @@ export default {
 	nav{
 		position: fixed;
 		z-index: 10;
-		min-width: 330px;
+		/*min-width: 300px;*/
 		overflow-y:auto;
 		/*z-index: 1000;*/
 		/*width: 100%;*/
@@ -399,6 +399,7 @@ export default {
 				width: 16px;
 				display: flex;
 				justify-content: center;
+				line-height: 17px;
 				}
 
 			nav{
@@ -434,21 +435,51 @@ export default {
 			}
 
 			.menu{
-				overflow-y: none;
-				/*min-height: 350px;*/
-				/*height: 100vh;*/
 
+				padding-top: 100px  !important;
+				padding-bottom: 100px;
+				/*overflow-y: scroll;*/
+				min-height: 400px;
+
+
+			}
+
+			.menu li:nth-child(9){
+
+				padding-bottom: 20px !important;
 			}
 
 
 
 		}
 
-		@media screen and (max-width: 330px){
+		@media screen and (max-width: 600px) and (min-width: 320px) {
 
 			.menu{
 
-				padding-top: 150px  !important;
+				padding-top: 200px  !important;
+				padding-bottom: 100px;
+				/*overflow-y: scroll;*/
+				min-height: 400px;
+
+			}
+
+
+			.menu li:nth-child(9){
+
+				padding-bottom: 20px !important;
+			}
+
+
+
+
+		}
+
+		@media screen and (max-width: 320px){
+
+			.menu{
+
+				padding-top: 300px  !important;
 				padding-bottom: 100px;
 				/*overflow-y: scroll;*/
 				min-height: 400px;

@@ -111,15 +111,12 @@
 
 	@media screen and ( max-width: 600px){
 
-		#footer{
-			padding-bottom: 30px;
-		}
-
 		.contener-header{
 
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+			padding-top: 100px;
 			padding-left: 30px;
 			padding-right: 30px;
 			

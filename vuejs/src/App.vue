@@ -155,6 +155,8 @@ export default {
 
             animate_next_page( this, event.href, () => {
               
+              $('#footer').hide();
+
               this.pages['current'] = wp.sections
               this.classes['current'] = wp.body_class
 
@@ -170,7 +172,7 @@ export default {
                 setTimeout( ()=>{
 
                   $('#app').data('scrolling', '')
-
+                  $('#footer').show();
                   this.pages['next'] = {}
                   this.classes['next'] = ''
 

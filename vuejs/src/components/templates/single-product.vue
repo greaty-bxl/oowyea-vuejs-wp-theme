@@ -57,19 +57,19 @@
 			var $ = this.$
 
 			// $('.retour').html('[add_to_cart id="99"]')
-			console.log( this.$store.state.wp.cart );
-			console.log( this.wp);
+			/*console.log( this.$store.state.wp.cart );
+			console.log( this.wp);*/
 
 		// $('nav').css('background-color', 'white');
 
-		if ( this.post.terms[0].slug === "plateau-fromage" ) {
-			console.log('');
-		}
-		else{
-
-		$('.nbrpersonne').html("Quantité")
-
-		}
+			if ( this.post.terms[0].slug === "plateau-fromage" ) 
+			{
+				console.log('');
+			}
+			else
+			{
+				$('.nbrpersonne').html("Quantité")
+			}
 			
 			this.$emit('template_mounted')
 		},

@@ -95,7 +95,7 @@
 		padding-left: 70px;
 		padding-right: 70px;
 		font-size: 14px;
-		/*min-height: auto !important;*/
+		min-height: auto !important;
 	}
 
 	#footer *{

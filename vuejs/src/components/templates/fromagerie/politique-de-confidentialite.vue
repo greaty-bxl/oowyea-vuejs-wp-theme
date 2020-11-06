@@ -127,6 +127,18 @@ export default {
 
 		}
 
+		.parent-text-politique p {
+
+		margin-bottom: 30px;
+		font-size: 18px;
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 30px;
+		width: 100%;
+
+		}
+
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 

@@ -3,7 +3,7 @@
         <header>
 			<nav id="main-navbar-1" class="navbar navbar-default navbar-fixed-top">
 				<div class=" navbar-container">
-					<a class="logo-link"><Acf field="logo" /></a>
+					<a :href="this.wp.options.siteurl" class="logo-link"><Acf field="logo" /></a>
 
 					<div id="navbar" class="navbar-collapse collapse">
 						<div class="menu_link" v-html="wp.menus['burger-menu']" >
@@ -134,16 +134,8 @@ export default {
 
 	});
 	
-// add link home to logo
-
-   var href_home = $('.menu-item-home').parent('a').attr('href');
-
-   $('.logo-link').attr('href', href_home);
-
-// end link home to logo
 
 	var last = $('.menu').children().last().find('a').attr('href');
-	console.log(last);
 
 	$('.count').parent('a').attr('href', last);
 
@@ -181,6 +173,8 @@ export default {
 	nav{
 		position: fixed;
 		z-index: 10;
+		min-width: 330px;
+		overflow-y:auto;
 		/*z-index: 1000;*/
 		/*width: 100%;*/
 	}
@@ -258,6 +252,7 @@ export default {
 		justify-content: center;
 		background-color: #70625b;
 		z-index: 1000;
+		overflow-y: auto;
 
 	}
 
@@ -435,11 +430,40 @@ export default {
 			.menu_link{
 
 				width: 100vw;
+				min-height: 100vw;
+			}
+
+			.menu{
+				overflow-y: none;
+				/*min-height: 350px;*/
+				/*height: 100vh;*/
+
 			}
 
 
 
 		}
+
+		@media screen and (max-width: 330px){
+
+			.menu{
+
+				padding-top: 150px  !important;
+				padding-bottom: 100px;
+				/*overflow-y: scroll;*/
+				min-height: 400px;
+
+			}
+
+
+			.menu li:nth-child(9){
+
+				padding-bottom: 20px !important;
+			}
+
+
+		}
+
 
 		.menu li:nth-child(9){
 

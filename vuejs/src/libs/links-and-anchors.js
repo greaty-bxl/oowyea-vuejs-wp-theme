@@ -137,7 +137,9 @@ export default function (vue)
 // on load
 
 
-
+    $('.current-menu-item').find('a').css({
+							borderBottom: '1px solid white',
+						});
 
 
 	$(document).on('click', 'a', (event) => {
@@ -187,17 +189,6 @@ export default function (vue)
 		{
 			event.preventDefault();
 		}
-	});
-
-	$('.menu-item').each(function(index) {
-
-		if (  index == 0) {
-		
-			var acheref = $(this).find('a').attr('href')
-
-			$('#header-logo').find('a').attr('href', acheref);
-		}
-
 	});
 
 

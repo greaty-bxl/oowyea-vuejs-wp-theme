@@ -147,6 +147,25 @@ export default {
 
 		}
 
+		.livraison-parent-text p{
+
+			width: 100%;
+
+		}
+		#livraison h2 {
+
+			width: 100%;
+
+		}
+
+		#livraison h3{
+
+
+			width: 100%;
+
+		}
+
+
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 

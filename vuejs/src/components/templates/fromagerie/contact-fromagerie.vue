@@ -381,7 +381,7 @@ font-weight: 500;
 		padding-bottom: 20px;
 		background: #70625b;
 		color: white;
-		border: solid #70625b!important;
+		/*border: solid #70625b!important;*/
 		border-width: 1px;
 		font-weight: bold;
 		font-size: 16px !important;

@@ -12,7 +12,7 @@
 
 					<a href="">
 						<div class="count">
-								<p v-html="count" ></p>							
+								<p class="woocommerce-cart-quantity" v-html="count" ></p>							
 						</div>
 					</a>
 					<div class="icon button-header close-simple">

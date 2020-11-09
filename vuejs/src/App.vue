@@ -59,10 +59,12 @@ import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
 import smart_fonts from 'Libs/smart-fonts.js'
 import on_screen from 'Libs/on-screen.js'
+import woocommerceAjax from 'Libs/woocommerce-ajax.js'
 //import acf_to_css from 'Libs/acf-to-css.js'
 
 //import fullpage from 'fullpage.js'
 
+//Vue.prototype.noty = noty
 
 function vue_key_to_name(str)
 {
@@ -119,6 +121,11 @@ export default {
     this.$(document).ready( ($) => {
       //console.log('JQuery Ready', $, this.ajaxurl)
       
+      //$.fn.notify = notify
+
+      
+
+      woocommerceAjax(this)
       //console.log('store', this.$store.state.wp)
       //init scroll if child
       init_scrolltop(this)
@@ -128,6 +135,9 @@ export default {
 
       //navigate in the website
       links_and_anchors(this)
+
+      //ready
+      $(document).trigger('first_page_ready')
       
       //new page with transition
       $(document).on('new_page', (event) => { /* event from: links-and-anchors.js */

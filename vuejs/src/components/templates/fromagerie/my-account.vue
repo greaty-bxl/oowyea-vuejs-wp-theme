@@ -30,20 +30,12 @@ export default {
 
 
 	mounted(){
-		
-		$ = this.$
-
+	
 		this.$emit('template_mounted', this);
-		//console.log(this.wp);
+		console.log(this.wp);
 		smart_fonts({
 			'.title-compte' : 25,
 		})
-
-		//resolve login issue 'add to json'
-		var referer_val = $('[name="_wp_http_referer"]').prop('value')
-		referer_val = referer_val.replace('?add_to_json=1', '')
-		referer_val = referer_val.replace('&add_to_json=1', '')
-		$('[name="_wp_http_referer"]').val(referer_val)
 
 	},
 
@@ -91,11 +83,6 @@ export default {
 
 	}
 
-	#my-account div p{
-
-		line-height: 24px;
-	}
-
 	#my-account  button:hover {
 
 		background-color: white !important;
@@ -108,7 +95,7 @@ export default {
 
 		font-family: 'Montserrat', sans-serif !important;
 		font-size: 18px;
-		line-height: 22px;
+		line-height: 24px;
 	}
 
 

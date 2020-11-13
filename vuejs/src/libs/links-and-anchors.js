@@ -10,7 +10,10 @@ export default function (vue)
 		if( href )
 		{
 			if( href.search( vue.wp.options.siteurl ) === 0 ) is_same_site = 1
-			if( href.search( '_wpnonce' ) >= 0 ) is_same_site = 0
+			/*if( href.search( '_wpnonce' ) >= 0 )
+			{
+				is_same_site = 0	
+			}*/
 		}
 
 		//event.preventDefault();
@@ -138,18 +141,14 @@ export default function (vue)
 
 
     $('.current-menu-item').find('a').css({
-							borderBottom: '1px solid white',
-						});
+		borderBottom: '1px solid white',
+	});
 
-
-	$(document).on('click', 'a', (event) => {
-
-		//event.preventDefault();
-
+    function on_click(event){
 		/* Act on the event */
 		let href = $(event.currentTarget).prop('href')
 
-// Add proprietie css to current link
+		// Add proprietie css to current link
 
 		$('.menu-item').each(function() {
 
@@ -159,15 +158,13 @@ export default function (vue)
 			$(this).removeClass('current_page_item')
 			
 			$(this).find('a').css({
-						borderBottom: '0px solid white',
-					});
+				borderBottom: '0px solid white',
+			});
 
 			
 
 			if ( href === url_link  ) {
-
-
-
+				
 				$(this).find('a').css({
 							borderBottom: '1px solid white',
 						});
@@ -189,10 +186,21 @@ export default function (vue)
 		{
 			event.preventDefault();
 		}
+    }
+
+	$('a').unbind('click').on('click', (event) => {
+		on_click(event)	
 	});
 
+	/*$(document).unbind('click').on('click', 'a', function(event) {
+		on_click(event)
+	});*/
 
-	window.onpopstate = function(event) {
+	//if using history browser
+	function popstate_redirect(event){
 		open_link(event, document.location.href, false)
-	};
+	}
+
+	window.removeEventListener('popstate', popstate_redirect)
+	window.onpopstate = popstate_redirect
 }

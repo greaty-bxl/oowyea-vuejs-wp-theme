@@ -1,4 +1,4 @@
-export default function (vue, href, callback) {
+function get_new_page(vue, href, callback) {
 	
 	var $ = vue.$
 	var timer
@@ -28,8 +28,14 @@ export default function (vue, href, callback) {
 	
 
 	$.get( insertParam( href, 'add_to_json', 1 ), (data) => {
-		//console.log('get page', JSON.parse( data ) );
+		console.log('get page', data );
 		clearTimeout( timer )
+		if( data == 'refresh' )
+		{
+			get_new_page(vue, window.location.href, callback)
+			return;
+		}
+
 		$('#page-loader').css('display', 'none');
 		vue.pushHistory( href )
 		var json_data = JSON.parse( data )
@@ -38,3 +44,5 @@ export default function (vue, href, callback) {
 
 	
 }
+
+export default get_new_page

@@ -118,14 +118,18 @@ export default {
         sections: this.pages['current'],
       })
 
+    //navigate in the website
+    
+
     this.$(document).ready( ($) => {
       //console.log('JQuery Ready', $, this.ajaxurl)
       
       //$.fn.notify = notify
 
-      
+      links_and_anchors(this)
 
       woocommerceAjax(this)
+      
       //console.log('store', this.$store.state.wp)
       //init scroll if child
       init_scrolltop(this)
@@ -133,8 +137,7 @@ export default {
       //auto scroll next section
       scrollSection(this)
 
-      //navigate in the website
-      links_and_anchors(this)
+      
 
       //ready
       $(document).trigger('first_page_ready')
@@ -185,6 +188,8 @@ export default {
                   $('#footer').show();
                   this.pages['next'] = {}
                   this.classes['next'] = ''
+
+                  links_and_anchors(this)
 
                   $(document).trigger('after_next_page')
                 }, 250 )

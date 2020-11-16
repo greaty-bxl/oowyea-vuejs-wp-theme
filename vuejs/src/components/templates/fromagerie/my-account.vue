@@ -128,6 +128,32 @@ export default {
 
 	}
 
+	#my-account .woocommerce-MyAccount-content .view{
+
+		background-color: #70625B !important;
+		color: white !important;
+		border-width: 0;
+		/*margin-top: 16px;*/
+		border: solid #70625B;
+		border-width: 1px;
+		/*min-width: 200px;*/
+		padding-top: 10px;
+		padding-bottom: 10px;
+		line-height: 0;
+		border-radius: 0px;
+		/*margin-bottom: 16px;*/
+		/*font-size: 18px;*/
+
+	}
+
+	#my-account .woocommerce-MyAccount-content .view:hover{
+
+		background-color: white !important;
+		color: #70625B !important;
+		transition: 200 ;
+
+	}
+
 	.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
 
 		background-color: white;
@@ -194,10 +220,10 @@ export default {
 	border: 1px solid #A59890 !important;
 	}
 
-	#my-account  .woocommerce table.shop_table td{
+/*	#my-account  .woocommerce table.shop_table td{
 
 		border: 1px solid #A59890 !important;
-	}
+	}*/
 
 
 	#my-account .woocommerce-MyAccount-navigation ul{

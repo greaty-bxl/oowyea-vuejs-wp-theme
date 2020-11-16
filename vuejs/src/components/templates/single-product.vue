@@ -131,13 +131,13 @@
 		margin-bottom: 15px !important;
 	}
 
-	input:focus {
+/*	input:focus {
 		color: #70625b !important;
 	}
-
-	button:focus {
+*/
+/*	button:focus {
 		color: #70625b !important;
-	}
+	}*/
 
 	*:focus {
 		outline: none !important;

@@ -35,11 +35,11 @@ export default {
 
 	
 		this.$emit('template_mounted', this);
-		console.log(this.wp);
 
 			smart_fonts({
 			'.title-home' : 25,
 		})
+
 
 	},
 
@@ -61,6 +61,11 @@ export default {
 		font-size: 16px;
 		color: #70625B
 
+	}
+
+	#checkout .woocommerce img, .woocommerce-page img{
+
+		width: 100px;
 	}
 
 	#checkout button {
@@ -132,7 +137,7 @@ export default {
 
 	}
 
-	#checkout #add_payment_method table.cart img, .woocommerce-cart table.cart img, .woocommerce-checkout table.cart img {
+	#checkout .stripe-icon {
 
 		width: 100px;
 	}
@@ -160,19 +165,106 @@ export default {
 		font-size: 18px;
 	}
 
+	#checkout .woocommerce ul.order_details{
 
+		padding-left: 0px !important;
+		display: flex;
+		flex-direction: column;
 
-/*	#checkout .woocommerce table.shop_table{
-
-	border: 1px solid #A59890 !important;
 	}
-*/
-/*	#checkout .woocommerce table.shop_table td{
 
-		border: 1px solid #A59890 !important;
+
+	#checkout .woocommerce .woocommerce-customer-details address{
+
+		font-size: 18px !important;
+		min-width: 90%;
+		width: auto;
+
 	}
-*/
-	@media screen and (max-width: 600px){
+
+	#checkout .woocommerce .woocommerce-customer-details address p{
+
+		font-size: 18px !important;
+
+	}
+
+	.woocommerce-thankyou-order-received{
+
+		margin-bottom: 20px !important;
+		font-size: 20px !important;
+		color: #70625b !important;
+		font-weight: 600;
+	}
+
+		#checkout .woocommerce ul.order_details li{
+
+		border: none !important;
+		padding-top: 10px !important;
+		margin-right: 0px !important;
+		font-size: 15px!important;
+		}
+
+		#checkout .woocommerce ul.order_details li strong{
+
+		padding-top: 10px !important;
+		}
+
+		#checkout .stripe-icon{
+
+		width: 70px;
+		}
+
+
+		@media screen and (max-width: 600px){
+
+
+		#checkout .woocommerce .woocommerce-customer-details address{
+
+			font-size: 15px !important;
+			min-width: 90%;
+			width: auto;
+
+		}
+
+		#checkout .woocommerce .woocommerce-customer-details address p{
+
+		font-size: 15px !important;
+
+		}
+
+		.woocommerce-thankyou-order-received{
+
+		margin-bottom: 20px !important;
+		color: #70625b;
+		font-weight: 600;
+		margin-bottom: 20px;
+		}
+
+		#checkout .woocommerce ul.order_details{
+
+		padding-left: 0px !important;
+		display: flex;
+		flex-direction: column;
+
+		}
+		#checkout .woocommerce ul.order_details li{
+
+		border: none !important;
+		padding-top: 10px !important;
+		margin-right: 0px !important;
+		font-size: 12px!important;
+		}
+
+		#checkout .woocommerce ul.order_details li strong{
+
+		padding-top: 7px !important;
+		}
+
+		#checkout .stripe-icon{
+
+		width: 70px;
+		}
+
 
 		#checkout .woocommerce a{
 
@@ -185,7 +277,7 @@ export default {
 
 			margin: 30px 30px;
 			width: auto;
-		
+
 		}
 
 		#checkout .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
@@ -224,9 +316,60 @@ export default {
 		}
 
 
-	}
+		}
 
 	@media screen and (max-width: 1100px) and (min-width: 600px){
+
+		#checkout .woocommerce .woocommerce-customer-details address{
+
+			font-size: 18px!important;
+			min-width: 90%;
+			width: auto !important;
+
+		}
+
+		#checkout .woocommerce .woocommerce-customer-details address p{
+
+			font-size: 18px !important;
+
+		}
+
+		.woocommerce-thankyou-order-received{
+
+			margin-bottom: 20px !important;
+			font-size: 20px !important;
+			color: #70625b !important;
+			font-weight: 600;
+		}
+
+		#checkout .woocommerce ul.order_details{
+
+			padding-left: 0px !important;
+			display: flex;
+			flex-direction: column;
+
+		}
+		#checkout .woocommerce ul.order_details li{
+
+		border: none !important;
+		padding-top: 10px !important;
+		margin-right: 0px !important;
+		font-size: 18px!important;
+
+		}
+
+		#checkout .woocommerce ul.order_details li strong{
+
+			padding-top: 10px !important;
+			font-weight: 400 !important;
+
+		}
+
+		#checkout .stripe-icon{
+
+			width: 70px;
+		}
+
 
 		#checkout .woocommerce{
 

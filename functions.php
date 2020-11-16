@@ -12,7 +12,6 @@ define('GREATY_TEMPLATE_URL', get_template_directory_uri());
 include GREATY_TEMPLATE_PATH.'/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
 include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
 
-
 /*------------------------------------*\
     Vue.js Libraries & functions
 \*------------------------------------*/
@@ -34,13 +33,14 @@ include GREATY_TEMPLATE_PATH.'/libs/woocommerce.php';
 include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
 include GREATY_TEMPLATE_PATH.'/libs/image-sizes.php';
 include GREATY_TEMPLATE_PATH.'/libs/mime-types.php';
+include GREATY_TEMPLATE_PATH.'/libs/_wpnonce.php';
 
 //include GREATY_TEMPLATE_PATH.'/libs/radio.php';
 
 
 
 // Playing with Phaser (do not include in Greaty Theme)
-include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
+//include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
 
 // Code for greaty new site
 include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';

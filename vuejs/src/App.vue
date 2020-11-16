@@ -1,37 +1,40 @@
 <template>
   <div id="app">
     <Header/>
-    <!-- <div id="pages"> -->
-      <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
-        <div class="section" 
-          v-for="(section, key2) in page" 
-          :key="section.post_name" 
-          :id="section.post_name" 
-          :data-permalink="section.permalink"
-          :data-index="key2"
-          :data-title="section.post_title"
-          :style="section.style" >
-            <component   
-              :section="section" 
-              :is="Templates[section.template]"
-              :post="section" 
-              :posts="section.children" 
-              :tag="wp.wp_query.queried_object"
-              :cat="wp.wp_query.queried_object"
-              :author="wp.wp_query.queried_object"
-              :s="wp.wp_query.query_vars.s"
-              @template_mounted="template_mounted" 
-              class="section-wrap" ></component>
+    <div id="app-scroller">
+      <!-- <div id="pages"> -->
+        <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
+          <div class="section" 
+            v-for="(section, key2) in page" 
+            :key="section.post_name" 
+            :id="section.post_name" 
+            :data-permalink="section.permalink"
+            :data-index="key2"
+            :data-title="section.post_title"
+            :style="section.style" >
+              <component   
+                :section="section" 
+                :is="Templates[section.template]"
+                :post="section" 
+                :posts="section.children" 
+                :tag="wp.wp_query.queried_object"
+                :cat="wp.wp_query.queried_object"
+                :author="wp.wp_query.queried_object"
+                :s="wp.wp_query.query_vars.s"
+                @template_mounted="template_mounted" 
+                class="section-wrap" ></component>
+          </div>
         </div>
-      </div>
-    <!-- </div> -->
-    <!-- Footer -->
-    <Footer/>
+      <!-- </div> -->
+      <!-- Footer -->
+      <Footer/>
+      
+      <!-- <AudioPlayerBottom />
+      <Editor v-if="wp.user_can.edit_theme_options" /> -->
+    </div>
     <div id="page-loader">
       <v-icon name="spinner" class="fa-pulse"></v-icon>
     </div>
-    <!-- <AudioPlayerBottom />
-    <Editor v-if="wp.user_can.edit_theme_options" /> -->
   </div>
 </template>
 
@@ -54,6 +57,7 @@ import Footer from 'Organisms/footer-fromagerie.vue'
 import init_scrolltop from 'Libs/init-scrolltop.js'
 //import scrollSection from 'Libs/scroll-sections.js'
 import scrollSection from 'Libs/scroll-sections-v2.js'
+//import scrollSection from 'Libs/scroll-sections-v3.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
@@ -149,6 +153,8 @@ export default {
         
         $('#app').data('scrolling', 'new-page')
 
+        $('#footer').hide();
+        
         get_new_page( this, event.href, (wp) => {
           
           //console.log( 'app get page', wp )
@@ -168,7 +174,7 @@ export default {
 
             animate_next_page( this, event.href, () => {
               
-              $('#footer').hide();
+              
 
               this.pages['current'] = wp.sections
               this.classes['current'] = wp.body_class
@@ -303,6 +309,10 @@ html{
   width: 100%;
   overflow-y: auto;
   z-index: auto;
+}
+
+#app-scroller {
+  z-index: 0;
 }
 
 .clear{

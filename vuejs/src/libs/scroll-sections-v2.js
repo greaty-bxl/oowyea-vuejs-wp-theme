@@ -5,8 +5,8 @@ import interact from 'interactjs'
 
 //$ = window.jquery
 
-import velocity from 'velocity-animate'
-window.jquery.prototype.velocity = velocity
+/*import velocity from 'velocity-animate'
+window.jquery.prototype.velocity = velocity*/
 
 /*console.log(velocity);*/
 
@@ -377,11 +377,15 @@ function scrollSection(vue){
 		})
 
 		anime({
-			targets: '#app',
-			scrollTop: new_top,
+			targets: '#app-scroller',
+			translateY: $('#app').scrollTop() - new_top,
 			duration: duration,
 			easing: 'easeInOutQuad',
 			complete: function() {
+				
+				$('#app').scrollTop( new_top )
+				$('#app-scroller').css('transform', 'translateY(0px)');
+
 				animating = false
 
 				$('#app').trigger({

@@ -42,12 +42,12 @@
 
 //Header
 //import Header from 'Organisms/header.vue'
-import Header from 'Organisms/simple-header.vue'
-//import Header from 'Organisms/header-light-burger.vue'
+//import Header from 'Organisms/simple-header.vue'
+import Header from 'Organisms/header-light-burger.vue'
 
 
 //Footer
-import Footer from 'Organisms/footer-fromagerie.vue'
+import Footer from 'Organisms/footer.vue'
 
 //import AudioPlayerBottom from 'Organisms/audio-player-bottom.vue'
 //import Editor from 'Organisms/editor.vue'
@@ -309,6 +309,7 @@ html{
   width: 100%;
   overflow-y: auto;
   z-index: auto;
+  background: rgb(40, 40, 40);
 }
 
 #app-scroller {
@@ -360,5 +361,9 @@ html{
   height: 5vh;
   width: 5vh;
   color: rgba(255,255,255,0.5);
+}
+
+.section-wrap{
+  background: rgb(40, 40, 40);
 }
 </style>

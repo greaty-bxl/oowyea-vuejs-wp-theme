@@ -1,7 +1,7 @@
 <template>
 	<div id="header" class="header-greaty">
 		<div class="clear"></div>
-		<div id="header-logo"><a class="link" href=""><img src="https://greaty.be/wp-content/uploads/2020/09/Greaty_logo-01.svg"></a><!-- <Acf field="logo"/> --><!-- </a> --></div>
+		<div id="header-logo"><a class="link" :href="this.wp.options.siteurl"><img src="https://greaty.be/wp-content/uploads/2020/09/Greaty_logo-01.svg"></a></div>
 		<!-- <div id="header-menu"></div> -->
 		<div id="right-panel">
 			<div class="headerButton" style="pointer-events: auto;">
@@ -263,7 +263,7 @@ export default {
 			borderBottom: '1px solid white',
 		});	
 
-		if( !window.logo_not_fixed_check )
+		/*if( !window.logo_not_fixed_check )
 		{
 			window.logo_not_fixed_check = 1
 
@@ -285,10 +285,10 @@ export default {
 					'opacity': 1
 					},
 					500, function() {
-					/* stuff to do after animation is complete */
+
 				});
 			});	
-		}
+		}*/
 		
 	}
 }
@@ -393,7 +393,7 @@ export default {
 }
 
 .header-greaty{
-	/*position: fixed;*/
+	position: fixed;
 }
 .menu{
 	

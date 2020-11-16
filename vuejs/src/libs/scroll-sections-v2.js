@@ -381,6 +381,9 @@ function scrollSection(vue){
 			translateY: $('#app').scrollTop() - new_top,
 			duration: duration,
 			easing: 'easeInOutQuad',
+			update: function() {
+				$('#app').trigger('scroll')
+			},
 			complete: function() {
 				
 				$('#app').scrollTop( new_top )
@@ -585,6 +588,7 @@ function scrollSection(vue){
 	else
 	{
 		$('#app').css('overflow-y', 'auto');
+		$('#header').css('position', 'absolute');
 	}
 
 	function update_current_section()

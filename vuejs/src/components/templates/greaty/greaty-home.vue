@@ -136,7 +136,7 @@ export default {
 		outline: none;
 		outline-width: 0px;
 	}
-
+	
 	.greaty-home .lottie{
 		opacity: 0
 	}

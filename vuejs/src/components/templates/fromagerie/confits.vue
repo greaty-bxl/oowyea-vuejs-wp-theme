@@ -13,7 +13,8 @@
 					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.les_confits" :key="child.ID"  >
 
 						<a target="_blank" :href="child.permalink">
-							<img  class="image-plateaux-fromages swiper-lazy" height="100%" width="100%" :data-src="child.thumb">
+							<div class="image-plateaux-fromages swiper-lazy" height="100%" width="100%" v-bind:style="{ 'background-image': 'url(' + child.thumb + ')' }">								
+							</div>
 						</a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
 						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>

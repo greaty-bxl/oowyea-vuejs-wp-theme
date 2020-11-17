@@ -24,7 +24,7 @@
 					<h2 class="montserrat-bold title-single-fromagerie-1">Commandes et demandes spéciales</h2>
 					
 					<div class="contener-single">
-						<form action="" method="get" class="form-example"  >
+						<form action="" method="get" class="form-single"  >
 							<input class="input-single-title"    type="" name="">
 							<input class="input-single"  placeholder="Prénom"  type="" name="">
 							<input class="input-single" placeholder="E-mail" type="" name="">
@@ -67,7 +67,30 @@
 		mounted (){
 			var $ = this.$
 
-			// $('.retour').html('[add_to_cart id="99"]')
+				$(document).ready(function() {
+				$('.form-single').on('submit',function(){
+
+				// Add text 'loading...' right after clicking on the submit button. 
+					$('.output_message').text('Loading...'); 
+
+					var form = $(this);
+					$.ajax({
+					url: "email.php",
+					method: form.attr('method'),
+					data: form.serialize(),
+					success: function(result){
+					if (result == 'success'){
+					$('.output_message').text('Message Sent!');  
+					} else {
+					$('.output_message').text('Error Sending email!');
+					}
+					}
+					});
+
+				// Prevents default submission of the form after clicking on the submit button. 
+				return false;   
+				});
+				});
 
 			
 

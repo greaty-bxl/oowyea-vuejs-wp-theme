@@ -75,12 +75,28 @@ export default function(vue){
 	$(document).on('after_next_page first_page_ready', () =>{
 		$(formsSelectors).append('<input type="hidden" name="is_woocommerce_ajax" value="1" />')
 		//console.log( $(formsSelectors) );
+
+		$('[name="_wp_http_referer"]').each(function(index, el) {
+			let val = $(el).val()
+
+			console.log(val);
+
+			val = val.replace('&add_to_json=1', '')
+
+			console.log(val);
+
+			val = val.replace('?add_to_json=1', '')
+
+			console.log(val);
+
+			$(el).val( val )
+		});
 	})
 
 
 	//remove item
-	$('.remove').each( (index, el) => {
+	/*$('.remove').each( (index, el) => {
 		let href = $(el).prop('href')
 		$(el).prop('href', href + '&test-var=1')
-	});
+	});*/
 }

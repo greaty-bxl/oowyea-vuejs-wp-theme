@@ -376,11 +376,25 @@ function scrollSection(vue){
 			'duration': duration
 		})
 
+
+		let next_id = window.current_section
+
+		if( next.length ){ next_id = next.prop('id') }
+
+		update_current_section( next_id, {
+			'current' : window.current_section,
+			'next' : next,
+			'duration': duration
+		})
+
 		anime({
 			targets: '#app-scroller',
 			translateY: $('#app').scrollTop() - new_top,
 			duration: duration,
 			easing: 'easeInOutQuad',
+			update: function() {
+				$('#app').trigger('scroll')
+			},
 			complete: function() {
 				
 				$('#app').scrollTop( new_top )
@@ -585,11 +599,19 @@ function scrollSection(vue){
 	else
 	{
 		$('#app').css('overflow-y', 'auto');
+		$('#header').css('position', 'absolute');
 	}
 
-	function update_current_section()
+	function update_current_section( section_id, details )
 	{
-		window.current_section = find_current_section().prop('id')
+		if( section_id )
+		{
+			window.current_section = section_id
+		}
+		else
+		{
+			window.current_section = find_current_section().prop('id')	
+		}		
 		//console.log(window.current_section);
 		if( window.current_section )
 		{
@@ -601,12 +623,14 @@ function scrollSection(vue){
 		vue.$store.commit({
 			type: 'section_change',
 			current_section: vue.$store.state.wp.sections[window.current_section_index],
+			index: window.current_section_index,
+			details: details
 		})
 	}
 	/*$('#app').on('after_scroll_to_section', function() {
 		update_current_section()
 	})*/
-	$('#app').on('scroll', function() {
+	/*$('#app').on('scroll', function() {
 		let is_scrolling_by_what = $('#app').data('scrolling')
 		//console.log( 'scroll', find_current_section() );
 		if( !is_scrolling_by_what || is_scrolling_by_what == "scroll-sections" )
@@ -614,7 +638,7 @@ function scrollSection(vue){
 			$('#app').data('scrolling', 'scroll-sections')
 			update_current_section()	
 		}		
-	});
+	});*/
 }
 
 export default scrollSection 

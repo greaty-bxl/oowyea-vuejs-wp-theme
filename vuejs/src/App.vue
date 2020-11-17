@@ -198,7 +198,7 @@ export default {
                   links_and_anchors(this)
 
                   $(document).trigger('after_next_page')
-                }, 250 )
+                }, 350 )
 
               }, 1)
             })

@@ -6,5 +6,6 @@ function wp_redirect_filter($status, $location) {
 		echo "refresh";
 		exit();
 	}
+	return $status;
 }
 add_filter( 'wp_redirect_status', 'wp_redirect_filter', 10, 2);

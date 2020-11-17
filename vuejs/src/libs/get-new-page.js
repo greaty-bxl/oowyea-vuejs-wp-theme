@@ -1,3 +1,5 @@
+import is_json from 'Libs/is-json.js'
+
 function get_new_page(vue, href, callback) {
 	
 	var $ = vue.$
@@ -30,7 +32,7 @@ function get_new_page(vue, href, callback) {
 	$.get( insertParam( href, 'add_to_json', 1 ), (data) => {
 		console.log('get page', data );
 		clearTimeout( timer )
-		if( data == 'refresh' )
+		if( data == 'refresh' || !is_json( data ) )
 		{
 			get_new_page(vue, window.location.href, callback)
 			return;

@@ -12,21 +12,21 @@ export default function (vue)
 			if( href.search( vue.wp.options.siteurl ) === 0 ) is_same_site = 1
 			/*if( href.search( '_wpnonce' ) >= 0 )
 			{
-				is_same_site = 0	
+				is_same_site = 0
 			}*/
 		}
 
-		//event.preventDefault();
+		console.log('is_same_site', is_same_site, vue.wp.options.siteurl, href)
 
 	
 		if( is_same_site ){
 
-			event.preventDefault();
+			//event.preventDefault();
 
 			let section = $('.section[data-permalink="'+href+'"]')
 			let is_section = section.length
 
-			if( $('body').hasClass('woocommerce-account') && event ) is_section = 0
+			if( $('[data-state="current"]').hasClass('woocommerce-account') && event ) is_section = 0
 
 			if( is_section )
 			{
@@ -148,6 +148,7 @@ export default function (vue)
 		/* Act on the event */
 		let href = $(event.currentTarget).prop('href')
 
+		//event.preventDefault();
 		// Add proprietie css to current link
 
 		$('.menu-item').each(function() {
@@ -181,6 +182,8 @@ export default function (vue)
 			}
 			
 		});
+
+		//console.log('click', href);
 
 		if ( open_link(event, href) )
 		{

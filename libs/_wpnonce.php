@@ -1,7 +1,10 @@
 <?php
 
 function wp_redirect_filter($status, $location) {
-    if( $_GET['add_to_json'] && $_GET['_wpnonce'] )
+    if( $_GET['add_to_json'] && $_GET['_wpnonce'] && 
+    	//can return before redirect
+    	( $_GET['remove_item'] || $_GET['undo_item'] ) 
+    )
 	{
 		echo "refresh";
 		exit();

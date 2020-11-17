@@ -41,9 +41,12 @@ export default {
 
 		//resolve login issue 'add to json'
 		var referer_val = $('[name="_wp_http_referer"]').prop('value')
-		referer_val = referer_val.replace('?add_to_json=1', '')
-		referer_val = referer_val.replace('&add_to_json=1', '')
-		$('[name="_wp_http_referer"]').val(referer_val)
+		if( referer_val )
+		{
+			referer_val = referer_val.replace('?add_to_json=1', '')
+			referer_val = referer_val.replace('&add_to_json=1', '')
+			$('[name="_wp_http_referer"]').val(referer_val)
+		}
 
 	},
 

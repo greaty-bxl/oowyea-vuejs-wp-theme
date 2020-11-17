@@ -78,17 +78,8 @@ export default function(vue){
 
 		$('[name="_wp_http_referer"]').each(function(index, el) {
 			let val = $(el).val()
-
-			console.log(val);
-
 			val = val.replace('&add_to_json=1', '')
-
-			console.log(val);
-
-			val = val.replace('?add_to_json=1', '')
-
-			console.log(val);
-
+			val = val.replace('?add_to_json=1', '?')
 			$(el).val( val )
 		});
 	})

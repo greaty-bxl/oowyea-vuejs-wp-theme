@@ -10,10 +10,12 @@
 
 				<swiper class="swiper3" :options="swiperOption10">
 
-					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.posts_assortiments" :key="child.ID"  >
+					<swiper-slide  class="slide-plateaux-fromages "  v-for="child in wp.posts_assortiments" :key="child.ID"  >
 
 						<a target="_blank" :href="child.permalink">
-							<img  class="image-plateaux-fromages swiper-lazy" height="100%" width="100%" :data-src="child.thumb"></a>
+							<div class="image-plateaux-fromages swiper-lazy" height="100%" width="100%" v-bind:style="{ 'background-image': 'url(' + child.thumb + ')' }">								
+							</div>
+						</a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
 						<!-- <p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p> -->
 						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">En savoir plus</a>  </p>
@@ -126,6 +128,34 @@ export default {
 	#les-assortiments-de-fromages{
 
 		min-height: auto !important;
+
+	}
+
+	.image-plateaux-fromages{
+
+		min-height: 18.5vw;
+		background-repeat: no-repeat;
+		background-size: 100%
+
+	}
+
+	@media screen and (max-width: 1100px) and (min-width: 600px){
+
+		.image-plateaux-fromages{
+
+			min-height: 38vw;
+			
+		}   
+
+	}
+
+	@media screen and (max-width: 600px){
+
+		.image-plateaux-fromages{
+
+			min-height: 79vw;
+
+		}   
 
 	}
 

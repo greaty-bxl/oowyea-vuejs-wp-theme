@@ -21,7 +21,7 @@
 						<p>Retrait en magasin</p>
 					</div>				
 					<div>
-						<img class="bancontact"  src="http://greaty.digital.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
+						<img class="bancontact"  src="http://dev.fromagerie.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
 					</div>
 
 					<div>				
@@ -143,29 +143,32 @@
 		outline: none !important;
 	}
 
+	.woocommerce-page img{
 
+		width: auto !important;
+	}
 
 	.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
 
 	background-color: #70625B;
-	color: white;
-	margin-top: 35px;
-	border: solid #70625B;
-	border-width: 1px;
-	min-width: 200px;
-	width: 40%;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	font-size: 16px;
+	color: white !important;
+	margin-top: 35px !important;
+	border: solid #70625B !important;
+	border-width: 1px !important;
+	min-width: 200px  !important;
+	width: 40% !important;
+	padding-top: 20px !important;
+	padding-bottom: 20px !important;
+	font-size: 16px !important;
 
 
 	}
 
 	.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
 
-		background-color: white;
-		color: #70625B;
-		transition: 200;
+		background-color: white !important;
+		color: #70625B !important;
+		transition: 200 !important;
 
 
 	} 

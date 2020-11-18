@@ -199,7 +199,7 @@
 	.single-text-post  div{
 
 		/*margin: 0px;*/
-		padding-top: 16px;
+		padding-top: 0px;
 
 	}
 
@@ -258,8 +258,9 @@
 
 		font-size: 25px !important;
 	}
-	.title-single-fromagerie-1{
 
+	.title-single-fromagerie-1{
+		padding-top: 20px !important;
 		font-size: 20px !important;
 	}
 
@@ -342,8 +343,7 @@
 
 		.single-text-post  div{
 
-
-			padding-top: 20px;
+			padding-top: 0px;
 		}
 		.button-contener p{
 

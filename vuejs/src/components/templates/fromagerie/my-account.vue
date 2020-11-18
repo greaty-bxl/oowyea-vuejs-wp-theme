@@ -39,6 +39,21 @@ export default {
 			'.title-compte' : 25,
 		})
 
+
+		$('.woocommerce-error').parents('.woocommerce').css({
+			display: 'flex',
+			flexDirection: 'column'
+		});
+
+
+		$('.woocommerce-error').parents('.woocommerce').find('h2').css('margin-right', 'auto');
+
+		$('.woocommerce-error').parents('.woocommerce').find('.login').css('margin-left', 'auto');
+
+
+
+		
+
 		//resolve login issue 'add to json'
 		var referer_val = $('[name="_wp_http_referer"]').prop('value')
 		if( referer_val )
@@ -281,18 +296,34 @@ export default {
 
 		margin-left: 70px;
 		margin-right: auto;
+		/*margin-left: auto;*/
 	}
 
 	#my-account h2{
 
 		margin-left: auto !important;
+		/*margin-right: auto !important ;*/
 		color: #70625B;
 		font-weight: 500;
+	}
+
+	.woocommerce-error {
+	    border-top-color: #b81c23;
+	    width: 50% !important;
+	    margin: 0 auto;
 	}
 
 
 
 	@media screen and (max-width: 600px){
+
+
+		.woocommerce-error {
+		 /*   border-top-color: #b81c23;*/
+		    width: auto !important;
+		    margin: 0 auto;
+		}
+
 
 		#my-account  .woocommerce a{
 
@@ -382,6 +413,12 @@ export default {
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 
+		.woocommerce-error {
+		   width: 70% !important;
+		    width: auto;
+		    margin: 0 auto;
+		}
+
 		#my-account .woocommerce {
 			margin-top: 70px;
 			/*min-height: calc(100vh - 120px);*/
@@ -430,6 +467,8 @@ export default {
 			font-weight: 500;
 			text-align: left;
 			margin-left: 70px !important;
+			margin-right: 0;
+
 			font-size: 18px;
 		}
 

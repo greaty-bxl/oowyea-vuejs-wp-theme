@@ -28,9 +28,9 @@ export default function(vue, permalink, callback){
 	});
 
 	next.animate({
-		'opacity': 1,
+		'opacity': 0,
 		},
-		600, 
+		450, 
 		() => {
 
 			//$('#app').scrollTop(0)
@@ -38,17 +38,18 @@ export default function(vue, permalink, callback){
 			callback()
 
 			setTimeout( () => {
-				current.css({
-					'opacity' : 1,
-				})
+				current.animate({
+					'opacity': 1
+					},
+					450, () => {
+				});
 
 				setTimeout( () => {
 					next.css({
-						/*'position' : 'relative',*/
 						'opacity' : 0,
 						'display' : 'none'
 					})
-				}, 500)
+				}, 1)
 
 			}, 1 )
 	});

@@ -198,18 +198,14 @@ export default {
                 setTimeout( ()=>{
 
                   $('#app').data('scrolling', '')
-                  
-
-                  setTimeout( ()=>{
-                    this.pages['next'] = {}
-                    this.classes['next'] = ''
-                  }, 400)
+                  this.pages['next'] = {}
+                  this.classes['next'] = '' 
 
                   //links_and_anchors(this)
 
                   $(document).trigger('after_next_page')
-                }, 150 )
-              }, 5 )
+                }, 1 )
+              }, 1 )
             })
           }, 1 )
         })

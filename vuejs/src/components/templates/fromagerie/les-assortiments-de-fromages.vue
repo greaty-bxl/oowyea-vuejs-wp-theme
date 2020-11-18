@@ -135,6 +135,7 @@ export default {
 
 		min-height: 18.5vw;
 		background-repeat: no-repeat;
+		background-position: center;
 		background-size: 100%
 
 	}

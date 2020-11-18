@@ -4,47 +4,32 @@
 		<div class="clear"></div>
 			
 			<div class="content-single">
+
 				<div>
 					<img class="image-single-post" :src="this.post.thumb">
 				</div>
+
 				<div class="single-text-post "> 
+
 					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
 
 					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
-					</div>
-					<div>				
-						<!-- <p v-html="this.post.metas._regular_price +' €' " class="price-single montserrat-bold"> </p> -->
-					</div>
 
-					<div>				
-					<!-- 	<input type="number"  name=""> -->
-						
 					</div>			
 
 					<h2 class="montserrat-bold title-single-fromagerie-1">Commandes et demandes spéciales</h2>
-					
+
 					<div class="contener-single">
-						<form action="" method="get" class="form-single"  >
-							<input class="input-single-title"    type="" name="">
-							<input class="input-single"  placeholder="Prénom"  type="" name="">
-							<input class="input-single" placeholder="E-mail" type="" name="">
-							<input class="input-single" placeholder="Téléphone" type="" name="">
-							<input class="input-single" placeholder="Nombre de personnes" type="" name="">
-							<input class="input-single title-21 " placeholder="Assortiments en plat ou dessert " disabled type="" name="">
-							<textarea class="input-single " placeholder="Messsage"  type="" name=""></textarea>
-							<button class="button-envoyer">Envoyer</button>
-						</form>
+
+					<formulaire></formulaire>
+
 					</div>
 
 					<div class="retour">
-						
-						<button onclick="window.history.back()">Retour</button>
+
+					<button onclick="window.history.back()">Retour</button>
 
 					</div>
-					
-			
-
-
 					
 				</div>
 			</div>
@@ -57,9 +42,10 @@
 <script>
 
 	import smart_fonts from 'Libs/smart-fonts.js';
+	import formulaire from 'Molecules/formulaire';
 	export default {
 		components: {
-			
+			formulaire
 		},
 		props: {
 			'post' : Object
@@ -67,40 +53,20 @@
 		mounted (){
 			var $ = this.$
 
-				$(document).ready(function() {
-				$('.form-single').on('submit',function(){
 
-				// Add text 'loading...' right after clicking on the submit button. 
-					$('.output_message').text('Loading...'); 
 
-					var form = $(this);
-					$.ajax({
-					url: "email.php",
-					method: form.attr('method'),
-					data: form.serialize(),
-					success: function(result){
-					if (result == 'success'){
-					$('.output_message').text('Message Sent!');  
-					} else {
-					$('.output_message').text('Error Sending email!');
-					}
-					}
-					});
+			this.$emit('template_mounted')
 
-				// Prevents default submission of the form after clicking on the submit button. 
-				return false;   
-				});
-				});
-
-			
+			console.log(this.wp);
+	
+	
 
 			$('.title-21').attr('placeholder', this.post.post_title );
 			$('.title-21').attr('value', this.post.post_title );
 
 			
-			this.$emit('template_mounted')
 
-			console.log(this.wp);
+		
 
 			smart_fonts({
 	
@@ -266,10 +232,7 @@
 		padding-left: 0;
 	}
 
-	.content-single textarea{
-		
-		min-width: 20vw;
-	}
+	/*.content-single */
 
 
 	.content-single *{
@@ -468,125 +431,6 @@
 </style>
 
 <style scoped>
-
-	.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
-
-		text-align: center;
-	}
-
-	.content-single del{
-
-		display: none !important;
-	}
-
-	.content-single bdi {
-
-		display: none !important;
-	}
-
-	a{
-		text-decoration-line: none;
-		color: #666666;
-	}
-
-	input{
-
-		border: 1px solid #A59890 !important;
-		margin-top: 15px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		color: #666666;
-		padding-left: 15px;
-
-	}
-
-	textarea{
-		padding-top: 10px;
-		border: 1px solid #A59890 !important;
-		margin-top: 15px;
-		min-height: 100px;
-		padding-left: 15px;
-	}
-
-	button{
-
-		margin-top: 20px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		background: #70625b;
-		color: white;
-		border: solid #70625b;
-		border-width: 1px;
-		font-weight: bold;
-
-	}
-
-	button:hover{
-
-		color: #A59890;
-		background: white;
-		/*border: 1px ;*/
-	/*	border: solid #A59890;
-		border-width: 1px;*/
-		transition-delay: 200;
-	}
-
-	.contener-single{
-		padding-top: 0px;
-	}
-
-	@media screen and (max-width: 1100px) and (min-width: 600px){
-
-		h5{
-
-			font-size: 26px !important;
-		}
-	}
-
-	@media screen and (max-width: 600px){
-
-
-	}
-
-	.contener-single form{
-
-		display: flex;
-		flex-direction: column;
-		min-width: 20vw;
-		/*justify-content: space-between;*/
-	}
-	
-
-
-	@media screen and (max-width: 1100px) and (min-width: 600px){
-
-
-		.contener-single form{
-
-			max-width: 80% !important;
-			/*justify-content: space-between;*/
-		}
-
-		p{
-
-			font-size: 18px !important;
-		}
-
-
-
-	}
-
-	@media screen and (max-width: 600px){
-
-
-		.contener-single form{
-
-			max-width: 100%;
-			/*justify-content: space-between;*/
-		}
-
-	}
-
 
 
 </style>

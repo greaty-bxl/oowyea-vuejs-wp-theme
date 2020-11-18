@@ -13,8 +13,7 @@
 					<swiper-slide  class="slide-plateaux-fromages"  v-for="child in wp.les_pains" :key="child.ID"  >
 
 						<a target="_blank" :href="child.permalink">
-							<div class="image-plateaux-fromages swiper-lazy" height="100%" width="100%" v-bind:style="{ 'background-image': 'url(' + child.thumb + ')' }">								
-							</div>
+							<div class="image-plateaux-fromages swiper-lazy"  v-bind:data-background="child.thumb" height="300" width="100%" ></div>
 						</a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
 						<p v-html="child.metas._price + ' €' " class="prix-plateau-fromage"></p>
@@ -96,23 +95,30 @@ export default {
 				reachEnd: true,
 		
 				breakpoints: {
-				// when window width is >= 320px
-				1100: {
-				slidesPerView: 3.5,
+					// when window width is >= 320px
+					1100: {
+					slidesPerView: 3.5,
 
+					},
+
+					400: {
+					slidesPerView: 1.7,
+					},
+
+					100: {
+					slidesPerView: 1.1,
+					},
 				},
 
-				400: {
-				slidesPerView: 1.7,
+				on : {
+					init : function(){
+
+						let $ = window.jquery
+
+						$(this.$el).find('.swiper-slide').css('visibility', 'visible').animate({'opacity':1}, 750);
+
+					}
 				},
-
-				100: {
-				slidesPerView: 1.1,
-				},
-
-
-			}
-
 		}
 	}
 

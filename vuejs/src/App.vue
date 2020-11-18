@@ -28,12 +28,17 @@
       <!-- </div> -->
       <!-- Footer -->
       <Footer/>
-      
       <!-- <AudioPlayerBottom />
       <Editor v-if="wp.user_can.edit_theme_options" /> -->
     </div>
     <div id="page-loader">
       <v-icon name="spinner" class="fa-pulse"></v-icon>
+    </div>
+    <div id="gpdr-intro">
+      <div id="gpdr-message">
+        <div v-html="wp.sidebars['gpdr-intro']"></div>
+        <button>I understand</button>
+      </div>
     </div>
   </div>
 </template>
@@ -197,11 +202,10 @@ export default {
                   links_and_anchors(this)
 
                   $(document).trigger('after_next_page')
-                }, 350 )
-
-              }, 1)
+                }, 500 )
+              }, 1 )
             })
-          },1)
+          }, 1 )
         })
       });
 
@@ -320,7 +324,8 @@ html{
 
 .section{
   display: block;
-  min-height: 100vh;
+  height: auto;
+  /*min-height: 100vh;*/
   width: 100%;
 }
 
@@ -328,7 +333,7 @@ html{
   display: flex;
   flex-direction: column;
   /*justify-content: space-between;*/
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   width: 100%;
 }
 
@@ -355,9 +360,32 @@ html{
   justify-content: center;
   z-index: 8000;
 }
+
 #page-loader .fa-icon{
   height: 5vh;
   width: 5vh;
   color: rgba(255,255,255,0.5);
 }
+
+#gpdr-intro {
+  position: fixed;
+  z-index: 9000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;/*flex;*/
+  justify-content: center;
+  flex-direction: column;
+}
+
+#gpdr-message {
+  width: 400px;
+  height: 700px;
+  max-width: 90%;
+  max-height: 90vh;
+  background: #FFFFFF;
+  margin: auto;
+}
+
 </style>

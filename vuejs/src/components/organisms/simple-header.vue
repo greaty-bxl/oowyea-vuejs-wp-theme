@@ -519,8 +519,10 @@ export default {
 
 	}
 	nav{
-		margin:  50px 70px;
-		width: calc(100% - 140px);
+		margin:  50px 35px;
+		width: calc(100% - 70px);
+		margin-right: 40px;
+		/*right: 0px;*/
 		/*background-color: black;*/
 	}
 

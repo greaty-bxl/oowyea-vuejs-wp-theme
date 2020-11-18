@@ -1,4 +1,4 @@
-<?php
+<!-- 
 
 // Anti spam validation
 $hidden_input_validation = $_POST['hidden_input_validation'];
@@ -54,7 +54,7 @@ if ( $hidden_input_validation !== 'ok') {
 
  header("location:http://localhost/huile_de_olive/wordpress-5.2.3/wordpress/message-recu/")
 
- 
+  -->
 
 ?>
 

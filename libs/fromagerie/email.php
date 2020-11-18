@@ -1,4 +1,8 @@
 <?php
+
+add_action( 'wp_ajax_nopriv_send_contact_mail', 'send_contact_mail');
+add_action( 'wp_ajax_send_contact_mail', 'send_contact_mail' );
+
 function send_contact_mail( ) {
 
    //if (isset($_POST['submit'])) {
@@ -20,6 +24,9 @@ function send_contact_mail( ) {
      $subject = 'Contact Request From Website';
      $headers = "From: ".$name." <".$email."> \r\n";
 
+      // echo $message;
+      // die( json_encode(  $message ) );
+      // exit();
     
      $text_mail = '';
 
@@ -29,20 +36,21 @@ function send_contact_mail( ) {
 
      };
 
-     $message = $text_mail;
 
-    // wp_mail($to,$subject,$message,$headers);
+     echo $message;
 
-     @mail($to,$subject,$text_mail,$headers);
+      // wp_mail($to,$subject,$message,$headers);
+
+      @mail($to,$subject,$text_mail,$headers);
      // @mail($send_email );  
      //echo ($send_email) ? 'success' : 'error';
      // die( $text_mail );
-     //die( json_encode( $_POST['form'] ) );
+     // die( json_encode( $_POST['form'] ) );
+
 
      // }
   }
 
-add_action( 'wp_ajax_send_contact_mail', 'send_contact_mail' );
-add_action( 'wp_ajax_nopriv_send_contact_mail', 'send_contact_mail');
+
 ?>
 

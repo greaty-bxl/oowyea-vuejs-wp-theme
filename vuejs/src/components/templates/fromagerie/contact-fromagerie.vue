@@ -34,15 +34,7 @@
 							<p class="sous-titre-contact ">Commandes et <br> demandes spéciales</p> 
 
 							<div>
-								<form action="" method="get" class="form-example" >
-									
-									<input class="input-contact"  placeholder="Prénom"  type="" name="">
-									<input class="input-contact" placeholder="E-mail" type="" name="">
-									<input class="input-contact" placeholder="Téléphone" type="" name="">
-									<input class="input-contact" placeholder="Nombre de personnes" type="" name="">
-									<textarea class="input-contact" placeholder="Message" type="" name=""></textarea>
-									<button class="button-envoyer">Envoyer</button>
-								</form>
+							<formulairecontact></formulairecontact>
 								
 							</div>
 
@@ -52,9 +44,9 @@
 
 							<div>
 								<p class="sous-titre-contact">Aide</p>
-								<a class="text-sous-titre-contact" target="_blank" href="http://greaty.digital.brussels/livraison/">Retrait en magasin</a>
-								<a class="text-sous-titre-contact" target="_blank" href="http://greaty.digital.brussels/conditions-generales-de-ventehttp://greaty.digital.brussels/livraison/">Conditions générales de vente</a>
-								<a class="text-sous-titre-contact" target="_blank" href="http://greaty.digital.brussels/politique-de-confidentialite-2/">Politique de confidentialité</a>	
+								<a class="text-sous-titre-contact" target="_blank" href="http://dev.fromagerie.brussels/livraison/">Retrait en magasin</a>
+								<a class="text-sous-titre-contact" target="_blank" href="http://dev.fromagerie.brussels/conditions-generales-de-vente">Conditions générales de vente</a>
+								<a class="text-sous-titre-contact" target="_blank" href="http://dev.fromagerie.brussels/politique-de-confidentialite-2/">Politique de confidentialité</a>	
 							</div>
 
 							<div>
@@ -78,6 +70,7 @@
 <script>
 
 import smart_fonts from 'Libs/smart-fonts.js';
+import formulairecontact from 'Molecules/formulaire-contact';
 
 export default {
 
@@ -139,7 +132,7 @@ min-height: 100vh;
 .title-section-contact{
 
 text-align: left;
-margin-left: 70px;
+margin-left: 140px;
 margin-bottom: 5vh;
 margin-top: 100px;
 padding-top: 5vh;

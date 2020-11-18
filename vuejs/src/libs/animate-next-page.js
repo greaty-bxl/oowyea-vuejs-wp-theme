@@ -24,31 +24,37 @@ export default function(vue, permalink, callback){
 	current.animate({
 		'opacity': 0,
 		},
-		400, () => {
+		450, () => {
+	});
 
-			next.animate({
-				'opacity': 1,
-				},
-				400, 
-				() => {
+	next.animate({
+		'opacity': 1,
+		},
+		600, 
+		() => {
 
-					//$('#app').scrollTop(0)
-					
-					callback()
+			//$('#app').scrollTop(0)
+			
+			callback()
 
-					setTimeout( () => {
-						current.css({
-							'opacity' : 1,
-						})
+			setTimeout( () => {
+				current.css({
+					'opacity' : 1,
+				})
 
-						next.css({
-							'position' : 'relative',
-							'opacity' : 0,
-							'display' : 'none'
-						})
+				setTimeout( () => {
+					next.css({
+						/*'position' : 'relative',*/
+						'opacity' : 0,
+						'display' : 'none'
+					})
+				}, 500)
 
-					}, 2 )
-			});
+				
+
+				
+
+			}, 150 )
 	});
 	
 }

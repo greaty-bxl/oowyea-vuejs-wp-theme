@@ -78,6 +78,12 @@ export default {
 		'post' : Object
 	},
 
+	components: {
+
+		formulairecontact
+
+	},
+
 
 
 	mounted(){
@@ -157,7 +163,7 @@ font-weight: 500;
 	.contener-contact textarea{
 
 
-		max-width: 20vw;
+		/*max-width: 20vw;*/
 		/*justify-content: space-between;*/
 	}
 
@@ -219,6 +225,11 @@ font-weight: 500;
 			text-align: left;
 			margin-left: 70px;
 			margin-right: 70px;
+		}
+
+		.title-section-contact{
+
+			margin-left: 70px;
 		}
 
 		.globale-contact{

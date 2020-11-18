@@ -81,22 +81,30 @@ export default {
 			reachEnd: true,
 	
 			breakpoints: {
-			// when window width is >= 320px
-			1100: {
-			slidesPerView: 4.2,
+				// when window width is >= 320px
+				1100: {
+				slidesPerView: 4.2,
 
+				},
+
+				400: {
+				slidesPerView: 1.7,
+				},
+
+				100: {
+				slidesPerView: 1.1,
+				},
 			},
 
-			400: {
-			slidesPerView: 1.7,
+			on : {
+				init : function(){
+
+					let $ = window.jquery
+
+					$(this.$el).find('.swiper-slide').css('visibility', 'visible').animate({'opacity':1}, 500);
+
+				}
 			},
-
-			100: {
-			slidesPerView: 1.1,
-			},
-
-
-			}
 
 		}
 	}

@@ -34,7 +34,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
         </script>
 
 	</head>
-	<body <?php body_class(); ?>>
+	<body <?php //body_class(); ?>>
 
 		<!-- wrapper -->
 		<div class="wrapper">

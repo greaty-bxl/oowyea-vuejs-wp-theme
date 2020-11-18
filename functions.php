@@ -339,6 +339,16 @@ if (function_exists('register_sidebar'))
         'before_title' => '<h3>',
         'after_title' => '</h3>'
     ));
+
+    register_sidebar(array(
+        'name' => __('GPDR intro', 'greatytheme'),
+        'description' => __('Description for this widget-area...', 'greatytheme'),
+        'id' => 'gpdr-intro',
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+    ));
 }
 
 // Remove wp_head() injected Recent Comment styles

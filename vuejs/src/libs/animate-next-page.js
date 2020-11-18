@@ -14,7 +14,7 @@ export default function(vue, permalink, callback){
 		'overflow' : 'hidden',
 		'opacity' : 0,
 		'display' : 'block',
-		'z-index' : 2900
+		'z-index' : 2000
 	});
 
 	$('[data-state="next"]').find('.section').hide();
@@ -50,11 +50,7 @@ export default function(vue, permalink, callback){
 					})
 				}, 500)
 
-				
-
-				
-
-			}, 150 )
+			}, 1 )
 	});
 	
 }

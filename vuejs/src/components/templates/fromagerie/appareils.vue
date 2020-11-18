@@ -146,7 +146,7 @@ export default {
 
 	.section-wrap{
 		/*min-height: auto;*/
-		background-color: #F2F2F2;
+		background-color: #fff;
 	}
 
 @media screen and (max-width: 1100px) and (min-width: 600px){

@@ -363,7 +363,7 @@ export default {
 	
 	.section-wrap{
 		min-height: auto !important;
-		background-color: #F2F2F2;
+		background-color: #fff;
 	}
 
 /*	.section{

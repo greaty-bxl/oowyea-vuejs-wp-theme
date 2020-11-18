@@ -172,7 +172,7 @@ export default {
 	}
 	nav{
 		position: fixed;
-		z-index: 10;
+		/*z-index: 10;*/
 		/*min-width: 300px;*/
 		overflow-y:auto;
 		/*z-index: 1000;*/

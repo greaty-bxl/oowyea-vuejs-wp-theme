@@ -189,20 +189,26 @@ export default {
               })
 
               setTimeout( ()=>{
+                $('#footer').show();
 
                 init_scrolltop(this)
+                
+                links_and_anchors(this)
 
                 setTimeout( ()=>{
 
                   $('#app').data('scrolling', '')
-                  $('#footer').show();
-                  /*this.pages['next'] = {}
-                  this.classes['next'] = ''*/
+                  
 
-                  links_and_anchors(this)
+                  setTimeout( ()=>{
+                    this.pages['next'] = {}
+                    this.classes['next'] = ''
+                  }, 400)
+
+                  //links_and_anchors(this)
 
                   $(document).trigger('after_next_page')
-                }, 250 )
+                }, 5 )
               }, 5 )
             })
           }, 1 )
@@ -311,8 +317,7 @@ html{
   height: 100vh;
   width: 100%;
   overflow-y: auto;
-  z-index: auto;
-  background: #f2f2f2;
+  z-index: 0;
 }
 
 #app-scroller {
@@ -340,6 +345,7 @@ html{
 
 #header{
   z-index: 3000;
+  position: fixed;
 }
 
 /*#pages{

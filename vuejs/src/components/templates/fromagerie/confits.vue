@@ -121,7 +121,7 @@ export default {
 
 						//console.log('ready', this.$el, $(this.$el).find('.swiper-slide') );
 
-						$(this.$el).find('.swiper-slide').css('visibility', 'visible').animate({'opacity':1}, 750);
+						$(this.$el).find('.swiper-slide').css('visibility', 'visible').animate({'opacity':1}, 500);
 
 
 					}

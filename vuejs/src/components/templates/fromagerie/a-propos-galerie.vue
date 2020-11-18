@@ -101,7 +101,7 @@ export default {
 
 					let $ = window.jquery
 
-					$(this.$el).find('.swiper-slide').css('visibility', 'visible').animate({'opacity':1}, 750);
+					$(this.$el).find('.swiper-slide').css('visibility', 'visible').animate({'opacity':1}, 500);
 
 				}
 			},

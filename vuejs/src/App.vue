@@ -179,9 +179,9 @@ export default {
             animate_next_page( this, event.href, () => {
               
               
-
-              this.pages['current'] = wp.sections
               this.classes['current'] = wp.body_class
+              this.pages['current'] = wp.sections
+              
 
               this.$store.commit({
                 type: 'sections_load',
@@ -196,14 +196,14 @@ export default {
 
                   $('#app').data('scrolling', '')
                   $('#footer').show();
-                  this.pages['next'] = {}
-                  this.classes['next'] = ''
+                  /*this.pages['next'] = {}
+                  this.classes['next'] = ''*/
 
                   links_and_anchors(this)
 
                   $(document).trigger('after_next_page')
-                }, 500 )
-              }, 1 )
+                }, 250 )
+              }, 5 )
             })
           }, 1 )
         })
@@ -312,6 +312,7 @@ html{
   width: 100%;
   overflow-y: auto;
   z-index: auto;
+  background: #f2f2f2;
 }
 
 #app-scroller {

@@ -13,7 +13,7 @@
 					<div v-html="post.acf_fields.list_colis" class="list-colis">
 					</div>
 					<div>				
-						<p v-html="post.metas._price +' €' " class="price-single montserrat-bold"> </p>
+						<p v-html="post.price" class="price-single montserrat-bold"> </p>
 						<p>Taxes incluses</p>
 					</div>
 
@@ -70,12 +70,18 @@
 			{
 				$('.nbrpersonne').html("Quantité")
 			}
+
+			console.log(this.post);
 			
 			this.$emit('template_mounted')
 		},
 		computed: {
 			add_to_cart () {
 				return this.$store.state.wp.add_to_cart
+			},
+			wp () {
+				//console.log(cap);
+				return this.$store.state.wp
 			}
 		}
 	}

@@ -387,9 +387,13 @@ function scrollSection(vue){
 			'duration': duration
 		})
 
+		
+
+		new_top = Math.round( new_top );
+
 		anime({
 			targets: '#app-scroller',
-			translateY: $('#app').scrollTop() - new_top,
+			translateY: Math.round( $('#app').scrollTop() - new_top ),
 			duration: duration,
 			easing: 'easeInOutQuad',
 			update: function() {
@@ -397,21 +401,21 @@ function scrollSection(vue){
 			},
 			complete: function() {
 				
-				$('#app').scrollTop( new_top )
-				$('#app-scroller').css('transform', 'translateY(0px)');
+					$('#app').scrollTop( new_top )
+					$('#app-scroller').css('transform', 'translateY(0px)');
 
-				animating = false
+					animating = false
 
-				$('#app').trigger({
-					'type': 'after_scroll_to_section',
-					'new_top': new_top,
-					'current' : window.current_section,
-					'next' : next,
-					'duration': duration,
-				})
+					$('#app').trigger({
+						'type': 'after_scroll_to_section',
+						'new_top': new_top,
+						'current' : window.current_section,
+						'next' : next,
+						'duration': duration,
+					})	
+				
 			}
 		});
-
 		/*$('#app').velocity({
 			tween: [new_top, $('#app').scrollTop()],
 		}, {

@@ -106,20 +106,6 @@ export default {
 
 	}
 
-	#propos*{
-
-		font-weight: 400;
-		/*color: white;*/
-
-	}
-
-	#a-propos-galerie *{
-
-		font-weight: 400;
-		/*color: white;*/
-
-	}
-
 	
 
 

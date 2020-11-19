@@ -134,6 +134,12 @@ min-height: 100vh;
 	background-color: white;
 }
 
+#contact  *{
+
+	font-weight: 400;
+
+}
+
 
 .title-section-contact{
 

@@ -60,6 +60,14 @@ export default {
 		outline: 0;
 	}
 
+
+	#propos * {
+
+		font-weight: 400;
+		/*color: white;*/
+
+	}
+
 	.section-a-propos{
 
 		height: 100vh;

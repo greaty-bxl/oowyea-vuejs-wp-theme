@@ -143,6 +143,13 @@ export default {
 		padding-bottom: 120px;
 	}
 
+	#vins * {
+
+		font-weight: 400;
+		/*color: white;*/
+
+	}
+
 
 </style>
 

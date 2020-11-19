@@ -138,6 +138,12 @@ export default {
 
 	}
 
+	#les-assortiments-de-fromages  *{
+
+		font-weight: 400;
+
+	}
+
 	.image-plateaux-fromages{
 
 		min-height: 18.5vw;

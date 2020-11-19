@@ -81,6 +81,12 @@ export default {
 		font-weight: 500;
 	}
 
+	#my-account  *{
+
+		font-weight: 400;
+
+	}
+
 	
 	#my-account .woocommerce-MyAccount-navigation-link--edit-address a{
  
@@ -129,7 +135,7 @@ export default {
 
 		font-family: 'Montserrat', sans-serif !important;
 		font-size: 18px;
-		line-height: 24px;
+		line-height: px;
 	}
 
 

@@ -119,16 +119,23 @@ export default {
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
-	.image-a-propos{
 
-		height: 100%;
-		background-size: cover;
-		background-repeat: no-repeat;
-		/*background: center;*/
+
+	#a-propos-galerie * {
+
+	font-weight: 400;
+	/*color: white;*/
 
 	}
 
-	
+	.image-a-propos{
+
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	/*background: center;*/
+
+	}
 
 	.section-a-propos-galerie{
 

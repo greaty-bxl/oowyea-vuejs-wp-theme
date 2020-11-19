@@ -15,9 +15,9 @@
 					<a href="https://www.instagram.com/fromageriewestland/?hl=fr">Instagram</a>
 				</div>
 				<div>
-					<a target="_blank" href="http://greaty.digital.brussels/livraison/">Retrait en magasin</a>
-					<a target="_blank" href="http://greaty.digital.brussels/politique-de-confidentialite-2/">Politique de confidentialité</a>
-					<a target="_blank" href="http://greaty.digital.brussels/conditions-generales-de-vente/">Conditions générales de vente</a>
+					<a target="_blank" href="http://dev.fromagerie.brussels/livraison/">Retrait en magasin</a>
+					<a target="_blank" href="http://dev.fromagerie.brussels/politique-de-confidentialite-2/">Politique de confidentialité</a>
+					<a target="_blank" href="http://dev.fromagerie.brussels/conditions-generales-de-vente/">Conditions générales de vente</a>
 					<p>Fromagerie Westland © 2020</p>
 
 				</div>

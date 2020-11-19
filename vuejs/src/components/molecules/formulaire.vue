@@ -85,11 +85,11 @@ mounted(){
 	}
 
 
-	textarea{
+/*	textarea{
 			
-			min-width: 20vw;
+			width: 20vw;
 		}
-
+*/
 	.divcheckbox{
 
 		display: flex;
@@ -150,6 +150,7 @@ mounted(){
 		margin-top: 15px;
 		min-height: 100px;
 		padding-left: 15px;
+		width: auto;
 	}
 
 	button{
@@ -162,6 +163,7 @@ mounted(){
 		border: solid #70625b;
 		border-width: 1px;
 		font-weight: bold;
+		width: auto;
 
 	}
 

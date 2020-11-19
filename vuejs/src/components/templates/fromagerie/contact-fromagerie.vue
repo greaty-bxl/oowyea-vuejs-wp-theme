@@ -158,7 +158,7 @@ font-weight: 500;
 		display: flex;
 		flex-direction: column;
 		width: 20vw;
-		/*justify-content: space-between;*/
+		
 	}
 	.contener-contact textarea{
 

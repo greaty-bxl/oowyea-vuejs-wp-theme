@@ -75,6 +75,12 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
+	mark{
+
+		background: white !important;
+		font-weight: 500;
+	}
+
 	
 	#my-account .woocommerce-MyAccount-navigation-link--edit-address a{
  
@@ -85,6 +91,11 @@ export default {
 
 		border-bottom: 2px solid #70625B !important;
 
+	}
+
+	.woocommerce-button .button .view{
+
+		font-size: 16px !important;
 	}
 
 	
@@ -227,7 +238,7 @@ export default {
 	#my-account  .woocommerce table.shop_table th{
 
 		color: #70625B;
-		font-size: 18px;
+		/*font-size: 16px;*/
 	}
 
 	#my-account  .woocommerce table.shop_table{
@@ -308,22 +319,20 @@ export default {
 	}
 
 	.woocommerce-error {
-	    border-top-color: #b81c23;
-	    width: 50% !important;
-	    margin: 0 auto;
+		border-top-color: #b81c23;
+		width: 50% !important;
+		margin: 0 auto;
 	}
-
-
 
 	@media screen and (max-width: 600px){
 
 
 		.woocommerce-error {
-		 /*   border-top-color: #b81c23;*/
-		    width: auto !important;
-		    margin: 0 auto;
-		}
 
+			width: auto !important;
+			margin: 0 auto;
+			
+		}
 
 		#my-account  .woocommerce a{
 
@@ -414,14 +423,13 @@ export default {
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 
 		.woocommerce-error {
-		   width: 70% !important;
-		    width: auto;
-		    margin: 0 auto;
+			width: 70% !important;
+			width: auto;
+			margin: 0 auto;
 		}
 
 		#my-account .woocommerce {
 			margin-top: 70px;
-			/*min-height: calc(100vh - 120px);*/
 			display: flex;
 			flex-direction: column;
 		}

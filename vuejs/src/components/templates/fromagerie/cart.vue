@@ -143,7 +143,7 @@ export default {
 
 	#cart#add_payment_method table.cart img, .woocommerce-cart table.cart img, .woocommerce-checkout table.cart img {
 
-		width: 100px;
+		width: 100px !important;
 	}
 
 	#cart.woocommerce{

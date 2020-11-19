@@ -91,6 +91,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
+	.noty_theme__semanticui.noty_type__success{
+
+		   background-color: #70625B !important;
+		   color: white !important;
+	}
+	.noty_theme__semanticui.noty_type__success a{
+		   color: white !important;
+	}
+
 	#header{
 
 		height: 0px;
@@ -311,7 +320,7 @@
 
 	.woocommerce .quantity .qty{
 
-		width: 70px;
+		width: 70px !important;
 		padding-top: 7px;
 		padding-bottom: 7px;
 	}

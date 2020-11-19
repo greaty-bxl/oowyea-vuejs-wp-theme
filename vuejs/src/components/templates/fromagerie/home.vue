@@ -52,14 +52,6 @@ export default {
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
-	
-	body *{
-
-		font-family: 'Montserrat';
-		font-weight: 400 ;
-		/*color: white;*/
-
-	}
 
 
 	*:focus {
@@ -107,12 +99,39 @@ export default {
 		height: 0px;
 	}
 
+	#home *{
+
+		font-weight: 400;
+		/*color: white;*/
+
+	}
+
+	#propos*{
+
+		font-weight: 400;
+		/*color: white;*/
+
+	}
+
+	#a-propos-galerie *{
+
+		font-weight: 400;
+		/*color: white;*/
+
+	}
+
+	
+
+
+
+
 </style>
 
 
 <style scoped >
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300;1,400&display=swap');
+	
 
 
 </style>

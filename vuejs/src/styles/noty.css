@@ -1,0 +1,11 @@
+.noty_body a {
+	color: inherit;
+}
+
+.noty_theme__relax.noty_bar{
+	border-radius: 0px;
+}
+
+.noty_theme__relax.noty_bar .noty_body{
+	padding: 20px;
+}

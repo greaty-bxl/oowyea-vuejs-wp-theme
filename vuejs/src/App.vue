@@ -273,6 +273,9 @@ export default {
 </script>
 
 <style>
+
+@import '~Styles/wp-content.css';
+
 /* width */
 ::-webkit-scrollbar { 
   width: 5px;

@@ -93,11 +93,11 @@
 
 	.noty_theme__semanticui.noty_type__success{
 
-		   background-color: #70625B !important;
-		   color: white !important;
+		background-color: #70625B !important;
+		color: white !important;
 	}
 	.noty_theme__semanticui.noty_type__success a{
-		   color: white !important;
+		color: white !important;
 	}
 
 	#header{

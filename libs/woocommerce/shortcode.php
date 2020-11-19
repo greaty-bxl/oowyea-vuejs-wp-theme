@@ -88,7 +88,10 @@ function owy_woo_price( $atts ) {
 	
 	global $post;
 	global $product;
+	$product = wc_get_product($post->ID);
 
+	/*echo "<pre>";
+	print_r( $product );*/
 	
 	if( is_object( $product ) )
 	{

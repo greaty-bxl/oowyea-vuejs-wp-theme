@@ -139,7 +139,7 @@ export default {
 
 	#checkout .stripe-icon {
 
-		width: 100px;
+		width: 100px !important;
 	}
 
 	#checkout .woocommerce{
@@ -211,7 +211,7 @@ export default {
 
 		#checkout .stripe-icon{
 
-		width: 70px;
+		width: 70px !important;
 		}
 
 
@@ -262,7 +262,7 @@ export default {
 
 		#checkout .stripe-icon{
 
-		width: 70px;
+		width: 70px !important;
 		}
 
 

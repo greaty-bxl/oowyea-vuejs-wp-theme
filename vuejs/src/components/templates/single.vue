@@ -174,12 +174,12 @@
 		margin-right: auto;
 		margin-left: auto;
 
-		width: 60vw;
+		/*width: 60vw;*/
 
 	}
 	.image-single-post{
 		min-width: auto !important;
-		width: 40vw;
+		width: 600px;
 	}
 
 	.single-text-post  p{
@@ -206,7 +206,7 @@
 	.single-text-post {
 
 		/*height: 30vw !important;*/
-		/*width: 30vw;*/
+		width: 20vw;
 		padding-left: 5vh;
 	}
 	.single-text-post  p {
@@ -267,8 +267,9 @@
 	.content-single input{
 		margin-top: 5px;
 		height: 30px;
-		width: 20vw;
+		width: auto !important;
 	}
+
 
 	.single-text-post  div p:nth-child(2){
 
@@ -307,6 +308,9 @@
 
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
 
+
+
+
 		.content-single{
 
 			display: flex;
@@ -315,6 +319,7 @@
 			margin-bottom: 150px;
 			margin-right: 70px;
 			margin-left: 70px;
+			width: auto !important;
 
 		}
 
@@ -332,6 +337,7 @@
 
 		padding-left: 0;
 		padding-top: 5vh;
+		width: auto !important;
 
 		}
 
@@ -388,6 +394,7 @@
 
 			padding-left: 0;
 			padding-top: 2.5vh;
+			width: auto !important;
 
 		}
 		.image-single-post {

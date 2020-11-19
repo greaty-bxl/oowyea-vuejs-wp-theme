@@ -84,11 +84,12 @@ mounted(){
 	}
 
 
-	textarea{
+/*	textarea
+	{
 			
-			min-width: 20vw;
+			width: 20vw !important;
 		}
-
+*/
 	.divcheckbox{
 
 		display: flex;

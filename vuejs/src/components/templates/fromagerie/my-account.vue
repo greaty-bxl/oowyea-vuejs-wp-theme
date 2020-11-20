@@ -123,6 +123,20 @@ export default {
 
 	}
 
+	#my-account .woocommerce-button .button .view{
+
+		font-size: 14px !important;
+	}
+
+	#my-account .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
+
+		font-size: 18px !important;
+		border: solid #70625B;
+		border-width: 1px;
+		background-color: white !important;
+
+	}
+
 	#my-account  button:hover {
 
 		background-color: white !important;
@@ -135,7 +149,7 @@ export default {
 
 		font-family: 'Montserrat', sans-serif !important;
 		font-size: 18px;
-		line-height: px;
+		line-height: 25px;
 	}
 
 
@@ -421,7 +435,7 @@ export default {
 
 			font-family: 'Montserrat', sans-serif !important;
 			font-size: 18px;
-			line-height: 22px;
+			line-height: 30px;
 		}
 
 
@@ -490,7 +504,7 @@ export default {
 
 			font-family: 'Montserrat', sans-serif !important;
 			font-size: 18px;
-			line-height: 22px;
+			line-height: 25px;
 		}
 
 

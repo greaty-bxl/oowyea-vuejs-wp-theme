@@ -143,6 +143,12 @@ export default {
 
 	}
 
+	#confits  *{
+
+		font-weight: 400;
+
+	}
+
 	.swiper-slide{
 		visibility: hidden;
 		opacity: 0;

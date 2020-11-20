@@ -20,7 +20,13 @@
 
 					<div>
 						<p>Retrait en magasin</p>
-					</div>				
+					</div>
+
+					<div>
+						<p class="commande-prete"> Si vous commandez après <strong>19h30</strong>, votre commande sera prête le <strong>surlendemain</strong>.</p>
+					</div>
+
+								
 					<div>
 						<img class="bancontact"  src="http://dev.fromagerie.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
 					</div>
@@ -93,16 +99,11 @@
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
-
-	/*.noty_theme__semanticui.noty_type__success{
-
-		background-color: #70625B !important;
-		color: white !important;
+	
+	.commande-prete{
+		font-style: italic;
+		font-size: 14px !important;
 	}
-	.noty_theme__semanticui.noty_type__success a{
-		color: white !important;
-	}*/
-
 	#header{
 
 		height: 0px;
@@ -165,31 +166,6 @@
 
 		width: auto !important;
 	}
-
-	.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
-
-	background-color: #70625B;
-	color: white !important;
-	margin-top: 35px !important;
-	border: solid #70625B !important;
-	border-width: 1px !important;
-	min-width: 200px  !important;
-	width: 40% !important;
-	padding-top: 20px !important;
-	padding-bottom: 20px !important;
-	font-size: 16px !important;
-
-
-	}
-
-	.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
-
-		background-color: white !important;
-		color: #70625B !important;
-		transition: 200 !important;
-
-
-	} 
 
 
 	.button-contener button{

@@ -15,6 +15,10 @@
 
 					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
 
+					</div>
+
+					<div>
+						<p class="commande-prete"> Si vous commandez après <strong>19h30</strong>, votre commande sera prête le <strong>surlendemain</strong>.</p>
 					</div>			
 
 					<h2 class="montserrat-bold title-single-fromagerie-1">Commandes et demandes spéciales</h2>
@@ -81,6 +85,13 @@
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+	
+	.commande-prete{
+
+		font-style: italic;
+		font-size: 14px;
+	}
+
 	.input-single-title{
 
 		display: none;

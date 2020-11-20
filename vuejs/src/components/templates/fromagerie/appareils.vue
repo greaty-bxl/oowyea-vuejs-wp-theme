@@ -134,8 +134,20 @@ export default {
 
 }
 
-#appareils{
 
+
+#appareils  *{
+
+	font-weight: 400;
+
+}
+
+
+#appareils {
+
+
+	
+	/*color: white;*/
 	min-height: auto;
 }
 </style>

@@ -277,7 +277,10 @@ export default {
 <style>
 
 @import '~Styles/wp-content.css';
+@import '~Styles/noty.css';
 @import '~Styles/woocommerce.css';
+
+
 
 /* width */
 ::-webkit-scrollbar { 

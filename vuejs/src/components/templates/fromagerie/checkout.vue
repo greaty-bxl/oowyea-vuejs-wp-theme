@@ -63,6 +63,12 @@ export default {
 
 	}
 
+	#checkout  *{
+
+		font-weight: 400;
+
+	}
+
 	#checkout .woocommerce img, .woocommerce-page img{
 
 		width: 100px;

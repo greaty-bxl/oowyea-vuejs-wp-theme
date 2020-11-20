@@ -75,6 +75,13 @@ export default {
 
 	}
 
+	#cart  *{
+
+		font-weight: 400;
+
+	}
+
+
 	.woocommerce #content table.cart td.actions .input-text, .woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text {
 
 		width: 150px;

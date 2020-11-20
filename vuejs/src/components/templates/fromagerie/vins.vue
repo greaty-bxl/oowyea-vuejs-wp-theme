@@ -16,7 +16,7 @@
 							<div class="image-plateaux-fromages swiper-lazy"  v-bind:data-background="child.thumb" height="300" width="100%" ></div>
 						</a>
 						<p v-html="child.post_title" class="name-plateau-fromage"></p>
-						<p v-html="child.price" class="prix-plateau-fromage"></p>
+						<p class="prix-plateau-fromage"><span v-html="child.price"></span><span v-html="child.sold_out"></span></p>
 						<p class="ajouter-au-panier"><a target="_blank" :href="child.permalink">En savoir plus</a>  </p>
 
 

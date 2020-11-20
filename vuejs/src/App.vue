@@ -275,6 +275,7 @@ export default {
 <style>
 
 @import '~Styles/wp-content.css';
+@import '~Styles/woocommerce.css';
 
 /* width */
 ::-webkit-scrollbar { 
@@ -346,6 +347,7 @@ html{
 #header{
   z-index: 3000;
   position: fixed;
+  width: 100%;
 }
 
 /*#pages{

@@ -14,6 +14,7 @@
 					</div>
 					<div>				
 						<p v-html="post.price" class="price-single montserrat-bold"> </p>
+						<p v-html="post.sold_out" class="price-single montserrat-bold"> </p>
 						<p>Taxes incluses</p>
 					</div>
 
@@ -24,11 +25,11 @@
 						<img class="bancontact"  src="http://dev.fromagerie.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
 					</div>
 
-					<div>				
+					<div v-if="post.is_in_stock">				
 						<p class="nbrpersonne">Nombre de personnes :</p>	
 					</div>
 
-					<div class="button-contener" v-html="add_to_cart">
+					<div v-if="post.is_in_stock" class="button-contener" v-html="add_to_cart">
 
 					</div>
 
@@ -61,6 +62,8 @@
 			console.log( this.wp);*/
 
 		// $('nav').css('background-color', 'white');
+			
+			console.log(this.post);
 
 			if ( this.post.terms[0].slug === "plateau-fromage" ) 
 			{
@@ -258,7 +261,7 @@
 		padding-left: 0;
 	}
 
-	.content-single *{
+	.content-single{
 
 		text-align: left;
 		color: #4D4D4D;

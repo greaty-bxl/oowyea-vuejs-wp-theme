@@ -167,7 +167,7 @@ export default {
 
 		.image-plateaux-fromages{
 
-			min-height: 79vw;
+			min-height: 70vw;
 
 		}   
 

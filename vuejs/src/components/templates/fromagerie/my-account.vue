@@ -81,6 +81,19 @@ export default {
 		font-weight: 500;
 	}
 
+
+	#my-account .lost_reset_password{
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+
+	}
+
 	#my-account  *{
 
 		font-weight: 400;
@@ -149,7 +162,7 @@ export default {
 
 		font-family: 'Montserrat', sans-serif !important;
 		font-size: 18px;
-		line-height: 25px;
+		line-height: 30px;
 	}
 
 
@@ -187,6 +200,7 @@ export default {
 		padding-bottom: 10px;
 		line-height: 0;
 		border-radius: 0px;
+		font-size: 14px !important;
 		/*margin-bottom: 16px;*/
 		/*font-size: 18px;*/
 
@@ -347,6 +361,18 @@ export default {
 	@media screen and (max-width: 600px){
 
 
+		#my-account .lost_reset_password{
+
+			width: 100%;
+
+		}
+
+		#my-account .lost_reset_password button{
+
+			font-size: 14px !important;
+		}
+
+
 		.woocommerce-error {
 
 			width: auto !important;
@@ -435,12 +461,18 @@ export default {
 
 			font-family: 'Montserrat', sans-serif !important;
 			font-size: 18px;
-			line-height: 30px;
+			line-height: 25px;
 		}
-
 
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px){
+
+
+		#my-account .lost_reset_password{
+
+			width: 70%;
+
+		}
 
 		.woocommerce-error {
 			width: 70% !important;

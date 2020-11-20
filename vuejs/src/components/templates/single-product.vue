@@ -19,7 +19,13 @@
 
 					<div>
 						<p>Retrait en magasin</p>
-					</div>				
+					</div>
+
+					<div>
+						<p class="commande-prete"> Si vous commandez après <strong>19h30</strong>, votre commande sera prête le <strong>surlendemain</strong>.</p>
+					</div>
+
+								
 					<div>
 						<img class="bancontact"  src="http://dev.fromagerie.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
 					</div>
@@ -90,7 +96,12 @@
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+	
+	.commande-prete{
 
+		font-style: italic;
+		font-size: 14px !important;
+	}
 	#header{
 
 		height: 0px;

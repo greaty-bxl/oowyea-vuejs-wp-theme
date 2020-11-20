@@ -279,6 +279,7 @@ export default {
 @import '~Styles/woocommerce.css';
 
 
+
 /* width */
 ::-webkit-scrollbar { 
   width: 5px;
@@ -309,9 +310,10 @@ html{
   width: 100vw;
   overflow:hidden;
 }
+
 #app {
   position: absolute;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -348,6 +350,7 @@ html{
 #header{
   z-index: 3000;
   position: fixed;
+  width: 100%;
 }
 
 /*#pages{

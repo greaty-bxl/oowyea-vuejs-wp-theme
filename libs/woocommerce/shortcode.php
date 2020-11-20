@@ -339,3 +339,21 @@ function owy_woo_get_gallery_attachment_as_json( $atts )
 	return ob_get_clean();
 }
 add_shortcode( 'owy_woo_get_gallery_attachment_as_json' , 'owy_woo_get_gallery_attachment_as_json' );
+
+
+function owy_woo_sold_out_badge()
+{
+	global $post;
+	global $product;
+
+	if ( !$product->is_in_stock() ) 
+	{
+		return '<span class="wc-sold-out">(En rupture de stock)</span>';
+	}
+	else
+	{
+		return;
+	}
+}
+
+add_shortcode( 'owy_woo_sold_out_badge', 'owy_woo_sold_out_badge' );

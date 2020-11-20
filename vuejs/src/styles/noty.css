@@ -1,11 +1,15 @@
-	
+.noty_body {
+	font-size: 14px;
+}
 
-	.noty_theme__semanticui.noty_type__success{
+.noty_body a {
+	color: inherit;
+}
 
-		background-color: #70625B !important;
-		color: white !important;
-	}
-	.noty_theme__semanticui.noty_type__success a{
-		color: white !important;
-	}
+.noty_theme__relax.noty_bar{
+	border-radius: 0px;
+}
 
+.noty_theme__relax.noty_bar .noty_body{
+	padding: 20px;
+}

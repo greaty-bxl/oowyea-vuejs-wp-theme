@@ -1,6 +1,7 @@
 import noty from 'noty'
 import 'noty/lib/noty.css';
-import 'noty/lib/themes/semanticui.css';
+import 'noty/lib/themes/relax.css';
+import 'Styles/noty.css';
 
 import links_and_anchors from 'Libs/links-and-anchors.js'
 
@@ -60,7 +61,7 @@ export default function(vue){
 							text: notice.notice,
 							timeout: 7000,
 							layout: "bottomRight",
-							theme: "semanticui"
+							theme: "relax"
 						}).show();
 					});
 				});

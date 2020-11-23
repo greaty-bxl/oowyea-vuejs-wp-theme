@@ -11,9 +11,9 @@
 					</div>
 
 					<a href="">
-						<div class="count">
-								<p class="woocommerce-cart-quantity" v-html="count" ></p>							
-						</div>
+						<!-- <div class="count"> -->
+								<p class="woocommerce-cart-quantity count" v-html="count" ></p>							
+						<!-- </div> -->
 					</a>
 					<div class="icon button-header close-simple">
 					<div class="burger"></div>
@@ -296,7 +296,7 @@ export default {
 		justify-content: center;
 		transition: 0.5s;
 		font-size: 15px !important;
-		line-height: 18px;
+		line-height: 16px;
 
 	}
 

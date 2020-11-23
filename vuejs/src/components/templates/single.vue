@@ -59,12 +59,11 @@
 
 
 
-			this.$emit('template_mounted')
+			// this.$emit('template_mounted')
 
 			console.log(this.wp);
 	
 	
-
 			$('.title-21').attr('placeholder', this.post.post_title );
 			$('.title-21').attr('value', this.post.post_title );
 

@@ -282,9 +282,15 @@ font-weight: 500;
 
 	@media screen and (max-width: 600px){
 
+
+		.input-single{
+
+			font-size: 15px !important;
+		}
+
 		.contener-contact{
 
-			/*width: 100%;*/
+
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;

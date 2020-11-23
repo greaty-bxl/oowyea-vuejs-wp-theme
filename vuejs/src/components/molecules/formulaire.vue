@@ -8,7 +8,7 @@
 				<input class="input-single" placeholder="E-mail" type="" name="email" required>
 				<input class="input-single" placeholder="Téléphone" type="" name="telephone" required>
 				<input class="input-single" placeholder="Nombre de personnes" type="" name="personnes" required>
-				<input class="input-single title-21 " placeholder="Assortiments en plat ou dessert" disabled type="" name="type">
+				<input class="input-single title-21" placeholder="Assortiments en plat ou dessert" type="" name="type-name">
 				<textarea class="input-single " placeholder="Messsage"  type="" name="message"></textarea>
 				<button type="submit" name="submit" value="Send" class="button-envoyer">Envoyer</button>
 
@@ -49,6 +49,10 @@ mounted(){
 
 		event.preventDefault()
 
+        // document.myform.myinput.value = this.post.post_title;
+        // console.log(this.post.post_title);
+
+        //     $('.title-21').val(this.post.post_title);
 
 		var form = $(this);
 
@@ -83,13 +87,7 @@ mounted(){
 
 		margin-top: 15px;
 	}
-
-
-/*	textarea{
-			
-			width: 20vw;
-		}
-*/
+	
 	.divcheckbox{
 
 		display: flex;

@@ -49,6 +49,7 @@ if ( $hidden_input_validation !== 'ok') {
 
  $headers = "From: no-reply@agricolafrancescopepe.it\r\n".
  'Reply-To: '.$email_from."\r\n" .
+ 'Fr: '.$email_from."\r\n" .
  'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers );  
 

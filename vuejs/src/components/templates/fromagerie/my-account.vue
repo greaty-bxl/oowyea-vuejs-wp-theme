@@ -130,7 +130,7 @@ export default {
 		/*width: 40%;*/
 		padding-top: 25px;
 		padding-bottom: 25px;
-		line-height: 0;
+		line-height: 25px;
 
 
 
@@ -147,15 +147,15 @@ export default {
 		border: solid #70625B;
 		border-width: 1px;
 		background-color: white !important;
+		border-radius: 0px !important;
 
 	}
 
 	#my-account  button:hover {
 
-		background-color: white !important;
-		color: #70625B !important;
-		transition: 200;
-
+	background-color: white !important;
+	color: #70625B !important;
+	transition: 0.3s;
 	}
 
 	#my-account div p{
@@ -171,6 +171,7 @@ export default {
 
 		border: solid #70625B;
 		border-width: 1px;
+		border-radius: 0px !important;
 
 
 
@@ -210,7 +211,8 @@ export default {
 
 		background-color: white !important;
 		color: #70625B !important;
-		transition: 200 ;
+		transition: 0.3s;
+
 
 	}
 
@@ -218,7 +220,7 @@ export default {
 
 		background-color: white;
 		color: #70625B;
-		transition: 200;
+		transition: 0.3s;
 
 	}
 
@@ -360,6 +362,11 @@ export default {
 
 	@media screen and (max-width: 600px){
 
+		#my-account .woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before{
+
+			left: 2 !important;
+		}
+
 
 		#my-account .lost_reset_password{
 
@@ -384,7 +391,7 @@ export default {
 
 			text-decoration-line: none;
 			color: #70625B;
-			font-weight: bold;
+			/*font-weight: bold;*/
 
 		}
 		#my-account  .woocommerce{
@@ -432,10 +439,10 @@ export default {
 			
 		}
 
-		#my-account .woocommerce ul{
+	/*	#my-account .woocommerce ul{
 
-			padding-left: 0px;
-		}
+			/*padding-left: 0px;*/
+		/*}*/
 
 		.title-compte{
 			font-size: 22px !important;

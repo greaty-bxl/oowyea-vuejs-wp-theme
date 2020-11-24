@@ -63,6 +63,13 @@ export default {
 
 	}
 
+
+	#checkout .my_custom_checkout_field input{
+
+		background-color: white !important;
+
+	}
+
 	#checkout *{
 
 		font-weight: 400;
@@ -95,6 +102,7 @@ export default {
 		border-radius: 0px;
 		margin-bottom: 16px;
 		font-size: 18px;
+		line-height: 0px;
 
 	}
 
@@ -119,8 +127,16 @@ export default {
 		border: solid #70625B;
 		border-width: 1px;
 
+	}
 
+	#checkout .payment_method_bacs {
+	
+		font-size: 16px !important;
+	}
 
+	#add_payment_method #payment ul.payment_methods li, .woocommerce-cart #payment ul.payment_methods li, .woocommerce-checkout #payment ul.payment_methods li{
+
+		font-size: 16px !important;
 	}
 
 	#checkout input{
@@ -319,12 +335,19 @@ export default {
 
 			min-width: 250px;
 			font-size: 16px;
+			padding-top: 10px;
+			padding-bottom: 10px;
 
 		}
 
 		.title-home{
 			font-size: 22px !important;
 			margin-left: 30px !important;
+		}
+
+		#checkout button{
+
+			line-height: 16px !important;
 		}
 
 

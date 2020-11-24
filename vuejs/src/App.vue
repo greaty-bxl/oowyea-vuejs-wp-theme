@@ -36,8 +36,10 @@
     </div>
     <div id="gpdr-intro">
       <div id="gpdr-message">
-        <div v-html="wp.sidebars['gpdr-intro']"></div>
-        <button>I understand</button>
+        <div>
+          <div v-html="wp.sidebars['gpdr-intro']"></div>
+          <button>Je comprends</button>  
+        </div>        
       </div>
     </div>
   </div>
@@ -386,9 +388,9 @@ html{
   height: 100vh;
   top: 0;
   background: rgba(0,0,0,0.5);
-  display: none;/*flex;*/
+  display: none;/* flex;*/
+  align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
 #gpdr-message {
@@ -398,6 +400,11 @@ html{
   max-height: 90vh;
   background: #FFFFFF;
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 </style>

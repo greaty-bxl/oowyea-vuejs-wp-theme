@@ -25,7 +25,7 @@ function grd_woocommerce_script_cleaner() {
 		// wp_dequeue_script( 'wc-add-to-cart' );
 		// wp_dequeue_script( 'wc-cart-fragments' );
 		// wp_dequeue_script( 'wc-credit-card-form' );
-		// wp_dequeue_script( 'wc-checkout' );
+		wp_dequeue_script( 'wc-checkout' );
 		// wp_dequeue_script( 'wc-add-to-cart-variation' );
 		// wp_dequeue_script( 'wc-single-product' );
 		wp_dequeue_script( 'wc-cart' );

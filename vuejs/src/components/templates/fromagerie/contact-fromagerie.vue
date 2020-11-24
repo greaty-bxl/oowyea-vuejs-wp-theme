@@ -222,6 +222,12 @@ font-weight: 500;
 
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 
+
+		.input-single{
+
+			font-size: 18px !important;
+		}
+
 		.contener-contact{
 
 			/*width: 100%;*/
@@ -276,13 +282,21 @@ font-weight: 500;
 			font-size: 18px !important;
 		}
 
+		.button-envoyer{
+
+			font-size: 18px !important;
+		}
+
 
 
 	}
 
 	@media screen and (max-width: 600px){
 
+		.button-envoyer{
 
+			font-size: 15px !important;
+		}
 		.input-single{
 
 			font-size: 15px !important;

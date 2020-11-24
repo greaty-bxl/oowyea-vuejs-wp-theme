@@ -130,7 +130,7 @@ export default {
 		/*width: 40%;*/
 		padding-top: 25px;
 		padding-bottom: 25px;
-		line-height: 25px;
+		line-height: 0px;
 
 
 
@@ -470,6 +470,13 @@ export default {
 			font-size: 18px;
 			line-height: 25px;
 		}
+
+		#my-account button{
+
+			line-height: 25px;
+		}
+
+		
 
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px){

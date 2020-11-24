@@ -160,7 +160,7 @@ mounted(){
 		color: white;
 		border: solid #70625b;
 		border-width: 1px;
-		font-weight: bold;
+		/*font-weight: bold;*/
 		width: auto;
 
 	}

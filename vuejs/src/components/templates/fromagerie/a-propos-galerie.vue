@@ -55,7 +55,7 @@ export default {
 		// var $ = this.$
 
 		smart_fonts({
-			'.title-section-galerie' : 25,
+			'.title-section-galerie' : 26,
 		})
 
         // console.log(this.wp.sections[2].acf_fields.a_propos_galerie);
@@ -195,7 +195,8 @@ export default {
 		.title-section-galerie{
 
 			text-align: left;
-			margin-left: 70px
+			margin-left: 70px;
+			font-size: 26px !important;
 		}
 
 	}

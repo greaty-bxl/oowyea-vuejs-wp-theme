@@ -63,10 +63,16 @@ export default {
 
 	}
 
-	#checkout  *{
+	#checkout *{
 
 		font-weight: 400;
 
+	}
+
+	#checkout textarea{
+
+		padding-top: 10px;
+		padding-left: 15px;
 	}
 
 	#checkout .woocommerce img, .woocommerce-page img{
@@ -120,7 +126,7 @@ export default {
 	#checkout input{
 
 		border: 1px solid #A59890 !important;
-		margin-top: 15px;
+		/*margin-top: 15px;*/
 		padding-top: 10px;
 		padding-bottom: 10px;
 		color: #666666;

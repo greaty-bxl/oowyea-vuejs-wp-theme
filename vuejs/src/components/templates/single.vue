@@ -59,12 +59,11 @@
 
 
 
-			this.$emit('template_mounted')
+			// this.$emit('template_mounted')
 
 			console.log(this.wp);
 	
 	
-
 			$('.title-21').attr('placeholder', this.post.post_title );
 			$('.title-21').attr('value', this.post.post_title );
 
@@ -90,6 +89,7 @@
 
 		font-style: italic;
 		font-size: 14px;
+		margin-top: 15px !important;
 	}
 
 	.input-single-title{
@@ -141,18 +141,18 @@
 	.button-envoyer{
 
 		text-align: center !important;
-		padding-top: 20px !important;
-		padding-bottom: 20px !important;
+		padding-top: 15px !important;
+		padding-bottom: 15px !important;
 		background-color: #70625B !important;
 		width: 100%;
-		font-size: 16px !important;
+		font-size: 15px !important;
 	}
 
 	.button-envoyer:hover{
 
 		text-align: center !important;
-		padding-top: 20px !important;
-		padding-bottom: 20px !important;
+		padding-top: 15px !important;
+		padding-bottom: 15px !important;
 		background-color: white !important;
 		color: #70625B !important;
 		width: 100%
@@ -319,7 +319,14 @@
 
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
 
+		.button-envoyer{
+			font-size: 18px !important;
+		}
 
+		.retour button{
+
+			font-size: 18px !important;
+		}
 
 
 		.content-single{

@@ -162,6 +162,23 @@ export default {
 			margin: 30px 70px; 
 		}
 
+		.parent-text-politique li {
+
+			width: 80%;
+		}
+
+		.parent-text-politique a {
+
+			width: 80%;
+
+		}
+
+		.parent-text-politique p {
+
+			width: 80%;
+
+		}
+
 
 	}
 

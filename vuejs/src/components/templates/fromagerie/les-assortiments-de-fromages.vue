@@ -149,7 +149,8 @@ export default {
 		min-height: 18.5vw;
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: 100%
+		background-size: 100%;
+		margin-bottom : 15px;
 
 	}
 
@@ -167,7 +168,8 @@ export default {
 
 		.image-plateaux-fromages{
 
-			min-height: 70vw;
+			min-height: 60vw;
+			margin-bottom : 10px;
 
 		}   
 

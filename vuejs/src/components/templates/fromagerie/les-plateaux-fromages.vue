@@ -332,7 +332,7 @@ export default {
 
 
 	.image-plateaux-fromages {
-		margin-bottom: 15px;
+		/*margin-bottom: 15px;*/
 		text-align: left !important;
 	}
 

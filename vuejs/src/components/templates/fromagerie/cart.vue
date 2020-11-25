@@ -56,6 +56,11 @@ export default {
 
 <style>
 
+	.wc-backward{
+
+		color: #70625B !important;
+	}
+
 	#cart.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt a{
 
 		background-color: #70625B;
@@ -93,10 +98,17 @@ export default {
 		color: #70625B  !important;
 	}
 
+	#cart.woocommerce-cart-form button{
+
+
+		background-color: #70625B !important;
+		color: white !important;
+		border-radius: 0px !important;
+	}
+
 	#cart button{
 
-		background-color: #70625B;
-		color: white;
+		background-color: #70625B !important;
 		border-width: 0;
 		/*margin-top: 16px;*/
 		border: solid #70625B;
@@ -105,7 +117,13 @@ export default {
 		padding-bottom: 20px;
 		line-height: 0;
 		border-radius: 0px;
-		font-size: 16px !important
+		font-size: 16px !important;
+		transition: 0.3s;
+
+	}
+	.woocommerce .cart .button, .woocommerce .cart input.button{
+
+		color: white;
 
 	}
 
@@ -113,8 +131,7 @@ export default {
 
 		background-color: white;
 		color: #70625B;
-		transition: 200;
-
+		
 	}
 
 	#cart .return-to-shop a{
@@ -134,10 +151,9 @@ export default {
 
 	#cart .return-to-shop a:hover {
 
-		background-color: white;
-		color: #70625B;
-		transition: 200;
-
+		background-color:  #70625B !important;
+		color: white !important;
+		transition: 0.3;
 	}
 
 	#cart.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{

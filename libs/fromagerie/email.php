@@ -11,6 +11,7 @@ function send_contact_mail( ) {
     'email' => 'E-mail',
     'message' => 'Message'
   );
+
       $name =  $_POST['name'];
       $email =  $_POST['email'];
       $message =  $_POST['message'];
@@ -20,9 +21,9 @@ function send_contact_mail( ) {
 
     // Set your email address where you want to receive emails.
 
-     $to = 'salimoualdoummmou@gmail.com';
+     $email_from = 'salimoualdoummmou@gmail.com';
      $subject = 'Contact Request From Website';
-     $headers = "From: ".$name." <".$email."> \r\n";
+     // $headers = "From: ".$name." <".$email."> \r\n";
 
       // echo $message;
       // die( json_encode(  $message ) );
@@ -36,12 +37,17 @@ function send_contact_mail( ) {
 
      };
 
+     $headers = "From: no-reply@agricolafrancescopepe.it\r\n".
+     'Reply-To: '.$email_from."\r\n" .
+     'From: '.$email_from."\r\n" .
+     'X-Mailer: PHP/' . phpversion();
 
-     echo $message;
 
-      // wp_mail($to,$subject,$message,$headers);
+     // echo $message;
 
-      @mail($to,$subject,$text_mail,$headers);
+      wp_mail($email_from,$subject,$text_mail,$headers);
+
+      // @mail($to,$subject,$text_mail,$headers);
      // @mail($send_email );  
      //echo ($send_email) ? 'success' : 'error';
      // die( $text_mail );

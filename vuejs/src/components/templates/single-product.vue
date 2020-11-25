@@ -103,6 +103,7 @@
 	.commande-prete{
 		font-style: italic;
 		font-size: 14px !important;
+		margin-top: 15px !important;
 	}
 	#header{
 

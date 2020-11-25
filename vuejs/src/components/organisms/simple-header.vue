@@ -569,7 +569,7 @@ export default {
 		}
 		.burger{
 		width: 30px;
-		height: 4px;
+		height: 3.3px;
 		background-color: #fff;
 		position: absolute;
 		top: 50%;
@@ -593,7 +593,7 @@ export default {
 		top: -8px;
 		}
 		.burger::after{
-		top: 9px;
+		top: 8px;
 		}
 
 		.icon.active .burger{

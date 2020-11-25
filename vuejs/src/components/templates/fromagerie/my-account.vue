@@ -91,8 +91,8 @@ export default {
 		width: 50%;
 		margin-left: auto;
 		margin-right: auto;
-
 	}
+
 
 	#my-account  *{
 
@@ -282,12 +282,6 @@ export default {
 	border: 1px solid #A59890 !important;
 	}
 
-/*	#my-account  .woocommerce table.shop_table td{
-
-		border: 1px solid #A59890 !important;
-	}*/
-
-
 	#my-account .woocommerce-MyAccount-navigation ul{
 
 	padding-left: 0px;
@@ -362,9 +356,21 @@ export default {
 
 	@media screen and (max-width: 600px){
 
+		#my-account .woocommerce-info{
+
+			display: flex;
+			flex-direction: column;
+			font-size: 12px !important;
+		}
+
 		#my-account .woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before{
 
 			left: 2 !important;
+		}
+
+		.woocommerce-message{
+
+			font-size: 16px !important;
 		}
 
 
@@ -474,6 +480,9 @@ export default {
 		#my-account button{
 
 			line-height: 25px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+
 		}
 
 		

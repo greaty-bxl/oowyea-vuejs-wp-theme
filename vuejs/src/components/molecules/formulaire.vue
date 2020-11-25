@@ -4,18 +4,18 @@
 
 				<form action="" method="post" class="myform">
 
-				<input class="input-single"  placeholder="Prénom"  type="" name="name" required>
-				<input class="input-single" placeholder="E-mail" type="" name="email" required>
-				<input class="input-single" placeholder="Téléphone" type="" name="telephone" required>
-				<input class="input-single" placeholder="Nombre de personnes" type="" name="personnes" required>
+				<input class="input-single"  placeholder="Prénom"  type="" name="name" >
+				<input class="input-single" placeholder="E-mail" type="" name="email" >
+				<input class="input-single" placeholder="Téléphone" type="" name="telephone" >
+				<input class="input-single" placeholder="Nombre de personnes" type="" name="personnes" >
 				<input class="input-single title-21" placeholder="Assortiments en plat ou dessert" type="" name="type-name">
 				<textarea class="input-single " placeholder="Messsage"  type="" name="message"></textarea>
 				<button type="submit" name="submit" value="Send" class="button-envoyer">Envoyer</button>
 
 				<div class="divcheckbox" >
 					
-					<input type="checkbox" class="checkbox" id="scales" name="scales" required>
-					<label class="tchekboxx" for="scales">J'accepte <a class="line" target="_blank" href="http://dev.fromagerie.brussels/politique-de-confidentialite-2/">La Politique de confidentialité et les Cookies </a>  </label>
+					<input type="checkbox" class="checkbox" id="scales" name="scales" >
+					<label class="tchekboxx" for="scales">J'accepte <a class="line" target="_blank" href="http://dev.fromagerie.brussels/politique-de-confidentialite/">La Politique de confidentialité et les Cookies </a>  </label>
 
 
 

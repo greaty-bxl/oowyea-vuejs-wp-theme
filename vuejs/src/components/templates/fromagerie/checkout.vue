@@ -63,8 +63,15 @@ export default {
 
 	}
 
+	.checkout_coupon p{
 
-	#checkout .my_custom_checkout_field input{
+		padding-bottom: 15px !important;
+	}
+
+
+
+
+	#checkout .my_custom_checkout_field input {
 
 		background-color: white !important;
 
@@ -245,6 +252,22 @@ export default {
 
 		@media screen and (max-width: 600px){
 
+		.woocommerce form .form-row label{
+
+			line-height: 1.5  !important;
+		}
+
+		.woocommerce-checkout-payment .form-row .validate-required{
+
+			margin-top: 15px !important;
+
+		}
+
+		.woocommerce-checkout-payment .form-row span{
+
+			line-height: 20px !important;
+
+		}
 
 		#checkout .woocommerce .woocommerce-customer-details address{
 

@@ -16,7 +16,7 @@
 				</div>
 				<div>
 					<a target="_blank" href="http://dev.fromagerie.brussels/livraison/">Retrait en magasin</a>
-					<a target="_blank" href="http://dev.fromagerie.brussels/politique-de-confidentialite-2/">Politique de confidentialité</a>
+					<a target="_blank" href="http://dev.fromagerie.brussels/politique-de-confidentialite/">Politique de confidentialité</a>
 					<a target="_blank" href="http://dev.fromagerie.brussels/conditions-generales-de-vente/">Conditions générales de vente</a>
 					<p>Fromagerie Westland © 2020</p>
 
@@ -79,7 +79,7 @@
 		flex-direction: row;
 		justify-content: space-between;
 		padding-bottom: 50px;
-		padding-top: 150px;
+		padding-top: 70px;
 		padding-left: 70px;
 		padding-right: 70px;
 	}
@@ -116,7 +116,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			padding-top: 100px;
+			padding-top:  70px;
 			padding-left: 30px;
 			padding-right: 30px;
 			

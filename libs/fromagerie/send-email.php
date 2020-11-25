@@ -10,7 +10,7 @@ if ( $hidden_input_validation !== 'ok') {
 
     // EDIT THE 2 LINES BELOW AS REQUIRED
     $email_to = "salimoualdoummmou@gmail.com";
-    $email_subject = "Modulo di contatto Azienda agricola Pepe";
+    $email_subject = "Commandes et demandes spéciales";
   
     function died($error) {
         // your error code can go here

@@ -65,6 +65,7 @@ export default {
 		flex-direction: row;
 		justify-content: center;
 		align-content: center;
+		background-position: 40%;
 
 
 	}
@@ -92,6 +93,13 @@ export default {
 			margin-left: 30px;
 			margin-right: 30px;
 		}
+
+		.section-home{
+
+			background-position: 40%;
+
+		}
+
 	}
 
 	.header-greaty{

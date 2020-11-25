@@ -21,7 +21,7 @@ function send_contact_mail( ) {
 
     // Set your email address where you want to receive emails.
 
-     $email_from = 'salimoualdoummmou@gmail.com';
+     $email_from = 'info@fromagerie.brussels';
      $subject = 'Contact Request From Website';
      // $headers = "From: ".$name." <".$email."> \r\n";
 
@@ -37,13 +37,14 @@ function send_contact_mail( ) {
 
      };
 
-     $headers = "From: no-reply@agricolafrancescopepe.it\r\n".
+     $headers = "From: no-reply@fromagerie.be\r\n".
      'Reply-To: '.$email_from."\r\n" .
      'From: '.$email_from."\r\n" .
      'X-Mailer: PHP/' . phpversion();
 
-
-     // echo $message;
+     add_filter('wp_mail_content_type', function( $content_type ) {
+                 return 'text/html';
+     });
 
       wp_mail($email_from,$subject,$text_mail,$headers);
 

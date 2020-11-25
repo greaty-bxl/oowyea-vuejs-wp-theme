@@ -21,8 +21,8 @@ function wc_calendar_hour_field( $checkout ) {
         'label'         => __('À quelle heure'),
         'placeholder'   => __('Enter something'),
         'custom_attributes' => array(
-			'min'       => '09:00',
-			'max'       => '18:00',
+			'min'       => '10:00',
+			'max'       => '19:30',
 		),
     ), $checkout->get_value( 'pick_hour' ));
     
@@ -96,12 +96,25 @@ add_action( 'woocommerce_admin_order_data_after_billing_address', 'wc_display_ad
 /**
  * Add a custom field (in an order) to the emails
  */
-add_filter( 'woocommerce_email_order_meta_fields', 'custom_woocommerce_email_order_meta_fields', 10, 3 );
-
-function custom_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $order ) {
+function wc_email_calendar( $fields, $sent_to_admin, $order ) {
     $fields['pick_date'] = array(
         'label' => __( "Date d'enlèvement" ),
         'value' => get_post_meta( $order->id, 'pick_date', true ) . ' à ' . get_post_meta( $order->id, 'pick_hour', true ),
     );
     return $fields;
 }
+
+add_filter( 'woocommerce_email_order_meta_fields', 'wc_email_calendar', 10, 3 );
+
+
+/**
+ * Thank you order display
+ */
+ 
+function wc_thankyou_calendar( $order_id ){ 
+	echo "<h2 class='woocommerce-order-details__title'>Date d'enlèvement</h2>";
+	echo "<p>" . get_post_meta( $order_id, 'pick_date', true ) . ' à ' . get_post_meta( $order_id, 'pick_hour', true ) . '</p>';
+}
+
+add_action( 'woocommerce_thankyou', 'wc_thankyou_calendar', 20 );
+add_action( 'woocommerce_view_order', 'wc_thankyou_calendar', 20 );

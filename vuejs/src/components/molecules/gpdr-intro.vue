@@ -11,6 +11,16 @@
 
 <script>
 	export default {
+		mounted () {
+			let $ = this.$
+
+			if( !this.$store.state.wp.gpdr_accepted )
+			{
+				$('#app').on('section-top-ready', () => {
+					$('#app').data('scrolling', 'gpdr')
+				});
+			}
+		},
 		methods:{
 			accept: function(event){
 
@@ -29,6 +39,8 @@
 							type: 'update_wp',
 							wp: wp
 						})
+
+						$('#app').data('scrolling', '')
 					}
 					else
 					{

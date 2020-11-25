@@ -147,10 +147,6 @@ export default {
       //auto scroll next section
       scrollSection(this)
 
-      /*$('#app').on('section-top-ready', () => {
-        $('#app').data('scrolling', 'gpdr')
-      });*/
-
       //ready
       $(document).trigger('first_page_ready')
       

@@ -34,14 +34,7 @@
     <div id="page-loader">
       <v-icon name="spinner" class="fa-pulse"></v-icon>
     </div>
-    <div id="gpdr-intro">
-      <div id="gpdr-message">
-        <div>
-          <div v-html="wp.sidebars['gpdr-intro']"></div>
-          <button>Je comprends</button>  
-        </div>        
-      </div>
-    </div>
+    <GpdrIntro />
   </div>
 </template>
 
@@ -55,6 +48,8 @@ import Header from 'Organisms/simple-header.vue'
 
 //Footer
 import Footer from 'Organisms/footer-fromagerie.vue'
+
+import GpdrIntro from 'Molecules/gpdr-intro.vue'
 
 //import AudioPlayerBottom from 'Organisms/audio-player-bottom.vue'
 //import Editor from 'Organisms/editor.vue'
@@ -101,6 +96,7 @@ export default {
   components: {
     Header,
     Footer,
+    GpdrIntro
     //AudioPlayerBottom,
     //Editor
   },
@@ -119,6 +115,8 @@ export default {
   mounted (){
 
     console.log( 'App mounted' );    
+
+
     
     this.pages['current'] = this.wp.sections
     this.classes['current'] = this.wp.body_class
@@ -136,6 +134,8 @@ export default {
       
       //$.fn.notify = notify
 
+
+
       links_and_anchors(this)
 
       woocommerceAjax(this)
@@ -146,8 +146,6 @@ export default {
 
       //auto scroll next section
       scrollSection(this)
-
-      
 
       //ready
       $(document).trigger('first_page_ready')
@@ -319,7 +317,7 @@ html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /*color: #2c3e50;*/
+  color: #666666;
   height: 100vh;
   width: 100%;
   overflow-y: auto;
@@ -380,31 +378,4 @@ html{
   width: 5vh;
   color: rgba(255,255,255,0.5);
 }
-
-#gpdr-intro {
-  position: fixed;
-  z-index: 9000;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  background: rgba(0,0,0,0.5);
-  display: none;/* flex;*/
-  align-items: center;
-  justify-content: center;
-}
-
-#gpdr-message {
-  width: 400px;
-  height: 700px;
-  max-width: 90%;
-  max-height: 90vh;
-  background: #FFFFFF;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  overflow-y: auto;
-}
-
 </style>

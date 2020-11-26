@@ -7,6 +7,10 @@ class wp{
 		this.state = window.wp
 	}
 
+	update_wp(state, payload){
+		state.wp = Object.assign(state.wp, payload.wp)
+	}
+
 	/* Mutations */
 	section_change(state, payload){
 

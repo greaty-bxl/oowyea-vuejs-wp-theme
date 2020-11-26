@@ -1,6 +1,5 @@
 import isJson from 'Libs/is-json.js'
 
-
 export default function (action, data = {}, callback) {
 
 	let $ = window.jquery
@@ -11,7 +10,8 @@ export default function (action, data = {}, callback) {
 		type: 'post',
 		data: {
 			action: action, 
-			vars: data,
+			//vars: data,
+			data: data,
 			is_vue: true,
 		},
 	})
@@ -23,7 +23,7 @@ export default function (action, data = {}, callback) {
 		}
 		else
 		{
-			result = data;
+			result = data.trim();
 		}		    
 		callback(result)
 	})

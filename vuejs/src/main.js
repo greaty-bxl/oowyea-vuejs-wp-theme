@@ -19,6 +19,10 @@ Vue.prototype.wp_options_synch = wp_options_synch
 import generate_schemes from 'Libs/generate-schemes.js'
 Vue.prototype.generate_schemes = generate_schemes
 
+/* WP Ajax */
+import wp_ajax from 'Libs/wp-ajax.js'
+Vue.prototype.wp_ajax = wp_ajax
+
 /* Fontawesome-icon */
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon' 

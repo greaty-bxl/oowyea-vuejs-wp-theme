@@ -8,10 +8,10 @@ function save_theme_option()
 	{
 		$options_to_up = array();
 
-		foreach ( $_POST['vars']['keys'] as $key => $value) 
+		foreach ( $_POST['data']['keys'] as $key => $value) 
 		{
-			$options_to_up[$key] = $_POST['vars']['state'][$value];
-			update_option( $key, $_POST['vars']['state'][$value] );
+			$options_to_up[$key] = $_POST['data']['state'][$value];
+			update_option( $key, $_POST['data']['state'][$value] );
 		}
 		die( json_encode( $options_to_up ) );
 	}

@@ -2,8 +2,9 @@
 	<div id="gpdr-intro" v-if="!wp.gpdr_accepted && !is_privacy_policy_page">
       <div id="gpdr-message">
         <div>
-          <div v-html="wp.sidebars['gpdr-intro']"></div>
-          <button v-on:click="accept">Je comprends</button>  
+			<h3><strong>POLITIQUE DE COOKIE</strong></h3>
+			<div v-html="wp.sidebars['gpdr-intro']"></div>
+			<button class="button-cookie" v-on:click="accept">Je comprends</button>        
         </div>        
       </div>
     </div>
@@ -77,7 +78,7 @@
 	background: rgba(0,0,0,0.5);
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: center;	
 }
 
 #gpdr-message {
@@ -92,5 +93,63 @@
 	justify-content: center;
 	padding: 20px;
 	overflow-y: auto;
+
 }
+
+.widget_text * {
+
+	color: #666;
+}
+
+.widget_text h4{
+
+	font-size: 18px;
+}
+
+.widget_text p{
+
+	font-size: 16px;
+}
+
+h3{
+
+	font-size: 22px;
+}
+
+.button-cookie {
+
+	background-color: #70625B !important;
+	color: white !important;
+	border-width: 0;
+	margin-top: 16px;
+	border: solid #70625B;
+	border-width: 1px;
+	min-width: 200px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	line-height: 0;
+	border-radius: 0px;
+	margin-bottom: 16px;
+	font-size: 18px;
+	line-height: 0px;
+
+}
+
+.button-cookie:hover {
+
+	background-color: white !important;
+	color: #70625B !important;
+	transition: 0.3;
+
+}
+
+
+@media screen and (max-width: 600px){
+
+
+
+}
+
+
+
 </style>

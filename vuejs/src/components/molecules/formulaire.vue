@@ -49,10 +49,6 @@ mounted(){
 
 		event.preventDefault()
 
-        // document.myform.myinput.value = this.post.post_title;
-        // console.log(this.post.post_title);
-
-        //     $('.title-21').val(this.post.post_title);
 
 		var form = $(this);
 
@@ -62,7 +58,7 @@ mounted(){
 			type: 'post',
 			url: window.ajaxurl,
 			data:{
-				action: 'send_contact_mail',
+				action: 'send_assortiment_mail',
 				form: form.serializeArray()
 			},
 

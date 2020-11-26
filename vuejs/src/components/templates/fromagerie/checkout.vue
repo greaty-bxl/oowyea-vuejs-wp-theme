@@ -370,7 +370,7 @@ export default {
 
 		#checkout button{
 
-			line-height: 16px !important;
+			line-height: 20px !important;
 		}
 
 

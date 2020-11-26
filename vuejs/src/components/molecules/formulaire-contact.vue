@@ -10,13 +10,10 @@
 				<input class="input-single" placeholder="Nombre de personnes" type="" name="personnes" required>
 				<textarea class="input-single " placeholder="Messsage"  type="" name="message"></textarea>
 				<button type="submit" name="submit" value="Send" class="button-envoyer">Envoyer</button>
-
 				<div class="divcheckbox" >
 					
 					<input type="checkbox" class="checkbox" id="scales" name="scales" required>
 					<label class="tchekboxx" for="scales">J'accepte <a class="line" target="_blank" href="http://dev.fromagerie.brussels/politique-de-confidentialite/">La Politique de confidentialité et les Cookies </a>  </label>
-
-
 
 				</div>
 				

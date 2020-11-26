@@ -17,17 +17,10 @@ function send_contact_mail( ) {
       $message =  $_POST['message'];
       $type =  $_POST['type'];
 
-      
 
-    // Set your email address where you want to receive emails.
+     $email_to = 'info@fromagerie.brussels';
+     $subject = 'Contact';
 
-     $email_from = 'info@fromagerie.brussels';
-     $subject = 'Contact Request From Website';
-     // $headers = "From: ".$name." <".$email."> \r\n";
-
-      // echo $message;
-      // die( json_encode(  $message ) );
-      // exit();
     
      $text_mail = '';
 
@@ -37,25 +30,18 @@ function send_contact_mail( ) {
 
      };
 
-     $headers = "From: no-reply@fromagerie.be\r\n".
-     'Reply-To: '.$email_from."\r\n" .
-     'From: '.$email_from."\r\n" .
+     $headers = "From: no-reply@fromagerie.brussels\r\n".
+     'Reply-To: '.$email_to."\r\n" .
+     'From: '.$email_to."\r\n" .
      'X-Mailer: PHP/' . phpversion();
 
      add_filter('wp_mail_content_type', function( $content_type ) {
                  return 'text/html';
      });
 
-      wp_mail($email_from,$subject,$text_mail,$headers);
+      wp_mail($email_to,$subject,$text_mail,$headers);
 
-      // @mail($to,$subject,$text_mail,$headers);
-     // @mail($send_email );  
-     //echo ($send_email) ? 'success' : 'error';
-     // die( $text_mail );
-     // die( json_encode( $_POST['form'] ) );
-
-
-     // }
+// }
   }
 
 

@@ -1,5 +1,5 @@
 <template>
-	<div id="gpdr-intro" v-if="!wp.gpdr_accepted">
+	<div id="gpdr-intro" v-if="!wp.gpdr_accepted && !is_privacy_policy_page">
       <div id="gpdr-message">
         <div>
 			<h3><strong>POLITIQUE DE COOKIE</strong></h3>
@@ -47,13 +47,22 @@
 					{
 						$(event.toElement).prop('disabled', false)
 					}
-
 				})
 			}
 		},
 		computed: {
 			wp () {
 				return this.$store.state.wp
+			},
+			is_privacy_policy_page (){
+				if( this.$store.state.wp.body_class.search("privacy-policy") >= 0 )
+				{
+					return true
+				}
+				else
+				{
+					return false
+				}				
 			}
 		}
 	}

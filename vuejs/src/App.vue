@@ -114,7 +114,7 @@ export default {
   },
   mounted (){
 
-    console.log( 'App mounted' );    
+    console.log( 'App mounted', this.$store.state.wp );    
 
 
     
@@ -211,30 +211,6 @@ export default {
         })
       });
 
-      //replace body class
-      //let old_class = this.wp.body_class;
-
-      /*function replace_body_class( new_class )
-      {
-        $('body').removeClass(old_class) 
-        $('body').addClass(new_class) 
-        old_class = new_class
-      }*/
-
-      /*this.$store.subscribe((mutation, state) => {
-        if( mutation.type == 'section_change' )
-        {
-          replace_body_class( state.wp.body_class )
-        }        
-      })
-
-      $(document).on('after_data_next_page', ()=> {
-        replace_body_class( this.$store.state.wp.body_class );
-      });*/
-
-
-
-      //init on screen detection 
       on_screen()
 
     });

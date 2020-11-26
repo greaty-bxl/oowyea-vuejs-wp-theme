@@ -48,19 +48,34 @@ function wc_validate_calendar_hour_field( $fields, $errors ){
 		$errors->add( 'validation', "Merci de choisir une heure d'enlèvement." );
 	}
 
+    $today = date("Y-m-d");
+    $tomorrow = date('Y-m-d', strtotime($today . ' +1 day'));
 
- 	//$errors->add( 'validation', "date:" . $fields[ 'pick_date' ] );
+    $now = date("H:i");
+    $max_H = "19:30";
+    $is_sunday = date('l', strtotime($_POST['pick_date']) ) == "Sunday";
 
- 	/*echo "<pre>";
- 	print_r( $_POST['pick_date'] );
- 	exit();*/
-    /*if ( preg_match( '/\\d/', $fields[ 'pick_date' ] ) ){
-        $errors->add( 'validation', 'Your first or last name contains a number. Really?' );
+    //If date is before or today
+    if( $_POST['pick_date'] <= $today )
+    {
+        //echo "Date trop petite";
+        $errors->add( 'validation', "Veuillez choisir une date à partir de demain." );
     }
 
-    if( preg_match( '/\\d/', $fields[ 'pick_hour' ] ) ) {
+    //If hour is more than 19h30 and date tomorrow
+    if( $_POST['pick_date'] <= $tomorrow && $now >= $max_H )
+    {
+        //echo "Trop tard pour demain";
+        $errors->add( 'validation', "Si vous commandez après 19h30, votre commande peut être prête pour après demain. Merci de choisir une autre date." );
+    }
 
-    }*/
+    //No order on sunday
+    if( $is_sunday )
+    {
+        //echo "Pas de commande le dimanche";
+        $errors->add( 'validation', "Nous ne préparons pas de commande le dimanche." );
+    }
+    
 }
 
 add_action( 'woocommerce_after_checkout_validation', 'wc_validate_calendar_hour_field', 10, 2);

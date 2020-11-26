@@ -117,7 +117,7 @@ export default {
 
 		background-color: white !important;
 		color: #70625B !important;
-		transition: 200;
+		transition: 0.3;
 
 	}
 

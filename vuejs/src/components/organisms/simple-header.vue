@@ -11,9 +11,7 @@
 					</div>
 
 					<a href="">
-						<!-- <div class="count"> -->
-								<p class="woocommerce-cart-quantity count" v-html="count" ></p>							
-						<!-- </div> -->
+								<p class="woocommerce-cart-quantity count" v-html="count" ></p>	
 					</a>
 					<div class="icon button-header close-simple">
 					<div class="burger"></div>

@@ -4,7 +4,7 @@
         <div>
 			<h3><strong>POLITIQUE DE COOKIE</strong></h3>
 			<div v-html="wp.sidebars['gpdr-intro']"></div>
-			<button class="button-cookie" v-on:click="accept">Je comprends</button>        
+			<button class="button-cookie" v-on:click="accept">J'accepte</button>        
         </div>        
       </div>
     </div>
@@ -82,7 +82,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 20px;
+	padding: 40px;
 	overflow-y: auto;
 
 }
@@ -100,6 +100,8 @@
 .widget_text p{
 
 	font-size: 16px;
+	line-height: 24px;
+	
 }
 
 h3{
@@ -111,7 +113,6 @@ h3{
 
 	background-color: #70625B !important;
 	color: white !important;
-	border-width: 0;
 	margin-top: 16px;
 	border: solid #70625B;
 	border-width: 1px;
@@ -123,6 +124,7 @@ h3{
 	margin-bottom: 16px;
 	font-size: 18px;
 	line-height: 0px;
+	margin-top: 22px;
 
 }
 
@@ -131,6 +133,7 @@ h3{
 	background-color: white !important;
 	color: #70625B !important;
 	transition: 0.3;
+	
 
 }
 

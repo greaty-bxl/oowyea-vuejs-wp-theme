@@ -9,6 +9,10 @@
 				<input class="input-single" placeholder="Téléphone" type="" name="telephone" required>
 				<input class="input-single" placeholder="Nombre de personnes" type="" name="personnes" required>
 				<textarea class="input-single " placeholder="Messsage"  type="" name="message"></textarea>
+
+				<div class="alert-envoi-assortiment">
+					<p>Votre message a été envoyé</p>
+				</div>
 				<button type="submit" name="submit" value="Send" class="button-envoyer">Envoyer</button>
 				<div class="divcheckbox" >
 					
@@ -16,6 +20,8 @@
 					<label class="tchekboxx" for="scales">J'accepte <a class="line" target="_blank" href="http://dev.fromagerie.brussels/politique-de-confidentialite/">La Politique de confidentialité et les Cookies </a>  </label>
 
 				</div>
+
+
 				
 
 				</form>
@@ -61,6 +67,40 @@ mounted(){
 
 			success: function(result){
 				console.log(result);
+
+				console.log(result);
+
+					$('.alert-envoi-assortiment').show('slow/400/fast', function() {
+						
+					});
+
+						$('.alert-envoi-assortiment').animate({
+							// targets: $('.menu_link').target,
+							opacity: '1',
+							easing: 'easeInOutSine',
+							duration: 200,
+						});
+
+						$('.alert-envoi-assortiment').animate({
+						// targets: $('.menu_link').target,
+						display: 'block',
+						easing: 'easeInOutSine',
+						duration: 200,
+						});
+
+
+					setTimeout(function() {
+
+						$('.alert-envoi-assortiment').animate({
+							opacity: '0',
+							easing: 'easeInOutSine',
+							duration: 200,
+						});
+						$('.alert-envoi-assortiment').hide('slow/400/fast', function() {
+							
+						});
+
+					}, 3000);
 	
 		}
 		});
@@ -79,6 +119,23 @@ mounted(){
 
 		margin-top: 15px;
 	}
+
+
+	.alert-envoi-assortiment{
+
+		background-color: #bcf5bc;
+		margin-top: 15px;
+		display: none;
+		opacity: 0;
+		
+	}
+	.alert-envoi-assortiment p{
+
+		color: darkgreen;
+		padding: 5px 10px;
+		text-align: center;
+	}
+
 
 
 /*	textarea

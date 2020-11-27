@@ -9,7 +9,10 @@ function send_assortiment_mail( ) {
   $strings = array(
     'name' => 'Name',
     'email' => 'E-mail',
-    'message' => 'Message'
+    'telephone' => 'Téléphone',
+    'personnes' => 'Personnes',
+    'commande' => 'Commande',
+    'message' => 'Message',
   );
 
       $name =  $_POST['name'];
@@ -17,18 +20,10 @@ function send_assortiment_mail( ) {
       $message =  $_POST['message'];
       $type =  $_POST['type'];
 
-      
 
-    // Set your email address where you want to receive emails.
-
-     $email_to = 'info@fromagerie.brussels';
+     $email_to = 'fromageriewestland@gmail.com';
      $subject = 'Commande assortiments';
-     // $headers = "From: ".$name." <".$email."> \r\n";
 
-      // echo $message;
-      // die( json_encode(  $message ) );
-      // exit();
-    
      $text_mail = '';
 
      foreach ($_POST['form'] as $key => $field) 
@@ -48,14 +43,7 @@ function send_assortiment_mail( ) {
 
       wp_mail($email_to,$subject,$text_mail,$headers);
 
-      // @mail($to,$subject,$text_mail,$headers);
-     // @mail($send_email );  
-     //echo ($send_email) ? 'success' : 'error';
-     // die( $text_mail );
-     // die( json_encode( $_POST['form'] ) );
 
-
-     // }
   }
 
 

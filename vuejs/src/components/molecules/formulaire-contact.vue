@@ -7,7 +7,6 @@
 				<input class="input-single"  placeholder="Prénom"  type="" name="name" required>
 				<input class="input-single" placeholder="E-mail" type="" name="email" required>
 				<input class="input-single" placeholder="Téléphone" type="" name="telephone" required>
-				<input class="input-single" placeholder="Nombre de personnes" type="" name="personnes" required>
 				<textarea class="input-single " placeholder="Messsage"  type="" name="message"></textarea>
 
 				<div class="alert-envoi-assortiment">

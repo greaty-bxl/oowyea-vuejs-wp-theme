@@ -9,7 +9,9 @@ function send_contact_mail( ) {
   $strings = array(
     'name' => 'Name',
     'email' => 'E-mail',
-    'message' => 'Message'
+    'telephone' => 'Téléphone',
+    'message' => 'Message',
+
   );
 
       $name =  $_POST['name'];
@@ -18,7 +20,7 @@ function send_contact_mail( ) {
       $type =  $_POST['type'];
 
 
-     $email_to = 'info@fromagerie.brussels';
+     $email_to = 'fromageriewestland@gmail.com';
      $subject = 'Contact';
 
     

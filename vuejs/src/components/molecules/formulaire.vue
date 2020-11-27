@@ -8,7 +8,7 @@
 				<input class="input-single" placeholder="E-mail" type="" name="email"  required>
 				<input class="input-single" placeholder="Téléphone" type="" name="telephone"  required>
 				<input class="input-single" placeholder="Nombre de personnes" type="" name="personnes" required >
-				<input class="input-single title-21" placeholder="Assortiments en plat ou dessert" type="" name="type-name">
+				<input class="input-single title-21" placeholder="Assortiments en plat ou dessert" type="" name="commande" required>
 				<textarea class="input-single " placeholder="Messsage"  type="" name="message"></textarea>
 				<button type="submit" name="submit" value="Send" class="button-envoyer">Envoyer</button> 
 				<div class="divcheckbox" >
@@ -17,7 +17,7 @@
 				</div>
 
 				<div class="alert-envoi">
-					<p>Votre message a été envoyé</p>
+					<p>votre commande a bien été envoyée</p>
 				</div>
 				
 

@@ -15,12 +15,17 @@
 		mounted () {
 			let $ = this.$
 
-			if( !this.$store.state.wp.gpdr_accepted )
-			{
-				$('#app').on('section-top-ready', () => {
+			
+			
+			$('#app').on('section-top-ready', () => {
+				
+				console.log( 'store gpdr_accepted', this.$store.state.wp.gpdr_accepted );
+
+				if( !this.$store.state.wp.gpdr_accepted )
+				{		
 					$('#app').data('scrolling', 'gpdr')
-				});
-			}
+				}
+			});
 		},
 		methods:{
 			accept: function(event){

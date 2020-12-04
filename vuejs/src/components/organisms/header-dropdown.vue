@@ -1,26 +1,35 @@
 <template>
 	<div id="header" class="header-greaty">
 		<div class="clear"></div>
-		<div id="header-logo"><a class="link" href=""><img src="https://greaty.be/wp-content/uploads/2020/09/Greaty_logo-01.svg"></a><!-- <Acf field="logo"/> --><!-- </a> --></div>
-		<!-- <div id="header-menu"></div> -->
+
 		<div id="right-panel">
 			<div class="headerButton" style="pointer-events: auto;">
 				<div class="headerMore"><span></span><span></span><span></span></div>
 				<div class="headerBody">
 					<div class="topBody">
-						<div v-html="wp.menus['burger-menu']" ></div>
+						<div>
+							<div class="dropdown" v-for="child in wp.menus" :key="child.ID" >
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-html="child.title">
+							Dropdown button
+							</button>
+
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="child.child">
+
+								<a class="dropdown-item" href="#" v-html="child.child.title">Action</a>
+								
+							</div>
+
+							</div>
+						</div>
 					</div>
-					<ul class="bottomBody">
-						<li>ENTRER EN CONTACT</li><br>
-						<li><a href="tel:+32 (0) 471 72 18 08">+32 (0) 471 72 18 08</a></li>
-						<li><a href="mailto:i[at]greaty.be">i[at]greaty.be</a></li><br>
-						<li><a href="https://www.instagram.com/greaty_studio/" target="_blank">Instagram</a></li>
-						<li><a href="https://www.facebook.com/greaty.be" target="_blank">Facebook</a></li>
-						<li><a href="https://www.linkedin.com/company/9386991/admin/" target="_blank">LinkedIn</a></li>
-						<!-- <li><a href="https://www.linkedin.com/company/rokyrocks/" target="_blank">GitHub</a></li> -->
-					</ul>
+			
 				</div>
 			</div>		
+		</div>
+
+		<div>
+		
+
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -43,6 +52,8 @@ export default {
 		var $ = this.$
 
 		this.$emit('template_mounted', this)
+
+		console.log(this.wp.menus);
 
 		var height_origin_taille = $('.headerButton').outerHeight()
 
@@ -77,6 +88,8 @@ export default {
 
 			function open(){
 
+
+				console.log('464484');
 
 				$('.headerBody').find('a').css('color', color);
 
@@ -165,7 +178,7 @@ export default {
 					}
 					else{
 
-
+						console.log('qdqf2');
 
 						if ($(event.target).is('a')) {
 

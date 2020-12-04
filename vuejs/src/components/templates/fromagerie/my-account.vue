@@ -132,9 +132,8 @@ export default {
 		padding-bottom: 25px;
 		line-height: 0px;
 
-
-
 	}
+
 
 	#my-account .woocommerce-button .button .view{
 

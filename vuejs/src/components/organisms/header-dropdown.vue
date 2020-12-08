@@ -4,7 +4,7 @@
 
 		<div id="right-panel ">
 
-			<nav class="santos-navbar">
+			<div class="santos-navbar">
 
 				<div class="icon button-header close-simple">
 					<div class="burger"></div>
@@ -53,8 +53,8 @@
 
 					<div class="lang">
 						
-						<p class="fr">FR</p>
-						<p class="nl">NL</p>
+						<div class="fr">FR</div>
+						<div class="nl">NL</div>
 
 					</div>
 					
@@ -67,7 +67,7 @@
 
 				
 
-			</nav>
+			</div>
 	
 		</div>
 
@@ -141,8 +141,6 @@ export default {
 							duration: 200,
 						});
 
-	
-				
 			}
 		
 			else {
@@ -272,7 +270,12 @@ export default {
 		height: 100%;
 	}
 
+	.fr{
 
+		padding-right: 3px;
+		margin-right: 3px;
+		border-right: 1px solid #888320;
+	}
 
 	.count{
 
@@ -391,9 +394,8 @@ export default {
 		flex-direction: row;
 		justify-content: center;
 		margin-top: 0px;
-		border-bottom: 1px solid #dddddd;;
-
-		/*border-width: 0.5px;*/
+		border-bottom: 1px solid #dddddd;
+		margin-bottom: 0px ;
 	}    
 
 	.parent li{
@@ -462,6 +464,7 @@ export default {
 	}
 
 
+
 }
 
 /*animation header pc*/
@@ -484,6 +487,14 @@ export default {
 		margin-top: 30px;
 		right: 100vw;
 	}
+
+	.lang{
+
+		justify-content: center;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
 
 
 }
@@ -527,14 +538,16 @@ export default {
 		padding-left: 70px;
 		padding-right: 70px;
 	}
+
+
 }
 
 @media only screen and (max-width: 600px){
 
-	.santos-navbar{
+/*	.santos-navbar{
 		padding-left: 30px;
 		padding-right: 30px;
-	}
+	}*/
 
 	.parent{
 
@@ -547,7 +560,7 @@ export default {
 
 	.count {
 
-		left: calc( 100% - 115px );
+		left: calc( 100% - 51px );
 		padding: 5px;
 		cursor: pointer;
 		z-index: 11000;
@@ -562,6 +575,21 @@ export default {
 		line-height: 17px;
 		}
 
+		.dropdown-content{
+
+			height: 100vh;
+			background-color: white;
+			position: fixed;
+			width: 100%;
+			right: 100vw;
+			top: 80px;
+
+		}
+
+		.logo-santos img{
+
+			height: 40px;
+		}
 
 
 
@@ -576,8 +604,8 @@ export default {
 
 		@media screen and (max-width: 600px) {
 
-			nav{
-			margin:  30px 30px;
+			.santos-navbar{
+			margin:  15px 30px;
 			width: calc(100% - 60px);
 			}
 	

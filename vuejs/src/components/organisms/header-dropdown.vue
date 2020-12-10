@@ -19,40 +19,49 @@
 
 						<div v-if="child.child">
 
-							<div>
+							<div class="li-espace-between">
 
-							<a class="ligne-animation" v-html="child.title">Mouse over me</a>
+							<a class="ligne-animation" :href="child.url" v-html="child.title">Mouse over me</a>
 
 							<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-right" viewBox="0 0 20 38"><path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd"></path>
 							</svg>
 
 							</div>
 
-							<ul v-for="child2 in child.child" :key="child2.ID" class="dropdown-content">
+							<ul  class="dropdown-content">
 
-								<li class="sousmenus childli dropdown__title">
+
+								<li class="sousmenus childli dropdown__title li-espace-between">
 
 									<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-left close-simple" viewBox="0 0 20 38"><path d="M4.068 18.649l15.466 16.105c.31.283.466.629.466 1.039 0 .41-.155.77-.466 1.08a1.412 1.412 0 0 1-1.038.424c-.41 0-.756-.141-1.038-.424L.466 19.708A1.373 1.373 0 0 1 0 18.648c0-.423.155-.776.466-1.059L17.458.424A1.412 1.412 0 0 1 18.496 0c.41 0 .755.141 1.038.424.31.282.466.636.466 1.06 0 .423-.155.776-.466 1.059L4.068 18.649z" fill="#726D75" fill-rule="evenodd"></path></svg>
 
-									<a class="sousmenus " v-html="child.title">Hello World!</a>
+									<a class="sousmenus" :href="child.url" v-html="child.title">Hello World!</a>
 
 								</li>
-								<li class="sousmenus childli" > <a class="sousmenus" v-html="child2.title" >Hello World!</a></li>
+
+								<div class="li-sousmenu" v-for="child2 in child.child" :key="child2.ID">
+		
+									<li class="sousmenus childli"> <a :href="child2.url" class="sousmenus" v-html="child2.title" >Hello World!</a></li>
+
+								</div>
+						
 							</ul>	
 						</div>
+
 						<div v-else>
-							<a class="ligne-animation" v-html="child.title" >Mouse over me</a>
+							<a class="ligne-animation" :href="child.url" v-html="child.title" >Mouse over me</a>
 						</div>
 
 					</li>
 
 					<div>
+						<a class="div-image-compte-mobile" href="">
 
-
-						
-
+							<img class="image-compte-mobile" src="http://santospalace.test/wp-content/uploads/2020/12/login-01.svg">
+							<p>Mon compte</p>
+						</a>
 					</div>
-					
+
 				</ul>
 
 				<div class="icons-santos-palace">
@@ -65,20 +74,25 @@
 					</div>
 
 					<div class="div-image-compte" >
+
 						<a href="">
-						<img class="image-compte" src="http://santospalace.test/wp-content/uploads/2020/12/login-01.svg">
+
+							<img class="image-compte" src="http://santospalace.test/wp-content/uploads/2020/12/login-blanc-01.svg">
+
 						</a>
+
 					</div>
 					
 					<a class="woocommerce-cart-quantity-a" href="">
+
 						<p class="woocommerce-cart-quantity count" v-html="count" ></p>	
-					</a>
-			
+				
+					</a>		
 
 				</div>
 
 
-				
+
 
 			</div>
 	
@@ -176,6 +190,12 @@ export default {
 				$(this).removeClass('open-simple')
 				$(this).addClass('close-simple')
 				$('.count').removeClass('changement-couleur')
+				$('.icon-arrow-left').removeClass('open-simple')
+				$('.icon-arrow-left').addClass('close-simple')
+				$('.icon-arrow-right').removeClass('open-simple')
+				$('.icon-arrow-right').addClass('close-simple')
+
+
 
 			}
 
@@ -261,12 +281,15 @@ export default {
 		});
 
 
+	},
 
-		
-
+	computed: {
+		count () {
+			return this.$store.state.wp.count
+		}
 	}
-}
 
+}
 </script>
 
 <style>
@@ -303,6 +326,10 @@ export default {
 
 		height: 20px;
 	}
+	.image-compte-mobile{
+
+		height: 20px;
+	}
 
 	.lang{
 
@@ -314,8 +341,8 @@ export default {
 
 	.fr{
 
-		padding-right: 3px;
-		margin-right: 3px;
+		padding-right: 10px;
+		margin-right: 10px;
 		border-right: 1px solid #888320;
 	}
 
@@ -347,7 +374,6 @@ export default {
 	.parent li a{
 
 		color: #422112;
-		padding: 10px;
 		font-weight: bold;
 
 	}
@@ -361,15 +387,15 @@ export default {
 
 	.icon-arrow-right{
 
-		width: 13px;
-		height: 13px;
+		width: 20px;
+		height: 20px;
 
 	}
 
 	.icon-arrow-left{
 
-		width: 13px;
-		height: 13px;
+		width: 20px;
+		height: 20px;
 	}
 	
 
@@ -391,7 +417,16 @@ export default {
 
 @media only screen and (min-width: 1100px){
 
+	.li-sousmenu{
 
+		display: contents;
+	}
+
+	.parent li a{
+
+		padding: 10px;
+
+	}
 
 	.icons-santos-palace{
 
@@ -412,9 +447,14 @@ export default {
 		flex-direction: row;
 		align-items: center;
 		height: 100%;
-		margin-right: 15px;
+		margin-right: 10px;
 		font-size: 15px;
 
+	}
+
+	.fr{
+		padding-right: 5px;
+		margin-right: 5px;
 	}
 
 	.santos-navbar{
@@ -451,11 +491,6 @@ export default {
 
 		display: none;
 
-	}
-
-	.icon-arrow-right{
-
-		display: none;
 	}
 
 	.parent{
@@ -522,15 +557,13 @@ export default {
 	}
 
 	.dropdown:hover .dropdown-content {
-		display: block;
-	}
-		.dropdown:hover .dropdown-menu {
-		display: block;
-	}
-
-	.div-image-compte-mobile{
 
 		display: block;
+	}
+	.dropdown:hover .dropdown-menu {
+
+		display: block;
+
 	}
 
 	.sousmenus{
@@ -538,6 +571,7 @@ export default {
 	}
 
 	.logo-santos {
+
 		display: flex;
 		align-items: center;
 	}
@@ -549,6 +583,11 @@ export default {
 
 	}
 
+	.div-image-compte-mobile{
+
+		display: none;
+	}
+
 }
 
 /*animation header pc*/
@@ -556,22 +595,42 @@ export default {
 
 @media only screen and (max-width: 1100px){
 
+	.div-image-compte-mobile{
+
+		background-color: #888320;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		color: white;
+		padding: 20px;
+		color: white;
+		margin-top: 5%;
+
+	}
+
+	.div-image-compte-mobile p{
+
+		padding-left: 15px;
+		font-weight: 700;
+
+	}
 	.div-image-compte{
 
 		display: none
 	}
 
-	.div-image-compte-mobile{
-
-		display: block;
-	}
-
 	.dropdown__title{
 
-		margin-bottom: 20px;
-		padding: 17px 30px;
+		padding: 20px 30px;
 		background-color: #e9e9e9;
-		
+
+	}
+	.li-sousmenu{
+
+		padding-top: 28px;
+		/*padding-bottom: 20px;*/
 
 	}
 
@@ -618,12 +677,41 @@ export default {
 		top: 0px;
 	}
 
+	.icon-arrow-right{
+
+		position: absolute;
+		right: 20%;
+	}
+
+	.icon-arrow-left{
+
+		position: absolute;
+		left: 20%;
+
+	}
+
+	.li-espace-between{
+
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
 
 
 }
 
 
 @media only screen and (max-width: 1100px) and (min-width: 600px){
+
+
+	.div-image-compte-mobile{
+
+		width: 25%;
+		font-size: 16px;
+
+	}
 
 	.parent{
 
@@ -642,7 +730,7 @@ export default {
 	.childli{
 
 		font-size: 16px;
-		margin-bottom: 18px;
+
 
 	}
 
@@ -686,6 +774,14 @@ export default {
 }
 
 @media only screen and (max-width: 600px){
+
+
+	.div-image-compte-mobile{
+
+		width: 40%;
+		font-size: 14px;
+
+	}
 
 	.grandparent{
 

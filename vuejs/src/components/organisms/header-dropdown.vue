@@ -2,7 +2,7 @@
 	<div id="header" class="header-greaty">
 		<div class="clear"></div>
 
-		<div id="right-panel ">
+		<div id="right-panel">
 
 			<div class="santos-navbar">
 
@@ -11,7 +11,7 @@
 				</div>
 
 				<div class="logo-santos">
-					<a :href="this.wp.options.siteurl"><Acf field="logo" /> </a>
+					<a :href="this.wp.options.siteurl"><Acf field="logo"/></a>
 				</div>
 
 				<ul class="parent">
@@ -42,14 +42,20 @@
 						</div>
 						<div v-else>
 							<a class="ligne-animation" v-html="child.title" >Mouse over me</a>
-						
 						</div>
 
 					</li>
+
+					<div>
+
+
+						
+
+					</div>
 					
 				</ul>
 
-				<div>
+				<div class="icons-santos-palace">
 
 					<div class="lang">
 						
@@ -57,13 +63,20 @@
 						<div class="nl">NL</div>
 
 					</div>
-					
 
-					<a href="">
+					<div class="div-image-compte" >
+						<a href="">
+						<img class="image-compte" src="http://santospalace.test/wp-content/uploads/2020/12/login-01.svg">
+						</a>
+					</div>
+					
+					<a class="woocommerce-cart-quantity-a" href="">
 						<p class="woocommerce-cart-quantity count" v-html="count" ></p>	
 					</a>
+			
 
 				</div>
+
 
 				
 
@@ -261,6 +274,35 @@ export default {
 
 /*styleglobal*/
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+	.santos-navbar *{
+
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.clear{
+
+		display: none !important;
+	}
+	.santos-navbar{
+
+		background-color: white;
+		border-bottom: 1px solid #dddddd;
+	}
+
+	.div-image-compte{
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		height: 100%;
+	}
+	
+	
+	.image-compte{
+
+		height: 20px;
+	}
 
 	.lang{
 
@@ -281,11 +323,9 @@ export default {
 
 		position: absolute;
 		display: block;
-		left: calc( 100% - 90px );
 		padding: 5px;
 		cursor: pointer;
-		background-color: #70625b;
-		top: 9px;
+		background-color: #888320;
 		color: white;
 		border-radius: 20px;
 		height: 17px;
@@ -338,6 +378,11 @@ export default {
 		height: 60px;
 	}
 
+	.parent{
+
+		padding-left: 0px;
+	}
+
 
 /*styleglobal*/
 
@@ -348,12 +393,37 @@ export default {
 
 
 
+	.icons-santos-palace{
+
+		display: flex;
+		flex-direction: row;
+
+	}
+
+	.div-image-compte{
+
+		margin-right: 37px;
+	}
+
+
+	.lang{
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		height: 100%;
+		margin-right: 15px;
+		font-size: 15px;
+
+	}
+
 	.santos-navbar{
-		padding-left: 70px;
-		padding-right: 70px;
+		padding-left: 40px;
+		padding-right: 40px;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+
 	}
 
 	.icon-arrow-left{
@@ -374,7 +444,7 @@ export default {
 
 	.logo-santos img{
 
-		height: 50px;
+		height: 55px;
 	}
 
 	.icon-arrow-right{
@@ -394,7 +464,6 @@ export default {
 		flex-direction: row;
 		justify-content: center;
 		margin-top: 0px;
-		border-bottom: 1px solid #dddddd;
 		margin-bottom: 0px ;
 	}    
 
@@ -441,15 +510,15 @@ export default {
 	.dropdown-content {
 		display: none;
 		width: 100%;
-		/*background: lightblue;*/
+		background: white;
 		position: absolute;
 		box-sizing: border-box;
 		right: 0px;
-		top:110px;
+		top:113px;
 		vertical-align:baseline;
 		z-index :5000;
 		-webkit-font-smoothing: antialiased;
-		padding: 47px 24px;
+		border-top: 1px solid #dddddd;
 	}
 
 	.dropdown:hover .dropdown-content {
@@ -459,11 +528,26 @@ export default {
 		display: block;
 	}
 
+	.div-image-compte-mobile{
+
+		display: block;
+	}
+
 	.sousmenus{
 	
 	}
 
+	.logo-santos {
+		display: flex;
+		align-items: center;
+	}
 
+	.count{
+
+		left: calc( 100% - 62px );
+		top: 41px;
+
+	}
 
 }
 
@@ -472,27 +556,66 @@ export default {
 
 @media only screen and (max-width: 1100px){
 
+	.div-image-compte{
 
+		display: none
+	}
+
+	.div-image-compte-mobile{
+
+		display: block;
+	}
 
 	.dropdown__title{
 
 		margin-bottom: 20px;
 		padding: 17px 30px;
 		background-color: #e9e9e9;
+		
 
 	}
 
-	.parent{
+	.dropdown-content{
+		top: 0;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		justify-content: center;
+	}
 
-		margin-top: 30px;
+	.parent{
+		
 		right: 100vw;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		justify-content: center;
+	}
+
+	.icon{
+		right: calc( 100% - 56px );
+		height: 60px !important;
+	}
+
+	.count{
+
+		left: calc( 100% - 50px );
 	}
 
 	.lang{
 
-		justify-content: center;
-		padding-top: 20px;
-		padding-bottom: 20px;
+		border-top: 1px solid #dddddd;
+	
+	}
+
+	.santos-navbar{
+
+		position: relative;
+	}
+
+	.parent{
+
+		top: 0px;
 	}
 
 
@@ -507,7 +630,8 @@ export default {
 		height: 100vh;
 		background-color: white;
 		position: fixed;
-		width: calc( 100% - 70px) ;
+		width: 100%;
+
 	}
 
 	.grandparent{
@@ -522,6 +646,16 @@ export default {
 
 	}
 
+	.lang{
+
+		justify-content: center;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		margin-top: 20px;
+		font-size: 14px;
+	}
+
+
 	.dropdown-content{
 
 		height: 100vh;
@@ -529,43 +663,62 @@ export default {
 		position: fixed;
 		width: 100%;
 		right: 100vw;
-		top: 80px;
 
 	}
+	.count{
 
+		top: 39.5px;
+	}
 
 	.santos-navbar{
-		padding-left: 70px;
-		padding-right: 70px;
+
+		padding-top: 20px;
+		width: 100%;
 	}
+
+	.burger{
+
+		top: 35px;
+	}
+
 
 
 }
 
 @media only screen and (max-width: 600px){
 
-/*	.santos-navbar{
-		padding-left: 30px;
-		padding-right: 30px;
-	}*/
+	.grandparent{
+
+		font-size: 14px;
+		margin-bottom: 28px;
+	}
+
+	.lang{
+
+		justify-content: center;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		margin-top: 15px;
+		font-size: 12px;
+	}
+
 
 	.parent{
 
 		height: 100vh;
 		background-color: white;
 		position: fixed;
-		width: calc( 100% - 30px) ;
-		top: 80px;
+		width: 100% ;
+		
 	}
 
 	.count {
 
-		left: calc( 100% - 51px );
 		padding: 5px;
 		cursor: pointer;
 		z-index: 11000;
-		position: fixed;
-		top: 35px;
+		position: absolute;
+		top: 23px;
 		color: white;
 		border-radius: 20px;
 		height: 16px;
@@ -573,24 +726,39 @@ export default {
 		display: flex;
 		justify-content: center;
 		line-height: 17px;
-		}
 
-		.dropdown-content{
+	}
 
-			height: 100vh;
-			background-color: white;
-			position: fixed;
-			width: 100%;
-			right: 100vw;
-			top: 80px;
+	.dropdown-content{
 
-		}
+		height: 100vh;
+		background-color: white;
+		position: fixed;
+		width: 100%;
+		right: 100vw;
 
-		.logo-santos img{
+	}
 
-			height: 40px;
-		}
+	.logo-santos img{
 
+		height: 40px;
+	}
+	.icon{
+
+		width: auto !important;
+	}
+
+	.santos-navbar{
+	
+		padding-top: 15px;
+
+	}
+
+	.burger{
+
+		top: 23px;
+
+	}
 
 
 }
@@ -604,13 +772,6 @@ export default {
 
 		@media screen and (max-width: 600px) {
 
-			.santos-navbar{
-			margin:  15px 30px;
-			width: calc(100% - 60px);
-			}
-	
-
-			
 
 			.icon{
 
@@ -623,21 +784,16 @@ export default {
 
 		position: absolute;
 		display: block;
-		right: calc( 100% - 90px );
 		width: 45px;
-		height: 40px;
 		cursor: pointer;
-		/*background-color: #70625b;*/
 		z-index: 11000;
-		
-		/*margin-top: 20px;*/
+
 		}
 		.burger{
 		width: 30px;
-		height: 1px;
-		background-color: black;
+		height: 2px;
+		background-color: #422112;
 		position: absolute;
-		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
 		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -647,9 +803,9 @@ export default {
 		content: '';
 		position: absolute;
 		width: 18px;
-		height: 1px;
+		height: 2px;
 		left: 0;
-		background: black;
+		background: #422112;
 		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 		transition: 0.5s;
 		}
@@ -658,9 +814,9 @@ export default {
 		content: '';
 		position: absolute;
 		width: 30px;
-		height: 1px;
+		height: 2px;
 		left: 0;
-		background: black;
+		background: #422112;
 		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 		transition: 0.5s;
 		}

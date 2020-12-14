@@ -54,13 +54,32 @@
 
 					</li>
 
-					<div>
+					<div class="ligne-mobile">
+
 						<a class="div-image-compte-mobile" href="">
 
-							<img class="image-compte-mobile" src="http://santospalace.test/wp-content/uploads/2020/12/login-01.svg">
-							<p>Mon compte</p>
+						<div class="image-compte-mobile" >
+						<span>
+
+							<svg  class="icon-account"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							viewBox="0 0 22.3 20.6" style="enable-background:new 0 0 22.3 20.6;" xml:space="preserve">
+							<g fill-rule="nonzero">
+							<path class="st0" d="M22.1,19.9c-0.9-2.1-2.4-3.9-4.3-5.3c-1.5-1-3.1-1.6-4.9-1.9c2.7-0.8,4.6-3.2,4.6-6.2c0-3.5-2.9-6.4-6.4-6.4
+							S4.7,3,4.7,6.6c0,2.9,2,5.4,4.6,6.2c-1.7,0.3-3.4,0.9-4.8,1.9c-1.9,1.3-3.4,3.1-4.3,5.3c0,0.1,0,0.3,0,0.4c0.1,0.1,0.2,0.2,0.3,0.2
+							h21.1c0.1,0,0.3-0.1,0.3-0.2C22.1,20.2,22.1,20,22.1,19.9z M5.5,6.6C5.5,3.5,8,1,11.1,1s5.6,2.5,5.6,5.6s-2.5,5.6-5.6,5.6
+							S5.5,9.7,5.5,6.6z M1.2,19.7c1.8-3.8,5.7-6.3,9.9-6.3s8.1,2.4,10,6.3H1.2z">							
+							</path>
+							</g>
+							</svg>
+
+						</span>
+						</div>
+						<p>Mon compte</p>
 						</a>
+
 					</div>
+
+					<img class="image-logo" src="http://santospalace.test/wp-content/uploads/2020/12/logo_marionnette_santos_palace.svg">
 
 				</ul>
 
@@ -77,7 +96,7 @@
 
 						<a href="">
 
-							<img class="image-compte" src="http://santospalace.test/wp-content/uploads/2020/12/login-blanc-01.svg">
+							<img class="image-compte" src="http://santospalace.test/wp-content/uploads/2020/12/login-01.svg">
 
 						</a>
 
@@ -202,7 +221,6 @@ export default {
 		});
 
 
-
 		$('.icon-arrow-right').click(function() {
 
 			$(this).parents('.grandparent').find('.icon-arrow-left').toggleClass('active');
@@ -279,6 +297,54 @@ export default {
 			}
 
 		});
+
+
+		$(document).on('click', function() {
+
+
+		if($(event.target).parents('.parent').length != 0) {
+
+			if ($(event.target).is('a')) {
+
+				if ($('.button-header').hasClass('open-simple')) {
+
+					$('.button-header').removeClass('open-simple')
+					$('.button-header').removeClass('active')
+					$('.button-header').addClass('close-simple')
+					
+					$('.parent').animate({
+
+						right: '100vw',
+						easing: 'easeInOutSine',
+						duration: 200,
+
+					});
+
+					$('.dropdown-content').animate({
+
+						right: '100vw',
+						easing: 'easeInOutSine',
+						duration: 200,
+
+					});
+
+					$(this).removeClass('open-simple')
+					$(this).addClass('close-simple')
+					$('.count').removeClass('changement-couleur')
+					$('.icon-arrow-left').removeClass('open-simple')
+					$('.icon-arrow-left').addClass('close-simple')
+					$('.icon-arrow-right').removeClass('open-simple')
+					$('.icon-arrow-right').addClass('close-simple')
+
+				}	
+
+
+			}
+
+		}
+
+		});
+
 
 
 	},
@@ -387,15 +453,15 @@ export default {
 
 	.icon-arrow-right{
 
-		width: 20px;
-		height: 20px;
+		width: 15px;
+		height: 15px;
 
 	}
 
 	.icon-arrow-left{
 
-		width: 20px;
-		height: 20px;
+		width: 15px;
+		height: 15px;
 	}
 	
 
@@ -409,6 +475,11 @@ export default {
 		padding-left: 0px;
 	}
 
+	.icon-account{
+
+		height: 20px;
+		width: 20px;
+	}
 
 /*styleglobal*/
 
@@ -416,6 +487,24 @@ export default {
 /*animation header pc*/
 
 @media only screen and (min-width: 1100px){
+
+
+
+	.ligne-mobile{
+
+		display: none;
+
+	}
+
+	.image-logo{
+
+		display: none;
+	}
+
+	.div-image-compte-mobile{
+
+		display: none;
+	}
 
 	.li-sousmenu{
 
@@ -551,7 +640,7 @@ export default {
 		right: 0px;
 		top:113px;
 		vertical-align:baseline;
-		z-index :5000;
+		/*z-index :5000;*/
 		-webkit-font-smoothing: antialiased;
 		border-top: 1px solid #dddddd;
 	}
@@ -606,9 +695,44 @@ export default {
 		color: white;
 		padding: 20px;
 		color: white;
-		margin-top: 5%;
+		border: 1px solid #888320;
+		border-radius: 3px;
 
 	}
+
+	.div-image-compte-mobile svg{
+
+		fill: white ;
+	}
+
+	.div-image-compte-mobile:hover{
+		
+		color: #888320 ;
+		background-color: white;
+		transition: 0.3;
+	}
+
+	.div-image-compte-mobile:hover svg{
+
+		fill: #888320 ;
+		transition: 0.3;
+	}
+
+	.ligne-mobile{
+
+		border-top: 1px solid #dddddd;
+		margin-left: 20px;
+		margin-right: 20px;
+
+	}
+
+	.image-logo{
+
+		width: 20%;
+		margin-left: auto;
+		margin-right: auto;
+		
+	}		
 
 	.div-image-compte-mobile p{
 
@@ -640,6 +764,8 @@ export default {
 		flex-direction: column;
 		align-content: center;
 		justify-content: center;
+		z-index: 5000;
+		
 	}
 
 	.parent{
@@ -675,6 +801,8 @@ export default {
 	.parent{
 
 		top: 0px;
+		z-index: 100;
+		
 	}
 
 	.icon-arrow-right{
@@ -696,7 +824,7 @@ export default {
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		position: relative;
+		/*position: relative;*/	
 	}
 
 
@@ -710,7 +838,19 @@ export default {
 
 		width: 25%;
 		font-size: 16px;
+		margin-top: 10%;
 
+	}
+
+	.ligne-mobile{
+
+		margin-top: 10%;
+
+	}
+
+	.image-logo{
+
+		margin-top: 10%;
 	}
 
 	.parent{
@@ -725,7 +865,7 @@ export default {
 	.grandparent{
 
 		font-size: 16px;
-		margin-bottom: 28px;
+		margin-top: 28px;
 	}
 	.childli{
 
@@ -775,18 +915,29 @@ export default {
 
 @media only screen and (max-width: 600px){
 
+	.ligne-mobile{
+
+		margin-top: 30px;
+	}
 
 	.div-image-compte-mobile{
 
-		width: 40%;
+		width: 55%;
 		font-size: 14px;
+		margin-top: 30px;
 
 	}
+
+	.image-logo{
+
+		margin-top: 30px;
+		
+	}	
 
 	.grandparent{
 
 		font-size: 14px;
-		margin-bottom: 28px;
+		margin-top: 28px;
 	}
 
 	.lang{

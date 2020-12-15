@@ -15,44 +15,57 @@
 				</div>
 
 				<ul class="parent">
-					<li  class="dropdown grandparent" v-for="child in wp.menus" :key="child.ID"  >
-
-						<div v-if="child.child">
-
-							<div class="li-espace-between">
-
-							<a class="ligne-animation" :href="child.url" v-html="child.title">Mouse over me</a>
-
-							<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-right" viewBox="0 0 20 38"><path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd"></path>
-							</svg>
-
-							</div>
-
-							<ul  class="dropdown-content">
+					<div v-for="child in wp.menus" :key="child.ID" >
 
 
-								<li class="sousmenus childli dropdown__title li-espace-between">
+						<li v-if="child.ID > -1"   class="dropdown grandparent"  >
 
-									<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-left close-simple" viewBox="0 0 20 38"><path d="M4.068 18.649l15.466 16.105c.31.283.466.629.466 1.039 0 .41-.155.77-.466 1.08a1.412 1.412 0 0 1-1.038.424c-.41 0-.756-.141-1.038-.424L.466 19.708A1.373 1.373 0 0 1 0 18.648c0-.423.155-.776.466-1.059L17.458.424A1.412 1.412 0 0 1 18.496 0c.41 0 .755.141 1.038.424.31.282.466.636.466 1.06 0 .423-.155.776-.466 1.059L4.068 18.649z" fill="#726D75" fill-rule="evenodd"></path></svg>
+							<div v-if="child.child">
 
-									<a class="sousmenus" :href="child.url" v-html="child.title">Hello World!</a>
+								<div class="li-espace-between">
 
-								</li>
+								<a class="ligne-animation" :href="child.url" v-html="child.title">Mouse over me</a>
 
-								<div class="li-sousmenu" v-for="child2 in child.child" :key="child2.ID">
-		
-									<li class="sousmenus childli"> <a :href="child2.url" class="sousmenus" v-html="child2.title" >Hello World!</a></li>
+								<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-right" viewBox="0 0 20 38"><path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd"></path>
+								</svg>
 
 								</div>
+
+								<ul  class="dropdown-content">
+
+
+									<li class="sousmenus childli dropdown__title li-espace-between">
+
+										<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-left close-simple" viewBox="0 0 20 38"><path d="M4.068 18.649l15.466 16.105c.31.283.466.629.466 1.039 0 .41-.155.77-.466 1.08a1.412 1.412 0 0 1-1.038.424c-.41 0-.756-.141-1.038-.424L.466 19.708A1.373 1.373 0 0 1 0 18.648c0-.423.155-.776.466-1.059L17.458.424A1.412 1.412 0 0 1 18.496 0c.41 0 .755.141 1.038.424.31.282.466.636.466 1.06 0 .423-.155.776-.466 1.059L4.068 18.649z" fill="#726D75" fill-rule="evenodd"></path></svg>
+
+										<a class="sousmenus" :href="child.url" v-html="child.title">Hello World!</a>
+
+									</li>
+
+									<div class="li-sousmenu" v-for="child2 in child.child" :key="child2.ID">
 						
-							</ul>	
-						</div>
+										<li class="sousmenus childli"> <a :href="child2.url" class="sousmenus" v-html="child2.title" >Hello World!</a></li>
 
-						<div v-else>
-							<a class="ligne-animation" :href="child.url" v-html="child.title" >Mouse over me</a>
-						</div>
+									</div>
+							
+								</ul>	
+							</div>
 
-					</li>
+
+
+							<div v-else>
+								<a class="ligne-animation" :href="child.url" v-html="child.title" >Mouse over me</a>
+							</div>
+
+						</li>
+
+
+						<div  v-else >
+						</div>
+						
+
+					</div>
+
 
 					<div class="ligne-mobile">
 
@@ -85,12 +98,33 @@
 
 				<div class="icons-santos-palace">
 
-					<div class="lang">
+					<div class="lang" >
 						
-						<div class="fr">FR</div>
-						<div class="nl">NL</div>
+						<div  v-for="child3 in wp.menus" :key="child3.ID" >
+
+	 						<div v-if="child3.ID > -1" >
+	 					
+	 						</div>
+	 						<div v-else>
+
+							<a :class="child3.classes" :href="child3.url">
+
+								<p v-html="child3.title" ></p>
+
+							</a>
+
+ 						</div>
+
+						</div>
 
 					</div>
+					
+
+				
+
+				
+
+				<!-- </div> -->
 
 					<div class="div-image-compte" >
 
@@ -142,6 +176,19 @@ export default {
 		var $ = this.$
 
 		this.$emit('template_mounted', this)
+
+		// console.log(this.wp.menus);
+
+
+ // moins de 2 characters langages
+
+		var characters
+		$(".lang").find('span').each(function(index, el) {
+			characters = $(this)
+			characters.text(characters.text().substr(0,2))           
+		});;
+
+ // end moins de 2 characters langages
 
 		$('.menu-item').click(function() {
 
@@ -364,6 +411,15 @@ export default {
 /*styleglobal*/
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+
+	.current-lang span{
+
+		color: #888320;
+		font-weight: bold;
+	}
+
+
 	.santos-navbar *{
 
 		font-family: 'Open Sans', sans-serif;

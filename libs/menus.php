@@ -36,6 +36,14 @@ function get_menus()
 	$res  = array();
 	// $array = $menus_array['header-menu'];
 	$array = json_decode(json_encode($menus_array['header-menu']), true);
+// 
+	// echo "string";
+
+	// echo '<pre>';
+	// print_r($array);
+	// echo '</pre>';
+	
+	// exit();	
 
 	foreach($array as $val){
 
@@ -52,5 +60,3 @@ function get_menus()
 }
 
 add_action( 'vue_vars', 'get_menus' );
-
-

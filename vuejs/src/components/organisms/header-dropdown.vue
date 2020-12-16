@@ -99,32 +99,9 @@
 				<div class="icons-santos-palace">
 
 					<div class="lang" >
-						
-						<div  v-for="child3 in wp.menus" :key="child3.ID" >
-
-	 						<div v-if="child3.ID > -1" >
-	 					
-	 						</div>
-	 						<div v-else>
-
-							<a :class="child3.classes" :href="child3.url">
-
-								<p v-html="child3.title" ></p>
-
-							</a>
-
- 						</div>
-
-						</div>
-
+						<div v-html='wp.pll'></div>
 					</div>
-					
 
-				
-
-				
-
-				<!-- </div> -->
 
 					<div class="div-image-compte" >
 
@@ -175,18 +152,40 @@ export default {
 	mounted(){
 		var $ = this.$
 
+	
+
+
 		this.$emit('template_mounted', this)
 
-		// console.log(this.wp.menus);
+		console.log(this.wp.pll);
+
+// click reload langages
+
+	$('.lang-item').click(function() {
+		/* Act on the event */
+		if ( $(this).hasClass('current-lang') ){
+
+			console.log('current');
+		}
+		else{
+
+			setTimeout(function() {
+
+					location.reload(true);
+
+			}, 1000);
+		}
+
+	});
 
 
  // moins de 2 characters langages
 
 		var characters
-		$(".lang").find('span').each(function(index, el) {
+		$(".lang").find('span').each(function() {
 			characters = $(this)
 			characters.text(characters.text().substr(0,2))           
-		});;
+		});
 
  // end moins de 2 characters langages
 
@@ -413,7 +412,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 
-	.current-lang span{
+	.current-lang a{
 
 		color: #888320;
 		font-weight: bold;

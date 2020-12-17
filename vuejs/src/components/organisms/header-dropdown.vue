@@ -152,14 +152,17 @@ export default {
 	mounted(){
 		var $ = this.$
 
+		this.$emit('template_mounted', this)
+
+		// console.log(this.wp.pll);
+
+		// click header action variable change product in padding
+
 	
 
 
-		this.$emit('template_mounted', this)
-
-		console.log(this.wp.pll);
-
-// click reload langages
+		// Prevents default submission of the form after clicking on the submit button. 
+		// return false;   
 
 	$('.lang-item').click(function() {
 		/* Act on the event */
@@ -411,7 +414,16 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
+	.lang-item a{
 
+		color: #422112;
+		text-decoration-line: none;
+		
+	}
+	.lang li{
+
+		list-style: none;
+	}
 	.current-lang a{
 
 		color: #888320;
@@ -452,7 +464,7 @@ export default {
 		height: 20px;
 	}
 
-	.lang{
+	.lang div{
 
 		display: flex;
 		flex-direction: row;
@@ -536,14 +548,31 @@ export default {
 		width: 20px;
 	}
 
+
+	.lang li{
+
+		list-style: none;
+		padding-right: 15px;
+		margin-right: 15px;
+		border-right: solid 1px #422112;
+
+	}
+
+	.lang li:last-child {
+
+		list-style: none;
+		padding-right: 0px;
+		margin-right: 0px;
+		border-right: 0px;
+
+	}	
+
 /*styleglobal*/
 
 
 /*animation header pc*/
 
 @media only screen and (min-width: 1100px){
-
-
 
 	.ligne-mobile{
 
@@ -683,7 +712,7 @@ export default {
 	}
 
 	.parent li {
-		padding: 47px 24px;
+		padding: 47px 1vw;
 	}
 
 	.dropdown-content {
@@ -738,6 +767,12 @@ export default {
 
 
 @media only screen and (max-width: 1100px){
+
+	.lang div{
+
+		justify-content: center;
+
+	}
 
 	.div-image-compte-mobile{
 

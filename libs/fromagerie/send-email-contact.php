@@ -3,7 +3,7 @@
 add_action( 'wp_ajax_nopriv_send_contact_mail', 'send_contact_mail');
 add_action( 'wp_ajax_send_contact_mail', 'send_contact_mail' );
 
-function send_contact_mail( ) {
+function send_contact_mail() {
 
    //if (isset($_POST['submit'])) {
   $strings = array(

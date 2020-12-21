@@ -507,7 +507,7 @@ export default {
     text-align: left;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    font-weight: lighter;
+    font-weight: normal;
     
 }
 
@@ -528,7 +528,7 @@ font-weight: lighter;
   font-weight: 200;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
-  font-weight: lighter;
+  font-weight: normal;
 }
 
 .topBody{

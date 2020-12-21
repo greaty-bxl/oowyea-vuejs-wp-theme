@@ -522,11 +522,11 @@
 .text-contact a{
 font-family: 'Montserrat', sans-serif !important;
 color: #e1e1e1;
-font-weight: lighter;}
+font-weight: normal;}
 .text-contact {
 	font-family: 'Montserrat', sans-serif !important;
 color: #e1e1e1;
-font-weight: lighter;
+font-weight: normal;
 /*font-size: 0.6em !important;*/
 }
 

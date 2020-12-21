@@ -60,7 +60,6 @@ mounted(){
 				action: 'send_assortiment_mail',
 				form: form.serializeArray()
 			},
- 
 			success: function(result){
 
 				console.log(result);

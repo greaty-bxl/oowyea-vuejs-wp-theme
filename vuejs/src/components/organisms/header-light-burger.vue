@@ -13,7 +13,7 @@
 					<ul class="bottomBody">
 						<li>ENTRER EN CONTACT</li><br>
 						<li><a href="tel:+32 (0) 471 72 18 08">+32 (0) 471 72 18 08</a></li>
-						<li><a href="mailto:i[at]greaty.be">i[at]greaty.be</a></li><br>
+						<li><a class="email" href="mailto:i[at]greaty.be">i[at]greaty.be</a></li><br>
 						<li><a href="https://www.instagram.com/greaty_studio/" target="_blank">Instagram</a></li>
 						<li><a href="https://www.facebook.com/greaty.be" target="_blank">Facebook</a></li>
 						<li><a href="https://www.linkedin.com/company/9386991/admin/" target="_blank">LinkedIn</a></li>
@@ -70,7 +70,6 @@ export default {
 		// $('.headerButton').css('backdrop-filter', 'blur(20px)');
 		// backdrop-filter: blur(20px);
 
-
 		// height_total = $(this).height()
 
 
@@ -78,7 +77,7 @@ export default {
 			function open(){
 
 
-				console.log('464484');
+				
 
 				$('.headerBody').find('a').css('color', color);
 
@@ -129,12 +128,22 @@ export default {
 			}
 
 
-		$(document).on('click', function() {
+		$(document).on('click', function(event) {
 
+		
+		if( $(event.target).hasClass('email') )
+		{
+			console.log('email', event.target)
+
+			let new_href = $(event.target).attr('href').replace('[at]', '@')
+			$(event.target).attr('href', new_href)
+			
+		}
 
 		if($(event.target).parents('.headerButton').length != 0) {
 
-			console.log(event.target)
+
+			//console.log('top', event.target)
 
 			if ($(event.target).is('.headerMore')) {
 
@@ -145,7 +154,7 @@ export default {
 				}
 				else{
 
-
+					console.log( "open 1" );
 					open()
 				}
 
@@ -160,8 +169,9 @@ export default {
 					if ( $(event.target).parents('.bottomBody').length != 0 ) {
 
 						var href = $(event.target).attr("href");
-
-						window.open(href);
+						
+						console.log( "open", href );
+						if( href ) window.open(href);
 
 						// window.location = href;
 					}
@@ -183,7 +193,7 @@ export default {
 
 							open()
 
-							console.log('link');
+							
 
 						}
 
@@ -214,6 +224,8 @@ export default {
 			if ($(event.target).attr('target')) {
 
 				var href1 = $(event.target).attr("href");
+
+				
 
 				window.open(href1);
 			}
@@ -289,6 +301,7 @@ export default {
 				});
 			});	
 		}*/
+		
 		
 	}
 }

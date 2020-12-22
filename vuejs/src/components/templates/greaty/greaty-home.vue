@@ -18,7 +18,7 @@
 // import Anime3d from 'Molecules/animation-3d';
 // import textcotact from './components/text-contact';
 import smart_fonts from 'Libs/smart-fonts.js';
-import lottie from "Molecules/Lottie";
+import lottie from "Molecules/Lottie-greaty-home.vue";
 
 
 

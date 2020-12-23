@@ -225,7 +225,6 @@ p{
 		font-size: 3.3em;
 		color: #e1e1e1;
 		font-family: 'Montserrat', sans-serif !important;
-		font-weight: lighter;
 		text-align: left;
 
 		}
@@ -249,7 +248,6 @@ p{
 		.text-homepage{
 
 			font-family: 'Montserrat', sans-serif !important;
-			font-weight: lighter;
 			color: #e1e1e1;
 			/*padding-left: 5%;*/
 			height: auto;
@@ -432,7 +430,6 @@ p{
 			font-size: 3.1em;
 			color: #e1e1e1;
 			font-family: 'Montserrat', sans-serif !important;
-			font-weight: lighter;
 			text-align: left;
 
 		}

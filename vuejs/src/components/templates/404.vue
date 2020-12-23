@@ -44,4 +44,8 @@
 		color: #fff;
 	}
 
+	.section-404 video{
+		max-width: 90%;
+	}
+
 </style>

@@ -354,7 +354,7 @@ strong {
 							/*font-size: 3.3em;*/
 							color: #e1e1e1;
 							font-family: 'Montserrat', sans-serif !important;
-							font-weight: lighter;
+							
 							text-align: left;
 
 						}
@@ -435,7 +435,7 @@ strong {
 						.text-homepage{
 
 							font-family: 'Montserrat', sans-serif !important;
-							font-weight: lighter;
+							
 							color: white;
 							/*padding-left: 5%;*/
 							height: auto;
@@ -633,7 +633,7 @@ strong {
 							font-size: 3.1em;
 							color: #e1e1e1;
 							font-family: 'Montserrat', sans-serif !important;
-							font-weight: lighter;
+							
 							text-align: left;
 							width: calc(100% - 60px);
 
@@ -666,7 +666,7 @@ strong {
 							font-size: 3.3em;
 							color: #e1e1e1;
 							font-family: 'Montserrat', sans-serif !important;
-							font-weight: lighter;
+							
 							text-align: left;
 
 						}

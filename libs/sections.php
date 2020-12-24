@@ -119,7 +119,10 @@ function get_sections()
 		$wp_query->queried_object->post_content = apply_filters( 'the_content', $wp_query->queried_object->post_content );
 	}
 
-
+	// echo "<pre>";
+	// print_r( $sections );
+	// exit();
+	
 	wp_vue_add_var('sections', $sections);
 }
 

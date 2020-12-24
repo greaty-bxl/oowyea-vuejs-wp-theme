@@ -3,12 +3,7 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-			<h1>holla Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </h1>
+			<h1>holla</h1>
 
 		<div class="clear"></div>
     </div>
@@ -28,8 +23,6 @@ export default {
 		'post' : Object
 	},
 
-
-
 	mounted(){
 
 
@@ -39,35 +32,35 @@ export default {
 
 		this.$emit('template_mounted', this);
 
-		// var $ = this.$
+		var $ = this.$
 
 
 			// event.preventDefault()
 
 
-			// var form1 =  'cafes';
+			var form1 =  'cafses';
 
-			// console.log(form1 , 'cafesss');
+			// // console.log(form1 , 'cafesss');
 
-			// $.ajax({
-			// 	type: 'post',
-			// 	url: window.ajaxurl,
-			// 	data:{
-			// 		action: 'global_funtion_filter',
-			// 		'form12': form1
-			// 	},
+			$.ajax({
+				type: 'post',
+				url: window.ajaxurl,
+				data:{
+					action: 'gtr_get_les_cafes',
+					'form12': form1
+				},
 
 
-			// 	success: function(result){
-			// 		console.log(result);
-			// }
-			// });
+				success: function(result){
+					console.log(result);
+			}
+			});
 
-			// return false;
+			// // return false;
 
-			var url = window.location.search
+			// var url = window.location.search
 
-			console.log(url);
+			// console.log(url);
 
 
 

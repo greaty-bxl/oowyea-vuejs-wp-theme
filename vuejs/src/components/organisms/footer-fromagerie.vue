@@ -4,7 +4,9 @@
 
 
 			<div class="contener-header">
-				<div>
+
+				<div v-html="this.wp.sidebars.footer_generale" ></div>
+				<!-- <div>
 					<p>Fromagerie Westland <br> Bd. Sylvain Dupuis 373<br> 1070 Bruxelles</p> 
 				</div>
 				<div> 
@@ -20,8 +22,27 @@
 					<a target="_blank" href="http://dev.fromagerie.brussels/conditions-generales-de-vente/">Conditions générales de vente</a>
 					<p>Fromagerie Westland © 2020</p>
 
-				</div>
+				</div> -->
 			</div>
+
+<!-- <div>
+<h2>MAGASIN SANTOS PALACE BRUXELLES</h2>
+<br> Rue du Marché aux Poulets 3
+<br> 1000 – Bruxelles
+<br><a href="+32 2 512 39 53"> Tel.: +32 2 512 39 53</a><br><a href="mailto: info@santospalace.be">e-mail : info[at]santospalace.be</a> 
+</div>
+
+
+
+<div>
+<h2>SANTOS PALACE – SIÈGE BRUXELLES</h2>
+<br>Rue de Manchester 32-34
+<br>1080 – Bruxelles
+<br><a href="+32 2 410 44 75"> Tel.: +32 2 410 44 75</a><br><a href="+32 2 410 01 38"> Tel.: +32 2 410 01 38</a><br><a href="mailto: info@santospalace.be">e-mail : info[at]santospalace.be</a> 
+</div>
+
+
+ -->
 
 	
 		<div class="clear"></div>
@@ -42,7 +63,7 @@
 
 		mounted(){
 
-
+			console.log(this.$store.state.wp.sidebars.footer_generale);
 
 			this.$emit('template_mounted', this);
 

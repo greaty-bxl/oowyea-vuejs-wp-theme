@@ -185,7 +185,7 @@ export default {
  // moins de 2 characters langages
 
 		var characters
-		$(".lang").find('span').each(function() {
+		$(".lang").find('a').each(function() {
 			characters = $(this)
 			characters.text(characters.text().substr(0,2))           
 		});
@@ -620,7 +620,7 @@ export default {
 		flex-direction: row;
 		align-items: center;
 		height: 100%;
-		margin-right: 10px;
+		margin-right: 30px;
 		font-size: 15px;
 
 	}

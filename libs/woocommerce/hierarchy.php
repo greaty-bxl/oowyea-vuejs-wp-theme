@@ -22,8 +22,15 @@ function init_woo_hierarchy()
 			$wp_query->is_shop = true;
 
 			$wp_query->queried_object = $queried_object;
+
+			$wp_query->post = $queried_object;
+			/*echo "<pre>";
+			print_r( $wp_query->queried_object );
+			exit();*/
 		}
 	}
+
+
 }
 
 add_action( 'before_sections', 'init_woo_hierarchy' );

@@ -253,6 +253,7 @@ export default {
 @import '~Styles/wp-content.css';
 @import '~Styles/noty.css';
 @import '~Styles/woocommerce.css';
+@import '~Styles/santospalace.css';
 
 
 

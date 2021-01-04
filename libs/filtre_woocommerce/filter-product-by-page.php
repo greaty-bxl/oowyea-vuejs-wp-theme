@@ -1,18 +1,14 @@
 <?php
 
-// add_action( 'wp_ajax_nopriv_global_funtion_filter', 'global_funtion_filter');
-// add_action( 'wp_ajax_global_funtion_filter', 'global_funtion_filter' );
-
-
 	function global_funtion_filter( $query ) {
 
-		if ( $query->query['post_type'] == 'product' && !is_admin()  && !$query->is_single  )
+	
+		if ( $query->query['post_type'] == 'product' && !is_admin()  && !$query->is_single  && is_page('boutique')  )
 		{	
 
-			$taxonomies = array();
-
 			if ( $_GET['filter-taxonomy'] ) 
-			{
+			{	
+		
 				$taxonomies = $_GET;
 
 				$category = $_GET['product_cat'];
@@ -27,25 +23,60 @@
 			}
 
 			unset($taxonomies['filter-taxonomy']);
+			unset($taxonomies['product_cat']);
+
 		
-			$query->set( 'posts_per_page', -1);
-			$query->set( 'tax_query', array(
-				'relation' => 'AND',
-			           array(
-			               'taxonomy'     => 'product_cat',
-			               'field' => 'slug',
-			               'terms' =>  array('cafes'),
-			               'include_children' => true, 
-			               'operator' => 'IN' 
-			               ),
-			           array(
-			               'taxonomy'     => 'intensite',
-			               'field' => 'slug',
-			               'terms' =>   'moyen',
-			               'include_children' => true, 
-			               'operator' => 'IN' 
-			               )
-			            ) );
+			$arrayjquery = array();
+
+		
+
+			// $query->set( 'tax_query', array(
+
+			// 	'relation' => 'AND',
+
+			//            array(
+			//                'taxonomy'     => 'product_cat',
+			//                'field' => 'slug',
+			//                'terms' =>  $category,
+			//                'include_children' => true, 
+			//                'operator' => 'IN' 
+			//                ),
+
+			//             ) );
+
+			// foreach ($taxonomies as $key => $value) {
+
+			// 	    $query->set( 'tax_query', array(
+
+				    
+   //  					'relation' => 'AND',
+
+   //  			           array(
+
+   //  			               'taxonomy'     => 'product_cat',
+   //  			               'field' => 'slug',
+   //  			               'terms' =>  $category,
+   //  			               'include_children' => true, 
+   //  			               'operator' => 'IN' 
+
+   //  			               ),
+
+			//                array(
+
+			//                    'taxonomy'  => $key,
+			//                    'field' => 'slug',
+			//                    'terms' =>   $value,
+			//                    'include_children' => true, 
+			//                    'operator' => 'IN' 	
+
+			//                    )
+
+			// 	     ) 
+			// 	);
+
+
+			// 	};
+
 		}
 				
 	};
@@ -58,20 +89,21 @@
 
 		if ( is_page('boutique')) {
 
-			$posts_1 = get_posts( array('post_type' => 'product'));
+				$posts_1 = get_posts( array('post_type' => 'product'));
 
-			$args = array();
-													
-			$products = wc_get_products( $args );
+				$args = array();
+														
+				$products = wc_get_products( $args );
 
-			echo "<pre>";
-			print_r($posts_1);
-			echo "</pre>";
-			exit();
+				$generale = apply_filters( 'posts_results', $posts_1 ) ;
+
+				wp_vue_add_var('generale', $generale);
 
 			}
 
 	};
 	add_action( 'wp', 'gtr_get_les_cafes' );
+	
+	add_action( 'vue_vars', 'gtr_get_les_cafes' ); 
 
 	?>

@@ -11,7 +11,9 @@
 				</div>
 
 				<div class="logo-santos">
-					<a :href="this.wp.options.siteurl"><Acf field="logo"/></a>
+					<a :href="this.wp.options.siteurl"><Acf field="logo"/>
+						<img src="http://santospalace.test/wp-content/uploads/2020/12/santos_palace_logo-01-1.svg">
+					</a>
 				</div>
 
 				<ul class="parent">

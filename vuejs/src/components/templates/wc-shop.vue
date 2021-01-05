@@ -13,12 +13,47 @@
 				<div class="child-container">
 					
 					<div class="filtre-parent-div">
-						<div> <p>Cafes</p>  </div>
-						<div><button>FILTRER PAR</button></div>
+						<div> <p class="title-page-boutique">Cafes</p>  </div>
+						<div><button class="button-santos-vert">FILTRER PAR</button></div>
 						<p class="mobile-filtre">FILTRE</p>
 					</div>
 
 					<div class="parent-product">
+
+						<div class="product-santos">
+							<div class="div-grey">
+								<img class="image-product" src="http://santospalace.test/wp-content/uploads/2021/01/paquet-de-cafe-01.png">
+								<p class="title-product">LOREM IPSUM</p>
+								<div>
+									
+									<div class="parent-taxonomie-info">
+										<p class="titre-taxonomie">Intensité</p>
+
+										<div class="valeur-taxonomie" >
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+									</div>
+
+									<div class="parent-taxonomie-info">
+										<p class="titre-taxonomie">Intensité</p>
+
+										<div class="valeur-taxonomie" >
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="price" ></div>
+						</div>
 
 						<div class="product-santos">
 							<div class="div-grey"></div>
@@ -27,6 +62,13 @@
 
 						<div class="product-santos">
 							<div class="div-grey"></div>
+							<div class="price"></div>
+						</div>
+
+						<div class="product-santos">
+							<div class="div-grey">
+								
+							</div>
 							<div class="price" ></div>
 						</div>
 					</div>
@@ -78,10 +120,26 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
+	h1 h2 h3 h4 h5 {
+
+		font-family: open sans;
+	}
+
+	p{
+
+		font-family: open sans;
+	}
+
+	span{
+
+		font-family: open sans;
+	}
+
+
 	.image-shop{
 
 		margin-top: 114px;
-		background-color: grey;
+		background-color: #FAFAFA;
 		padding-bottom: 50px;
 		display: flex;
 		justify-content: center;
@@ -95,22 +153,79 @@ export default {
 
 	.filtre-parent-div{
 
-
 		border-bottom: 1px solid #dddddd;
 
 	}
 
+	.title-page-boutique{
+
+		color: #422112;
+		font-weight: 700;
+	}
+
+	.title-product{
+
+		color: #422112;
+		font-weight: 700;
+		
+	}
+
+
+	.parent-taxonomie-info{
+
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+
+	}
+
+	.titre-taxonomie{
+
+		color: #666666;
+		font-size: 14px;
+		line-height: 14px
+	}
+
+	.valeur-taxonomie{
+
+		display: flex;
+		flex-direction: row;
+
+	}
+	
+	.valeur-taxonomie div{
+
+		border: 1px solid #888320;
+		border-radius: 100%;
+		height: 10px;
+		width: 10px;
+		margin-left: 11px; 
+
+	}
 
 
 /*	.product-santos{
 
 
 	}*/
-/*	.div-grey
+/*	.div-#FAFAFA
 	.price
 */
 	@media screen and (min-width: 1100px){
 
+		.title-product{
+
+			font-size: 15px;
+			margin-bottom: 25px;
+		}
+
+		.image-product{
+
+			margin-bottom: 25px;
+		}
 
 		.image-shop h1 {
 
@@ -122,7 +237,7 @@ export default {
 
 			font-size: 2vw !important ;
 			margin: 0px !important;
-			padding-bottom: 30px;
+			padding-bottom: 25px;
 		}
 
 
@@ -131,7 +246,6 @@ export default {
 			display: flex;
 			justify-content: center;
 			align-content: center;
-			margin-top: 50px;
 		}
 						
 		.child-container{
@@ -155,11 +269,38 @@ export default {
 		}
 
 		.product-santos{
-			
-			height: 40vh;
-			width: 25%;
-			background-color: grey;
+
+			width: 24%;
+			margin-top: 45px;
+			background-color: #FAFAFA;
+			padding-top: 35px;
+			padding-bottom: 35px;
 		}
+
+		.parent-product{
+
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+
+		}
+
+		.filtre-parent-div{
+			padding-top: 45px;
+			padding-bottom: 45px;
+		}
+
+		.title-page-boutique{
+
+			font-size: 3vw;
+
+		}
+
+		.parent-taxonomie-info{
+
+			margin-bottom: 20px;
+		}
+
 
 
 	}
@@ -189,13 +330,7 @@ export default {
 			flex-direction: column;
 		}
 
-
-	
-
 	}
-
-
-	
 
 	@media only screen and (min-width: 600px){
 
@@ -204,28 +339,32 @@ export default {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
-			/*border-bottom: 1px solid #dddddd;*/
 
 		}
 
-		.filtre-parent-div{
-
-			padding-bottom: 30px;
-		}
-
-		.parent-product{
-
-			display: flex;
-			justify-content: center;
-			width: 100%;
-
-		}
 
 
 	}
 
 	@media only screen and (max-width: 1100px) and (min-width: 600px){
 
+
+		.title-product{
+
+			font-size: 16px;
+			margin-bottom: 25px;
+		}
+		
+		.image-product{
+
+			margin-bottom: 25px;
+		}
+
+		.filtre-parent-div{
+			padding-top: 40px;
+			padding-bottom: 40px;
+			
+		}
 
 		.image-shop h1 {
 
@@ -259,9 +398,26 @@ export default {
 
 		.product-santos{
 
-			width: 30% ;
-			background-color: grey;
-			height: 40vh;
+			width: 40% ;
+			background-color: #FAFAFA;
+/*			height: 40vh;*/
+			margin-top: 40px;
+			padding-top: 35px;
+			padding-bottom: 35px;
+		}
+
+		.parent-product{
+
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+			width: 100%;
+
+		}
+
+		.parent-taxonomie-info{
+
+			margin-bottom: 20px;
 		}
 
 
@@ -273,7 +429,13 @@ export default {
 		.filtre-parent-div div{
 
 			display: none;
-		}	
+		}
+
+
+		.filtre-parent-div{
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
 
 		.image-shop h1 {
 
@@ -288,10 +450,15 @@ export default {
 			padding-bottom: 20px;
 		}
 
-		.mobile-filtre{
+		.title-product{
 
-			padding-top: 20px;
-			padding-bottom: 20px;
+			font-size: 14px;
+			margin-bottom: 25px;
+		}
+		
+		.image-product{
+
+			margin-bottom: 20px;
 		}
 
 		.global-container{
@@ -303,10 +470,30 @@ export default {
 		.product-santos{
 
 			width: calc( 100% - 56px);
-			background-color: grey;
-			height: 40vh;
+			padding-top: 30px;	
+			padding-bottom: 30px;
+			background-color: #FAFAFA;
 			margin: 30px auto;
 		
+		}
+
+		.parent-product{
+
+			padding-top: 20px;	
+			padding-bottom: 20px;
+
+		}
+
+		.mobile-filtre{
+
+			color: #422112;
+			font-size: 15px;
+			font-weight: 700; 
+		}
+
+		.parent-taxonomie-info{
+
+			margin-bottom: 15px;
 		}
 
 	}
@@ -316,14 +503,6 @@ export default {
 <style scoped >
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 	
-
-/*h1 {
-font-size: 250px;
-margin: .67em 0;
-}*/
-
-
-
 </style>
 
 

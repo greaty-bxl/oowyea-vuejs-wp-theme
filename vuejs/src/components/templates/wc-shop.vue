@@ -28,7 +28,6 @@
 									
 									<div class="parent-taxonomie-info">
 										<p class="titre-taxonomie">Intensité</p>
-
 										<div class="valeur-taxonomie" >
 											<div></div>
 											<div></div>
@@ -40,7 +39,6 @@
 
 									<div class="parent-taxonomie-info">
 										<p class="titre-taxonomie">Intensité</p>
-
 										<div class="valeur-taxonomie" >
 											<div></div>
 											<div></div>
@@ -49,28 +47,15 @@
 											<div></div>
 										</div>
 									</div>
+									<p class="flavour" >Notes : Floral et Epices</p>
+
 
 								</div>
 							</div>
 							<div class="price" ></div>
 						</div>
 
-						<div class="product-santos">
-							<div class="div-grey"></div>
-							<div class="price" ></div>
-						</div>
-
-						<div class="product-santos">
-							<div class="div-grey"></div>
-							<div class="price"></div>
-						</div>
-
-						<div class="product-santos">
-							<div class="div-grey">
-								
-							</div>
-							<div class="price" ></div>
-						</div>
+						
 					</div>
 
 				</div>
@@ -92,12 +77,13 @@ export default {
 
 	},
 	props: {
-		'post' : Object
+		'post' : Object,
+		'posts' : Array
 	},
 
 	mounted(){
 
-
+		console.log( 'wc-shop', this.post, this.posts);
 		smart_fonts({
 			'.titre-home' : 85 ,
 		})
@@ -183,7 +169,7 @@ export default {
 	}
 
 	.titre-taxonomie{
-
+		font-weight: 700;
 		color: #666666;
 		font-size: 14px;
 		line-height: 14px
@@ -204,6 +190,11 @@ export default {
 		width: 10px;
 		margin-left: 11px; 
 
+	}
+
+	.flavour{
+
+		color: #666666;
 	}
 
 
@@ -240,7 +231,6 @@ export default {
 			padding-bottom: 25px;
 		}
 
-
 		.global-container{
 
 			display: flex;
@@ -251,7 +241,6 @@ export default {
 		.child-container{
 
 			width: 75%;
-			height: 50vh;
 			display: flex;
 			flex-direction: column;
 		}
@@ -301,8 +290,6 @@ export default {
 			margin-bottom: 20px;
 		}
 
-
-
 	}
 
 	@media screen and (max-width: 1100px){
@@ -312,7 +299,6 @@ export default {
 			font-size: 7vw !important ;
 			margin: 0px !important;
 		}
-
 
 		.global-container{
 
@@ -341,8 +327,6 @@ export default {
 			justify-content: space-between;
 
 		}
-
-
 
 	}
 

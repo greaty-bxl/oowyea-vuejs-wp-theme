@@ -119,6 +119,7 @@ function get_sections()
 		$wp_query->queried_object->post_content = apply_filters( 'the_content', $wp_query->queried_object->post_content );
 	}
 
+	$sections = apply_filters( 'sections_loaded', $sections );
 	// echo "<pre>";
 	// print_r( $sections );
 	// exit();

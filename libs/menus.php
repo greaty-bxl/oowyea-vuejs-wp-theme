@@ -34,29 +34,29 @@ function get_menus()
 	}
 	
 	$res  = array();
-	// $array = $menus_array['header-menu'];
-	$array = json_decode(json_encode($menus_array['header-menu']), true);
-// 
-	// echo "string";
-
-	// echo '<pre>';
-	// print_r($array);
-	// echo '</pre>';
 	
-	// exit();	
+	$array = json_decode(json_encode($menus_array['header-menu']), true);
 
-	foreach($array as $val){
+	if( is_array( $array ) )
+	{
 
-	   if($val['menu_item_parent'] != 0){
+		foreach($array as $val){
 
-	       $res[$val['menu_item_parent']]['child'][] = $val;
-	   }
-	   else{
-	       $res[$val['ID']] = $val;
-	   }
+		   if($val['menu_item_parent'] != 0){
+
+		       $res[$val['menu_item_parent']]['child'][] = $val;
+		   }
+		   else{
+		       $res[$val['ID']] = $val;
+		   }
+		}
+
+		wp_vue_add_var('menus', $res);
 	}
-
-	wp_vue_add_var('menus', $res);
+	else
+	{
+		wp_vue_add_var('menus', array());
+	}
 }
 
 add_action( 'vue_vars', 'get_menus' );

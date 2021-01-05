@@ -28,7 +28,6 @@
 									
 									<div class="parent-taxonomie-info">
 										<p class="titre-taxonomie">Intensité</p>
-
 										<div class="valeur-taxonomie" >
 											<div></div>
 											<div></div>
@@ -40,7 +39,6 @@
 
 									<div class="parent-taxonomie-info">
 										<p class="titre-taxonomie">Intensité</p>
-
 										<div class="valeur-taxonomie" >
 											<div></div>
 											<div></div>
@@ -49,11 +47,14 @@
 											<div></div>
 										</div>
 									</div>
+									<p class="flavour" >Notes : Floral et Epices</p>
+
 
 								</div>
 							</div>
-							<div class="price" ></div>
+							<div class="price">22 $</div>
 						</div>
+					
 
 						<div class="product-santos">
 							<div class="div-grey"></div>
@@ -139,7 +140,6 @@ export default {
 	.image-shop{
 
 		margin-top: 114px;
-		background-color: #FAFAFA;
 		padding-bottom: 50px;
 		display: flex;
 		justify-content: center;
@@ -183,7 +183,7 @@ export default {
 	}
 
 	.titre-taxonomie{
-
+		font-weight: 700;
 		color: #666666;
 		font-size: 14px;
 		line-height: 14px
@@ -204,6 +204,29 @@ export default {
 		width: 10px;
 		margin-left: 11px; 
 
+	}
+
+	.flavour{
+
+		color: #666666;
+		font-size: 14px;
+		margin-top: 30px;
+
+	}
+
+	.div-grey{
+
+		background-color: #FAFAFA;
+	}
+
+
+
+	.price {
+	    text-align: left;
+	    margin-top: 20px;
+	    color: #422112;
+	    font-weight: 700;
+	    font-family: open sans;
 	}
 
 
@@ -240,7 +263,6 @@ export default {
 			padding-bottom: 25px;
 		}
 
-
 		.global-container{
 
 			display: flex;
@@ -251,7 +273,6 @@ export default {
 		.child-container{
 
 			width: 75%;
-			height: 50vh;
 			display: flex;
 			flex-direction: column;
 		}
@@ -272,9 +293,6 @@ export default {
 
 			width: 24%;
 			margin-top: 45px;
-			background-color: #FAFAFA;
-			padding-top: 35px;
-			padding-bottom: 35px;
 		}
 
 		.parent-product{
@@ -301,7 +319,11 @@ export default {
 			margin-bottom: 20px;
 		}
 
+		.div-grey{
 
+			padding-top: 35px;
+			padding-bottom: 35px;
+		}
 
 	}
 
@@ -312,7 +334,6 @@ export default {
 			font-size: 7vw !important ;
 			margin: 0px !important;
 		}
-
 
 		.global-container{
 
@@ -341,8 +362,6 @@ export default {
 			justify-content: space-between;
 
 		}
-
-
 
 	}
 
@@ -399,12 +418,16 @@ export default {
 		.product-santos{
 
 			width: 40% ;
-			background-color: #FAFAFA;
-/*			height: 40vh;*/
 			margin-top: 40px;
+		}
+
+		.div-grey{
+
 			padding-top: 35px;
 			padding-bottom: 35px;
+
 		}
+
 
 		.parent-product{
 
@@ -470,12 +493,16 @@ export default {
 		.product-santos{
 
 			width: calc( 100% - 56px);
-			padding-top: 30px;	
-			padding-bottom: 30px;
-			background-color: #FAFAFA;
 			margin: 30px auto;
 		
 		}
+
+		.div-grey{
+
+			padding-top: 30px;	
+			padding-bottom: 30px;
+		}
+
 
 		.parent-product{
 

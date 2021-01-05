@@ -84,6 +84,7 @@ export default {
 	mounted(){
 
 		console.log( 'wc-shop', this.post, this.posts);
+		
 		smart_fonts({
 			'.titre-home' : 85 ,
 		})

@@ -3,6 +3,7 @@
 function init_woo_hierarchy()
 {
 	global $wp_query;
+	global $woocommerce;
 
 	if ( class_exists( 'woocommerce' ) ) 
 	{
@@ -24,9 +25,6 @@ function init_woo_hierarchy()
 			$wp_query->queried_object = $queried_object;
 
 			$wp_query->post = $queried_object;
-			/*echo "<pre>";
-			print_r( $wp_query->queried_object );
-			exit();*/
 		}
 	}
 

@@ -29,7 +29,7 @@
 			$arrayjquery = array();
 
 		
-
+			
 			// $query->set( 'tax_query', array(
 
 			// 	'relation' => 'AND',

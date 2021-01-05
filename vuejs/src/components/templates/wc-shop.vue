@@ -3,6 +3,8 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
+			<ProductFilter />
+
 			<div class="image-shop">
 				<h3>Cafés</h3>
 				<h1>Nos Cafés</h1>
@@ -14,7 +16,7 @@
 					
 					<div class="filtre-parent-div">
 						<div> <p class="title-page-boutique">Cafes</p>  </div>
-						<div><button class="button-santos-vert">FILTRER PAR</button></div>
+						<div><button class="button-santos-vert" v-on:click="open_filter">FILTRER PAR</button></div>
 						<p class="mobile-filtre">FILTRE</p>
 					</div>
 
@@ -70,11 +72,11 @@
 <script>
 
 import smart_fonts from 'Libs/smart-fonts.js';
-
+import ProductFilter from 'Organisms/product-filter.vue'
 
 export default {
 	components: {
-
+		ProductFilter
 	},
 	props: {
 		'post' : Object,
@@ -84,7 +86,7 @@ export default {
 	mounted(){
 
 		console.log( 'wc-shop', this.post, this.posts);
-		
+
 		smart_fonts({
 			'.titre-home' : 85 ,
 		})
@@ -95,6 +97,12 @@ export default {
 
 
 
+	},
+
+	methods: {
+		open_filter: function(){
+
+		}
 	}
 
 }

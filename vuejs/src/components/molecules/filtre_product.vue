@@ -1086,11 +1086,6 @@ export default {
 
 	}
 
-	.parent li a{
-
-		max-width: 45%;
-	}
-
 
 }
 

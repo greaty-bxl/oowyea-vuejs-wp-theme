@@ -3,7 +3,7 @@
     <div class="section-wrap">
 		<div class="clear"></div>
 
-			<ProductFilter />
+			<ProductFilter/>
 
 			<div class="image-shop">
 				<h3>Cafés</h3>
@@ -17,7 +17,7 @@
 					<div class="filtre-parent-div">
 						<div> <p class="title-page-boutique">Cafes</p>  </div>
 						<div><button class="button-santos-vert" v-on:click="open_filter">FILTRER PAR</button></div>
-						<p class="mobile-filtre">FILTRE</p>
+						<p class="mobile-filtre" v-on:click="open_filter">FILTRE</p>
 					</div>
 
 					<div class="parent-product">
@@ -95,12 +95,21 @@ export default {
 
 		// var $ = this.$
 
-
-
 	},
 
 	methods: {
+
 		open_filter: function(){
+
+			var $ = this.$
+
+			$('.filtre-container').animate({
+				left: '0',
+				easing: 'easeInOutSine',
+				duration: 200,
+			});
+
+			$('#app').data('scrolling', 'filter')
 
 		}
 	}
@@ -129,7 +138,6 @@ export default {
 
 		font-family: open sans;
 	}
-
 
 	.image-shop{
 

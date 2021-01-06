@@ -617,13 +617,16 @@ function scrollSection(vue){
 			window.current_section = find_current_section().prop('id')	
 		}		
 		//console.log(window.current_section);
-		if( window.current_section )
+		if( window.current_section && window.current_section != 'footer' )
 		{
 			window.current_section_index =  $('#'+window.current_section).index()
 
+			var queryString = window.location.search;
+
 			let permalink = $('#'+window.current_section).data('permalink')
-			vue.pushHistory( permalink )
+			vue.pushHistory( permalink + queryString )
 		}
+
 		vue.$store.commit({
 			type: 'section_change',
 			current_section: vue.$store.state.wp.sections[window.current_section_index],

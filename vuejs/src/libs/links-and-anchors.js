@@ -10,14 +10,7 @@ export default function (vue)
 		if( href )
 		{
 			if( href.search( vue.wp.options.siteurl ) === 0 ) is_same_site = 1
-			/*if( href.search( '_wpnonce' ) >= 0 )
-			{
-				is_same_site = 0
-			}*/
 		}
-
-		console.log('is_same_site', is_same_site, vue.wp.options.siteurl, href)
-
 	
 		if( is_same_site ){
 
@@ -28,10 +21,14 @@ export default function (vue)
 
 			if( $('[data-state="current"]').hasClass('woocommerce-account') && event ) is_section = 0
 
+			var href_search = new URL(href).search;
+			if( window.location.search != href_search )
+			{
+				is_section = false;
+			}
+
 			if( is_section )
 			{
-
-				console.log('is section');
 
 				if( document.location.href == href && push ) return
 

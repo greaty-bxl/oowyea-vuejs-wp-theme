@@ -63,8 +63,6 @@
 
 		mounted(){
 
-			console.log(this.$store.state.wp.sidebars.footer_generale);
-
 			this.$emit('template_mounted', this);
 
 		

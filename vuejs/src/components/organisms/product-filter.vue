@@ -42,7 +42,7 @@
 								<li class="collection-filter__item selected">
 									<!-- <input id="origin__africa" class="collection-filter__checkbox visually-hidden" type="checkbox" value="origin__africa" name="origin"> -->
 
-									<label class="">
+									<label class="hover">
 
 										<span class="label-content">Africa</span>
 
@@ -63,7 +63,7 @@
 								<li class="collection-filter__item selected">
 									<!-- <input id="origin__africa" class="collection-filter__checkbox visually-hidden" type="checkbox" value="origin__africa" name="origin"> -->
 
-									<label for="origin__africa" class="">
+									<label for="origin__africa" class="hover">
 
 										<span class="label-content">Africa</span>
 
@@ -105,10 +105,10 @@
 							</h3>
 							<ul class="collection-filter__list">
 
-								<li class="collection-filter__item selected">
+								<li class="collection-filter__item selected hover">
 									<!-- <input id="origin__africa" class="collection-filter__checkbox visually-hidden" type="checkbox" value="origin__africa" name="origin"> -->
 
-									<label for="origin__africa" class="">
+									<div>
 
 										<span class="label-content">Africa</span>
 
@@ -123,13 +123,13 @@
 
 										</span>
 
-									</label>
+									</div>
 								</li>
 
-								<li class="collection-filter__item selected">
+								<li class="collection-filter__item selected hover">
 									<!-- <input id="origin__africa" class="collection-filter__checkbox visually-hidden" type="checkbox" value="origin__africa" name="origin"> -->
 
-									<label for="origin__africa" class="">
+									<div>
 
 										<span class="label-content">Africa</span>
 
@@ -144,10 +144,11 @@
 
 										</span>
 
-									</label>
+									</div>
 								</li>
 								
 							</ul>
+
 						</div>
 
 					</div>
@@ -220,7 +221,7 @@
 					duration: 200,
 				});
 
-				$('#app').data('scrolling', 'filter')
+				$('#app').data('scrolling', '')
 
 			},
 
@@ -298,6 +299,24 @@
 			transition: all .2s ease-in-out;
 
 		}
+
+		.collection-filter__list-wrapper * {
+
+			font-family: open sans;
+			text-align: left;
+			
+		}
+		.collection-filter__list-wrapper {
+
+			font-family: open sans;
+			width: 195px;
+		}
+
+	/*	.collection-filter__item{
+
+			
+		}*/
+
 	}
 
 
@@ -478,6 +497,13 @@
 
 
 
+	}
+
+
+	.hover:hover span{
+
+		color: #888320;
+		transition: all .2s ease-in-out;
 	}
 
 

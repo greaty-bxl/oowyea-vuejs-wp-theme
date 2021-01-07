@@ -138,6 +138,11 @@ export default {
 		font-family: open sans;
 	}
 
+	.filtre-container{
+
+		left: -100%;
+	}
+
 	.image-shop{
 
 		margin-top: 114px;

@@ -84,11 +84,11 @@ function get_oowyea_home()
 function oowyea_menus()
 {
     add_menu_page( 'oowYea', 'oowYea', 'edit_theme_options', 'oowyea-home', 'get_oowyea_home');
-    //add_submenu_page( 'oowyea-home', 'Vue builder', 'Vue builder', 'edit_theme_options', 'vue-builder', 'get_vuejs_builder' );
+    
 }
 
 
-add_action( 'admin_menu', 'oowyea_menus' );
+add_action( 'admin_menu', 'oowyea_menus', 0 );
 
 /*------------------------------------*\
 	Theme Support
@@ -516,7 +516,7 @@ function greatythemecomments($comment, $args, $depth)
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'greatytheme_header_scripts'); // Add Custom Scripts to wp_head
+add_action('init', 'greatytheme_header_scripts', 0); // Add Custom Scripts to wp_head
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'greatytheme_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu

@@ -19,7 +19,12 @@ function global_funtion_filter( $query ) {
 			return;
 		}
 
-		unset( $taxonomies['filter-taxonomy'] );			
+		unset( $taxonomies['filter-taxonomy'] );
+
+		if( $_GET['add_to_json'] )
+		{
+			unset( $taxonomies['add_to_json'] );	
+		}
 
 		if ( count( $taxonomies ) > 0 ) 
 		{
@@ -86,6 +91,7 @@ function owy_get_product_cat_filters_lists_with_relations() {
 	}
 }
 
-add_action( 'vue_vars', 'owy_get_product_cat_filters_lists_with_relations' )
+add_action( 'vue_vars', 'owy_get_product_cat_filters_lists_with_relations' );
+
 
 ?>

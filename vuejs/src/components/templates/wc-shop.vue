@@ -21,20 +21,18 @@
 
 					<div class="parent-product">
 
-						<div class="product-santos">
+						<div v-for="item in posts" :key="item.ID" class="product-santos">
 							<div class="div-grey">
 								<img class="image-product" src="http://santospalace.test/wp-content/uploads/2021/01/paquet-de-cafe-01.png">
-								<p class="title-product">LOREM IPSUM</p>
-								<div>
+								<p class="title-product" v-html="item.post_title"></p>
+								<div class="cafes" v-if="has_term(item, 'product_cat', 'cafes')">
 									
 									<div class="parent-taxonomie-info">
 										<p class="titre-taxonomie">Intensité</p>
 										<div class="valeur-taxonomie" >
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
+											<div v-for="count_intesity in 5" :key="count_intesity" 
+											v-bind:class="{ filled: isFilled_intesity(item, count_intesity) }">
+											</div>
 										</div>
 									</div>
 
@@ -72,6 +70,7 @@
 
 import smart_fonts from 'Libs/smart-fonts.js';
 import ProductFilter from 'Organisms/product-filter.vue'
+import {has_term} from 'Libs/wp-functions.js'
 
 export default {
 	components: {
@@ -85,6 +84,8 @@ export default {
 	mounted(){
 
 		console.log( 'wc-shop', this.post, this.posts);
+
+		console.log( 'has_term', has_term(this.posts[0], 'product_cat', 'cafes') );
 
 		smart_fonts({
 			'.titre-home' : 85 ,
@@ -110,6 +111,21 @@ export default {
 
 			$('#app').data('scrolling', 'filter')
 
+		},
+
+		has_term,
+
+		isFilled_intesity: function(post, count){
+
+			if( post.terms.intensity )
+			{
+				if( post.terms.intensity[0].fields.intensity_points >= count )
+				{
+					return true
+				}	
+			}
+			
+			//console.log('isFilled', post.terms.intensity[0].fields.intensity_points);
 		}
 	}
 
@@ -211,6 +227,10 @@ export default {
 		width: 10px;
 		margin-left: 11px; 
 
+	}
+
+	.valeur-taxonomie div.filled{
+		background-color: #888320;
 	}
 
 	.flavour{

@@ -120,9 +120,6 @@ function get_sections()
 	}
 
 	$sections = apply_filters( 'sections_loaded', $sections );
-	// echo "<pre>";
-	// print_r( $sections );
-	// exit();
 	
 	wp_vue_add_var('sections', $sections);
 }

@@ -91,6 +91,7 @@ function owy_get_product_cat_filters_lists_with_relations() {
 	}
 }
 
-add_action( 'vue_vars', 'owy_get_product_cat_filters_lists_with_relations' )
+add_action( 'vue_vars', 'owy_get_product_cat_filters_lists_with_relations' );
+
 
 ?>

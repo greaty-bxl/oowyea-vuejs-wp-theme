@@ -181,7 +181,6 @@ export default {
               
               this.classes['current'] = wp.body_class
               this.pages['current'] = wp.sections
-              
 
               this.$store.commit({
                 type: 'sections_load',

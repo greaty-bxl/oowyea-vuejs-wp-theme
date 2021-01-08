@@ -13,12 +13,8 @@ function owy_wc_get_product( $sections )
 				) );
 				$section->children = apply_filters( 'posts_results', $products );
 			}
-		}	
+		}
 	}
-	
-	/*echo "<pre>";
-	print_r( $sections );
-	exit();*/
 
 	return $sections;
 }

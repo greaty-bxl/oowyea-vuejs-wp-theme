@@ -3,16 +3,14 @@
 function check_other_term_availabilities(){
 	global $post;
 
-	//delete_option( 'terms_combos' );
-
 	if( !is_admin() )
 	{
-		echo "<pre>";
+		/*echo "<pre>";
 		print_r( get_option( 'terms_combos', array() ) );
-		exit();
+		exit();*/
 	}
 }
-add_action( 'wp', 'check_other_term_availabilities' );
+//add_action( 'wp', 'check_other_term_availabilities' );
 
 
 function find_post_id_and_remove( $terms_combos, $post_ID )

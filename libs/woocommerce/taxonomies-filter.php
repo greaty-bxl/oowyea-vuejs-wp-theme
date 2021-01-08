@@ -87,6 +87,9 @@ function owy_get_product_cat_filters_lists_with_relations() {
 			$terms[$key]->relations = $relations_new_array;
 		}
 
+		$include_filters = get_field('include_in_filtering', 'option');
+
+		wp_vue_add_var('shop_filter', $include_filters );
 		wp_vue_add_var('product_cat_filters_extended', $terms );
 	}
 }

@@ -154,10 +154,10 @@ export default {
 		font-family: open sans;
 	}
 
-	.filtre-container{
+/*	.filtre-container{
 
 		left: -100%;
-	}
+	}*/
 
 	.image-shop{
 

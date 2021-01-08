@@ -187,17 +187,18 @@ export default {
 
 			if ($(this).hasClass('close-simple')){
 
-				console.log('qhsd');
+				console.log('il a la class');
 			}
 
 			else{
 
 				$('.parent').animate({
-					// targets: $('.parent').target,
 					left: '100vw',
-					easing: 'easeInOutSine',
-					duration: 200,
+					easing: 'easeInOut ease',
+					duration: 500,
 				});
+
+
 
 
 				$('.button-header').removeClass('open-simple')
@@ -1025,7 +1026,7 @@ export default {
 		padding-top: 15px;
 		padding-bottom: 15px;
 		margin-top: 15px;
-		font-size: 12px;
+		font-size: 15px;
 	}
 
 

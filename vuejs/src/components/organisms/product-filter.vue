@@ -17,7 +17,7 @@
 				<section class="filters">
 					
 					<div class="coll-filters" >
-						
+
 						<div class="collection-filter__list-wrapper">
 							<h3 class="collection-filter__list-title">
 								
@@ -39,31 +39,30 @@
 							</h3>
 							<ul class="collection-filter__list">
 
-								<li class="collection-filter__item selected">
-									<!-- <input id="origin__africa" class="collection-filter__checkbox visually-hidden" type="checkbox" value="origin__africa" name="origin"> -->
+								<li class="collection-filter__item ">
+									
+									<div class="hover">
 
-									<label class="hover">
+											<span class="label-content">Africa</span>
 
-										<span class="label-content">Africa</span>
+											<span class="collection-filter__item-check-mark">
 
-										<span class="collection-filter__item-check-mark">
+												<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
 
-											<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+													<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+													</path>
 
-												<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
-												</path>
+												</svg>
 
-											</svg>
+											</span>
 
-										</span>
 
-									</label>
+									</div>
 								</li>
 
-								<li class="collection-filter__item selected">
-									<!-- <input id="origin__africa" class="collection-filter__checkbox visually-hidden" type="checkbox" value="origin__africa" name="origin"> -->
+								<li class="collection-filter__item ">
 
-									<label for="origin__africa" class="hover">
+									<div class="hover">
 
 										<span class="label-content">Africa</span>
 
@@ -78,7 +77,28 @@
 
 										</span>
 
-									</label>
+									</div>
+								</li>
+
+
+								<li class="collection-filter__item ">
+
+									<div class="hover">
+
+										<span class="label-content">Africa</span>
+
+										<span class="collection-filter__item-check-mark">
+
+											<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+												<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+												</path>
+
+											</svg>
+
+										</span>
+
+									</div>
 								</li>
 								
 							</ul>
@@ -105,8 +125,267 @@
 							</h3>
 							<ul class="collection-filter__list">
 
-								<li class="collection-filter__item selected hover">
-									<!-- <input id="origin__africa" class="collection-filter__checkbox visually-hidden" type="checkbox" value="origin__africa" name="origin"> -->
+								<li class="collection-filter__item ">
+									
+									<div class="hover">
+
+											<span class="label-content">Africa</span>
+
+											<span class="collection-filter__item-check-mark">
+
+												<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+													<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+													</path>
+
+												</svg>
+
+											</span>
+
+
+									</div>
+								</li>
+
+								<li class="collection-filter__item ">
+
+									<div class="hover">
+
+										<span class="label-content">Africa</span>
+
+										<span class="collection-filter__item-check-mark">
+
+											<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+												<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+												</path>
+
+											</svg>
+
+										</span>
+
+									</div>
+								</li>
+
+
+								<li class="collection-filter__item ">
+
+									<div class="hover">
+
+										<span class="label-content">Africa</span>
+
+										<span class="collection-filter__item-check-mark">
+
+											<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+												<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+												</path>
+
+											</svg>
+
+										</span>
+
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+
+						<div class="collection-filter__list-wrapper">
+							<h3 class="collection-filter__list-title">
+								
+								<p class="title-filter">
+									tasting notes
+								</p>
+
+								<span class="collection-filter__arrow" >
+
+									<svg aria-hidden="true" focusable="false" role="presentation" class="icon-santos icon-arrow-right" viewBox="0 0 20 38">
+
+										<path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 	1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd">
+										</path>
+
+									</svg>
+
+								</span>
+
+							</h3>
+							<ul class="collection-filter__list">
+
+								<li class="collection-filter__item ">
+									
+									<div class="hover">
+
+											<span class="label-content">Africa</span>
+
+											<span class="collection-filter__item-check-mark">
+
+												<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+													<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+													</path>
+
+												</svg>
+
+											</span>
+
+
+									</div>
+								</li>
+
+								<li class="collection-filter__item ">
+
+									<div class="hover">
+
+										<span class="label-content">Africa</span>
+
+										<span class="collection-filter__item-check-mark">
+
+											<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+												<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+												</path>
+
+											</svg>
+
+										</span>
+
+									</div>
+								</li>
+
+
+								<li class="collection-filter__item ">
+
+									<div class="hover">
+
+										<span class="label-content">Africa</span>
+
+										<span class="collection-filter__item-check-mark">
+
+											<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+												<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+												</path>
+
+											</svg>
+
+										</span>
+
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+
+
+						
+						<div class="collection-filter__list-wrapper">
+							<h3 class="collection-filter__list-title">
+								
+								<p class="title-filter">
+									tasting notes
+								</p>
+
+								<span class="collection-filter__arrow" >
+
+									<svg aria-hidden="true" focusable="false" role="presentation" class="icon-santos icon-arrow-right" viewBox="0 0 20 38">
+
+										<path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 	1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd">
+										</path>
+
+									</svg>
+
+								</span>
+
+							</h3>
+							<ul class="collection-filter__list">
+
+								<li class="collection-filter__item ">
+									
+									<div class="hover">
+
+											<span class="label-content">Africa</span>
+
+											<span class="collection-filter__item-check-mark">
+
+												<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+													<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+													</path>
+
+												</svg>
+
+											</span>
+
+
+									</div>
+								</li>
+
+								<li class="collection-filter__item ">
+
+									<div class="hover">
+
+										<span class="label-content">Africa</span>
+
+										<span class="collection-filter__item-check-mark">
+
+											<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+												<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+												</path>
+
+											</svg>
+
+										</span>
+
+									</div>
+								</li>
+
+
+								<li class="collection-filter__item ">
+
+									<div class="hover">
+
+										<span class="label-content">Africa</span>
+
+										<span class="collection-filter__item-check-mark">
+
+											<svg aria-hidden="true" focusable="false" role="presentation"  class="icon-check icon-check-mark" viewBox="0 0 17 17">
+
+												<path fill="#888320" d="M8.5 0a8.5 8.5 0 1 0 .001 17.001A8.5 8.5 0 0 0 8.5 0zm4.36 5.658L7.582 12.43c-.042.042-.11.133-.194.133-.087 0-.144-.06-.193-.11-.05-.05-2.994-2.88-2.994-2.88l-.057-.057a.222.222 0 0 1-.042-.121c0-.046.019-.088.042-.122a314.834 314.834 0 0 1 .964-1.013c.049-.05.09-.114.182-.114.095 0 .155.08.2.125.046.046 1.708 1.643 1.708 1.643l4.224-5.426a.216.216 0 0 1 .133-.053.21.21 0 0 1 .133.05l1.16.914c.031.038.05.083.05.133a.197.197 0 0 1-.038.125z">												
+												</path>
+
+											</svg>
+
+										</span>
+
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+
+						<div class="collection-filter__list-wrapper">
+							<h3 class="collection-filter__list-title">
+								
+								<p class="title-filter">
+									tasting notes
+								</p>
+
+								<span class="collection-filter__arrow" >
+
+									<svg aria-hidden="true" focusable="false" role="presentation" class="icon-santos icon-arrow-right" viewBox="0 0 20 38">
+
+										<path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 	1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd">
+										</path>
+
+									</svg>
+
+								</span>
+
+							</h3>
+							<ul class="collection-filter__list">
+
+								<li class="collection-filter__item  hover">
 
 									<div>
 
@@ -126,8 +405,8 @@
 									</div>
 								</li>
 
-								<li class="collection-filter__item selected hover">
-									<!-- <input id="origin__africa" class="collection-filter__checkbox visually-hidden" type="checkbox" value="origin__africa" name="origin"> -->
+
+								<li class="collection-filter__item  hover">
 
 									<div>
 
@@ -154,6 +433,16 @@
 					</div>
 
 				</section>
+
+				<footer class="collection-filter__footer">
+
+					<button class="collection-filter__clear">
+
+					Clear All <span class="small--hide">Selections</span>
+
+					</button>
+					<button class="collection-filter__done button-santos-vert" v-on:click="close_filter">Done</button>
+				</footer>
 				
 
 			</div>
@@ -200,7 +489,31 @@
 
 				}
 
-			
+			});
+
+
+			$('.collection-filter__item').click(function() {
+
+				if ($(this).hasClass('selected')) {
+
+					$(this).removeClass('selected')
+
+						$(this).find('.collection-filter__item-check-mark').fadeTo( "fast" , 0, function() {
+						});
+
+				}
+
+				else{
+
+					$(this).addClass('selected')
+
+					$(this).find('.collection-filter__item-check-mark').fadeTo( "fast" , 1, function() {
+				
+					});
+				
+				}
+
+				
 
 			});
 
@@ -217,9 +530,9 @@
 
 				$('.filtre-container').animate({
 					left: '-100%',
-					easing: 'easeInOut',
-					duration: 200,
-				});
+					easing: 'easeInOut ease',
+					duration: 500,
+				} );
 
 				$('#app').data('scrolling', '')
 
@@ -236,13 +549,31 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 	
-	@media only screen and (min-width: 1001px){
+	@media only screen and (min-width: 1101px){
+
+
+		.collection-filter__clear {
+			padding: 20px 25px;
+		}
+
+		.collection-filter__item.selected+.collection-filter__item {
+
+			border-top-color: #888320;
+
+		}
+
+		.collection-filter__item+.selected:last-child {
+
+			border-bottom-color: #888320;
+
+		}
 
 		.lists-filter-taxonomie{
 
 			padding: 90px 80px 45px 75px;
 			max-width: 70%;
 			min-width: 50%;
+			position: relative;
 
 		}
 
@@ -263,7 +594,7 @@
 
 			display: flex;
 			flex-direction: row;
-			justify-content: space-evenly;
+			justify-content: start;
 		}	
 
 		.collection-filter__list-title{
@@ -285,6 +616,12 @@
 			padding-bottom: 20px;
 			padding-top: 20px;
 			border-top: solid 1px #dcdcdc;
+		}
+
+		.collection-filter__item span{
+
+			font-size: 14px;
+			font-weight : 500;
 		}
 
 		.collection-filter__item:last-of-type{
@@ -310,18 +647,89 @@
 
 			font-family: open sans;
 			width: 195px;
+			margin-right: 50px;
 		}
 
-	/*	.collection-filter__item{
+		.collection-filter__item-check-mark svg{
 
-			
-		}*/
+			right: 15px;
+		}
+
+		.icon-santos{
+
+			display: none;
+		}
+
+		.icon-close-filter svg{
+
+			height: 25px;
+			width: 25px;
+
+		}
+
+		.icon-close-filter{
+
+			background-color: white;
+		}
+
+		.collection-filter__title {
+
+			font-size: 14px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			font-weight: 500;
+		}
+
+
+		.collection-filter__footer{
+
+			right: 80px;
+			bottom: 45px;
+			flex-direction: row;
+			border: 0;
+			display: flex;
+			justify-content: flex-end;
+
+		}
+
+		.collection-filter__clear {
+
+			padding: 20px 25px;
+
+		}
+
+
+		.lists-filter-taxonomie{
+
+			background-color: white;
+		}
 
 	}
 
 
 
-	@media only screen and (max-width: 1000px){
+	@media only screen and (max-width: 1100px){
+
+		section.filters{
+
+			width: calc()
+		}
+		.icon-close-filter svg {
+
+			height: 15px;
+			width: 15px;
+
+		}
+
+		.label-content{
+
+			max-width: 50px;
+			word-wrap: break-word;
+			padding-left: 50px;
+			padding-right: 50px;
+
+		}
+		
 
 		.collection-filter__header{
 
@@ -335,6 +743,7 @@
 		.collection-filter__header{
 
 			padding: 30px 20px;
+			height: 20px;
 		}
 
 		.label-content{
@@ -365,42 +774,25 @@
 			fill: white;
 		}
 
-
-		.collection-filter__item label {
-			display: block;
-			position: relative;
-			z-index: 5;
-			width: 100%;
-			transition: all .2s ease-in-out;
-			cursor: pointer;
-		}
-
 		.collection-filter__item-check-mark {
-			position: absolute;
+
 			top: 50%;
 			left: 25px;
-			transform: translateY(-50%);
-			width: 17px;
-			height: 17px;
-			color: #ee1d24;
-			background-color: #ffffff;
-			/*opacity: 0;*/
-			/*visibility: hidden;*/
-			transition: all .1s ease-in-out;
-			box-sizing: content-box;
 		}
 
 		.collection-filter__item-check-mark svg {
+
 			transition: all .1s ease-in-out;
 			width: 100%;
 			height: 100%;
-		/*fill: currentColor;*/
-		}
 
+		}
 
 		.lists-filter-taxonomie{
 
 			width: 100%;
+			background-color: #f4f4f4;
+
 		}
 
 		.open-filter-rotation{
@@ -469,35 +861,144 @@
 
 		.icon-close-filter{
 
-			background-color: #888320;
-
-		}
-
-
-		.lists-filter-taxonomie{
-
-			background-color: #f4f4f4;
-		}
-
-
-
-		.icon-close-filter{
-
-			/*top: 0;*/
 			left: inherit;
 			transform: translateY(0);
 			color: #000000;
 			position: absolute;
-			/*background-color: white;*/
+			background-color: #888320;
 			border: 0px;
-
 
 		}
 
+		.collection-filter__item-check-mark {
+			position: absolute;
+			transform: translateY(-50%);
+			top: 50%;
+			left: 25px;
+			width: 17px;
+			height: 17px;
+			color: #ee1d24;
+			background-color: #ffffff;
 
+			transition: all .1s ease-in-out;
+			box-sizing: content-box;
+		}
+
+
+		.collection-filter__title {
+
+			font-size: 14px;
+			margin-top: 2px;
+			margin-bottom: 5px;
+			font-weight: 500;
+		}
+
+
+		.collection-filter__footer{
+
+			right: 80px;
+			bottom: 45px;
+			flex-direction: row-reverse;
+			border: 0;
+			display: flex;
+			justify-content: flex-end;
+
+		}
+
+		.collection-filter__clear {
+
+			padding: 20px 0 20px 32px;
+		
+		}
+
+
+		.filters{
+
+			max-height: calc( 100% - 167px);
+			overflow: scroll;
+		}
 
 
 	}
+
+
+	@media only screen and (max-width: 1100px) and (min-width: 600px){
+
+
+		.collection-filter__item{
+
+			max-width: 50%;
+			margin-left: auto;
+			margin-right: auto;
+		} 
+	}
+
+
+	@media only screen and (max-width: 600px){
+
+		.small--hide{
+
+			display: none;
+		}
+	}
+
+	.collection-filter__done {
+		padding: 21px 15px;
+		height: auto;
+		max-width: 180px;
+		font-size: 14px;
+		width: 180px;
+	}
+
+	.collection-filter__clear {
+
+		border: 0;
+		width: auto;
+		font-weight: 400;
+		font-size: 14px;
+		color: #000000;
+		text-decoration: underline;
+		text-transform: capitalize;
+		background-color: transparent;
+	}
+
+
+	.show-check-icon{
+
+		display: inline-block !important;
+		transition: all .1s ease-in-out;
+	}
+
+	.selected{
+
+		border-color: #888320;
+		color: #888320; 
+
+	}
+
+
+	.collection-filter__item-check-mark svg {
+		position: absolute;
+		width: 17px;
+		height: 17px;
+		transition: all .1s ease-in-out;
+		box-sizing: content-box;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.collection-filter__item{
+		position: relative;
+	}
+
+
+	.hover {
+
+		pointer-events: auto;
+		cursor: pointer
+
+	}
+
 
 
 	.hover:hover span{
@@ -518,8 +1019,8 @@
 
 	.collection-filter__item-check-mark{
 
-		display: none;
-	}
+		opacity: 0;
+	}	
 
 	.collection-filter__list-wrapper *{
 
@@ -545,12 +1046,6 @@
 	
 	}
 
-	.icon-close-filter svg{
-
-		height: 25px;
-		width: 25px;
-
-	}
 
 	.icon-close-filter svg:hover{
 
@@ -581,13 +1076,6 @@
 
 	}
 
-	.collection-filter__title {
-
-		font-size: 24px;
-		margin-top: 5px;
-		margin-bottom: 5px;
-		font-weight: 500;
-	}
 
 	.collection-filter__description {
 
@@ -595,5 +1083,37 @@
 		line-height: 2.25;
 
 	}
+
+	.lists-filter-taxonomie{
+
+		position: relative;
+
+	}
+
+	.collection-filter__footer{
+
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		display: flex;
+		justify-content: center;
+		align-items: left;
+		padding: 12px 0;
+		border-top: solid 1px #dcdcdc;
+		width: 100%;
+		background-color: #ffffff;
+
+	}
+
+
+	* :focus {
+
+		outline: none;
+
+	}
+
+
+
 
 </style>

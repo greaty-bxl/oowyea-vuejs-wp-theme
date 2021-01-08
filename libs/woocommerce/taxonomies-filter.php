@@ -88,8 +88,16 @@ function owy_get_product_cat_filters_lists_with_relations() {
 		}
 
 		$include_filters = get_field('include_in_filtering', 'option');
-
-		wp_vue_add_var('shop_filter', $include_filters );
+		$shop_filter = array();
+		foreach ($include_filters as $key => $filter) 
+		{
+			$shop_filter[] = array(
+				'label' => get_taxonomy( $filter['tax_filter_in'] )->label,
+				'slug' => $filter['tax_filter_in'],
+				'terms' => get_terms( array('taxonomy'=> $filter['tax_filter_in'] ) )
+			);
+		}
+		wp_vue_add_var('shop_filter', $shop_filter );
 		wp_vue_add_var('product_cat_filters_extended', $terms );
 	}
 }

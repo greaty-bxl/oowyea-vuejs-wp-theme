@@ -413,6 +413,8 @@ function scrollSection(vue){
 						'next' : next,
 						'duration': duration,
 					})	
+
+					$('#app-scroller').removeAttr('style')
 				
 			}
 		});

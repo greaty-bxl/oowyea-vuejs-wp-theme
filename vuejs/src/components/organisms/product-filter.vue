@@ -163,9 +163,14 @@
 
 				$('.filtre-container').animate({
 					left: '-100%',
+					backgroundColor: 'transparent',
 					easing: 'easeInOut ease',
 					duration: 500,
 				} );
+
+				// $('.filtre-container').css('background-color', 'transparent');
+
+					// background-color: rgba(255,255,255,0.9);
 
 				$('#app').data('scrolling', '')
 
@@ -645,6 +650,8 @@
 
 
 		list-style: none;
+		/*z-index: 100000 !important;*/
+		
 
 	}
 
@@ -665,11 +672,9 @@
 		display: flex;
 		height: 100vh;
 		width: 100%;
-		top: 0px;
 		position: fixed;
 		z-index: 10000;
-		background-color: rgba(255,255,255,0.9);
-		transition: left .1s ease-in-out, opacity .3s ease .4s;
+		/*transition: left .1s ease-in-out, opacity .3s ease .4s;*/
 
 	}
 

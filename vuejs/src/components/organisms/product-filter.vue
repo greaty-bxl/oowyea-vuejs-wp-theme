@@ -23,7 +23,7 @@
 								
 								<p class="title-filter" v-html="taxonomy.label"></p>
 
-								<span class="collection-filter__arrow" >
+								<div class="collection-filter__arrow" >
 
 									<svg aria-hidden="true" focusable="false" role="presentation" class="icon-santos icon-arrow-right" viewBox="0 0 20 38">
 
@@ -32,12 +32,12 @@
 
 									</svg>
 
-								</span>
+								</div>
 
 							</h3>
 							<ul class="collection-filter__list">
 
-								<li class="collection-filter__item " v-for="(term, term_index) in taxonomy.terms" :key="term_index">
+								<li class="collection-filter__item disabled " v-for="(term, term_index) in taxonomy.terms" :key="term_index">
 									
 									<div class="hover">
 
@@ -571,6 +571,12 @@
 
 			display: none;
 		}
+		.title-filter{
+
+			max-width: 100px;
+			word-wrap: break-word;
+			line-height: 20px;
+		}
 	}
 
 	.collection-filter__done {
@@ -625,7 +631,7 @@
 
 	.hover {
 
-		pointer-events: auto;
+		/*pointer-events: auto;*/
 		cursor: pointer
 
 	}
@@ -735,6 +741,13 @@
 		border-top: solid 1px #dcdcdc;
 		width: 100%;
 		background-color: #ffffff;
+
+	}
+
+	.disabled{
+
+		opacity: 0.3;
+		pointer-events: none;
 
 	}
 

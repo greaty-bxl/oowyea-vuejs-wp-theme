@@ -21,7 +21,15 @@
 
 						<div v-for="item in posts" :key="item.ID" class="product-santos">
 							<div class="div-grey">
-								<img class="image-product" src="http://santospalace.test/wp-content/uploads/2021/01/paquet-de-cafe-01.png">
+								<div>
+									
+
+								</div>
+
+									<div class="cadre">
+									<img class="image-product" src="http://santospalace.test/wp-content/uploads/2021/01/paquet-de-cafe-01.png">
+
+								</div>
 								<p class="title-product" v-html="item.post_title"></p>
 								<div class="cafes" v-if="has_term(item, 'product_cat', 'cafes')">
 									
@@ -240,15 +248,8 @@ export default {
 		color: #666666;
 	}
 
-
-/*	.product-santos{
-
-
-	}*/
-/*	.div-#FAFAFA
-	.price
-*/
 	@media screen and (min-width: 1100px){
+
 
 		.title-product{
 
@@ -256,9 +257,9 @@ export default {
 			margin-bottom: 25px;
 		}
 
-		.image-product{
+		.cadre{
 
-			margin-bottom: 25px;
+		padding: 30px 30px 25px 30px;
 		}
 
 		.image-shop h1 {
@@ -305,7 +306,6 @@ export default {
 			width: 24%;
 			margin-top: 45px;
 			background-color: #FAFAFA;
-			padding-top: 35px;
 			padding-bottom: 35px;
 		}
 
@@ -382,10 +382,6 @@ export default {
 			margin-bottom: 25px;
 		}
 		
-		.image-product{
-
-			margin-bottom: 25px;
-		}
 
 		.filtre-parent-div{
 			padding-top: 40px;
@@ -418,9 +414,14 @@ export default {
 			margin-right: auto;
 		}
 
-		.global-container{
+/*		.global-container{
 
 
+		}*/
+
+		.cadre{
+
+			padding: 30px 30px 25px 30px;
 		}
 
 		.product-santos{
@@ -429,7 +430,7 @@ export default {
 			background-color: #FAFAFA;
 /*			height: 40vh;*/
 			margin-top: 40px;
-			padding-top: 35px;
+			/*padding-top: 35px;*/
 			padding-bottom: 35px;
 		}
 
@@ -483,11 +484,6 @@ export default {
 			margin-bottom: 25px;
 		}
 		
-		.image-product{
-
-			margin-bottom: 20px;
-		}
-
 		.global-container{
 
 			margin-top: 0px;
@@ -497,11 +493,16 @@ export default {
 		.product-santos{
 
 			width: calc( 100% - 56px);
-			padding-top: 30px;	
+			/*padding-top: 30px;	*/
 			padding-bottom: 30px;
 			background-color: #FAFAFA;
 			margin: 30px auto;
 		
+		}
+
+		.cadre{
+
+			padding: 30px 30px 20px 30px ;
 		}
 
 		.parent-product{

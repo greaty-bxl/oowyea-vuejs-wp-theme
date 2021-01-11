@@ -2,50 +2,54 @@
 <template>
 	<div class="section-wrap">
 		<div class="clear"></div>
-			
+		
 			<div class="content-single">
-				<div class="div-image-single">
-					<img class="image-single" :src="post.thumb">
+				<div  class="retour">
+					
+						<button onclick="window.history.back()">Retour</button>
+					
 				</div>
-				<div class="single-text"> 
-					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
+				<div class="contenu-single">
 
-					<div v-html="post.acf_fields.list_colis" class="list-colis">
+					<div class="div-image-single">
+						<img class="image-single" :src="post.thumb">
 					</div>
-					<div>				
-						<p v-html="post.price" class="price-single montserrat-bold"> </p>
-						<p v-html="post.sold_out" class="price-single montserrat-bold"> </p>
-						<p>Taxes incluses</p>
-					</div>
+					<div class="single-text"> 
+						<h2 class="open-sans title-single-santospalace" v-html="post.post_title">Colis</h2>
 
-					<div>
-						<p>Retrait en magasin</p>
-					</div>
+						<div v-html="post.acf_fields.list_colis" class="list-colis">
+						</div>
+						<div>				
+							<p v-html="post.price" class="price-single open-sans"> </p>
+							<p v-html="post.sold_out" class="price-single open-sans"> </p>
+							<p>Taxes incluses</p>
+						</div>
 
-					<div>
-						<p class="commande-prete"> Si vous commandez après <strong>19h30</strong>, votre commande sera prête le <strong>surlendemain</strong>.</p>
-					</div>
+						<div>
+							<p>Retrait en magasin</p>
+						</div>
 
-								
-					<div>
-						<img class="bancontact"  src="http://dev.fromagerie.brussels/wp-content/uploads/2020/10/BC_logo_ORGNL_RGB.png">
-					</div>
+						<div>
+							<p class="commande-prete"> Si vous commandez après <strong>19h30</strong>, votre commande sera prête le <strong>surlendemain</strong>.</p>
+						</div>
 
-					<div v-if="post.is_in_stock">				
-						<p class="nbrpersonne">Nombre de personnes :</p>	
-					</div>
+									
+						<div class="div-parent-icons" v-html="this.wp.payment_methods_images">
+							
+						</div>
 
-					<div v-if="post.is_in_stock" class="button-contener" v-html="add_to_cart">
+						<div v-if="post.is_in_stock">				
+							<p class="nbrpersonne">Nombre de personnes :</p>	
+						</div>
 
-					</div>
+						<div v-if="post.is_in_stock" class="button-contener" v-html="add_to_cart">
 
-					<div  class="retour">
-						
-							<button onclick="window.history.back()">Retour</button>
+						</div>
 						
 					</div>
 					
 				</div>
+				
 			</div>
 		
 		<div class="clear"></div>
@@ -69,7 +73,7 @@
 
 		// $('nav').css('background-color', 'white');
 			
-			console.log(this.post);
+			console.log(this.wp.payment_methods_images);
 
 			if ( this.post.terms[0].slug === "plateau-fromage" ) 
 			{
@@ -98,8 +102,15 @@
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
 	
+
+	.wc-stripe-card-icon{
+
+		 margin-right: 2px;
+	}
+
 	.commande-prete{
 		font-style: italic;
 		font-size: 14px !important;
@@ -165,7 +176,7 @@
 
 	.woocommerce-page img{
 
-		width: auto !important;
+		width: 50px;
 	}
 
 
@@ -179,8 +190,8 @@
 	.content-single{
 
 		display: flex;
-		flex-direction: row;
-		margin-top: 150px;
+		flex-direction: column;
+		margin-top: 110px;
 		margin-bottom: 50px;
 		margin-right: auto;
 		margin-left: auto;
@@ -192,7 +203,7 @@
 
 		/*height: auto !important;*/
 		width: 40vw  !important;
-		min-width: 600px;
+		min-width: 300px;
 	}
 
 	.single-text p{
@@ -210,8 +221,6 @@
 
 	.single-text{
 
-		/*height: 30vw !important;*/
-		/*width: 30vw;*/
 		padding-left: 5vh;
 	}
 	.single-text p {
@@ -245,10 +254,10 @@
 		
 	}
 
-	.montserrat-bold{
+	.open-sans{
         color: #70625B;
-		font-family: 'Montserrat', sans-serif !important;
-		font-weight: bold !important;
+		font-family: 'open sans';
+		font-weight: bold ;
 	}
 
 	.price-single{
@@ -256,9 +265,10 @@
 		font-size: 20px !important;
 	}
 
-	.title-single-fromagerie{
+	.title-single-santospalace{
 
 		font-size: 25px !important;
+		color: #422112;
 	}
 
 	.content-single input{
@@ -284,7 +294,7 @@
 
 	.retour{
 
-		padding-top: 30px !important;
+		padding: 47px 0px ;
 	}
 
 	.retour button{
@@ -308,6 +318,19 @@
 	.quantity{
 
 		padding-top: 0px !important;
+	}
+
+
+	.div-image-single{
+
+		background-color: #FAFAFA;
+		padding: 30px 50px;
+	}
+
+	.contenu-single{
+
+		display: flex;
+		flex-direction: row;
 	}
 
 	

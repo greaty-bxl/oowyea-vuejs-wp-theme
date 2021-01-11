@@ -10,3 +10,5 @@ include 'woocommerce/product.php';
 include 'woocommerce/taxonomies-filter.php';
 include 'woocommerce/terms_taxonomies_combos.php';
 include 'woocommerce/calendar.php';
+include 'woocommerce/image-payment-enabled.php';
+

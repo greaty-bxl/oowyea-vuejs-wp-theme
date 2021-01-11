@@ -16,14 +16,12 @@
 
 				<section class="filters">
 					
-					<div class="coll-filters" >
+					<div class="coll-filters">
 
-						<div class="collection-filter__list-wrapper">
+						<div class="collection-filter__list-wrapper" v-for="(taxonomy, index) in $store.state.wp.shop_filter" :key="index">
 							<h3 class="collection-filter__list-title">
 								
-								<p class="title-filter">
-									tasting notes
-								</p>
+								<p class="title-filter" v-html="taxonomy.label"></p>
 
 								<span class="collection-filter__arrow" >
 
@@ -39,11 +37,11 @@
 							</h3>
 							<ul class="collection-filter__list">
 
-								<li class="collection-filter__item ">
+								<li class="collection-filter__item " v-for="(term, term_index) in taxonomy.terms" :key="term_index">
 									
 									<div class="hover">
 
-											<span class="label-content">Africa</span>
+											<span class="label-content" v-html="term.name"></span>
 
 											<span class="collection-filter__item-check-mark">
 
@@ -95,7 +93,7 @@
 
 		mounted(){
 
-			console.log( 'wc-shop', this.post, this.posts);
+			console.log( 'wc-shop', this.$store.state.wp.shop_filter);
 
 			this.$emit('template_mounted', this);
 

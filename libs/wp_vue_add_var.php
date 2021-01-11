@@ -19,7 +19,7 @@ function unserialize_in_array( $array )
 
 function init_classics_wp_variables()
 {
-	if(is_admin()) {return;}
+	//if(is_admin() && $_GET['page'] !== 'oowyea-editor') {return;}
 	global $wp, $wp_query;
 	wp_vue_add_var('wp', $wp );
 	wp_vue_add_var('wp_query', $wp_query );
@@ -29,13 +29,17 @@ function init_classics_wp_variables()
 	$options =  unserialize_in_array( wp_load_alloptions() );
 	wp_vue_add_var('options', $options );
 	wp_vue_add_var('upload_baseurl', wp_get_upload_dir()['baseurl'] );
+	wp_vue_add_var('admin_url', get_admin_url() );
+	
 }
 add_action( 'vue_vars', 'init_classics_wp_variables' );
 
 //execute one time the action, or in wp or in head
 function init_add_action_vue_vars_hooks($val)
 {
-	if( !is_admin() )
+	$is_admin_plugin_vue = apply_filters( 'is_admin_plugin_vue', false );
+
+	if( !is_admin() || $is_admin_plugin_vue )
 	{
 		do_action( 'vue_vars' );	
 	}
@@ -48,6 +52,7 @@ if( isset( $_GET['add_to_json'] ) )
 else
 {
 	add_action( 'wp_head', 'init_add_action_vue_vars_hooks' );	
+	add_action( 'admin_head', 'init_add_action_vue_vars_hooks' );	
 }
 
 /* Add wordpress php variables as javascript vue variable or add in json return */
@@ -68,6 +73,8 @@ function wp_vue_add_var($key, $value)
 {
 	global $is_wp_head;
 
+
+
 	if( $is_wp_head && ( is_array( $value ) || is_object( $value ) ) )
 	{
 		$value = json_encode($value);
@@ -76,7 +83,9 @@ function wp_vue_add_var($key, $value)
 	if( $is_wp_head && isJson($value) )
 	{
 		?>
-		<script type="text/javascript">window.wp['<?= $key ?>'] = <?= $value ?></script>
+		<script type="text/javascript">
+			window.wp['<?= $key ?>'] = <?= $value ?>
+		</script>
 		<?php
 	}
 	elseif ($is_wp_head) 
@@ -86,15 +95,17 @@ function wp_vue_add_var($key, $value)
 			//$value = array( $value );
 			$value = json_encode( $value );
 			?>
-			<script type="text/javascript">window.wp['<?= $key ?>'] = <?= $value ?></script>
+			<script type="text/javascript">
+				window.wp['<?= $key ?>'] = <?= $value ?>
+			</script>
 			<?php
 		}
 		else
 		{
-
-
 			?>
-			<script type="text/javascript">window.wp['<?= $key ?>'] = '<?= $value ?>'</script>
+			<script type="text/javascript">
+				window.wp['<?= $key ?>'] = '<?= $value ?>'
+			</script>
 			<?php
 
 		}
@@ -113,3 +124,4 @@ function is_wp_head_true()
 }
 
 add_action( 'wp_head', 'is_wp_head_true', 0 );
+add_action( 'admin_head', 'is_wp_head_true', 0 );

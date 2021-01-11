@@ -1,9 +1,7 @@
 <template>
 	<div>
 		<div class="filtre-container">
-			
 			<div class="lists-filter-taxonomie">
-
 				<header class="collection-filter__header">
 					<h2 class="collection-filter__title">FILTRERS</h2>
 					<p class="collection-filter__description">
@@ -18,7 +16,7 @@
 					
 					<div class="coll-filters">
 
-						<div class="collection-filter__list-wrapper" v-for="(taxonomy, index) in $store.state.wp.shop_filter" :key="index">
+						<div class="collection-filter__list-wrapper" v-for="(taxonomy, index) in shop_filter" :key="index">
 							<h3 class="collection-filter__list-title">
 								
 								<p class="title-filter" v-html="taxonomy.label"></p>
@@ -37,11 +35,15 @@
 							</h3>
 							<ul class="collection-filter__list">
 
-								<li class="collection-filter__item " v-for="(term, term_index) in taxonomy.terms" :key="term_index">
+								<li class="collection-filter__item" 
+									v-for="(term, term_index) in taxonomy.terms" :key="term_index"
+									v-on:click="click_term(term)"
+									v-bind:class="{'selected': term.selected, 'disabled': term.disabled}"
+									>
 									
 									<div class="hover">
 
-											<span class="label-content" v-html="term.name"></span>
+											<span class="label-content" v-html="term.name + ' (' + term.term_id + ') '+ term.disabled"></span>
 
 											<span class="collection-filter__item-check-mark">
 
@@ -86,6 +88,14 @@
 	
 	export default {
 
+		data(){
+			return {
+				shop_filter: [],
+				terms_combos: {},
+				selecteds: {},
+			}
+		},
+
 		props: {
 			'post' : Object,
 			'posts' : Array
@@ -93,9 +103,12 @@
 
 		mounted(){
 
-			console.log( 'wc-filter', this.$store.state.wp.shop_filter);
+			this.shop_filter = this.$store.state.wp.shop_filter
+			this.terms_combos = this.$store.state.wp.terms_combos
 
-			console.log( 'wc-filter', this.$store.state.wp.terms_combos);
+			console.log( 'wc-filter', this.shop_filter );
+
+			console.log( 'wc-filter', this.terms_combos);
 
 			this.$emit('template_mounted', this);
 
@@ -125,7 +138,7 @@
 			});
 
 
-			$('.collection-filter__item').click(function() {
+			/*$('.collection-filter__item').click(function() {
 
 				if ($(this).hasClass('selected')) {
 
@@ -145,7 +158,7 @@
 					});
 				
 				}
-			});
+			});*/
 		},
 
 		methods: {
@@ -168,6 +181,71 @@
 				$('#app').data('scrolling', '')
 
 			},
+
+			click_term: function(term){
+
+				let $ = this.$
+				//find combo
+				console.log(term.term_id, this.terms_combos);
+
+				if( term.selected == false && !term.disabled )
+				{
+					term.selected = true
+
+					this.selecteds[term.term_id] = term.term_id
+				}
+				else
+				{
+					term.selected = false
+
+					delete this.selecteds[term.term_id]
+				}
+
+				let selectables = {};
+				
+				console.log( 'selecteds 1', this.selecteds, Object.keys(this.selecteds).length  );
+
+				$.each(this.terms_combos, (terms_str) => {
+					let ids = terms_str.split('-')
+					let ids_object = {}
+
+					$.each(ids, function(index, val) {
+						ids_object[val] = val
+					});
+
+					let combo_max = Object.keys(this.selecteds).length 
+					let combo_count = 0
+
+					$.each(this.selecteds, (term_id) => {
+						console.log( 'find', term_id, ids )
+						if( ids.includes(term_id) )
+						{
+							console.log( 'found', term_id, ids )
+							combo_count++;
+						}
+					});
+					
+					if( combo_max == combo_count && combo_max != 0 )
+					{
+						Object.assign(selectables, ids_object);
+					}
+
+					console.log('combo_max', combo_max, combo_count);
+				});
+
+				$.each(this.shop_filter, (index_tax, taxonomy) => {
+					
+					$.each(taxonomy.terms, (term_index, term) => {
+						term.disabled = false
+						if( !selectables[term.term_id] && Object.keys(this.selecteds).length >= 1 )
+						{
+							term.disabled = true
+						}
+					});
+				});
+
+				console.log( 'selecteds', this.selecteds, selectables );		
+			}
 
 
 	
@@ -623,11 +701,16 @@
 	}
 
 
+
 	.hover {
 
 		pointer-events: auto;
 		cursor: pointer
 
+	}
+
+	.collection-filter__item.disabled .hover{
+		opacity: 0.3;
 	}
 
 
@@ -653,7 +736,12 @@
 	.collection-filter__item-check-mark{
 
 		opacity: 0;
-	}	
+	}
+
+	.selected .collection-filter__item-check-mark{
+
+		opacity: 1;
+	}
 
 	.collection-filter__list-wrapper *{
 

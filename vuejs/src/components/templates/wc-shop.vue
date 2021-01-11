@@ -1,8 +1,7 @@
 <template>
     <div class="section-wrap">
+		<ProductFilter/>
 		<div class="clear"></div>
-
-			<ProductFilter/>
 
 			<div class="image-shop">
 				<h3>Cafés</h3>
@@ -83,9 +82,9 @@ export default {
 
 	mounted(){
 
-		console.log( 'wc-shop', this.post, this.posts);
+		//console.log( 'wc-shop', this.post, this.posts);
 
-		console.log( 'has_term', has_term(this.posts[0], 'product_cat', 'cafes') );
+		//console.log( 'has_term', has_term(this.posts[0], 'product_cat', 'cafes') );
 
 		smart_fonts({
 			'.titre-home' : 85 ,

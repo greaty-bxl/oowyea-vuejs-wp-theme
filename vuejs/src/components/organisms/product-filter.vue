@@ -93,7 +93,9 @@
 
 		mounted(){
 
-			console.log( 'wc-shop', this.$store.state.wp.shop_filter);
+			console.log( 'wc-filter', this.$store.state.wp.shop_filter);
+
+			console.log( 'wc-filter', this.$store.state.wp.terms_combos);
 
 			this.$emit('template_mounted', this);
 
@@ -143,14 +145,7 @@
 					});
 				
 				}
-
-				
-
 			});
-
-
-		
-
 		},
 
 		methods: {
@@ -668,7 +663,6 @@
 		z-index: 10000;
 		background-color: rgba(255,255,255,0.9);
 		transition: left .1s ease-in-out, opacity .3s ease .4s;
-
 	}
 
 	.lists-filter-taxonomie{

@@ -100,6 +100,8 @@ add_action( 'post_updated', 'update_terms_tax_combo', 0, 2 );
 
 function update_terms_tax_combo_on_delete($postid, $post)
 {
+	global $post;
+
 	if( $post->post_type == 'product' )
 	{
 
@@ -111,3 +113,12 @@ function update_terms_tax_combo_on_delete($postid, $post)
 	}
 }
 add_action( 'delete_post', 'update_terms_tax_combo_on_delete', 0, 2 );
+
+function vue_get_terms_combos()
+{
+	/*if( $post->post_type == 'product' || $post->template == 'wc-shop' )
+	{*/
+		wp_vue_add_var('terms_combos', get_option( 'terms_combos', array() ) );
+	//}
+}
+add_action( 'vue_vars', 'vue_get_terms_combos' );

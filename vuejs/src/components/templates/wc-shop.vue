@@ -2,7 +2,6 @@
     <div class="section-wrap">
 		<ProductFilter/>
 		<div class="clear"></div>
-
 			<div class="image-shop">
 				<h3>Cafés</h3>
 				<h1>Nos Cafés</h1>
@@ -103,10 +102,14 @@ export default {
 			var $ = this.$
 
 			$('.filtre-container').animate({
+				top: '0',
 				left: '0',
+				backgroundColor : 'rgba(255,255,255,0.9)',
 				easing: 'easeInOutSine',
 				duration: 200,
 			});
+
+			// $('.filtre-container').css('background-color', 'rgba(255,255,255,0.9)');
 
 			$('#app').data('scrolling', 'filter')
 

@@ -62,30 +62,59 @@ function owy_get_product_cat_filters_lists_with_relations() {
 
 	if( $post->template == 'wc-shop' )
 	{
-		$terms = get_terms( 'product_cat', array(
-		    'hide_empty' => false,
-		));
+		$paged_product_category = get_field('paged_product_category', 'option');
 
-		foreach ($terms as $key => $term) 
+		if( $paged_product_category )
 		{
-			$relations = get_field( 'other_taxonomy_relation', 'product_cat_'.$term->term_id );
-			$relations_new_array = array();
+			$terms = get_terms( 'product_cat', array(
+			    'hide_empty' => false,
+			));
 
-			if( is_array( $relations ) )
+			foreach ($terms as $key => $term) 
 			{
-				foreach ($relations as $key_rel => $taxonomy) 
+				$relations = get_field( 'taxonomies_list', 'product_cat_'.$term->term_id );
+				$relations_new_array = array();
+				
+
+				if( is_array( $relations ) )
 				{
-					$relation_terms = get_terms( $taxonomy, array(
-					    'hide_empty' => false,
-					));
+					foreach ($relations as $key_rel => $taxonomy_field) 
+					{
 
-					$relations_new_array[$taxonomy]	= $relation_terms;
-				}	
+						$taxonomy = $taxonomy_field['other_taxonomy_relation'];
+
+						$relation_terms = get_terms( $taxonomy, array(
+						    'hide_empty' => false,
+						));
+
+						if( is_array( $relation_terms ) )
+						{
+							foreach ($relation_terms as $key_term => $term) 
+							{
+								$relation_terms[$key_term]->selected = false;
+								$relation_terms[$key_term]->disabled = false;
+							}	
+						}
+
+						$relations_new_array[] = array(
+							'label' => get_taxonomy( $taxonomy )->label,
+							'slug' => $taxonomy,
+							'terms' => $relation_terms
+						);
+
+						//$relations_new_array[$taxonomy]	= $relation_terms;
+					}	
+				}
+				
+
+				$terms[$key]->relations = $relations_new_array;
 			}
-			
 
-			$terms[$key]->relations = $relations_new_array;
+			$relations = $terms;
+
+			wp_vue_add_var('product_cat_child', $relations );
 		}
+
 
 		$include_filters = get_field('include_in_filtering', 'option');
 		$shop_filter = array();
@@ -104,7 +133,6 @@ function owy_get_product_cat_filters_lists_with_relations() {
 						$terms[$key_term]->disabled = false;
 					}	
 				}
-				
 
 				$shop_filter[] = array(
 					'label' => get_taxonomy( $filter['tax_filter_in'] )->label,
@@ -113,7 +141,7 @@ function owy_get_product_cat_filters_lists_with_relations() {
 				);
 			}
 			wp_vue_add_var('shop_filter', $shop_filter );
-			wp_vue_add_var('product_cat_filters_extended', $terms );	
+			
 		}
 	}
 }

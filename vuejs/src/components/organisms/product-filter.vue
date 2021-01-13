@@ -3,7 +3,7 @@
 		<div class="filtre-container">
 			<div class="lists-filter-taxonomie">
 				<header class="collection-filter__header">
-					<h2 class="collection-filter__title">FILTRERS</h2>
+					<h2 class="collection-filter__title">Filters</h2>
 					<p class="collection-filter__description">
 					Select one or more filters from the options below.
 					</p>
@@ -90,7 +90,9 @@
 
 		data(){
 			return {
-				shop_filter: [],
+				location: window.location.href,
+				shop_filter: {},
+				product_cat_child: [],
 				terms_combos: {},
 				selecteds: {},
 			}
@@ -98,22 +100,16 @@
 
 		props: {
 			'post' : Object,
-			'posts' : Array
+			'posts' : Array,
+			'product_cat' : String
 		},
 
 		mounted(){
 
-			this.shop_filter = this.$store.state.wp.shop_filter
-			this.terms_combos = this.$store.state.wp.terms_combos
-
-			console.log( 'wc-filter', this.shop_filter );
-
-			console.log( 'wc-filter', this.terms_combos);
+			var $ = this.$			
 
 			this.$emit('template_mounted', this);
-
-			var $ = this.$
-
+			
 			$('.icon-santos').click(function() {
 
 				var contenair_globale = ''
@@ -137,30 +133,38 @@
 
 			});
 
-
-			/*$('.collection-filter__item').click(function() {
-
-				if ($(this).hasClass('selected')) {
-
-					$(this).removeClass('selected')
-
-						$(this).find('.collection-filter__item-check-mark').fadeTo( "fast" , 0, function() {
-						});
-
-				}
-
-				else{
-
-					$(this).addClass('selected')
-
-					$(this).find('.collection-filter__item-check-mark').fadeTo( "fast" , 1, function() {
-				
-					});
-				
-				}
-			});*/
 		},
+		watch: {
+			'$store.state.wp': function() {
 
+				var $ = this.$
+
+				this.product_cat_child = this.$store.state.wp.product_cat_child
+
+				var current_url = new URL(location.href).searchParams;
+				var filter_taxonomy = current_url.get('filter-taxonomy');
+				var product_cat = current_url.get('product_cat');
+
+				if( filter_taxonomy && product_cat && this.product_cat_child)
+				{
+					$.each(this.product_cat_child, (index, child_tax) => {
+						if( child_tax.slug == product_cat )
+						{
+							this.shop_filter = child_tax.relations					
+						}					
+					});
+				}
+				else
+				{
+					this.shop_filter = this.$store.state.wp.shop_filter
+				}
+
+				this.terms_combos = this.$store.state.wp.terms_combos
+
+
+				console.log( 'wc-filter', this.shop_filter, this.product_cat );
+			}
+		},
 		methods: {
 
 			close_filter: function(){
@@ -185,9 +189,7 @@
 			click_term: function(term){
 
 				let $ = this.$
-				//find combo
-				console.log(term.term_id, this.terms_combos);
-
+				
 				if( term.selected == false && !term.disabled )
 				{
 					term.selected = true
@@ -202,8 +204,6 @@
 				}
 
 				let selectables = {};
-				
-				console.log( 'selecteds 1', this.selecteds, Object.keys(this.selecteds).length  );
 
 				$.each(this.terms_combos, (terms_str) => {
 					let ids = terms_str.split('-')
@@ -242,13 +242,8 @@
 							term.disabled = true
 						}
 					});
-				});
-
-				console.log( 'selecteds', this.selecteds, selectables );		
-			}
-
-
-	
+				});	
+			}	
 		}
 
 	}
@@ -256,7 +251,7 @@
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 	
 	@media only screen and (min-width: 1101px){
 
@@ -754,6 +749,7 @@
 		height: 100vh;
 		width: 100%;
 		position: fixed;
+		left: -100%;
 		z-index: 10000;
 		background-color: rgba(255,255,255,0.9);
 		transition: left .1s ease-in-out, opacity .3s ease .4s;

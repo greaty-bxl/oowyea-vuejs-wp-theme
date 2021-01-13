@@ -178,7 +178,8 @@ export default {
 
             animate_next_page( this, event.href, () => {
               
-              
+              console.log( 'test' );
+
               this.classes['current'] = wp.body_class
               this.pages['current'] = wp.sections
 

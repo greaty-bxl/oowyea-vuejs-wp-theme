@@ -538,6 +538,13 @@ function scrollSection(vue){
 			listeners: {
 				move (event) {
 
+					let is_scrolling_by_what = $('#app').data('scrolling')
+					//console.log( 'scroll', find_current_section() );
+					if( is_scrolling_by_what )
+					{
+						return false;
+					}
+
 					if( event.dy > 0 )
 					{
 						dragSens = 1

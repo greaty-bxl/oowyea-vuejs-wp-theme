@@ -2,33 +2,29 @@
 	<div id="footer" class="section">
 		<div class="clear"></div>
 
-
 			<div class="contener-header">
 
-				<div v-html="this.wp.sidebars.footer_generale" ></div>
+				<div>
+					
+
+
+				</div>
+				
+				<div>
+
+					<!-- <div v-html="this.wp.sidebars.footer_generale" ></div> -->
+
+				</div>
+
+				<div>
+					
+
+				</div>
+
+				
 			
 			</div>
 
-<!-- <div>
-<h2>MAGASIN SANTOS PALACE BRUXELLES</h2>
-<br> Rue du Marché aux Poulets 3
-<br> 1000 – Bruxelles
-<br><a href="+32 2 512 39 53"> Tel.: +32 2 512 39 53</a><br><a href="mailto: info@santospalace.be">e-mail : info[at]santospalace.be</a> 
-</div>
-
-
-
-<div>
-<h2>SANTOS PALACE – SIÈGE BRUXELLES</h2>
-<br>Rue de Manchester 32-34
-<br>1080 – Bruxelles
-<br><a href="+32 2 410 44 75"> Tel.: +32 2 410 44 75</a><br><a href="+32 2 410 01 38"> Tel.: +32 2 410 01 38</a><br><a href="mailto: info@santospalace.be">e-mail : info[at]santospalace.be</a> 
-</div>
-
-
- -->
-
-	
 		<div class="clear"></div>
 	</div>
 </template>
@@ -36,8 +32,7 @@
 <script>
 
 	import smart_fonts from "Libs/smart-fonts.js"
-	// import Alpl from 'Molecules/animation-line-per-line';
-	// import anime from 'animejs/lib/anime.es.js';
+
 	export default {
 
 		components:{

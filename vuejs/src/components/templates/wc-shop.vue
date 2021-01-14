@@ -26,7 +26,7 @@
 								</div>
 
 									<div class="cadre">
-									<img class="image-product" src="http://santospalace.test/wp-content/uploads/2021/01/paquet-de-cafe-01.png">
+									<img class="image-product" v-bind:src="item.thumb">
 
 								</div>
 
@@ -81,7 +81,7 @@
 								</div>
 								<p class="flavour" >Notes : Floral et Epices</p>
 							</div>
-							<div class="price">22</div>
+							<div class="price"> 22 </div>
 						</div>
 
 						
@@ -114,8 +114,6 @@ export default {
 	mounted(){
 
 		console.log( 'wc-shop', this.post, this.posts);
-
-		//console.log( 'has_term', has_term(this.posts[0], 'product_cat', 'div-terms') );
 
 		smart_fonts({
 			'.titre-home' : 85 ,
@@ -188,6 +186,33 @@ export default {
 		font-family: open sans;
 	}
 
+	.global-container *{
+
+		font-family: open sans;
+	}
+
+	.div-grey{
+
+		background-color: #FAFAFA;
+		padding-bottom: 30px;
+
+	}
+
+	.image-product{
+
+	width: 100%;
+	}
+
+	.price {
+
+	    text-align: left;
+	    color: #422112;
+	    font-size: 15px;
+	    font-weight: 700;
+	    padding-top: 20px;
+
+	}
+	
 	.value-terms-thes{
 
 		color:#888320;
@@ -196,7 +221,6 @@ export default {
 	.thes{
 
 		border-bottom: 1px solid #dddddd;
-		/*margin: 20px;*/
 		margin-bottom:10px; 
 		margin-left:20px;
 		margin-right:20px;
@@ -284,7 +308,7 @@ export default {
 	}
 
 	.flavour{
-
+		font-size: 14px;
 		color: #666666;
 	}
 
@@ -353,17 +377,22 @@ export default {
 
 		.product-santos{
 
-			width: 24%;
+			width: 23%;
 			margin-top: 45px;
-			background-color: #FAFAFA;
 			padding-bottom: 35px;
+			display: inline-table;
+			margin-right: 1%;
+			margin-left: 1%;
+			
 		}
 
 		.parent-product{
 
 			display: flex;
-			justify-content: space-between;
-			width: 100%;
+			flex-wrap: wrap;
+			justify-content: center;
+			width: 102%;
+			margin-left: -1%;
 
 		}
 
@@ -556,9 +585,7 @@ export default {
 		.product-santos{
 
 			width: calc( 100% - 56px);
-			/*padding-top: 30px;	*/
 			padding-bottom: 30px;
-			background-color: #FAFAFA;
 			margin: 30px auto;
 		
 		}

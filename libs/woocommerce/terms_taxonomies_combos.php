@@ -5,9 +5,9 @@ function check_other_term_availabilities(){
 
 	if( !is_admin() )
 	{
-		/*echo "<pre>";
+		echo "<pre>";
 		print_r( get_option( 'terms_combos', array() ) );
-		exit();*/
+		exit();
 	}
 }
 //add_action( 'wp', 'check_other_term_availabilities' );
@@ -44,18 +44,25 @@ function update_terms_tax_combo($post_ID, $post)
 		if( $post->post_status == 'publish' )
 		{
 
-			$taxonomies = array();//get_taxonomies();
+			/*$taxonomies = array();//get_taxonomies();
 			$acf_filters = get_field('include_in_filtering', 'option');
 			
 			//$include_tax = array();
 			foreach ($acf_filters as $key => $filter) 
 			{
+				echo "<pre>";
+				print_r( $filter );
+				echo "<hr/>";
 				$taxonomies[$filter['tax_filter_in']] = $filter['tax_filter_in'];
-			}
-			echo "<pre>";
+			}*/
+			
+			$taxonomies = get_taxonomies();
+
+			/*echo "<pre>";
 			print_r( $taxonomies );
 			echo "<hr/>";
 
+			exit();*/
 
 			ksort($taxonomies);
 			$new_combo = array();
@@ -93,6 +100,9 @@ function update_terms_tax_combo($post_ID, $post)
 				print_r( $terms_combos );
 			}
 		}
+
+		//exit();
+
 		update_option( 'terms_combos', $terms_combos, true );
 	}
 }

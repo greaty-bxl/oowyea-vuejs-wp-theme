@@ -67,7 +67,7 @@ function owy_get_product_cat_filters_lists_with_relations() {
 		if( $paged_product_category )
 		{
 			$terms = get_terms( 'product_cat', array(
-			    'hide_empty' => false,
+			    //'hide_empty' => false,
 			));
 
 			foreach ($terms as $key => $term) 
@@ -84,7 +84,7 @@ function owy_get_product_cat_filters_lists_with_relations() {
 						$taxonomy = $taxonomy_field['other_taxonomy_relation'];
 
 						$relation_terms = get_terms( $taxonomy, array(
-						    'hide_empty' => false,
+						    //'hide_empty' => false,
 						));
 
 						if( is_array( $relation_terms ) )

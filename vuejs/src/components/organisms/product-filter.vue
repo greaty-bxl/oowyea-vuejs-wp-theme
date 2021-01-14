@@ -37,13 +37,13 @@
 
 								<li class="collection-filter__item" 
 									v-for="(term, term_index) in taxonomy.terms" :key="term_index"
-									v-on:click="click_term(term)"
+									v-on:click="select_term(term)"
 									v-bind:class="{'selected': term.selected, 'disabled': term.disabled}"
 									>
 									
 									<div class="hover">
 
-											<span class="label-content" v-html="term.name + ' (' + term.term_id + ') '+ term.disabled"></span>
+											<span class="label-content" v-html="term.name"></span>
 
 											<span class="collection-filter__item-check-mark">
 
@@ -69,12 +69,12 @@
 
 				<footer class="collection-filter__footer">
 
-					<button class="collection-filter__clear">
+					<button class="collection-filter__clear" v-on:click="clear_selection">
 
 					Clear All <span class="small--hide">Selections</span>
 
 					</button>
-					<button class="collection-filter__done button-santos-vert" v-on:click="close_filter">Done</button>
+					<a :href="done_url" class="collection-filter__done button-santos-vert" v-on:click="done">Done</a>
 				</footer>
 				
 
@@ -86,15 +86,55 @@
 
 <script>
 	
+	function url_search_to_object( search )
+	{
+
+		if( !search )
+		{
+			return {}
+		}		
+
+		let $ = window.jquery
+
+		let search_object = {};
+
+		$.each(search.substr(1).split('&'), function(index, result) {
+			let result_split = result.split('=');
+			let regex_array = /\[[0-9]+\]/g
+			let match_array = result_split[0].match(regex_array)
+			if( match_array == null)
+			{
+				search_object[result_split[0]] = result_split[1]
+			}
+			else
+			{
+				let regex_key = /[0-9]+/g
+				let key = match_array[0].match(regex_key)
+				if( key !== null )
+				{
+					let result_no_key = result_split[0].replace(match_array[0], '')
+					if( !Array.isArray( search_object[result_no_key] ) )
+					{
+						search_object[result_no_key] = []
+					}
+					search_object[result_no_key][key] = result_split[1]
+				}
+			}
+		});
+		
+		return search_object
+	}
+
 	export default {
 
 		data(){
 			return {
-				location: window.location.href,
 				shop_filter: {},
 				product_cat_child: [],
 				terms_combos: {},
 				selecteds: {},
+				done_url: window.location,
+				base_query: '?filter-taxonomy=1'
 			}
 		},
 
@@ -136,17 +176,22 @@
 		},
 		watch: {
 			'$store.state.wp': function() {
+				
+				this.clear_selection()
 
 				var $ = this.$
 
 				this.product_cat_child = this.$store.state.wp.product_cat_child
 
-				var current_url = new URL(location.href).searchParams;
-				var filter_taxonomy = current_url.get('filter-taxonomy');
-				var product_cat = current_url.get('product_cat');
+				var current_url = new URL(location.href)
+				var current_params = current_url.searchParams;
+
+				var filter_taxonomy = current_params.get('filter-taxonomy');
+				var product_cat = current_params.get('product_cat');
 
 				if( filter_taxonomy && product_cat && this.product_cat_child)
 				{
+					this.base_query = '?filter-taxonomy=1&product_cat='+product_cat
 					$.each(this.product_cat_child, (index, child_tax) => {
 						if( child_tax.slug == product_cat )
 						{
@@ -159,13 +204,107 @@
 					this.shop_filter = this.$store.state.wp.shop_filter
 				}
 
+				if( current_url.search )
+				{
+					let url_selection = url_search_to_object( current_url.search );
+					$.each(url_selection, (tax_slug, selections) => {
+						if( !Array.isArray( selections ) )
+						{
+							selections = [selections]
+						}
+						if( tax_slug != 'filter-taxonomy' ){
+							$.each(this.shop_filter, (shop_filter_index, shop_filter_val) => {
+								if( shop_filter_val.slug == tax_slug )
+								{
+									$.each(shop_filter_val.terms, (index_term, val_term) => {
+										if( selections.includes( val_term.slug ) )
+										{
+											this.select_term( val_term )
+											console.log( val_term.term_id )
+										}
+										
+									});
+									console.log( 'current_params', tax_slug, selections )
+								}
+							});
+						}
+						
+					});
+
+					console.log( 'url_selection', url_selection );
+				}				
+
+				
+
+				/*
+				*/
 				this.terms_combos = this.$store.state.wp.terms_combos
 
 
-				console.log( 'wc-filter', this.shop_filter, this.product_cat );
 			}
 		},
 		methods: {
+
+			done: function(){
+				
+				console.log( this.selecteds );
+
+				if( Object.keys(this.selecteds).length > 0 )
+				{
+					let $ = this.$
+					let query_url = {}
+					let query_string = this.base_query
+					let selecteds_arr = Object.values(this.selecteds)
+
+					$.each(this.shop_filter, (index_tax, tax) => {
+						$.each(tax.terms, (index_term, term) => {
+							
+							if( selecteds_arr.includes(term.term_id) ){
+								if( !Array.isArray( query_url[tax.slug] ) )
+								{
+									query_url[tax.slug] = []
+								}
+								let new_key = query_url[tax.slug].length
+
+								query_url[tax.slug][new_key] = term.slug
+
+								query_string += '&' + tax.slug + '[' + new_key + ']=' + term.slug
+							}
+						});
+						
+					});
+
+					
+					var current_url = new URL(location.href);
+					var new_url = current_url.origin + current_url.pathname + query_string
+					//open_link({}, new_url, true)
+					this.done_url = new_url
+					console.log('new_url',new_url);
+				}
+
+				this.close_filter()
+			},
+
+			clear_selection: function(){
+				console.log('clear_selection', this.shop_filter)
+
+				let $ = this.$
+
+				$.each(this.shop_filter, function(index, tax) {
+					$.each(tax.terms, function(index, term) {
+						term.selected = false
+						term.disabled = false
+					});
+				});
+
+				this.selecteds = {}
+
+				var current_url = new URL(location.href);
+				var new_url = current_url.origin + current_url.pathname + this.base_query
+				//open_link({}, new_url, true)
+				this.done_url = new_url
+
+			},
 
 			close_filter: function(){
 
@@ -186,7 +325,7 @@
 
 			},
 
-			click_term: function(term){
+			select_term: function(term){
 
 				let $ = this.$
 				

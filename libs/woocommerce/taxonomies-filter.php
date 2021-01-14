@@ -62,10 +62,38 @@ function owy_get_product_cat_filters_lists_with_relations() {
 
 	if( $post->template == 'wc-shop' )
 	{
+		$shop_header = array(
+			'intro_text' => '',
+			'label' => $post->post_title,
+			'slug' => $post->post_name,
+			'img' => '',
+		);
+
+		if( $_GET['product_cat'] && !is_array( $_GET['product_cat'] ) )
+		{
+			$current_term = get_term_by( 'slug', $_GET['product_cat'], 'product_cat' );
+
+			// get the thumbnail id using the queried category term_id
+			$thumbnail_id = get_term_meta( $current_term->term_id, 'thumbnail_id', true ); 
+
+			// get the image URL
+			$image = wp_get_attachment_url( $thumbnail_id ); 
+
+			$shop_header = array(
+				'intro_text' => '',
+				'label' => $current_term->name,
+				'slug' => $current_term->slug,
+				'img' => $image,
+			);
+		}
+
+		wp_vue_add_var('shop_header', $shop_header );
+
 		$paged_product_category = get_field('paged_product_category', 'option');
 
 		if( $paged_product_category )
 		{
+
 			$terms = get_terms( 'product_cat', array(
 			    //'hide_empty' => false,
 			));

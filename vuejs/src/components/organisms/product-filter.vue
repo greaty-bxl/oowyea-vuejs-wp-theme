@@ -18,7 +18,7 @@
 					
 					<div class="coll-filters">
 
-						<div class="collection-filter__list-wrapper" v-for="(taxonomy, index) in $store.state.wp.shop_filter" :key="index">
+						<div class="collection-filter__list-wrapper" v-for="(taxonomy, index) in shop_filter" :key="index">
 							<h3 class="collection-filter__list-title">
 								
 								<p class="title-filter" v-html="taxonomy.label"></p>
@@ -234,10 +234,10 @@
 						
 					});
 
-					console.log( 'url_selection', url_selection );
+					
 				}				
 
-				
+				console.log( 'shop_filter', this.shop_filter );
 
 				/*
 				*/
@@ -854,6 +854,10 @@
 
 	}
 
+	.collection-filter__item.disabled .hover{
+		opacity: 0.3;
+	}
+
 
 
 	.hover:hover span{
@@ -877,6 +881,11 @@
 	.collection-filter__item-check-mark{
 
 		opacity: 0;
+	}
+
+	.selected .collection-filter__item-check-mark{
+
+		opacity: 1;
 	}	
 
 	.collection-filter__list-wrapper *{
@@ -962,14 +971,6 @@
 		background-color: #ffffff;
 
 	}
-
-	.disabled{
-
-		opacity: 0.3;
-		pointer-events: none;
-
-	}
-
 
 	* :focus {
 

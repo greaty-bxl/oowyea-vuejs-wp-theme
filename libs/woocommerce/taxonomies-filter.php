@@ -94,10 +94,22 @@ function owy_get_product_cat_filters_lists_with_relations() {
 		{
 			foreach ($include_filters as $key => $filter) 
 			{
+				$terms = get_terms( array('taxonomy'=> $filter['tax_filter_in'] ) );
+
+				if( is_array( $terms ) )
+				{
+					foreach ($terms as $key_term => $term) 
+					{
+						$terms[$key_term]->selected = false;
+						$terms[$key_term]->disabled = false;
+					}	
+				}
+				
+
 				$shop_filter[] = array(
 					'label' => get_taxonomy( $filter['tax_filter_in'] )->label,
 					'slug' => $filter['tax_filter_in'],
-					'terms' => get_terms( array('taxonomy'=> $filter['tax_filter_in'] ) )
+					'terms' => $terms
 				);
 			}
 			wp_vue_add_var('shop_filter', $shop_filter );

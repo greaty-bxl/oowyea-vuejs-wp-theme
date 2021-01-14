@@ -16,8 +16,6 @@ include GREATY_TEMPLATE_PATH.'/libs/fromagerie/les-pains.php';
 
 include GREATY_TEMPLATE_PATH.'/libs/fromagerie/appareil.php';
 
-include GREATY_TEMPLATE_PATH.'/libs/fromagerie/count.php';
-
 include GREATY_TEMPLATE_PATH.'/libs/fromagerie/send-email-contact.php';
 
 include GREATY_TEMPLATE_PATH.'/libs/fromagerie/send-email-assortisement.php';

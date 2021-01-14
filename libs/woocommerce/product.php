@@ -38,15 +38,12 @@ function woocommerce_product_vars( $posts ) {
 		if( $child->post_type == 'product' )
 		{
 			$product = wc_get_product($child->ID);
-
-			/*echo "<pre>";
-			print_r( $product->data );
-			exit();*/
-			//make the current child as main post to let shortcode working correctly	
 			$post = $child;
 			$posts[$key2]->price = do_shortcode( '[owy_woo_price]' );
 			$posts[$key2]->sold_out = do_shortcode( '[owy_woo_sold_out_badge]' );
+			$posts[$key2]->add_to_cart= do_shortcode( '[owy_woo_add_to_cart]' );
 			$posts[$key2]->is_in_stock = $product->is_in_stock();
+
 		}
 	}	
 

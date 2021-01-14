@@ -1,9 +1,10 @@
 .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
 
-	background-color: #70625B !important;
+	background-color: #888320 !important;
 	color: white !important;
-	margin-top: 35px !important;
-	border: solid #70625B !important;
+	/*margin-top: 35px !important;*/
+	border: solid #888320 !important;
+	border-radius: 3px !important;
 	border-width: 1px !important;
 	min-width: 200px  !important;
 	width: 40% !important;
@@ -16,9 +17,9 @@
 .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
 
 	background-color: white !important;
-	color: #70625B !important;
-	transition: 200 !important;
-
+	color: #888320 !important;
+	transition: 0.3s !important;	
+	
 }
 
 .woocommerce-error{

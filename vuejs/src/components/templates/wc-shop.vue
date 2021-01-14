@@ -23,41 +23,65 @@
 							<div class="div-grey">
 								<div>
 									
-
 								</div>
 
 									<div class="cadre">
 									<img class="image-product" src="http://santospalace.test/wp-content/uploads/2021/01/paquet-de-cafe-01.png">
 
 								</div>
+
 								<p class="title-product" v-html="item.post_title"></p>
-								<div class="cafes" v-if="has_term(item, 'product_cat', 'cafes')">
+
+								<div class="div-terms" v-if="has_term(item, 'product_cat', 'cafes')">
 									
 									<div class="parent-taxonomie-info">
 										<p class="titre-taxonomie">Intensité</p>
 										<div class="valeur-taxonomie" >
 											<div v-for="count_intesity in 5" :key="count_intesity" 
-											v-bind:class="{ filled: isFilled_intesity(item, count_intesity) }">
+											v-bind:class="{ filled: isFilled( item, count_intesity, 'intensity' ) }">
 											</div>
 										</div>
 									</div>
+									
+								</div>
 
+								<div class="div-terms" v-if="has_term(item, 'product_cat', 'cafes')">
+									
 									<div class="parent-taxonomie-info">
-										<p class="titre-taxonomie">Intensité</p>
+										<p class="titre-taxonomie">Acidité</p>
 										<div class="valeur-taxonomie" >
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
+											<div v-for="acidity_points in 5" :key="acidity_points" 
+											v-bind:class="{ filled: isFilled( item, acidity_points, 'acidity' ) }">
+											</div>
 										</div>
 									</div>
-									<p class="flavour" >Notes : Floral et Epices</p>
-
-
+									
 								</div>
+
+								<div class="div-terms thes" v-if="has_term(item, 'product_cat', 'thes')">
+									
+									<div class="parent-taxonomie-info parent-taxonomie-info-thes">
+										<p class="titre-taxonomie">Thé</p>
+										<div class="valeur-taxonomie" >
+											<p class="value-terms-thes">Noir</p>
+										</div>
+									</div>
+									
+								</div>
+
+								<div class="div-terms thes" v-if="has_term(item, 'product_cat', 'thes')">
+									
+									<div class="parent-taxonomie-info parent-taxonomie-info-thes">
+										<p class="titre-taxonomie">Thé</p>
+										<div class="valeur-taxonomie" >
+											<p class="value-terms-thes">Noir</p>
+										</div>
+									</div>
+									
+								</div>
+								<p class="flavour" >Notes : Floral et Epices</p>
 							</div>
-							<div class="price" ></div>
+							<div class="price">22</div>
 						</div>
 
 						
@@ -89,9 +113,9 @@ export default {
 
 	mounted(){
 
-		//console.log( 'wc-shop', this.post, this.posts);
+		console.log( 'wc-shop', this.post, this.posts);
 
-		//console.log( 'has_term', has_term(this.posts[0], 'product_cat', 'cafes') );
+		//console.log( 'has_term', has_term(this.posts[0], 'product_cat', 'div-terms') );
 
 		smart_fonts({
 			'.titre-home' : 85 ,
@@ -125,18 +149,16 @@ export default {
 
 		has_term,
 
-		isFilled_intesity: function(post, count){
+		isFilled: function(post, count, keyword){
 
-			if( post.terms.intensity )
-			{
-				if( post.terms.intensity[0].fields.intensity_points >= count )
+				if( post.terms[keyword] ) 
 				{
-					return true
-				}	
+					if( post.terms[keyword][0].fields[keyword+'_points'] >= count )
+					{
+						return true
+					}	
+				}
 			}
-			
-			//console.log('isFilled', post.terms.intensity[0].fields.intensity_points);
-		}
 	}
 
 }
@@ -164,10 +186,25 @@ export default {
 		font-family: open sans;
 	}
 
-/*	.filtre-container{
+	.value-terms-thes{
+
+		color:#888320;
+	}
+
+	.thes{
+
+		border-bottom: 1px solid #dddddd;
+		/*margin: 20px;*/
+		margin-bottom:10px; 
+		margin-left:20px;
+		margin-right:20px;
+
+	}
+
+	.filtre-container{
 
 		left: -100%;
-	}*/
+	}
 
 	.image-shop{
 
@@ -215,6 +252,7 @@ export default {
 
 	}
 
+
 	.titre-taxonomie{
 		font-weight: 700;
 		color: #666666;
@@ -246,6 +284,16 @@ export default {
 	.flavour{
 
 		color: #666666;
+	}
+
+	.parent-taxonomie-info-thes{
+		font-weight: 600;
+	
+	}
+
+	.value-terms-thes{
+		font-size: 14px;
+		line-height: 14px;
 	}
 
 	@media screen and (min-width: 1100px){
@@ -333,6 +381,12 @@ export default {
 			margin-bottom: 20px;
 		}
 
+		.parent-taxonomie-info-thes{
+
+			margin-bottom: 10px !important;
+		
+		}
+
 	}
 
 	@media screen and (max-width: 1100px){
@@ -375,6 +429,19 @@ export default {
 
 	@media only screen and (max-width: 1100px) and (min-width: 600px){
 
+		.parent-taxonomie-info-thes{
+
+			margin-left: 0px !important;
+			margin-right:  0px !important;
+			width: 100%;
+			margin-bottom: 10px !important;
+
+		}
+		.thes{
+
+			margin-left: 10%;
+			margin-right: 10%;
+		}
 
 		.title-product{
 
@@ -414,10 +481,6 @@ export default {
 			margin-right: auto;
 		}
 
-/*		.global-container{
-
-
-		}*/
 
 		.cadre{
 
@@ -428,9 +491,7 @@ export default {
 
 			width: 40% ;
 			background-color: #FAFAFA;
-/*			height: 40vh;*/
 			margin-top: 40px;
-			/*padding-top: 35px;*/
 			padding-bottom: 35px;
 		}
 

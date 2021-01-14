@@ -47,7 +47,7 @@ import Header from 'Organisms/header-dropdown.vue'
 
 
 //Footer
-import Footer from 'Organisms/footer-fromagerie.vue'
+import Footer from 'Organisms/footer-santos-palace.vue'
 
 import GpdrIntro from 'Molecules/gpdr-intro.vue'
 

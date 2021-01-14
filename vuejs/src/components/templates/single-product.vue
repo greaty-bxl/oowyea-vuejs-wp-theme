@@ -16,33 +16,54 @@
 					</div>
 					<div class="single-text"> 
 						<h2 class="open-sans title-single-santospalace" v-html="post.post_title">Colis</h2>
-
-						<div v-html="post.acf_fields.list_colis" class="list-colis">
-						</div>
-						<div>				
-							<p v-html="post.price" class="price-single open-sans"> </p>
-							<p v-html="post.sold_out" class="price-single open-sans"> </p>
-							<p>Taxes incluses</p>
-						</div>
+						<p class="approximate-price"><span v-html="post.price"  ></span></p>
 
 						<div>
-							<p>Retrait en magasin</p>
-						</div>
+							
+							<div class="description-padding">
+								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
+									<div class="parent-taxonomie-info-single">
+										<p class="titre-taxonomie">Intensité</p>
+										<div class="valeur-taxonomie" >
+											<div v-for="count_intesity in 5" :key="count_intesity" 
+											v-bind:class="{ filled: isFilled(post, count_intesity, 'intensity') }">
+											</div>
+										</div>
+									</div>
+								</div>
 
-						<div>
-							<p class="commande-prete"> Si vous commandez après <strong>19h30</strong>, votre commande sera prête le <strong>surlendemain</strong>.</p>
+								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
+									<div class="parent-taxonomie-info-single">
+										<p class="titre-taxonomie">Acidité</p>
+										<div class="valeur-taxonomie"  >
+											<div v-for="acidity_points in 5" :key="acidity_points" 
+											v-bind:class="{ filled: isFilled(post, acidity_points, 'acidity') }">
+											</div>
+										</div>
+									</div>
+									
+								</div>
+
+								<div>
+									<p class="flavour" >Notes : Floral et Epices</p>
+								</div>
+								
+								<div>
+									<p class="descriptif">Mélange subtil de Santos Brésilien doux et d’Haïti au goût puissant des hauts plateaux de l’Amérique Central, vous donnerons un compromis entre force et douceur..</p>
+								</div>
+							</div>
+
+						
+
 						</div>
+						
 
 									
 						<div class="div-parent-icons" v-html="this.wp.payment_methods_images">
 							
 						</div>
 
-						<div v-if="post.is_in_stock">				
-							<p class="nbrpersonne">Nombre de personnes :</p>	
-						</div>
-
-						<div v-if="post.is_in_stock" class="button-contener" v-html="add_to_cart">
+						<div v-if="post.is_in_stock" class="button-contener" v-html="post.add_to_cart">
 
 						</div>
 						
@@ -57,6 +78,7 @@
 </template>
 
 <script>
+	import {has_term} from 'Libs/wp-functions.js'
 	export default {
 		components: {
 			
@@ -65,28 +87,43 @@
 			'post' : Object
 		},
 		mounted (){
-			var $ = this.$
+			// var $ = this.$
 
 			// $('.retour').html('[add_to_cart id="99"]')
-			/*console.log( this.$store.state.wp.cart );
-			console.log( this.wp);*/
+			console.log( this.$store.state.wp.cart );
+			console.log( this.post.terms.acidity[0].fields.acidity_points);
 
 		// $('nav').css('background-color', 'white');
 			
 			console.log(this.wp.payment_methods_images);
 
-			if ( this.post.terms[0].slug === "plateau-fromage" ) 
-			{
-				console.log('');
-			}
-			else
-			{
-				$('.nbrpersonne').html("Quantité")
-			}
+			// if ( this.post.terms[0].slug === "plateau-fromage" ) 
+			// {
+			// 	console.log('');
+			// }
+			// else
+			// {
+			// 	$('.nbrpersonne').html("Quantité")
+			// }
 
 			console.log(this.post);
 			
 			this.$emit('template_mounted')
+		},
+		methods: {
+
+			has_term,
+
+			isFilled: function(post, count , keyword){
+
+			if( post.terms[keyword] ) 
+					{
+						if( post.terms[keyword][0].fields[keyword+'_points'] >= count )
+						{
+							return true
+						}	
+					}
+			}
 		},
 		computed: {
 			add_to_cart () {
@@ -104,17 +141,47 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
+	.woocommerce img, .woocommerce-page img{
+
+		max-width: auto !important;
+	}
+
+	.valeur-taxonomie{
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+	}
+
+	.div-parent-icons img{
+
+		border: none;
+	}
 	
+	.valeur-taxonomie div{
+
+		border: 1px solid #888320;
+		border-radius: 100%;
+		height: 10px;
+		width: 10px;
+		margin-left: 11px; 
+
+	}
+
+	.valeur-taxonomie div.filled{
+		background-color: #888320;
+	}
 
 	.wc-stripe-card-icon{
 
-		 margin-right: 2px;
+		margin-right: 2px;
 	}
 
-	.commande-prete{
-		font-style: italic;
+	.descriptif{
+
 		font-size: 14px !important;
-		margin-top: 15px !important;
+		/*margin-top: 15px !important;*/
 	}
 	#header{
 
@@ -134,7 +201,7 @@
 	}
 	
 	.button-contener{
-		padding-top: 0 !important;
+		/*padding-top: 0 !important;*/
 		display: flex;
 		flex-direction: column;
 
@@ -144,6 +211,12 @@
 		width: 100%;
 		
 		padding: 20px 0px !important;
+	}
+
+	.input-text{
+
+		border: 1px solid #808080 !important;
+		color: #808080;
 	}
 
 	.button-contener p{
@@ -162,21 +235,8 @@
 		margin-bottom: 15px !important;
 	}
 
-/*	input:focus {
-		color: #70625b !important;
-	}
-*/
-/*	button:focus {
-		color: #70625b !important;
-	}*/
-
 	*:focus {
 		outline: none !important;
-	}
-
-	.woocommerce-page img{
-
-		width: 50px;
 	}
 
 
@@ -201,7 +261,8 @@
 	}
 	.image-single{
 
-		/*height: auto !important;*/
+		margin-top: auto;
+		margin-bottom: auto;
 		width: 40vw  !important;
 		min-width: 300px;
 	}
@@ -209,19 +270,24 @@
 	.single-text p{
 
 		margin: 0px;
-		/*padding-top: 16px;*/
+
 	}
 
 
-	.single-text div{
+	.single-text > *{
 
-		/*margin: 0px;*/
-		padding-top: 16px;
+		font-family: 'open sans';
+		padding-top: 30px;
+	}
+
+	.description-padding > *{
+
+		padding-top: 20px;
 	}
 
 	.single-text{
 
-		padding-left: 5vh;
+		padding-left: 10vh;
 	}
 	.single-text p {
 
@@ -266,15 +332,34 @@
 	}
 
 	.title-single-santospalace{
-
-		font-size: 25px !important;
+		padding: 0px 0px 0px 0px;
+		margin: 0px;
+		font-size: 50px !important;
 		color: #422112;
 	}
 
+	.approximate-price{
+		display: flex;
+		color: #808080;
+	}
+
+	.approximate-price span{
+
+		color: #422112;
+		font-weight: bold;
+	}
+
+	.price{
+
+		margin-left: 10px;
+
+	}
+
 	.content-single input{
-		margin-top: 5px;
-		height: 30px;
-		width: 30%;
+
+		/*margin-top: 5px;*/
+		/*height: 30px;*/
+		/*width: 30%;*/
 	}
 
 	.single-text div p:nth-child(2){
@@ -302,19 +387,17 @@
 		border: none;
 		background-color: white;
 		text-decoration-line: none;
-		color: #70625B !important;
+		color: #888320 !important;
 		padding-left: 0px;
 
 	}
-
-
 	.woocommerce .quantity .qty{
 
 		width: 70px !important;
-		padding-top: 7px;
-		padding-bottom: 7px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		font-size: 16px;
 	}
-
 	.quantity{
 
 		padding-top: 0px !important;
@@ -325,6 +408,8 @@
 
 		background-color: #FAFAFA;
 		padding: 30px 50px;
+		height: 50vh;
+		display: flex;
 	}
 
 	.contenu-single{
@@ -333,11 +418,56 @@
 		flex-direction: row;
 	}
 
-	
+	.button-contener form{
+
+		display: flex;
+		flex-direction: column;
+	}
+
+	.button-contener input{
+
+		margin-right: 15px;
+	}
+
+	.parent-taxonomie-info-single{
+
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		
+	}
+
+	.single-text div:first-child{
+
+		padding-top: 0px;
+	}
+
+	.cafes{
+
+		padding-top: 15px;
+	}
+
+	@media screen and (min-width: 1100px){
+
+		.parent-taxonomie-info-single{
+			/*width: 50%;*/
+			max-width: 250px;
+		}
+	}
 
 
 
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
+
+
+		.single-text > *{
+			padding-top: 30px;
+		}
+
+		.parent-taxonomie-info-single{
+			max-width: 150px;
+			max-width: 200px;
+		}
 
 		.content-single{
 
@@ -349,37 +479,50 @@
 
 		.single-text{
 
-		padding-left: 0;
-		padding-top: 5vh;
+			padding-top: 5vh;
+			padding-left: 0px;
 
 		}
 
 		.image-single {
 			min-width: auto !important;
 			width: 80vw !important;
+			margin-top: auto;
+			margin-bottom: auto;
 		}
 
-		.single-text div{
-
-
-			padding-top: 20px;
-		}
 		.button-contener p{
 
 			width: 50%;
-			/*padding: 10px 0px;*/
-
 		}
 
-		.content-single{
-
-			margin-left: 70px;
-			margin-right: 70px;
+		.contenu-single {
+			display: flex;
+			flex-direction: column;
 		}
 
 	}
 
 	@media screen and (max-width: 600px){
+
+
+		.single-text > *{
+
+			padding-top: 30px;
+
+		}
+
+		.contenu-single{
+
+			flex-direction: column;
+
+		}
+
+		.div-image-single{
+
+			padding: 0px;
+
+		}
 
 		.content-single{
 
@@ -431,17 +574,11 @@
 		border-radius: 0 !important;
 	}
 
-/*	.page
-	{
-
-	min-height: auto; 
-	}
-*/
-
-
 </style>
 
 <style scoped>
+
+
 
 	.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
 

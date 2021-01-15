@@ -105,7 +105,7 @@
 
 			$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
 
-			$('.quantity [name="quantity"]').on('change keyup', (event) => {
+			$('.quantity [name="quantity"], select').on('change keyup', (event) => {
 				this.quantity = $(event.currentTarget).val()
 				this.change_price_tot()
 			});

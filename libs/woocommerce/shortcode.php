@@ -90,9 +90,6 @@ function owy_woo_price( $atts ) {
 	global $product;
 	$product = wc_get_product($post->ID);
 
-	/*echo "<pre>";
-	print_r( $product );*/
-	
 	if( is_object( $product ) )
 	{
 		ob_start();
@@ -107,7 +104,35 @@ function owy_woo_price( $atts ) {
 		</style>
 		<?php
 		?><div class="mtw-woo-price"><?php
-		woocommerce_get_template( 'loop/price.php' );
+		if( ! $product->is_type('variable') )
+		{
+			woocommerce_get_template( 'loop/price.php' );
+		}
+		// For variable products    
+		else 
+		{
+			$min_price = $product->get_variation_price( 'min' );
+			//$max_price = $product->get_variation_price( 'max' );
+			$currencyPos = get_option( 'woocommerce_currency_pos' );
+			$currencySymb = get_woocommerce_currency_symbol();
+
+			switch ($currencyPos) {
+				case 'left_space':
+					$price = $currencySymb . ' ' . $min_price;
+					break;
+				case 'right':
+					$price = $min_price . $currencySymb;
+					break;
+				case 'right_space':
+					$price = $min_price . ' ' . $currencySymb;
+					break;
+				default:
+					$price = $currencySymb . $min_price;
+					break;
+			}
+			echo '<strong class="amount">À partir de '. $price .'</strong>';
+		}
+		
 		?></div><?php
 		$template = ob_get_clean();
 		return apply_filters( 'owy_woo_get_price_filter', $template );

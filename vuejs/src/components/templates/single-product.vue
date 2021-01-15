@@ -4,9 +4,7 @@
 		
 			<div class="content-single">
 				<div  class="retour">
-					
-						<button onclick="window.history.back()">Retour</button>
-					
+					<button onclick="window.history.back()">Retour</button>
 				</div>
 				<div class="contenu-single">
 
@@ -109,7 +107,6 @@
 				this.quantity = $(event.currentTarget).val()
 				this.change_price_tot()
 			});
-
 			
 			this.type = this.post.terms.product_type[0].slug
 
@@ -365,8 +362,8 @@
 	}
 
 	table.variations td {
-	    height: 40px;
-	    vertical-align: middle;
+		height: 40px;
+		vertical-align: middle;
 	}
 
 	table.variations td.label {

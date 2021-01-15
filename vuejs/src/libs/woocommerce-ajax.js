@@ -68,14 +68,13 @@ export default function(vue){
 
 				links_and_anchors(vue)
 
-				console.log( 'success', $('.disabled-by-ajax') );
+				//console.log( 'success', $('.disabled-by-ajax') );
 
 				$('.disabled-by-ajax').removeProp('disabled')
 
 				$('.disabled-by-ajax').prop('disabled', false)
 
 				$('.disabled-by-ajax').removeClass('disabled-by-ajax')
-				//
 			}
 		});
 	});

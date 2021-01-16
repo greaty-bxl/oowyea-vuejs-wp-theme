@@ -223,11 +223,11 @@
 										if( selections.includes( val_term.slug ) )
 										{
 											this.select_term( val_term )
-											console.log( val_term.term_id )
+											//console.log( val_term.term_id )
 										}
 										
 									});
-									console.log( 'current_params', tax_slug, selections )
+									//console.log( 'current_params', tax_slug, selections )
 								}
 							});
 						}
@@ -237,7 +237,7 @@
 					
 				}				
 
-				console.log( 'shop_filter', this.shop_filter );
+				//console.log( 'shop_filter', this.shop_filter );
 
 				/*
 				*/
@@ -250,7 +250,7 @@
 
 			done: function(){
 				
-				console.log( this.selecteds );
+				//console.log( this.selecteds );
 
 				if( Object.keys(this.selecteds).length > 0 )
 				{
@@ -282,7 +282,7 @@
 					var new_url = current_url.origin + current_url.pathname + query_string
 					//open_link({}, new_url, true)
 					this.done_url = new_url
-					console.log('new_url',new_url);
+					//console.log('new_url',new_url);
 				}
 
 
@@ -290,7 +290,7 @@
 			},
 
 			clear_selection: function(){
-				console.log('clear_selection', this.shop_filter)
+				//console.log('clear_selection', this.shop_filter)
 
 				let $ = this.$
 
@@ -361,10 +361,10 @@
 					let combo_count = 0
 
 					$.each(this.selecteds, (term_id) => {
-						console.log( 'find', term_id, ids )
+						//console.log( 'find', term_id, ids )
 						if( ids.includes(term_id) )
 						{
-							console.log( 'found', term_id, ids )
+							//console.log( 'found', term_id, ids )
 							combo_count++;
 						}
 					});
@@ -374,7 +374,7 @@
 						Object.assign(selectables, ids_object);
 					}
 
-					console.log('combo_max', combo_max, combo_count);
+					//console.log('combo_max', combo_max, combo_count);
 				});
 
 				$.each(this.shop_filter, (index_tax, taxonomy) => {

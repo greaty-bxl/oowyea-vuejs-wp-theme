@@ -1,13 +1,10 @@
-
 <template>
-	<div class="section-wrap">
+	<div class="section-wrap" :id="'section_' + _uid">
 		<div class="clear"></div>
 		
 			<div class="content-single">
 				<div  class="retour">
-					
-						<button onclick="window.history.back()">Retour</button>
-					
+					<button onclick="window.history.back()">Retour</button>
 				</div>
 				<div class="contenu-single">
 
@@ -19,7 +16,6 @@
 						<p class="approximate-price"><span v-html="post.price"  ></span></p>
 
 						<div>
-							
 							<div class="description-padding">
 								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
 									<div class="parent-taxonomie-info-single">
@@ -52,19 +48,27 @@
 									<p class="descriptif">Mélange subtil de Santos Brésilien doux et d’Haïti au goût puissant des hauts plateaux de l’Amérique Central, vous donnerons un compromis entre force et douceur..</p>
 								</div>
 							</div>
-
-						
-
 						</div>
 						
 
 									
-						<div class="div-parent-icons" v-html="this.wp.payment_methods_images">
+						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" v-html="this.wp.payment_methods_images">
 							
 						</div>
 
+						<div v-if="type != 'contact_us'" id="total_price">
+							<label>Total:</label>
+							<input type="text" class="tot input-text" :value="tot_price" readonly>
+						</div>
+
+						<label v-if="type != 'contact_us'" id="quantity_label">Quantity</label>
+
 						<div v-if="post.is_in_stock" class="button-contener" v-html="post.add_to_cart">
 
+						</div>
+
+						<div v-if="type == 'contact_us'" v-html="post.form">
+							
 						</div>
 						
 					</div>
@@ -80,6 +84,15 @@
 <script>
 	import {has_term} from 'Libs/wp-functions.js'
 	export default {
+		data(){
+			return {
+				type: 'simple',
+				variations_data: [],
+				quantity: 1,
+				sale_price: 0,
+				tot_price: '-'
+			}
+		},
 		components: {
 			
 		},
@@ -87,27 +100,39 @@
 			'post' : Object
 		},
 		mounted (){
-			// var $ = this.$
 
-			// $('.retour').html('[add_to_cart id="99"]')
-			console.log( this.$store.state.wp.cart );
-			console.log( this.post.terms.acidity[0].fields.acidity_points);
+			var $ = this.$
 
-		// $('nav').css('background-color', 'white');
+			this.variations_data = $('.variations_form').first().data('product_variations')	
+
+			console.log( this );
+
+			$('#total_price').insertAfter( '[data-state="current"] .quantity')
+
+			$('#quantity_label').prependTo( '[data-state="current"] .quantity')
+
+			$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
+
+			$('.quantity [name="quantity"]').on('change keyup', (event) => {
+				console.log('change');
+				this.quantity = $(event.currentTarget).val()
+				this.change_price_tot()
+			});
+
+			$('select').on('change', () => {
+				this.change_price_tot()
+			});
 			
-			console.log(this.wp.payment_methods_images);
+			this.type = this.post.terms.product_type[0].slug
 
-			// if ( this.post.terms[0].slug === "plateau-fromage" ) 
-			// {
-			// 	console.log('');
-			// }
-			// else
-			// {
-			// 	$('.nbrpersonne').html("Quantité")
-			// }
-
-			console.log(this.post);
+			if( this.type != "variable" && Array.isArray(this.post.metas._sale_price) )
+			{
+				this.sale_price = this.post.metas._sale_price[0]
+				this.tot_price = this.sale_price
+			}
 			
+			console.log( 'type', this.type, this.post )
+
 			this.$emit('template_mounted')
 		},
 		methods: {
@@ -116,13 +141,93 @@
 
 			isFilled: function(post, count , keyword){
 
-			if( post.terms[keyword] ) 
+				if( post.terms[keyword] ) 
+				{
+					if( post.terms[keyword][0].fields[keyword+'_points'] >= count )
 					{
-						if( post.terms[keyword][0].fields[keyword+'_points'] >= count )
+						return true
+					}	
+				}
+			},
+			change_price_tot: function(){
+				
+				var $ = this.$
+
+				if( this.type == "variable" )
+				{
+					
+					var attributes = {}
+					var count_attr = 0
+					var filled_attr = 0
+
+					console.log( 'serializeArray', $('.variations_form').first().serializeArray() );
+
+					$.each( $('.variations_form').serializeArray() , (index, field) => {
+						if( field.name.search('attribute') === 0 )
 						{
-							return true
-						}	
+							attributes[field.name] = field.value
+							if( field.value )
+							{
+								filled_attr++;
+							}
+						}
+					});
+
+					if( Object.keys(attributes).length == filled_attr )
+					{
+						let results = []
+
+						$.each(this.variations_data, (index, variation) => {
+
+							let valide = 0
+							let need = Object.keys(variation.attributes).length
+
+							$.each(variation.attributes, function(variation_name, variation_value) {
+								 
+								 $.each(attributes, function(attr_name, attr_val) {
+								 	if( variation_name == attr_name && (variation_value == attr_val || variation_value == '') )
+								 	{
+								 		valide++
+								 	}
+								 });
+							});
+
+							if( valide == need )
+							{
+								results[ results.length ] = variation
+							}
+						});
+
+						if( results.length > 1 )
+						{
+							//remove any
+							$.each(results, function(index, variation) {
+								$.each(variation.attributes, function(variation_name, variation_value) {
+									if( variation_value == '' )
+									{
+										results.splice(index, 1)
+									}
+								});
+							});
+						}
+
+						if( results.length == 1 )
+						{
+							console.log('variations_form', this);
+
+							this.tot_price = results[0].display_price * this.quantity
+						}
 					}
+
+				}
+				else
+				{
+					this.tot_price = this.sale_price * this.quantity
+				}
+
+				//$('#total_price .tot').val(this.tot_price)
+
+				console.log( 'tot_price', this );
 			}
 		},
 		computed: {
@@ -130,7 +235,6 @@
 				return this.$store.state.wp.add_to_cart
 			},
 			wp () {
-				//console.log(cap);
 				return this.$store.state.wp
 			}
 		}
@@ -201,6 +305,7 @@
 	}
 	
 	.button-contener{
+		max-width: 300px;
 		/*padding-top: 0 !important;*/
 		display: flex;
 		flex-direction: column;
@@ -331,6 +436,83 @@
 		font-size: 20px !important;
 	}
 
+	table.variations{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	table.variations td {
+		height: 40px;
+		vertical-align: middle;
+	}
+
+	table.variations td.label {
+		padding-right: 10px;
+	}
+
+	table.variations td.value select {
+		height: 30px;
+		width: 100%;
+		line-height: 200%;
+	}
+
+	.quantity{
+
+		padding-top: 0px !important;
+	}
+
+	.quantity .screen-reader-text,
+	.reset_variations
+	{
+		display: none !important;
+	}
+
+	.quantity, #total_price {
+		display: inline-block;
+		width: 50%;
+		box-sizing: border-box;
+	}
+
+	.quantity {
+		padding-right: 5px;
+	}
+
+	#total_price {
+		padding-left: 5px;
+	}
+
+	.quantity label, #total_price label {
+		font-size: 9px;
+		margin: 3px 5px;
+		position: absolute;
+	}
+
+	.quantity .qty, #total_price .tot{
+		display: block;
+		text-align: center;
+		width: 100% !important;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		font-size: 16px;
+		box-sizing: border-box;
+	}
+
+	/* Chrome, Safari, Edge, Opera */
+	/*.quantity .qty::-webkit-outer-spin-button,
+	.quantity .qty::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}*/
+
+	/* Firefox */
+	/*.quantity .qty {
+		-moz-appearance: textfield;
+	}*/
+
+	.woocommerce-variation-price{
+		display: none;
+	}
+
 	.title-single-santospalace{
 		padding: 0px 0px 0px 0px;
 		margin: 0px;
@@ -351,7 +533,7 @@
 
 	.price{
 
-		margin-left: 10px;
+		/*margin-left: 10px;*/
 
 	}
 
@@ -391,17 +573,7 @@
 		padding-left: 0px;
 
 	}
-	.woocommerce .quantity .qty{
-
-		width: 70px !important;
-		padding-top: 20px;
-		padding-bottom: 20px;
-		font-size: 16px;
-	}
-	.quantity{
-
-		padding-top: 0px !important;
-	}
+	
 
 
 	.div-image-single{
@@ -419,9 +591,11 @@
 	}
 
 	.button-contener form{
-
-		display: flex;
 		flex-direction: column;
+	}
+
+	.button-contener button[type="submit"]{
+		margin-top: 20px;
 	}
 
 	.button-contener input{

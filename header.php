@@ -1,4 +1,7 @@
 <?php 
+
+acf_form_head();
+
 do_action( 'before_document' );
 
 $previous_url = $_SERVER['HTTP_REFERER'];

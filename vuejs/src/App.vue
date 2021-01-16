@@ -58,7 +58,7 @@ import GpdrIntro from 'Molecules/gpdr-intro.vue'
 //import is from 'is_js'
 import init_scrolltop from 'Libs/init-scrolltop.js'
 //import scrollSection from 'Libs/scroll-sections.js'
-import scrollSection from 'Libs/scroll-sections-v2.js'
+// import scrollSection from 'Libs/scroll-sections-v2.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
@@ -145,7 +145,7 @@ export default {
       init_scrolltop(this)
 
       //auto scroll next section
-      scrollSection(this)
+      // scrollSection(this)
 
       //ready
       $(document).trigger('first_page_ready')

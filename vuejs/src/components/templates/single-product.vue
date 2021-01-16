@@ -157,7 +157,6 @@
 				{
 					
 					var attributes = {}
-					var count_attr = 0
 					var filled_attr = 0
 
 					console.log( 'serializeArray', $('.variations_form').first().serializeArray() );
@@ -183,13 +182,15 @@
 							let need = Object.keys(variation.attributes).length
 
 							$.each(variation.attributes, function(variation_name, variation_value) {
-								 
-								 $.each(attributes, function(attr_name, attr_val) {
-								 	if( variation_name == attr_name && (variation_value == attr_val || variation_value == '') )
-								 	{
-								 		valide++
-								 	}
-								 });
+
+								$.each(attributes, function(attr_name, attr_val) {
+
+									if( variation_name == attr_name && (variation_value == attr_val || variation_value == '') )
+									{
+										valide++
+									}
+
+								});
 							});
 
 							if( valide == need )

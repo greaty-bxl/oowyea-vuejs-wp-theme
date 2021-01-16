@@ -44,24 +44,27 @@
 	}
 
 	.header-home{
+
 		padding-top: 300px;
 		padding-bottom: 300px;
 	}
 
 	.header-home h1 {
-	    font-size: 7vw !important;
-	    margin: 0px !important;
-	    padding-bottom: 30px;
-	    /*line-height: 7vw;*/
+
+		font-size: 7vw !important;
+		margin: 0px !important;
+		padding-bottom: 30px;
+		/*line-height: 7vw;*/
 	}
 	.header-home p {
-	    font-size: 1vw !important;
-	    margin: 0px !important;
+
+		font-size: 1vw !important;
+		margin: 0px !important
+	
 	}
 
 	.button-cafe{
 
-		/*padding-top: 30px;*/
 		width: 15%;
 		margin: 30px auto 0px auto;
 	}

@@ -2,7 +2,7 @@
     <div class="section-wrap">
 		<ProductFilter/>
 		<div class="clear"></div>
-			<div class="image-shop">
+			<div  :style="{ backgroundImage: 'url(\'' + this.wp.shop_header.img + '\')', color: 'white', }" class="image-shop">
 				<h3>Cafés</h3>
 				<h1>Nos Cafés</h1>
 			</div>
@@ -12,7 +12,7 @@
 				<div class="child-container">
 					
 					<div class="filtre-parent-div">
-						<div> <p class="title-page-boutique">Cafes</p>  </div>
+						<div><p class="title-page-boutique">Cafes</p> </div>
 						<div><button class="button-santos-vert" v-on:click="open_filter">FILTRER PAR</button></div>
 						<p class="mobile-filtre" v-on:click="open_filter">FILTRE</p>
 					</div>
@@ -205,11 +205,11 @@ export default {
 
 	.price {
 
-	    text-align: left;
-	    color: #422112;
-	    font-size: 15px;
-	    font-weight: 700;
-	    padding-top: 20px;
+		text-align: left;
+		color: #422112;
+		font-size: 15px;
+		font-weight: 700;
+		padding-top: 20px;
 
 	}
 	
@@ -439,7 +439,6 @@ export default {
 		.child-container{
 
 			width: 100%;
-			height: 50vh;
 			display: flex;
 			flex-direction: column;
 		}
@@ -511,8 +510,7 @@ export default {
 			margin-left: auto;
 			margin-right: auto;
 		}
-
-
+		
 		.cadre{
 
 			padding: 30px 30px 25px 30px;
@@ -520,10 +518,10 @@ export default {
 
 		.product-santos{
 
-			width: 40% ;
-			background-color: #FAFAFA;
+			width: 40%;
 			margin-top: 40px;
 			padding-bottom: 35px;
+
 		}
 
 		.parent-product{

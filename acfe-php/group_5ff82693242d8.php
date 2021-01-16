@@ -9,7 +9,7 @@ acf_add_local_field_group(array(
 		array(
 			'key' => 'field_5ff833371685e',
 			'label' => 'Paged main category',
-			'name' => 'paged_main_category',
+			'name' => 'paged_product_category',
 			'type' => 'true_false',
 			'instructions' => 'It will display only child taxonomies if checked and in the product cat is used as page.',
 			'required' => 0,
@@ -102,7 +102,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1610359187,
+	'modified' => 1610620691,
 ));
 
 endif;

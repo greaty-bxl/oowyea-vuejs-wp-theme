@@ -1,5 +1,5 @@
 <template>
-	<div class="section-wrap">
+	<div class="section-wrap" :id="'section_' + _uid">
 		<div class="clear"></div>
 		
 			<div class="content-single">
@@ -52,19 +52,23 @@
 						
 
 									
-						<div id="icons-pay" class="div-parent-icons" v-html="this.wp.payment_methods_images">
+						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" v-html="this.wp.payment_methods_images">
 							
 						</div>
 
-						<div id="total_price">
+						<div v-if="type != 'contact_us'" id="total_price">
 							<label>Total:</label>
 							<input type="text" class="tot input-text" :value="tot_price" readonly>
 						</div>
 
-						<label id="quantity_label">Quantity</label>
+						<label v-if="type != 'contact_us'" id="quantity_label">Quantity</label>
 
 						<div v-if="post.is_in_stock" class="button-contener" v-html="post.add_to_cart">
 
+						</div>
+
+						<div v-if="type == 'contact_us'" v-html="post.form">
+							
 						</div>
 						
 					</div>
@@ -83,6 +87,7 @@
 		data(){
 			return {
 				type: 'simple',
+				variations_data: [],
 				quantity: 1,
 				sale_price: 0,
 				tot_price: '-'
@@ -95,27 +100,39 @@
 			'post' : Object
 		},
 		mounted (){
+
 			var $ = this.$
 
-			$('#total_price').insertAfter('.quantity')
+			this.variations_data = $('.variations_form').first().data('product_variations')	
 
-			$('#quantity_label').prependTo('.quantity')
+			console.log( this );
+
+			$('#total_price').insertAfter( '[data-state="current"] .quantity')
+
+			$('#quantity_label').prependTo( '[data-state="current"] .quantity')
 
 			$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
 
-			$('.quantity [name="quantity"], select').on('change keyup', (event) => {
+			$('.quantity [name="quantity"]').on('change keyup', (event) => {
+				console.log('change');
 				this.quantity = $(event.currentTarget).val()
+				this.change_price_tot()
+			});
+
+			$('select').on('change', () => {
 				this.change_price_tot()
 			});
 			
 			this.type = this.post.terms.product_type[0].slug
 
-			if( this.type != "variable" )
+			if( this.type != "variable" && Array.isArray(this.post.metas._sale_price) )
 			{
 				this.sale_price = this.post.metas._sale_price[0]
 				this.tot_price = this.sale_price
 			}
 			
+			console.log( 'type', this.type, this.post )
+
 			this.$emit('template_mounted')
 		},
 		methods: {
@@ -133,21 +150,84 @@
 				}
 			},
 			change_price_tot: function(){
+				
+				var $ = this.$
+
 				if( this.type == "variable" )
 				{
-					var $ = this.$
+					
+					var attributes = {}
+					var count_attr = 0
+					var filled_attr = 0
 
-					let var_price = $('.woocommerce-Price-amount').last().text().match(/[0-9]+.[0-9]+/g)[0]
+					console.log( 'serializeArray', $('.variations_form').first().serializeArray() );
 
-					if( var_price &&  $('.woocommerce-variation-price .woocommerce-Price-amount').length > 0 )
+					$.each( $('.variations_form').serializeArray() , (index, field) => {
+						if( field.name.search('attribute') === 0 )
+						{
+							attributes[field.name] = field.value
+							if( field.value )
+							{
+								filled_attr++;
+							}
+						}
+					});
+
+					if( Object.keys(attributes).length == filled_attr )
 					{
-						this.tot_price = var_price * this.quantity
+						let results = []
+
+						$.each(this.variations_data, (index, variation) => {
+
+							let valide = 0
+							let need = Object.keys(variation.attributes).length
+
+							$.each(variation.attributes, function(variation_name, variation_value) {
+								 
+								 $.each(attributes, function(attr_name, attr_val) {
+								 	if( variation_name == attr_name && (variation_value == attr_val || variation_value == '') )
+								 	{
+								 		valide++
+								 	}
+								 });
+							});
+
+							if( valide == need )
+							{
+								results[ results.length ] = variation
+							}
+						});
+
+						if( results.length > 1 )
+						{
+							//remove any
+							$.each(results, function(index, variation) {
+								$.each(variation.attributes, function(variation_name, variation_value) {
+									if( variation_value == '' )
+									{
+										results.splice(index, 1)
+									}
+								});
+							});
+						}
+
+						if( results.length == 1 )
+						{
+							console.log('variations_form', this);
+
+							this.tot_price = results[0].display_price * this.quantity
+						}
 					}
+
 				}
 				else
 				{
 					this.tot_price = this.sale_price * this.quantity
 				}
+
+				//$('#total_price .tot').val(this.tot_price)
+
+				console.log( 'tot_price', this );
 			}
 		},
 		computed: {
@@ -453,7 +533,7 @@
 
 	.price{
 
-		margin-left: 10px;
+		/*margin-left: 10px;*/
 
 	}
 

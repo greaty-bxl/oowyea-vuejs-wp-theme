@@ -1,0 +1,113 @@
+<?php 
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_6002ac5c143f9',
+	'title' => 'Demande pro',
+	'fields' => array(
+		array(
+			'key' => 'field_6002ac71c1eef',
+			'label' => 'Nom (obligatoire)',
+			'name' => 'nom',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_6002ad13c1ef0',
+			'label' => 'Adresse e-mail (obligatoire)',
+			'name' => 'adresse_e-mail',
+			'type' => 'email',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+		array(
+			'key' => 'field_6002ad26c1ef1',
+			'label' => 'Téléphone',
+			'name' => 'telephone',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_6002ad50c1ef2',
+			'label' => 'Message',
+			'name' => 'message',
+			'type' => 'textarea',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'maxlength' => '',
+			'rows' => '',
+			'new_lines' => '',
+			'acfe_textarea_code' => 0,
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'contact_us_product',
+				'operator' => '==',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'left',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'acfe_display_title' => '',
+	'acfe_autosync' => array(
+		0 => 'php',
+		1 => 'json',
+	),
+	'acfe_form' => 0,
+	'acfe_meta' => '',
+	'acfe_note' => '',
+	'modified' => 1610788261,
+));
+
+endif;

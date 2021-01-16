@@ -228,10 +228,7 @@ function greatytheme_header_scripts()
             // vue dist
             wp_enqueue_script('vue-app', get_template_directory_uri() .'/vuejs/dist/app.js', array('greatythemescripts'), '1.0', true );
             wp_enqueue_script('vue-chunk-vendors', get_template_directory_uri() . '/vuejs/dist/chunk-vendors.js', array('vue-app'), '1.0', true);
-        }
-
-        
-        
+        } 
     }
 }
 

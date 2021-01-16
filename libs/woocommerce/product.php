@@ -44,6 +44,13 @@ function woocommerce_product_vars( $posts ) {
 			$posts[$key2]->add_to_cart= do_shortcode( '[owy_woo_add_to_cart]' );
 			$posts[$key2]->is_in_stock = $product->is_in_stock();
 
+			if ( $product->get_type() == 'contact_us') {
+
+				$posts[$key2]->form = do_shortcode( '[acfe_form ID="'.get_post_meta( $post->ID, 'contact_us_product_forms', true ).'"]' );
+			}
+
+
+			
 		}
 	}	
 

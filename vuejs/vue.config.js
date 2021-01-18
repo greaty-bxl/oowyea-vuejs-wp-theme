@@ -1,18 +1,6 @@
 var path = require('path')
 var fs = require('fs');
 module.exports = {
-  /*configureWebpack: config => {
-          config.output.filename = 'ittus.[name].js';
-
-      },
-      chainWebpack: config => {
-        config.plugin('extract-css')
-            .tap(([options, ...args]) => [
-                Object.assign({}, options, { filename: 'css/ittus.[name].css' }),
-                ...args
-            ])
-      }*/
-
   configureWebpack: {
     resolve: {
       alias: {
@@ -56,6 +44,14 @@ module.exports = {
           }
         ]);
     }
+
+    config.plugin("optimize-css").tap(([options]) => {
+      // https://github.com/vuejs/vue-cli/issues/2033#issuecomment-416713827
+      // https://stackoverflow.com/questions/52014764/how-do-i-add-cssnano-optimization-rules-in-vue-cli-3
+      options.cssnanoOptions.preset[1].calc = false;
+      return [options];
+    });
+
   },
   runtimeCompiler: true,
   devServer: { 

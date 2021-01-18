@@ -1,7 +1,6 @@
 <?php
 
 /* custom product type */
-
 function owy_register_contact_us_product() {
 
   class WC_Product_Contact_us extends WC_Product {
@@ -89,19 +88,3 @@ function owy_save_contact_us_product( $post_id ){
     }
 }
 add_action( 'woocommerce_process_product_meta', 'owy_save_contact_us_product' );
-
-/* ACF new location */
-
-/*function my_acf_init_location_types() {
-
-    class My_Location extends ACF_Location {
-        function initialize() {
-            $this->name = 'contact_us_product';
-            $this->label = __( 'WooCommerce - Contact us product' );
-            $this->category = 'Front End';
-        }
-    }
-    acf_register_location_type( 'My_Location' );
-}
-
-add_action('acf/init', 'my_acf_init_location_types');*/

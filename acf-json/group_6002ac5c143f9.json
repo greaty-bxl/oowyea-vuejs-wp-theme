@@ -11,7 +11,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -30,7 +30,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -82,8 +82,9 @@
     "location": [
         [
             {
-                "param": "contact_us_product",
-                "operator": "=="
+                "param": "post_type",
+                "operator": "==",
+                "value": "contact_shop_entry"
             }
         ]
     ],
@@ -103,5 +104,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1610788261
+    "modified": 1610790673
 }

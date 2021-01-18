@@ -15,7 +15,7 @@ acf_add_local_field_group(array(
 			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -34,7 +34,7 @@ acf_add_local_field_group(array(
 			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -86,8 +86,9 @@ acf_add_local_field_group(array(
 	'location' => array(
 		array(
 			array(
-				'param' => 'contact_us_product',
+				'param' => 'post_type',
 				'operator' => '==',
+				'value' => 'contact_shop_entry',
 			),
 		),
 	),
@@ -107,7 +108,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1610788261,
+	'modified' => 1610790673,
 ));
 
 endif;

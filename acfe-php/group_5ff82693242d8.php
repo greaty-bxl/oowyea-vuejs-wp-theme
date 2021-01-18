@@ -8,7 +8,7 @@ acf_add_local_field_group(array(
 	'fields' => array(
 		array(
 			'key' => 'field_5ff833371685e',
-			'label' => 'Paged main category',
+			'label' => 'Paged main categories',
 			'name' => 'paged_product_category',
 			'type' => 'true_false',
 			'instructions' => 'It will display only child taxonomies if checked and in the product cat is used as page.',
@@ -82,7 +82,7 @@ acf_add_local_field_group(array(
 			array(
 				'param' => 'options_page',
 				'operator' => '==',
-				'value' => 'greaty-theme-general-settings',
+				'value' => 'shop-settings',
 			),
 		),
 	),
@@ -92,7 +92,7 @@ acf_add_local_field_group(array(
 	'label_placement' => 'left',
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
-	'active' => 1,
+	'active' => true,
 	'description' => '',
 	'acfe_display_title' => '',
 	'acfe_autosync' => array(
@@ -102,7 +102,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1610620691,
+	'modified' => 1610796382,
 ));
 
 endif;

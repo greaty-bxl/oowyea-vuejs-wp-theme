@@ -17,71 +17,17 @@
 						<p class="mobile-filtre" v-on:click="open_filter">FILTRE</p>
 					</div>
 
+				
+
 					<div class="parent-product">
 
+						
+
+
 						<div v-for="item in posts" :key="item.ID" class="product-santos">
-							<div class="div-grey">
-								<div>
-									
-								</div>
 
-									<div class="cadre">
-									<img class="image-product" v-bind:src="item.thumb">
+							<ItemProduct :item="item"/>
 
-								</div>
-
-								<p class="title-product" v-html="item.post_title"></p>
-
-								<div class="div-terms" v-if="has_term(item, 'product_cat', 'cafes')">
-									
-									<div class="parent-taxonomie-info">
-										<p class="titre-taxonomie">Intensité</p>
-										<div class="valeur-taxonomie" >
-											<div v-for="count_intesity in 5" :key="count_intesity" 
-											v-bind:class="{ filled: isFilled( item, count_intesity, 'intensity' ) }">
-											</div>
-										</div>
-									</div>
-									
-								</div>
-
-								<div class="div-terms" v-if="has_term(item, 'product_cat', 'cafes')">
-									
-									<div class="parent-taxonomie-info">
-										<p class="titre-taxonomie">Acidité</p>
-										<div class="valeur-taxonomie" >
-											<div v-for="acidity_points in 5" :key="acidity_points" 
-											v-bind:class="{ filled: isFilled( item, acidity_points, 'acidity' ) }">
-											</div>
-										</div>
-									</div>
-									
-								</div>
-
-								<div class="div-terms thes" v-if="has_term(item, 'product_cat', 'thes')">
-									
-									<div class="parent-taxonomie-info parent-taxonomie-info-thes">
-										<p class="titre-taxonomie">Thé</p>
-										<div class="valeur-taxonomie" >
-											<p class="value-terms-thes">Noir</p>
-										</div>
-									</div>
-									
-								</div>
-
-								<div class="div-terms thes" v-if="has_term(item, 'product_cat', 'thes')">
-									
-									<div class="parent-taxonomie-info parent-taxonomie-info-thes">
-										<p class="titre-taxonomie">Thé</p>
-										<div class="valeur-taxonomie" >
-											<p class="value-terms-thes">Noir</p>
-										</div>
-									</div>
-									
-								</div>
-								<p class="flavour" >Notes : Floral et Epices</p>
-							</div>
-							<div class="price"> 22 </div>
 						</div>
 
 						
@@ -100,11 +46,13 @@
 
 import smart_fonts from 'Libs/smart-fonts.js';
 import ProductFilter from 'Organisms/product-filter.vue'
+import ItemProduct from 'Molecules/item-product.vue'
 import {has_term} from 'Libs/wp-functions.js'
 
 export default {
 	components: {
-		ProductFilter
+		ProductFilter,
+		ItemProduct
 	},
 	props: {
 		'post' : Object,
@@ -191,28 +139,6 @@ export default {
 		font-family: open sans;
 	}
 
-	.div-grey{
-
-		background-color: #FAFAFA;
-		padding-bottom: 30px;
-
-	}
-
-	.image-product{
-
-	width: 100%;
-	}
-
-	.price {
-
-		text-align: left;
-		color: #422112;
-		font-size: 15px;
-		font-weight: 700;
-		padding-top: 20px;
-
-	}
-	
 	.value-terms-thes{
 
 		color:#888320;
@@ -259,14 +185,6 @@ export default {
 		font-weight: 700;
 	}
 
-	.title-product{
-
-		color: #422112;
-		font-weight: 700;
-		
-	}
-
-
 	.parent-taxonomie-info{
 
 		display: flex;
@@ -276,40 +194,6 @@ export default {
 		margin-right: auto;
 		width: 80%;
 
-	}
-
-
-	.titre-taxonomie{
-		font-weight: 700;
-		color: #666666;
-		font-size: 14px;
-		line-height: 14px
-	}
-
-	.valeur-taxonomie{
-
-		display: flex;
-		flex-direction: row;
-
-	}
-	
-	.valeur-taxonomie div{
-
-		border: 1px solid #888320;
-		border-radius: 100%;
-		height: 10px;
-		width: 10px;
-		margin-left: 11px; 
-
-	}
-
-	.valeur-taxonomie div.filled{
-		background-color: #888320;
-	}
-
-	.flavour{
-		font-size: 14px;
-		color: #666666;
 	}
 
 	.parent-taxonomie-info-thes{
@@ -323,18 +207,6 @@ export default {
 	}
 
 	@media screen and (min-width: 1100px){
-
-
-		.title-product{
-
-			font-size: 15px;
-			margin-bottom: 25px;
-		}
-
-		.cadre{
-
-		padding: 30px 30px 25px 30px;
-		}
 
 		.image-shop h1 {
 
@@ -473,13 +345,6 @@ export default {
 			margin-right: 10%;
 		}
 
-		.title-product{
-
-			font-size: 16px;
-			margin-bottom: 25px;
-		}
-		
-
 		.filtre-parent-div{
 			padding-top: 40px;
 			padding-bottom: 40px;
@@ -509,11 +374,6 @@ export default {
 			width: calc( 100% - 56px);
 			margin-left: auto;
 			margin-right: auto;
-		}
-		
-		.cadre{
-
-			padding: 30px 30px 25px 30px;
 		}
 
 		.product-santos{
@@ -568,12 +428,6 @@ export default {
 			padding-bottom: 20px;
 		}
 
-		.title-product{
-
-			font-size: 14px;
-			margin-bottom: 25px;
-		}
-		
 		.global-container{
 
 			margin-top: 0px;
@@ -586,11 +440,6 @@ export default {
 			padding-bottom: 30px;
 			margin: 30px auto;
 		
-		}
-
-		.cadre{
-
-			padding: 30px 30px 20px 30px ;
 		}
 
 		.parent-product{
@@ -607,12 +456,8 @@ export default {
 			font-weight: 700; 
 		}
 
-		.parent-taxonomie-info{
-
-			margin-bottom: 15px;
-		}
-
 	}
+
 </style>
 
 

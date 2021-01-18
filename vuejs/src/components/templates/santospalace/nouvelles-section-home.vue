@@ -5,12 +5,26 @@
 				
 				<h2>Nouveautés @home</h2>
 				<div class="div-filtre-nouvelles">
-					<button>
-						<p>CAFÉS</p>
-					</button>
-					<button>
-						<p>CAFÉS</p>
-					</button>
+
+
+						<swiper class="swiperNouvellesbutton" :options="swiperNouvellesbutton"    :pagination="{ clickable: true }">
+
+							<swiper-slide  class="product-santos">
+
+								<button>
+									<p>CAFÉS</p>
+								</button>
+							</swiper-slide>
+
+							<swiper-slide  class="product-santos">
+
+								<button>
+									<p>CAFÉS</p>
+								</button>
+							</swiper-slide>
+
+						</swiper>
+					
 				</div>
 
 				<swiper class="swipernouvelles" :options="swiperNouvelles"    :pagination="{ clickable: true }"
@@ -146,13 +160,15 @@
 					},
 
 					pagination: {
-					   el: ".swiper-pagination",
-					   type: 'bullets',
-					   clickable: true,
-					   renderBullet: function (index, className) {
-					     return '<span class="' + className + '"></span>';
-					   }
-					 },
+
+						el: ".swiper-pagination",
+						type: 'bullets',
+						clickable: true,
+						renderBullet: function (index, className) {
+						return '<span class="' + className + '"></span>';
+
+					}
+					},
 
 					on : {
 						init : function(){
@@ -167,11 +183,46 @@
 			}
 		}
 
+	},
+		name: 'swiperNouvellesbutton',
+		title: 'Default',
+		init: false,
+		
+		data () {
+			return {
+
+				swiperNouvellesbutton: {
+					initialSlide: 0,	
+
+					preloadImages: false,
+					lazy: true,
+					type: 'bullets',
+					
+
+					loop: false,
+					allowTouchMove: true,
+					runCallbacksOnInit: true,
+					watchSlidesProgress: true,
+					watchSlidesVisibility: true,
+					speed: 700,
+					reachEnd: true,
+
+
+			}
+		}
+
 	}
+
+
 	}
 </script>
 
 <style type="text/css">
+
+	.swiperNouvellesbutton .swiper-slide{
+
+		width: auto !important;
+	}
 
 	.swipernouvelles{
 
@@ -294,6 +345,8 @@
 			border: 1px solid #422112;
 			opacity: 1;
 			transition: 0.3s;
+			margin-right: 5px;
+			margin-left: 5px;
 		}
 
 		.swiper-pagination-bullet-active{
@@ -305,8 +358,13 @@
 
 
 		.swiper-pagination-bullet:focus {
-		  outline: none;
-		  box-shadow: none;
+			outline: none;
+			box-shadow: none;
+		}
+
+		.swiper-pagination-clickable{
+
+			padding-top: 30px;
 		}
 
 	}
@@ -323,10 +381,12 @@
 		}
 
 		.section-nouvelles p {
+
 			font-size: 3.3vw !important;
-			width: 60%;
+			 width: auto; 
 			margin: 0px auto;
-			line-height: 5vw;
+			line-height: 3.3vw;
+
 		}
 
 		.button-section-nouvelles{
@@ -356,16 +416,18 @@
 				line-height: 9vw;  
 		}
 
+		.section-nouvelles button p {
+			
+				width: auto;
+		
+		}
+
 		.button-section-nouvelles{
 			margin: 30px auto 0px auto;
 			width: 60%;
 		
 		}
 
-
-
-
-		
 	}
 		
 		

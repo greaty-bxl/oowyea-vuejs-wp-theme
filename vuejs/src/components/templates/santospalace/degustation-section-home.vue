@@ -207,6 +207,12 @@
 				width: 50%;
 			}
 
+			.image-degustation{
+				margin-left: auto;
+				margin-right: auto;
+				width: calc(100% - 60px)
+			}
+
 		}
 
 </style>

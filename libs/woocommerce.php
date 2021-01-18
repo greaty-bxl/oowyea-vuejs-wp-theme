@@ -13,3 +13,16 @@ include 'woocommerce/terms_taxonomies_combos.php';
 include 'woocommerce/calendar.php';
 include 'woocommerce/image-payment-enabled.php';
 include 'woocommerce/count.php';
+
+function owy_resolve_issue_header()
+{
+	?>
+	<style type="text/css">
+		.woocommerce-embed-page #wpbody .woocommerce-layout, .woocommerce-embed-page .woocommerce-layout__notice-list-hide+.wrap{
+			padding-top: 70px !important;
+		}
+	</style>
+	<?php
+}
+
+add_action( 'admin_head', 'owy_resolve_issue_header' );

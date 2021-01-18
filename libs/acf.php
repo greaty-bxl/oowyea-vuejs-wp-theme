@@ -2,6 +2,30 @@
 
 include GREATY_TEMPLATE_PATH.'/libs/acf-fields/theme-settings.php';
 
+acf_add_options_page(array(
+        'page_title'    => 'Theme General Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'greaty-theme-general-settings',
+        'parent_slug'   => 'oowyea-home',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+
+acf_add_options_page(array(
+	'page_title' => 'Shop Settings',
+	'menu_title' => 'Shop Settings',
+	'menu_slug' => 'shop-settings',
+	'capability' => 'manage_woocommerce',
+	'position' => '',
+	'parent_slug' => 'oowyea-home',
+	'icon_url' => '',
+	'redirect' => true,
+	'post_id' => 'options',
+	'autoload' => false,
+	'update_button' => 'Update',
+	'updated_message' => 'Options Updated',
+));
+
 function vue_get_acf( $section )
 {
 	if( is_admin() )
@@ -55,4 +79,20 @@ function vue_get_acf_option()
 	wp_vue_add_var('acf', $acf);
 }
 add_action( 'vue_vars', 'vue_get_acf_option' );
-//add_action( 'wp', 'vue_get_acf_option' );
+
+
+/* ACF new location */
+function owy_acf_init_no_location_types() {
+
+    class Owy_No_Location extends ACF_Location {
+        function initialize() {
+            $this->name = 'owy-no-location';
+            $this->label = __( 'No location (use in your code)' );
+            $this->category = 'Forms';
+        }
+    }
+    acf_register_location_type( 'Owy_No_Location' );
+}
+
+add_action('acf/init', 'owy_acf_init_no_location_types');
+

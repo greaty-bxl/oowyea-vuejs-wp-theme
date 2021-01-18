@@ -153,14 +153,7 @@ function my_acf_settings_show_admin( $show_admin ) {
 
 if( function_exists('acf_add_options_page') ) {
     
-    acf_add_options_page(array(
-        'page_title'    => 'Theme General Settings',
-        'menu_title'    => 'Theme Settings',
-        'menu_slug'     => 'greaty-theme-general-settings',
-        'parent_slug'   => 'oowyea-home',
-        'capability'    => 'edit_posts',
-        'redirect'      => false
-    ));
+    
 
     //include GREATY_TEMPLATE_PATH.'/plugins/acf-google-fonts/acf-google_font_selector.php';
 

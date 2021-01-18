@@ -1,0 +1,19 @@
+.acf-form-fields{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -10px;
+}
+
+.acf-fields>.acf-field{
+	border: none !important;
+	padding: 0;
+	padding-left: 10px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.acf-field[data-width] {
+	display: inline-block;
+	float: none;
+	border: none;
+}

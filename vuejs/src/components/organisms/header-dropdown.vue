@@ -1092,6 +1092,11 @@ export default {
 		max-width: 45%;
 	}
 
+	.count{
+
+		font-size: 13px !important;
+	}
+
 
 }
 

@@ -192,6 +192,8 @@
 				var filter_taxonomy = current_params.get('filter-taxonomy');
 				var product_cat = current_params.get('product_cat');
 
+				console.log( 'url_search_to_object' , url_search_to_object( current_url.search ) );
+
 				if( filter_taxonomy && product_cat && this.product_cat_child)
 				{
 					this.base_query = '?filter-taxonomy=1&product_cat='+product_cat

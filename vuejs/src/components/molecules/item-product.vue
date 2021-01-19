@@ -1,5 +1,4 @@
 <template>
-
 			<div>
 				<slot>
 
@@ -46,7 +45,7 @@
 							<div class="parent-taxonomie-info parent-taxonomie-info-thes">
 								<p class="titre-taxonomie">Thé</p>
 								<div class="valeur-taxonomie" >
-									<p class="value-terms-thes">Noir</p>
+									<p class="value-terms-thes" v-html="get_terms_string(item, 'type_the')"></p>
 								</div>
 							</div>
 							
@@ -55,16 +54,41 @@
 						<div class="div-terms thes" v-if="has_term(item, 'product_cat', 'thes')">
 							
 							<div class="parent-taxonomie-info parent-taxonomie-info-thes">
-								<p class="titre-taxonomie">Thé</p>
+								<p class="titre-taxonomie">Type d’infusion</p>
 								<div class="valeur-taxonomie" >
-									<p class="value-terms-thes">Noir</p>
+									<p class="value-terms-thes" v-html="get_terms_string(item, 'type_infusion')"></p>
 								</div>
 							</div>
 							
 						</div>
-						<p class="flavour" >Notes : Floral et Epices</p>
+
+						<p class="flavour" v-if="has_term(item, 'product_cat', 'cafes') && get_terms_string(item, 'flavoring')" >
+							Notes: <span v-html="get_terms_string(item, 'flavoring')"></span>
+						</p>
+
+						<p class="flavour" v-if="has_term(item, 'product_cat', 'thes') && get_terms_string(item, 'flavor_the')" >
+							Notes: <span v-html="get_terms_string(item, 'flavor_the')"></span>
+						</p>
+
+						<p class="flavour" v-if="
+							( 
+								has_term(item, 'product_cat', 'machines-a-cafes-at-home') 
+								||
+								has_term(item, 'product_cat', 'machines-a-cafes-horeca') 
+							)
+							&& 
+							get_terms_string(item, 'cup_day')" >
+							<span v-html="get_terms_string(item, 'cup_day')"></span> tasses par jour
+						</p>
+
+						<p class="flavour" v-if="
+							has_term(item, 'product_cat', 'machines-a-cafes-entreprise')
+							&& get_terms_string(item, 'number_usage')" >
+							<span v-html="get_terms_string(item, 'number_usage')"></span> personnes par jour
+						</p>
+						
 					</div>
-					<div class="price"> 22 </div>
+					<div class="price" v-html="item.price"></div>
 				</slot>
 			</div>
 </template>
@@ -77,6 +101,10 @@ export default {
 
 	props: {
 		'item' : Object,
+	},
+
+	mounted () {
+		console.log('item', this.item);
 	},
 
 	methods: {
@@ -92,7 +120,32 @@ export default {
 					return true
 				}	
 			}
-		}
+		},
+
+		get_terms_string: function(post, tax){
+			let $ = this.$
+
+			if( post.terms[tax] )
+			{
+				let my_array = []
+
+				$.each(post.terms[tax], function(index, term) {
+					my_array[ my_array.length ] = term.name
+				});
+
+				let result = my_array.join(', ')
+				let n = result.lastIndexOf(',');
+
+				result = result.slice(0, n) + result.slice(n).replace(',', ' et');
+
+
+				return result
+			}
+			else
+			{
+				return ''
+			}
+		},
 	}
 
 }

@@ -6,8 +6,7 @@
 				<h2>Nouveautés @home</h2>
 				<div class="div-filtre-nouvelles">
 
-
-						<swiper class="swiperNouvellesbutton" :options="swiperNouvellesbutton"    :pagination="{ clickable: true }">
+						<swiper class="swiperNouvellesbutton"  :pagination="{ clickable: true }">
 
 							<swiper-slide  class="product-santos">
 
@@ -27,8 +26,7 @@
 					
 				</div>
 
-				<swiper class="swipernouvelles" :options="swiperNouvelles"    :pagination="{ clickable: true }"
->
+				<swiper class="swipernouvelles" :options="swiperNouvelles"    :pagination="{ clickable: true }">
 
 					<swiper-slide  class="product-santos">
 
@@ -75,50 +73,45 @@
 
 	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 	import 'swiper/css/swiper.css';
-	// import ItemProduct from 'Molecules/item-product.vue'
 	import {has_term} from 'Libs/wp-functions.js'
+	import is from 'is_js'
+
 
 	
 	export default {
+
 		components: {
 
 			Swiper,
 			SwiperSlide,
-			// ItemProduct
 
 		},
+		
 		props: {
 			'post' : Object,
 			'posts' : Array
 		},
 
-		mounted(){
+		mounted(){			
+
+			// var $ = this.$
+
+	
+			if ( is.desktop() ){
+
+				SwiperSlide.destroy();
+			}
+		
 
 			this.$emit('template_mounted', this);
-
-			// console.log(this.wp);
-
-			// isFilled: function(post, count, keyword){
-
-			// 		if( post.terms[keyword] ) 
-			// 		{
-			// 			if( post.terms[keyword][0].fields[keyword+'_points'] >= count )
-			// 			{
-			// 				return true
-			// 			}	
-			// 		}
-			// 	}
-
-			
 
 			has_term
 
 
 		},
 
-		name: 'swiperNouvelles',
-		title: 'Default',
-		init: false,
+
+
 		
 		data () {
 			return {
@@ -126,12 +119,10 @@
 				swiperNouvelles: {
 					initialSlide: 0,	
 
-					// Disable preloading of all images
-					// Enable lazy loading
 					preloadImages: false,
 					lazy: true,
 					type: 'bullets',
-					
+				
 
 					loop: false,
 					allowTouchMove: true,
@@ -140,8 +131,6 @@
 					watchSlidesVisibility: true,
 					speed: 700,
 					reachEnd: true,
-
-				
 			
 					breakpoints: {
 						// when window width is >= 320px
@@ -180,38 +169,16 @@
 						}
 					},
 
-			}
+			},
+
+
 		}
+
+
 
 	},
-		name: 'swiperNouvellesbutton',
-		title: 'Default',
-		init: false,
-		
-		data () {
-			return {
-
-				swiperNouvellesbutton: {
-					initialSlide: 0,	
-
-					preloadImages: false,
-					lazy: true,
-					type: 'bullets',
-					
-
-					loop: false,
-					allowTouchMove: true,
-					runCallbacksOnInit: true,
-					watchSlidesProgress: true,
-					watchSlidesVisibility: true,
-					speed: 700,
-					reachEnd: true,
 
 
-			}
-		}
-
-	}
 
 
 	}
@@ -334,7 +301,7 @@
 
 		.swiper-pagination{
 
-				position: unset;
+				position: unset !important;
 			}
 
 		.swiper-pagination-bullet{
@@ -383,7 +350,7 @@
 		.section-nouvelles p {
 
 			font-size: 3.3vw !important;
-			 width: auto; 
+			width: auto; 
 			margin: 0px auto;
 			line-height: 3.3vw;
 
@@ -426,6 +393,11 @@
 			margin: 30px auto 0px auto;
 			width: 60%;
 		
+		}
+
+		.cadre img{
+
+			height: 250px;
 		}
 
 	}

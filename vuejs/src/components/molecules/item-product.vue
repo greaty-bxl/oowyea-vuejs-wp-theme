@@ -1,7 +1,6 @@
 <template>
 			<div>
-				<slot>
-
+				<a :href="item.permalink">
 					<div class="div-grey">
 						<div>
 							
@@ -78,19 +77,20 @@
 							)
 							&& 
 							get_terms_string(item, 'cup_day')" >
-							<span v-html="get_terms_string(item, 'cup_day')"></span> tasses par jour
+							<span v-html="get_terms_string(item, 'cup_day')"></span>
 						</p>
 
 						<p class="flavour" v-if="
 							has_term(item, 'product_cat', 'machines-a-cafes-entreprise')
 							&& get_terms_string(item, 'number_usage')" >
-							<span v-html="get_terms_string(item, 'number_usage')"></span> personnes par jour
+							<span v-html="get_terms_string(item, 'number_usage')"></span>
 						</p>
 						
 					</div>
 					<div class="price" v-html="item.price"></div>
-				</slot>
+				</a>
 			</div>
+
 </template>
 
 <script>
@@ -371,7 +371,11 @@ export default {
 
 <style scoped >
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
-	
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
 </style>
 
 

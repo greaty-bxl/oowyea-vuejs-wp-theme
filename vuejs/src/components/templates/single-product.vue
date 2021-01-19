@@ -496,6 +496,8 @@
 		padding-bottom: 20px;
 		font-size: 16px;
 		box-sizing: border-box;
+		height: auto;
+		margin-top: auto;
 	}
 
 	/* Chrome, Safari, Edge, Opera */

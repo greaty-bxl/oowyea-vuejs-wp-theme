@@ -2,9 +2,9 @@
     <div class="section-wrap">
 		<ProductFilter/>
 		<div class="clear"></div>
-			<div  :style="{ backgroundImage: 'url(\'' + this.wp.shop_header.img + '\')', color: 'white', }" class="image-shop">
-				<h3>Cafés</h3>
-				<h1>Nos Cafés</h1>
+			<div  :style="{ backgroundImage: 'url(\'' + shop_header.img + '\')', color: 'white', }" class="image-shop">
+				<h3 v-html="shop_header.parent_label"></h3>
+				<h1 v-html="shop_header.label">Nos Cafés</h1>
 			</div>
 
 			<div class="global-container">
@@ -12,25 +12,15 @@
 				<div class="child-container">
 					
 					<div class="filtre-parent-div">
-						<div><p class="title-page-boutique">Cafes</p> </div>
+						<div><p class="title-page-boutique" v-html="shop_header.label"></p> </div>
 						<div><button class="button-santos-vert" v-on:click="open_filter">FILTRER PAR</button></div>
 						<p class="mobile-filtre" v-on:click="open_filter">FILTRE</p>
 					</div>
 
-				
-
 					<div class="parent-product">
-
-						
-
-
 						<div v-for="item in posts" :key="item.ID" class="product-santos">
-
 							<ItemProduct :item="item"/>
-
-						</div>
-
-						
+						</div>		
 					</div>
 
 				</div>
@@ -47,7 +37,7 @@
 import smart_fonts from 'Libs/smart-fonts.js';
 import ProductFilter from 'Organisms/product-filter.vue'
 import ItemProduct from 'Molecules/item-product.vue'
-import {has_term} from 'Libs/wp-functions.js'
+//import {has_term} from 'Libs/wp-functions.js'
 
 export default {
 	components: {
@@ -58,10 +48,9 @@ export default {
 		'post' : Object,
 		'posts' : Array
 	},
-
 	mounted(){
 
-		console.log( 'wc-shop', this.post, this.posts);
+		console.log( 'wc-shop', this.wp);
 
 		smart_fonts({
 			'.titre-home' : 85 ,
@@ -71,9 +60,6 @@ export default {
 
 		// var $ = this.$
 
-	},
-	destroyed(){
-		console.log('shop destroyed');
 	},
 	methods: {
 
@@ -95,18 +81,33 @@ export default {
 
 		},
 
-		has_term,
+		//has_term,
 
-		isFilled: function(post, count, keyword){
+		/*isFilled: function(post, count, keyword){
 
-				if( post.terms[keyword] ) 
+			if( post.terms[keyword] ) 
+			{
+				if( post.terms[keyword][0].fields[keyword+'_points'] >= count )
 				{
-					if( post.terms[keyword][0].fields[keyword+'_points'] >= count )
-					{
-						return true
-					}	
-				}
+					return true
+				}	
 			}
+		}*/
+	},
+	computed: {
+		shop_header () {
+			let shop_header = this.$store.state.wp.shop_header
+
+			if( typeof shop_header === 'object' && shop_header !== null )
+			{
+				return shop_header
+			}
+			else
+			{
+				return {}
+			}
+			
+		}
 	}
 
 }

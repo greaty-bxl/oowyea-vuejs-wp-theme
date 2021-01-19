@@ -63,7 +63,7 @@ function owy_get_product_cat_filters_lists_with_relations() {
 	if( $post->template == 'wc-shop' )
 	{
 		$shop_header = array(
-			'intro_text' => '',
+			'parent_label' => '',
 			'label' => $post->post_title,
 			'slug' => $post->post_name,
 			'img' => '',
@@ -79,8 +79,17 @@ function owy_get_product_cat_filters_lists_with_relations() {
 			// get the image URL
 			$image = wp_get_attachment_url( $thumbnail_id ); 
 
+			if( $current_term->parent !== 0 )
+			{
+				$parent_label = get_term( $current_term->parent )->name;
+			}
+			else
+			{
+				$parent_label = '';
+			}
+
 			$shop_header = array(
-				'intro_text' => '',
+				'parent_label' => $parent_label,
 				'label' => $current_term->name,
 				'slug' => $current_term->slug,
 				'img' => $image,

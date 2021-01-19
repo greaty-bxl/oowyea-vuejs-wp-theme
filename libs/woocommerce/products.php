@@ -9,7 +9,7 @@ function owy_wc_get_product( $sections )
 			{	
 				$products = get_posts( array(
 					'post_type' => 'product',
-					'posts_per_page' => 0
+					'posts_per_page' => -1
 				) );
 				$section->children = apply_filters( 'posts_results', $products );
 			}

@@ -27,6 +27,14 @@ function owy_contact_us_product_tab( $original_tabs ) {
 	
 	global $product;
 
+	/*echo "<pre>";
+	print_r();
+	exit();*/
+
+	//$original_tabs['general']['class'][] = 'show_if_contact_us';
+
+	
+
     $new_tab['contact_us'] = array(
       'label' => __( 'Contact us form', 'greatytheme' ),
       'target' => 'contact_us_product',
@@ -88,3 +96,27 @@ function owy_save_contact_us_product( $post_id ){
     }
 }
 add_action( 'woocommerce_process_product_meta', 'owy_save_contact_us_product' );
+
+
+function owy_general_tab_contact_us_product() {
+
+    if ('product' != get_post_type()) :
+        return;
+    endif;
+    ?>
+    <script type='text/javascript'>
+        jQuery(document).ready(function () {
+            //for Price tab
+            jQuery('.product_data_tabs .general_tab').addClass('show_if_contact_us').show();
+            jQuery('#general_product_data .pricing').addClass('show_if_contact_us').show();
+            //for Inventory tab
+            /*jQuery('.inventory_options').addClass('show_if_variable_bulk').show();
+            jQuery('#inventory_product_data ._manage_stock_field').addClass('show_if_variable_bulk').show();
+            jQuery('#inventory_product_data ._sold_individually_field').parent().addClass('show_if_variable_bulk').show();
+            jQuery('#inventory_product_data ._sold_individually_field').addClass('show_if_variable_bulk').show();*/
+        });
+    </script>
+    <?php
+}
+
+add_action('admin_footer', 'owy_general_tab_contact_us_product');

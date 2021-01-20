@@ -63,7 +63,7 @@
 
 						<label v-if="type != 'contact_us'" id="quantity_label">Quantity</label>
 
-						<div v-if="post.is_in_stock" class="button-contener" v-html="post.add_to_cart">
+						<div v-if="post.is_in_stock && type != 'contact_us'" class="button-contener" v-html="post.add_to_cart">
 
 						</div>
 
@@ -252,15 +252,12 @@
 	}
 
 	.valeur-taxonomie{
-
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-
 	}
 
 	.div-parent-icons img{
-
 		border: none;
 	}
 	
@@ -496,6 +493,8 @@
 		padding-bottom: 20px;
 		font-size: 16px;
 		box-sizing: border-box;
+		height: auto;
+		margin-top: auto;
 	}
 
 	/* Chrome, Safari, Edge, Opera */
@@ -611,11 +610,11 @@
 		flex-direction: row;
 		
 	}
-
-	.single-text div:first-child{
+	/* de la merda */
+	/*.single-text div:first-child{
 
 		padding-top: 0px;
-	}
+	}*/
 
 	.cafes{
 

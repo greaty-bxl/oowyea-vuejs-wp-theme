@@ -81,18 +81,6 @@ export default {
 
 		},
 
-		//has_term,
-
-		/*isFilled: function(post, count, keyword){
-
-			if( post.terms[keyword] ) 
-			{
-				if( post.terms[keyword][0].fields[keyword+'_points'] >= count )
-				{
-					return true
-				}	
-			}
-		}*/
 	},
 	computed: {
 		shop_header () {
@@ -416,10 +404,14 @@ export default {
 			padding-bottom: 20px;
 		}
 
+
+
 		.image-shop h1 {
 
 			font-size: 15vw !important ;
 			margin: 0px !important;
+			padding:  0px 30px  !important;
+
 		}
 
 		.image-shop h3 {
@@ -427,6 +419,8 @@ export default {
 			font-size: 6vw !important ;
 			margin: 0px !important;
 			padding-bottom: 20px;
+			padding-left: 30px  !important;
+			padding-right: 30px  !important;
 		}
 
 		.global-container{

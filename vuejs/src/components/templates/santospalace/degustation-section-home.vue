@@ -134,9 +134,15 @@
 			
 		}
 
+	}
 
+	@media screen and (max-width: 1100px) and (min-width: 600px){
 
+		.degustation-section-home{
 
+			width: calc(100% - 140px);
+		}
+		
 	}
 
 	@media screen and (max-width: 1100px) {

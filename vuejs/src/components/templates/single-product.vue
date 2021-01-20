@@ -252,15 +252,12 @@
 	}
 
 	.valeur-taxonomie{
-
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-
 	}
 
 	.div-parent-icons img{
-
 		border: none;
 	}
 	
@@ -613,11 +610,11 @@
 		flex-direction: row;
 		
 	}
-
-	.single-text div:first-child{
+	/* de la merda */
+	/*.single-text div:first-child{
 
 		padding-top: 0px;
-	}
+	}*/
 
 	.cafes{
 

@@ -63,7 +63,7 @@
 
 						<label v-if="type != 'contact_us'" id="quantity_label">Quantity</label>
 
-						<div v-if="post.is_in_stock" class="button-contener" v-html="post.add_to_cart">
+						<div v-if="post.is_in_stock && type != 'contact_us'" class="button-contener" v-html="post.add_to_cart">
 
 						</div>
 

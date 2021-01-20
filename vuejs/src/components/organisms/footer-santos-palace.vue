@@ -115,7 +115,7 @@
 
 		text-align: left;
 		display: inline-table;
-		width: 30%;
+		width: 33%;
 		margin-right: 20px;
 		margin-left: 20px;
 		margin-bottom: 40px;

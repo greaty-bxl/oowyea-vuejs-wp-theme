@@ -18,7 +18,7 @@
 
 				<div class="logo-footer">
 					
-					<img src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_logo-rond.svg">
+					<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_logo-rond.svg">
 
 				</div>
 
@@ -26,9 +26,9 @@
 
 				<div class="reseaux-sociaux">
 					
-					<a class="facebook" target="_blank"  href="https://www.facebook.com/santospalace"><img src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone_facebook.svg"> </a>
-					<a class="Instagram" target="_blank" href="https://www.instagram.com/santospalacebel/"> <img src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone_instagram.svg"> </a>
-					<a class="Linkeding" target="_blank" href="https://www.linkedin.com/company/santos-palace/?originalSubdomain=be"> <img src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone__linkedin.svg"> </a>
+					<a class="facebook" target="_blank"  href="https://www.facebook.com/santospalace"><img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone_facebook.svg"> </a>
+					<a class="Instagram" target="_blank" href="https://www.instagram.com/santospalacebel/"> <img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone_instagram.svg"> </a>
+					<a class="Linkeding" target="_blank" href="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone__linkedin.svg"> <img src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone__linkedin.svg"> </a>
 
 				</div>
 

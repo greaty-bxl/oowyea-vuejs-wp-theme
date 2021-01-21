@@ -57,8 +57,10 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		background-image: url('http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_degustation.png');
+		background-image: url('https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_degustation.png');
 	}
+
+	
 
 	.text-degustation{
 		padding-left: 120px;

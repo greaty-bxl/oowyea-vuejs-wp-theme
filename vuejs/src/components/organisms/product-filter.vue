@@ -149,32 +149,11 @@
 		mounted(){
 
 
-			var $ = this.$			
+			//var $ = this.$			
 
 			this.$emit('template_mounted', this);
+
 			
-			$('.icon-santos').click(function() {
-
-				var contenair_globale = ''
-
-				contenair_globale = $(this).parents('.collection-filter__list-wrapper')
-
-				if ($(this).hasClass('open-filter-rotation')) {
-
-					contenair_globale.find('.collection-filter__list').removeClass('open-filters')
-
-					contenair_globale.find('.icon-arrow-right').removeClass('open-filter-rotation')
-
-				}
-				else{
-
-					contenair_globale.find('.collection-filter__list').addClass('open-filters')
-
-					contenair_globale.find('.icon-arrow-right').addClass('open-filter-rotation')
-
-				}
-
-			});
 
 		},
 		watch: {
@@ -183,6 +162,31 @@
 				this.clear_selection()
 
 				var $ = this.$
+
+				$('.icon-santos').click(function() {
+
+					var contenair_globale = ''
+
+					contenair_globale = $(this).parents('.collection-filter__list-wrapper')
+
+					console.log( 'click menu' );
+
+					if ($(this).hasClass('open-filter-rotation')) {
+
+						contenair_globale.find('.collection-filter__list').removeClass('open-filters')
+
+						contenair_globale.find('.icon-arrow-right').removeClass('open-filter-rotation')
+
+					}
+					else{
+
+						contenair_globale.find('.collection-filter__list').addClass('open-filters')
+
+						contenair_globale.find('.icon-arrow-right').addClass('open-filter-rotation')
+
+					}
+
+				});
 
 				this.product_cat_child = this.$store.state.wp.product_cat_child
 
@@ -800,11 +804,11 @@
 	}
 
 	.collection-filter__done {
-		padding: 21px 15px;
+		padding: 21px 15px !important;
 		height: auto;
 		max-width: 180px;
 		font-size: 14px;
-		width: 180px;
+		width: 100px;
 		line-height: 100%;
 	}
 

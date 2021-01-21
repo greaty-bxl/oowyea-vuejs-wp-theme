@@ -217,6 +217,8 @@ export default {
 		
 	}
 
+
+
 	.parent-taxonomie-info{
 
 		display: flex;
@@ -228,11 +230,16 @@ export default {
 
 	}
 
+	.div-terms.thes .parent-taxonomie-info{
+		width: 100%;
+	}
+
 	.titre-taxonomie{
 		font-weight: 700;
 		color: #666666;
 		font-size: 14px;
-		line-height: 14px
+		line-height: 14px;
+		text-align: left;
 	}
 
 	.valeur-taxonomie{

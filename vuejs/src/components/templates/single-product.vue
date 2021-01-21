@@ -450,13 +450,20 @@
 	}
 
 	table.variations td.label {
+		font-size: 16px;
 		padding-right: 10px;
 	}
 
 	table.variations td.value select {
-		height: 30px;
+		/*height: 30px;*/
 		width: 100%;
 		line-height: 200%;
+		border-color: #4D4D4D;
+		padding: 8px;
+	}
+
+	table.variations td{
+		padding-bottom: 15px;
 	}
 
 	.quantity{
@@ -521,7 +528,7 @@
 	.title-single-santospalace{
 		padding: 0px 0px 0px 0px;
 		margin: 0px;
-		font-size: 50px !important;
+		font-size: 40px !important;
 		color: #422112;
 	}
 

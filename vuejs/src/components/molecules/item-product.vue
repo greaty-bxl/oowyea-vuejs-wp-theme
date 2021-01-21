@@ -1,5 +1,5 @@
 <template>
-			<div>
+			<div class="item-product">
 				<a :href="item.permalink">
 					<div class="div-grey">
 						<div>
@@ -86,8 +86,10 @@
 							<span v-html="get_terms_string(item, 'number_usage')"></span>
 						</p>
 						
+						<div class="price" v-html="item.price"></div>
+
 					</div>
-					<div class="price" v-html="item.price"></div>
+					
 				</a>
 			</div>
 
@@ -182,15 +184,22 @@ export default {
 
 	.image-product{
 
-	width: 100%;
+		width: 100%;
 	}
 
-	.price {
+	.item-product .mtw-woo-price{
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+	}
+	
+
+	.item-product .mtw-woo-price, .item-product .mtw-woo-price strong {
 
 		text-align: left;
 		color: #422112;
 		font-size: 15px;
-		font-weight: 700;
+		font-weight: normal;
 		padding-top: 20px;
 
 	}

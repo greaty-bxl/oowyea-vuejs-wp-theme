@@ -4,7 +4,7 @@
 		<div class="clear"></div>
 			<div  :style="{ backgroundImage: 'url(\'' + shop_header.img + '\')', color: 'white', }" class="image-shop">
 				<h3 v-html="shop_header.parent_label"></h3>
-				<h1 v-html="shop_header.label">Nos Cafés</h1>
+				<h1 style="font-weight: bold;" v-html="shop_header.label">Nos Cafés</h1>
 			</div>
 
 			<div class="global-container">
@@ -13,7 +13,7 @@
 					
 					<div class="filtre-parent-div">
 						<div><p class="title-page-boutique" v-html="shop_header.label"></p> </div>
-						<div><button class="button-santos-vert" v-on:click="open_filter">FILTRER PAR</button></div>
+						<div><button class="button-santos-vert" style="padding: 15px 25px;" v-on:click="open_filter">FILTRER</button></div>
 						<p class="mobile-filtre" v-on:click="open_filter">FILTRE</p>
 					</div>
 

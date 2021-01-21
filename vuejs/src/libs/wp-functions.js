@@ -17,4 +17,29 @@ function has_term(post, taxonomy, term_slug)
 	return found
 }
 
-export {has_term}
+function get_terms_as_string(post, tax){
+	let $ = this.$
+
+	if( post.terms[tax] )
+	{
+		let my_array = []
+
+		$.each(post.terms[tax], function(index, term) {
+			my_array[ my_array.length ] = term.name
+		});
+
+		let result = my_array.join(', ')
+		let n = result.lastIndexOf(',');
+
+		result = result.slice(0, n) + result.slice(n).replace(',', ' et');
+
+
+		return result
+	}
+	else
+	{
+		return ''
+	}
+}
+
+export {has_term, get_terms_as_string}

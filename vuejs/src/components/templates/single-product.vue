@@ -40,12 +40,16 @@
 									
 								</div>
 
+								<div class="cafes" v-if="post.terms.origine">
+									<p class="titre-taxonomie">Origine : <span v-html="get_terms_as_string(post, 'origine')"></span></p>
+								</div>
+
 								<div>
-									<p class="flavour" >Notes : Floral et Epices</p>
+									<p class="flavour" >Notes : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
 								</div>
 								
 								<div>
-									<p class="descriptif">Mélange subtil de Santos Brésilien doux et d’Haïti au goût puissant des hauts plateaux de l’Amérique Central, vous donnerons un compromis entre force et douceur..</p>
+									<p class="descriptif" v-html="post.post_content"></p>
 								</div>
 							</div>
 						</div>
@@ -82,7 +86,7 @@
 </template>
 
 <script>
-	import {has_term} from 'Libs/wp-functions.js'
+	import {has_term, get_terms_as_string} from 'Libs/wp-functions.js'
 	export default {
 		data(){
 			return {
@@ -138,6 +142,7 @@
 		methods: {
 
 			has_term,
+			get_terms_as_string,
 
 			isFilled: function(post, count , keyword){
 

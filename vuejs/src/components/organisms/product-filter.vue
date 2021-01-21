@@ -5,9 +5,9 @@
 			<div class="lists-filter-taxonomie">
 
 				<header class="collection-filter__header">
-					<h2 class="collection-filter__title">Filters</h2>
+					<h2 class="collection-filter__title">Filtres</h2>
 					<p class="collection-filter__description">
-					Select one or more filters from the options below.
+						Sélectionnez une catégorie ou plus pour affiner votre recherche.
 					</p>
 					<button class='icon-close-filter' v-on:click="close_filter">
 						<svg aria-hidden="true" focusable="false" role="presentation"   viewBox="0 0 25 25"><path d="M14.023 12.5L24.685 1.839A1.077 1.077 0 1 0 23.16.315L12.5 10.977 1.839.315A1.077 1.077 0 1 0 .315 1.84L10.977 12.5.315 23.161a1.077 1.077 0 1 0 1.524 1.524L12.5 14.023l10.661 10.662a1.077 1.077 0 1 0 1.524-1.524L14.023 12.5z"></path></svg>
@@ -73,10 +73,10 @@
 
 					<button class="collection-filter__clear" v-on:click="clear_selection">
 
-					Clear All <span class="small--hide">Selections</span>
+					Effacer la sélection
 
 					</button>
-					<a :href="done_url" class="collection-filter__done button-santos-vert" v-on:click="done">Done</a>
+					<a :href="done_url" class="collection-filter__done button-santos-vert" v-on:click="done">Filtrer</a>
 				</footer>
 				
 
@@ -805,6 +805,7 @@
 		max-width: 180px;
 		font-size: 14px;
 		width: 180px;
+		line-height: 100%;
 	}
 
 	.collection-filter__clear {

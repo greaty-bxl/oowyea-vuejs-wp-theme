@@ -49,9 +49,7 @@
 								</div>
 							</div>
 						</div>
-						
-
-									
+															
 						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" v-html="this.wp.payment_methods_images">
 							
 						</div>
@@ -67,14 +65,54 @@
 
 						</div>
 
-						<div v-if="type == 'contact_us'" v-html="post.form">
+						<div v-if="type == 'contact_us'" v-html="post.form">						
+						</div>
+
+						<div>
 							
+
+
 						</div>
 						
 					</div>
 					
 				</div>
+
+			</div>
+			<div class="descriptif-machine">
+				<div class="container-description">
+			<!-- 		<div class="col-descriptif more-info-width-1-2">
+						<h2>Caractéristiques</h2>
+						<div><p>Réservoir à grains : 125 g Réservoir à eau: 1,2 l Réservoir à marc : 8 tasses Entretien : Facile Nettoyage et rinçage : Programme automatique</p></div>
+					</div> -->
+					<div class="col-descriptif more-info-width-1-3">
+						<h2>Caractéristiques</h2>
+						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
+					</div>
+
+					<div class="col-descriptif more-info-width-1-3">
+						<h2>Caractéristiques</h2>
+						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
+					</div>
+
+					<div class="col-descriptif more-info-width-1-3">
+						<h2>Caractéristiques</h2>
+						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
+					</div>
 				
+					<div class="col-descriptif more-info-width-1-3">
+						<h2>Caractéristiques</h2>
+						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
+					</div>
+					<div class="col-descriptif more-info-width-2-3">
+						<h2>Caractéristiques</h2>
+						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
+					</div>
+					<div class="col-descriptif more-info-width-100">
+						<h2>Caractéristiques</h2>
+						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : NonCapacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
+					</div>
+				</div>	
 			</div>
 		
 		<div class="clear"></div>
@@ -258,6 +296,7 @@
 	}
 
 	.div-parent-icons img{
+		width: 100px;
 		border: none;
 	}
 	
@@ -510,14 +549,84 @@
 	}*/
 
 	.woocommerce-variation-price{
+
 		display: none;
+
 	}
 
 	.title-single-santospalace{
+
 		padding: 0px 0px 0px 0px;
 		margin: 0px;
-		font-size: 50px !important;
+		font-size: 40px;
 		color: #422112;
+	}
+
+	.col-descriptif{
+
+		margin-top: 40px ;
+		padding: 0px 4.1%;
+	}
+
+	.col-descriptif h2{
+
+		font-size: 30px;
+		color: #422112;
+		font-weight: bold;
+		margin-top: 0px; 
+
+	}
+
+	.col-descriptif div{
+
+		font-size: 16px;
+		line-height: 24px;
+		color: #666666;
+
+	}
+
+	.descriptif-machine{
+
+		background-color: #F6F6F6;
+		width: 100%;
+		padding-top: 30px;
+		padding-bottom: 70px;
+		
+	}
+
+	.container-description{
+		justify-content: space-between;
+		flex-wrap: wrap;
+		display: flex;
+		width: 70vw;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		flex-direction: row;
+		text-align: left;
+	}
+
+	.more-info-width-1-2{
+
+		width: 50%;
+		/*padding: 0px 4.1%;*/
+	}
+
+	.more-info-width-1-3{
+
+	/*	width: 25%;*/
+	width: calc(33% - 8.2%);
+	}
+
+	.more-info-width-2-3{
+
+		width: calc(66% - 8.2%);
+	}
+
+	.more-info-width-100{
+
+		/*width: 100%;*/
+		width: calc(100% - 8.2%);
 	}
 
 	.approximate-price{
@@ -580,7 +689,6 @@
 
 		background-color: #FAFAFA;
 		padding: 30px 50px;
-		height: 50vh;
 		display: flex;
 	}
 
@@ -621,18 +729,54 @@
 		padding-top: 15px;
 	}
 
+	.div-parent-icons{
+
+		margin-top: 20px;
+	}
+
 	@media screen and (min-width: 1100px){
 
 		.parent-taxonomie-info-single{
 			/*width: 50%;*/
 			max-width: 250px;
 		}
+
+		.div-image-single{
+
+			height: 50vh;
+		}
+
+
 	}
 
+	@media screen and (max-width: 1100px) and (min-width: 1000px ){
 
+		.container-description{
 
+			width: calc( 100% - 140px)
+		}
+
+	}
+
+	@media screen and (max-width: 1025px) and (min-width: 600px ){
+	
+		.container-description{
+
+			width: calc( 100% - 140px)	
+		}
+
+		.col-descriptif{
+			margin-left: auto;
+			margin-right: auto;
+			width: calc(100% - 8.2%) !important;
+		}
+	}
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
 
+		.col-descriptif{
+
+			padding: 0px;
+		}
 
 		.single-text > *{
 			padding-top: 30px;
@@ -675,14 +819,40 @@
 			flex-direction: column;
 		}
 
+		.div-image-single{
+
+			height: auto;
+		}
+
 	}
 
 	@media screen and (max-width: 600px){
 
 
+		.container-description{
+
+			width: calc( 100% - 60px)	
+		}
+
+		.col-descriptif{
+
+			width: 100% !important;
+			padding: 0px;
+		}
 		.single-text > *{
 
 			padding-top: 30px;
+
+		}
+
+		.title-single-santospalace{
+
+			font-size: 30px;
+		}
+
+		.col-descriptif h2{
+
+			font-size: 30px;
 
 		}
 

@@ -36,13 +36,13 @@
 								<ul  class="dropdown-content">
 
 
-									<li class="sousmenus childli dropdown__title li-espace-between">
+									<!--<li class="sousmenus childli dropdown__title li-espace-between">
 
 										<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-left close-simple" viewBox="0 0 20 38"><path d="M4.068 18.649l15.466 16.105c.31.283.466.629.466 1.039 0 .41-.155.77-.466 1.08a1.412 1.412 0 0 1-1.038.424c-.41 0-.756-.141-1.038-.424L.466 19.708A1.373 1.373 0 0 1 0 18.648c0-.423.155-.776.466-1.059L17.458.424A1.412 1.412 0 0 1 18.496 0c.41 0 .755.141 1.038.424.31.282.466.636.466 1.06 0 .423-.155.776-.466 1.059L4.068 18.649z" fill="#726D75" fill-rule="evenodd"></path></svg>
 
-										<a class="sousmenus" :href="child.url" v-html="child.title">Hello World!</a>
+										<a class="sousmenus" :href="child.url" v-html="child.title">Hello World!</a> 
 
-									</li>
+									</li> -->
 
 									<div class="li-sousmenu" v-for="child2 in child.child" :key="child2.ID">
 						

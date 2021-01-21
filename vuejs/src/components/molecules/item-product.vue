@@ -1,5 +1,5 @@
 <template>
-			<div>
+			<div class="item-product">
 				<a :href="item.permalink">
 					<div class="div-grey">
 						<div>
@@ -44,7 +44,7 @@
 							<div class="parent-taxonomie-info parent-taxonomie-info-thes">
 								<p class="titre-taxonomie">Thé</p>
 								<div class="valeur-taxonomie" >
-									<p class="value-terms-thes" v-html="get_terms_string(item, 'type_the')"></p>
+									<p class="value-terms-thes" v-html="get_terms_as_string(item, 'type_the')"></p>
 								</div>
 							</div>
 							
@@ -55,18 +55,18 @@
 							<div class="parent-taxonomie-info parent-taxonomie-info-thes">
 								<p class="titre-taxonomie">Type d’infusion</p>
 								<div class="valeur-taxonomie" >
-									<p class="value-terms-thes" v-html="get_terms_string(item, 'type_infusion')"></p>
+									<p class="value-terms-thes" v-html="get_terms_as_string(item, 'type_infusion')"></p>
 								</div>
 							</div>
 							
 						</div>
 
-						<p class="flavour" v-if="has_term(item, 'product_cat', 'cafes') && get_terms_string(item, 'flavoring')" >
-							Notes : <span v-html="get_terms_string(item, 'flavoring')"></span>
+						<p class="flavour" v-if="has_term(item, 'product_cat', 'cafes') && get_terms_as_string(item, 'flavoring')" >
+							Notes : <span v-html="get_terms_as_string(item, 'flavoring')"></span>
 						</p>
 
-						<p class="flavour" v-if="has_term(item, 'product_cat', 'thes') && get_terms_string(item, 'flavor_the')" >
-							Notes : <span v-html="get_terms_string(item, 'flavor_the')"></span>
+						<p class="flavour" v-if="has_term(item, 'product_cat', 'thes') && get_terms_as_string(item, 'flavor_the')" >
+							Notes : <span v-html="get_terms_as_string(item, 'flavor_the')"></span>
 						</p>
 
 						<p class="flavour" v-if="
@@ -76,18 +76,20 @@
 								has_term(item, 'product_cat', 'machines-a-cafes-horeca') 
 							)
 							&& 
-							get_terms_string(item, 'cup_day')" >
-							<span v-html="get_terms_string(item, 'cup_day')"></span>
+							get_terms_as_string(item, 'cup_day')" >
+							<span v-html="get_terms_as_string(item, 'cup_day')"></span>
 						</p>
 
 						<p class="flavour" v-if="
 							has_term(item, 'product_cat', 'machines-a-cafes-entreprise')
-							&& get_terms_string(item, 'number_usage')" >
-							<span v-html="get_terms_string(item, 'number_usage')"></span>
+							&& get_terms_as_string(item, 'number_usage')" >
+							<span v-html="get_terms_as_string(item, 'number_usage')"></span>
 						</p>
 						
+						<div class="price" v-html="item.price"></div>
+
 					</div>
-					<div class="price" v-html="item.price"></div>
+					
 				</a>
 			</div>
 
@@ -95,7 +97,7 @@
 
 <script>
 
-import {has_term} from 'Libs/wp-functions.js'
+import {has_term, get_terms_as_string} from 'Libs/wp-functions.js'
 
 export default {
 
@@ -122,30 +124,7 @@ export default {
 			}
 		},
 
-		get_terms_string: function(post, tax){
-			let $ = this.$
-
-			if( post.terms[tax] )
-			{
-				let my_array = []
-
-				$.each(post.terms[tax], function(index, term) {
-					my_array[ my_array.length ] = term.name
-				});
-
-				let result = my_array.join(', ')
-				let n = result.lastIndexOf(',');
-
-				result = result.slice(0, n) + result.slice(n).replace(',', ' et');
-
-
-				return result
-			}
-			else
-			{
-				return ''
-			}
-		},
+		get_terms_as_string,
 	}
 
 }
@@ -182,15 +161,22 @@ export default {
 
 	.image-product{
 
-	width: 100%;
+		width: 100%;
 	}
 
-	.price {
+	.item-product .mtw-woo-price{
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+	}
+	
+
+	.item-product .mtw-woo-price, .item-product .mtw-woo-price strong {
 
 		text-align: left;
 		color: #422112;
 		font-size: 15px;
-		font-weight: 700;
+		font-weight: normal;
 		padding-top: 20px;
 
 	}
@@ -231,6 +217,8 @@ export default {
 		
 	}
 
+
+
 	.parent-taxonomie-info{
 
 		display: flex;
@@ -242,11 +230,16 @@ export default {
 
 	}
 
+	.div-terms.thes .parent-taxonomie-info{
+		width: 100%;
+	}
+
 	.titre-taxonomie{
 		font-weight: 700;
 		color: #666666;
 		font-size: 14px;
-		line-height: 14px
+		line-height: 14px;
+		text-align: left;
 	}
 
 	.valeur-taxonomie{

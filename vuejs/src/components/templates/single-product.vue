@@ -86,40 +86,9 @@
 			<div class="descriptif-machine" v-if="post.fields.product_more_info">
 				<div class="container-description">
 					<div v-for="(info, index) in post.fields.product_more_info" :key="index" class="col-descriptif" :class="info.column_width">
-						<h2>Caractéristiques</h2>
-						<div><p>Réservoir à grains : 125 g Réservoir à eau: 1,2 l Réservoir à marc : 8 tasses Entretien : Facile Nettoyage et rinçage : Programme automatique</p></div>
+						<h2 v-html="info.title"></h2>
+						<div><p v-html="info.content"></p></div>
 					</div>
-					<!-- <div class="col-descriptif more-info-width-1-2">
-						<h2>Caractéristiques</h2>
-						<div><p>Réservoir à grains : 125 g Réservoir à eau: 1,2 l Réservoir à marc : 8 tasses Entretien : Facile Nettoyage et rinçage : Programme automatique</p></div>
-					</div>
-					<div class="col-descriptif more-info-width-1-3">
-						<h2>Caractéristiques</h2>
-						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
-					</div>
-
-					<div class="col-descriptif more-info-width-1-3">
-						<h2>Caractéristiques</h2>
-						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
-					</div>
-
-					<div class="col-descriptif more-info-width-1-3">
-						<h2>Caractéristiques</h2>
-						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
-					</div>
-				
-					<div class="col-descriptif more-info-width-1-3">
-						<h2>Caractéristiques</h2>
-						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
-					</div>
-					<div class="col-descriptif more-info-width-2-3">
-						<h2>Caractéristiques</h2>
-						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
-					</div>
-					<div class="col-descriptif more-info-width-100">
-						<h2>Caractéristiques</h2>
-						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : NonCapacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
-					</div> -->
 				</div>	
 			</div>
 		

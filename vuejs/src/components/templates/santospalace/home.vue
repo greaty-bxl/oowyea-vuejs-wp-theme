@@ -36,7 +36,7 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
-		background-image: url('http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_torrefaction-01.png');
+		background-image: url('https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_torrefaction-01.png');
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;

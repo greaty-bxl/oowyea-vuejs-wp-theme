@@ -66,31 +66,6 @@ export default {
 
 			// console.log(this.wp.cafes);
 
-		// setTimeout(function() {
-
-		// 		var myVar = $('#fullpage').find('div:first').attr('id');
-
-		// 		console.log(myVar , ' ID');
-
-		// 		// var dataJson = JSON.stringify(myVar);
-
-		// 		console.log(myVar);
-
-		// 		$.ajax({
-		// 			type: 'post',
-		// 			url: AjaxUrl,
-		// 			data:{
-		// 			action: 'global_funtion_filter',
-		// 			category_global: myVar
-		// 		},
-
-			
-
-		// 		});
-
-		// }, 1000);
-
-
 
 	}
 

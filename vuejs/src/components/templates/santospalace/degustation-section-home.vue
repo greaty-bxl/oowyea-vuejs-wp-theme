@@ -41,6 +41,8 @@
 </script>
 
 <style scoped>
+
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 	
 	.degustation-section-home{
 
@@ -48,6 +50,7 @@
 		width: 100%;
 		display: flex;
 		flex-direction: row;
+		font-family: 'Montserrat', sans-serif; 
 
 	}
 
@@ -60,7 +63,7 @@
 		background-image: url('https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_degustation.png');
 	}
 
-	
+
 
 	.text-degustation{
 		padding-left: 120px;

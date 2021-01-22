@@ -88,6 +88,58 @@
 		list-style: none;
 	}
 
+	.container-info-contact{
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 50px;
+		margin-bottom: 100px;
+		width: 50%;
+		text-align: left;
+	}
+
+	.child-info{
+
+		border-bottom: 1px solid #666666;
+	}
+
+	.child-info h5{
+		margin-top: 0px;
+		margin-bottom: 30px;
+		color: #878220;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 500;
+	}
+
+	.child-info h4{
+		margin-top: 30px;
+		margin-bottom: 0px;
+		color: #878220;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: bold;
+	}
+
+	.child-info ul *{
+
+		color: #666666;
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	.child-info ul{
+
+		padding-left: 70px;
+	}
+
+	.child-info ul li{
+
+		/*padding-left: 70px;*/
+	}
+
+
+	
+
 	@media screen and (min-width: 1100px){
 
 		.image-contact h1 {

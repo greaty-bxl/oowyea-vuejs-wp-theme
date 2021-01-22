@@ -28,7 +28,7 @@
 					
 					<a class="facebook" target="_blank"  href="https://www.facebook.com/santospalace"><img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone_facebook.svg"> </a>
 					<a class="Instagram" target="_blank" href="https://www.instagram.com/santospalacebel/"> <img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone_instagram.svg"> </a>
-					<a class="Linkeding" target="_blank" href="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone__linkedin.svg"> <img src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone__linkedin.svg"> </a>
+					<a class="Linkeding" target="_blank" href="https://www.linkedin.com/company/santos-palace/?originalSubdomain=be"> <img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_icone__linkedin.svg"> </a>
 
 				</div>
 
@@ -97,12 +97,6 @@
 
 <style>
 
-	
-	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
-
-
-	
-
 	.custom-html-widget{
 
 		flex-wrap: wrap;
@@ -115,22 +109,23 @@
 
 		text-align: left;
 		display: inline-table;
-		width: 33%;
+		width: 37%;
 		margin-right: 20px;
 		margin-left: 20px;
 		margin-bottom: 40px;
+		line-height: 25px !important;
 
 	}
 
 	.logo-footer img{
 
-		width: 180px;
+		width: 150px;
 	}
 
 	.reseaux-sociaux img{
 
-		width: 30px;
-		height: 30px;
+		width: 20px;
+		height: 20px;
 
 	}
 
@@ -152,7 +147,7 @@
 
 	.contener-footer{
 
-		width: 75%;
+		width: 80%;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -186,6 +181,7 @@
 	.tnp-subscription div.tnp-field-email label{
 
 		font-weight: 600;
+		line-height: 25px;
 
 	}
 
@@ -199,12 +195,12 @@
 		padding-top: 30px;
 		padding-bottom: 30px;
 	}
-	.div-green-parent *{
+/*	.div-green-parent *{
 
-		font-family: open sans;
+		font-family: 'Montserrat', sans-serif; 
 
 	}
-
+*/
 	.tnp-subscription input[type=text], .tnp-subscription input[type=email], .tnp-subscription input[type=submit], .tnp-subscription select{
 
 		background-color: white;
@@ -267,7 +263,6 @@
 	.tnp-field.tnp-field-email {
 		display: flex;
 		justify-content: flex-end;
-		/*width: 550px;*/
 	}
 
 	.tnp-field-email label{
@@ -295,7 +290,6 @@
 
 	.tnp-privacy-field{
 
-		/*max-width: auto;*/
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
@@ -340,18 +334,28 @@
 
 		display: flex;
 		flex-direction: column;
-		/*margin-top: 20px;*/
 
 	}
 
 	#footer{
 
 		font-size: 14px;
-		/*height: auto;*/
 		min-height: auto !important;
 	}
 
 	#footer *{
+
+		line-height: 30px;
+	}
+
+	.div-green-parent .tnp-field-email label{
+
+			line-height: 25px !important;
+	}
+
+
+
+	#footer{
 
 		/*font-size: 14px !important;*/
 		line-height: 25px;
@@ -512,12 +516,13 @@
 		}
 
 		.custom-html-widget div {
+
 			text-align: left;
 			display: inline-table;
 			width: calc(100% - 60px);
 			margin-right: 30px; 
 			margin-left: 30px;
-			/* margin-bottom: 40px;*/
+
 		}
 
 		.contener-footer {

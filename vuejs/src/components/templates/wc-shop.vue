@@ -151,6 +151,8 @@ export default {
 
 		margin-top: 114px;
 		background-color: #888320;
+		background-size: cover;
+		background-position: center;
 		padding-bottom: 50px;
 		display: flex;
 		justify-content: center;
@@ -301,6 +303,7 @@ export default {
 			justify-content: center;
 			align-content: center;
 			margin-top: 50px;
+			margin-bottom: 50px;
 		}
 						
 		.child-container{

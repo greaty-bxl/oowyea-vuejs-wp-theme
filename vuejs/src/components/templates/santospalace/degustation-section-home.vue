@@ -46,7 +46,7 @@
 	
 	.degustation-section-home{
 
-		height: 100vh;
+		min-height: 100vh;
 		width: 100%;
 		display: flex;
 		flex-direction: row;
@@ -55,8 +55,9 @@
 	}
 
 	.image-degustation{
+		
 		width: 50%;
-		height: 100%;
+		min-height: 100%;
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -96,7 +97,7 @@
 
 		color: #422112;
 		text-align: left;
-		font-size: 50px;
+		font-size: 40px;
 		width: 60%;
 		line-height: 60px;
 		margin: 0px;

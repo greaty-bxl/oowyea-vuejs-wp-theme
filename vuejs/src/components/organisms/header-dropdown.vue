@@ -166,28 +166,28 @@ export default {
 		// Prevents default submission of the form after clicking on the submit button. 
 		// return false;   
 
-	$('.lang-item').click(function() {
-		/* Act on the event */
-		if ( $(this).hasClass('current-lang') ){
+		$('.lang-item').click(function() {
+			/* Act on the event */
+			if ( $(this).hasClass('current-lang') ){
 
-			console.log('current');
-		}
-		else{
+				//console.log('current');
+			}
+			else{
 
-			setTimeout(function() {
+				setTimeout(function() {
 
-					location.reload(true);
+						location.reload(true);
 
-			}, 1000);
-		}
+				}, 1000);
+			}
 
-	});
+		});
 
 		$('.menu-item').click(function() {
 
 			if ($(this).hasClass('close-simple')){
 
-				console.log('il a la class');
+				//console.log('il a la class');
 			}
 
 			else{
@@ -386,7 +386,29 @@ export default {
 
 		});
 
+		let last_scroll = $('#app').scrollTop()
+		let last_sens = ''
 
+		$('#app').on('scroll', () => {
+			
+			let new_scroll = $('#app').scrollTop()
+
+			if( new_scroll > last_scroll && last_sens != 'down' )
+			{
+				//console.log('scroll down');	
+				$('#header').stop().animate({'margin-top': -$('#header').outerHeight() - 5}, 500);
+				last_sens = 'down'
+			}
+			else if( new_scroll < last_scroll && last_sens != 'up' )
+			{
+				//console.log('scroll up');
+				$('#header').stop().animate({'margin-top': 0}, 500);
+				last_sens = 'up'
+			}
+
+			last_scroll = new_scroll
+
+		});
 
 	},
 

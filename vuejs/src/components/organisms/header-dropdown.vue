@@ -427,7 +427,9 @@ export default {
 /*styleglobal*/
 
 /*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');*/
-
+	/*#header{
+		height: 0;
+	}*/
 	.lang-item a{
 
 		color: #422112;
@@ -455,7 +457,7 @@ export default {
 		display: none !important;
 	}
 	.santos-navbar{
-
+		height: 114px;
 		background-color: white;
 		border-bottom: 1px solid #dddddd;
 	}

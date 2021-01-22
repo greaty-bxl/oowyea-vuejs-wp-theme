@@ -1,5 +1,5 @@
 <template>
-    <div class="section-wrap">
+    <div class="section-wrap section-wc-shop">
 		<ProductFilter/>
 		<div class="clear"></div>
 			<div  :style="{ backgroundImage: 'url(\'' + shop_header.img + '\')', color: 'white', }" class="image-shop">
@@ -236,7 +236,7 @@ export default {
 			display: none
 		}
 
-		.product-santos{
+		.section-wc-shop .product-santos{
 
 			width: 23%;
 			margin-top: 45px;
@@ -244,7 +244,7 @@ export default {
 			display: inline-table;
 			margin-right: 1%;
 			margin-left: 1%;
-			margin-bottom: 100px;
+			
 			
 		}
 
@@ -323,7 +323,7 @@ export default {
 @media only screen and (max-width: 1400px) and (min-width: 1100px){
 
 
-	.product-santos{
+	.section-wc-shop .product-santos{
 
 		width: 31.2%;
 	
@@ -382,7 +382,7 @@ export default {
 			margin-right: auto;
 		}
 
-		.product-santos{
+		.section-wc-shop .product-santos{
 
 			width: 40%;
 			margin-top: 40px;
@@ -446,7 +446,7 @@ export default {
 		}
 
 
-		.product-santos{
+		.section-wc-shop .product-santos{
 
 			width: calc( 100% - 56px);
 			padding-bottom: 30px;

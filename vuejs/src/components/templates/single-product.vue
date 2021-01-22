@@ -15,7 +15,7 @@
 						<h2 class="open-sans title-single-santospalace" v-html="post.post_title">Colis</h2>
 						<p class="approximate-price"><span v-html="post.price"  ></span></p>
 
-						<div>
+						<div class="padding-change">
 							<div class="description-padding">
 								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
 									<div class="parent-taxonomie-info-single">
@@ -28,7 +28,7 @@
 									</div>
 								</div>
 
-								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
+								<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes')">
 									<div class="parent-taxonomie-info-single">
 										<p class="titre-taxonomie">Acidité</p>
 										<div class="valeur-taxonomie"  >
@@ -40,16 +40,22 @@
 									
 								</div>
 
+
 								<div class="cafes" v-if="post.terms.origine">
 									<p class="titre-taxonomie">Origine : <span v-html="get_terms_as_string(post, 'origine')"></span></p>
 								</div>
 
-								<div>
+								<div v-if="post.terms.flavoring">
 									<p class="flavour" >Notes : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
 								</div>
 								
 								<div>
-									<p class="descriptif" v-html="post.post_content"></p>
+									<p class="descriptif" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 								</div>
 							</div>
 						</div>
@@ -74,7 +80,6 @@
 
 						<div>
 							
-
 
 						</div>
 						
@@ -327,7 +332,7 @@
 	.descriptif{
 
 		font-size: 14px !important;
-		/*margin-top: 15px !important;*/
+		padding-top: 40px;
 	}
 	#header{
 
@@ -402,16 +407,8 @@
 		margin-bottom: 50px;
 		margin-right: auto;
 		margin-left: auto;
+		width: 80vw;
 
-		width: 60vw;
-
-	}
-	.image-single{
-
-		margin-top: auto;
-		margin-bottom: auto;
-		width: 40vw  !important;
-		min-width: 300px;
 	}
 
 	.single-text p{
@@ -423,7 +420,7 @@
 
 	.single-text > *{
 
-		font-family: 'open sans';
+		font-family: 'Montserrat', sans-serif;
 		padding-top: 30px;
 	}
 
@@ -432,8 +429,13 @@
 		padding-top: 20px;
 	}
 
-	.single-text{
+	.padding-change{
 
+		padding-top: 20px;
+	}
+
+	.single-text{
+		max-width: 40%;
 		padding-left: 10vh;
 	}
 	.single-text p {
@@ -469,7 +471,7 @@
 
 	.open-sans{
         color: #70625B;
-		font-family: 'open sans';
+		font-family: 'Montserrat', sans-serif;
 		font-weight: bold ;
 	}
 
@@ -570,7 +572,7 @@
 
 		padding: 0px 0px 0px 0px;
 		margin: 0px;
-		font-size: 40px;
+		font-size: 30px;
 		color: #422112;
 	}
 
@@ -581,7 +583,7 @@
 	}
 
 	.col-descriptif h2{
-		font-size: 40px !important;
+		font-size: 25px !important;
 		color: #422112;
 		font-weight: bold;
 		margin-top: 0px; 
@@ -734,8 +736,16 @@
 
 		padding-top: 0px;
 	}*/
+	.approximate-price{
 
+		padding-top: 20px !important;
+	}
 	.cafes{
+
+		padding-top: 0px;
+	}
+
+	.acidity-terms{
 
 		padding-top: 15px;
 	}
@@ -744,6 +754,16 @@
 
 		margin-top: 20px;
 	}
+	.image-single{
+
+		width: 80% !important;
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: auto;
+		margin-right: auto;
+
+	}
+
 
 	@media screen and (min-width: 1100px){
 
@@ -754,11 +774,23 @@
 
 		.div-image-single{
 
-			height: 50vh;
+			width: 40%;
+			height: 40vw;
 		}
 
 
 	}
+
+
+	@media only screen and (max-width: 1400px) and (min-width: 1100px){
+
+		.div-image-single {
+			width: 40%;
+			height: 40vw;
+		}
+
+	}
+
 
 	@media screen and (max-width: 1100px) and (min-width: 1000px ){
 
@@ -814,10 +846,12 @@
 		}
 
 		.image-single {
-			min-width: auto !important;
-			width: 80vw !important;
+			/*min-width: auto !important;*/
+			width: 80% !important;
 			margin-top: auto;
 			margin-bottom: auto;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
 		.button-contener p{

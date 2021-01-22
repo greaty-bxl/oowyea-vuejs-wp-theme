@@ -195,6 +195,11 @@ export default {
 		line-height: 14px;
 	}
 
+	.global-container{
+
+		margin-bottom: 100px;
+	}
+
 	@media screen and (min-width: 1100px){
 
 		.image-shop h1 {
@@ -445,20 +450,12 @@ export default {
 			margin-top: 0px;
 		}
 
-
 		.product-santos{
 
 			width: calc( 100% - 56px);
 			padding-bottom: 30px;
 			margin: 30px auto;
 		
-		}
-
-		.parent-product{
-
-			padding-top: 20px;	
-			padding-bottom: 20px;
-
 		}
 
 		.mobile-filtre{

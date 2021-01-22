@@ -42,12 +42,12 @@
 										</div>
 										
 									</div>
-									<div class="cafes" v-if="post.terms.origine">
+									<div class="origine"  v-if="post.terms.origine">
 										<p class="titre-taxonomie">Origine : <span v-html="get_terms_as_string(post, 'origine')"></span></p>
 									</div>
 
-									<div v-if="post.terms.flavoring">
-										<p class="flavour" >Notes : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
+									<div  class="flavour" v-if="post.terms.flavoring" >
+										<p >Notes : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
 									</div>
 
 								</div>
@@ -397,7 +397,12 @@
 
 	.padding-appeare > div:first-child{
 
-		padding-top: 30px;
+		padding-top: 30px !important;
+	}
+
+	.padding-appeare > div{
+
+		padding-top: 15px !important;
 	}
 
 	.padding-appeare{
@@ -720,14 +725,9 @@
 
 		padding-top: 20px !important;
 	}
-		.cafes{
+	.cafes{
 
-			padding-top: 0px;
-		}
-
-	.acidity-terms{
-
-		padding-top: 15px;
+		padding-top: 0px;
 	}
 
 	.div-parent-icons{
@@ -775,7 +775,6 @@
 
 			padding-top: 0px !important
 		}
-
 
 
 	}

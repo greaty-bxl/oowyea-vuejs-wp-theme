@@ -4,7 +4,7 @@
 
 			<div>
 
-				<div v-html="this.wp.newsletter" class="div-green-parent">
+				<div v-html="wp.newsletter" class="div-green-parent">
 
 					<p>OBTENEZ LES DERNIÈRES NOUVELLES</p>
 					<div>
@@ -22,7 +22,7 @@
 
 				</div>
 
-				<div v-html="this.wp.sidebars.footer_generale" ></div>
+				<div v-html="wp.sidebars.footer_generale" ></div>
 
 				<div class="reseaux-sociaux">
 					
@@ -213,15 +213,16 @@
 	
 	}
 	.tnp-subscription input.tnp-submit {
-		background-color: #ffffff;
-		color: #422112;
-		width: auto;
-		height: auto;
-		margin: 0;
-		padding-right: 20px;
-		padding-top: 15px;
-		padding-bottom: 15px;
-		/*height: 50px;*/
+		
+		background-color: #ffffff !important;
+		color: #422112 !important;
+		width: auto !important;
+		height: auto !important;
+		margin: 0 !important;
+		padding-right: 20px !important;
+		padding-top: 15px !important;
+		padding-bottom: 15px !important;
+
 	}
 
 	.tnp-field-button input{

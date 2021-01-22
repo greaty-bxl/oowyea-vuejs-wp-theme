@@ -151,6 +151,8 @@ export default {
 
 		margin-top: 114px;
 		background-color: #888320;
+		background-size: cover;
+		background-position: center;
 		padding-bottom: 50px;
 		display: flex;
 		justify-content: center;
@@ -193,6 +195,11 @@ export default {
 	.value-terms-thes{
 		font-size: 14px;
 		line-height: 14px;
+	}
+
+	.global-container{
+
+		margin-bottom: 100px;
 	}
 
 	@media screen and (min-width: 1100px){
@@ -296,6 +303,7 @@ export default {
 			justify-content: center;
 			align-content: center;
 			margin-top: 50px;
+			margin-bottom: 50px;
 		}
 						
 		.child-container{
@@ -452,13 +460,6 @@ export default {
 			padding-bottom: 30px;
 			margin: 30px auto;
 		
-		}
-
-		.parent-product{
-
-			padding-top: 20px;	
-			padding-bottom: 20px;
-
 		}
 
 		.mobile-filtre{

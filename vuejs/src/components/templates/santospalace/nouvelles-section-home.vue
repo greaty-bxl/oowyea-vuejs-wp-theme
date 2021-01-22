@@ -8,7 +8,7 @@
 
 						<swiper class="swiperNouvellesbutton" :options="swiperMenu"  :pagination="{ clickable: true }">
 
-							<swiper-slide v-for="(v_slide, index) in last_products_slider" :key="index"   class="product-santos">
+							<swiper-slide v-for="(v_slide, index) in last_products_slider" :key="index"  >
 
 								<button v-bind:class="{ active: index == active }" v-on:click="change_slider(index)">
 									<p v-html="v_slide.term.name"></p>
@@ -223,7 +223,6 @@
 	}
 
 	.section-nouvelles{
-		height: 100vh;
 		padding: 70px 0px;
 		background-color: white;
 		display: flex;

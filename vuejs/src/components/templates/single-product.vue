@@ -15,50 +15,46 @@
 						<h2 class="open-sans title-single-santospalace" v-html="post.post_title">Colis</h2>
 						<p class="approximate-price"><span v-html="post.price"  ></span></p>
 
-						<div class="padding-change">
+
 							<div class="description-padding">
-								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
-									<div class="parent-taxonomie-info-single">
-										<p class="titre-taxonomie">Intensité</p>
-										<div class="valeur-taxonomie" >
-											<div v-for="count_intesity in 5" :key="count_intesity" 
-											v-bind:class="{ filled: isFilled(post, count_intesity, 'intensity') }">
+
+								<div class="padding-appeare">
+
+									<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
+										<div class="parent-taxonomie-info-single">
+											<p class="titre-taxonomie">Intensité</p>
+											<div class="valeur-taxonomie" >
+												<div v-for="count_intesity in 5" :key="count_intesity" 
+												v-bind:class="{ filled: isFilled(post, count_intesity, 'intensity') }">
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
 
-								<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes')">
-									<div class="parent-taxonomie-info-single">
-										<p class="titre-taxonomie">Acidité</p>
-										<div class="valeur-taxonomie"  >
-											<div v-for="acidity_points in 5" :key="acidity_points" 
-											v-bind:class="{ filled: isFilled(post, acidity_points, 'acidity') }">
+									<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes')">
+										<div class="parent-taxonomie-info-single">
+											<p class="titre-taxonomie">Acidité</p>
+											<div class="valeur-taxonomie"  >
+												<div v-for="acidity_points in 5" :key="acidity_points" 
+												v-bind:class="{ filled: isFilled(post, acidity_points, 'acidity') }">
+												</div>
 											</div>
 										</div>
+										
 									</div>
-									
-								</div>
+									<div class="cafes" v-if="post.terms.origine">
+										<p class="titre-taxonomie">Origine : <span v-html="get_terms_as_string(post, 'origine')"></span></p>
+									</div>
 
+									<div v-if="post.terms.flavoring">
+										<p class="flavour" >Notes : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
+									</div>
 
-								<div class="cafes" v-if="post.terms.origine">
-									<p class="titre-taxonomie">Origine : <span v-html="get_terms_as_string(post, 'origine')"></span></p>
 								</div>
-
-								<div v-if="post.terms.flavoring">
-									<p class="flavour" >Notes : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
-								</div>
-								
-								<div>
-									<p class="descriptif" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<div style="padding-top: 0px">
+									<p v-html="post.post_content" class="descriptif"></p>
 								</div>
 							</div>
-						</div>
 															
 						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" v-html="this.wp.payment_methods_images">
 							
@@ -395,14 +391,24 @@
 		padding-top: 30px;
 	}
 
-	.description-padding > *{
+	.description-padding {
 
-		padding-top: 20px;
+		padding-top: 0px;
+	}
+
+	.padding-appeare > div:first-child{
+
+		padding-top: 30px;
+	}
+
+	.padding-appeare{
+
+		padding-top: 0px;
 	}
 
 	.padding-change{
 
-		padding-top: 20px;
+		padding-top: 0px;
 	}
 
 	.single-text{
@@ -711,10 +717,10 @@
 
 		padding-top: 20px !important;
 	}
-	.cafes{
+		.cafes{
 
-		padding-top: 0px;
-	}
+			padding-top: 0px;
+		}
 
 	.acidity-terms{
 
@@ -749,8 +755,33 @@
 			height: 40vw;
 		}
 
+		.contenu-single{
+
+			margin-bottom: 100px;
+
+
+		}
+
 
 	}
+
+
+	@media screen and (max-width: 1100px){
+
+		.description-padding{
+
+			padding-top: 0px !important
+		}
+
+
+
+	}
+
+
+
+
+
+	
 
 
 	@media only screen and (max-width: 1400px) and (min-width: 1100px){
@@ -768,6 +799,12 @@
 		.container-description{
 
 			width: calc( 100% - 140px)
+		}
+
+		.single-text {
+
+			max-width: 100%;
+
 		}
 
 	}
@@ -813,6 +850,7 @@
 
 			padding-top: 5vh;
 			padding-left: 0px;
+			max-width: 100%;
 
 		}
 
@@ -842,8 +880,10 @@
 
 	}
 
-	@media screen and (max-width: 600px){
 
+
+
+	@media screen and (max-width: 600px){
 
 		.container-description{
 
@@ -900,6 +940,9 @@
 
 			padding-left: 0;
 			padding-top: 2.5vh;
+			max-width: 100%;
+
+	
 
 		}
 		.image-single {

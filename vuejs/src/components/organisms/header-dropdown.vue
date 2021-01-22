@@ -12,7 +12,7 @@
 
 				<div class="logo-santos">
 					<a :href="this.wp.options.siteurl"><Acf field="logo"/>
-						<img src="http://santospalace.test/wp-content/uploads/2020/12/santos_palace_logo-01-1.svg">
+						<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos_palace_logo-01.png">
 					</a>
 				</div>
 
@@ -94,7 +94,7 @@
 
 					</div>
 
-					<img class="image-logo" src="http://santospalace.test/wp-content/uploads/2020/12/logo_marionnette_santos_palace.svg">
+					<img class="image-logo" src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/logo_marionnette_santos_palace.svg">
 
 				</ul>
 

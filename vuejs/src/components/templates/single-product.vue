@@ -83,12 +83,16 @@
 				</div>
 
 			</div>
-			<div class="descriptif-machine">
+			<div class="descriptif-machine" v-if="post.fields.product_more_info">
 				<div class="container-description">
-			<!-- 		<div class="col-descriptif more-info-width-1-2">
+					<div v-for="(info, index) in post.fields.product_more_info" :key="index" class="col-descriptif" :class="info.column_width">
 						<h2>Caractéristiques</h2>
 						<div><p>Réservoir à grains : 125 g Réservoir à eau: 1,2 l Réservoir à marc : 8 tasses Entretien : Facile Nettoyage et rinçage : Programme automatique</p></div>
-					</div> -->
+					</div>
+					<!-- <div class="col-descriptif more-info-width-1-2">
+						<h2>Caractéristiques</h2>
+						<div><p>Réservoir à grains : 125 g Réservoir à eau: 1,2 l Réservoir à marc : 8 tasses Entretien : Facile Nettoyage et rinçage : Programme automatique</p></div>
+					</div>
 					<div class="col-descriptif more-info-width-1-3">
 						<h2>Caractéristiques</h2>
 						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
@@ -115,7 +119,7 @@
 					<div class="col-descriptif more-info-width-100">
 						<h2>Caractéristiques</h2>
 						<div>Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : NonCapacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non Capacité journalière : 1 à 10 tasses Eau chaude pour le thé / soupe : Non Cafés : Espresso - Long Cafés / Boissons à base de lait : Non</div>
-					</div>
+					</div> -->
 				</div>	
 			</div>
 		
@@ -146,8 +150,6 @@
 			var $ = this.$
 
 			this.variations_data = $('.variations_form').first().data('product_variations')	
-
-			console.log( this );
 
 			$('#total_price').insertAfter( '[data-state="current"] .quantity')
 
@@ -331,7 +333,7 @@
 	}
 	#header{
 
-		height: 0px;
+		/*height: 0px;*/
 	}
 	.bancontact{
 
@@ -581,7 +583,7 @@
 	}
 
 	.col-descriptif h2{
-		font-size: 40px !important;
+		font-size: 22px !important;
 		color: #422112;
 		font-weight: bold;
 		margin-top: 0px; 
@@ -618,15 +620,14 @@
 	}
 
 	.more-info-width-1-2{
-
-		width: 50%;
+		width: calc(50% - 8.2%);
 		/*padding: 0px 4.1%;*/
 	}
 
 	.more-info-width-1-3{
 
 	/*	width: 25%;*/
-	width: calc(33% - 8.2%);
+		width: calc(33% - 8.2%);
 	}
 
 	.more-info-width-2-3{

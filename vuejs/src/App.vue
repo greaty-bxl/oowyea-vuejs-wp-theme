@@ -256,7 +256,7 @@ export default {
 @import '~Styles/acf-front.css';
 @import '~Styles/santospalace.css';
 
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
 /* width */
 ::-webkit-scrollbar { 
@@ -291,7 +291,7 @@ html{
 
 #app {
   position: absolute;
-  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

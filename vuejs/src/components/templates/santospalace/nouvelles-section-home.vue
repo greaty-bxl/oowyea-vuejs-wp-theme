@@ -257,9 +257,10 @@
 
 	.section-nouvelles h2 {
 
-		font-size: 2.6vw !important;
+		font-size: 36px;
 		margin: 0px !important;
 		padding-bottom: 35px;
+		line-height: 120%;
 		font-weight: 700;
 		color: #422112;
 	}
@@ -327,17 +328,17 @@
 		.section-nouvelles h2{
 
 			padding-bottom: 30px;
-			font-size: 6vw !important;
-			line-height: 7vw !important;
+			/*font-size: 6vw !important;*/
+			line-height: 120% !important;
 
 		}
 
 		.section-nouvelles p {
 
-			font-size: 3.3vw !important;
+			/*font-size: 3.3vw !important;*/
 			width: auto; 
 			margin: 0px auto;
-			line-height: 3.3vw;
+			line-height: 120%;
 
 		}
 
@@ -354,18 +355,18 @@
 
 		.section-nouvelles h2{
 
-			font-size: 10vw !important;
+			/*font-size: 10vw !important;*/
 			padding-bottom: 30px;
 			width: 60%;
 			margin: 0px auto !important;
-			line-height: 11vw !important;
+			line-height: 120% !important;
 		}
 
 		.section-nouvelles p {
 				/*font-size: 17px !important;*/
 				width: 70%;
 				margin: 0px auto;
-				line-height: 9vw;  
+				line-height: 120%;  
 		}
 
 		.section-nouvelles button p {

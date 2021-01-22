@@ -11,8 +11,7 @@
 				</div>
 
 				<div class="logo-santos">
-					<a :href="this.wp.options.siteurl"><Acf field="logo"/>
-						<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos_palace_logo-01.png">
+					<a :href="this.wp.options.siteurl"><Acf field="logo"/>						
 					</a>
 				</div>
 

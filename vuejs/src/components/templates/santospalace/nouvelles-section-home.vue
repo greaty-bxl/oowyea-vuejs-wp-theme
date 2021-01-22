@@ -210,7 +210,7 @@
 		border: 1px solid #888320;
 	}
 
-	.div-filtre-nouvelles button:last-child{
+	.div-filtre-nouvelles .swiper-slide:last-child button{
 
 		border-right: 1px solid #808080;
 	}

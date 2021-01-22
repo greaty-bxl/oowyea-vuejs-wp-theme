@@ -88,11 +88,10 @@
 				<div class="container-description">
 					<div v-for="(info, index) in post.fields.product_more_info" :key="index" class="col-descriptif" :class="info.column_width">
 						<h2 v-html="info.title"></h2>
-						<div><p v-html="info.content"></p></div>
+						<div class="wp-content" v-html="info.content"></div>
 					</div>
 				</div>	
 			</div>
-		
 		<div class="clear"></div>
 	</div>
 </template>

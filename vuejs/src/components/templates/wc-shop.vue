@@ -247,7 +247,7 @@ export default {
 
 			width: 23%;
 			margin-top: 45px;
-			padding-bottom: 35px;
+			/*padding-bottom: 35px;*/
 			display: inline-table;
 			margin-right: 1%;
 			margin-left: 1%;
@@ -394,7 +394,7 @@ export default {
 
 			width: 40%;
 			margin-top: 40px;
-			padding-bottom: 35px;
+			/*padding-bottom: 35px;*/
 
 		}
 
@@ -457,7 +457,7 @@ export default {
 		.section-wc-shop .product-santos{
 
 			width: calc( 100% - 56px);
-			padding-bottom: 30px;
+			/*padding-bottom: 30px;*/
 			margin: 30px auto;
 		
 		}

@@ -9,5 +9,9 @@ h1, h2, h3, h4, h5{
 
 .wp-content p{
 	margin-bottom: 20px;
+}
+
+.wp-content ul{
+	padding-left: 14px;
 
 }

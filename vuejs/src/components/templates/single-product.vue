@@ -299,6 +299,7 @@
 
 		font-size: 14px !important;
 		padding-top: 40px;
+		padding-bottom: 10px;
 	}
 	#header{
 

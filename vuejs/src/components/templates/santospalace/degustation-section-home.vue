@@ -55,7 +55,7 @@
 	}
 
 	.image-degustation{
-		
+
 		width: 50%;
 		min-height: 100%;
 		background-repeat: no-repeat;
@@ -69,7 +69,7 @@
 	.text-degustation{
 		padding-left: 120px;
 		width: 50%;	
-		height: 100%;
+		min-height: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -97,9 +97,9 @@
 
 		color: #422112;
 		text-align: left;
-		font-size: 40px;
-		width: 60%;
-		line-height: 60px;
+		font-size: 30px;
+		width: 75%;
+		line-height: 120%;
 		margin: 0px;
 	}
 

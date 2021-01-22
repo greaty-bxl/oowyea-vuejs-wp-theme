@@ -85,11 +85,8 @@
 							&& get_terms_as_string(item, 'number_usage')" >
 							<span v-html="get_terms_as_string(item, 'number_usage')"></span>
 						</p>
-						
-						<div class="price" v-html="item.price"></div>
-
 					</div>
-					
+					<div class="price" v-html="item.price"></div>
 				</a>
 			</div>
 
@@ -167,7 +164,7 @@ export default {
 	.item-product .mtw-woo-price{
 		margin-left: auto;
 		margin-right: auto;
-		width: 80%;
+		width: 100%;
 	}
 	
 

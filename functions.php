@@ -19,6 +19,8 @@ include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
 // $wp_vue_json will be used in Vue as vue.wp or this.wp in components
 $wp_vue_json;
 
+include GREATY_TEMPLATE_PATH.'/libs/owy-functions.php';
+
 include GREATY_TEMPLATE_PATH.'/libs/get_vue_template.php';
 
 include GREATY_TEMPLATE_PATH.'/vue.config.php';

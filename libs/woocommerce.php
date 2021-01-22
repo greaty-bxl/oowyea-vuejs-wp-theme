@@ -10,6 +10,7 @@ include 'woocommerce/product.php';
 include 'woocommerce/product-contact-us.php';
 include 'woocommerce/taxonomies-filter.php';
 include 'woocommerce/terms_taxonomies_combos.php';
+include 'woocommerce/last-products-slider.php';
 include 'woocommerce/calendar.php';
 include 'woocommerce/image-payment-enabled.php';
 include 'woocommerce/count.php';

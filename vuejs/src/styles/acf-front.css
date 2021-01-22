@@ -37,6 +37,15 @@
 	color: #FFFFFF !important;
 }
 
+.acf-form-submit > input:hover {
+
+	background-color: white !important;
+	color: #888320 !important;
+	transition: 0.3s !important;
+}
+
+
+	
 .acf-field[data-width] {
 	display: flex;
 	justify-content: space-between;

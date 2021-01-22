@@ -150,7 +150,7 @@ export default {
 	.image-shop{
 
 		margin-top: 114px;
-		background-color: #FAFAFA;
+		background-color: #888320;
 		padding-bottom: 50px;
 		display: flex;
 		justify-content: center;
@@ -244,6 +244,7 @@ export default {
 			display: inline-table;
 			margin-right: 1%;
 			margin-left: 1%;
+			margin-bottom: 100px;
 			
 		}
 
@@ -318,6 +319,22 @@ export default {
 
 	}
 
+
+@media only screen and (max-width: 1400px) and (min-width: 1100px){
+
+
+	.product-santos{
+
+		width: 31.2%;
+	
+	}
+
+
+}
+
+
+	
+
 	@media only screen and (max-width: 1100px) and (min-width: 600px){
 
 		.parent-taxonomie-info-thes{
@@ -340,7 +357,7 @@ export default {
 			
 		}
 
-		.image-shop h1 {
+		.#888320 h1 {
 
 			font-size: 10vw !important ;
 			margin: 0px !important;

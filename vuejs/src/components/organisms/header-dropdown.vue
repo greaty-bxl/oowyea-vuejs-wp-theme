@@ -170,7 +170,7 @@ export default {
 			/* Act on the event */
 			if ( $(this).hasClass('current-lang') ){
 
-				console.log('current');
+				//console.log('current');
 			}
 			else{
 
@@ -187,7 +187,7 @@ export default {
 
 			if ($(this).hasClass('close-simple')){
 
-				console.log('il a la class');
+				//console.log('il a la class');
 			}
 
 			else{
@@ -395,13 +395,13 @@ export default {
 
 			if( new_scroll > last_scroll && last_sens != 'down' )
 			{
-				console.log('scroll down');	
+				//console.log('scroll down');	
 				$('#header').stop().animate({'margin-top': -$('#header').outerHeight() - 5}, 500);
 				last_sens = 'down'
 			}
 			else if( new_scroll < last_scroll && last_sens != 'up' )
 			{
-				console.log('scroll up');
+				//console.log('scroll up');
 				$('#header').stop().animate({'margin-top': 0}, 500);
 				last_sens = 'up'
 			}

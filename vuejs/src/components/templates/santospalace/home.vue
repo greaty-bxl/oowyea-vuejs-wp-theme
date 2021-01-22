@@ -41,15 +41,10 @@
 		background-position: center;
 		background-size: cover;
 		color: white;
-		font-family: open sans;
+		/*font-family: open sans;*/
 		height: calc( 100vh - 114px)
 	}
-/*
-	.header-home{
 
-		padding-top: 300px;
-		padding-bottom: 300px;
-	}*/
 
 	.header-home h1 {
 

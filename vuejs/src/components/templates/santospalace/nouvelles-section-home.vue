@@ -6,63 +6,38 @@
 				<h2>Nouveautés @home</h2>
 				<div class="div-filtre-nouvelles">
 
-						<swiper class="swiperNouvellesbutton"  :pagination="{ clickable: true }">
+						<swiper class="swiperNouvellesbutton" :options="swiperMenu"  :pagination="{ clickable: true }">
 
-							<swiper-slide  class="product-santos">
+							<swiper-slide v-for="(v_slide, index) in last_products_slider" :key="index"   class="product-santos">
 
-								<button>
-									<p>CAFÉS</p>
+								<button v-bind:class="{ active: index == active }" v-on:click="change_slider(index)">
+									<p v-html="v_slide.term.name"></p>
 								</button>
-							</swiper-slide>
 
-							<swiper-slide  class="product-santos">
-
-								<button>
-									<p>CAFÉS</p>
-								</button>
 							</swiper-slide>
 
 						</swiper>
 					
 				</div>
 
-				<swiper class="swipernouvelles" :options="swiperNouvelles"    :pagination="{ clickable: true }">
+				<div>
+					<swiper v-for="(v_slide, index) in last_products_slider" 
+					:key="index"
+					v-show="index == active"
+					class="swipernouvelles" 
+					:options="swiperNouvelles"    
+					:pagination="{ clickable: true }">
 
-					<swiper-slide  class="product-santos">
+						<swiper-slide v-for="post in v_slide.posts" :key="post.ID"  class="product-santos">
+							
+							<Item  :item="post" />
 
-					<div data-v-3f169c21="" class="product-santos"><div data-v-b5b54a32="" data-v-3f169c21=""><div data-v-b5b54a32="" class="div-grey"><div data-v-b5b54a32=""></div><div data-v-b5b54a32="" class="cadre"><img data-v-b5b54a32="" src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/Lattiz-570x700-1.png" class="image-product"></div><p data-v-b5b54a32="" class="title-product">cafe (Copie)</p><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Intensité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div><div data-v-b5b54a32="" class=""></div></div></div></div><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Acidité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div></div></div></div><!----><!----><p data-v-b5b54a32="" class="flavour">Notes : Floral et Epices</p></div><div data-v-b5b54a32="" class="price"> 22 </div></div></div>
-
-					</swiper-slide>
-
-					<swiper-slide  class="product-santos">
-
-						<div data-v-3f169c21="" class="product-santos"><div data-v-b5b54a32="" data-v-3f169c21=""><div data-v-b5b54a32="" class="div-grey"><div data-v-b5b54a32=""></div><div data-v-b5b54a32="" class="cadre"><img data-v-b5b54a32="" src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/Lattiz-570x700-1.png" class="image-product"></div><p data-v-b5b54a32="" class="title-product">cafe (Copie)</p><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Intensité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div><div data-v-b5b54a32="" class=""></div></div></div></div><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Acidité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div></div></div></div><!----><!----><p data-v-b5b54a32="" class="flavour">Notes : Floral et Epices</p></div><div data-v-b5b54a32="" class="price"> 22 </div></div></div>
-
-					</swiper-slide>
-						<swiper-slide  class="product-santos">
-
-						<div data-v-3f169c21="" class="product-santos"><div data-v-b5b54a32="" data-v-3f169c21=""><div data-v-b5b54a32="" class="div-grey"><div data-v-b5b54a32=""></div><div data-v-b5b54a32="" class="cadre"><img data-v-b5b54a32="" src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/Lattiz-570x700-1.png" class="image-product"></div><p data-v-b5b54a32="" class="title-product">cafe (Copie)</p><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Intensité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div><div data-v-b5b54a32="" class=""></div></div></div></div><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Acidité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div></div></div></div><!----><!----><p data-v-b5b54a32="" class="flavour">Notes : Floral et Epices</p></div><div data-v-b5b54a32="" class="price"> 22 </div></div></div>
-
-					</swiper-slide>
-						<swiper-slide  class="product-santos">
-
-						<div data-v-3f169c21="" class="product-santos"><div data-v-b5b54a32="" data-v-3f169c21=""><div data-v-b5b54a32="" class="div-grey"><div data-v-b5b54a32=""></div><div data-v-b5b54a32="" class="cadre"><img data-v-b5b54a32="" src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/Lattiz-570x700-1.png" class="image-product"></div><p data-v-b5b54a32="" class="title-product">cafe (Copie)</p><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Intensité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div><div data-v-b5b54a32="" class=""></div></div></div></div><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Acidité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div></div></div></div><!----><!----><p data-v-b5b54a32="" class="flavour">Notes : Floral et Epices</p></div><div data-v-b5b54a32="" class="price"> 22 </div></div></div>
-
-					</swiper-slide>
-						<swiper-slide  class="product-santos">
-
-						<div data-v-3f169c21="" class="product-santos"><div data-v-b5b54a32="" data-v-3f169c21=""><div data-v-b5b54a32="" class="div-grey"><div data-v-b5b54a32=""></div><div data-v-b5b54a32="" class="cadre"><img data-v-b5b54a32="" src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/Lattiz-570x700-1.png" class="image-product"></div><p data-v-b5b54a32="" class="title-product">cafe (Copie)</p><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Intensité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div><div data-v-b5b54a32="" class=""></div></div></div></div><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Acidité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div></div></div></div><!----><!----><p data-v-b5b54a32="" class="flavour">Notes : Floral et Epices</p></div><div data-v-b5b54a32="" class="price"> 22 </div></div></div>
-
-					</swiper-slide>
-						<swiper-slide  class="product-santos">
-
-						<div data-v-3f169c21="" class="product-santos"><div data-v-b5b54a32="" data-v-3f169c21=""><div data-v-b5b54a32="" class="div-grey"><div data-v-b5b54a32=""></div><div data-v-b5b54a32="" class="cadre"><img data-v-b5b54a32="" src="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/Lattiz-570x700-1.png" class="image-product"></div><p data-v-b5b54a32="" class="title-product">cafe (Copie)</p><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Intensité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div><div data-v-b5b54a32="" class=""></div></div></div></div><div data-v-b5b54a32="" class="div-terms"><div data-v-b5b54a32="" class="parent-taxonomie-info"><p data-v-b5b54a32="" class="titre-taxonomie">Acidité</p><div data-v-b5b54a32="" class="valeur-taxonomie"><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class="filled"></div><div data-v-b5b54a32="" class=""></div></div></div></div><!----><!----><p data-v-b5b54a32="" class="flavour">Notes : Floral et Epices</p></div><div data-v-b5b54a32="" class="price"> 22 </div></div></div>
-
-					</swiper-slide>
-
+						</swiper-slide>
 					
-				</swiper>
-					<div class="swiper-pagination"></div>
+					</swiper>
+					<div class="swiper-pagination"></div>	
+				</div>
+				
 			</div>
 
 		</div>
@@ -73,7 +48,8 @@
 
 	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 	import 'swiper/css/swiper.css';
-	import {has_term} from 'Libs/wp-functions.js'
+	import Item from 'Molecules/item-product.vue'
+	//import {has_term} from 'Libs/wp-functions.js'
 	import is from 'is_js'
 
 
@@ -81,7 +57,7 @@
 	export default {
 
 		components: {
-
+			Item,
 			Swiper,
 			SwiperSlide,
 
@@ -92,29 +68,39 @@
 			'posts' : Array
 		},
 
-		mounted(){			
-
-			// var $ = this.$
-
-	
-			if ( is.desktop() ){
-
-				SwiperSlide.destroy();
-			}
+		mounted(){
 		
-
-			this.$emit('template_mounted', this);
-
-			has_term
-
+			console.log( 'slider', this.$store.state.wp );
+			//this.$emit('template_mounted', this);
 
 		},
 
+		methods: {
+			change_slider : function(index){
+				this.active = index
+			}
+		},
 
-
-		
 		data () {
 			return {
+				active: 0,
+				last_products_slider: this.$store.state.wp.last_products_slider,
+				swiperMenu: {
+					initialSlide: 0,
+					loop: false,
+					slidesPerView: 'auto',
+					
+					on : {
+						init : function(){
+							
+							setTimeout( ()=>{
+								if ( is.desktop() ){
+									this.destroy()
+								}
+							}, 1 )
+						}
+					},			
+				},
 
 				swiperNouvelles: {
 					initialSlide: 0,	
@@ -168,14 +154,8 @@
 
 						}
 					},
-
 			},
-
-
 		}
-
-
-
 	},
 
 
@@ -187,12 +167,12 @@
 <style type="text/css">
 
 	.swiperNouvellesbutton .swiper-slide{
-
-		width: auto !important;
+		width: auto;
+		
 	}
 
 	.swipernouvelles{
-
+		min-height: 600px;
 		width: 75%;
 		/*width: 102%;*/
 		margin-left: -1%;
@@ -202,13 +182,15 @@
 
 	.div-filtre-nouvelles{
 
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
+		max-width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+
 		height: 50px;
 		margin-bottom: 50px;
 
 	}
+
 
 	.div-filtre-nouvelles button{
 
@@ -220,6 +202,12 @@
 		pointer-events: auto !important;
 		background-color: white;
 		color: #808080;
+	}
+
+	.div-filtre-nouvelles button.active{
+		color: #fff;
+		background-color: #888320;
+		border: 1px solid #888320;
 	}
 
 	.div-filtre-nouvelles button:last-child{
@@ -246,11 +234,9 @@
 
 	}
 
-	.section-nouvelles p {
+	.section-nouvelles .item-product {
 
-		font-size: 17px !important;
-		margin: 0px auto;
-		font-weight: 300;
+		margin-left: 20px; 
 
 
 	}

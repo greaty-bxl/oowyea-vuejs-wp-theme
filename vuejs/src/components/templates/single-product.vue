@@ -71,7 +71,7 @@
 
 						</div>
 
-						<div v-if="type == 'contact_us'" v-html="post.form">						
+						<div class="form_contact_us_product" v-if="type == 'contact_us'" v-html="post.form">						
 						</div>
 
 						<div>
@@ -138,7 +138,7 @@
 			
 			this.type = this.post.terms.product_type[0].slug
 
-			if( this.type != "variable" && Array.isArray(this.post.metas._sale_price) )
+			if( this.type != "variable" && Array.isArray(this.post.metas._price) )
 			{
 				this.sale_price = this.post.metas._price[0]
 				this.tot_price = this.sale_price
@@ -550,6 +550,10 @@
 		margin: 0px;
 		font-size: 30px;
 		color: #422112;
+	}
+
+	.form_contact_us_product{
+		margin-top: 30px;
 	}
 
 	.col-descriptif{

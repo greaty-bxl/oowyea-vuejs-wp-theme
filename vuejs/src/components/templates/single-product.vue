@@ -140,7 +140,7 @@
 
 			if( this.type != "variable" && Array.isArray(this.post.metas._sale_price) )
 			{
-				this.sale_price = this.post.metas._sale_price[0]
+				this.sale_price = this.post.metas._price[0]
 				this.tot_price = this.sale_price
 			}
 			

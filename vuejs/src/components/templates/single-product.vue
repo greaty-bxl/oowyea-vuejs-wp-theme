@@ -120,7 +120,6 @@
 
 			var $ = this.$
 
-			console.log(wp.acf.options.galerie_icons);
 
 			this.variations_data = $('.variations_form').first().data('product_variations')	
 
@@ -274,7 +273,7 @@
 		flex-direction: row;
 		align-items: center;
 	}
-	
+
 	.div-parent-icons img{
 		width: 400px;
 	}

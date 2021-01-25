@@ -63,6 +63,8 @@
 			line-height: 27px; 
 			margin: 0px 30px; 
 		}
+
+		
 	}
 	
 	

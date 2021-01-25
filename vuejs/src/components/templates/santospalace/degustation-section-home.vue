@@ -46,7 +46,7 @@
 	
 	.degustation-section-home{
 
-		height: 100vh;
+		min-height: 100vh;
 		width: 100%;
 		display: flex;
 		flex-direction: row;
@@ -55,8 +55,9 @@
 	}
 
 	.image-degustation{
+
 		width: 50%;
-		height: 100%;
+		min-height: 100%;
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -68,7 +69,7 @@
 	.text-degustation{
 		padding-left: 120px;
 		width: 50%;	
-		height: 100%;
+		min-height: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -96,9 +97,9 @@
 
 		color: #422112;
 		text-align: left;
-		font-size: 50px;
-		width: 60%;
-		line-height: 60px;
+		font-size: 30px;
+		width: 75%;
+		line-height: 120%;
 		margin: 0px;
 	}
 

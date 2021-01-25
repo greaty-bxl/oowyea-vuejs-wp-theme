@@ -36,20 +36,15 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
-		background-image: url('http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_torrefaction-01.png');
+		background-image: url('https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_torrefaction-01.png');
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
 		color: white;
-		font-family: open sans;
+		/*font-family: open sans;*/
 		height: calc( 100vh - 114px)
 	}
-/*
-	.header-home{
 
-		padding-top: 300px;
-		padding-bottom: 300px;
-	}*/
 
 	.header-home h1 {
 

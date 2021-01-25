@@ -23,7 +23,8 @@
 				<h4>E-MAIL</h4>
 				<ul>
 
-					<li>Pour des informations générales et des questions relatives à la commande, envoyez-nous un e-mail à: info[at]santospalace.be</li>
+					<li>
+					Pour des informations générales et des questions relatives à la commande, envoyez-nous un e-mail à: info[at]santospalace.be</li>
 		
 				</ul>
 			</div>
@@ -86,7 +87,56 @@
 	.container-info-contact ul{
 
 		list-style: none;
+		padding-left: 7vw;
+		padding-bottom: 0px;
+		margin-bottom: 30px;
 	}
+
+	.container-info-contact{
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 50px;
+		margin-top: 75px;
+		margin-bottom: 150px;
+		width: 50%;
+		text-align: left;
+	}
+
+	.child-info{
+
+		border-bottom: 1px solid #666666;
+	}
+
+	.child-info h5{
+		margin-top: 0px;
+		margin-bottom: 30px;
+		color: #878220;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 500;
+	}
+
+	.child-info h4{
+		margin-top: 30px;
+		margin-bottom: 0px;
+		color: #878220;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: bold;
+	}
+
+	.child-info ul *{
+
+		color: #666666;
+		font-size: 16px;
+		line-height: 24px;
+		text-decoration: none;
+	}
+	.child-info ul{
+
+		padding-left: 70px;
+	}
+
 
 	@media screen and (min-width: 1100px){
 
@@ -115,7 +165,7 @@
 	}
 
 
-	@media screen and ( max-width: 1100px ) and ( min-width: 600px ) {
+	@media screen and ( max-width: 1150px ) and ( min-width: 600px ) {
 
 		.image-contact h1 {
 
@@ -129,9 +179,19 @@
 			margin: 0px !important;
 			padding-bottom: 20px;
 		}
+
+		.container-info-contact{
+		
+			width: calc( 100% - 140px)		
+		}
 	}
 
 	@media screen and ( max-width: 600px ){
+
+		.container-info-contact{
+		
+			width: calc( 100% - 60px)		
+		}
 
 		.image-contact h1 {
 
@@ -147,6 +207,11 @@
 			padding-right: 30px  !important;
 			margin: 0px !important;
 			padding-bottom: 20px;
+		}
+
+		.child-info ul{
+
+			padding-left: 15px;
 		}
 	
 	}

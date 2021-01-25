@@ -35,7 +35,6 @@
 		flex-direction: column;
 		background-color: #888320;
 		color: white;
-		font-family: open sans;
 		min-height: auto !important;
 	}
 

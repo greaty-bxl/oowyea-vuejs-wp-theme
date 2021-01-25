@@ -56,7 +56,9 @@
 								</div>
 							</div>
 															
-						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" v-html="this.wp.payment_methods_images">
+						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" >
+
+							<img v-for="child in wp.acf.options.galerie_icons" :key="child.ID" :src="child.url">
 							
 						</div>
 
@@ -117,6 +119,8 @@
 		mounted (){
 
 			var $ = this.$
+
+			console.log(wp.acf.options.galerie_icons);
 
 			this.variations_data = $('.variations_form').first().data('product_variations')	
 
@@ -271,10 +275,16 @@
 		align-items: center;
 	}
 
-	.div-parent-icons img{
-		width: 100px;
-		border: none;
+	.div-parent-icons{
+
+		min-width: 500px;
 	}
+
+	.div-parent-icons img{
+		width: 400px;
+	}
+
+
 	
 	.valeur-taxonomie div{
 
@@ -777,6 +787,9 @@
 			padding-top: 0px !important
 		}
 
+		
+
+
 
 	}
 
@@ -813,6 +826,10 @@
 	}
 
 	@media screen and (max-width: 1025px) and (min-width: 600px ){
+
+		.div-parent-icons img{
+			width: 400px;
+		}
 	
 		.container-description{
 
@@ -887,6 +904,10 @@
 
 
 	@media screen and (max-width: 600px){
+
+		.div-parent-icons img{
+			width: 250px;
+		}
 
 		.container-description{
 

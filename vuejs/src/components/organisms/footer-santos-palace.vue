@@ -568,7 +568,7 @@
 
 		.custom-html-widget div {
 	
-			width: 40%;
+			width: 43%;
 			margin-right: 20px;
 			margin-left: 20px;
 			margin-bottom: 40px;

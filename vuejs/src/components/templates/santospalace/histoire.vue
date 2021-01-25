@@ -176,6 +176,11 @@
 
 	}
 
+	.image-histoire h1{
+		
+		font-weight: bold;
+	}
+
 
 	.histoire-row-reverse img{
 

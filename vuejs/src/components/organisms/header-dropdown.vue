@@ -108,7 +108,7 @@
 
 						<a href="">
 
-							<img class="image-compte" src="http://santospalace.test/wp-content/uploads/2020/12/login-01.svg">
+							<img class="image-compte" src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/login-01.svg">
 
 						</a>
 

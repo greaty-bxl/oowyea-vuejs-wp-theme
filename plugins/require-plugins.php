@@ -14,6 +14,12 @@ function grt_theme_register_required_plugins() {
 		),
 
 		array(
+			'name'		=> 'Calculated fields for ACF',
+			'slug'		=> 'calculated-fields-for-acf',
+			'required'	=> false,
+		),
+
+		array(
 			'name'      => 'Custom Post Type UI',
 			'slug'      => 'custom-post-type-ui',
 			'required'  => false,
@@ -28,6 +34,12 @@ function grt_theme_register_required_plugins() {
 		array(
 			'name'      => 'WooCommerce',
 			'slug'      => 'woocommerce',
+			'required'  => false,
+		),
+
+		array(
+			'name'      => 'Polylang',
+			'slug'      => 'polylang',
 			'required'  => false,
 		),
 

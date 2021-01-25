@@ -97,10 +97,11 @@
 
 		color: #422112;
 		text-align: left;
-		font-size: 30px;
+		font-size: 40px;
 		width: 75%;
 		line-height: 120%;
 		margin: 0px;
+		font-weight: 400;
 	}
 
 	.text-degustation button{
@@ -119,8 +120,24 @@
 		padding-left: 0px;
 		text-align: left;
 		margin:  50px 0px;
-		width: 60%;
+		width: 80%;
 		
+	}
+
+
+	@media only screen and (max-width: 1400px) and (min-width: 1100px){
+
+		.text-degustation h2{
+
+			color: #422112;
+			text-align: left;
+			font-size: 30px;
+			width: 80%;
+			line-height: 120%;
+			margin: 0px;
+		}
+
+
 	}
 
 
@@ -129,14 +146,14 @@
 
 		.text-degustation h2{
 
-			width: 70%;
+			width: 80%;
 		
 		}
 
 
 		.text-degustation ul{
 		
-			width: 70%;
+			width: 80%;
 			
 		}
 

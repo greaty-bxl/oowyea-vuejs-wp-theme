@@ -23,6 +23,10 @@ Vue.prototype.generate_schemes = generate_schemes
 import wp_ajax from 'Libs/wp-ajax.js'
 Vue.prototype.wp_ajax = wp_ajax
 
+/* PLL Translate function */
+import pll__ from 'Libs/pll__.js'
+Vue.prototype.pll__ = pll__
+
 /* Fontawesome-icon */
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon' 

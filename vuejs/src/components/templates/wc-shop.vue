@@ -12,9 +12,16 @@
 				<div class="child-container">
 					
 					<div class="filtre-parent-div">
-						<div><p class="title-page-boutique" v-html="shop_header.label"></p> </div>
-						<div><button class="button-santos-vert" style="padding: 15px 25px;" v-on:click="open_filter">FILTRER</button></div>
-						<p class="mobile-filtre" v-on:click="open_filter">FILTRE</p>
+						<div><p class="title-page-boutique" v-html="shop_header.label"></p></div>
+						<div>
+							<button 
+								class="button-santos-vert" 
+								style="padding: 15px 25px;" 
+								v-on:click="open_filter"
+								v-html="pll__('FILTRER')">
+							</button>
+						</div>
+						<p class="mobile-filtre" v-on:click="open_filter" v-html='pll__("FILTRER 2")'></p>
 					</div>
 
 					<div class="parent-product">
@@ -55,10 +62,8 @@ export default {
 		smart_fonts({
 			'.titre-home' : 85 ,
 		})
-
+		
 		this.$emit('template_mounted', this);
-
-		// var $ = this.$
 
 	},
 	methods: {

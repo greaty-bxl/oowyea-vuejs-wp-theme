@@ -39,7 +39,7 @@ include GREATY_TEMPLATE_PATH.'/libs/mime-types.php';
 include GREATY_TEMPLATE_PATH.'/libs/_wpnonce.php';
 include GREATY_TEMPLATE_PATH.'/libs/gpdr-intro.php';
 include GREATY_TEMPLATE_PATH.'/libs/newsletter.php';
-
+include GREATY_TEMPLATE_PATH.'/libs/polylang.php';
 
 
 

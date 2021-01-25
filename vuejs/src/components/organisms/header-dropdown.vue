@@ -100,7 +100,7 @@
 				<div class="icons-santos-palace">
 
 					<div class="lang" >
-						<div v-html='wp.pll'></div>
+						<div v-html='menu_lang'></div>
 					</div>
 
 
@@ -165,22 +165,13 @@ export default {
 		// Prevents default submission of the form after clicking on the submit button. 
 		// return false;   
 
-		$('.lang-item').click(function() {
-			/* Act on the event */
-			if ( $(this).hasClass('current-lang') ){
+		/*$('.lang-item').click(function() {
 
-				//console.log('current');
-			}
-			else{
+			$('.lang-item').removeClass('current-lang')
 
-				setTimeout(function() {
+			$(this).addClass('current-lang')
 
-						location.reload(true);
-
-				}, 1000);
-			}
-
-		});
+		});*/
 
 		$('.menu-item').click(function() {
 
@@ -414,6 +405,9 @@ export default {
 	computed: {
 		count () {
 			return this.$store.state.wp.count
+		},
+		menu_lang () {
+			return this.$store.state.wp.pll
 		}
 	}
 

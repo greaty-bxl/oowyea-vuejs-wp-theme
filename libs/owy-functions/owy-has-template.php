@@ -4,11 +4,14 @@ function owy_has_template( $search )
 {
 	global $sections;
 
-	foreach ($sections as $key => $section) 
+	if( is_array( $sections ) )
 	{
-		if( $section->template == $search )
+		foreach ($sections as $key => $section) 
 		{
-			return true;
+			if( $section->template == $search )
+			{
+				return true;
+			}
 		}
 	}
 

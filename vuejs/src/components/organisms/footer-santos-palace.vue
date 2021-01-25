@@ -473,8 +473,16 @@
 		
 	}
 
-	@media screen and ( max-width: 600px){
 
+		@media screen and ( max-width: 330px){
+
+			.tnp-subscription input[type=text], .tnp-subscription input[type=email], .tnp-subscription input[type=submit], .tnp-subscription select{
+
+				width: 160px;
+			}
+		}
+
+	@media screen and ( max-width: 600px){
 
 
 		.tnp-field.tnp-field-button{

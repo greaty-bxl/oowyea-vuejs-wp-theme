@@ -167,14 +167,15 @@
 <style type="text/css">
 
 	.swiperNouvellesbutton .swiper-slide{
+
 		width: auto;
-		
+	
 	}
 
 	.swipernouvelles{
+
 		min-height: 600px;
 		width: 75%;
-		/*width: 102%;*/
 		margin-left: -1%;
 		margin-right: auto;
 		margin-left: auto;
@@ -264,8 +265,6 @@
 		font-weight: 700;
 		color: #422112;
 	}
-
-
 
 	@media screen and ( min-width: 1100px ){
 

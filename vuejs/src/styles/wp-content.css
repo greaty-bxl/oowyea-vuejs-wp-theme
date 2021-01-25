@@ -1,6 +1,7 @@
 body {
   font-family: Montserrat, sans-serif;
   font-weight: 400;
+  word-wrap: break-word;
 }
 
 .wp-content p{
@@ -10,4 +11,10 @@ body {
 .wp-content ul{
 	padding-left: 14px;
 
+}
+
+
+h3{
+
+	font-weight: 400;
 }

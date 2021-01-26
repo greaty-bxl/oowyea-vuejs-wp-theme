@@ -192,7 +192,7 @@
 
 	.div-green-parent{
 
-		padding-top: 30px;
+		padding-top: 38px;
 		padding-bottom: 30px;
 	}
 /*	.div-green-parent *{

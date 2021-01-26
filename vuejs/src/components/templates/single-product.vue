@@ -75,11 +75,6 @@
 
 						<div class="form_contact_us_product" v-if="type == 'contact_us'" v-html="post.form">						
 						</div>
-
-						<div>
-							
-
-						</div>
 						
 					</div>
 					
@@ -123,23 +118,27 @@
 
 			this.variations_data = $('.variations_form').first().data('product_variations')	
 
-			$('#total_price').insertAfter( '[data-state="current"] .quantity')
-
-			$('#quantity_label').prependTo( '[data-state="current"] .quantity')
-
-			$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
-
-			$('.quantity [name="quantity"]').on('change keyup', (event) => {
-				console.log('change');
-				this.quantity = $(event.currentTarget).val()
-				this.change_price_tot()
-			});
-
-			$('select').on('change', () => {
-				this.change_price_tot()
-			});
-			
 			this.type = this.post.terms.product_type[0].slug
+
+			if( this.type != 'contact_us' ) 
+			{
+				$('#total_price').insertAfter( '[data-state="current"] .quantity')
+
+				$('#quantity_label').prependTo( '[data-state="current"] .quantity')
+
+				$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
+
+				$('.quantity [name="quantity"]').on('change keyup', (event) => {
+					console.log('change');
+					this.quantity = $(event.currentTarget).val()
+					this.change_price_tot()
+				});
+
+				$('select').on('change', () => {
+					this.change_price_tot()
+				});
+			}			
+			
 
 			if( this.type != "variable" && Array.isArray(this.post.metas._price) )
 			{

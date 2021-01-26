@@ -438,14 +438,14 @@
 		font-weight: 500;
 	}
 
-	.content-single ul li{
+	/*.content-single ul li{
 
 		list-style: none;
 
-	}
+	}*/
 	.content-single ul{
 
-		padding-left: 0;
+		padding-left: 16px;
 	}
 
 	.content-single{

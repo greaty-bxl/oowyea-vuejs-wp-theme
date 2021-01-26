@@ -456,6 +456,7 @@
 			flex-direction: row;
 			justify-content: start;*/
 			white-space: nowrap;
+			text-align: left;
 		}	
 
 		.collection-filter__list-title{
@@ -575,7 +576,7 @@
 
 		section.filters{
 
-			width: calc()
+			margin-bottom: auto;
 		}
 		.icon-close-filter svg {
 
@@ -777,8 +778,9 @@
 
 		.filters{
 
-			max-height: calc( 100% - 167px);
-			overflow: scroll;
+			/*max-height: calc( 100% - 167px);
+			overflow: scroll;*/
+			overflow: auto;
 		}
 
 

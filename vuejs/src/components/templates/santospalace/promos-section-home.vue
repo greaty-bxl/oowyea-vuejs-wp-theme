@@ -7,7 +7,7 @@
 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 			consequat.</p>
 			<button :href="pll__('URL EN SAVOIR PLUS')"  class="button-santos-vert button-section-promos"
-			 v-html="pll__('EN SAVOIR PLUS')" ></button>
+			v-html="pll__('EN SAVOIR PLUS')" ></button>
 	
 	</div>
 </template>

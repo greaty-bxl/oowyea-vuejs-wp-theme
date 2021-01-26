@@ -425,11 +425,16 @@
 
 		.lists-filter-taxonomie{
 
-			padding: 90px 80px 45px 75px;
+			padding: 90px 80px 0px 75px;
 			max-width: 70%;
 			min-width: 50%;
 			position: relative;
 
+		}
+
+		.lists-filter-taxonomie > section.filters{
+			overflow: auto;
+			margin-bottom: auto;
 		}
 
 		.icon-close-filter svg{
@@ -447,9 +452,10 @@
 
 		.coll-filters{
 
-			display: flex;
+			/*display: flex;
 			flex-direction: row;
-			justify-content: start;
+			justify-content: start;*/
+			white-space: nowrap;
 		}	
 
 		.collection-filter__list-title{
@@ -503,6 +509,8 @@
 			font-family: open sans;
 			width: 195px;
 			margin-right: 50px;
+			display: inline-block;
+			vertical-align: top;
 		}
 
 		.collection-filter__item-check-mark svg{
@@ -960,12 +968,15 @@
 	.lists-filter-taxonomie{
 
 		position: relative;
-
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		
 	}
 
 	.collection-filter__footer{
 
-		position: absolute;
+		/*position: absolute;*/
 		right: 0;
 		bottom: 0;
 		z-index: 10;

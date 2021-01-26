@@ -16,7 +16,7 @@
 				</div>
 
 				<ul class="parent">
-					<div v-for="child in wp.menus" :key="child.ID" >
+					<div v-for="child in $store.state.wp.menus" :key="child.ID" >
 
 
 						<li v-if="child.ID > -1"   class="dropdown grandparent"  >

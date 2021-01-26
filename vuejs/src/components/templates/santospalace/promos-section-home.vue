@@ -1,12 +1,13 @@
 <template>
 	<div class="section-wrap section-promos" >
 
-			<h2>Promo</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			<h2  v-html="post.post_title"></h2>
+			<p  v-html="post.post_content" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 			consequat.</p>
-			<button class="button-santos-vert button-section-promos">EN SAVOIR PLUS</button>
+			<button :href="pll__('URL EN SAVOIR PLUS')"  class="button-santos-vert button-section-promos"
+			 v-html="pll__('EN SAVOIR PLUS')" ></button>
 	
 	</div>
 </template>
@@ -15,12 +16,14 @@
 	
 	export default {
 
+		props: {
+			'post' : Object
+		},
 
-	mounted()
-	{
-
-
-	}
+		mounted()
+		{
+			// console.log(post);
+		}
 
 	}
 </script>

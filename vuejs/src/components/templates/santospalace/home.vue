@@ -2,12 +2,11 @@
 	<div class="section-wrap" >
 		<div>
 			<div class="header-home">
-				
 				<h1 v-html="pll__('Torréfacteur bruxellois')"></h1>
 				<p v-html="pll__('Dernière torréfaction industrielle bruxelloise active sur Bruxelles depuis 1911 !')"></p>
 				<button class="button-santos-vert button-cafe"
-				 v-html="pll__('NOS CAFÉS')">NOS CAFÉS</button>
-
+				:href="pll__('URL NOS CAFÉS')"
+				v-html="pll__('NOS CAFÉS')">NOS CAFÉS</button>
 			</div>
 		</div>
 	</div>

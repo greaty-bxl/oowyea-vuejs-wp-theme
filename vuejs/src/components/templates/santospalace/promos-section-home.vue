@@ -6,8 +6,8 @@
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 			consequat.</p>
-			<button :href="pll__('URL EN SAVOIR PLUS')"  class="button-santos-vert button-section-promos"
-			v-html="pll__('EN SAVOIR PLUS')" ></button>
+			<a :href="pll__('URL EN SAVOIR PLUS')"  class="button-santos-vert button-section-promos"
+			v-html="pll__('EN SAVOIR PLUS')" ></a>
 	
 	</div>
 </template>
@@ -66,7 +66,7 @@
 		font-size: 17px;
 		background-color: white !important;
 		color: #422112 !important;
-
+		text-decoration: none;
 	}
 
 	.button-section-promos:hover{

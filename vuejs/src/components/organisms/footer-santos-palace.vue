@@ -492,7 +492,7 @@
 
 		.div-green-parent{
 
-			padding-top: 15px;
+			padding-top: 20px;
 			padding-bottom: 15px;
 		}
 

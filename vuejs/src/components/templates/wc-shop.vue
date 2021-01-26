@@ -80,8 +80,6 @@ export default {
 				duration: 200,
 			});
 
-			// $('.filtre-container').css('background-color', 'rgba(255,255,255,0.9)');
-
 			$('#app').data('scrolling', 'filter')
 
 		},

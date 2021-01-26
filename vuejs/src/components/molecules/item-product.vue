@@ -239,7 +239,7 @@ export default {
 		border-radius: 100%;
 		height: 10px;
 		width: 10px;
-		margin-left: 11px; 
+		margin-left: 8px; 
 
 	}
 

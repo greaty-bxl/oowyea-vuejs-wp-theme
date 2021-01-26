@@ -203,7 +203,7 @@
 */
 	.tnp-subscription input[type=text], .tnp-subscription input[type=email], .tnp-subscription input[type=submit], .tnp-subscription select{
 
-		background-color: white;
+		background-color: white !important;
 		color: black;
 		font-weight: 500;
 		width: 250px;

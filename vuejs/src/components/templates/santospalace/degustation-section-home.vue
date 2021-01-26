@@ -17,7 +17,8 @@
 
 				</ul>
 
-				<button class="button-santos-vert">J’ESSAIE</button>
+				<a class="button-santos-vert" :href="pll__('URL J’ESSAIE')"
+			v-html="pll__('J’ESSAIE')" >J’ESSAIE</a>
 
 			</div>
 		</div>
@@ -113,6 +114,7 @@
 	.button-santos-vert{
 
 		width: 30%;
+		text-decoration: none;
 	}
 
 	.text-degustation ul{

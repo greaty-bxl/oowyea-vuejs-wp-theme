@@ -774,7 +774,7 @@
 	@media screen and (min-width: 1100px){
 
 		.parent-taxonomie-info-single{
-			/*width: 50%;*/
+			
 			max-width: 250px;
 		}
 
@@ -787,7 +787,6 @@
 		.contenu-single{
 
 			margin-bottom: 100px;
-
 
 		}
 

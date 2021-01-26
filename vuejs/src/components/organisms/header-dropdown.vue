@@ -423,6 +423,11 @@ export default {
 	/*#header{
 		height: 0;
 	}*/
+
+	.tnp-subscription input[type=text], .tnp-subscription input[type=email], .tnp-subscription input[type=submit], .tnp-subscription select{
+
+		background-color: white !important;
+	}
 	.lang-item a{
 
 		color: #422112;

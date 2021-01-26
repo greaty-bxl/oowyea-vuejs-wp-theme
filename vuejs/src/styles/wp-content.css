@@ -1,10 +1,7 @@
 body {
   font-family: Montserrat, sans-serif;
   font-weight: 400;
-}
-
-h1, h2, h3, h4, h5{
-	font-weight: 400;
+  word-wrap: break-word;
 }
 
 .wp-content p{
@@ -14,4 +11,10 @@ h1, h2, h3, h4, h5{
 .wp-content ul{
 	padding-left: 14px;
 
+}
+
+
+h3{
+
+	font-weight: 400;
 }

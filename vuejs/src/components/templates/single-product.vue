@@ -16,45 +16,69 @@
 						<p class="approximate-price"><span v-html="post.price"  ></span></p>
 
 
-							<div class="description-padding">
+						<div class="description-padding">
 
-								<div class="padding-appeare">
+							<div class="padding-appeare">
 
-									<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
-										<div class="parent-taxonomie-info-single">
-											<p class="titre-taxonomie">Intensité</p>
-											<div class="valeur-taxonomie" >
-												<div v-for="count_intesity in 5" :key="count_intesity" 
-												v-bind:class="{ filled: isFilled(post, count_intesity, 'intensity') }">
-												</div>
+								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
+									<div class="parent-taxonomie-info-single">
+										<p class="titre-taxonomie">Intensité</p>
+										<div class="valeur-taxonomie" >
+											<div v-for="count_intesity in 5" :key="count_intesity" 
+											v-bind:class="{ filled: isFilled(post, count_intesity, 'intensity') }">
 											</div>
 										</div>
 									</div>
+								</div>
 
-									<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes')">
-										<div class="parent-taxonomie-info-single">
-											<p class="titre-taxonomie">Acidité</p>
-											<div class="valeur-taxonomie"  >
-												<div v-for="acidity_points in 5" :key="acidity_points" 
-												v-bind:class="{ filled: isFilled(post, acidity_points, 'acidity') }">
-												</div>
+								<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes')">
+									<div class="parent-taxonomie-info-single">
+										<p class="titre-taxonomie">Acidité</p>
+										<div class="valeur-taxonomie"  >
+											<div v-for="acidity_points in 5" :key="acidity_points" 
+											v-bind:class="{ filled: isFilled(post, acidity_points, 'acidity') }">
 											</div>
 										</div>
-										
 									</div>
-									<div class="origine"  v-if="post.terms.origine">
-										<p class="titre-taxonomie">Origine : <span v-html="get_terms_as_string(post, 'origine')"></span></p>
-									</div>
-
-									<div  class="flavour" v-if="post.terms.flavoring" >
-										<p >Notes : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
-									</div>
-
+									
 								</div>
-								<div style="padding-top: 0px">
-									<p v-html="post.post_content" class="descriptif"></p>
+								<div class="origine"  v-if="post.terms.origine">
+									<p class="titre-taxonomie">Origine : <span v-html="get_terms_as_string(post, 'origine')"></span></p>
 								</div>
+
+								<div  class="flavour" v-if="post.terms.flavoring" >
+									<p >Notes : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
+								</div>
+
 							</div>
+							<div style="padding-top: 0px">
+								<p v-html="post.post_content" class="descriptif"></p>
+							</div>
+						</div>
+
+						
+						<div 
+						class="vue-wc-variation" 
+						v-for="(select, key) in variations_selects" 
+						:key="key" 
+						v-on:mouseleave="vue_variation_leave(select)"
+						:class="select.class">
+							<div v-on:click="open_vue_variation(select)">
+								<div class="label">{{select.label}}</div>
+								<div class="value">{{select.placeholder}}</div>
+								<div class="arrow">
+									<svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 20 38" class=""><path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 	1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd"></path></svg>
+								</div>	
+							</div>							
+							<div class="options">
+								<div class="options-bg">
+									<div :class="{selected: option == select.selected}" 
+									class="option" v-for="(option, key2) in select.options" :key="key2" 
+									v-html="option"
+									v-on:click="select_variation(option, select)"></div>	
+								</div>								
+							</div>
+						</div>
 															
 						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" >
 
@@ -63,11 +87,20 @@
 						</div>
 
 						<div v-if="type != 'contact_us'" id="total_price">
-							<label>Total:</label>
+							<label v-html="pll__('Total')"></label>
 							<input type="text" class="tot input-text" :value="tot_price" readonly>
 						</div>
 
-						<label v-if="type != 'contact_us'" id="quantity_label">Quantity</label>
+						<div v-if="type != 'contact_us'" id="quantity_label">
+							<label v-html="pll__('Quantité')"></label>
+							<div class="less">
+								<div class="less-bt" v-on:click="quantity_change(-1)">-</div>
+							</div>
+							<div class="more">
+								<div class="more-bt" v-on:click="quantity_change(+1)">+</div>
+							</div>
+						</div>
+						
 
 						<div v-if="post.is_in_stock && type != 'contact_us'" class="button-contener" v-html="post.add_to_cart">
 
@@ -79,7 +112,6 @@
 					</div>
 					
 				</div>
-
 			</div>
 			<div class="descriptif-machine" v-if="post.fields.product_more_info">
 				<div class="container-description">
@@ -100,6 +132,7 @@
 			return {
 				type: 'simple',
 				variations_data: [],
+				variations_selects: {},
 				quantity: 1,
 				sale_price: 0,
 				tot_price: '-'
@@ -122,11 +155,14 @@
 
 			if( this.type != 'contact_us' ) 
 			{
-				$('#total_price').insertAfter( '[data-state="current"] .quantity')
+				setTimeout( ()=>{
+					$('#total_price').insertAfter( '[data-state="current"] .quantity')
 
-				$('#quantity_label').prependTo( '[data-state="current"] .quantity')
+					$('#quantity_label').prependTo( '[data-state="current"] .quantity')
 
-				$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
+					$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
+				}, 1 )
+				
 
 				$('.quantity [name="quantity"]').on('change keyup', (event) => {
 					console.log('change');
@@ -134,10 +170,46 @@
 					this.change_price_tot()
 				});
 
-				$('select').on('change', () => {
+				$('table.variations select').on('change', () => {
 					this.change_price_tot()
 				});
-			}			
+			}
+
+			if( this.type == "variable" )
+			{
+				$('table.variations').hide()
+				let variations_selects = {}
+
+				$('[data-state="current"] table.variations tr').each( (index, el) => {
+					
+					variations_selects[index] = {}
+					variations_selects[index]['label'] = $(el).find('.label label').text()
+					variations_selects[index]['class'] = '';
+					variations_selects[index]['selected'] = ''
+					variations_selects[index]['id'] = $(el).find('select').prop('id')
+
+					$(el).find('option').each((index2, el2) => {
+						if( index2 == 0 )
+						{
+							variations_selects[index]['placeholder'] = $(el2).text()
+							variations_selects[index]['options'] = {}
+						}
+						else
+						{
+							if( $(el2).prop('selected') )
+							{
+								variations_selects[index]['selected'] = $(el2).text()
+								variations_selects[index]['placeholder'] = $(el2).text()
+							}
+							variations_selects[index]['options'][$(el2).attr('value')] = $(el2).text()
+						}
+					});
+				});
+
+				this.variations_selects = variations_selects
+
+				console.log('variations', this.variations_selects);
+			}
 			
 
 			if( this.type != "variable" && Array.isArray(this.post.metas._price) )
@@ -151,7 +223,34 @@
 			this.$emit('template_mounted')
 		},
 		methods: {
+			open_vue_variation: function (select) 
+			{
+				if( select.class == '' )
+				{
+					select.class = 'open'
+				}
+				else
+				{
+					select.class = ''
+				}
+			},
+			vue_variation_leave: function (select) {
+				select.class = ''
+			},
+			select_variation: function (option, select) {
+				select.selected = option
+				select.placeholder = option
+				select.class = ''
+				let $ = this.$
 
+				$('#'+select.id).find('option').prop('selected', null)
+				$('#'+select.id).find('[value="'+option+'"]').prop('selected', true)
+				
+				$('[data-state="current"] table.variations select').trigger('change')
+
+				this.change_price_tot()
+
+			},
 			has_term,
 			get_terms_as_string,
 
@@ -164,6 +263,25 @@
 						return true
 					}	
 				}
+			},
+			quantity_change: function (num) {
+
+				let new_result = parseInt(this.quantity) + num
+
+				if( new_result >= 1 )
+				{
+					this.quantity = new_result
+
+					let $ = this.$
+					$('.quantity [name="quantity"]').val(this.quantity)
+					this.change_price_tot()
+
+					console.log(this.quantity);
+				}
+
+				
+
+				
 			},
 			change_price_tot: function(){
 				
@@ -336,8 +454,8 @@
 	}
 
 	.input-text{
-
-		border: 1px solid #808080 !important;
+		border-radius: 3px;
+		border: 1px solid #CECECE !important;
 		color: #808080;
 	}
 
@@ -492,6 +610,97 @@
 		padding-bottom: 15px;
 	}
 
+	/* 
+		Variation new design 
+	*/
+	.vue-wc-variation {
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+	.vue-wc-variation > div > div{
+		display: inline-block;
+		vertical-align: middle;
+		box-sizing: border-box;
+	}
+
+	.vue-wc-variation .label{
+		width: 20%;
+	}
+
+	.vue-wc-variation .value{
+		width: calc(80% - 30px);
+		text-align: right;
+		padding-right: 10px;
+	}
+
+	.vue-wc-variation .arrow{
+		/*background: #000000;*/
+		width: 30px;
+		height: 30px;
+	}
+
+	.vue-wc-variation .arrow svg{
+		height: 30px;
+		transform-origin: 7px 15px;
+		/*transform: rotate(90deg) translateY(-7px) scale(0.5);*/
+		transform: rotate(90deg) translateY(-7px) translateX(1px) scale(0.5);
+		transition: all 0.5s ease;
+
+	}
+
+	.vue-wc-variation.open .arrow svg{
+		transform: rotate(90deg) translateY(-7px) translateX(1px) scaleY(0.5) scaleX(-0.5);
+	}
+
+	.vue-wc-variation .options{
+		display: block;
+		width: 100%;
+		height: 0px;
+		overflow: visible;
+	}
+
+	.vue-wc-variation.open .options{
+		/*display: block;
+		overflow: visible;*/
+	}
+
+	.vue-wc-variation .options-bg{
+		position: relative;
+		background: #FFFFFF;
+		border: solid 1px #CECECE;
+		box-shadow: 0px 0px 12px -7px #000000;
+
+		width: 100%;
+		z-index: 2000;
+		padding: 15px 20px;
+		text-align: center;
+		box-sizing: border-box;
+
+		pointer-events: none;
+		transform: translateY(-20px);
+		opacity: 0;
+		transition: all 0.5s ease;
+	}
+
+	.vue-wc-variation.open .options-bg{
+		pointer-events: auto;
+		transform: translateY(0px);
+		opacity: 1;
+		transition: all 0.5s ease;
+	}
+
+	.vue-wc-variation .options-bg .option{
+		padding: 15px;
+	}
+
+	.vue-wc-variation .options-bg .option.selected{
+		font-weight: bold;
+		color: #888320;
+	}
+
+	/* end: variation new design */
+
 	.quantity{
 
 		padding-top: 0px !important;
@@ -523,6 +732,39 @@
 		position: absolute;
 	}
 
+	.quantity .less, .quantity .more{
+		height: 0;
+		overflow: visible;
+		font-size: 30px;
+	}
+	
+	.quantity .less{
+		float: left;
+	}
+
+	.quantity .more{
+		float: right;
+	}
+
+	.quantity .less .less-bt, .quantity .more .more-bt {
+		margin-top: 16px;
+		position: absolute;
+		height: 30px;
+		line-height: 30px;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	.quantity .less .less-bt{
+		margin-left: 12px;
+	}
+
+	.quantity .more .more-bt {
+		margin-left: -30px;
+	}
+
+
+
 	.quantity .qty, #total_price .tot{
 		display: block;
 		text-align: center;
@@ -536,16 +778,16 @@
 	}
 
 	/* Chrome, Safari, Edge, Opera */
-	/*.quantity .qty::-webkit-outer-spin-button,
+	.quantity .qty::-webkit-outer-spin-button,
 	.quantity .qty::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		margin: 0;
-	}*/
+	}
 
 	/* Firefox */
-	/*.quantity .qty {
+	.quantity .qty {
 		-moz-appearance: textfield;
-	}*/
+	}
 
 	.woocommerce-variation-price{
 

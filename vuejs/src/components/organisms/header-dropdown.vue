@@ -15,7 +15,14 @@
 					</a>
 				</div>
 
+
+
 				<ul class="parent">
+
+					<div class="langue mobile-langue" >
+						<div v-html='menu_langue'></div>
+					</div>
+
 					<div v-for="child in $store.state.wp.menus" :key="child.ID" >
 
 
@@ -32,16 +39,8 @@
 
 								</div>
 
+
 								<ul  class="dropdown-content">
-
-
-									<!--<li class="sousmenus childli dropdown__title li-espace-between">
-
-										<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-left close-simple" viewBox="0 0 20 38"><path d="M4.068 18.649l15.466 16.105c.31.283.466.629.466 1.039 0 .41-.155.77-.466 1.08a1.412 1.412 0 0 1-1.038.424c-.41 0-.756-.141-1.038-.424L.466 19.708A1.373 1.373 0 0 1 0 18.648c0-.423.155-.776.466-1.059L17.458.424A1.412 1.412 0 0 1 18.496 0c.41 0 .755.141 1.038.424.31.282.466.636.466 1.06 0 .423-.155.776-.466 1.059L4.068 18.649z" fill="#726D75" fill-rule="evenodd"></path></svg>
-
-										<a class="sousmenus" :href="child.url" v-html="child.title">Hello World!</a> 
-
-									</li> -->
 
 									<div class="li-sousmenu" v-for="child2 in child.child" :key="child2.ID">
 						
@@ -91,6 +90,8 @@
 						<p>Mon compte</p>
 						</a>
 
+
+
 					</div>
 
 					<img class="image-logo" src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/logo_marionnette_santos_palace.svg">
@@ -99,8 +100,8 @@
 
 				<div class="icons-santos-palace">
 
-					<div class="lang" >
-						<div v-html='menu_lang'></div>
+					<div class="langue desktop-langue" >
+						<div v-html='menu_langue'></div>
 					</div>
 
 
@@ -155,29 +156,12 @@ export default {
 
 		this.$emit('template_mounted', this)
 
-		// console.log(this.wp.pll);
-
-		// click header action variable change product in padding
-
 	
-
-
-		// Prevents default submission of the form after clicking on the submit button. 
-		// return false;   
-
-		/*$('.lang-item').click(function() {
-
-			$('.lang-item').removeClass('current-lang')
-
-			$(this).addClass('current-lang')
-
-		});*/
-
 		$('.menu-item').click(function() {
 
 			if ($(this).hasClass('close-simple')){
 
-				//console.log('il a la class');
+				console.log();
 			}
 
 			else{
@@ -223,14 +207,12 @@ export default {
 			else {
 
 				$('.parent').animate({
-					// targets: $('.parent').target,
 					right: '100vw',
 					easing: 'easeInOutSine',
 					duration: 200,
 				});
 
 				$('.dropdown-content').animate({
-					// targets: $('.parent').target,
 					right: '100vw',
 					easing: 'easeInOutSine',
 					duration: 200,
@@ -275,7 +257,6 @@ export default {
 			else {
 
 				$(this).parents('.grandparent').find('.dropdown-content').animate({
-					// targets: $('.parent').target,
 					right: '100vw',
 					easing: 'easeInOutSine',
 					duration: 200,
@@ -314,7 +295,6 @@ export default {
 			else {
 
 				$(this).parents('.grandparent').find('.dropdown-content').animate({
-					// targets: $('.parent').target,
 					right: '100vw',
 					easing: 'easeInOutSine',
 					duration: 200,
@@ -406,7 +386,7 @@ export default {
 		count () {
 			return this.$store.state.wp.count
 		},
-		menu_lang () {
+		menu_langue () {
 			return this.$store.state.wp.pll
 		}
 	}
@@ -416,35 +396,27 @@ export default {
 
 <style>
 
+	.icons-santos-palace a{
 
-/*styleglobal*/
+		color: #422112;
+		text-decoration-line: none;
+	}
 
-/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');*/
-	/*#header{
-		height: 0;
-	}*/
-
-	.lang-item a{
+	.langue-item a{
 
 		color: #422112;
 		text-decoration-line: none;
 		
 	}
-	.lang li{
+	.langue li{
 
 		list-style: none;
 	}
 	.current-lang a{
 
-		color: #888320;
-		font-weight: bold;
+		color: #888320 !important;
+		font-weight: bold !important;
 	}
-
-
-/*	.santos-navbar *{
-
-		font-family: 'Montserrat', sans-serif; 
-	}*/
 
 	.clear{
 
@@ -474,7 +446,7 @@ export default {
 		height: 20px;
 	}
 
-	.lang div{
+	.langue div{
 
 		display: flex;
 		flex-direction: row;
@@ -518,6 +490,7 @@ export default {
 
 		color: #422112;
 		font-weight: bold;
+		text-decoration: none;
 
 	}
 
@@ -559,7 +532,7 @@ export default {
 	}
 
 
-	.lang li{
+	.langue li{
 
 		list-style: none;
 		padding-right: 15px;
@@ -568,7 +541,7 @@ export default {
 
 	}
 
-	.lang li:last-child {
+	.langue li:last-child {
 
 		list-style: none;
 		padding-right: 0px;
@@ -579,10 +552,14 @@ export default {
 
 /*styleglobal*/
 
-
 /*animation header pc*/
 
 @media only screen and (min-width: 1100px){
+
+	.mobile-langue{
+
+		display: none !important;
+	}
 
 	.ligne-mobile{
 
@@ -624,7 +601,7 @@ export default {
 	}
 
 
-	.lang{
+	.langue{
 
 		display: flex;
 		flex-direction: row;
@@ -779,7 +756,12 @@ export default {
 
 @media only screen and (max-width: 1100px){
 
-	.lang div{
+	.desktop-langue{
+
+		display: none;
+	}
+
+	.langue div{
 
 		justify-content: center;
 
@@ -886,15 +868,17 @@ export default {
 		left: calc( 100% - 50px );
 	}
 
-	.lang{
+	.langue{
 
-		border-top: 1px solid #dddddd;
+		border-bottom: 1px solid #dddddd;
 	
 	}
 
 	.santos-navbar{
 
 		position: relative;
+		height: 56px;
+		padding-bottom: 20px;
 	}
 
 	.parent{
@@ -970,16 +954,16 @@ export default {
 
 		font-size: 16px;
 
-
 	}
 
-	.lang{
+	.langue{
 
 		justify-content: center;
 		padding-top: 20px;
 		padding-bottom: 20px;
 		margin-top: 20px;
 		font-size: 14px;
+
 	}
 
 
@@ -1039,12 +1023,12 @@ export default {
 		margin-top: 28px;
 	}
 
-	.lang{
+	.langue{
 
 		justify-content: center;
 		padding-top: 15px;
 		padding-bottom: 15px;
-		margin-top: 15px;
+		margin-top: 30px;
 		font-size: 15px;
 	}
 
@@ -1097,6 +1081,8 @@ export default {
 	.santos-navbar{
 	
 		padding-top: 15px;
+		padding-bottom: 15px;
+		height: 43px;
 
 	}
 

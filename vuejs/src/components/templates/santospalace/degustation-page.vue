@@ -28,8 +28,7 @@
 			</div>
 			<div class="formulaire-container">
 				
-				<div class="formulaire">
-
+				<div class="formulaire" v-html="post.degustation_form">					
 				
 				</div>
 			</div>
@@ -43,7 +42,9 @@
 <script>
 	
 	export default {
-
+		props: {
+			'post' : Object
+		},
 		mounted()
 		{
 
@@ -93,8 +94,7 @@
 		margin-top: auto;
 		margin-left: 7%;
 		width: 70%;
-		background-color: #F6F6F6;
-		height: 60%
+		text-align: left;
 
 	}
 

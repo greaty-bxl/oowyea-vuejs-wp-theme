@@ -23,6 +23,7 @@
 	font-size: 14px !important;
 	border: none;
 	background-color: transparent;
+	outline: none;
 }
 
 .acf-input {

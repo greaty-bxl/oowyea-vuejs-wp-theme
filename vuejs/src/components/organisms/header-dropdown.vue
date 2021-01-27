@@ -15,8 +15,6 @@
 					</a>
 				</div>
 
-
-
 				<ul class="parent">
 
 					<div class="langue mobile-langue" >
@@ -41,6 +39,13 @@
 
 
 								<ul  class="dropdown-content">
+
+									<li class="li-sousmenu sousmenus childli dropdown__title li-espace-between" >
+
+										<span v-html="child.title"></span>
+										<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-left close-simple" viewBox="0 0 20 38"><path d="M4.068 18.649l15.466 16.105c.31.283.466.629.466 1.039 0 .41-.155.77-.466 1.08a1.412 1.412 0 0 1-1.038.424c-.41 0-.756-.141-1.038-.424L.466 19.708A1.373 1.373 0 0 1 0 18.648c0-.423.155-.776.466-1.059L17.458.424A1.412 1.412 0 0 1 18.496 0c.41 0 .755.141 1.038.424.31.282.466.636.466 1.06 0 .423-.155.776-.466 1.059L4.068 18.649z" fill="#726D75" fill-rule="evenodd"></path></svg>
+
+									</li>
 
 									<div class="li-sousmenu" v-for="child2 in child.child" :key="child2.ID">
 						
@@ -156,8 +161,9 @@ export default {
 
 		this.$emit('template_mounted', this)
 
-	
-		$('.menu-item').click(function() {
+
+		$(document).on('click', '.menu-item', function() {
+		//$('.menu-item').click(function() {
 
 			if ($(this).hasClass('close-simple')){
 
@@ -228,82 +234,6 @@ export default {
 				$('.icon-arrow-right').addClass('close-simple')
 
 
-
-			}
-
-		});
-
-
-		$('.icon-arrow-right').click(function() {
-
-			$(this).parents('.grandparent').find('.icon-arrow-left').toggleClass('active');
-
-			if ($(this).parents('.grandparent').find('.icon-arrow-left').hasClass('close-simple')) {
-
-				$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('close-simple')
-
-				$(this).parents('.grandparent').find('.icon-arrow-left').addClass('open-simple')
-
-				$('.count').addClass('changement-couleur')
-			
-				$(this).parents('.grandparent').find('.dropdown-content').animate({
-						
-							right: '0vw',
-							easing: 'easeInOutSine',
-							duration: 200,
-						});
-				
-			}
-			else {
-
-				$(this).parents('.grandparent').find('.dropdown-content').animate({
-					right: '100vw',
-					easing: 'easeInOutSine',
-					duration: 200,
-				});
-
-				
-				$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('open-simple')
-				$(this).parents('.grandparent').find('.icon-arrow-left').addClass('close-simple')
-				$('.count').removeClass('changement-couleur')
-
-			}
-
-		});
-
-
-		$('.icon-arrow-left').click(function() {
-
-			$(this).parents('.grandparent').find('.icon-arrow-left').toggleClass('active');
-
-			if ($(this).parents('.grandparent').find('.icon-arrow-left').hasClass('close-simple')) {
-
-				$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('close-simple')
-
-				$(this).parents('.grandparent').find('.icon-arrow-left').addClass('open-simple')
-
-				$('.count').addClass('changement-couleur')
-			
-				$(this).parents('.grandparent').find('.dropdown-content').animate({
-						
-							right: '0vw',
-							easing: 'easeInOutSine',
-							duration: 200,
-						});
-				
-			}
-			else {
-
-				$(this).parents('.grandparent').find('.dropdown-content').animate({
-					right: '100vw',
-					easing: 'easeInOutSine',
-					duration: 200,
-				});
-
-				
-				$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('open-simple')
-				$(this).parents('.grandparent').find('.icon-arrow-left').addClass('close-simple')
-				$('.count').removeClass('changement-couleur')
 
 			}
 
@@ -382,6 +312,92 @@ export default {
 
 	},
 
+	watch: {
+
+		'$store.state.wp.menus': function() {
+
+			var $ = this.$
+
+			console.log($('.icon-arrow-right'));
+
+			$('.icon-arrow-right').unbind('click').click(function() {
+
+				console.log('click');
+
+				$(this).parents('.grandparent').find('.icon-arrow-left').toggleClass('active');
+
+				if ($(this).parents('.grandparent').find('.icon-arrow-left').hasClass('close-simple')) {
+
+					$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('close-simple')
+
+					$(this).parents('.grandparent').find('.icon-arrow-left').addClass('open-simple')
+
+					$('.count').addClass('changement-couleur')
+				
+					$(this).parents('.grandparent').find('.dropdown-content').animate({
+							
+								right: '100vw',
+								easing: 'easeInOutSine',
+								duration: 200,
+							});
+					
+				}
+				else {
+
+					$(this).parents('.grandparent').find('.dropdown-content').animate({
+						right: '0vw',
+						easing: 'easeInOutSine',
+						duration: 200,
+					});
+
+					
+					$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('open-simple')
+					$(this).parents('.grandparent').find('.icon-arrow-left').addClass('close-simple')
+					$('.count').removeClass('changement-couleur')
+
+				}
+
+			});
+
+
+			$('.icon-arrow-left').unbind('click').click(function() {
+
+				$(this).parents('.grandparent').find('.icon-arrow-left').toggleClass('active');
+
+				if ($(this).parents('.grandparent').find('.icon-arrow-left').hasClass('close-simple')) {
+
+					$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('close-simple')
+
+					$(this).parents('.grandparent').find('.icon-arrow-left').addClass('open-simple')
+
+					$('.count').addClass('changement-couleur')
+				
+					$(this).parents('.grandparent').find('.dropdown-content').animate({
+							
+								right: '0vw',
+								easing: 'easeInOutSine',
+								duration: 200,
+							});
+					
+				}
+				else {
+
+					$(this).parents('.grandparent').find('.dropdown-content').animate({
+						right: '100vw',
+						easing: 'easeInOutSine',
+						duration: 200,
+					});
+
+					
+					$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('open-simple')
+					$(this).parents('.grandparent').find('.icon-arrow-left').addClass('close-simple')
+					$('.count').removeClass('changement-couleur')
+
+				}
+
+			});
+		}
+	},
 	computed: {
 		count () {
 			return this.$store.state.wp.count
@@ -400,6 +416,13 @@ export default {
 
 		color: #422112;
 		text-decoration-line: none;
+	}
+
+	.parent li {
+
+		color: #422112;
+		font-weight: bold;
+
 	}
 
 	.langue-item a{
@@ -555,6 +578,11 @@ export default {
 /*animation header pc*/
 
 @media only screen and (min-width: 1100px){
+
+	.dropdown__title{
+
+		display: none !important;
+	}
 
 	.mobile-langue{
 

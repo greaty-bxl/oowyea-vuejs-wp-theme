@@ -576,9 +576,7 @@
 
 			max-width: 50px;
 			word-wrap: break-word;
-			padding-left: 50px;
-			padding-right: 50px;
-
+			
 		}
 		
 

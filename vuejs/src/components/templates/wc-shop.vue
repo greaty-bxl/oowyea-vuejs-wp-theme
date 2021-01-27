@@ -153,6 +153,10 @@ export default {
 
 	}
 
+	.no-filter .button-santos-vert{
+		display: none;
+	}
+
 	.title-page-boutique{
 
 		color: #422112;
@@ -355,11 +359,11 @@ export default {
 			
 		}
 
-		.#888320 h1 {
+		/*.#888320 h1 {
 
 			font-size: 10vw !important ;
 			margin: 0px !important;
-		}
+		}*/
 
 		.image-shop h3 {
 
@@ -419,7 +423,9 @@ export default {
 			padding-bottom: 20px;
 		}
 
-
+		.filtre-parent-div.no-filter{
+			display: none;
+		}
 
 		.image-shop h1 {
 

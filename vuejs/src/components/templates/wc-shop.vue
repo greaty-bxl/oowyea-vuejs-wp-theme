@@ -17,11 +17,13 @@
 							<button 
 								class="button-santos-vert" 
 								style="padding: 15px 25px;" 
-								v-on:click="open_filter"
-								v-html="pll__('FILTRER')">
+								v-on:click="open_filter" >
+								<span v-html="pll__('FILTRER')"></span> <span v-if="count_filter > 0">({{count_filter}})</span>
 							</button>
 						</div>
-						<p class="mobile-filtre" v-on:click="open_filter" v-html='pll__("FILTRER 2")'></p>
+						<p class="mobile-filtre" v-on:click="open_filter">
+							<span v-html="pll__('FILTRER')"></span> <span v-if="count_filter > 0">({{count_filter}})</span>
+						</p>
 					</div>
 
 					<div class="parent-product">
@@ -47,6 +49,11 @@ import ItemProduct from 'Molecules/item-product.vue'
 //import {has_term} from 'Libs/wp-functions.js'
 
 export default {
+	data(){
+		return {
+			count_filter: 0
+		}
+	},
 	components: {
 		ProductFilter,
 		ItemProduct

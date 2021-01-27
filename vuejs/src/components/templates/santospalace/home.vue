@@ -92,6 +92,7 @@
 		.header-home{
 
 			height: 100vh;
+			margin-top: 100px;
 		}
 
 		
@@ -124,6 +125,7 @@
 		.header-home{
 
 			height: 100vh;
+			margin-top: 73px;
 		}
 
 

@@ -177,6 +177,11 @@
 			margin: 0px !important;
 		}
 
+		.image-contact{
+
+			margin-top: 100px;
+		}
+
 		.image-contact h3 {
 
 			font-size: 4vw !important ;
@@ -216,6 +221,11 @@
 		.child-info ul{
 
 			padding-left: 15px;
+		}
+
+		.image-contact{
+
+			margin-top: 73px;
 		}
 	
 	}

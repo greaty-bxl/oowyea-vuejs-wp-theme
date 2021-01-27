@@ -85,7 +85,7 @@
 
 			height: 55vh;
 			width: calc(100% - 140px);
-			margin-top: 114px;
+			margin-top: 100px;
 		
 		}
 
@@ -100,8 +100,6 @@
 			font-size: 7vw;
 
 		}
-		
-	
 
 	}
 
@@ -116,7 +114,7 @@
 
 			height: 55vh;
 			width: calc(100% - 60px);
-			margin-top: 114px;
+			margin-top: 73px;
 	
 		}
 

@@ -365,6 +365,11 @@ export default {
 			margin: 0px !important;
 		}*/
 
+		.image-shop  {
+
+			margin-top: 100px;
+		}
+
 		.image-shop h3 {
 
 			font-size: 4vw !important ;
@@ -432,6 +437,13 @@ export default {
 			font-size: 15vw !important ;
 			margin: 0px !important;
 			padding:  0px 30px  !important;
+
+		}
+
+		.image-shop{
+
+	
+			margin-top:  73px;
 
 		}
 

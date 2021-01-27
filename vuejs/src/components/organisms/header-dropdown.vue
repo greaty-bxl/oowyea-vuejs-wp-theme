@@ -877,7 +877,7 @@ export default {
 	.santos-navbar{
 
 		position: relative;
-		height: 56px;
+		height: 60px;
 		padding-bottom: 20px;
 	}
 

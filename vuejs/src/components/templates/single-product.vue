@@ -496,7 +496,7 @@
 
 		display: flex;
 		flex-direction: column;
-		margin-top: 110px;
+		margin-top: 114px;
 		margin-bottom: 50px;
 		margin-right: auto;
 		margin-left: auto;
@@ -1118,7 +1118,7 @@
 
 			display: flex;
 			flex-direction: column;
-			margin-top: 150px;
+			margin-top: 100px;
 			margin-bottom: 150px;
 		}
 
@@ -1210,7 +1210,7 @@
 			flex-direction: column;
 			padding-top: 0vh;
 			margin-bottom: 50px;
-			margin-top: 130px;
+			margin-top: 73px;
 			margin-left: 30px;
 			margin-right: 30px;
 			width: auto;

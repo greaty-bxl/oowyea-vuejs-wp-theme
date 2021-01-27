@@ -365,6 +365,12 @@
 			padding-bottom: 20px;
 		}
 
+		.image-histoire{
+
+			margin-top: 100px;
+
+		}
+
 		.histoire-globale{
 
 			margin-top: 100px;
@@ -412,6 +418,13 @@
 			margin-top: 30px;
 			margin-bottom: 50px;
 		}
+
+		.image-histoire{
+
+			margin-top: 73px;
+			
+		}
+
 
 
 	}

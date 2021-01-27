@@ -222,6 +222,11 @@
 			width: 80%;
 		}
 
+		.image-degustation-page{
+
+			margin-top: 100px;
+		}
+
 
 
 	}
@@ -329,6 +334,11 @@
 	}
 
 		@media screen and (max-width: 600px) {
+
+			.image-degustation-page{
+
+				margin-top: 73px;
+			}
 
 			.formulaire{
 

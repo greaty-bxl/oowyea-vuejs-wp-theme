@@ -332,6 +332,13 @@ export default {
 
 	@media only screen and (max-width: 1100px) and (min-width: 600px){
 
+		
+		.title-page-boutique{
+
+			font-size: 3vw;
+
+		}
+
 		.parent-taxonomie-info-thes{
 
 			margin-left: 0px !important;

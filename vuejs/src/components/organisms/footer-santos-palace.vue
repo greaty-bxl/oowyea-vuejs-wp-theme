@@ -192,15 +192,17 @@
 
 	.div-green-parent{
 
-		padding-top: 30px;
-		padding-bottom: 30px;
+		padding-top: 40px;
+		padding-bottom: 40px;
 	}
-/*	.div-green-parent *{
 
-		font-family: 'Montserrat', sans-serif; 
+	.div-green-parent *{
+
+		padding: 0px !important;
+		margin: 0px !important;
 
 	}
-*/
+
 	.tnp-subscription input[type=text], .tnp-subscription input[type=email], .tnp-subscription input[type=submit], .tnp-subscription select{
 
 		background-color: white !important;
@@ -233,12 +235,23 @@
 
 	.tnp-field label{
 
-		width: 500px !important;
+		/*width: 500px !important;*/
 		max-width: 50% !important;
 		font-size: 14px !important;
 		line-height: 25px;
 		color: white !important;
 
+	}
+
+	.tnp-privacy-field a {
+
+		padding-left: 20px !important;
+	}
+
+	.tnp-privacy-field input {
+
+		padding-top: 5px;
+		position: absolute !important;
 	}
 
 	.tnp-field label a {
@@ -294,7 +307,7 @@
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: flex-end;
 	}
 
 	.tnp-subscription form{
@@ -302,6 +315,14 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		max-width: 765px !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	.tnp-privacy-field > label{
+		padding-top: 15px !important;
+		padding-right: 15px !important;
 	}
 
 	.tnp-subscription{
@@ -354,11 +375,8 @@
 			line-height: 25px !important;
 	}
 
-
-
 	#footer{
 
-		/*font-size: 14px !important;*/
 		line-height: 25px;
 	}
 
@@ -374,6 +392,19 @@
 		margin: 0px;
 	}
 
+	.tnp-privacy-field label {
+
+		position: relative;
+
+	}
+
+	.tnp-privacy-field label input{
+	
+		line-height: 25px !important;
+		padding-top: 3px !important;
+		top: 24px;
+	}
+
 	@media screen and ( min-width: 1100px){
 
 		.contener-footer{
@@ -381,19 +412,15 @@
 			flex-direction: row;
 		}
 
-		.contener-footer *{
-
-			/*text-align: left;*/
-
-		}
-
-		
-
-		
 	}
 
 
 	@media screen and ( max-width: 1100px){
+
+		.tnp-subscription form{
+
+			max-width: auto !important;
+		}
 
 		.logo-footer img{
 
@@ -484,6 +511,10 @@
 
 	@media screen and ( max-width: 600px){
 
+		.tnp-privacy-field label input{
+		
+			top: 20px;
+		}
 
 		.tnp-field.tnp-field-button{
 
@@ -492,8 +523,8 @@
 
 		.div-green-parent{
 
-			padding-top: 15px;
-			padding-bottom: 15px;
+			padding-top: 30px;
+			padding-bottom: 30px;
 		}
 
 		.contener-footer{
@@ -550,9 +581,45 @@
 			margin-top: 50px;
 		}
 
+		.tnp-privacy-field label a{
+
+			line-height: 25px !important;
+
+		}
+
+		.tnp-privacy-field label{
+
+			line-height: 25px !important;
+
+		}
+
+		.tnp-field-email label{
+
+			padding-bottom: 20px !important;
+		}
+
 	}
 
 	@media screen and ( max-width: 1100px) and ( min-width: 600px){
+
+		.tnp-field-email > label{
+
+			max-width: 70% !important;
+		}
+
+		.tnp-subscription form {
+
+			max-width: 621px !important;
+
+		}
+
+		.tnp-privacy-field > label{
+
+			width: auto;
+			max-width: 55% !important;
+			padding-right: 0px !important; 
+
+		}
 
 		.contener-footer{
 
@@ -567,7 +634,7 @@
 		.tnp-field label {
 
 			width: 100% !important;
-			max-width: 70% !important;
+			max-width: 70% ;
 			font-size: 14px !important;
 			line-height: 25px;
 			color: white !important;

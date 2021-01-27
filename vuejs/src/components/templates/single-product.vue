@@ -108,8 +108,13 @@
 
 						<div class="form_contact_us_product" v-if="type == 'contact_us'" v-html="post.form">						
 						</div>
-						
+
+						<div  class="continuer-achat">
+							<button onclick="window.history.back()">Continuer mes achats</button>
+						</div>
 					</div>
+
+
 					
 				</div>
 			</div>
@@ -926,6 +931,22 @@
 		padding-left: 0px;
 
 	}
+
+	.continuer-achat{
+
+		padding: 30px 0px ;
+	}
+
+	.continuer-achat button{
+		font-size: 16px !important;
+		border: none;
+		background-color: white;
+		text-decoration-line: none;
+		color: #888320 !important;
+		padding-left: 0px;
+
+	}
+
 	
 
 
@@ -995,7 +1016,7 @@
 	@media screen and (min-width: 1100px){
 
 		.parent-taxonomie-info-single{
-			/*width: 50%;*/
+			
 			max-width: 250px;
 		}
 
@@ -1008,7 +1029,6 @@
 		.contenu-single{
 
 			margin-bottom: 100px;
-
 
 		}
 

@@ -234,7 +234,7 @@
 						
 					});
 
-					
+					this.$parent.count_filter = Object.keys(this.selecteds).length
 				}				
 
 				if( this.shop_filter )
@@ -382,7 +382,7 @@
 							term.disabled = true
 						}
 					});
-				});	
+				});
 			}	
 
 		}

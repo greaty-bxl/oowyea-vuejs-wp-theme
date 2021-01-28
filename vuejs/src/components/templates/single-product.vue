@@ -56,35 +56,32 @@
 							</div>
 						</div>
 
-						
-						<div 
-						class="vue-wc-variation" 
-						v-for="(select, key) in variations_selects" 
-						:key="key" 
-						v-on:mouseleave="vue_variation_leave(select)"
-						:class="select.class">
-							<div v-on:click="open_vue_variation(select)">
-								<div class="label">{{select.label}}</div>
-								<div class="value">{{select.placeholder}}</div>
-								<div class="arrow">
-									<svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 20 38" class=""><path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 	1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd"></path></svg>
-								</div>	
-							</div>							
-							<div class="options">
-								<div class="options-bg">
-									<div :class="{selected: option == select.selected}" 
-									class="option" v-for="(option, key2) in select.options" :key="key2" 
-									v-html="option"
-									v-on:click="select_variation(option, select)"></div>	
-								</div>								
+						<div class="vue-wc-variations">
+							<div 
+							class="vue-wc-variation" 
+							v-for="(select, key) in variations_selects" 
+							:key="key" 
+							v-on:mouseleave="vue_variation_leave(select)"
+							:class="select.class">
+								<div v-on:click="open_vue_variation(select)">
+									<div class="label">{{select.label}}</div>
+									<div class="value">{{select.placeholder}}</div>
+									<div class="arrow">
+										<svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 20 38" class=""><path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 	1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd"></path></svg>
+									</div>	
+								</div>							
+								<div class="options">
+									<div class="options-bg">
+										<div :class="{selected: option == select.selected}" 
+										class="option" v-for="(option, key2) in select.options" :key="key2" 
+										v-html="option"
+										v-on:click="select_variation(option, select)"></div>	
+									</div>								
+								</div>
 							</div>
 						</div>
 															
-						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" >
-
-							<img v-for="child in wp.acf.options.galerie_icons" :key="child.ID" :src="child.url">
-							
-						</div>
+						
 
 						<div v-if="type != 'contact_us'" id="total_price">
 							<label v-html="pll__('Total')"></label>
@@ -109,8 +106,15 @@
 						<div class="form_contact_us_product" v-if="type == 'contact_us'" v-html="post.form">						
 						</div>
 
+
 						<div  class="continuer-achat">
 							<button onclick="window.history.back()">Continuer mes achats</button>
+						</div>
+
+						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" >
+
+							<img v-for="child in wp.acf.options.galerie_icons" :key="child.ID" :src="child.url">
+							
 						</div>
 					</div>
 
@@ -165,12 +169,12 @@
 
 					$('#quantity_label').prependTo( '[data-state="current"] .quantity')
 
-					$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
+					//$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
+
 				}, 1 )
 				
 
 				$('.quantity [name="quantity"]').on('change keyup', (event) => {
-					console.log('change');
 					this.quantity = $(event.currentTarget).val()
 					this.change_price_tot()
 				});
@@ -182,7 +186,9 @@
 
 			if( this.type == "variable" )
 			{
-				$('table.variations').hide()
+				$('table.variations').hide();
+				$('.single_add_to_cart_button').addClass('disabled wc-variation-selection-needed')
+
 				let variations_selects = {}
 
 				$('[data-state="current"] table.variations tr').each( (index, el) => {
@@ -210,20 +216,16 @@
 						}
 					});
 				});
-
 				this.variations_selects = variations_selects
-
-				console.log('variations', this.variations_selects);
 			}
 			
-
 			if( this.type != "variable" && Array.isArray(this.post.metas._price) )
 			{
 				this.sale_price = this.post.metas._price[0]
 				this.tot_price = this.sale_price
 			}
-			
-			console.log( 'type', this.type, this.post )
+
+			this.change_price_tot()
 
 			this.$emit('template_mounted')
 		},
@@ -298,9 +300,9 @@
 					var attributes = {}
 					var filled_attr = 0
 
-					console.log( 'serializeArray', $('.variations_form').first().serializeArray() );
+					console.log( 'serializeArray', $('[data-state="current"] .variations_form').first().serializeArray() );
 
-					$.each( $('.variations_form').serializeArray() , (index, field) => {
+					$.each( $('[data-state="current"] .variations_form').serializeArray() , (index, field) => {
 						if( field.name.search('attribute') === 0 )
 						{
 							attributes[field.name] = field.value
@@ -353,9 +355,15 @@
 
 						if( results.length == 1 )
 						{
-							console.log('variations_form', this);
+							$('.variation_id').val( results[0].variation_id )
+							$('.single_add_to_cart_button').removeClass('disabled wc-variation-selection-needed')
 
 							this.tot_price = results[0].display_price * this.quantity
+						}
+						else
+						{
+							$('.single_add_to_cart_button').addClass('disabled wc-variation-selection-needed')
+							$('.variation_id').val( 0 )
 						}
 					}
 
@@ -364,10 +372,7 @@
 				{
 					this.tot_price = this.sale_price * this.quantity
 				}
-
-				//$('#total_price .tot').val(this.tot_price)
-
-				console.log( 'tot_price', this );
+				
 			}
 		},
 		computed: {
@@ -445,7 +450,7 @@
 	}
 	
 	.button-contener{
-		max-width: 300px;
+		max-width: 400px;
 		/*padding-top: 0 !important;*/
 		display: flex;
 		flex-direction: column;
@@ -460,7 +465,9 @@
 
 	.input-text{
 		border-radius: 3px;
-		border: 1px solid #CECECE !important;
+		/*border: 1px solid #CECECE !important;*/
+		border: none;
+		background-color: #F6F6F6;
 		color: #808080;
 	}
 
@@ -618,9 +625,23 @@
 	/* 
 		Variation new design 
 	*/
+	.vue-wc-variations{
+		max-width: 400px;
+		margin-top: 30px;
+		/*margin-bottom: 20px;*/
+		padding-top: 0;
+		/*border-top: solid 1px #CECECE;*/
+	}
 	.vue-wc-variation {
 		font-size: 16px;
 		cursor: pointer;
+		border-bottom: solid 1px #CECECE;
+		padding: 15px 0px;
+	}
+
+	.vue-wc-variation:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
 	}
 
 	.vue-wc-variation > div > div{
@@ -704,6 +725,8 @@
 		color: #888320;
 	}
 
+
+
 	/* end: variation new design */
 
 	.quantity{
@@ -733,7 +756,7 @@
 
 	.quantity label, #total_price label {
 		font-size: 9px;
-		margin: 3px 5px;
+		margin: 7px 12px;
 		position: absolute;
 	}
 

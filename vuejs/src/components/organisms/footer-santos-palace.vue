@@ -259,7 +259,7 @@
 
 	.tnp-privacy-field a {
 
-		padding-left: 20px !important;
+		padding-left: 5px !important;
 		font-weight: normal !important ;
 	}
 
@@ -718,7 +718,7 @@
 
 			width: 100% !important;
 			max-width: 70% ;
-			font-size: 14px !important;
+			font-size: 12px !important;
 			line-height: 25px;
 			color: white !important;
 

@@ -193,7 +193,7 @@
 		.text-degustation{
 
 			width: 100%;	
-			padding: 150px 70px;
+			padding: 100px 70px;
 			display: flex;
 			
 		}
@@ -210,7 +210,7 @@
 			.text-degustation{
 				padding-left: 0px;
 				width: calc( 100% - 60px);	
-				padding: 100px 30px;
+				padding: 70px 30px;
 				display: flex;
 			}
 

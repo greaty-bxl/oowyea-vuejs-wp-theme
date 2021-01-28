@@ -52,7 +52,7 @@
 		font-size: 20px !important;
 		margin: 0px auto;
 		font-weight: 300;
-		width: 70%
+		width: 50%
 
 	}
 

@@ -160,7 +160,8 @@ export default {
 		var $ = this.$
 
 		this.$emit('template_mounted', this)
-
+		
+		console.log( this.wp.menus);
 
 		$(document).on('click', '.menu-item', function() {
 		//$('.menu-item').click(function() {

@@ -52,7 +52,7 @@
 <script>
 
 	import smart_fonts from "Libs/smart-fonts.js"
-	import is from 'is_js'
+	// import is from 'is_js'
 
 	export default {
 
@@ -74,17 +74,19 @@
 			var $ = this.$
 
 
-		if ( ! is.desktop() ) {
+		// if ( ! is.desktop() ) {
 
-			$('.tnp-email').first().appendTo('.tnp-field.tnp-field-button');
-			$('.tnp-field.tnp-field-button').first().insertBefore(  $( ".tnp-field.tnp-privacy-field" ))
+		// 	$('.tnp-email').first().appendTo('.tnp-field.tnp-field-button');
+		// 	$('.tnp-field.tnp-field-button').first().insertBefore(  $( ".tnp-field.tnp-privacy-field" ))
 
-		}
-		else{
+		// }
+		// else{
 
 			$('.tnp-privacy-field').first().insertAfter('.tnp-field-button')
+			$('.tnp-field-button').prepend($('.tnp-field-email').find('input')) 
 
-		}
+
+		// }
 
 		
 		$('.tnp-field , .tnp-field-button').find('input[type=submit]').css('font-weight', '700');
@@ -142,6 +144,19 @@
 		flex-direction: row !important;
 		justify-content: space-between;
 
+	}
+
+	.tnp-field.tnp-privacy-field
+	{
+		margin-left: auto !important;
+		width: 45%;
+		text-align: center;
+	}
+
+	.tnp-field.tnp-privacy-field label{
+
+		width: 100%;
+		text-align: center;
 	}
 
 
@@ -208,8 +223,7 @@
 		background-color: white !important;
 		color: black;
 		font-weight: 500;
-		width: 250px;
-		height: auto !important;
+		height: 60px !important;
 		padding-top: 15px;
 		padding-bottom: 15px;
 	
@@ -219,24 +233,19 @@
 		background-color: #ffffff !important;
 		color: #422112 !important;
 		width: auto !important;
-		height: auto !important;
 		margin: 0 !important;
 		padding-right: 20px !important;
 		padding-top: 15px !important;
 		padding-bottom: 15px !important;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
 
 	}
 
-	.tnp-field-button input{
-
-		border-top-right-radius: 3px 3px;
-		border-bottom-right-radius: 3px 3px;
-	}
 
 	.tnp-field label{
 
-		/*width: 500px !important;*/
-		max-width: 50% !important;
+		/*max-width: 90% !important;*/
 		font-size: 14px !important;
 		line-height: 25px;
 		color: white !important;
@@ -268,14 +277,25 @@
 		margin-right: 15px;
 	} 
 
-	.tnp-field-email input{
-
+	.tnp-email {
+		width: 100%;
 		border-top-left-radius: 3px 3px;
 		border-bottom-left-radius: 3px 3px;
+
 	}
 
-	.tnp-field.tnp-field-email {
+	.tnp-field.tnp-field-email{
+
+		width: 45%;
 		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.tnp-field.tnp-field-button {
+		width: 45%;
+		display: flex;
+		flex-direction: row;
 		justify-content: flex-end;
 	}
 
@@ -314,8 +334,9 @@
 
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
-		max-width: 765px !important;
+		justify-content: space-between;
+		width: 1000px;
+		max-width: 100% !important;
 		margin-left: auto !important;
 		margin-right: auto !important;
 	}
@@ -405,6 +426,12 @@
 		top: 24px;
 	}
 
+	.tnp-email{
+
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+
 	@media screen and ( min-width: 1100px){
 
 		.contener-footer{
@@ -416,6 +443,25 @@
 
 
 	@media screen and ( max-width: 1100px){
+
+		.tnp-field.tnp-privacy-field{
+
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+
+		.tnp-field.tnp-privacy-field label{
+			width: 100%;
+			text-align: center;
+
+		}
+
+		.tnp-field.tnp-field-email label {
+
+			margin-bottom: 20px !important;
+		
+		} 
 
 		.tnp-subscription form{
 
@@ -437,16 +483,17 @@
 		}
 
 		.tnp-field.tnp-field-button {
-			display: flex;
-			flex-direction: row-reverse;
-			/*width: 100%;*/
+			/*display: flex;*/
+			margin-left: auto;
+			margin-right: auto;
+			justify-content: center;
+			width: 100%;
 		}
 
-		.tnp-field-button input{
-
-			border-top-right-radius: 0px;
-			border-bottom-right-radius: 0px;
+		.tnp-subscription input[type=text], .tnp-subscription input[type=email], .tnp-subscription input[type=submit], .tnp-subscription select {
+		width: 40%;
 		}
+
 
 		input.tnp-email{
 
@@ -454,8 +501,7 @@
 			border-bottom-left-radius: 3px;
 		}
 
-		input.tnp-submit{
-
+		.tnp-subscription input.tnp-submit{
 
 			border-top-right-radius: 3px;
 			border-bottom-right-radius: 3px;
@@ -465,6 +511,7 @@
 		.tnp-field.tnp-field-email{
 
 			justify-content: center;
+			width: 100%;
 		}
 
 		input.tnp-submit{
@@ -473,7 +520,9 @@
 		}
 
 		.tnp-field.tnp-field-email label{
-
+			max-width: 100%;
+			width: 100%;
+			text-align: center;
 			margin-right: 0px;
 		}
 
@@ -510,6 +559,12 @@
 		}
 
 	@media screen and ( max-width: 600px){
+
+		.tnp-email{
+
+			padding-left: 10px !important;
+			padding-right: 10px !important;
+		}
 
 		.tnp-privacy-field label input{
 		
@@ -598,15 +653,25 @@
 			padding-bottom: 20px !important;
 		}
 
+		.tnp-subscription input[type=text], .tnp-subscription input[type=email], .tnp-subscription input[type=submit], .tnp-subscription select{
+
+			width: 100%;
+		}
+
+		.tnp-field.tnp-field-email label{
+
+			margin-bottom: 0px !important;
+		}
+
 	}
 
 	@media screen and ( max-width: 1100px) and ( min-width: 600px){
 
-		.tnp-field-email > label{
+/*		.tnp-field-email > label{
 
 			max-width: 70% !important;
 		}
-
+*/
 		.tnp-subscription form {
 
 			max-width: 621px !important;

@@ -426,6 +426,11 @@
 			overflow: auto;
 			margin-bottom: auto;
 			height: 100%;
+
+		}
+
+		.filters::-webkit-scrollbar-thumb{
+			background: #595959;
 		}
 
 		.icon-close-filter svg{

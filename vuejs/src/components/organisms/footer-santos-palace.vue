@@ -260,6 +260,7 @@
 	.tnp-privacy-field a {
 
 		padding-left: 20px !important;
+		font-weight: normal !important ;
 	}
 
 /*	.tnp-privacy-field input {
@@ -291,10 +292,11 @@
 
 	.tnp-field.tnp-field-email{
 
-		width: 45%;
+		width: 50%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		text-align: right;
 	}
 
 	.tnp-field.tnp-field-button {

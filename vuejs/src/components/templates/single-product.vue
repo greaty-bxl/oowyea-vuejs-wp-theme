@@ -285,7 +285,7 @@
 					$('.quantity [name="quantity"]').val(this.quantity)
 					this.change_price_tot()
 
-					console.log(this.quantity);
+					//console.log(this.quantity);
 				}
 
 				
@@ -302,7 +302,7 @@
 					var attributes = {}
 					var filled_attr = 0
 
-					console.log( 'serializeArray', $('[data-state="current"] .variations_form').first().serializeArray() );
+					//console.log( 'serializeArray', $('[data-state="current"] .variations_form').first().serializeArray() );
 
 					$.each( $('[data-state="current"] .variations_form').serializeArray() , (index, field) => {
 						if( field.name.search('attribute') === 0 )
@@ -1025,8 +1025,8 @@
 
 	.div-parent-icons{
 
-		margin-top: 40px;
-		margin-bottom: 20px;
+		/*margin-top: 40px;
+		margin-bottom: 20px;*/
 	}
 	.image-single{
 

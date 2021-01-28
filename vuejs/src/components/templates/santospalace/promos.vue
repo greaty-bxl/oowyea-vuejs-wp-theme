@@ -73,7 +73,6 @@
 
 	}
 
-
 	.image-background-promo{	
 
 		height: 55vh;
@@ -84,6 +83,7 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+		
 	}
 
 	@media screen and ( max-width: 1100px ) and ( min-width: 600px) {

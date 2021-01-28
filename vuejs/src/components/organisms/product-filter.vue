@@ -430,7 +430,7 @@
 		}
 
 		.filters::-webkit-scrollbar-thumb{
-			background: #595959;
+			background: #e1e1e1;
 		}
 
 		.icon-close-filter svg{
@@ -438,8 +438,6 @@
 			right: 0px;
 			fill: #000000;
 		}
-
-
 
 		.icon-close-filter {
 

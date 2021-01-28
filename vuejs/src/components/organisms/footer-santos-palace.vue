@@ -157,6 +157,11 @@
 
 		width: 100%;
 		text-align: center;
+		text-align: left;
+		display: flex;
+		flex-direction: row;
+		align-content: center;
+		align-items: center;
 	}
 
 
@@ -257,11 +262,11 @@
 		padding-left: 20px !important;
 	}
 
-	.tnp-privacy-field input {
+/*	.tnp-privacy-field input {
 
 		padding-top: 5px;
 		position: absolute !important;
-	}
+	}*/
 
 	.tnp-field label a {
 
@@ -444,6 +449,12 @@
 
 	@media screen and ( max-width: 1100px){
 
+		.tnp-privacy-field a {
+
+			padding-left: 15px !important;
+		}
+
+
 		.tnp-field.tnp-privacy-field{
 
 			width: 100%;
@@ -453,7 +464,7 @@
 
 		.tnp-field.tnp-privacy-field label{
 			width: 100%;
-			text-align: center;
+			/*text-align: center;*/
 
 		}
 

@@ -393,7 +393,11 @@
 <style>
 
 	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
-	
+
+	.filters::-webkit-scrollbar-thumb{
+		background: #e1e1e1;
+	}
+
 	@media only screen and (min-width: 1101px){
 
 
@@ -427,10 +431,6 @@
 			margin-bottom: auto;
 			height: 100%;
 
-		}
-
-		.filters::-webkit-scrollbar-thumb{
-			background: #e1e1e1;
 		}
 
 		.icon-close-filter svg{

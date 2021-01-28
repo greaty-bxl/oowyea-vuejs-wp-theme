@@ -2,7 +2,7 @@
 	<div class="section-wrap section-promos" >
 
 			<h2  v-html="post.post_title"></h2>
-			<p  v-html="post.post_content" ></p>
+			<div  v-html="post.post_content" ></div>
 			<a :href="pll__('URL EN SAVOIR PLUS')"  class="button-santos-vert button-section-promos"
 			v-html="pll__('EN SAVOIR PLUS')" ></a>
 	

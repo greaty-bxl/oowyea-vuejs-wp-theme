@@ -67,6 +67,13 @@
 
 	}
 
+	.page-promos-content p{
+
+		margin-top: 20px;
+
+	}
+
+
 	.image-background-promo{	
 
 		height: 55vh;

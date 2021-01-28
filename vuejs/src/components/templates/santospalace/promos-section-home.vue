@@ -2,10 +2,7 @@
 	<div class="section-wrap section-promos" >
 
 			<h2  v-html="post.post_title"></h2>
-			<p  v-html="post.post_content" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat.</p>
+			<p  v-html="post.post_content" ></p>
 			<a :href="pll__('URL EN SAVOIR PLUS')"  class="button-santos-vert button-section-promos"
 			v-html="pll__('EN SAVOIR PLUS')" ></a>
 	
@@ -43,7 +40,7 @@
 
 	.section-promos h2 {
 	
-		font-size: 2.6vw !important;
+		font-size: 40px !important;
 		margin: 0px !important;
 		padding-bottom: 20px;
 		font-weight: 700;
@@ -52,10 +49,10 @@
 	}
 	.section-promos p {
 
-		font-size: 1.2vw !important;
+		font-size: 20px !important;
 		margin: 0px auto;
 		font-weight: 300;
-		width: 50%
+		width: 70%
 
 	}
 

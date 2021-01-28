@@ -4,7 +4,8 @@
 		
 			<div class="content-single">
 				<div  class="retour">
-					<button onclick="window.history.back()">Retour</button>
+					<button onclick="window.history.back()" 
+					v-html="pll__('Retour')">Retour</button>
 				</div>
 				<div class="contenu-single">
 
@@ -108,7 +109,8 @@
 
 
 						<div  class="continuer-achat">
-							<button onclick="window.history.back()">Continuer mes achats</button>
+							<button onclick="window.history.back()" 
+							v-html="pll__('Continuer mes achats')">Continuer mes achats</button>
 						</div>
 
 						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" >
@@ -860,6 +862,7 @@
 
 	.descriptif-machine{
 
+		margin-top: -70px;
 		background-color: #F6F6F6;
 		width: 100%;
 		padding-top: 30px;
@@ -1120,6 +1123,13 @@
 			margin-right: auto;
 			width: calc(100% - 8.2%) !important;
 		}
+
+		.descriptif-machine{
+
+			margin-top: -70px;
+		
+			
+		}
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
 
@@ -1183,6 +1193,12 @@
 
 
 	@media screen and (max-width: 600px){
+
+		.descriptif-machine{
+
+			margin-top: 0px;
+		
+		}
 
 		.div-parent-icons img{
 			width: 250px;

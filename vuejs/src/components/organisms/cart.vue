@@ -99,6 +99,7 @@
 		text-align: right;
 		z-index: 4000;
 		background: rgba(255,255,255,0.6);
+
 	}
 
 	.fade-enter-active, .fade-leave-active, .fade-leave-to {
@@ -118,6 +119,7 @@
 		display: inline-block;
 		margin-right: 0px;
 		box-shadow: -4px 0px 20px -11px #000000;
+		padding: 27px 40px 85px 50px;
 	}
 
 	.fade-enter-active .left-col, .fade-leave-active .left-col, .fade-leave-to .left-col {

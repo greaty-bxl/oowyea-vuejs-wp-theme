@@ -187,7 +187,7 @@
 		width: 80%;
 		margin-left: auto;
 		margin-right: auto;
-		font-size: 15px;
+		font-size: 13px !important;
 	}
 
 	.droit-reserve a {

@@ -73,8 +73,6 @@ function wp_vue_add_var($key, $value)
 {
 	global $is_wp_head;
 
-
-
 	if( $is_wp_head && ( is_array( $value ) || is_object( $value ) ) )
 	{
 		$value = json_encode($value);

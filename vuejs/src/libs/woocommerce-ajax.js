@@ -25,6 +25,13 @@ export default function(vue){
 		let fields = form.serialize()
 		let url = form.prop('action')
 
+		let is_add_to_cart = 0
+
+		if( $('[data-state="current"]').hasClass('single-product') && form.hasClass('cart') )
+		{
+			is_add_to_cart = 1
+		}
+
 		let submit_btn = $(event.currentTarget).find('button')
 		if( submit_btn.length && submit_btn.prop('value') )
 		{
@@ -49,6 +56,8 @@ export default function(vue){
 
 				$('.woocommerce-cart-quantity').text(data.cart_quantity)
 
+				console.log('wcdata',data);
+
 				$.each(data.notices, function(type_key, notices_by_group) {
 					//Can return type: error, notice, success
 					//We adapt types for Noty
@@ -56,19 +65,33 @@ export default function(vue){
 					
 					$.each(notices_by_group, function(index, notice) {
 						//console.log(type, notice.notice);
-						new noty({
-							type: type, /*alert, information, error, warning, notification, success*/
-							text: notice.notice,
-							timeout: 7000,
-							layout: "bottomRight",
-							theme: "relax"
-						}).show();
+						if( type != 'success' && !is_add_to_cart )
+						{
+							new noty({
+								type: type, //alert, information, error, warning, notification, success
+								text: notice.notice,
+								timeout: 7000,
+								layout: "bottomRight",
+								theme: "relax"
+							}).show();
+						}
 					});
+					
 				});
 
-				links_and_anchors(vue)
+				if( is_add_to_cart )
+				{
+					vue.$store.state.wp.cart = data.cart
+					/*vue.$store.commit({
+						type: 'update_wp',
+						wp: vue.$store.state.wp,
+					})*/
+					$(document).trigger('add_to_cart', {'vue':vue} )
+				}
+				
+				
 
-				//console.log( 'success', $('.disabled-by-ajax') );
+				links_and_anchors(vue)
 
 				$('.disabled-by-ajax').removeProp('disabled')
 

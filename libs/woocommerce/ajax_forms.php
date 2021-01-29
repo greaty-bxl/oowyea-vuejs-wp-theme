@@ -9,6 +9,8 @@ function return_woocommerce_message(){
 		$return['cart_quantity'] = $woocommerce->cart->cart_contents_count;
 		$return['notices'] = wc_get_notices();
 
+		$return['cart'] = do_shortcode( '[woocommerce_cart]' );
+
 		echo json_encode($return);
 		WC()->session->set('wc_notices', array() );
 		exit();	

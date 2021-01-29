@@ -84,20 +84,21 @@
 															
 						
 
-						<div v-if="type != 'contact_us'" id="total_price">
+						<div v-if="type != 'contact_us'" class="total_price">
 							<label v-html="pll__('Total')"></label>
-							<input type="text" class="tot input-text" :value="tot_price" readonly>
+							<input type="text" class="tot input-text" readonly>
 						</div>
 
-						<div v-if="type != 'contact_us'" id="quantity_label">
+						<div v-if="type != 'contact_us'" class="quantity_label">
 							<label v-html="pll__('Quantité')"></label>
 							<div class="less">
-								<div class="less-bt" v-on:click="quantity_change(-1)">-</div>
+								<div class="less-bt">-</div>
 							</div>
 							<div class="more">
-								<div class="more-bt" v-on:click="quantity_change(+1)">+</div>
+								<div class="more-bt">+</div>
 							</div>
 						</div>
+						
 						
 
 						<div v-if="post.is_in_stock && type != 'contact_us'" class="button-contener" v-html="post.add_to_cart">
@@ -116,6 +117,12 @@
 						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" >
 
 							<img v-for="child in wp.acf.options.galerie_icons" :key="child.ID" :src="child.url">
+							
+						</div>
+
+						<hr />
+
+						<div v-html="cart_v2">
 							
 						</div>
 					</div>
@@ -146,7 +153,8 @@
 				variations_selects: {},
 				quantity: 1,
 				sale_price: 0,
-				tot_price: '-'
+				tot_price: '-',
+				cart_v2: ''
 			}
 		},
 		components: {
@@ -159,6 +167,7 @@
 
 			var $ = this.$
 
+			console.log('mounted');
 
 			this.variations_data = $('.variations_form').first().data('product_variations')	
 
@@ -166,14 +175,20 @@
 
 			if( this.type != 'contact_us' ) 
 			{
+				
 				setTimeout( ()=>{
-					$('#total_price').insertAfter( '[data-state="current"] .quantity')
+					
+					/*$('table.variations').hide();*/
 
-					$('#quantity_label').prependTo( '[data-state="current"] .quantity')
+					/*$('[data-state="current"] .total_price').insertAfter( '[data-state="current"] .quantity')
+
+					$('[data-state="current"] .quantity_label').prependTo( '[data-state="current"] .quantity')*/
 
 					//$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
 
-				}, 1 )
+				}, 100 )
+				
+				
 				
 
 				$('.quantity [name="quantity"]').on('change keyup', (event) => {
@@ -186,40 +201,7 @@
 				});
 			}
 
-			if( this.type == "variable" )
-			{
-				$('table.variations').hide();
-				$('.single_add_to_cart_button').addClass('disabled wc-variation-selection-needed')
-
-				let variations_selects = {}
-
-				$('[data-state="current"] table.variations tr').each( (index, el) => {
-					
-					variations_selects[index] = {}
-					variations_selects[index]['label'] = $(el).find('.label label').text()
-					variations_selects[index]['class'] = '';
-					variations_selects[index]['selected'] = ''
-					variations_selects[index]['id'] = $(el).find('select').prop('id')
-
-					$(el).find('option').each((index2, el2) => {
-						if( index2 == 0 )
-						{
-							variations_selects[index]['placeholder'] = $(el2).text()
-							variations_selects[index]['options'] = {}
-						}
-						else
-						{
-							if( $(el2).prop('selected') )
-							{
-								variations_selects[index]['selected'] = $(el2).text()
-								variations_selects[index]['placeholder'] = $(el2).text()
-							}
-							variations_selects[index]['options'][$(el2).attr('value')] = $(el2).text()
-						}
-					});
-				});
-				this.variations_selects = variations_selects
-			}
+			
 			
 			if( this.type != "variable" && Array.isArray(this.post.metas._price) )
 			{
@@ -361,6 +343,8 @@
 							$('.single_add_to_cart_button').removeClass('disabled wc-variation-selection-needed')
 
 							this.tot_price = results[0].display_price * this.quantity
+
+							$('.total_price input').val(this.tot_price)
 						}
 						else
 						{
@@ -373,6 +357,8 @@
 				else
 				{
 					this.tot_price = this.sale_price * this.quantity
+
+					$('.total_price input').val(this.tot_price)
 				}
 				
 			}
@@ -383,6 +369,84 @@
 			},
 			wp () {
 				return this.$store.state.wp
+			}
+		},
+		watch : {
+			'$store.state.wp' : function(){
+				console.log('reload product');
+
+				let $ = this.$
+				
+				setTimeout( ()=>{
+
+					if( this.type == "variable" )
+					{
+						$('table.variations').hide();
+						
+						$('.single_add_to_cart_button').addClass('disabled wc-variation-selection-needed')
+
+						let variations_selects = {}
+
+						$('[data-state="current"] table.variations tr').each( (index, el) => {
+							
+							variations_selects[index] = {}
+							variations_selects[index]['label'] = $(el).find('.label label').text()
+							variations_selects[index]['class'] = '';
+							variations_selects[index]['selected'] = ''
+							variations_selects[index]['id'] = $(el).find('select').prop('id')
+
+							$(el).find('option').each((index2, el2) => {
+								if( index2 == 0 )
+								{
+									variations_selects[index]['placeholder'] = $(el2).text()
+									variations_selects[index]['options'] = {}
+								}
+								else
+								{
+									if( $(el2).prop('selected') )
+									{
+										variations_selects[index]['selected'] = $(el2).text()
+										variations_selects[index]['placeholder'] = $(el2).text()
+									}
+									variations_selects[index]['options'][$(el2).attr('value')] = $(el2).text()
+								}
+							});
+						});
+						this.variations_selects = variations_selects
+					}
+
+					this.change_price_tot()
+					
+
+					$('.moved_clone').remove()
+
+					let labelqt = $('[data-state="current"] .quantity_label')
+					labelqt.hide()
+					let labelqt_clone = labelqt.clone().addClass('moved_clone')
+					labelqt_clone.show().prependTo( '[data-state="current"] .quantity')
+
+					labelqt_clone.find('.less-bt').on('click', () => {
+						this.quantity_change(-1)
+					});
+
+					labelqt_clone.find('.more-bt').on('click', () => {
+						this.quantity_change(1)
+					});
+					
+					let tot_price = $('[data-state="current"] .total_price')
+					tot_price.hide()
+					let tot_price_clone = tot_price.clone().addClass('moved_clone')
+					tot_price_clone.show().insertAfter( '[data-state="current"] .quantity')
+
+
+					/*$('[data-state="current"] .total_price').insertAfter( '[data-state="current"] .quantity')
+
+					$('[data-state="current"] .quantity_label').prependTo( '[data-state="current"] .quantity')*/
+
+					//$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
+
+				}, 1 )
+
 			}
 		}
 	}
@@ -742,7 +806,7 @@
 		display: none !important;
 	}
 
-	.quantity, #total_price {
+	.quantity, .total_price {
 		display: inline-block;
 		width: 50%;
 		box-sizing: border-box;
@@ -752,11 +816,11 @@
 		padding-right: 5px;
 	}
 
-	#total_price {
+	.total_price {
 		padding-left: 5px;
 	}
 
-	.quantity label, #total_price label {
+	.quantity label, .total_price label {
 		font-size: 9px;
 		margin: 7px 12px;
 		position: absolute;
@@ -795,7 +859,7 @@
 
 
 
-	.quantity .qty, #total_price .tot{
+	.quantity .qty, .total_price .tot{
 		display: block;
 		text-align: center;
 		width: 100% !important;
@@ -970,10 +1034,7 @@
 		text-decoration-line: none;
 		color: #888320 !important;
 		padding-left: 0px;
-
 	}
-
-	
 
 
 	.div-image-single{

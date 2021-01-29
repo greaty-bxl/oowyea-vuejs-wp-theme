@@ -3,7 +3,7 @@
 
 function vue_return_json()
 {
-	if ( isset( $_GET['add_to_json'] ) && !$_GET['_wpnonce'] ) 
+	if ( isset( $_GET['add_to_json'] )/* && !$_GET['_wpnonce']*/ ) 
 	{
 		global $wp_vue_json;
 		/*echo "<pre>";

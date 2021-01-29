@@ -6,7 +6,11 @@ function wp_redirect_filter($status, $location) {
     	( $_GET['remove_item'] || $_GET['undo_item'] ) 
     )
 	{
-		echo "refresh";
+		global $wp;
+		wp();
+
+		do_action( 'before_document');
+
 		exit();
 	}
 	return $status;

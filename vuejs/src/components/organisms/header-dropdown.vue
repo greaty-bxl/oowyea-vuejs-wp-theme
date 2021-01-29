@@ -122,11 +122,13 @@
 
 					</div>
 					
-					<a class="woocommerce-cart-quantity-a" href="">
+					<div class="woocommerce-cart-quantity-a" @click="open_cart">
 
 						<p class="woocommerce-cart-quantity count" v-html="count" ></p>	
 				
-					</a>		
+					</div>
+
+					<Cart />	
 
 				</div>
 
@@ -147,11 +149,13 @@
 
 <script>
 import Acf from 'Organisms/acf.vue'
+import Cart from 'Organisms/cart.vue'
 
 
 export default {
 	components:{
-		Acf
+		Acf,
+		Cart
 	},
 	data(){
 
@@ -166,17 +170,9 @@ export default {
 
 		this.$emit('template_mounted', this)
 
-		
-		// console.log(this.wp.menus[0] .url ,  window.location.toString());
-
 		$(document).on('click', '.menu-item', function() {
 
-			if ($(this).hasClass('close-simple')){
-
-				console.log();
-			}
-
-			else{
+			if ( !$(this).hasClass('close-simple')){
 
 				$('.parent').animate({
 					left: '100vw',
@@ -314,18 +310,28 @@ export default {
 		});
 
 	},
+	methods:{
+		open_cart : function(){
+			let $ = this.$
 
+			$(document).trigger('open_cart')
+			
+		}
+	},
 	watch: {
 
 		'$store.state.wp.menus': function() {
 
 			var $ = this.$
 
+
 			this.showButton = window.location.toString() 
 
 			// $("a.current").parents('.grandparent').find('.ligne-animation').addClass('current');
 
 			$('.icon-arrow-right').unbind('click').click(function() {
+
+
 
 				$(this).parents('.grandparent').find('.icon-arrow-left').toggleClass('active');
 

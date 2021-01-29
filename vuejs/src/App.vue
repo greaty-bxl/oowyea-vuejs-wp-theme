@@ -150,21 +150,64 @@ export default {
       //ready
       $(document).trigger('first_page_ready')
       
+      $(document).on('reload_query', (event, wp) => {
+        this.classes['current'] = ''
+        this.pages['current'] = wp.sections
+
+        this.classes['current'] = wp.body_class
+        this.pages['current'] = wp.sections
+        this.$store.commit({
+          type: 'sections_load',
+          sections: this.pages['current'],
+        })
+      });
       //new page with transition
+      /*$(document).on('reload_query', (event, wp) => {
+        
+        let keep_scrollTop = $('#app').scrollTop()
+
+        $('[data-state="current"]').animate({
+          opacity: 0,
+          },
+          500, ()=> {
+          this.classes['current'] = ''
+          this.pages['current'] = ''
+
+          setTimeout( ()=>{
+            this.classes['current'] = wp.body_class
+            this.pages['current'] = wp.sections
+
+            setTimeout( ()=>{
+
+              $('#app').scrollTop(keep_scrollTop)
+              links_and_anchors(this)
+
+              this.$store.commit({
+                type: 'sections_load',
+                sections: this.pages['current'],
+              })
+              setTimeout( ()=>{
+                $('[data-state="current"]').animate({opacity:1}, 50)
+              }, 50)              
+            }, 1 )          
+          }, 1 ) 
+        });   
+      })*/
+
       $(document).on('new_page', (event) => { /* event from: links-and-anchors.js */
         
         console.log('new-page');
         
         $('#app').data('scrolling', 'new-page')
 
-        $('#footer').hide();
+        //$('#footer').hide();
         
         get_new_page( this, event.href, (wp) => {
           
           //console.log( 'app get page', wp )
           let new_sections = wp.sections
           //this.wp = wp
-          this.$store.state.wp = wp
+          //
 
           $(document).trigger('after_data_next_page')
 
@@ -177,19 +220,26 @@ export default {
             $(document).trigger('before_next_page')
 
             animate_next_page( this, event.href, () => {
+
+              this.classes['current'] = ''
+              this.pages['current'] = ''
+
               
-              console.log( 'test' );
+              this.pages['next'] = {}
+              this.classes['next'] = '' 
+              this.$store.state.wp = wp
 
               this.classes['current'] = wp.body_class
-              this.pages['current'] = wp.sections
+              this.pages['current'] = new_sections
 
               this.$store.commit({
                 type: 'sections_load',
                 sections: this.pages['current'],
               })
-
+              
               setTimeout( ()=>{
-                $('#footer').show();
+
+                //$('#footer').show();
 
                 init_scrolltop(this)
                 
@@ -198,8 +248,6 @@ export default {
                 setTimeout( ()=>{
 
                   $('#app').data('scrolling', '')
-                  this.pages['next'] = {}
-                  this.classes['next'] = '' 
 
                   //links_and_anchors(this)
 
@@ -240,11 +288,11 @@ export default {
     }
   },
   computed: {
-    wp () {
+    wp () {   
       //console.log(cap);
       return this.$store.state.wp
     }
-  }
+  },
 }
 </script>
 

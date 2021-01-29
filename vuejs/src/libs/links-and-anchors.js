@@ -11,26 +11,38 @@ export default function (vue)
 		{
 			if( href.search( vue.wp.options.siteurl ) === 0 ) is_same_site = 1
 		}
+
+
 	
 		if( is_same_site ){
 
 			//event.preventDefault();
+			let href_url = new URL(href)
 
-			let section = $('.section[data-permalink="'+href+'"]')
+			console.log('is_section 1', href_url);
+
+			let section = $('.section[data-permalink="'+href_url.origin+href_url.pathname+'"]')
 			let is_section = section.length
+			
+			console.log('is_section 1', is_section);
 
 			if( $('[data-state="current"]').hasClass('woocommerce-account') && event ) is_section = 0
 
-			var href_search = new URL(href).search;
+			console.log('is_section 2', is_section);
+
+			var href_search = href_url.search;
 			if( window.location.search != href_search )
 			{
 				is_section = false;
 			}
+	
 
 			if( is_section )
 			{
+				
+				console.log('is_section', document.location.href, href);
 
-				if( document.location.href == href && push ) return
+				if( document.location.href == href && push ) return true
 
 				var start
 
@@ -44,6 +56,8 @@ export default function (vue)
 				}*/
 
 				start = 0
+
+
 
 				var clone = section.clone()
 
@@ -180,15 +194,18 @@ export default function (vue)
 			
 		});
 
-		//console.log('click', href);
-
 		if ( open_link(event, href) )
 		{
 			event.preventDefault();
 		}
+
+		
     }
 
-	$('a').unbind('click').on('click', (event) => {
+    //console.log( $('.remove') );
+	$('a').unbind('click').on('click', (event) => {	
+		event.preventDefault();
+			
 		on_click(event)	
 	});
 

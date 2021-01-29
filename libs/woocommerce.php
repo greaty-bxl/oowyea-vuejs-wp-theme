@@ -14,6 +14,7 @@ include 'woocommerce/last-products-slider.php';
 include 'woocommerce/calendar.php';
 include 'woocommerce/image-payment-enabled.php';
 include 'woocommerce/count.php';
+include 'woocommerce/cart-global.php';
 
 function owy_resolve_issue_header()
 {

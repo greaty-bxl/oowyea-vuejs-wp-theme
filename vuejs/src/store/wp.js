@@ -14,6 +14,8 @@ class wp{
 	/* Mutations */
 	section_change(state, payload){
 
+		console.log( 'section_change' );
+		
 		state.wp.current_section = payload.current_section
 
 		state.wp = Object.assign({}, state.wp)

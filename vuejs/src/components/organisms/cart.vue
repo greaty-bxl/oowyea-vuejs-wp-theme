@@ -16,19 +16,19 @@
 	export default{
 		data(){
 			return {
-				open: 1,
+				open: 0,
 			}
 		},
 		mounted(){
 
 			let $ = this.$
 
-			$(document).on('add_to_cart', () => {
+			$(document).on('add_to_cart after__wpnonce', () => {
 
 				this.open = 1
 			});
 
-			$(document).on('add_to_cart after_next_page', () => {
+			$(document).on('add_to_cart after_next_page after__wpnonce', () => {
 
 				setTimeout( () => {
 					links_and_anchors( this )

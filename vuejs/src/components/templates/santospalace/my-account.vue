@@ -1,7 +1,7 @@
 <template>
 
-	<div>
-		<h5 class="title-compte">Mon compte</h5>
+	<div id="mon-compte">
+		<h5 class="title-compte" v-html="pll__('Mon compte')"></h5>
 		<div v-html="post.post_content" >
 		</div>	
 	</div>
@@ -85,7 +85,7 @@ export default {
 		margin-right: 10px;
 		font-size: 18px!important;
 		list-style: none;
-		
+
 	}
 
 

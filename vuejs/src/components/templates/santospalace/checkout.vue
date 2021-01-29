@@ -13,17 +13,9 @@
 <script>
 
 import smart_fonts from 'Libs/smart-fonts.js';
-// import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-// import 'swiper/css/swiper.css';
-
 
 export default {
-	components: {
 
-		// Swiper,
-		// SwiperSlide,
-
-	},
 	props: {
 		'post' : Object
 	},

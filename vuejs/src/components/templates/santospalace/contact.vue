@@ -16,7 +16,9 @@
 					<li>Rue de Manchester 32-34</li>
 					<li>1080 – Bruxelles</li>
 
-					<p><a target="_blank" href="https://www.google.com/maps/place/Rue+de+Manchester+32%2F34,+1080+Molenbeek-Saint-Jean/data=!4m2!3m1!1s0x47c3c40a726afb45:0xe72e76a148f96c47?sa=X&ved=2ahUKEwih7uPE7LbuAhUM-6QKHQpNC7IQ8gEwAHoECAYQAQ">Cliquez ici pour connaître l’emplacement.</a></p>
+					<p>
+						<a target="_blank" href="https://www.google.com/maps/place/Rue+de+Manchester+32%2F34,+1080+Molenbeek-Saint-Jean/data=!4m2!3m1!1s0x47c3c40a726afb45:0xe72e76a148f96c47?sa=X&ved=2ahUKEwih7uPE7LbuAhUM-6QKHQpNC7IQ8gEwAHoECAYQAQ">Cliquez ici pour connaître l’emplacement.</a>
+					</p>
 				</ul>
 			</div>
 			<div class="child-info">
@@ -24,7 +26,8 @@
 				<ul>
 
 					<li>
-					Pour des informations générales et des questions relatives à la commande, envoyez-nous un e-mail à:<a href="info@santospalace.be"> info[at]santospalace.be</a></li>
+						Pour des informations générales et des questions relatives à la commande, envoyez-nous un e-mail à:<a href="info@santospalace.be"> info[at]santospalace.be</a>
+					</li>
 		
 				</ul>
 			</div>

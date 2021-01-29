@@ -3,7 +3,7 @@
 		<div>
 			<div class="section-nouvelles">
 				
-				<h2>Nouveautés @home</h2>
+				<h2 v-html="pll__('Nouveautés @home')"></h2>
 				<div class="div-filtre-nouvelles">
 
 						<swiper class="swiperNouvellesbutton" :options="swiperMenu"  :pagination="{ clickable: true }">

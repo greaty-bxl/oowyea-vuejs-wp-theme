@@ -165,8 +165,6 @@ export default {
 
 		this.$emit('template_mounted', this)
 
-		//console.log( 'menus', this.$store.state.wp.menus )
-
 		$(document).on('click', '.menu-item', function() {
 		//$('.menu-item').click(function() {
 

@@ -105,7 +105,7 @@
 		justify-content: space-between;
 	}
 	.custom-html-widget *{
-		font-size: 16px;
+		font-size: 14px;
 	}
 	.custom-html-widget div{
 
@@ -157,6 +157,11 @@
 
 		width: 100%;
 		text-align: center;
+		text-align: left;
+		display: flex;
+		flex-direction: row;
+		align-content: center;
+		align-items: center;
 	}
 
 
@@ -182,7 +187,7 @@
 		width: 80%;
 		margin-left: auto;
 		margin-right: auto;
-		font-size: 15px;
+		font-size: 13px !important;
 	}
 
 	.droit-reserve a {
@@ -254,14 +259,15 @@
 
 	.tnp-privacy-field a {
 
-		padding-left: 20px !important;
+		padding-left: 5px !important;
+		font-weight: normal !important ;
 	}
 
-	.tnp-privacy-field input {
+/*	.tnp-privacy-field input {
 
 		padding-top: 5px;
 		position: absolute !important;
-	}
+	}*/
 
 	.tnp-field label a {
 
@@ -286,10 +292,11 @@
 
 	.tnp-field.tnp-field-email{
 
-		width: 45%;
+		width: 50%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		text-align: right;
 	}
 
 	.tnp-field.tnp-field-button {
@@ -388,7 +395,7 @@
 
 	#footer *{
 
-		line-height: 30px;
+		line-height: 20px;
 	}
 
 	.div-green-parent .tnp-field-email label{
@@ -444,6 +451,12 @@
 
 	@media screen and ( max-width: 1100px){
 
+		.tnp-privacy-field a {
+
+			padding-left: 15px !important;
+		}
+
+
 		.tnp-field.tnp-privacy-field{
 
 			width: 100%;
@@ -453,7 +466,7 @@
 
 		.tnp-field.tnp-privacy-field label{
 			width: 100%;
-			text-align: center;
+			/*text-align: center;*/
 
 		}
 
@@ -665,13 +678,18 @@
 
 	}
 
-	@media screen and ( max-width: 1100px) and ( min-width: 600px){
+	@media screen and ( max-width: 1125px) and ( min-width: 900px){
 
-/*		.tnp-field-email > label{
+		.custom-html-widget div {
 
-			max-width: 70% !important;
+			margin-right: 30px !important;
+			margin-left: 30px !important;
+
 		}
-*/
+	}
+
+	@media screen and ( max-width: 1025px) and ( min-width: 600px){
+
 		.tnp-subscription form {
 
 			max-width: 621px !important;
@@ -700,7 +718,7 @@
 
 			width: 100% !important;
 			max-width: 70% ;
-			font-size: 14px !important;
+			font-size: 12px !important;
 			line-height: 25px;
 			color: white !important;
 
@@ -708,7 +726,7 @@
 
 		.custom-html-widget div {
 	
-			width: 43%;
+			width: auto;
 			margin-right: 20px;
 			margin-left: 20px;
 			margin-bottom: 40px;

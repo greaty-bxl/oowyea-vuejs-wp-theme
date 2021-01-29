@@ -6,7 +6,7 @@
 			<div class="image-degustation"></div>
 			<div class="text-degustation">
 				
-				<h2>Nous vous proposons une dégustation gratuite dans vos bureaux :</h2>
+				<h2 v-html="pll__('Je prends rendez-vous pour une dégustation dans mon bureau SECTION')"></h2>
 				<ul class="explication-degustation">
 
 					<li> Dégustation de nos cafés</li>
@@ -14,7 +14,7 @@
 					<li> Découverte de notre univers et de notre savoir faire</li>
 					<li> Présentation de notre fonctionnement</li>
 					<li> Aperçu de notre gamme complémentaire (Thés, chocolat, consommables…)</li>
-
+					
 				</ul>
 
 				<a class="button-santos-vert" :href="pll__('URL J’ESSAIE')"

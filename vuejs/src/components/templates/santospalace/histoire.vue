@@ -3,7 +3,7 @@
 	<div class="section-wrap">
 
 	<div class="image-histoire">
-		<h3>Histoire</h3>
+		<h3 v-html="pll__('Histoire')"></h3>
 		<h1>Santos Palace</h1>
 	</div>
 

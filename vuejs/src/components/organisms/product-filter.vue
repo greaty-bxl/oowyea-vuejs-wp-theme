@@ -393,7 +393,15 @@
 <style>
 
 	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
-	
+
+	.filters::-webkit-scrollbar-thumb{
+		background: #e1e1e1 !important;
+	}
+
+	.filters::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:hover{
+		background: #e1e1e1 !important;
+	}
+
 	@media only screen and (min-width: 1101px){
 
 
@@ -426,6 +434,7 @@
 			overflow: auto;
 			margin-bottom: auto;
 			height: 100%;
+
 		}
 
 		.icon-close-filter svg{
@@ -433,8 +442,6 @@
 			right: 0px;
 			fill: #000000;
 		}
-
-
 
 		.icon-close-filter {
 

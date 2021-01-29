@@ -54,13 +54,21 @@ function get_new_page(vue, href, callback) {
 				wp: json_data,
 			})
 
-			if( old_url.search != url.search )
+			if( old_url.search != url.search && !url.searchParams.get('_wpnonce') )
 			{
 				$(document).trigger('reload_query', json_data)
 				$(document).trigger('before_next_page')
+
 				vue.pushHistory( href )
+
 				$(document).trigger('after_next_page')
 			}
+			else if( url.searchParams.get('_wpnonce') )
+			{
+				$(document).trigger('after__wpnonce')
+			}
+
+
 
 
 			//get_new_page(vue, window.location.href, callback)

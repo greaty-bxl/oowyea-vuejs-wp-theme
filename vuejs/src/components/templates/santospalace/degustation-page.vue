@@ -2,15 +2,15 @@
 
 	<div class="section-wrap">
 		<div class="image-degustation-page">
-			<h3>Entreprise</h3>
-			<h1>Dégustation</h1>
+			<h3 v-html="pll__('Entreprise')"></h3>
+			<h1 v-html="pll__('Dégustation')"></h1>
 		</div>
 
 		<div class="degustation-page">
 			<div class="text-degustation-page">
 
 				<div class="colonne-degustation">
-					<h2>Je prends rendez-vous pour une dégustation dans mon bureau</h2>
+					<h2 v-html="pll__('Je prends rendez-vous pour une dégustation dans mon bureau PAGE')"></h2>
 
 					<ul class="explication-degustation">
 

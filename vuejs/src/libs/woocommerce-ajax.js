@@ -86,7 +86,7 @@ export default function(vue){
 						type: 'update_wp',
 						wp: vue.$store.state.wp,
 					})*/
-					$(document).trigger('add_to_cart', {'vue':vue} )
+					$(document).trigger('add_to_cart')
 				}
 				
 				

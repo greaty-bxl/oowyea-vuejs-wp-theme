@@ -3,7 +3,11 @@
 		<div class="side-cart" v-show="open" @click="click_to_close">
 			<div class="left-col" >
 				<button class="close" @click="click_to_close">close</button>
-				<div v-html="my_cart"></div>
+				<div v-for="(product, key) in my_cart_products" :key="key" >
+					{{product.product_name}}
+				</div>
+				<hr/>
+				<div v-html="$store.state.wp.cart"></div>
 			</div>
 		</div>
 	</transition>
@@ -16,7 +20,7 @@
 	export default{
 		data(){
 			return {
-				open: 0,
+				open: 1,
 			}
 		},
 		mounted(){
@@ -80,10 +84,22 @@
 			}
 		},
 		computed:{
-			my_cart: function () 
+			my_cart_products: function () 
 			{
-				console.log('cart updated');
-				return this.$store.state.wp.cart
+				let $ = this.$
+				let products = []
+
+				$(this.$store.state.wp.cart).find('.cart_item').each( (index, el) => {
+					console.log( 'item html', el );
+					products[index] = {}
+					products[index]['product_remove_href'] = $(el).find('.product-remove a').attr('href')
+					products[index]['product_name'] = $(el).find('.product-name a').html()
+					
+				});
+
+				return products
+				//console.log('cart updated', $(this.$store.state.wp.cart).find('.cart_item') );
+				//return this.$store.state.wp.cart
 			}
 		}
 	}

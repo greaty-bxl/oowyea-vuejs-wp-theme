@@ -78,12 +78,15 @@ export default {
 		background: white !important;
 		font-weight: 500;
 	}
+	#mon-compte nav ul li {
 
-/*	.woocommerce .woocommerce-customer-details address{
-
-		font-size: 18px !important;
-		line-height: 25px !important;
-	}*/
+		margin-bottom: 15px;
+		margin-left: 10px;
+		margin-right: 10px;
+		font-size: 18px!important;
+		list-style: none;
+		
+	}
 
 
 	#mon-compte .lost_reset_password{
@@ -609,7 +612,6 @@ export default {
 		text-align: left;
 		margin-left: 140px;
 		margin-bottom: 5vh;
-		/*margin-top: 0px !important;*/
 		margin-top: 100px;
 		padding-top: 5vh;
 		color: #70625B;

@@ -163,36 +163,6 @@
 
 			this.type = this.post.terms.product_type[0].slug
 
-			if( this.type != 'contact_us' ) 
-			{
-				
-				setTimeout( ()=>{
-					
-					/*$('table.variations').hide();*/
-
-					/*$('[data-state="current"] .total_price').insertAfter( '[data-state="current"] .quantity')
-
-					$('[data-state="current"] .quantity_label').prependTo( '[data-state="current"] .quantity')*/
-
-					//$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
-
-				}, 100 )
-				
-				
-				
-
-				$('.quantity [name="quantity"]').on('change keyup', (event) => {
-					this.quantity = $(event.currentTarget).val()
-					this.change_price_tot()
-				});
-
-				$('table.variations select').on('change', () => {
-					this.change_price_tot()
-				});
-			}
-
-			
-			
 			if( this.type != "variable" && Array.isArray(this.post.metas._price) )
 			{
 				this.sale_price = this.post.metas._price[0]
@@ -369,6 +339,18 @@
 				
 				setTimeout( ()=>{
 
+					if( this.type != 'contact_us' ) 
+					{
+						$('.quantity [name="quantity"]').on('change keyup', (event) => {
+							this.quantity = $(event.currentTarget).val()
+							this.change_price_tot()
+						});
+
+						$('table.variations select').on('change', () => {
+							this.change_price_tot()
+						});
+					}
+
 					if( this.type == "variable" )
 					{
 						$('table.variations').hide();
@@ -427,13 +409,7 @@
 					tot_price.hide()
 					let tot_price_clone = tot_price.clone().addClass('moved_clone')
 					tot_price_clone.show().insertAfter( '[data-state="current"] .quantity')
-
-
-					/*$('[data-state="current"] .total_price').insertAfter( '[data-state="current"] .quantity')
-
-					$('[data-state="current"] .quantity_label').prependTo( '[data-state="current"] .quantity')*/
-
-					//$('#icons-pay').insertBefore('.button-contener button[type="submit"]')
+					
 
 				}, 1 )
 

@@ -51,6 +51,7 @@ export default function(vue){
 			data: fields, // serializes the form's elements.
 			success: function(json)
 			{
+				console.log(json);
 				let data = JSON.parse( json )
 				//console.log( data, noticeTypes ); 
 
@@ -102,16 +103,19 @@ export default function(vue){
 		});
 	});
 
-	$(document).on('after_next_page first_page_ready', () =>{
-		$(formsSelectors).append('<input type="hidden" name="is_woocommerce_ajax" value="1" />')
-		//console.log( $(formsSelectors) );
+	$(document).on('after_next_page first_page_ready after__wpnonce', () =>{
+		setTimeout( ()=> {
+			$(formsSelectors).append('<input type="hidden" name="is_woocommerce_ajax" value="1" />')
+			//console.log( $(formsSelectors) );
 
-		$('[name="_wp_http_referer"]').each(function(index, el) {
-			let val = $(el).val()
-			val = val.replace('&add_to_json=1', '')
-			val = val.replace('?add_to_json=1', '?')
-			$(el).val( val )
-		});
+			$('[name="_wp_http_referer"]').each(function(index, el) {
+				let val = $(el).val()
+				val = val.replace('&add_to_json=1', '')
+				val = val.replace('?add_to_json=1', '?')
+				$(el).val( val )
+			});
+		}, 1);
+		
 	})
 
 

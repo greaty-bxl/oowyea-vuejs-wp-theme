@@ -24,13 +24,13 @@
 					<div v-for="child in $store.state.wp.menus" :key="child.ID" >
 
 
-						<li v-if="child.ID > -1"   class="dropdown grandparent"  >
+						<li v-if="child.ID > -1"   class="dropdown grandparent">
 
 							<div v-if="child.child">
 
 								<div class="li-espace-between">
 
-								<a class="ligne-animation" :href="child.url" v-html="child.title">Mouse over me</a>
+								<a class="ligne-animation" :href="child.url" v-html="child.title" v-bind:class="{'current':showButton === child.url}"  >Mouse over me</a>
 
 								<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-right" viewBox="0 0 20 38"><path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd"></path>
 								</svg>
@@ -40,7 +40,7 @@
 
 								<ul  class="dropdown-content">
 
-									<li class="li-sousmenu sousmenus childli dropdown__title li-espace-between" >
+									<li  class="li-sousmenu sousmenus childli dropdown__title li-espace-between" >
 
 										<span v-html="child.title"></span>
 										<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-left close-simple" viewBox="0 0 20 38"><path d="M4.068 18.649l15.466 16.105c.31.283.466.629.466 1.039 0 .41-.155.77-.466 1.08a1.412 1.412 0 0 1-1.038.424c-.41 0-.756-.141-1.038-.424L.466 19.708A1.373 1.373 0 0 1 0 18.648c0-.423.155-.776.466-1.059L17.458.424A1.412 1.412 0 0 1 18.496 0c.41 0 .755.141 1.038.424.31.282.466.636.466 1.06 0 .423-.155.776-.466 1.059L4.068 18.649z" fill="#726D75" fill-rule="evenodd"></path></svg>
@@ -49,7 +49,10 @@
 
 									<div class="li-sousmenu" v-for="child2 in child.child" :key="child2.ID">
 						
-										<li class="sousmenus childli"> <a :href="child2.url" class="sousmenus" v-html="child2.title" >Hello World!</a></li>
+										<li class="sousmenus childli">
+											<a :href="child2.url" class="sousmenus" v-html="child2.title" v-bind:class="{'current':showButton === child2.url}" >Hello World!
+											</a>
+										</li>
 
 									</div>
 							
@@ -59,7 +62,7 @@
 
 
 							<div v-else>
-								<a class="ligne-animation" :href="child.url" v-html="child.title" >Mouse over me</a>
+								<a  class="ligne-animation" :href="child.url" v-html="child.title" v-bind:class="{'current':showButton === child.url}" >Mouse over me</a>
 							</div>
 
 						</li>
@@ -109,7 +112,6 @@
 						<div v-html='menu_langue'></div>
 					</div>
 
-
 					<div class="div-image-compte" >
 
 						<a href="">
@@ -152,19 +154,22 @@ export default {
 		Acf
 	},
 	data(){
+
+		// currentRoute: window.location.pathname
 		return {
-			sideEl : ''
+			sideEl : '',
+			showButton : window.location.toString()
 		}
 	},
 	mounted(){
 		var $ = this.$
 
 		this.$emit('template_mounted', this)
+
 		
-		console.log( this.wp.menus);
+		// console.log(this.wp.menus[0] .url ,  window.location.toString());
 
 		$(document).on('click', '.menu-item', function() {
-		//$('.menu-item').click(function() {
 
 			if ($(this).hasClass('close-simple')){
 
@@ -178,9 +183,6 @@ export default {
 					easing: 'easeInOut ease',
 					duration: 500,
 				});
-
-
-
 
 				$('.button-header').removeClass('open-simple')
 				$('.button-header').removeClass('active')
@@ -319,11 +321,11 @@ export default {
 
 			var $ = this.$
 
-			console.log($('.icon-arrow-right'));
+			this.showButton = window.location.toString() 
+
+			// $("a.current").parents('.grandparent').find('.ligne-animation').addClass('current');
 
 			$('.icon-arrow-right').unbind('click').click(function() {
-
-				console.log('click');
 
 				$(this).parents('.grandparent').find('.icon-arrow-left').toggleClass('active');
 
@@ -405,7 +407,11 @@ export default {
 		},
 		menu_langue () {
 			return this.$store.state.wp.pll
-		}
+		},
+
+		/*showButton() {
+			return window.location.toString();
+		}*/
 	}
 
 }
@@ -413,6 +419,18 @@ export default {
 
 <style>
 
+/*
+	li:has(> a.current){
+
+		color: #888320 !important;
+
+	}*/
+
+	.current{
+
+		color: #888320 !important;
+
+	}
 	.icons-santos-palace a{
 
 		color: #422112;

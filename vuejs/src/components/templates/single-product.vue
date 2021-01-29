@@ -23,7 +23,7 @@
 
 								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
 									<div class="parent-taxonomie-info-single">
-										<p class="titre-taxonomie">Intensité</p>
+										<p class="titre-taxonomie" v-html="pll__('Intensité')"></p>
 										<div class="valeur-taxonomie" >
 											<div v-for="count_intesity in 5" :key="count_intesity" 
 											v-bind:class="{ filled: isFilled(post, count_intesity, 'intensity') }">
@@ -34,7 +34,7 @@
 
 								<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes')">
 									<div class="parent-taxonomie-info-single">
-										<p class="titre-taxonomie">Acidité</p>
+										<p class="titre-taxonomie" v-html="pll__('Acidité')"></p>
 										<div class="valeur-taxonomie"  >
 											<div v-for="acidity_points in 5" :key="acidity_points" 
 											v-bind:class="{ filled: isFilled(post, acidity_points, 'acidity') }">
@@ -44,11 +44,11 @@
 									
 								</div>
 								<div class="origine"  v-if="post.terms.origine">
-									<p class="titre-taxonomie">Origine : <span v-html="get_terms_as_string(post, 'origine')"></span></p>
+									<p class="titre-taxonomie" v-html="pll__('Origine')"> : <span v-html="get_terms_as_string(post, 'origine')"></span></p>
 								</div>
 
 								<div  class="flavour" v-if="post.terms.flavoring" >
-									<p >Notes : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
+									<p  v-html="pll__('Saveur')" > : <span v-html="get_terms_as_string(post, 'flavoring')"></span></p>
 								</div>
 
 							</div>
@@ -81,9 +81,7 @@
 								</div>
 							</div>
 						</div>
-															
-						
-
+																				
 						<div v-if="type != 'contact_us'" id="total_price">
 							<label v-html="pll__('Total')"></label>
 							<input type="text" class="tot input-text" :value="tot_price" readonly>
@@ -99,18 +97,18 @@
 							</div>
 						</div>
 						
-
 						<div v-if="post.is_in_stock && type != 'contact_us'" class="button-contener" v-html="post.add_to_cart">
 
 						</div>
 
-						<div class="form_contact_us_product" v-if="type == 'contact_us'" v-html="post.form">						
+						<div class="form_contact_us_product" v-if="type == 'contact_us'" v-html="post.form">
 						</div>
 
-
-						<div  class="continuer-achat">
-							<button onclick="window.history.back()" 
-							v-html="pll__('Continuer mes achats')">Continuer mes achats</button>
+						<div class="continuer-achat">
+							<button onclick="window.history.back()">
+								<span v-if="type == 'contact_us'" v-html="pll__('Retour')" ></span>
+								<span v-else v-html="pll__('Continuer mes achats')"></span>
+							</button>
 						</div>
 
 						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" >
@@ -120,8 +118,6 @@
 						</div>
 					</div>
 
-
-					
 				</div>
 			</div>
 			<div class="descriptif-machine" v-if="post.fields.product_more_info">

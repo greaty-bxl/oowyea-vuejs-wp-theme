@@ -20,7 +20,7 @@
 	export default{
 		data(){
 			return {
-				open: 1,
+				open: 0,
 			}
 		},
 		mounted(){

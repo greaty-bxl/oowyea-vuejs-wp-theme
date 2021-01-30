@@ -305,7 +305,7 @@
 							$('.variation_id').val( results[0].variation_id )
 							$('.single_add_to_cart_button').removeClass('disabled wc-variation-selection-needed')
 
-							this.tot_price = results[0].display_price * this.quantity
+							this.tot_price = this.price_format( results[0].display_price * this.quantity )
 
 							$('.total_price input').val(this.tot_price)
 						}
@@ -319,11 +319,42 @@
 				}
 				else
 				{
-					this.tot_price = this.sale_price * this.quantity
+
+					
+
+					this.tot_price = this.price_format( this.sale_price * this.quantity )
 
 					$('.total_price input').val(this.tot_price)
 				}
 				
+			},
+			price_format: function(price){
+				
+				let return_price = ''
+				let currency_format = this.$store.state.wp.get_currency_format
+				let pos = currency_format.pos
+				let symb = currency_format.symb
+
+				switch (pos) {
+					case 'left':
+						return_price = symb + price
+						break;
+					case 'left_space':
+						return_price = symb + ' ' + price
+						break;
+					case 'right':
+						return_price = price + symb
+						break;
+					case 'right_space':
+						return_price = price + ' ' + symb
+						break;
+					default:
+						return_price = price
+				}
+
+				console.log('get_currency_format',currency_format);
+
+				return return_price				
 			}
 		},
 		computed: {

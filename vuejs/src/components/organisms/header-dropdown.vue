@@ -1099,7 +1099,7 @@ export default {
 
 		padding: 5px;
 		cursor: pointer;
-		z-index: 11000;
+		z-index: 3000;
 		position: absolute;
 		top: 23px;
 		color: white;
@@ -1181,7 +1181,7 @@ export default {
 		display: block;
 		width: 45px;
 		cursor: pointer;
-		z-index: 11000;
+		z-index: 3000;
 
 		}
 		.burger{

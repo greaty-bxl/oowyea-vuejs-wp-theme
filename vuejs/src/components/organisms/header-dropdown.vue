@@ -733,7 +733,7 @@ export default {
 		opacity: 0;
 		top: calc(100% - 7px);
 		left: 0;
-		z-index: 5010;
+		z-index: 3000;
 		width: 100%;
 		height: 7px;
 		background-color: #888320;
@@ -899,7 +899,7 @@ export default {
 		display: flex;
 		flex-direction: column;
 		align-content: center;
-		z-index: 5000;
+		z-index: 3000;
 	}
 
 	.parent{

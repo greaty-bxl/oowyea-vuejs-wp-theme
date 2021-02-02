@@ -1,5 +1,5 @@
 <template>
-	<div class="section-wrap" :id="'section_' + _uid">
+	<div class="section-wrap owy-single-product" :id="'section_' + _uid">
 		<div class="clear"></div>
 		
 			<div class="content-single">
@@ -795,24 +795,24 @@
 
 	/* end: variation new design */
 
-	.quantity{
+	.owy-single-product .quantity{
 
 		padding-top: 0px !important;
 	}
 
-	.quantity .screen-reader-text,
+	.owy-single-product .quantity .screen-reader-text,
 	.reset_variations
 	{
 		display: none !important;
 	}
 
-	.quantity, .total_price {
+	.owy-single-product .quantity, .total_price {
 		display: inline-block;
 		width: 50%;
 		box-sizing: border-box;
 	}
 
-	.quantity {
+	.owy-single-product .quantity {
 		padding-right: 5px;
 	}
 
@@ -820,27 +820,27 @@
 		padding-left: 5px;
 	}
 
-	.quantity label, .total_price label {
+	.owy-single-product .quantity label, .total_price label {
 		font-size: 9px;
 		margin: 7px 12px;
 		position: absolute;
 	}
 
-	.quantity .less, .quantity .more{
+	.owy-single-product .quantity .less, .owy-single-product .quantity .more{
 		height: 0;
 		overflow: visible;
 		font-size: 30px;
 	}
 	
-	.quantity .less{
+	.owy-single-product .quantity .less{
 		float: left;
 	}
 
-	.quantity .more{
+	.owy-single-product .quantity .more{
 		float: right;
 	}
 
-	.quantity .less .less-bt, .quantity .more .more-bt {
+	.owy-single-product .quantity .less .less-bt, .owy-single-product .quantity .more .more-bt {
 		margin-top: 16px;
 		position: absolute;
 		height: 30px;
@@ -849,17 +849,17 @@
 		user-select: none;
 	}
 
-	.quantity .less .less-bt{
+	.owy-single-product .quantity .less .less-bt{
 		margin-left: 12px;
 	}
 
-	.quantity .more .more-bt {
+	.owy-single-product .quantity .more .more-bt {
 		margin-left: -30px;
 	}
 
 
 
-	.quantity .qty, .total_price .tot{
+	.owy-single-product .quantity .qty, .total_price .tot{
 		display: block;
 		text-align: center;
 		width: 100% !important;
@@ -872,14 +872,14 @@
 	}
 
 	/* Chrome, Safari, Edge, Opera */
-	.quantity .qty::-webkit-outer-spin-button,
-	.quantity .qty::-webkit-inner-spin-button {
+	.owy-single-product .quantity .qty::-webkit-outer-spin-button,
+	.owy-single-product .quantity .qty::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		margin: 0;
 	}
 
 	/* Firefox */
-	.quantity .qty {
+	.owy-single-product .quantity .qty {
 		-moz-appearance: textfield;
 	}
 
@@ -1344,7 +1344,7 @@
 
 		}
 
-		.woocommerce .quantity .qty{
+		.woocommerce .owy-single-product .quantity .qty{
 
 			width: 70px;
 		}

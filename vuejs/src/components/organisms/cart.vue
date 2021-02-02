@@ -8,7 +8,7 @@
 					</svg>
 				</span>
 
-				<form class="form-cart" action="" method="post">
+				<form class="form-cart woocommerce-cart-form" action="" method="post">
 					<div v-for="(product, key) in my_cart_products" :key="key">
 						<div class="items-carte-container">
 							
@@ -23,18 +23,19 @@
 
 								<div class="col-3" >
 
-									<span  @click="change_quant( product, -1 )">&mdash;</span>	
-									<div> </div>
-									<!-- <div class="quantity" v-html="product.product_label"></div> -->
-									<div class="quantity">
-										
-									<input step="1" min="0" type="number" :name="product.product_input_name"
-									:id="product.product_input_id" 
-									v-bind:value="product.product_input_value">
+								
 
+									<div class="quantity">
+										<span class="button-moins" @click="change_quant( key, -1 )">&mdash;</span>
+
+										<input step="1" min="0" type="number" :name="product.product_input_name"
+										:id="product.product_input_id" 
+										v-bind:value="product.product_input_value">
+
+										<span class="button-plus" @click="change_quant( key, +1 )">&#xff0b;</span>
 									</div>
 
-									<span @click="change_quant( key, +1 )">&#xff0b;</span>
+									
 									<a class="remove" :href="product.product_remove_href" 
 									v-html="pll__('Remove')"></a>								
 								</div>		
@@ -146,17 +147,21 @@
 				});
 
 			},
+// 
 
+			change_quant( key, num){
 
-			change_quant(key, num){
+				console.log( key , num);
 
+				let new_result_2 = parseInt(this.my_cart_products[key].product_input_value ) + num
 
-				console.log( this.my_cart_products);
-				this.my_cart_products[key].product_input_value += num
-				//product.product_name = 'test'
-				//product.product_input_value = '10'// +++ key;
+				console.log(new_result_2);
 
-				//this.num = 10
+				if( new_result_2 >= 1 )
+				{
+					this.my_cart_products[key].product_input_value = new_result_2
+
+				}
 
 			}
 
@@ -320,6 +325,19 @@
 
 	}
 
+	.button-moins{
+
+		position: absolute;
+		left: 15px;
+		user-select: none;
+	}
+	.button-plus{
+
+		position: absolute;
+		right: 15px;
+		user-select: none;
+	}
+
 	
 
 </style>
@@ -412,6 +430,11 @@
 	.side-cart .quantity{
 
 		text-align: left;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+
 	}
 
 	.side-cart .items-carte-container{
@@ -427,12 +450,12 @@
 
 	}
 
-	.side-cart .items-carte-container:last-child {
+/*	.items-carte-container:last-child {
 
 		border-bottom: 1px solid rgb(220, 220, 220);
 		margin-bottom: 20px;
 	}
-
+*/
 	.side-cart .button_checkout_clone {
 
 		background-color: #888320 ;
@@ -483,6 +506,19 @@
 		justify-content: space-between;
 		margin-bottom: 25px;
 		margin-top: 25px;
+	}
+
+
+	/* Chrome, Safari, Edge, Opera */
+	.side-cart .quantity input ::-webkit-outer-spin-button,
+	.side-cart .quantity ::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	.side-cart .quantity input {
+		-moz-appearance: textfield;
 	}
 
 

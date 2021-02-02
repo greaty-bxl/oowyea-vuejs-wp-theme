@@ -16,6 +16,8 @@ include 'woocommerce/image-payment-enabled.php';
 include 'woocommerce/count.php';
 include 'woocommerce/cart-global.php';
 include 'woocommerce/currency-format.php';
+include 'woocommerce/account-global.php';
+
 
 
 function owy_resolve_issue_header()

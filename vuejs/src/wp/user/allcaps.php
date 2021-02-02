@@ -13,5 +13,5 @@ function allcaps_current_user($value='')
 
 	wp_vue_add_var('user_can', $current_user_caps);
 }
-add_action( 'wp_head', 'allcaps_current_user' );
-add_action( 'wp', 'allcaps_current_user' );
+/*add_action( 'wp_head', 'allcaps_current_user' );
+add_action( 'wp', 'allcaps_current_user' );*/

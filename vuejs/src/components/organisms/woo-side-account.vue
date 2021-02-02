@@ -1,0 +1,314 @@
+<template>
+	<transition name="fade">
+		<div class="side-account" v-show="open" @click="click_to_close">
+			<div class="left-col" >
+				<button class="close" @click="click_to_close">close</button>
+
+				<div class="account-container" v-if="is_user_logged_in">
+					<div class="account-nav" v-bind:class="{ step1 : step == 1, step2 : step == 2 }">
+						<h2 class="title" v-html="pll__('Votre compte')"></h2>
+						<div class="user-resume">						
+							<div v-html="user.display_name"></div>
+							<div v-html="user.user_email"></div>
+							<div><a href="" v-html="pll__('Mettre à jour vos informations')" v-on:click="change_menu(1, 'account-info')"></a></div>
+							<div><a :href="logout.url" v-on:click="change_menu(0, '', '')" v-html="logout.title"></a></div>
+						</div>
+						<div class="orders" v-html="navigation.orders.html"></div>
+					</div>
+					
+
+					<div class="account-info right-content" v-show="current1 == 'account-info'" >
+						<a href="" v-html="pll__('Retour à mon compte')" v-on:click="change_menu(0)"></a>
+						<div v-html="tabs['edit-account'].html"></div>
+						<div v-html="tabs['edit-address'].html"></div>
+					</div>
+
+					<div class="edit-address-billing right-content" v-show="current2 == 'billing'" >
+						<a href="" v-html="pll__('Retour à mes informations')" v-on:click="change_menu(1, 'account-info', 'billing')"></a>
+						<div v-html="woo_account['edit_address_billing']"></div>
+					</div>
+
+					<div class="edit-address-delivery right-content" v-show="current2 == 'shipping'">
+						<a href="" v-html="pll__('Retour à mes informations')" v-on:click="change_menu(1, 'account-info', 'shipping')"></a>
+						<div v-html="woo_account['edit_address_delivery']"></div>
+					</div>
+
+					<div class="order" v-show="current1 == 'order'">
+						<a href="" v-html="pll__('Retour à mon compte')" v-on:click="change_menu(0)"></a>
+						<div v-html="order_html">
+							
+						</div>
+					</div>
+
+				</div>
+				<div v-else class="account-container" >
+					<div class="account-nav" v-bind:class="{ step1 : step == 1, step2 : step == 2 }">
+						<div v-html="login"></div>
+						<a href="" v-html="pll__('Créer un compte')" @click="change_menu(1, 'register')"></a>
+					</div>
+					<div v-show="current1 == 'register'">
+						<div v-html="register" ></div>
+						<a href="" v-html="pll__('J\'ai un compte')" @click="change_menu(0, 'register')"></a>
+					</div>
+					
+					<div v-show="current1 == 'lost-password'" >
+						<div v-html="lost_password" ></div>
+						<a href="" v-html="pll__('J\'ai retrouvé mes informations')" @click="change_menu(0, 'lost-password')"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</transition>
+</template>
+
+<script>
+
+	import links_and_anchors from 'Libs/links-and-anchors.js'
+	import wp_ajax from 'Libs/wp-ajax.js'
+
+	export default {
+		data(){
+			return {
+				open: 1,
+				step: 0,
+				current1: '',
+				current2: '',
+				order_html: 'loading...'
+			}
+		},
+		mounted(){
+			let $ = this.$
+
+			$(document).on('open_account', () => {
+				this.open = 1
+			});
+
+			$(document).on('wc_account_link_open', (event, target) => {
+				if( $(target).hasClass('invoice-address') )
+				{
+					this.change_menu(2, this.current1, 'billing' )
+				}
+				if( $(target).hasClass('delivery-address') )
+				{
+					this.change_menu(2, this.current1, 'shipping' )
+				}
+				if( $(target).parent().hasClass('order-number') )
+				{
+					this.change_menu(1, 'order', '' )
+					let order = $(target).attr('href').split('/').reverse()[1]
+
+					this.order_html = 'loading...'
+					wp_ajax('woo_account_get_order',{id:order}, (data)=>{
+						this.order_html = data
+						links_and_anchors( this );
+					})
+				}
+				if( $(target).parent().hasClass('lost_password') )
+				{
+					this.change_menu(1, 'lost-password', '' )
+				}
+				console.log('wc_account_link_open', target);
+			});
+
+			console.log( 'woo_account', this.$store.state.wp.woo_account );
+		},
+		methods:{
+			click_to_close : function(event){
+				let $ = this.$
+
+				if( $(event.target).hasClass('side-account') || $(event.target).hasClass('close') )
+				{
+					this.open = 0
+				}				
+			},
+			change_menu : function(step, current1 = this.current1, current2 = this.current2){
+				this.step = step
+				this.current1 = current1
+				this.current2 = current2
+			},
+			a_to_none: function(html){
+
+				console.log(html);
+			}
+		},
+		computed:{
+			woo_account: function(){
+				return this.$store.state.wp.woo_account
+			},
+			user: function(){
+				return this.$store.state.wp.woo_account.user.data
+			},
+			logout: function(){
+				return this.$store.state.wp.woo_account.logout
+			},
+			navigation : function(){
+				return this.$store.state.wp.woo_account.navigation
+			},
+			tabs : function(){
+				let $ = this.$
+				let my_return = {}
+				$.each(this.$store.state.wp.woo_account.navigation, function(index, val) {
+					if (index != 'customer-logout') {
+						let html = $('<div>' + val.html + '<div>') 
+						html.find('a').attr('data-trigger', 'wc_account_link_open');
+						if( index == 'edit-address' )
+						{
+							html.find('.woocommerce-Address').eq(0).find('a').addClass('invoice-address')
+							html.find('.woocommerce-Address').eq(1).find('a').addClass('delivery-address')
+						}
+						val.html = html.first().html();
+						my_return[index] = val
+					}
+				});
+
+				links_and_anchors( this );
+
+				return my_return
+			},
+			is_user_logged_in : function(){
+				return this.$store.state.wp.woo_account.is_user_logged_in
+			},
+			login : function(){
+				let $ = this.$
+
+				let login_store = this.$store.state.wp.woo_account.login
+				let login_div = $(login_store).find('.u-column1')
+
+				login_div.find('a').attr('data-trigger', 'wc_account_link_open');
+				login_div.find('.woocommerce-form-login__rememberme').remove()
+
+				if( login_div.length )
+				{
+					return login_div.html()
+				}
+				else
+				{
+					return this.pll__('You can\'t login in this website');
+				}
+				
+			},
+			register : function(){
+				let $ = this.$
+
+				let login_store = this.$store.state.wp.woo_account.login
+				let register_div = $(login_store).find('.u-column2')
+				if( register_div.length )
+				{
+					return register_div.html()
+				}
+				else
+				{
+					return ''
+				}
+			},
+			lost_password : function(){
+				return this.$store.state.wp.woo_account.lost_password
+			}
+		},
+		watch : {
+			'$store.state.wp' : function(){
+				console.log('wp');
+				this.change_menu(0, '', '')
+			}
+		}
+	}
+</script>
+
+<style scoped>
+	.side-account{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		text-align: right;
+		z-index: 4000;
+		background: rgba(255,255,255,0.6);
+
+	}
+
+	.fade-enter-active, .fade-leave-active, .fade-leave-to {
+		background: rgba(255,255,255,0);
+		transition: background 0.6s;
+	}
+
+	.fade-enter-to{
+		background: rgba(255,255,255,0.6);
+	}
+
+	.left-col {
+		height: 100vh;
+		width: 500px;
+		max-width: 95%;
+		background: #fff;
+		display: inline-block;
+		margin-right: 0px;
+		box-shadow: -4px 0px 20px -11px #000000;
+		padding: 27px 40px 85px 50px;
+		text-align: left;
+		box-sizing: border-box;
+	}
+
+	.fade-enter-active .left-col, .fade-leave-active .left-col, .fade-leave-to .left-col {
+		margin-right: -500px;
+		transition: margin-right 0.6s;
+	}
+
+	.fade-enter-to .left-col{
+		margin-right: 0px;
+	}
+
+	.user-resume{
+		padding: 25px;
+		background: #FAFAFA;
+	}
+
+	.user-resume > div{
+		padding-bottom: 10px; 
+	}
+
+	.user-resume > div:last-child{
+		padding-bottom: 0;
+	}
+
+	.account-container{
+		white-space: nowrap;
+		overflow-x: hidden;
+	}
+	.account-container > div{
+		width: 100%;
+		display: inline-block;
+		white-space: normal;
+		vertical-align: top;
+	}
+
+	.account-nav{
+		margin-left: 0%;
+		transition: margin-left 0.6s; 
+	}
+	.account-nav.step1{
+		margin-left: -100%;
+	}
+	.account-nav.step2{
+		margin-left: -200%;
+	}
+</style>
+
+<style type="text/css">
+	.side-account h2{
+		font-size: 150%;
+		font-weight: bolder;
+		color: #422112;
+	}
+
+	.side-account a{
+		color: #888320;
+	}
+
+	.side-account .orders .order-actions{
+		display: none;
+	}
+	.side-account .orders .shop_table{
+		width: 100%;
+	}
+</style>

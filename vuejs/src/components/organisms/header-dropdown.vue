@@ -114,11 +114,11 @@
 
 					<div class="div-image-compte" >
 
-						<a href="">
+						<div @click="open_account">
 
 							<img class="image-compte" src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/login-01.svg">
 
-						</a>
+						</div>
 
 					</div>
 					
@@ -128,10 +128,12 @@
 				
 					</div>
 
-					<Cart />	
+					
 
 				</div>
 
+				<Cart />	
+				<Account />
 
 
 
@@ -150,12 +152,14 @@
 <script>
 import Acf from 'Organisms/acf.vue'
 import Cart from 'Organisms/cart.vue'
+import Account from 'Organisms/woo-side-account.vue'
 
 
 export default {
 	components:{
 		Acf,
-		Cart
+		Cart,
+		Account
 	},
 	data(){
 
@@ -316,6 +320,11 @@ export default {
 
 			$(document).trigger('open_cart')
 			
+		},
+		open_account : function(){
+			let $ = this.$
+
+			$(document).trigger('open_account')
 		}
 	},
 	watch: {
@@ -477,7 +486,7 @@ export default {
 	}
 
 	.div-image-compte{
-
+		cursor: pointer;
 		display: flex;
 		flex-direction: row;
 		align-items: center;

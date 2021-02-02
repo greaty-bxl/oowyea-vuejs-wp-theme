@@ -45,7 +45,7 @@ function init_add_action_vue_vars_hooks($val)
 	}
 }
 
-if( isset( $_GET['add_to_json'] ) )
+if( isset( $_GET['add_to_json'] ) || $_COOKIE['owy_force_json'] )
 {	
 	add_action( 'wp', 'init_add_action_vue_vars_hooks' );
 }
@@ -108,7 +108,7 @@ function wp_vue_add_var($key, $value)
 
 		}
 	}
-	elseif ( isset( $_GET['add_to_json'] ) )
+	elseif ( isset( $_GET['add_to_json'] ) || $_COOKIE['owy_force_json'] )
 	{
 		global $wp_vue_json;
 		$wp_vue_json[$key] = $value;

@@ -203,11 +203,27 @@ export default function (vue)
     }
 
     //console.log( $('.remove') );
-	$('a').unbind('click').on('click', (event) => {	
-		event.preventDefault();
-			
-		on_click(event)	
-	});
+    setTimeout( ()=>{
+		$('a').unbind('click').on('click', (event) => {	
+			console.log( 'click', event.currentTarget );
+			//event.preventDefault()
+			if( $(event.currentTarget).data('trigger') )
+			{
+				//console.log('trigger link');
+				$(document).trigger( $(event.currentTarget).data('trigger'), event.currentTarget )
+				event.preventDefault();
+			}
+			else if( $(event.currentTarget).attr('href') != "" )
+			{
+				on_click(event)
+			}
+			else
+			{
+				event.preventDefault()
+			}
+		});
+    }, 10 )
+	
 
 	/*$(document).unbind('click').on('click', 'a', function(event) {
 		on_click(event)

@@ -91,7 +91,7 @@
 			
 			let $ = this.$
 
-			$(document).on('add_to_cart after__wpnonce', () => {
+			$(document).on('add_to_cart', () => {
 
 				this.open = 1
 			});

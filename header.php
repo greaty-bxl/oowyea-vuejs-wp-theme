@@ -12,6 +12,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php the_title() ?> | <?php bloginfo('name'); ?></title>
 		<!-- Previous url: <?php echo $previous_url ?> -->
+		<!-- Post: <?php print_r($_COOKIE) ?> -->
 		<!-- Current url: <?php echo $actual_link ?> -->
 
         <!-- <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed"> -->

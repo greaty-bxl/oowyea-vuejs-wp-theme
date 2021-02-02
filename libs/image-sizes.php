@@ -13,5 +13,4 @@ function vue_get_all_image_sizes_as_array()
 	wp_vue_add_var('image-sizes', $sizes);
 }
 
-add_action( 'wp_head', 'vue_get_all_image_sizes_as_array' );
-add_action( 'wp', 'vue_get_all_image_sizes_as_array' );
+add_action( 'vue_vars', 'vue_get_all_image_sizes_as_array' );

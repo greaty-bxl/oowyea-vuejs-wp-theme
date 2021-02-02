@@ -34,7 +34,7 @@ function get_new_page(vue, href, callback) {
 
 	$.get( insertParam( href, 'add_to_json', 1 ), (data) => {
 
-		//console.log( 'get page', old_url, url );
+		console.log( 'get page', old_url, url );
 		var json_data
 
 		clearTimeout( timer )
@@ -47,8 +47,16 @@ function get_new_page(vue, href, callback) {
 			&& is_json( data ) )
 		{
 
-			//console.log('refresh', data);
+
 			json_data = JSON.parse( data )
+
+			if( json_data.reload )
+			{
+				get_new_page(vue, old_url.href, callback)
+				return
+			}
+
+			console.log('UPDATE WP', json_data);
 			vue.$store.commit({
 				type: 'update_wp',
 				wp: json_data,
@@ -67,12 +75,6 @@ function get_new_page(vue, href, callback) {
 			{
 				$(document).trigger('after__wpnonce')
 			}
-
-
-
-
-			//get_new_page(vue, window.location.href, callback)
-			//return;
 		}
 		else if ( is_json( data ) ) 
 		{
@@ -83,7 +85,19 @@ function get_new_page(vue, href, callback) {
 
 		$('#page-loader').css('display', 'none');
 		
-	});
+	}).fail(function() {
+
+		/*if( url.searchParams.get('_wpnonce') && url.searchParams.get('action') )
+		{
+			//reload current to update wp
+			console.log( "fail to load", href );
+			get_new_page(vue, old_url.href, callback)
+			return;
+		}*/
+
+		$('#page-loader').css('display', 'none');	
+		
+	})
 
 	
 }

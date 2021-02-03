@@ -18,7 +18,7 @@
 			
 			<div class="text-historique">
 
-				<p>En 1911 Monsieur Raymaekers et Gallendyn constituent la société en nom collectif Compagnie Brésilienne. La firme s’installe alors dans les spacieux locaux du 32-34 Rue de Manchester qu’elle occupe encore actuellement. Spécialisé dans la torréfaction de cafés fins, l’activité de l’entreprise cessa presque totalement durant la guerre de 1914-1918 par manque de matière première</p>
+				<p v-html="pll__('paragraphe 1 histoire')" >En 1911 Monsieur Raymaekers et Gallendyn constituent la société en nom collectif Compagnie Brésilienne. La firme s’installe alors dans les spacieux locaux du 32-34 Rue de Manchester qu’elle occupe encore actuellement. Spécialisé dans la torréfaction de cafés fins, l’activité de l’entreprise cessa presque totalement durant la guerre de 1914-1918 par manque de matière première</p>
 
 			</div>
 			
@@ -33,7 +33,7 @@
 			
 			<div class="text-historique">
 
-				<p>Dès 1919 l’activité repris normalement et en 1925 Monsieur Raymaekers en compagnie de ses fils formèrent la société anonyme, forme juridique sous laquelle elle poursuit encore ses activités de nos jours.</p>
+				<p v-html="pll__('paragraphe 2 histoire')" >Dès 1919 l’activité repris normalement et en 1925 Monsieur Raymaekers en compagnie de ses fils formèrent la société anonyme, forme juridique sous laquelle elle poursuit encore ses activités de nos jours.</p>
 
 			</div>
 			
@@ -48,7 +48,7 @@
 			
 			<div class="text-historique">
 
-				<p>Durant les quarante premières années la marque FEVDOR commercialisée par la Cie Brésilienne se spécialisa dans la vente par correspondance, mais les mœurs évoluant, ce système de distribution fut abandonné après la première guerre mondiale, pour être remplacé par la vente aux restaurants, cafés, collectivités et autres institutions (Horeca).</p>
+				<p v-html="pll__('paragraphe 3 histoire')" >Durant les quarante premières années la marque FEVDOR commercialisée par la Cie Brésilienne se spécialisa dans la vente par correspondance, mais les mœurs évoluant, ce système de distribution fut abandonné après la première guerre mondiale, pour être remplacé par la vente aux restaurants, cafés, collectivités et autres institutions (Horeca).</p>
 
 			</div>
 			
@@ -63,7 +63,7 @@
 			
 			<div class="text-historique">
 
-				<p>C’est en 1971 que monsieur Noël Blondeel, mon père, racheta la Cie brésilienne et s’installa dans les locaux de la rue de Manchester. Deux départements constituent alors l’activité de la Cie Brésilienne; SANTOS PALACE pour ce qui est de la torréfaction, la vente et la distribution du café et CLARY qui est spécialisé dans la vente et l’entretien des machines à café (percolateur, achine espresso etc.), lave vaisselle et pièces de rechange.</p>
+				<p v-html="pll__('paragraphe 4 histoire')" >C’est en 1971 que monsieur Noël Blondeel, mon père, racheta la Cie brésilienne et s’installa dans les locaux de la rue de Manchester. Deux départements constituent alors l’activité de la Cie Brésilienne; SANTOS PALACE pour ce qui est de la torréfaction, la vente et la distribution du café et CLARY qui est spécialisé dans la vente et l’entretien des machines à café (percolateur, achine espresso etc.), lave vaisselle et pièces de rechange.</p>
 			</div>
 			
 		</div>
@@ -77,7 +77,7 @@
 			
 			<div class="text-historique">
 
-				<p>De nos jours nous vendons toujours ces articles ainsi que les accompagnements du café : lait, sucre, biscuits, chocolats, thés divers ainsi que le savon destiné aux lave-vaisselle. La Cie Brésilienne possède également un magasin de vente au détail dans le centre ville Rue Marché aux Poulets, 3.</p>
+				<p v-html="pll__('paragraphe 5 histoire')" >De nos jours nous vendons toujours ces articles ainsi que les accompagnements du café : lait, sucre, biscuits, chocolats, thés divers ainsi que le savon destiné aux lave-vaisselle. La Cie Brésilienne possède également un magasin de vente au détail dans le centre ville Rue Marché aux Poulets, 3.</p>
 
 			</div>
 			
@@ -93,7 +93,7 @@
 			
 			<div class="text-historique padding-bottom-0">
 
-				<p>Pour l’élaboration du café nous possédons un torréfacteur d’une capacité de 120kg, deux moulins industriels, un système de stockage en silo avec transport par soufflement d’air pour l’alimentation ainsi qu’une peseuse ensacheuse verticale pneumatique.</p>
+				<p v-html="pll__('paragraphe 6 histoire')" >Pour l’élaboration du café nous possédons un torréfacteur d’une capacité de 120kg, deux moulins industriels, un système de stockage en silo avec transport par soufflement d’air pour l’alimentation ainsi qu’une peseuse ensacheuse verticale pneumatique.</p>
 
 			</div>
 			

@@ -30,13 +30,13 @@
 								
 
 									<div class="quantity">
-										<span class="button-moins"  @click="change_quant( key, -1 )">&mdash;</span>
+										<span class="button-moins"  @click="change_quant( key, -1 )">-</span>
 
 										<input  step="1" min="0" type="number" :name="product.product_input_name"
 										:id="product.product_input_id" 
 										v-bind:value="product.product_input_value">
 
-										<span class="button-plus" @click="change_quant( key, +1 )">&#xff0b;</span>
+										<span class="button-plus" @click="change_quant( key, +1 )">+</span>
 									</div>
 
 									
@@ -86,7 +86,7 @@
 	export default{
 		data(){
 			return {
-				open: 1,
+				open: 0,
 				my_cart_products: [],
 
 				disabled: true,
@@ -349,12 +349,16 @@
 		position: absolute;
 		left: 15px;
 		user-select: none;
+		font-size: 20px;
+
 	}
 	.button-plus{
 
 		position: absolute;
 		right: 15px;
 		user-select: none;
+		font-size: 20px;
+
 	}
 
 	
@@ -575,7 +579,7 @@
 		font-weight: 700;
 		text-align: center;
 		border-top: 1px solid #dcdcdc;
-		color: black;
+		color: #422112;
 
 	}
 

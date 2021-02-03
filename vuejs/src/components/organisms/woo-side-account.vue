@@ -30,7 +30,7 @@
 
 					<div class="edit-address-delivery right-content" v-show="current2 == 'shipping'">
 						<a href="" v-html="pll__('Retour à mes informations')" v-on:click="change_menu(1, 'account-info', 'shipping')"></a>
-						<div v-html="woo_account['edit_address_delivery']"></div>
+						<div v-html="edit_address_delivery"></div>
 					</div>
 
 					<div class="order" v-show="current1 == 'order'">
@@ -69,7 +69,7 @@
 	export default {
 		data(){
 			return {
-				open: 1,
+				open: 0,
 				step: 0,
 				current1: '',
 				current2: '',
@@ -132,6 +132,18 @@
 			}
 		},
 		computed:{
+			edit_address_delivery: function()
+			{
+				let $ = this.$
+				let html = $('<div>' + this.$store.state.wp.woo_account.edit_address_delivery + '</div>' );
+				let find_url = $('<div>' + this.$store.state.wp.woo_account.navigation['edit-address'].html + '</div>' );
+				let url = find_url.find('a.delivery-address')
+					.attr('href')
+					.replace( window.location.origin + window.location.pathname, this.$store.state.wp.woo_account.page_url )
+
+				console.log('edit_address_delivery', url, html.find('form').attr('action', url) );
+				return html.first().html()
+			},
 			woo_account: function(){
 				return this.$store.state.wp.woo_account
 			},
@@ -209,6 +221,10 @@
 			'$store.state.wp' : function(){
 				console.log('wp');
 				this.change_menu(0, '', '')
+			},
+			'$store.state.wp.sections' : function(){
+				console.log('wp');
+				this.open = 0
 			}
 		}
 	}

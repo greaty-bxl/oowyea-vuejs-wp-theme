@@ -26,9 +26,15 @@ function owy_get_address($type){
 
 	$address = WC()->countries->get_address_fields( '', $load_address . '_' );
 
-	foreach ($address as $key => $value) {
+	foreach ($address as $key => $value) 
+	{		
 		$address[$key]['value'] = get_user_meta( $user_id, $key, true );
+		/*echo "<pre>";
+		print_r($address[$key]);*/
+		$address[$key]['autocomplete'] = '';
 	}
+
+	//exit();
 
 	ob_start();
 		wc_get_template( 'myaccount/form-edit-address.php', array(
@@ -59,6 +65,8 @@ function owy_woo_account()
 
 	$myaccount['is_user_logged_in'] = is_user_logged_in();
 
+	$myaccount['page_url'] = get_permalink( get_option('woocommerce_myaccount_page_id') );
+
 	$myaccount['user'] = $user;
 
 	$myaccount['login'] = owy_account_template('myaccount/form-login.php');
@@ -66,7 +74,9 @@ function owy_woo_account()
 	$myaccount['lost_password'] = owy_account_template('myaccount/form-lost-password.php');
 
 	$myaccount['edit_address_billing'] = owy_get_address('billing');
-	$myaccount['edit_address_delivery'] = owy_get_address('delivery');
+	$myaccount['edit_address_delivery'] = owy_get_address('shipping');
+
+	
 
 	$navigation = [];
 	foreach (wc_get_account_menu_items() as $key => $value) {

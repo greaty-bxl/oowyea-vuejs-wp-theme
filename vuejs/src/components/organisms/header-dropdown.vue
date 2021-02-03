@@ -414,7 +414,7 @@ export default {
 				}
 
 			});
-		}
+		},
 	},
 	computed: {
 		count () {

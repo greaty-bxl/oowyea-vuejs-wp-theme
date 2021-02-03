@@ -1,6 +1,6 @@
 <?php
 //setcookie("owy_force_json", 0, time()-1, '/');
-/*function return_woocommerce_message(){
+function return_woocommerce_message(){
 	
 
 	if( $_POST['is_woocommerce_ajax'] )
@@ -24,4 +24,6 @@
 		exit();	
 	}	
 }
-add_action( 'before_document', 'return_woocommerce_message' );*/
+add_action( 'before_document', 'return_woocommerce_message' );
+
+

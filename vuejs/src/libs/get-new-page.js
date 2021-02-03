@@ -57,6 +57,7 @@ function get_new_page(vue, href, callback) {
 			}
 
 			console.log('UPDATE WP', json_data);
+			vue.$store.state.wp = json_data
 			vue.$store.commit({
 				type: 'update_wp',
 				wp: json_data,

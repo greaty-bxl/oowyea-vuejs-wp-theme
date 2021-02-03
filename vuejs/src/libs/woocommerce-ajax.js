@@ -11,7 +11,7 @@ export default function(vue){
 	let $ = vue.$
 
 	//add product
-	let formsSelectors = '[data-state="current"].woocommerce form.cart, .woocommerce-form-login, .woocommerce-form-register, .woocommerce-ResetPassword, .woocommerce-EditAccountForm, .edit-address-billing form, .edit-address-shipping form';
+	let formsSelectors = '[data-state="current"].woocommerce form.cart, .woocommerce-form-login, .woocommerce-form-register, .woocommerce-ResetPassword, .woocommerce-EditAccountForm, .edit-address-billing form, .edit-address-delivery form';
 	let noticeTypes = {
 		'error': 'error',
 		'success': 'success',
@@ -74,12 +74,10 @@ export default function(vue){
 				
 				let data = JSON.parse( json )
 
-				console.log('json', data)
+				console.log('ajax json', data)
 				//console.log( data, noticeTypes ); 
 
-				$('.woocommerce-cart-quantity').text(data.cart_quantity)
-
-				console.log('wcdata',data);
+				//$('.woocommerce-cart-quantity').text(data.cart_quantity)
 
 				if( data.notices )
 				{
@@ -109,19 +107,20 @@ export default function(vue){
 				if( is_add_to_cart )
 				{
 					vue.$store.state.wp.cart = data.cart
+					vue.$store.state.wp.count = data.cart_quantity
 					
 					$(document).trigger('add_to_cart')
 				}
 
 				if( data.wp && data.wp_query )
 				{
-					vue.$store.state.wp = data
-					vue.$store.commit({
+					vue.$store.state.wp.woo_account = data.woo_account
+					vue.$store.state.wp.cart = data.cart
+					vue.$store.state.wp.count = data.cart_quantity
+					/*vue.$store.commit({
 						type: 'update_wp',
 						wp: data,
-					})
-
-
+					})*/
 				}
 				
 				

@@ -7,8 +7,20 @@ function wp_redirect_filter($status, $location) {
     	( $_GET['remove_item'] || $_GET['undo_item'] ) */
     )
 	{
+		global $wp_query;
 
-		$url_obj = parse_url( urldecode( $location ) );		
+		//echo "<pre>";
+		if( isset( $wp_query->query['customer-logout'] ) )
+		{
+			wp_logout();
+			$return = array(
+				'reload' => 1
+			);
+			echo json_encode($return);
+			exit();
+		}
+
+		/*$url_obj = parse_url( urldecode( $location ) );		
 
 		global $wp;
 
@@ -18,11 +30,13 @@ function wp_redirect_filter($status, $location) {
 				'reload' => 1
 			);
 
+			//echo "logout";
 			wp_logout();
 
 			echo json_encode($return);
 			exit();
-		}
+		}*/
+		//echo $location;
 
 		wp();
 

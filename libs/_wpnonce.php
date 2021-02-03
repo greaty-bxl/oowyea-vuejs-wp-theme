@@ -54,6 +54,8 @@ function wp_redirect_filter($status, $location) {
     	$_POST['save-account-details-nonce']
     	||
     	$_POST['woocommerce-edit-address-nonce']
+    	||
+    	$_POST['woocommerce-cart-nonce']
 	)
 	{
 		setcookie("owy_last_post_method", json_encode( $_POST ), time()+3600, '/');

@@ -415,7 +415,7 @@
 		margin-top: 0px;
 	}
 
-	.footer_santos_palace div p {
+	div p {
 
 		margin: 0px;
 	}

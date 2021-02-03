@@ -69,7 +69,7 @@
 	export default {
 		data(){
 			return {
-				open: 1,
+				open: 0,
 				step: 0,
 				current1: '',
 				current2: '',

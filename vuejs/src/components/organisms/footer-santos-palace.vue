@@ -1,6 +1,6 @@
 <template>
 	<div id="footer" class="section">
-		<div class="clear"></div>
+		<div class="clear footer_santos_palace"></div>
 
 			<div>
 
@@ -415,7 +415,7 @@
 		margin-top: 0px;
 	}
 
-	div p {
+	.footer_santos_palace div p {
 
 		margin: 0px;
 	}

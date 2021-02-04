@@ -77,7 +77,7 @@
 
 					<div class="ligne-mobile">
 
-						<a class="div-image-compte-mobile" href="">
+						<a class="div-image-compte-mobile" href="" v-on:click="open_account">
 
 						<div class="image-compte-mobile" >
 						<span>
@@ -323,7 +323,7 @@ export default {
 		},
 		open_account : function(){
 			let $ = this.$
-
+			
 			$(document).trigger('open_account')
 		}
 	},

@@ -39,7 +39,6 @@
 							
 						</div>
 					</div>
-
 				</div>
 				<div v-else class="account-container" >
 					<div class="account-nav" v-bind:class="{ step1 : step == 1, step2 : step == 2 }">

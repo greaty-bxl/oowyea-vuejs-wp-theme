@@ -36,22 +36,66 @@ function global_funtion_filter( $query ) {
 				{
 					$terms = array( $terms ); 
 				}
-
-				$tax_query[] = array(
-					'taxonomy'     => $name,
-					'field' => 'slug',
-					'terms' =>  $terms,
-					'include_children' => true, 
-					'operator' => 'IN'
-				);
+				if( taxonomy_exists($name) )
+				{
+					$tax_query[] = array(
+						'taxonomy'     => $name,
+						'field' => 'slug',
+						'terms' =>  $terms,
+						'include_children' => true, 
+						'operator' => 'IN'
+					);	
+				}				
 			}
 
 			$query->set( 'tax_query', $tax_query );
 		}
+
+		if( $_GET['order_by'] )
+		{
+			switch ($_GET['order_by']) {				    
+				case 'best-selling':
+					$query->set( 'meta_key', 'total_sales' );
+					$query->set( 'orderby', 'meta_value_num' ); 
+					$query->set( 'order', 'DESC' ); 
+					break;
+				case 'a-z':
+					$query->set( 'orderby', 'title' );
+					$query->set( 'order', 'ASC' ); 
+					break;
+				case 'z-a':
+					$query->set( 'orderby', 'title' );
+					$query->set( 'order', 'DESC' ); 
+					break;
+				case 'price-l-h':
+					$query->set( 'meta_key', '_price' );
+					$query->set( 'orderby', 'meta_value_num' ); 
+					$query->set( 'order', 'ASC' ); 
+					break;
+				case 'price-h-l':
+					$query->set( 'meta_key', '_price' );
+					$query->set( 'orderby', 'meta_value_num' ); 
+					$query->set( 'order', 'DESC' ); 
+					break;
+				case 'newest':
+					$query->set( 'orderby', 'date' );
+					$query->set( 'order', 'DESC' ); 
+					break;
+				case 'oldest':
+					$query->set( 'orderby', 'date' );
+					$query->set( 'order', 'ASC' ); 
+					break;
+				default:
+					$query->set( 'orderby', 'menu_order' );
+					$query->set( 'order', 'ASC' ); 
+					break;
+			}
+			
+		}
 	}			
 };
 
-add_action( 'pre_get_posts', 'global_funtion_filter' ); // used on load
+add_action( 'pre_get_posts', 'global_funtion_filter', 1000 ); // used on load
 
 
 

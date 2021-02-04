@@ -13,13 +13,14 @@
 					
 					<div class="filtre-parent-div">
 						<div><p class="title-page-boutique" v-html="shop_header.label"></p></div>
-						<div>
+						<div class="filters">
 							<button 
 								class="button-santos-vert" 
 								style="padding: 15px 25px;" 
 								v-on:click="open_filter" >
 								<span v-html="pll__('FILTRER')"></span> <span v-if="count_filter > 0">({{count_filter}})</span>
 							</button>
+							<OrderFilter/>
 						</div>
 						<p class="mobile-filtre" v-on:click="open_filter">
 							<span v-html="pll__('FILTRER')"></span> <span v-if="count_filter > 0">({{count_filter}})</span>
@@ -46,6 +47,7 @@
 import smart_fonts from 'Libs/smart-fonts.js';
 import ProductFilter from 'Organisms/product-filter.vue'
 import ItemProduct from 'Molecules/item-product.vue'
+import OrderFilter from 'Molecules/order-filter.vue'
 //import {has_term} from 'Libs/wp-functions.js'
 
 export default {
@@ -56,7 +58,8 @@ export default {
 	},
 	components: {
 		ProductFilter,
-		ItemProduct
+		ItemProduct,
+		OrderFilter
 	},
 	props: {
 		'post' : Object,
@@ -168,6 +171,10 @@ export default {
 
 		color: #422112;
 		font-weight: 700;
+	}
+
+	.filters > * {
+		display: inline-block;
 	}
 
 	.parent-taxonomie-info{

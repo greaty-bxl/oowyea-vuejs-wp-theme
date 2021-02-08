@@ -9,6 +9,7 @@ include 'woocommerce/products.php';
 include 'woocommerce/product.php';
 include 'woocommerce/product-contact-us.php';
 include 'woocommerce/taxonomies-filter.php';
+include 'woocommerce/taxonomies-filter-easy-admin.php';
 include 'woocommerce/terms_taxonomies_combos.php';
 include 'woocommerce/last-products-slider.php';
 include 'woocommerce/calendar.php';
@@ -17,8 +18,6 @@ include 'woocommerce/count.php';
 include 'woocommerce/cart-global.php';
 include 'woocommerce/currency-format.php';
 include 'woocommerce/account-global.php';
-
-
 
 function owy_resolve_issue_header()
 {

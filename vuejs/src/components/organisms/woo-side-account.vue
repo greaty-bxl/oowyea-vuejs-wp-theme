@@ -7,10 +7,12 @@
 					
 					<h4 class="product__add__success__title" v-html="pll__('Your account')">
 					</h4>
-					<span class="close" @click="click_to_close">
-						<svg  class="close" viewBox="0 0 27 27"><g stroke="#979797" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 26"></path></g>
-						</svg>
-					</span>
+					<a href="">
+						<span class="close" @click="click_to_close">
+							<svg  class="close" viewBox="0 0 27 27"><g stroke="#979797" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 26"></path></g>
+							</svg>
+						</span>
+					</a>
 
 				</div>
 
@@ -78,7 +80,7 @@
 	export default {
 		data(){
 			return {
-				open: 1,
+				open: 0,
 				step: 0,
 				current1: '',
 				current2: '',

@@ -6,7 +6,7 @@
             "key": "field_600a807bacf1c",
             "label": "Select one or more Categories to display in the slider section",
             "name": "last_product_slider_categories",
-            "type": "acfe_taxonomy_terms",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,26 +15,48 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": [
-                "product_cat"
-            ],
-            "allow_terms": "",
-            "allow_level": "",
-            "field_type": "checkbox",
-            "default_value": "",
-            "return_format": "id",
-            "layout": "vertical",
-            "toggle": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "choices": [],
-            "ui": 0,
-            "multiple": 0,
-            "allow_null": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "other_choice": 0
+            "acfe_repeater_stylised_button": 0,
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add a category",
+            "sub_fields": [
+                {
+                    "key": "field_602119116d8be",
+                    "label": "Category",
+                    "name": "category",
+                    "type": "acfe_taxonomy_terms",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": [
+                        "product_cat"
+                    ],
+                    "allow_terms": "",
+                    "allow_level": "",
+                    "field_type": "select",
+                    "default_value": "",
+                    "return_format": "id",
+                    "ui": 0,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "choices": [],
+                    "ajax": 0,
+                    "placeholder": "",
+                    "layout": "",
+                    "toggle": 0,
+                    "allow_custom": 0,
+                    "other_choice": 0
+                }
+            ]
         },
         {
             "key": "field_600a80e34b228",
@@ -83,5 +105,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1611302066
+    "modified": 1612781939
 }

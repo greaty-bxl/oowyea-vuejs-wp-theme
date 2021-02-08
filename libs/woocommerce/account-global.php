@@ -58,7 +58,9 @@ function owy_woo_account()
 	global $user;
 	global $user_id;
 
-	if(is_admin()) return
+	if(is_admin()){
+		return;
+	} 
 
 	$user = wp_get_current_user();
 	$user_id = get_current_user_id();

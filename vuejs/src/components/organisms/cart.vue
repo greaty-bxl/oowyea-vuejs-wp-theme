@@ -173,14 +173,9 @@
 
 				}
 
-			}
+			},
 
-			
-		},
-		watch:{
-			'$store.state.wp' : function()
-			{
-				console.log('watch');
+			update_cart(){
 				let $ = this.$
 				let products = []
 
@@ -203,11 +198,20 @@
 
 				this.my_cart_products = products
 			}
+			
+		},
+		watch:{
+			'$store.state.wp' : function()
+			{
+				this.update_cart()
+				
+			},
+			'$store.state.wp.cart' : function()
+			{
+				this.update_cart()
+			}
 		},
 		computed:{
-
-			
-
 			submit_button: function () 
 			{
 				let $ = this.$

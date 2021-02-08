@@ -160,7 +160,7 @@
 
 			var $ = this.$
 
-			console.log('mounted');
+			//console.log('mounted');
 
 			this.variations_data = $('.variations_form').first().data('product_variations')	
 
@@ -352,7 +352,7 @@
 						return_price = price
 				}
 
-				console.log('get_currency_format',currency_format);
+				//console.log('get_currency_format',currency_format);
 
 				return return_price				
 			}

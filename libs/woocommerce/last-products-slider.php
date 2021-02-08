@@ -10,11 +10,14 @@ function get_last_products_slider()
 		$max_product_per_cat = get_field('last_product_slider_max_product_per_category', 'option');
 		$terms_ids = get_field( 'last_product_slider_categories', 'option' );
 
+		
+
 		if( is_array($terms_ids) )
 		{
-			foreach ($terms_ids as $key => $term_id) {
-				
+			foreach ($terms_ids as $key => $repeater) {
 
+				$term_id = $repeater['category'];
+				
 				$result[ $key ]['term'] = get_term( $term_id ); 
 
 				$result[ $key ]['posts'] = apply_filters( 'posts_results', get_posts( array(
@@ -33,7 +36,10 @@ function get_last_products_slider()
 			}	
 		}
 		
+		/*echo "<pre>";
+		print_r( $result );
 
+		exit();*/
 		wp_vue_add_var('last_products_slider', $result );
 	}
 

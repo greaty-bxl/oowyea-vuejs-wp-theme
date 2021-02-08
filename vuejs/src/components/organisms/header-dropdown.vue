@@ -336,7 +336,7 @@ export default {
 		},
 		open_account : function(){
 			let $ = this.$
-
+			
 			$(document).trigger('open_account')
 		}
 

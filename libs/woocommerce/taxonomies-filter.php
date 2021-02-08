@@ -36,24 +36,116 @@ function global_funtion_filter( $query ) {
 				{
 					$terms = array( $terms ); 
 				}
-
-				$tax_query[] = array(
-					'taxonomy'     => $name,
-					'field' => 'slug',
-					'terms' =>  $terms,
-					'include_children' => true, 
-					'operator' => 'IN'
-				);
+				if( taxonomy_exists($name) )
+				{
+					$tax_query[] = array(
+						'taxonomy'     => $name,
+						'field' => 'slug',
+						'terms' =>  $terms,
+						'include_children' => true, 
+						'operator' => 'IN'
+					);	
+				}				
 			}
 
 			$query->set( 'tax_query', $tax_query );
 		}
+
+		if( $_GET['order_by'] )
+		{
+			switch ($_GET['order_by']) {				    
+				case 'best-selling':
+					$query->set( 'meta_key', 'total_sales' );
+					$query->set( 'orderby', 'meta_value_num' ); 
+					$query->set( 'order', 'DESC' ); 
+					break;
+				case 'a-z':
+					$query->set( 'orderby', 'title' );
+					$query->set( 'order', 'ASC' ); 
+					break;
+				case 'z-a':
+					$query->set( 'orderby', 'title' );
+					$query->set( 'order', 'DESC' ); 
+					break;
+				case 'price-l-h':
+					$query->set( 'meta_key', '_price' );
+					$query->set( 'orderby', 'meta_value_num' ); 
+					$query->set( 'order', 'ASC' ); 
+					break;
+				case 'price-h-l':
+					$query->set( 'meta_key', '_price' );
+					$query->set( 'orderby', 'meta_value_num' ); 
+					$query->set( 'order', 'DESC' ); 
+					break;
+				case 'newest':
+					$query->set( 'orderby', 'date' );
+					$query->set( 'order', 'DESC' ); 
+					break;
+				case 'oldest':
+					$query->set( 'orderby', 'date' );
+					$query->set( 'order', 'ASC' ); 
+					break;
+				default:
+					$query->set( 'orderby', 'menu_order' );
+					$query->set( 'order', 'ASC' ); 
+					break;
+			}
+			
+		}
 	}			
 };
 
-add_action( 'pre_get_posts', 'global_funtion_filter' ); // used on load
+add_action( 'pre_get_posts', 'global_funtion_filter', 1000 ); // used on load
 
 
+function owy_get_filter_relations(){
+
+	$terms = get_terms( 'product_cat', array(
+	    //'hide_empty' => false,
+	));
+
+	foreach ($terms as $key => $term) 
+	{
+		$relations = get_field( 'taxonomies_list', 'product_cat_'.$term->term_id );
+		$relations_new_array = array();
+		
+
+		if( is_array( $relations ) )
+		{
+			foreach ($relations as $key_rel => $taxonomy_field) 
+			{
+
+				$taxonomy = $taxonomy_field['other_taxonomy_relation'];
+
+				$relation_terms = get_terms( $taxonomy, array(
+				    //'hide_empty' => false,
+				));
+
+				if( is_array( $relation_terms ) )
+				{
+					foreach ($relation_terms as $key_term => $term) 
+					{
+						$relation_terms[$key_term]->selected = false;
+						$relation_terms[$key_term]->disabled = false;
+					}	
+				}
+
+				$relations_new_array[] = array(
+					'label' => get_taxonomy( $taxonomy )->label,
+					'slug' => $taxonomy,
+					'terms' => $relation_terms
+				);
+
+				//$relations_new_array[$taxonomy]	= $relation_terms;
+			}	
+		}
+		
+
+		$terms[$key]->relations = $relations_new_array;
+	}
+
+	return $terms;
+}
 
 
 function owy_get_product_cat_filters_lists_with_relations() {
@@ -103,7 +195,7 @@ function owy_get_product_cat_filters_lists_with_relations() {
 		if( $paged_product_category )
 		{
 
-			$terms = get_terms( 'product_cat', array(
+			/*$terms = get_terms( 'product_cat', array(
 			    //'hide_empty' => false,
 			));
 
@@ -147,7 +239,9 @@ function owy_get_product_cat_filters_lists_with_relations() {
 				$terms[$key]->relations = $relations_new_array;
 			}
 
-			$relations = $terms;
+			$relations = $terms;*/
+
+			$relations = owy_get_filter_relations();
 
 			wp_vue_add_var('product_cat_child', $relations );
 		}

@@ -11,7 +11,7 @@ export default function(vue){
 	let $ = vue.$
 
 	//add product
-	let formsSelectors = '[data-state="current"].woocommerce form.cart, .woocommerce-form-login, .woocommerce-form-register, .woocommerce-ResetPassword, .woocommerce-EditAccountForm, .edit-address-billing form, .edit-address-delivery form';
+	let formsSelectors = '.woocommerce-cart-form, [data-state="current"].woocommerce form.cart, .woocommerce-form-login, .woocommerce-form-register, .woocommerce-ResetPassword, .woocommerce-EditAccountForm, .edit-address-billing form, .edit-address-delivery form';
 	let noticeTypes = {
 		'error': 'error',
 		'success': 'success',

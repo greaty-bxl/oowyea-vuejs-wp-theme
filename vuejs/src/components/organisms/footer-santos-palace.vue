@@ -1,6 +1,6 @@
 <template>
 	<div id="footer" class="section">
-		<div class="clear"></div>
+		<div class="clear footer_santos_palace"></div>
 
 			<div>
 

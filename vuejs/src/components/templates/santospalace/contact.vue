@@ -63,7 +63,6 @@
 </script>
 
 <style type="text/css">
-	
 	.child-info{
 
 		border: ;

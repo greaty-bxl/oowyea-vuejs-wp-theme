@@ -19,16 +19,16 @@ export default function (vue)
 			//event.preventDefault();
 			let href_url = new URL(href)
 
-			console.log('is_section 1', href_url);
+			// console.log('is_section 1', href_url);
 
 			let section = $('.section[data-permalink="'+href_url.origin+href_url.pathname+'"]')
 			let is_section = section.length
 			
-			console.log('is_section 1', is_section);
+			// console.log('is_section 1', is_section);
 
 			if( $('[data-state="current"]').hasClass('woocommerce-account') && event ) is_section = 0
 
-			console.log('is_section 2', is_section);
+			// console.log('is_section 2', is_section);
 
 			var href_search = href_url.search;
 			if( window.location.search != href_search )
@@ -40,7 +40,7 @@ export default function (vue)
 			if( is_section )
 			{
 				
-				console.log('is_section', document.location.href, href);
+				// console.log('is_section', document.location.href, href);
 
 				if( document.location.href == href && push ) return true
 

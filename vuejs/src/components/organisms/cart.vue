@@ -7,8 +7,10 @@
 					<h4 class="product__add__success__title" v-html="pll__('Your Cart')">
 					</h4>
 					<span class="close" @click="click_to_close">
-						<svg  class="close" viewBox="0 0 27 27"><g stroke="#979797" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 26"></path></g>
-						</svg>
+						<a href="">
+							<svg  class="close" viewBox="0 0 27 27"><g stroke="#979797" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 26"></path></g>
+							</svg>
+						</a>
 					</span>
 
 				</div>
@@ -27,16 +29,14 @@
 
 								<div class="col-3" >
 
-								
-
 									<div class="quantity">
-										<span class="button-moins"  @click="change_quant( key, -1 )">&mdash;</span>
+										<span class="button-moins"  @click="change_quant( key, -1 )">-</span>
 
 										<input  step="1" min="0" type="number" :name="product.product_input_name"
 										:id="product.product_input_id" 
 										v-bind:value="product.product_input_value">
 
-										<span class="button-plus" @click="change_quant( key, +1 )">&#xff0b;</span>
+										<span class="button-plus" @click="change_quant( key, +1 )">+</span>
 									</div>
 
 									
@@ -47,11 +47,9 @@
 						</div>				
 					</div>
 
-
-
 					<div v-show="submit_button.button_text" class="cart-update">
 						
-						<button :disabled="disabled"  type="submit" name="update_cart" aria-disabled="true" v-bind:value="submit_button.button_value"  v-html="submit_button.button_text" ></button>
+						<button :disabled="disabled"  type="submit" name="update_cart" aria-disabled="true" v-bind:value="submit_button.button_value"  v-html="submit_button.button_text" ><a href=""></a></button>
 
 						<div>
 						
@@ -60,6 +58,7 @@
 						</div>
 						
 						<input type="hidden" name="_wp_http_referer" v-bind:value="submit_button.input_2_value">
+
 						<div class="subtotal" v-html="submit_button.subtotal"></div>
 				
 						<a class="button_checkout_clone" v-show="submit_button.button_checkout_clone_name" :href="submit_button.button_checkou_href" v-html="submit_button.button_checkout_clone_name">
@@ -345,6 +344,7 @@
 		display: flex;
 		margin-top: auto;
 		margin-bottom: auto;
+		pointer-events: auto
 
 	}
 
@@ -353,19 +353,24 @@
 		position: absolute;
 		left: 15px;
 		user-select: none;
+		font-size: 20px;
+
 	}
 	.button-plus{
 
 		position: absolute;
 		right: 15px;
 		user-select: none;
+		font-size: 20px;
+
 	}
 
 	
 
 </style>
 
-<style >
+<style>
+
 
 	.cart-update button{
 
@@ -579,7 +584,7 @@
 		font-weight: 700;
 		text-align: center;
 		border-top: 1px solid #dcdcdc;
-		color: black;
+		color: #422112;
 
 	}
 

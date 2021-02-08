@@ -77,7 +77,7 @@
 
 					<div class="ligne-mobile">
 
-						<a class="div-image-compte-mobile" href="" v-on:click="open_account">
+						<a class="div-image-compte-mobile" @click="open_account" >
 
 						<div class="image-compte-mobile" >
 						<span>
@@ -156,6 +156,7 @@ import Account from 'Organisms/woo-side-account.vue'
 
 
 export default {
+
 	components:{
 		Acf,
 		Cart,
@@ -183,7 +184,8 @@ export default {
 					easing: 'easeInOut ease',
 					duration: 500,
 				});
-
+				$('.div-image-compte-mobile').removeClass('open-simple')
+				$('.div-image-compte-mobile').addClass('close-simple')
 				$('.button-header').removeClass('open-simple')
 				$('.button-header').removeClass('active')
 				$('.button-header').addClass('close-simple')
@@ -200,7 +202,11 @@ export default {
 
 				$(this).removeClass('close-simple')
 
+				$('.div-image-compte-mobile').removeClass('close-simple')
+
 				$(this).addClass('open-simple')
+
+				$('.div-image-compte-mobile').addClass('open-simple')
 
 				$('.count').addClass('changement-couleur')
 			
@@ -229,7 +235,9 @@ export default {
 
 				
 				$(this).removeClass('open-simple')
+				$('.div-image-compte-mobile').removeClass('open-simple')
 				$(this).addClass('close-simple')
+				$('.div-image-compte-mobile').addClass('close-simple')
 				$('.count').removeClass('changement-couleur')
 				$('.icon-arrow-left').removeClass('open-simple')
 				$('.icon-arrow-left').addClass('close-simple')
@@ -253,8 +261,11 @@ export default {
 				if ($('.button-header').hasClass('open-simple')) {
 
 					$('.button-header').removeClass('open-simple')
+					$('.div-image-compte-mobile').removeClass('open-simple')
 					$('.button-header').removeClass('active')
 					$('.button-header').addClass('close-simple')
+					$('.div-image-compte-mobile').addClass('close-simple')
+
 					
 					$('.parent').animate({
 
@@ -273,12 +284,14 @@ export default {
 					});
 
 					$(this).removeClass('open-simple')
+
 					$(this).addClass('close-simple')
 					$('.count').removeClass('changement-couleur')
 					$('.icon-arrow-left').removeClass('open-simple')
 					$('.icon-arrow-left').addClass('close-simple')
 					$('.icon-arrow-right').removeClass('open-simple')
 					$('.icon-arrow-right').addClass('close-simple')
+
 
 				}	
 
@@ -326,6 +339,8 @@ export default {
 			
 			$(document).trigger('open_account')
 		}
+
+
 	},
 	watch: {
 
@@ -424,22 +439,25 @@ export default {
 			return this.$store.state.wp.pll
 		},
 
-		/*showButton() {
-			return window.location.toString();
-		}*/
+		// showButton() {
+		// 	return window.location.toString();
+		// }
 	}
 
 }
+
+
+
+
 </script>
 
 <style>
 
-/*
 	li:has(> a.current){
 
 		color: #888320 !important;
 
-	}*/
+	}
 
 	.current{
 
@@ -1172,6 +1190,11 @@ export default {
 </style>
 
 <style scoped>
+
+		a{
+
+			text-decoration: none;
+		}
  
 
 		@media screen and (max-width: 600px) {
@@ -1233,6 +1256,7 @@ export default {
 
 		.icon.active .burger{
 		background: white;
+		box-shadow: none;
 		}
 		.icon.active .burger::before{
 		top: 0;
@@ -1247,10 +1271,3 @@ export default {
 
 </style>
 
-<style scoped>
-	
-	a{
-
-		text-decoration: none;
-	}
-</style>

@@ -18,6 +18,9 @@ include 'woocommerce/count.php';
 include 'woocommerce/cart-global.php';
 include 'woocommerce/currency-format.php';
 include 'woocommerce/account-global.php';
+include 'woocommerce/checkout.php';
+
+
 
 function owy_resolve_issue_header()
 {

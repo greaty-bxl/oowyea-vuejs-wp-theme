@@ -2,11 +2,22 @@
 	<transition name="fade">
 		<div class="side-account" v-show="open" @click="click_to_close">
 			<div class="left-col" >
-				<button class="close" @click="click_to_close">close</button>
+
+				<div class="header-account">
+					
+					<h4 class="product__add__success__title" v-html="pll__('Your account')">
+					</h4>
+					<a href="">
+						<span class="close" @click="click_to_close">
+							<svg  class="close" viewBox="0 0 27 27"><g stroke="#979797" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 26"></path></g>
+							</svg>
+						</span>
+					</a>
+
+				</div>
 
 				<div class="account-container" v-if="is_user_logged_in">
 					<div class="account-nav" v-bind:class="{ step1 : step == 1, step2 : step == 2 }">
-						<h2 class="title" v-html="pll__('Votre compte')"></h2>
 						<div class="user-resume">						
 							<div v-html="user.display_name"></div>
 							<div v-html="user.user_email"></div>
@@ -224,8 +235,10 @@
 				this.change_menu(0, '', '')
 			},
 			'$store.state.wp.sections' : function(){
-				//console.log('wp');
-				this.open = 0
+				
+				console.log('wp');
+				// this.open = 0
+
 			}
 		}
 	}
@@ -276,8 +289,11 @@
 	}
 
 	.user-resume{
+		margin-top: 30px; 
 		padding: 25px;
 		background: #FAFAFA;
+		font-size: 15px;
+		font-weight: 500;
 	}
 
 	.user-resume > div{
@@ -289,6 +305,8 @@
 	}
 
 	.account-container{
+		/*margin-top: 30px;*/
+		margin-bottom: 30px;
 		white-space: nowrap;
 		overflow-x: hidden;
 	}
@@ -309,10 +327,71 @@
 	.account-nav.step2{
 		margin-left: -200%;
 	}
+	
+	.woocommerce-form-row.right-content{
+
+		margin-top: 30px;
+		margin-bottom: 30px;
+
+	}
+
+	.account-info.right-content > div{
+
+		margin-top: 30px;
+	}
+
+	.account-info .account-container  * {
+
+		font-size: 14px !important;
+		line-height: 1.45 !important;
+	}
+
+	.woocommerce-EditAccountForm div p{
+
+		margin-top: 15px !important;
+
+	}
 </style>
 
 <style type="text/css">
-	.side-account h2{
+
+	.side-account .close{
+
+		width: 21px;
+		height: 21px;
+		display: flex;
+		margin-top: auto;
+		margin-bottom: auto;
+
+	}
+
+	.side-account .header-account{
+
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-content: center;
+		height: 60px;
+		border-bottom: 1px solid rgb(220, 220, 220);
+
+	}
+
+
+	.side-account .header-account h4{
+
+		color: #422112 ;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 61px;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+		text-align: left;
+		margin-bottom: 0;
+		margin: 0px
+
+	}
+
+	.side-account .side-account h2{
 		font-size: 150%;
 		font-weight: bolder;
 		color: #422112;

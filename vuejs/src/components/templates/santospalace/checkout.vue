@@ -3,7 +3,7 @@
 	<div class="checkout_santos" >
 		<h5 class="title-home">Paiement</h5>
 
-			<form name="checkout" method="post" :action="cols_checkout.action" class="form-check-out">
+		<!-- 	<form name="checkout" method="post" :action="cols_checkout.action" class="form-check-out">
 
 				<div v-html="cols_checkout.col_1"></div>
 
@@ -23,10 +23,10 @@
 
 				<div v-html="cols_checkout.order_review" ></div>
 
-			</form>
+			</form> -->
 
-	<!-- 	<div v-html="this.$store.state.wp.checkout" >
-		</div> -->
+		<div v-html="this.$store.state.wp.checkout" >
+		</div>
 
 	</div>
 

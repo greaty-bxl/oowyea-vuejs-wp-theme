@@ -21,6 +21,14 @@
 }
 
 
+input{
+
+	transition: all 0.2s ease-out;
+	clip: inherit;
+
+}
+
+
 
 @media screen and (min-width: 1100px){
 

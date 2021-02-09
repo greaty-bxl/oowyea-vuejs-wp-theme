@@ -52,8 +52,8 @@
 
 								<div  class="flavour" v-if="post.terms.flavoring" >
 									<p class="titre-taxonomie" >
-									<span v-html="pll__('Saveur :')"></span>
-									<span v-html="get_terms_as_string(post, 'flavoring')"></span>
+										<span v-html="pll__('Saveur :')"></span>
+										<span v-html="get_terms_as_string(post, 'flavoring')"></span>
 									</p>
 								</div>
 

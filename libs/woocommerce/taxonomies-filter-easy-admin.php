@@ -108,7 +108,7 @@ function owy_register_filter_easy_admin()
 		}
 
 		acf_add_local_field_group(array(
-			'key' => 'group_'.uniqid(),
+			'key' => 'group_acf_custom_cat_filter',
 			'title' => 'Product Categories and sub-categories',
 			'fields' => $fields,
 			'location' => array(
@@ -157,6 +157,16 @@ function owy_filter_easy_admin_remove_side($data) {
 				var hide_on_screen = <?php echo json_encode($owy_hide_on_screen); ?>;
 				$.each(hide_on_screen, function(index, val) {
 					$('#'+val+'div').hide()
+				});
+
+				$(document).on('change', '#acf-group_acf_custom_cat_filter input', function(event) {
+					//event.preventDefault();
+					var value = $(this).val()
+					var is_checked = $(this).prop('checked')
+					var find_check_term = $('#side-sortables input[value="'+value+'"]')
+					//console.log('change', value, is_checked, find_check_term );
+					find_check_term.prop('checked', is_checked)
+
 				});
 				
 			});

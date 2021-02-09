@@ -55,7 +55,7 @@ function get_new_page(vue, href, callback) {
 				get_new_page(vue, old_url.href, callback)
 				return
 			}
-
+			
 			console.log('UPDATE WP', json_data);
 			vue.$store.state.wp = json_data
 			vue.$store.commit({

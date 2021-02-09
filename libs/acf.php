@@ -96,3 +96,43 @@ function owy_acf_init_no_location_types() {
 
 add_action('acf/init', 'owy_acf_init_no_location_types');
 
+function return_acf_message(){
+	
+	/*if( $_POST['_acf_validation'] )
+	{
+		echo "<pre>";
+		print_r( $_POST );
+
+		echo "<pre>";
+		echo do_shortcode( '[acfe_form ID="239"]' );
+		exit();
+	}*/
+	global $acf_form;
+
+	
+
+	if( $_POST['is_acf_ajax'] )
+	{
+		
+		$return = array('new_acf'=> do_shortcode( '[acfe_form ID="'.$acf_form['ID'].'"]' ) );
+		echo json_encode( $return );
+
+		exit();	
+	}	
+}
+add_action( 'before_document', 'return_acf_message' );
+
+function test_acf( $form, $action ){
+
+	global $acf_form;
+
+	$acf_form =  $form;
+
+/*	if( $_POST['is_acf_ajax'] )
+	{
+		$return = array('new_acf'=>do_shortcode( '[acfe_form name="'.$form['ID'].'"]' ));
+		echo json_encode($return);
+		exit();
+	}*/
+}
+add_action( 'acfe/form/submit', 'test_acf', 100, 2 );

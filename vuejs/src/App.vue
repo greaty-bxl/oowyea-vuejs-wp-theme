@@ -65,6 +65,7 @@ import animate_next_page from 'Libs/animate-next-page.js'
 import smart_fonts from 'Libs/smart-fonts.js'
 import on_screen from 'Libs/on-screen.js'
 import woocommerceAjax from 'Libs/woocommerce-ajax.js'
+import acf_ajax from 'Libs/acf-front-ajax.js'
 //import acf_to_css from 'Libs/acf-to-css.js'
 
 //import fullpage from 'fullpage.js'
@@ -139,6 +140,7 @@ export default {
       links_and_anchors(this)
 
       woocommerceAjax(this)
+      acf_ajax(this)
       
       //console.log('store', this.$store.state.wp)
       //init scroll if child

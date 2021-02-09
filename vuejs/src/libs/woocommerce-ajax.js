@@ -33,10 +33,9 @@ export default function(vue){
 
 		console.log('form', form, url);
 
-		/*if( form.hasClass('woocommerce-form-login') )
-		{
-			$('#page-loader').css('display', 'flex');
-		}*/
+		
+		$('#page-loader').css('display', 'flex');
+		
 
 		let is_add_to_cart = 0
 
@@ -132,7 +131,11 @@ export default function(vue){
 				$('.disabled-by-ajax').prop('disabled', false)
 
 				$('.disabled-by-ajax').removeClass('disabled-by-ajax')
+
+				$('#page-loader').css('display', 'none');
 			}
+		}).fail(function() {
+			$('#page-loader').css('display', 'none');
 		});
 	});
 

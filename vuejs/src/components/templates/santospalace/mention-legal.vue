@@ -1,13 +1,10 @@
 <template>
 
-	<div>
-	
-	<div class="parent-text">
-		
-		<div v-html="post.post_content"> 
-	</div>
+	<div class="global-css-pages-legale">
 
-	</div>	
+		<div v-html="post.post_content"> 
+		</div>
+			
 	</div>
 
 </template>
@@ -31,3 +28,4 @@ export default {
 
 }
 
+</script>

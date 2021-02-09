@@ -3,7 +3,9 @@
 	<div class="checkout_santos" >
 		<h5 class="title-home">Paiement</h5>
 
-		<!-- 	<form name="checkout" method="post" :action="cols_checkout.action" class="form-check-out">
+			<div v-html="cols_checkout.order_notices"></div>
+
+			<form v-if="cols_checkout.woocommerce_order == undefined " name="checkout" method="post" :action="cols_checkout.action" class="form-check-out">
 
 				<div v-html="cols_checkout.col_1"></div>
 
@@ -23,10 +25,16 @@
 
 				<div v-html="cols_checkout.order_review" ></div>
 
-			</form> -->
+			</form>
 
-		<div v-html="this.$store.state.wp.checkout" >
-		</div>
+			<div v-html="cols_checkout.woocommerce_order">
+			</div>
+
+	
+<!-- 
+
+		<div v-html="post.post_content" >
+		</div> -->
 
 	</div>
 
@@ -43,7 +51,8 @@ export default {
 	data(){
 		return {
 			ouvert: 0,
-			checked: false
+			checked: false,
+			// post
 		}
 
 
@@ -69,13 +78,14 @@ export default {
 
 			$('#header').hide()
 
-			// var payconiq =  $('[alt="Payconiq"]').attr('src');
+			var payconiq  = $('[alt="Payconiq"]').attr('src');
 
-			// payconiq = payconiq.replace('24x24/payconiq.png', 'payconiqlogo.png')
+			if ( payconiq != undefined  ) {
 
-			// console.log(payconiq);
-
-			// $('[alt="Payconiq"]').attr('src', payconiq);
+				payconiq = payconiq.replace('24x24/payconiq.png', 'payconiqlogo.png')
+				$('[alt="Payconiq"]').attr('src', payconiq);
+			}
+			
 			
 	},
 
@@ -101,23 +111,22 @@ export default {
 
 			var $ = this.$
 
+			// let post
+
 			let cols = {}
-				
-			cols['action'] = $(this.$store.state.wp.checkout).find('.checkout').attr('action');
-			cols['col_1'] =  $(this.$store.state.wp.checkout).find('.col-1').html();
-			cols['col_2'] =  $(this.$store.state.wp.checkout).find('.col-2 .shipping_address').html();
-			cols['title_commande'] =  $(this.$store.state.wp.checkout).find('.order_review_heading').html();
-			cols['order_review'] =  $(this.$store.state.wp.checkout).find('.woocommerce-checkout-review-order').html();
 
-			var payconiq = $(this.$store.state.wp.checkout).find('[alt="Payconiq"]').attr('src');
-			payconiq = payconiq.replace('24x24/payconiq.png', 'payconiqlogo.png')
-			$('[alt="Payconiq"]').attr('src', payconiq);
-			// end replace payconiq
+			console.log(this.post.post_content);
 
-			cols['title_ship_address_text'] =  $(this.$store.state.wp.checkout).find('#ship-to-different-address span').text();
+						
+					cols['action'] = $(this.post.post_content).find('.checkout').attr('action');
+					cols['col_1'] =  $(this.post.post_content).find('.col-1').html();
+					cols['col_2'] =  $(this.post.post_content).find('.col-2 .shipping_address').html();
+					cols['title_commande'] =  $(this.post.post_content).find('.order_review_heading').html();
+					cols['title_ship_address_text'] =  $(this.post.post_content).find('#ship-to-different-address span').text();
+					cols['order_review'] =  $(this.post.post_content).find('.woocommerce-checkout-review-order').html();
+					cols['order_notices'] =  $(this.post.post_content).find('.woocommerce-notices-wrapper').html();
+					cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
 
-
-			
 
 			console.log(cols);
 			
@@ -202,15 +211,16 @@ export default {
 
 	.checkout_santos .paddingTop-animation{
 
-		padding-top: 21px !important;
-		padding-bottom: 5px  !important;
+		padding-top: 26px !important;
+		padding-bottom: 10px  !important;
 	}
 
-	.checkout_santos .appeare-label{
+	.checkout_santos .appear-label{
 
 		margin-top: 5px !important;
 		position: absolute !important;
-		display: block  !important ;
+		display: flex !important;
+	
 
 	}
 
@@ -386,16 +396,16 @@ export default {
 
 	.checkout_santos .wc_payment_methods.payment_methods.methods li{
 
-		    flex-wrap: wrap;
-		    display: flex;
-		    line-height: 52px !important;
-		   
+		flex-wrap: wrap;
+		display: flex;
+		line-height: 52px !important;
+
 	}
 
 	.checkout_santos .wc_payment_methods.payment_methods.methods li label{
 
-		    min-width: 50%;
-		   
+		min-width: 50%;
+
 	}
 
 	.checkout_santos #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment{
@@ -410,11 +420,11 @@ export default {
 
 	.checkout_santos #add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before{
 
-	    /*border: 1em solid #888320 !important;*/
-	    border: 1em solid #888320;
-	    border-right-color: transparent;
-	    border-left-color: transparent;
-	    border-top-color: transparent;
+		/*border: 1em solid #888320 !important;*/
+		border: 1em solid #888320;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		border-top-color: transparent;
 
 	}
 
@@ -432,9 +442,8 @@ export default {
 
 	.checkout_santos .wc_payment_methods.payment_methods.methods input{
 
-		 margin: auto 15px auto 0px !important;
+		margin: auto 15px auto 0px !important;
 
-		   
 	}
 
 	.checkout_santos #add_payment_method #payment .payment_method_paypal .about_paypal, .woocommerce-cart #payment .payment_method_paypal .about_paypal, .woocommerce-checkout #payment .payment_method_paypal .about_paypal{
@@ -490,7 +499,7 @@ export default {
 	}
 
 	.checkout_santos .woocommerce form .form-row label.checkbox, .woocommerce-page form .form-row label.checkbox {
-	 
+
 		display: flex;
 		justify-content: center;
 		align-items: center;

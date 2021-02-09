@@ -37,3 +37,75 @@ input{
 
 	}
 }
+
+
+
+
+	.global-css-pages-legale{
+
+		text-align: left;
+		width: 70% !important;
+		margin: 150px auto;
+
+	}
+	.global-css-pages-legale h2{
+
+		color: #888320 !important;
+		font-size: 30px;
+		
+
+	}
+
+	.global-css-pages-legale h1{
+
+		color: #888320 !important;
+		font-size: 40px !important;
+
+	}
+
+	.global-css-pages-legale h3{
+
+		color: #888320 !important;
+
+	}
+
+	.global-css-pages-legale p{
+
+		font-size: 17px;
+		line-height: 170%;
+
+	}
+
+
+	@media screen and (max-width: 600px){
+
+		.global-css-pages-legale{
+
+			text-align: left;
+			width: calc(100% - 60px);
+			margin: 150px 30px;
+
+		}
+
+	}
+
+
+	@media screen and (max-width: 1125px) and (min-width: 600px){
+
+
+			.global-css-pages-legale{
+
+			text-align: left;
+			width: calc(100% - 140px);
+			margin: 150px 70px;
+
+		}
+
+	}
+
+		
+
+
+
+
+

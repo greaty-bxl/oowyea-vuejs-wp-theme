@@ -111,9 +111,11 @@
 
 		.header-home p {
 			font-size: 5vw !important;
-			width: 70%;
 			margin: 0px auto;
-			line-height: 9vw;  
+			line-height: 9vw;
+			box-sizing: content-box;
+			margin-left: 30px;
+			margin-right: 30px;
 		}
 
 		.button-cafe{

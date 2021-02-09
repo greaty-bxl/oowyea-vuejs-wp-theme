@@ -3,7 +3,7 @@
 		<div class="clear"></div>
 		<h1 v-html="post.post_title"></h1>
 		<p>Page template</p>
-		<div v-html="post.post_content"></div>
+		<div class="wp-content" v-html="post.post_content"></div>
 		<div class="clear"></div>
 	</div>
 </template>

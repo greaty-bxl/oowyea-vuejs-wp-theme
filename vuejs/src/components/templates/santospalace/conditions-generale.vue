@@ -2,11 +2,8 @@
 
 	<div>
 	
-
 	<div class="parent-text">
-		<h1 class="title-conditions">Politique de Confidentialité
-
-		</h1>
+		
 		<div v-html="post.post_content"> 
 	</div>
 
@@ -16,8 +13,6 @@
 </template>
 
 <script>
-
-import smart_fonts from 'Libs/smart-fonts.js';
 
 export default {
 	components: {
@@ -31,9 +26,6 @@ export default {
 	
 		this.$emit('template_mounted', this);
 		console.log(this.wp);
-		smart_fonts({
-			'.title-conditions' : 25,
-		})
 
 	},
 

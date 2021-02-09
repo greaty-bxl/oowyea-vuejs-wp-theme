@@ -112,7 +112,7 @@
 	}
 
 	.button-santos-vert{
-
+		font-size: 17px;
 		width: 30%;
 		text-decoration: none;
 	}
@@ -207,7 +207,13 @@
 
 		@media screen and (max-width: 600px) {
 
+			.button-santos-vert{
+
+				width: 60%;
+			}
+
 			.text-degustation{
+
 				padding-left: 0px;
 				width: calc( 100% - 60px);	
 				padding: 70px 30px;
@@ -215,16 +221,15 @@
 			}
 
 			.text-degustation ul{
+
 				font-size: 5vw !important;
 				padding-left: 0px;
-				/*margin:  50px auto;*/
 				width: 100%;
-				/*width: calc( 100% - 60px);	*/
 
 			}
 
 			.text-degustation h2{
-				/*text-align: center;*/
+
 				width: 100%;	
 				font-size: 10vw !important;
 				line-height: 12vw;
@@ -239,6 +244,7 @@
 			}
 
 			.image-degustation{
+				
 				margin-left: auto;
 				margin-right: auto;
 				width: calc(100% - 60px)

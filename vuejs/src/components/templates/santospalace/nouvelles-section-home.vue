@@ -130,7 +130,7 @@
 						},
 
 						100: {
-						slidesPerView: 1.1,
+						slidesPerView: 	0.9,
 						},
 					},
 
@@ -166,10 +166,17 @@
 
 <style type="text/css">
 
+
+
 	.swiperNouvellesbutton .swiper-slide{
 
 		width: auto;
 	
+	}
+
+	.section-nouvelles .item-product{
+
+		margin-left: 20px;
 	}
 
 	.swipernouvelles{
@@ -234,12 +241,6 @@
 
 	}
 
-	.section-nouvelles .item-product {
-
-		margin-left: 20px; 
-
-
-	}
 
 	.button-section-nouvelles{
 
@@ -266,6 +267,11 @@
 		color: #422112;
 	}
 
+	.title-product{
+
+		margin-bottom: 20px !important;
+	}
+
 	@media screen and ( min-width: 1100px ){
 
 
@@ -280,9 +286,21 @@
 			display: none;
 		}
 
+		.swiperNouvellesbutton{
+
+			max-width: 700px;
+	
+		}
+
+
 	}
 
 	@media screen and ( max-width: 1100px ){
+
+		.section-nouvelles .item-product{
+
+			margin-left: 0px;
+		}
 
 		.swiper-pagination{
 
@@ -324,6 +342,19 @@
 
 	@media screen and ( max-width: 1100px ) and ( min-width: 600px) {
 
+		.item-product {
+
+			margin-right: 20px;
+
+		}
+
+		.swiperNouvellesbutton{
+
+			max-width: 100%;
+			margin-right: 70px;
+			margin-left: 70px;
+		}
+
 		.section-nouvelles h2{
 
 			padding-bottom: 30px;
@@ -351,6 +382,33 @@
 	}
 
 	@media screen and ( max-width: 600px ){
+
+		.swiperNouvellesbutton{
+
+			max-width: 100%;
+			margin-right: 30px;
+			margin-left: 30px;
+		}
+
+		.swiper-container, .swiper-wrapper, .swiper-slide {
+		box-sizing: content-box;
+		}
+
+		.item-product {
+
+			margin-right: 15px;
+
+		}
+
+		.swipernouvelles{
+
+			min-height: 600px;
+			width: calc(100% - 60px);
+			margin-left: -1%;
+			margin-right: 30px;
+			margin-left: 30px;
+		}
+
 
 		.section-nouvelles h2{
 
@@ -380,10 +438,10 @@
 		
 		}
 
-		.cadre img{
+	/*	.cadre img{
 
 			height: 250px;
-		}
+		}*/
 
 	}
 		

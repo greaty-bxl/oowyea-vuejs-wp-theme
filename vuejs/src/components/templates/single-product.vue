@@ -59,7 +59,7 @@
 							</div>
 						</div>
 
-						<div class="vue-wc-variations">
+						<div class="vue-wc-variations" v-if="Object.keys(variations_selects).length > 0">
 							<div 
 							class="vue-wc-variation" 
 							v-for="(select, key) in variations_selects" 

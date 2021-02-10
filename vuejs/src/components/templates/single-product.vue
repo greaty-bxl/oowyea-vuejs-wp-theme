@@ -150,7 +150,6 @@
 				tot_price: '-',
 				cart_v2: '',
 				terms_list_display: {
-
 					origine : this.pll__('Origine :'),
 					varites_cafes : this.pll__('varité :'),
 					flavoring : this.pll__('Saveur :'),

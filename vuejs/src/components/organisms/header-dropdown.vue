@@ -254,6 +254,18 @@ export default {
 
 		$(document).on('click', function() {
 
+			if( $(event.target).parents('#header').length && $(event.target).prop("tagName") == 'A' )
+			{
+						
+				let next_url = new URL($(event.target).attr('href'));
+			
+
+				if( next_url.pathname == window.location.pathname )
+				{
+					console.log('same pathname');
+					$('#app').scrollTop(0)
+				}
+			}
 
 		if($(event.target).parents('.parent').length != 0) {
 

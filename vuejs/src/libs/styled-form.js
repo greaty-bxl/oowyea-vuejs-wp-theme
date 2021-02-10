@@ -3,65 +3,91 @@ export default function ( selector ){
 	let $ = window.jquery
 
 	$(selector).each( (index, el) => {
+
+		// $(el).find('label').hide();
 		
-				$(el).parent().prev().find('label').css('display', 'none');
+		$(el).parent().prev().find('label').css('display', 'none');
+
+		$(el).parent().parent().prev().find('label').css('display', 'none');
 
 
-					$(el).parent().parent().prev().find('label').css('display', 'none');
+		var placehold 
 
 
-				var placehold 
 
+		if ($(el).parents().hasClass('acfe-form') ) {
 
-				if ($(el).parents().hasClass('acfe-form') ) {
+			console.log('acfe-form');
 
-					console.log('acfe-form');
+			placehold = ""
 
-					placehold = ""
+			console.log($(el));
 
-					console.log($(el));
+			placehold = $(el).parent().parent().parent().find('label').text().replace('*', '');
+			$(el).parent().parent().parent().find('label').addClass('third-child')
 
-					placehold = $(el).parent().parent().parent().find('label').text().replace('*', '\n');
-					$(el).parent().parent().parent().find('label').addClass('third-child')
+			$(el).attr('placeholder', placehold);
 
-					$(el).attr('placeholder', placehold);
+			if ( $(el).is("textarea") ) {
 
-					if ( $(el).is("textarea") ) {
+				placehold = ""
 
-						placehold = ""
+				placehold = $(el).parent().parent().find('label').text().replace('*', '');
+				// $(el).parent().parent().find('label').css('display', 'none');
+				$(el).parent().parent().find('label').text(placehold)
+				$(el).parent().parent().find('label').addClass('second-child')
 
-						placehold = $(el).parent().parent().find('label').text().replace('*', '\n');
-						// $(el).parent().parent().find('label').css('display', 'none');
-						$(el).parent().parent().find('label').text(placehold)
-						$(el).parent().parent().find('label').addClass('second-child')
+				$(el).attr('placeholder', placehold);
+			}
 
-						$(el).attr('placeholder', placehold);
-					}
+		}
+		else{
 
-				}
-				else{
+			console.log('not acf');
 
-					console.log('not acf');
+			placehold = ""
 
-					placehold = ""
+			let placehold_el = $(el).parent().parent().find('label')
 
-					placehold = $(el).parent().parent().find('label').text().replace('*', '\n');
-					$(el).parent().parent().find('label').css('display', 'none');
-					$(el).parent().parent().find('label').text(placehold)
-					$(el).parent().parent().find('label').addClass('second-child')
+			if( placehold_el.length == 0 )
+			{
+				placehold_el = $(el).parent().find('label')
+			}
+			// console.log(placehold_el.text());
 
-					$(el).attr('placeholder', placehold);
-				}
+			if( placehold_el.length == 1 )
+			{
+
+				placehold = " ";
+
+				placehold = $(el).parent().parent().find('label').text()
+
+				console.log($(el));
+
+				console.log($(el).parent().parent().find('label'));
+
+				$(el).parent().find('label').css('display', 'none');
+
+				// $(el).parent().parent().find('label').css('display', 'none');
+				// $(el).parent().parent().find('label').text(placehold)
+
+				$(el).parent().parent().find('label').addClass('second-child')
+
+				$(el).attr('placeholder', placehold);
+			}
+			
+			
+		}
 
 			
 
-			console.log(placehold);
+		// console.log(placehold);
 
 	});
 
 
 
-		$(selector).on("change paste keyup", function() {
+		$(selector).on("change keyup", function() {
 
 			if ($(this).parents().hasClass('acfe-form') ){
 
@@ -116,8 +142,8 @@ export default function ( selector ){
 
 				}
 
-					$(this).removeClass('paddingTop-animation')
-					$(this).removeClass('paddingTop-animation-acf')			
+				$(this).removeClass('paddingTop-animation')
+				$(this).removeClass('paddingTop-animation-acf')			
 
 			}
 			else{

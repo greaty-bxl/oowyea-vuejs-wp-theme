@@ -4,7 +4,7 @@
 			<div class="left-col" >
 				<div class="header-carte">
 					
-					<h4 class="product__add__success__title" v-html="pll__('Your Cart')">
+					<h4 class="product__add__success__title" v-html="pll__('Votre Panier')">
 					</h4>
 					<span class="close" @click="click_to_close">
 						<a href="">

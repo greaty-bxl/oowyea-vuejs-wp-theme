@@ -44,42 +44,15 @@
 									
 								</div>
 
-								<div v-for="(value, key) in terms_list_display" :key="key">
-									<div class="origine"  v-if="post.terms[key]">
+								<div-for v-for="(value, key) in terms_list_display" :key="key">
+									<div  style="padding-top: 15px" class="origine"  v-if="post.terms[key]">
 										<p class="titre-taxonomie"> 
 											<span v-html="value"></span>&nbsp;
 											<span v-html="get_terms_as_string(post, key)"></span>
 										</p> 
 									</div>
-								</div>
-								<!-- <div class="origine"  v-if="post.terms.origine">
-									<p class="titre-taxonomie"> 
-										<span v-html="pll__('Origine :')"></span>&nbsp;
-										<span v-html="get_terms_as_string(post, 'origine')"></span>
-									</p> 
-								</div>
-
-								<div  class="flavour" v-if="post.terms.flavoring" >
-									<p class="titre-taxonomie" >
-										<span v-html="pll__('Saveur :')"></span>&nbsp; 
-										<span v-html="get_terms_as_string(post, 'flavoring')"></span>
-									</p>
-								</div>
-
-								<div class="origine"  v-if="post.terms.origine_the">
-									<p class="titre-taxonomie"> 
-										<span v-html="pll__('Origine :')"></span>&nbsp;
-										<span v-html="get_terms_as_string(post, 'origine_the')"></span>
-									</p> 
-								</div>
-
-								<div  class="flavour" v-if="post.terms.flavor_the" >
-									<p class="titre-taxonomie" >
-										<span v-html="pll__('Saveur :')"></span>&nbsp; 
-										<span v-html="get_terms_as_string(post, 'flavor_the')"></span>
-									</p>
-								</div> -->
-
+								</div-for>
+							
 							</div>
 							<div style="padding-top: 0px">
 								<p v-html="post.post_content" class="descriptif"></p>
@@ -177,12 +150,12 @@
 				tot_price: '-',
 				cart_v2: '',
 				terms_list_display: {
+
 					origine : this.pll__('Origine :'),
-					flavoring : this.pll__('Origine :'),
+					flavoring : this.pll__('Saveur :'),
 					origine_the : this.pll__('Origine :'),
-					flavor_the : this.pll__('Origine :'),
-					// origine : this.pll__('Origine :'),
-					// origine : this.pll__('Origine :'),
+					flavor_the : this.pll__('Saveur :'),
+
 				}
 			}
 		},
@@ -195,6 +168,8 @@
 		mounted (){
 
 			var $ = this.$
+
+			console.log(this.post);
 
 			setTimeout(function() {
 
@@ -217,7 +192,7 @@
 			this.$emit('template_mounted')
 		},
 
-	
+
 		methods: {
 			open_vue_variation: function (select) 
 			{

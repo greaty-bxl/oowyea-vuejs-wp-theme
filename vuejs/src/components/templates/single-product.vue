@@ -44,14 +44,14 @@
 									
 								</div>
 
-								<div-for v-for="(value, key) in terms_list_display" :key="key">
+								<div v-for="(value, key) in terms_list_display" :key="key">
 									<div  style="padding-top: 15px" class="origine"  v-if="post.terms[key]">
 										<p class="titre-taxonomie"> 
 											<span v-html="value"></span>&nbsp;
 											<span v-html="get_terms_as_string(post, key)"></span>
 										</p> 
 									</div>
-								</div-for>
+								</div>
 							
 							</div>
 							<div style="padding-top: 0px">
@@ -152,10 +152,16 @@
 				terms_list_display: {
 
 					origine : this.pll__('Origine :'),
+					varites_cafes : this.pll__('varité :'),
 					flavoring : this.pll__('Saveur :'),
 					origine_the : this.pll__('Origine :'),
 					flavor_the : this.pll__('Saveur :'),
-
+					type_the : this.pll__("type de thé :"),
+					type_infusion : this.pll__("type d'infusion :"),
+					flavor_the : this.pll__("Saveur du thé :"),
+					number_usage : this.pll__("P. par jour :"),
+					cup_day : this.pll__("Tasses / jour :"),
+						
 				}
 			}
 		},
@@ -617,7 +623,7 @@
 		padding-top: 30px !important;
 	}
 
-	.padding-appeare > div{
+	.padding-appeare.origine{
 
 		padding-top: 15px !important;
 	}

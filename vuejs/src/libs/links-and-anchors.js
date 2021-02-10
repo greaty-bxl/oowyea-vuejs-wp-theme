@@ -216,8 +216,6 @@ export default function (vue)
 			}
 			else if(  target.hasClass('owy-mailto') )
 			{
-				console.log('email')
-
 				let adr = target.data('adr')
 				let domain = target.data('domain')
 				target.attr('href', 'mailto:'+adr+'@'+domain);
@@ -235,12 +233,11 @@ export default function (vue)
 		});
 
 		$('.owy-mailto').each(function(index, el) {
-			console.log("replace at", el);
+
 			let ico = $('.owy-mailto-ico').clone().show()
 			let inner = $(el).html().replace('[at]', ico.html() )
 
 			$(el).html(inner)
-			console.log(inner);
 		});
     }, 10 )
 	

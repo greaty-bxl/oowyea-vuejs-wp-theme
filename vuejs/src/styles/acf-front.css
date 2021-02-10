@@ -9,13 +9,13 @@
 	padding: 0 !important;
 	padding-left: 10px !important;
 	width: 100%;
-	margin-bottom: 20px !important;
+	/*margin-bottom: 20px !important;*/
 	min-height: auto !important;
 }
 
 .acf-fields>.acf-field label{
 
-	font-weight: 400;
+	font-weight: 400 !important;
 	
 }
 

@@ -62,11 +62,11 @@
 						</div>
 
 						<p class="flavour" v-if="has_term(item, 'product_cat', 'cafes') && get_terms_as_string(item, 'flavoring')" >
-							Notes : <span v-html="get_terms_as_string(item, 'flavoring')"></span>
+							<span v-html="get_terms_as_string(item, 'origine')"></span> | <span v-html="get_terms_as_string(item, 'flavoring')"></span>
 						</p>
 
 						<p class="flavour" v-if="has_term(item, 'product_cat', 'thes') && get_terms_as_string(item, 'flavor_the')" >
-							Notes : <span v-html="get_terms_as_string(item, 'flavor_the')"></span>
+							<span v-html="get_terms_as_string(item, 'origine_the')"></span> | <span v-html="get_terms_as_string(item, 'flavor_the')"></span>
 						</p>
 
 						<p class="flavour" v-if="

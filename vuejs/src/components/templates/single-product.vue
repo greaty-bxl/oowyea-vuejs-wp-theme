@@ -43,19 +43,42 @@
 									</div>
 									
 								</div>
-								<div class="origine"  v-if="post.terms.origine">
+
+								<div v-for="(value, key) in terms_list_display" :key="key">
+									<div class="origine"  v-if="post.terms[key]">
+										<p class="titre-taxonomie"> 
+											<span v-html="value"></span>&nbsp;
+											<span v-html="get_terms_as_string(post, key)"></span>
+										</p> 
+									</div>
+								</div>
+								<!-- <div class="origine"  v-if="post.terms.origine">
 									<p class="titre-taxonomie"> 
-										<span v-html="pll__('Origine : ')"></span>
-										<span class="titre-taxonomie" v-html="get_terms_as_string(post, 'origine')"></span>
+										<span v-html="pll__('Origine :')"></span>&nbsp;
+										<span v-html="get_terms_as_string(post, 'origine')"></span>
 									</p> 
 								</div>
 
 								<div  class="flavour" v-if="post.terms.flavoring" >
 									<p class="titre-taxonomie" >
-										<span v-html="pll__('Saveur :')"></span>
+										<span v-html="pll__('Saveur :')"></span>&nbsp; 
 										<span v-html="get_terms_as_string(post, 'flavoring')"></span>
 									</p>
 								</div>
+
+								<div class="origine"  v-if="post.terms.origine_the">
+									<p class="titre-taxonomie"> 
+										<span v-html="pll__('Origine :')"></span>&nbsp;
+										<span v-html="get_terms_as_string(post, 'origine_the')"></span>
+									</p> 
+								</div>
+
+								<div  class="flavour" v-if="post.terms.flavor_the" >
+									<p class="titre-taxonomie" >
+										<span v-html="pll__('Saveur :')"></span>&nbsp; 
+										<span v-html="get_terms_as_string(post, 'flavor_the')"></span>
+									</p>
+								</div> -->
 
 							</div>
 							<div style="padding-top: 0px">
@@ -141,6 +164,8 @@
 
 <script>
 	import {has_term, get_terms_as_string} from 'Libs/wp-functions.js'
+	import init_styled_form from 'Libs/styled-form.js'
+
 	export default {
 		data(){
 			return {
@@ -150,7 +175,15 @@
 				quantity: 1,
 				sale_price: 0,
 				tot_price: '-',
-				cart_v2: ''
+				cart_v2: '',
+				terms_list_display: {
+					origine : this.pll__('Origine :'),
+					flavoring : this.pll__('Origine :'),
+					origine_the : this.pll__('Origine :'),
+					flavor_the : this.pll__('Origine :'),
+					// origine : this.pll__('Origine :'),
+					// origine : this.pll__('Origine :'),
+				}
 			}
 		},
 		components: {
@@ -163,7 +196,11 @@
 
 			var $ = this.$
 
-			console.log(this.post);
+			setTimeout(function() {
+
+				init_styled_form('.form_contact_us_product input , .form_contact_us_product textarea ')
+
+			}, 1);
 
 			this.variations_data = $('.variations_form').first().data('product_variations')	
 
@@ -179,6 +216,8 @@
 
 			this.$emit('template_mounted')
 		},
+
+	
 		methods: {
 			open_vue_variation: function (select) 
 			{
@@ -990,9 +1029,7 @@
 
 	.content-single input{
 
-		/*margin-top: 5px;*/
-		/*height: 30px;*/
-		/*width: 30%;*/
+		color: #4D4D4D;
 	}
 
 	.single-text div p:nth-child(2){

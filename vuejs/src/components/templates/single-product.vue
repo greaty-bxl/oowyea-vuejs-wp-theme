@@ -513,6 +513,11 @@
 		margin-right: 2px;
 	}
 
+	.acidity-terms{
+
+		padding-top: 15px !important;
+	}
+
 	.descriptif{
 
 		font-size: 14px !important;
@@ -654,11 +659,6 @@
 		font-weight: 500;
 	}
 
-	/*.content-single ul li{
-
-		list-style: none;
-
-	}*/
 	.content-single ul{
 
 		padding-left: 16px;

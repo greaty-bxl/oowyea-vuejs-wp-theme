@@ -603,11 +603,11 @@ export default {
 		height: 15px;
 	}
 	
-
+/*
 	.logo-santos img{
 
 		height: 60px;
-	}
+	}*/
 
 	.parent{
 
@@ -738,7 +738,8 @@ export default {
 
 	.logo-santos img{
 
-		height: 55px;
+		/*height: 55px;*/
+		min-width: 150px;
 	}
 
 	.icon-arrow-right{

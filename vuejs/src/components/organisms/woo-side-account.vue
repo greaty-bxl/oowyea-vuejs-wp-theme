@@ -50,6 +50,7 @@
 							
 						</div>
 					</div>
+
 				</div>
 				<div v-else class="account-container" >
 					<div class="account-nav" v-bind:class="{ step1 : step == 1, step2 : step == 2 }">
@@ -117,10 +118,10 @@
 				{
 					this.change_menu(1, 'lost-password', '' )
 				}
-				//console.log('wc_account_link_open', target);
+				console.log('wc_account_link_open', target);
 			});
 
-			//console.log( 'woo_account', this.$store.state.wp.woo_account );
+			console.log( 'woo_account', this.$store.state.wp.woo_account );
 		},
 		methods:{
 			click_to_close : function(event){
@@ -136,10 +137,10 @@
 				this.current1 = current1
 				this.current2 = current2
 			},
-			/*a_to_none: function(html){
+			a_to_none: function(html){
 
-				//console.log(html);
-			}*/
+				console.log(html);
+			}
 		},
 		computed:{
 			edit_address_delivery: function()
@@ -150,10 +151,8 @@
 				let url = find_url.find('a.delivery-address')
 					.attr('href')
 					.replace( window.location.origin + window.location.pathname, this.$store.state.wp.woo_account.page_url )
-				
-				html.find('form').attr('action', url)
 
-				//console.log('edit_address_delivery', url, html.find('form').attr('action', url) );
+				console.log('edit_address_delivery', url, html.find('form').attr('action', url) );
 				return html.first().html()
 			},
 			woo_account: function(){
@@ -231,14 +230,12 @@
 		},
 		watch : {
 			'$store.state.wp' : function(){
-				//console.log('wp');
+				console.log('wp');
 				this.change_menu(0, '', '')
 			},
 			'$store.state.wp.sections' : function(){
-				
 				console.log('wp');
 				// this.open = 0
-
 			}
 		}
 	}

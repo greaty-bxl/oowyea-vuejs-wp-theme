@@ -20,17 +20,50 @@
 }
 
 .acf-fields *, .acf-form-submit * {
+
 	font-size: 14px !important;
 	border: none;
 	background-color: transparent;
 	outline: none;
+	transition: all 0.2s ease-out !important;
+	transition-property: all !important;
+	transition-duration: 0.2s !important;
+	transition-timing-function: ease-out !important;
+	transition-delay: 0.2s !important;
+
 }
 
-.acf-input {
+.acf-input  {
 	background-color: #F6F6F6;
-	padding: 10px 0px;
-	border-radius: 3px;
+	border-radius: 3px;	
+	
 }
+
+.acf-input textarea {
+
+	padding: 15px 10px !important;
+	border-radius: 3px;
+/*	transition: all 250ms;*/
+}
+
+.acf-input input.paddingTop-animation-acf{
+
+	padding: 23px 10px 7px 10px !important;
+		
+}
+
+.acf-input textarea.paddingTop-animation-acf{
+
+	padding: 23px 10px 7px 10px !important;
+		
+}	
+
+.acf-input input {
+	
+	padding: 15px 10px  15px 10px !important;
+	border-radius: 3px;	
+}
+
 
 .acf-form-submit > input.button[type="submit"] {
 	width: 100%;
@@ -57,3 +90,13 @@
 	float: none;
 	border: none;
 }
+
+.appear-label-acf{
+
+	padding: 15px 10px 10px 10px !important;
+	position: absolute !important;
+	display: block  !important ;
+	z-index: 1000;
+
+}
+

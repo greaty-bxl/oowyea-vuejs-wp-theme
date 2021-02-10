@@ -44,14 +44,17 @@
 									
 								</div>
 								<div class="origine"  v-if="post.terms.origine">
-									<p class="titre-taxonomie" v-html="pll__('Origine')"> : 
-										<span v-html="get_terms_as_string(post, 'origine')"></span></p>
+									<p class="titre-taxonomie"> 
+										<span v-html="pll__('Origine : ')"></span>
+										<span class="titre-taxonomie" v-html="get_terms_as_string(post, 'origine')"></span>
+									</p> 
 								</div>
 
 								<div  class="flavour" v-if="post.terms.flavoring" >
-									<p  v-html="pll__('Saveur')" > : 
-									<span v-html="get_terms_as_string(post, 'flavoring')"></span>
-								</p>
+									<p class="titre-taxonomie" >
+										<span v-html="pll__('Saveur :')"></span>
+										<span v-html="get_terms_as_string(post, 'flavoring')"></span>
+									</p>
 								</div>
 
 							</div>
@@ -160,7 +163,7 @@
 
 			var $ = this.$
 
-			//console.log('mounted');
+			console.log(this.post);
 
 			this.variations_data = $('.variations_form').first().data('product_variations')	
 

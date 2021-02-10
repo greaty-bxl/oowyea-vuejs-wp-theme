@@ -40,6 +40,8 @@
 </template>
 
 <script>
+
+	import init_styled_form from 'Libs/styled-form.js'
 	
 	export default {
 		props: {
@@ -48,8 +50,11 @@
 		mounted()
 		{
 
+			init_styled_form('.acfe-form input , .acfe-form textarea ')
 
 		}
+
+
 
 	}
 
@@ -255,10 +260,15 @@
 		.formulaire{
 
 			height: 100%;
-			width: calc(100% - 140px);  
+			width: calc(100% - 140px); 
+			margin-left: auto;
+			margin-bottom: 100px;
 		}
 
-	
+		.text-degustation-page ul{
+
+			margin-bottom: 0px;
+		}
 
 		.degustation-page{
 
@@ -281,7 +291,7 @@
 		.text-degustation-page{
 
 			width: calc(100% - 140px);	
-			padding: 150px 70px;
+			padding: 100px 70px;
 			display: flex;
 			
 		}
@@ -290,11 +300,7 @@
 
 	@media screen and (max-width: 1100px) {
 		
-		.formulaire{
-
-			margin-left: 0px;
-			margin-bottom: 50px;
-		}
+		
 		.image-degustation-page h1 {
 
 			font-size: 7vw !important ;
@@ -335,6 +341,13 @@
 
 		@media screen and (max-width: 600px) {
 
+
+			.formulaire{
+
+				margin-left: 0px;
+				margin-bottom: 70px;
+			}
+
 			.image-degustation-page{
 
 				margin-top: 73px;
@@ -368,7 +381,8 @@
 				width: calc( 100% - 60px);
 				padding-left: 30px;
 				padding-right: 30px;
-				padding-top: 100px;
+				padding-top: 70px;	
+				padding-top: 70px;
 				display: flex;
 			}
 

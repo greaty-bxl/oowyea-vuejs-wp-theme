@@ -18,3 +18,68 @@ h3{
 
 	font-weight: 400;
 }
+
+
+
+
+.wp-content{
+
+	text-align: left;
+	width: 70% !important;
+	margin: 150px auto;
+
+}
+.wp-content h2{
+
+	color: #888320 !important;
+	font-size: 30px;
+	
+
+}
+
+.wp-content h1{
+
+	color: #888320 !important;
+	font-size: 40px !important;
+
+}
+
+.wp-content h3{
+
+	color: #888320 !important;
+
+}
+
+.wp-content p{
+
+	font-size: 17px;
+	line-height: 170%;
+
+}
+
+
+@media screen and (max-width: 600px){
+
+	.wp-content{
+
+		text-align: left;
+		width: calc(100% - 60px);
+		margin: 150px 30px;
+
+	}
+
+}
+
+
+@media screen and (max-width: 1125px) and (min-width: 600px){
+
+
+		.wp-content{
+
+		text-align: left;
+		width: calc(100% - 140px);
+		margin: 150px 70px;
+
+	}
+
+}

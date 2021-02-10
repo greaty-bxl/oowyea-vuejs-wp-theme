@@ -37,8 +37,13 @@
 				<div class="droit-reserve">
 
 					<p>Copyright © Santos Palace 2020 Tous droits réservés 
-						- <a href="">Terms & Conditions</a>
-						- <a href="">Privacy Policy</a> 
+						- <a :href="pll__('URL Terms & Conditions')"
+						v-html="pll__('Terms & Conditions')">Terms & Conditions</a>
+						- <a :href="pll__('URL Privacy Policy')"
+						v-html="pll__('Privacy Policy')"
+						>Privacy Policy</a>
+						- <a :href="pll__('URL Mention légale')"
+						v-html="pll__('Mention légale')">Mention légale</a> 
 					</p>
 					
 				</div>

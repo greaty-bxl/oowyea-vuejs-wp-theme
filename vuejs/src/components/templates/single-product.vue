@@ -155,7 +155,6 @@
 					varites_cafes : this.pll__('varité :'),
 					flavoring : this.pll__('Saveur :'),
 					origine_the : this.pll__('Origine :'),
-					flavor_the : this.pll__('Saveur :'),
 					type_the : this.pll__("type de thé :"),
 					type_infusion : this.pll__("type d'infusion :"),
 					flavor_the : this.pll__("Saveur du thé :"),

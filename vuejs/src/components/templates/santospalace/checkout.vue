@@ -9,17 +9,19 @@
 
 				<div v-html="cols_checkout.col_1"></div>
 
-				<div class="trigge_only_this">
+				<div v-if="cols_checkout.col_2" class="trigge_only_this">
 					<input id='one' type='checkbox' v-model="checked">
 						<label class="button-ouverture" for='one'>
 							<span></span>
 						<p @click="Open" v-html="cols_checkout.title_ship_address_text" ></p>
 					</label>
+				</div>				
+				<div v-else :style="{ height:'50px'}" >
 				</div>
-		
 				<transition name="fade">
 					<div  v-show="checked" v-html="cols_checkout.col_2"></div>
 				</transition>
+
 
 				<div v-html="cols_checkout.title_commande" ></div>
 

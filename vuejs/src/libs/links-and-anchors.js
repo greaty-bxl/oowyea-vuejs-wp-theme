@@ -206,14 +206,25 @@ export default function (vue)
     setTimeout( ()=>{
 		$('a').unbind('click').on('click', (event) => {	
 			console.log( 'click', event.currentTarget );
+			let target = $(event.currentTarget)
 			//event.preventDefault()
-			if( $(event.currentTarget).data('trigger') )
+			if( target.data('trigger') )
 			{
 				//console.log('trigger link');
-				$(document).trigger( $(event.currentTarget).data('trigger'), event.currentTarget )
+				$(document).trigger( target.data('trigger'), event.currentTarget )
 				event.preventDefault();
 			}
-			else if( $(event.currentTarget).attr('href') != "" )
+			else if(  target.hasClass('owy-mailto') )
+			{
+				console.log('email')
+
+				let adr = target.data('adr')
+				let domain = target.data('domain')
+				target.attr('href', 'mailto:'+adr+'@'+domain);
+
+				//event.preventDefault()
+			}
+			else if( target.attr('href') != "" )
 			{
 				on_click(event)
 			}
@@ -221,6 +232,15 @@ export default function (vue)
 			{
 				event.preventDefault()
 			}
+		});
+
+		$('.owy-mailto').each(function(index, el) {
+			console.log("replace at", el);
+			let ico = $('.owy-mailto-ico').clone().show()
+			let inner = $(el).html().replace('[at]', ico.html() )
+
+			$(el).html(inner)
+			console.log(inner);
 		});
     }, 10 )
 	

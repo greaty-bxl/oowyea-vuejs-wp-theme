@@ -34,6 +34,7 @@
     <div id="page-loader">
       <v-icon name="spinner" class="fa-pulse"></v-icon>
     </div>
+    <div class="owy-mailto-ico hide"><v-icon name="at" class="at"/></div>
     <GpdrIntro />
   </div>
 </template>
@@ -405,5 +406,9 @@ html{
   height: 5vh;
   width: 5vh;
   color: rgba(255,255,255,0.5);
+}
+
+.hide{
+  display: none;
 }
 </style>

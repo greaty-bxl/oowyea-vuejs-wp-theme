@@ -7,8 +7,8 @@
 					
 					<h4 class="product__add__success__title" v-html="pll__('Your account')">
 					</h4>
-					<a href="">
-						<span class="close" @click="click_to_close">
+					<a  class="close" @click="click_to_close" href="">
+						<span >
 							<svg  class="close" viewBox="0 0 27 27"><g stroke="#979797" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 26"></path></g>
 							</svg>
 						</span>
@@ -75,12 +75,13 @@
 <script>
 
 	import links_and_anchors from 'Libs/links-and-anchors.js'
+	import init_styled_form from 'Libs/styled-form.js'
 	import wp_ajax from 'Libs/wp-ajax.js'
 
 	export default {
 		data(){
 			return {
-				open: 0,
+				open: 1,
 				step: 0,
 				current1: '',
 				current2: '',
@@ -122,6 +123,8 @@
 			});
 
 			console.log( 'woo_account', this.$store.state.wp.woo_account );
+
+			
 		},
 		methods:{
 			click_to_close : function(event){
@@ -232,6 +235,13 @@
 			'$store.state.wp' : function(){
 				console.log('wp');
 				this.change_menu(0, '', '')
+				// let $ = this.$
+
+				setTimeout(function() {
+					// console.log( 'selector', $('.side-account input[type=text]') )
+					init_styled_form('.side-account input , .woocommerce-EditAccountForm .edit-account input')
+
+				}, 50);
 			},
 			'$store.state.wp.sections' : function(){
 				console.log('wp');
@@ -352,7 +362,7 @@
 
 <style type="text/css">
 
-	.side-account .close{
+	.side-account .close {
 
 		width: 21px;
 		height: 21px;
@@ -372,7 +382,6 @@
 		border-bottom: 1px solid rgb(220, 220, 220);
 
 	}
-
 
 	.side-account .header-account h4{
 
@@ -396,6 +405,7 @@
 
 	.side-account a{
 		color: #888320;
+		font-size: 15px;
 	}
 
 	.side-account .orders .order-actions{
@@ -404,4 +414,30 @@
 	.side-account .orders .shop_table{
 		width: 100%;
 	}
+
+	.side-account tbody td{
+
+		padding: 10px 5px;
+	}	
+
+	.side-account .my_account_orders thead th{
+
+		padding: 10px 5px;
+	}
+	.side-account input{
+
+		border: 1px transparent solid;
+		background-clip: padding-box;
+		display: block;
+		box-sizing: border-box;
+		width: 70%; 
+		padding: 0.6em 0.3em;
+		word-break: normal;
+		line-height: inherit;
+		border-color: #d9d9d9;
+
+	}
+
+
+
 </style>

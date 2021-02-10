@@ -239,7 +239,7 @@
 
 				setTimeout(function() {
 					// console.log( 'selector', $('.side-account input[type=text]') )
-					init_styled_form('.side-account input , .woocommerce-EditAccountForm .edit-account input')
+					init_styled_form('.side-account input')
 
 				}, 50);
 			},

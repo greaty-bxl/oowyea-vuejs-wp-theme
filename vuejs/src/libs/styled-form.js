@@ -5,8 +5,25 @@ export default function ( selector ){
 	$(selector).each( (index, el) => {
 
 		// $(el).find('label').hide();
+
+		let input = $(el)
+		let id = input.prop('id')
+		let label = $(el).parents('form').find('label[for="'+id+'"]')
+		let label_txt = label.text()
+
+		label.hide()
+
+		input.attr('placeholder', label_txt);
+
+		check_state( input, label )
+
+		input.unbind('change keyup').on("change keyup", () => {
+
+			check_state( input, label )
 		
-		$(el).parent().prev().find('label').css('display', 'none');
+		});
+		
+		/*$(el).parent().prev().find('label').css('display', 'none');
 
 		$(el).parent().parent().prev().find('label').css('display', 'none');
 
@@ -77,7 +94,7 @@ export default function ( selector ){
 			}
 			
 			
-		}
+		}*/
 
 			
 
@@ -85,74 +102,32 @@ export default function ( selector ){
 
 	});
 
+	function check_state(input, label) {
+		if (input.parents('.acfe-form').length )
+		{
+			input.addClass('paddingTop-animation-acf')
+			label.addClass('appear-label-acf')
+		}
+		else
+		{
+			input.addClass('paddingTop-animation')
+			label.addClass('appear-label')
+		}
 
-
-		$(selector).on("change keyup", function() {
-
-			if ($(this).parents().hasClass('acfe-form') ){
-
-				$(this).addClass('paddingTop-animation-acf')
-
-				if ( $(this).is("textarea") ){
-
-					$(this).parent().parent().find('label').addClass('appear-label-acf')
-				}
-				else{
-
-					$(this).parent().parent().parent().find('label').addClass('appear-label-acf')
-				}
+		if (input.val() === '')
+		{
+			if (input.parents().hasClass('acfe-form') )
+			{
+				label.removeClass('appear-label-acf')
+			}
+			else
+			{
+				label.removeClass('appear-label')
 
 			}
-			else{
-
-				$(this).addClass('paddingTop-animation')
-				
-				$(this).parent().parent().find('label').addClass('appear-label')
-			}
-
-			if ($(this).val() === '') {
-
-
-				if ($(this).parents().hasClass('acfe-form') ){
-
-					if ( $(this).is("textarea") ){
-
-						$(this).parent().parent().find('label').removeClass('appear-label-acf')
-					}
-					else{
-
-						$(this).parent().parent().parent().find('label').removeClass('appear-label-acf')
-
-					}
-
-
-				}
-
-				else{
-
-					if ( $(this).is("textarea") ){
-
-						$(this).parent().parent().find('label').removeClass('appear-label')
-					}
-					else{
-
-						$(this).parent().parent().parent().find('label').removeClass('appear-label')
-
-					}
-
-				}
-
-				$(this).removeClass('paddingTop-animation')
-				$(this).removeClass('paddingTop-animation-acf')			
-
-			}
-			else{
-
-				console.log('rempli');
-			}
-		
-		});
-
-
+			input.removeClass('paddingTop-animation')
+			input.removeClass('paddingTop-animation-acf')			
+		}
+	}
 
 }	

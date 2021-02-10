@@ -14,8 +14,8 @@
 }
 
 .acf-fields>.acf-field label{
-	color: #422112;
-	font-weight: bold;
+
+	font-weight: 400;
 	
 }
 
@@ -62,6 +62,7 @@
 	
 	padding: 15px 10px  15px 10px !important;
 	border-radius: 3px;	
+	font-family: montse
 }
 
 

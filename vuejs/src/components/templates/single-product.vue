@@ -150,12 +150,10 @@
 				tot_price: '-',
 				cart_v2: '',
 				terms_list_display: {
-
 					origine : this.pll__('Origine :'),
 					varites_cafes : this.pll__('varité :'),
 					flavoring : this.pll__('Saveur :'),
 					origine_the : this.pll__('Origine :'),
-					flavor_the : this.pll__('Saveur :'),
 					type_the : this.pll__("Type de thé :"),
 					type_infusion : this.pll__("Type d'infusion :"),
 					flavor_the : this.pll__("Saveur du thé :"),

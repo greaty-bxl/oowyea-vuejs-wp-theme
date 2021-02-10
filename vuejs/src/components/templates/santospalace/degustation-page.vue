@@ -2,7 +2,7 @@
 
 	<div class="section-wrap">
 		<div class="image-degustation-page">
-			<h3 v-html="pll__('Entreprise')"></h3>
+			<h3 v-html="pll__('@ Work')"></h3>
 			<h1 v-html="pll__('Dégustation')"></h1>
 		</div>
 

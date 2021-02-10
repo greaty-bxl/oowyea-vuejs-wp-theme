@@ -930,7 +930,7 @@
 		display: block;
 		margin-bottom: 10px;
 		font-size: 14px;
-		color: #888320;
+		color: #422112;
 	}
 
 	.col-descriptif{

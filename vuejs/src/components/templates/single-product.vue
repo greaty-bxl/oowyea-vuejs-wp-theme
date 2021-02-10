@@ -103,7 +103,11 @@
 
 						</div>
 
-						<div class="form_contact_us_product" v-if="type == 'contact_us'" v-html="post.form">
+						<div class="form_contact_us_product" v-if="type == 'contact_us'" >
+							<strong><span class="form-title" v-html="pll__('Vous êtes intéressé par ce produit, <br>contacez-nous via ce formulaire.')"></span></strong>
+							<div v-html="post.form">
+								
+							</div>
 						</div>
 
 						<div class="continuer-achat">
@@ -920,6 +924,13 @@
 
 	.form_contact_us_product{
 		margin-top: 30px;
+	}
+
+	.form_contact_us_product .form-title{
+		display: block;
+		margin-bottom: 10px;
+		font-size: 14px;
+		color: #888320;
 	}
 
 	.col-descriptif{

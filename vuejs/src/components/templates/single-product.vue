@@ -152,9 +152,9 @@
 				terms_list_display: {
 
 					origine : this.pll__('Origine :'),
-					flavoring : this.pll__('flavoring :'),
-					origine_the : this.pll__('origine_the :'),
-					flavor_the : this.pll__('flavor_the :'),
+					flavoring : this.pll__('Saveur :'),
+					origine_the : this.pll__('Origine :'),
+					flavor_the : this.pll__('Saveur :'),
 
 				}
 			}

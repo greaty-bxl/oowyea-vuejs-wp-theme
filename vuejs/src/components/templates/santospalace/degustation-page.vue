@@ -71,6 +71,8 @@
 		display: flex;
 		flex-direction: row;
 		font-family: 'Montserrat', sans-serif; 
+		padding: 100px 0px;
+		box-sizing: border-box;
 
 	}
 

@@ -8,7 +8,7 @@ acf_add_local_field_group(array(
 	'fields' => array(
 		array(
 			'key' => 'field_60113e9ca99cc',
-			'label' => 'nom',
+			'label' => 'Nom',
 			'name' => 'nom',
 			'type' => 'text',
 			'instructions' => '',
@@ -27,7 +27,7 @@ acf_add_local_field_group(array(
 		),
 		array(
 			'key' => 'field_60113ea4a99cd',
-			'label' => 'prénom',
+			'label' => 'Prénom',
 			'name' => 'prenom',
 			'type' => 'text',
 			'instructions' => '',
@@ -46,7 +46,7 @@ acf_add_local_field_group(array(
 		),
 		array(
 			'key' => 'field_60113eada99ce',
-			'label' => 'email',
+			'label' => 'E-mail',
 			'name' => 'email',
 			'type' => 'email',
 			'instructions' => '',
@@ -63,8 +63,46 @@ acf_add_local_field_group(array(
 			'append' => '',
 		),
 		array(
+			'key' => 'field_6023bc0fb940c',
+			'label' => 'TVA',
+			'name' => 'tva',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_6023bc1bb940d',
+			'label' => 'Téléphone',
+			'name' => 'telephone',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
 			'key' => 'field_60113eb7a99cf',
-			'label' => 'message',
+			'label' => 'Message',
 			'name' => 'message',
 			'type' => 'textarea',
 			'instructions' => '',
@@ -108,7 +146,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1611742954,
+	'modified' => 1612954734,
 ));
 
 endif;

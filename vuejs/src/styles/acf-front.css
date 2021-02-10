@@ -98,7 +98,24 @@
 	padding: 15px 10px 10px 10px !important;
 	position: absolute !important;
 	display: block  !important ;
-	z-index: 1000;
+	z-index: 1002;
 
 }
+/* Error */
+.acf-error-message.-dismiss{
+	display: none;
+}
+.acf-input .acf-error-message{
+	position: relative;
+	overflow: visible;
+	height: 0px;
+	margin: 0px;
+	padding: 0px;
+	pointer-events: none;
+	z-index: 1;
+}
 
+.acf-input .acf-error-message p{
+	padding: 15px 10px  15px 10px !important;
+	background: #F6F6F6;
+}

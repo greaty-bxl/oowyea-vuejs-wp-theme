@@ -33,6 +33,7 @@ export default function (vue) {
 		form.prev('.updated').remove()
 		form.prev('.acfe-form-success').remove()
 
+		console.log('acf send');
 
 		$.ajax({
 			type: "POST",
@@ -40,7 +41,7 @@ export default function (vue) {
 			data: fields, // serializes the form's elements.
 			success: function(result)
 			{
-				console.log( result );
+				console.log('acf return');
 				let json = JSON.parse( result )
 				
 				form.replaceWith(json.new_acf);
@@ -49,6 +50,18 @@ export default function (vue) {
 
 				$('#page-loader').css('display', 'none');
 			}
+		}).fail( ()=>{
+
+			//let fields_err = $('.acf-field.acf-error input, .acf-field.acf-error textarea')
+			
+
+			$('.disabled-by-ajax').removeProp('disabled')
+
+			$('.disabled-by-ajax').prop('disabled', false)
+
+			$('.disabled-by-ajax').removeClass('disabled-by-ajax')
+
+			$('#page-loader').css('display', 'none');
 		});
 	});
 

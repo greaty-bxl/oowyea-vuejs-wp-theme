@@ -262,7 +262,6 @@ export default {
 
 				if( next_url.pathname == window.location.pathname )
 				{
-					console.log('same pathname');
 					$('#app').scrollTop(0)
 				}
 			}

@@ -59,7 +59,7 @@
 							</div>
 						</div>
 
-						<div class="vue-wc-variations">
+						<div class="vue-wc-variations" v-if="Object.keys(variations_selects).length > 0">
 							<div 
 							class="vue-wc-variation" 
 							v-for="(select, key) in variations_selects" 
@@ -930,7 +930,7 @@
 		display: block;
 		margin-bottom: 10px;
 		font-size: 14px;
-		color: #888320;
+		color: #422112;
 	}
 
 	.col-descriptif{

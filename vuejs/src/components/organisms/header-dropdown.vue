@@ -11,7 +11,8 @@
 				</div>
 
 				<div class="logo-santos">
-					<a :href="this.wp.options.siteurl"><Acf field="logo"/>						
+					<a :href="this.wp.options.siteurl">
+						<Acf field="logo"/>						
 					</a>
 				</div>
 
@@ -232,6 +233,7 @@ export default {
 					easing: 'easeInOutSine',
 					duration: 200,
 				});
+
 				
 				$(this).removeClass('open-simple')
 				$('.div-image-compte-mobile').removeClass('open-simple')
@@ -243,30 +245,15 @@ export default {
 				$('.icon-arrow-right').removeClass('open-simple')
 				$('.icon-arrow-right').addClass('close-simple')
 
+
+
 			}
 
 		});
 
-		//let vue = this
-		$(document).on('click', function(event) {
 
-		if( $(event.target).parents('#header').length && $(event.target).prop("tagName") == 'A' )
-		{
-			
-			let next_url = new URL($(event.target).attr('href'));
+		$(document).on('click', function() {
 
-			if( next_url.pathname == window.location.pathname )
-			{
-				console.log('same pathname');
-				$('#app').scrollTop(0)
-			}
-			//console.log(window.location, next_url);
-
-			//$('#app').animate({scrollTop: 0}, $('#app').scrollTop() / 3 );
-
-			//console.log('click header', $(event.target) );
-		}
-		
 
 		if($(event.target).parents('.parent').length != 0) {
 
@@ -603,11 +590,11 @@ export default {
 		height: 15px;
 	}
 	
-/*
+
 	.logo-santos img{
 
 		height: 60px;
-	}*/
+	}
 
 	.parent{
 
@@ -738,8 +725,7 @@ export default {
 
 	.logo-santos img{
 
-		/*height: 55px;*/
-		min-width: 150px;
+		height: 55px;
 	}
 
 	.icon-arrow-right{

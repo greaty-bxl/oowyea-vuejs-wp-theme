@@ -588,6 +588,14 @@
 
 	}
 
+	.side-cart .descriptif-item .variation{
+		text-transform: none;
+	}
+	.side-cart .descriptif-item .variation *{
+		margin: 0;
+		display: inline;
+	}
+
 
 	@media screen and (max-width: 600px) {
 

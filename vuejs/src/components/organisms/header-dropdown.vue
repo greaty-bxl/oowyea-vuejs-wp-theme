@@ -22,8 +22,7 @@
 						<div v-html='menu_langue'></div>
 					</div>
 
-					<div v-for="child in $store.state.wp.menus" :key="child.ID" >
-
+					<div class="div-parent-grandparent" v-for="child in $store.state.wp.menus" :key="child.ID"  v-bind:class="{'current':showButton === child.url}" >
 
 						<li v-if="child.ID > -1"   class="dropdown grandparent">
 
@@ -72,7 +71,10 @@
 						<div  v-else >
 						</div>
 						
-
+						<div class="parent-animation">
+							<div class="green-animation" ></div>
+						</div>
+					
 					</div>
 
 
@@ -173,10 +175,14 @@ export default {
 	},
 	mounted(){
 		var $ = this.$
-
 		this.$emit('template_mounted', this)
 
+		$('.sousmenus.current').parents('.div-parent-grandparent').addClass('current')
+
 		$(document).on('click', '.menu-item', function() {
+
+
+
 
 			if ( !$(this).hasClass('close-simple')){
 
@@ -252,7 +258,23 @@ export default {
 		});
 
 
-		$(document).on('click', function() {
+		$(document).on('click', function(event) {
+
+			// $('.div-parent-grandparent').removeClass('current')
+			// $('.sousmenus.current').parents('.div-parent-grandparent').addClass('current')
+
+			// console.log(event);
+
+			// $('.div-parent-grandparent').each(function(index, el) {
+
+			// 	if( $(this).children('.sousmenus').hasClass('current') ){
+
+
+			// 	} 
+
+				
+			// });
+
 
 			if( $(event.target).parents('#header').length && $(event.target).prop("tagName") == 'A' )
 			{
@@ -510,7 +532,7 @@ export default {
 		display: none !important;
 	}
 	.santos-navbar{
-		height: 114px;
+		height: 100px;
 		background-color: white;
 		border-bottom: 1px solid #dddddd;
 	}
@@ -635,7 +657,34 @@ export default {
 		margin-right: 0px;
 		border-right: 0px;
 
-	}	
+	}
+
+	.div-parent-grandparent{
+
+		display: flex;
+		flex-direction: column;
+	
+	}
+
+	.parent-animation{
+
+		height: 4px;
+		overflow: visible;
+		width: 100%
+	}
+	.green-animation{
+
+		height: 6px;
+		width: 100%;
+		background-color: #888320;
+		display: none;
+	}
+
+	.parent li{
+
+		margin-top: auto;
+		margin-bottom: auto;
+	}
 
 /*styleglobal*/
 
@@ -762,54 +811,59 @@ export default {
 		font-weight: 700;
 	}
 
-	.parent li a:hover {
-		color: #888320;
+	.div-parent-grandparent:hover .green-animation {
+		
+		display: block;
 	}
 
-	.ligne-animation:after {
+	.current .green-animation{
+
+		display: block;
+
+	}
+
+	.grandparent a:after {
+
 		content: "";
 		position: absolute;
 		opacity: 0;
-		top: calc(100% - 7px);
+		top: calc(100% - 3px) ;
 		left: 0;
 		z-index: 3000;
-		width: 100%;
+		width: auto;
 		height: 7px;
 		background-color: #888320;
 		transition: opacity .3s ease-in-out;
 	}
 
 	.parent li a {
-		position: relative;
-		padding-bottom: 50px;
+
 		white-space: nowrap;
 		transition: opacity .3s ease-in-out;
 	}
 
-	.parent li:hover a:after {
+	.div-parent-grandparent:hover a:after {
 		opacity: 1;
 	}
 
-	.parent li {
-		padding: 47px 1vw;
-	}
-
 	.dropdown-content {
+
 		padding-left: 0px;
-		display: none;
 		width: 100%;
 		background: white;
 		position: absolute;
 		box-sizing: border-box;
 		right: 0px;
-		top:113px;
+		top:100px;
 		vertical-align:baseline;
-		/*z-index :5000;*/
 		-webkit-font-smoothing: antialiased;
 		border-top: 1px solid #dddddd;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		display: none;
 	}
 
-	.dropdown:hover .dropdown-content {
+	.div-parent-grandparent:hover .dropdown-content {
 
 		display: block;
 	}
@@ -832,7 +886,7 @@ export default {
 	.count{
 
 		left: calc( 100% - 62px );
-		top: 41px;
+		top: 36px;
 
 	}
 
@@ -841,6 +895,12 @@ export default {
 		display: none;
 	}
 
+	.grandparent{
+
+		height: calc( 100% - 4px; )
+
+	}
+			
 }
 
 /*animation header pc*/
@@ -1041,6 +1101,7 @@ export default {
 
 		font-size: 16px;
 		margin-top: 28px;
+		position: relative;
 	}
 	.childli{
 

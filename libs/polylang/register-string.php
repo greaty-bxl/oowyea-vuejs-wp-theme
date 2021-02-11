@@ -20,7 +20,7 @@ function find_string_and_register()
 
 		    if (!is_dir($path)) {
 		        $info = pathinfo( $path );
-		        if( $info['extension'] == 'vue' )
+		        if( $info['extension'] == 'vue' || $info['extension'] == 'js' )
 		        {
 		            preg_match('#templates\\\(.*)\\\#', $path, $matches, PREG_OFFSET_CAPTURE);
 		            if( @$matches[1][0] )
@@ -37,7 +37,7 @@ function find_string_and_register()
 
 		            $content = file_get_contents( $path );
 
-		            preg_match_all('/pll__\([\'|\"](.*)[\'|\"]\)/i', $content, $matches);
+		            preg_match_all('/pll__\([\'|\"]((?:(?!pll__\().)*)[\'|\"]\)/i', $content, $matches);
 
 		            if( count( $matches[0] ) ){
 
@@ -48,6 +48,9 @@ function find_string_and_register()
 		            		$option_keys[$string] = $string;
 		            	}      	
 		            }
+
+
+
 		        }            
 		    } 
 		    else if ($value != "." && $value != "..") 
@@ -57,7 +60,7 @@ function find_string_and_register()
 		}
 	}
 
-	recursive_scan( GREATY_TEMPLATE_PATH.'/vuejs/src/components/' );
+	recursive_scan( GREATY_TEMPLATE_PATH.'/vuejs/src/' );
 
 	update_option( 'owy_pll_strings', $option_keys, true );
 }

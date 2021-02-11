@@ -218,9 +218,12 @@ export default function (vue)
 			{
 				let adr = target.data('adr')
 				let domain = target.data('domain')
-				target.attr('href', 'mailto:'+adr+'@'+domain);
+				let mail = adr+'@'+domain
+				target.attr('href', 'mailto:'+mail);
+				target.text(mail)
+				target.removeClass('owy-mailto')
+				event.preventDefault()
 
-				//event.preventDefault()
 			}
 			else if( target.attr('href') != "" )
 			{
@@ -232,13 +235,6 @@ export default function (vue)
 			}
 		});
 
-		$('.owy-mailto').each(function(index, el) {
-
-			let ico = $('.owy-mailto-ico').clone().show()
-			let inner = $(el).html().replace('[at]', ico.html() )
-
-			$(el).html(inner)
-		});
     }, 10 )
 	
 

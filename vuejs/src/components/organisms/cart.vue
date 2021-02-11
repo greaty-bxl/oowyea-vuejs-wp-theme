@@ -298,6 +298,14 @@
 		margin-bottom: auto;
 	}
 
+	.left-colt::-webkit-scrollbar-thumb{
+		background: #e1e1e1 !important;
+	}
+
+	.left-col::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:hover{
+		background: #e1e1e1 !important;
+	}
+
 	.fade-enter-active .left-col, .fade-leave-active .left-col, .fade-leave-to .left-col {
 		margin-right: -500px;
 		transition: margin-right 0.6s;

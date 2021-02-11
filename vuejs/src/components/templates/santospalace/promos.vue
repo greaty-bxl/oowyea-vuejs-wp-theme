@@ -77,7 +77,7 @@
 
 		height: 55vh;
 		width: 75%;
-		margin-top: 114px;
+		margin-top: 100px;
 		margin-left: auto;
 		margin-right: auto;
 		background-size: cover;

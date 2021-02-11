@@ -142,7 +142,7 @@ export default {
 
 	.image-shop{
 
-		margin-top: 114px;
+		margin-top: 100px;
 		background-color: #888320;
 		background-size: cover;
 		background-position: center;

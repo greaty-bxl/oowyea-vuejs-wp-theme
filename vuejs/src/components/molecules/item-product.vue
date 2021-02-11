@@ -179,7 +179,7 @@ export default {
 
 	.image-shop{
 
-		margin-top: 114px;
+		margin-top: 100px;
 		background-color: #FAFAFA;
 		padding-bottom: 50px;
 		display: flex;

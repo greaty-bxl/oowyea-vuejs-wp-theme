@@ -599,7 +599,7 @@
 
 		display: flex;
 		flex-direction: column;
-		margin-top: 114px;
+		margin-top: 100px;
 		margin-bottom: 50px;
 		margin-right: auto;
 		margin-left: auto;

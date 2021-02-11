@@ -29,7 +29,7 @@
 
 	.header-home{
 
-		margin-top: 114px;
+		margin-top: 100px;
 		background-color: #FAFAFA;
 		padding-bottom: 50px;
 		display: flex;
@@ -41,7 +41,7 @@
 		background-size: cover;
 		color: white;
 		/*font-family: open sans;*/
-		height: calc( 100vh - 114px)
+		height: calc( 100vh - 100px)
 	}
 
 

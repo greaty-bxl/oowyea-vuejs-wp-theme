@@ -81,7 +81,7 @@
 	export default {
 		data(){
 			return {
-				open: 1,
+				open: 0,
 				step: 0,
 				current1: '',
 				current2: '',
@@ -312,13 +312,14 @@
 	}
 
 	.account-container{
-		/*margin-top: 30px;*/
+		margin-top: 30px;
 		margin-bottom: 30px;
 		white-space: nowrap;
 		overflow-x: hidden;
 	}
 	.account-container > div{
-		width: 100%;
+		width: calc(100% - 20px);
+		padding: 0px 10px; 
 		display: inline-block;
 		white-space: normal;
 		vertical-align: top;
@@ -344,7 +345,30 @@
 
 	.account-info.right-content > div{
 
-		margin-top: 30px;
+		margin-top: 20px;
+	}
+
+	.account-info.right-content{
+
+		overflow: auto;
+		margin-bottom: auto;
+		max-height: 85vh;
+
+	}
+
+	.edit-address-billing.right-content{
+
+		overflow: auto;
+		margin-bottom: auto;
+		max-height: 85vh;
+	}
+
+	.right-content::-webkit-scrollbar-thumb{
+		background: #e1e1e1 !important;
+	}
+
+	.right-content::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:hover{
+		background: #e1e1e1 !important;
 	}
 
 	.account-info .account-container  * {
@@ -408,6 +432,12 @@
 		font-size: 15px;
 	}
 
+	.right-content {
+
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
 	.side-account .orders .order-actions{
 		display: none;
 	}
@@ -430,11 +460,144 @@
 		background-clip: padding-box;
 		display: block;
 		box-sizing: border-box;
-		width: 70%; 
-		padding: 0.6em 0.3em;
+		width: 100%; 
+		padding-left: 8px;
+		padding-top: 11.5px !important;
+		padding-bottom: 11.5px  !important;
 		word-break: normal;
 		line-height: inherit;
 		border-color: #d9d9d9;
+		font-size: 14px;
+
+	}
+
+	.side-account .paddingTop-animation{
+
+		padding-top: 18px !important;
+		padding-bottom: 5px  !important;
+		font-size: 14px;
+	}
+
+	.side-account .appear-label{
+
+		margin-left: 8px;
+		display: flex !important;
+		position: relative;
+		top: 5px;
+		
+	}
+
+	.side-account .woocommerce-form-row{
+
+		padding-top: 15px;
+
+	}
+
+
+	.side-account .form-row{
+
+		padding-top: 15px;
+
+	}
+
+	.woocommerce-form-row label{
+
+		height: 0px;
+		
+	}
+
+	.woocommerce-address-fields label{
+
+		height: 0px;
+	}
+
+	.edit-account fieldset{
+		margin-top: 15px;
+		background-color: #f7f7f7;
+	}
+
+	.edit-account legend{
+
+		font-weight: 500;
+		font-size: 16px;
+		color: #422112;
+
+	}
+
+	.side-account h3{
+
+		color: #422112;
+	}
+
+	.side-account address {
+		font-size: 14px;
+		line-height: 140%;
+	}
+
+	.side-account header{
+
+		margin-bottom: 10px;
+	}
+
+	.left-col button{
+
+		margin-top: 15px;
+		background-color: #888320;
+		color: white !important;
+		border: 1px solid #888320 !important;
+		border-radius: 3px;
+		border-width: 1px;
+		min-width: 200px;
+		width: 100% !important;
+		font-size: 16px;
+		transition: 0.3s !important;
+		text-align: center;
+		padding: 20px 18px;
+		box-sizing: border-box;
+		
+	}
+
+	.left-col button:hover{
+
+		background-color: white !important;
+		color: #888320 !important;
+		transition: 0.3s !important;
+		
+	}
+
+	.left-col button, input, select, textarea{
+
+		width: 100%;
+		border: 1px #d9d9d9 solid;
+		padding-top: 11.5px !important;
+		padding-bottom: 11.5px !important;
+
+	}
+
+	.country_select {
+		position: relative;
+		font-size: 14px;
+		margin-top: 10px;
+	}
+
+	#billing_country_field .appear-label{
+
+		display: flex !important;
+		height: auto;
+		top: 0px;
+	}
+
+	#billing_country_field strong{
+
+		margin-left: 8px;
+		margin-top: 5px;
+		color: #422112;
+	}
+
+	.woocommerce-input-wrapper{
+
+		display: flex;
+		flex-direction: column;
 
 	}
 

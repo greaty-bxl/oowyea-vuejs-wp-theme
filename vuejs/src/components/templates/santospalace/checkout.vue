@@ -346,8 +346,9 @@ export default {
 
 	.woocommerce-checkout-review-order-table{
 
-		margin-left: auto;
-		margin-right: auto;
+		/*margin-left: auto;
+		margin-right: auto;*/
+		width: 100%;
 		border: 1px solid #d9d9d9 ;
 		border-radius: 5px !important;
 		border-collapse: initial;

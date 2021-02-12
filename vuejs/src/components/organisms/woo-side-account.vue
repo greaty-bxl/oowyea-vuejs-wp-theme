@@ -9,7 +9,7 @@
 					</h4>
 					<a  class="close" @click="click_to_close" href="">
 						<span >
-							<svg  class="close" viewBox="0 0 27 27"><g stroke="#979797" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 26"></path></g>
+							<svg   class="close" viewBox="0 0 27 27"><g stroke="#422112" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 25"></path></g>
 							</svg>
 						</span>
 					</a>
@@ -119,10 +119,10 @@
 				{
 					this.change_menu(1, 'lost-password', '' )
 				}
-				console.log('wc_account_link_open', target);
+			
 			});
 
-			console.log( 'woo_account', this.$store.state.wp.woo_account );
+			
 
 			
 		},
@@ -142,7 +142,7 @@
 			},
 			a_to_none: function(html){
 
-				console.log(html);
+				html
 			}
 		},
 		computed:{
@@ -154,8 +154,7 @@
 				let url = find_url.find('a.delivery-address')
 					.attr('href')
 					.replace( window.location.origin + window.location.pathname, this.$store.state.wp.woo_account.page_url )
-
-				console.log('edit_address_delivery', url, html.find('form').attr('action', url) );
+				url
 				return html.first().html()
 			},
 			woo_account: function(){
@@ -233,18 +232,18 @@
 		},
 		watch : {
 			'$store.state.wp' : function(){
-				console.log('wp');
+
 				this.change_menu(0, '', '')
 				// let $ = this.$
 
 				setTimeout(function() {
-					// console.log( 'selector', $('.side-account input[type=text]') )
+
 					init_styled_form('.side-account input')
 
 				}, 50);
 			},
 			'$store.state.wp.sections' : function(){
-				console.log('wp');
+
 				// this.open = 0
 			}
 		}
@@ -393,6 +392,8 @@
 		display: flex;
 		margin-top: auto;
 		margin-bottom: auto;
+		fill: #422112;
+
 
 	}
 

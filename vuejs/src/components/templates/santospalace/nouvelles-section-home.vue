@@ -6,6 +6,8 @@
 				<h2 v-html="pll__('Nouveautés @home')"></h2>
 				<div class="div-filtre-nouvelles">
 
+
+					
 						<swiper class="swiperNouvellesbutton" :options="swiperMenu"  :pagination="{ clickable: true }">
 
 							<swiper-slide v-for="(v_slide, index) in last_products_slider" :key="index"  >
@@ -20,7 +22,8 @@
 					
 				</div>
 
-				<div>
+				<div class="swiperProductcontent">
+				
 					<swiper v-for="(v_slide, index) in last_products_slider" 
 					:key="index"
 					v-show="index == active"
@@ -35,7 +38,14 @@
 						</swiper-slide>
 					
 					</swiper>
-					<div class="swiper-pagination"></div>	
+					<div class="swiper-pagination"></div>
+					<div class="content-flech">
+						
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+
+					</div>
+				
 				</div>
 				
 			</div>
@@ -145,6 +155,11 @@
 					}
 					},
 
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev',
+					},
+
 					on : {
 						init : function(){
 
@@ -166,7 +181,24 @@
 
 <style type="text/css">
 
+	.swiperProductcontent{
 
+		position: relative;
+
+	}
+
+	.swiper-button-next{
+
+		right: 20px;
+
+		color: #422112;
+	}
+
+	.swiper-button-prev{
+
+		left: 20px;
+		color: #422112;
+	}
 
 	.swiperNouvellesbutton .swiper-slide{
 
@@ -297,6 +329,8 @@
 
 	@media screen and ( max-width: 1100px ){
 
+	
+
 		.section-nouvelles .item-product{
 
 			margin-left: 0px;
@@ -382,6 +416,28 @@
 	}
 
 	@media screen and ( max-width: 600px ){
+
+		.content-flech{
+
+			margin-bottom: 30px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 100%
+
+		}
+
+		.swiper-button-next{
+
+			top: 90%;
+			color: #422112;
+		}
+
+		.swiper-button-prev{
+
+			top: 90%;
+			color: #422112;
+		}
 
 		.swiperNouvellesbutton{
 

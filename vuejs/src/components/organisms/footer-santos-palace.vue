@@ -69,9 +69,7 @@
 		mounted(){
 
 			this.$emit('template_mounted', this);
-			console.log( this.wp);
 
-		
 			smart_fonts({
 				'.text-contact' : 52.8,
 			})

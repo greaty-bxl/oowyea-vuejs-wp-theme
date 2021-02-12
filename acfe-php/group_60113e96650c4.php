@@ -12,7 +12,7 @@ acf_add_local_field_group(array(
 			'name' => 'nom',
 			'type' => 'text',
 			'instructions' => '',
-			'required' => 0,
+			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
@@ -31,7 +31,7 @@ acf_add_local_field_group(array(
 			'name' => 'prenom',
 			'type' => 'text',
 			'instructions' => '',
-			'required' => 0,
+			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
@@ -50,7 +50,7 @@ acf_add_local_field_group(array(
 			'name' => 'email',
 			'type' => 'email',
 			'instructions' => '',
-			'required' => 0,
+			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
@@ -106,7 +106,7 @@ acf_add_local_field_group(array(
 			'name' => 'message',
 			'type' => 'textarea',
 			'instructions' => '',
-			'required' => 0,
+			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
@@ -146,7 +146,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1612954734,
+	'modified' => 1612966306,
 ));
 
 endif;

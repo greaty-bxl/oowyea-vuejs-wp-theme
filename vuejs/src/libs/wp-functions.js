@@ -31,7 +31,7 @@ function get_terms_as_string(post, tax){
 		let result = my_array.join(', ')
 		let n = result.lastIndexOf(',');
 
-		result = result.slice(0, n) + result.slice(n).replace(',', ' &');
+		result = result.slice(0, n) + result.slice(n).replace(',', ' '+ this.pll__('et') );
 
 
 		return result

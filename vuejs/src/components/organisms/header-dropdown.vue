@@ -26,7 +26,7 @@
 
 						<li v-if="child.ID > -1"   class="dropdown grandparent">
 
-							<div v-if="child.child">
+							<div  v-if="child.child" class="grandparent-2">
 
 								<div class="li-espace-between">
 
@@ -156,6 +156,7 @@
 import Acf from 'Organisms/acf.vue'
 import Cart from 'Organisms/cart.vue'
 import Account from 'Organisms/woo-side-account.vue'
+import is from 'is_js'
 
 
 export default {
@@ -177,12 +178,10 @@ export default {
 		var $ = this.$
 		this.$emit('template_mounted', this)
 
-		$('.sousmenus.current').parents('.div-parent-grandparent').addClass('current')
-
 		$(document).on('click', '.menu-item', function() {
 
 
-
+			$('.sousmenus.current').parents('.div-parent-grandparent').addClass('current')
 
 			if ( !$(this).hasClass('close-simple')){
 
@@ -246,10 +245,10 @@ export default {
 				$(this).addClass('close-simple')
 				$('.div-image-compte-mobile').addClass('close-simple')
 				$('.count').removeClass('changement-couleur')
-				$('.icon-arrow-left').removeClass('open-simple')
-				$('.icon-arrow-left').addClass('close-simple')
-				$('.icon-arrow-right').removeClass('open-simple')
-				$('.icon-arrow-right').addClass('close-simple')
+				$('.li-sousmenu').removeClass('open-simple')
+				$('.li-sousmenu').addClass('close-simple')
+				// $('.li-sousmenu').removeClass('open-simple')
+				// $('.li-sousmenu').addClass('close-simple')
 
 
 
@@ -274,7 +273,6 @@ export default {
 
 				
 			// });
-
 
 			if( $(event.target).parents('#header').length && $(event.target).prop("tagName") == 'A' )
 			{
@@ -321,10 +319,10 @@ export default {
 
 					$(this).addClass('close-simple')
 					$('.count').removeClass('changement-couleur')
-					$('.icon-arrow-left').removeClass('open-simple')
-					$('.icon-arrow-left').addClass('close-simple')
-					$('.icon-arrow-right').removeClass('open-simple')
-					$('.icon-arrow-right').addClass('close-simple')
+					$('.li-sousmenu').removeClass('open-simple')
+					$('.li-sousmenu').addClass('close-simple')
+					// $('.icon-arrow-right').removeClass('open-simple')
+					// $('.icon-arrow-right').addClass('close-simple')
 
 
 				}	
@@ -382,87 +380,105 @@ export default {
 
 			var $ = this.$
 
+			$('.div-parent-grandparent').each( (index, el) => {
+
+				if ($(el).find('.dropdown-content').length != 0 ) {
+
+					var children = $(el).find('.dropdown-content')
+
+					if (children.find('.current').length != 0) {
+						
+						$(el).find('.ligne-animation').addClass('current')
+						$(el).addClass('current')
+					} 
+					else{
+
+						$(el).removeClass('current')
+						$(el).find('.ligne-animation').removeClass('current')
+
+					}
+				}
+				else{
+
+					console.log('');
+				}
+
+				
+			});
 
 			this.showButton = window.location.toString() 
 
-			// $("a.current").parents('.grandparent').find('.ligne-animation').addClass('current');
+			if ( !is.desktop() ) {
 
-			$('.icon-arrow-right').unbind('click').click(function() {
+			$('.grandparent-2').unbind('click').click(function() {
 
+				$(this).parents('.grandparent').find('.li-sousmenu').toggleClass('active');
 
+					if ($(this).parents('.grandparent').find('.li-sousmenu').hasClass('active')) {
 
-				$(this).parents('.grandparent').find('.icon-arrow-left').toggleClass('active');
+						$(this).parents('.grandparent').find('.li-sousmenu').removeClass('close-simple')
 
-				if ($(this).parents('.grandparent').find('.icon-arrow-left').hasClass('close-simple')) {
+						$(this).parents('.grandparent').find('.li-sousmenu').addClass('open-simple')
 
-					$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('close-simple')
+						$('.count').addClass('changement-couleur')
 
-					$(this).parents('.grandparent').find('.icon-arrow-left').addClass('open-simple')
+						$(this).parents('.grandparent').find('.dropdown-content').animate({
+							right: '0vw',
+							easing: 'easeInOutSine',
+							duration: 200,
+						});
+										
+					}
+					else {
 
-					$('.count').addClass('changement-couleur')
+						
+							$(this).parents('.grandparent').find('.dropdown-content').animate({
+								
+									right: '100vw',
+									easing: 'easeInOutSine',
+									duration: 200,
+								});
+						
+						$(this).parents('.grandparent').find('.is.desktop()').removeClass('open-simple')
+						$(this).parents('.grandparent').find('.li-sousmenu').addClass('close-simple')
+						$('.count').removeClass('changement-couleur')
+
+					}
 				
-					$(this).parents('.grandparent').find('.dropdown-content').animate({
-							
-								right: '100vw',
-								easing: 'easeInOutSine',
-								duration: 200,
-							});
-					
-				}
-				else {
-
-					$(this).parents('.grandparent').find('.dropdown-content').animate({
-						right: '0vw',
-						easing: 'easeInOutSine',
-						duration: 200,
-					});
-
-					
-					$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('open-simple')
-					$(this).parents('.grandparent').find('.icon-arrow-left').addClass('close-simple')
-					$('.count').removeClass('changement-couleur')
-
-				}
+			
 
 			});
 
+			$('.li-sousmenu').unbind('click').click(function() {
 
-			$('.icon-arrow-left').unbind('click').click(function() {
+					if ($(this).parents('.grandparent').find('.li-sousmenu').hasClass('close-simple')) {
 
-				$(this).parents('.grandparent').find('.icon-arrow-left').toggleClass('active');
+						$(this).parents('.grandparent').find('.li-sousmenu').removeClass('close-simple')
 
-				if ($(this).parents('.grandparent').find('.icon-arrow-left').hasClass('close-simple')) {
+						$(this).parents('.grandparent').find('.li-sousmenu').addClass('open-simple')
 
-					$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('close-simple')
+						$('.count').addClass('changement-couleur')
+			
+						
+					}
+					else {
 
-					$(this).parents('.grandparent').find('.icon-arrow-left').addClass('open-simple')
+						$(this).parents('.grandparent').find('.dropdown-content').animate({
+							right: '100vw',
+							easing: 'easeInOutSine',
+							duration: 200,
+						});
 
-					$('.count').addClass('changement-couleur')
-				
-					$(this).parents('.grandparent').find('.dropdown-content').animate({
-							
-								right: '0vw',
-								easing: 'easeInOutSine',
-								duration: 200,
-							});
-					
-				}
-				else {
 
-					$(this).parents('.grandparent').find('.dropdown-content').animate({
-						right: '100vw',
-						easing: 'easeInOutSine',
-						duration: 200,
-					});
+						$('.count').removeClass('changement-couleur')
 
-					
-					$(this).parents('.grandparent').find('.icon-arrow-left').removeClass('open-simple')
-					$(this).parents('.grandparent').find('.icon-arrow-left').addClass('close-simple')
-					$('.count').removeClass('changement-couleur')
-
-				}
+					}
 
 			});
+
+		}
+
+
 		},
 	},
 	computed: {
@@ -723,12 +739,13 @@ export default {
 		display: contents;
 	}
 
-	.parent li a{
+/*	.parent li a{
 
 		padding: 10px;
+		padding: 47px 1vw;
 
 	}
-
+*/
 	.icons-santos-palace{
 
 		display: flex;
@@ -780,7 +797,7 @@ export default {
 
 	.parent li a{
 
-		padding: 10px;
+		padding: 10px 20px;
 	}
 
 	.logo-santos img{
@@ -908,6 +925,12 @@ export default {
 
 @media only screen and (max-width: 1100px){
 
+	.parent li{
+
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
 	.desktop-langue{
 
 		display: none;
@@ -994,7 +1017,7 @@ export default {
 
 	.dropdown-content{
 
-		top: 80px;
+		top: 100px;
 		display: flex;
 		flex-direction: column;
 		align-content: center;
@@ -1145,6 +1168,12 @@ export default {
 		top: 35px;
 	}
 
+	.div-parent-grandparent{
+
+		margin-top: 15px;
+	}
+
+
 
 
 }
@@ -1253,6 +1282,11 @@ export default {
 	.count{
 
 		font-size: 13px !important;
+	}
+
+	.div-parent-grandparent{
+
+		margin-top: 15px;
 	}
 
 

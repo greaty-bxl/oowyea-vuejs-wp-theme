@@ -141,7 +141,7 @@ export default function(vue){
 
 	$(document).on('after_next_page first_page_ready after__wpnonce', () =>{
 		setTimeout( ()=> {
-			console.log( 'find forms', $(formsSelectors) );
+			// console.log( 'find forms', $(formsSelectors) );
 			$(formsSelectors).append('<input type="hidden" name="is_woocommerce_ajax" value="1" />')
 			//console.log( $(formsSelectors) );
 

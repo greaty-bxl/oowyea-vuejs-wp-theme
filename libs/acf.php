@@ -122,6 +122,21 @@ function return_acf_message(){
 }
 add_action( 'before_document', 'return_acf_message' );
 
+function disable_acf_alert()
+{
+	?>
+	<script type="text/javascript">
+	(function($) {
+	  $(document).ready(function() {
+	    acf.unload.active = false;
+	  });
+	})(jQuery);
+	</script>
+	<?php
+}
+
+add_action( 'wp_footer', 'disable_acf_alert' );
+
 function test_acf( $form, $action ){
 
 	global $acf_form;

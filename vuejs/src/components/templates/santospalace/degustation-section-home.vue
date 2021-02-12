@@ -68,13 +68,14 @@
 
 
 	.text-degustation{
+		
 		padding-left: 120px;
 		width: 50%;	
 		min-height: 100%;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		
+		justify-content: center;	
+		box-sizing: border-box;
 	}
 
 	.text-degustation li{

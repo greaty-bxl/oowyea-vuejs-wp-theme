@@ -78,11 +78,11 @@
 			vat_prefix: function () {
 				if( this.vat )
 				{
-					return '<small class="woocommerce-price-suffix">TVAC</small>'	
+					return '<small class="woocommerce-price-suffix">'+ this.pll__('TVAC') +'</small>'	
 				}
 				else
 				{
-					return '<small class="woocommerce-price-suffix">HTVA</small>'
+					return '<small class="woocommerce-price-suffix">'+ this.pll__('HTVA') +'</small>'
 				}
 			},
 

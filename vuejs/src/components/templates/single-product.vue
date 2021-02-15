@@ -103,7 +103,7 @@
 
 						</div>
 
-						<div class="form_contact_us_product" v-if="type == 'contact_us'" >
+						<div class="form_contact_us_product" style="padding-top: 10px" v-if="type == 'contact_us'" >
 							<strong><span class="form-title" v-html="pll__('Vous êtes intéressé par ce produit, <br>contacez-nous via ce formulaire.')"></span></strong>
 							<div v-html="post.form">
 								
@@ -113,15 +113,20 @@
 						<div class="continuer-achat">
 							<button onclick="window.history.back()">
 								<span v-if="type == 'contact_us'" v-html="pll__('Retour')" ></span>
-								<span v-else v-html="pll__('Continuer mes achats')"></span>
+								<span v-else v-html="pll__('Retour à la liste des produits')"></span>
 							</button>
 						</div>
 
 						<div v-if="type != 'contact_us'" id="icons-pay" class="div-parent-icons" >
 
 							<img v-for="child in wp.acf.options.galerie_icons" :key="child.ID" :src="child.url">
-							
+
 						</div>
+						<div v-if="type != 'contact_us'" >
+							<p v-html="pll__('Livraison estimée entre 24h et 48h.')" ></p>
+							<p style="padding-top: 0px" v-html="pll__('La livraison est gratuite à partir de 100 € en Belgique.')" ></p>
+						</div>
+							
 
 					</div>
 
@@ -525,7 +530,7 @@
 	.descriptif{
 
 		font-size: 14px !important;
-		padding-top: 40px;
+		/*padding-top: 40px;*/
 		padding-bottom: 10px;
 	}
 	#header{
@@ -888,8 +893,8 @@
 		display: block;
 		text-align: center;
 		width: 100% !important;
-		padding-top: 20px;
-		padding-bottom: 20px;
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
 		font-size: 16px;
 		box-sizing: border-box;
 		height: auto;

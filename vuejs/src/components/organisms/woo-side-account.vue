@@ -7,13 +7,12 @@
 					
 					<h4 class="product__add__success__title" v-html="pll__('Mon compte')">
 					</h4>
-					<a  class="close" @click="click_to_close" href="">
-						<span >
-							<svg   class="close" viewBox="0 0 27 27"><g stroke="#422112" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 25"></path></g>
-							</svg>
-						</span>
-					</a>
 
+					<span  class="close"  style="cursor: pointer;" @click="click_to_close" >
+						<svg   class="close" viewBox="0 0 27 27"><g stroke="#422112" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 25"></path></g>
+						</svg>
+					</span>
+		
 				</div>
 
 				<div class="account-container" v-if="is_user_logged_in">
@@ -612,6 +611,11 @@
 		display: flex;
 		flex-direction: column;
 
+	}
+
+	.side-account p.woocommerce-LostPassword.lost_password{
+
+		margin-top: 15px;
 	}
 
 

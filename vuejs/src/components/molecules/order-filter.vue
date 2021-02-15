@@ -87,6 +87,7 @@
 	.order-filter-wrap {
 		display: flex;
 		flex-direction: column;
+		cursor: pointer;
 	}
 
 	.label{

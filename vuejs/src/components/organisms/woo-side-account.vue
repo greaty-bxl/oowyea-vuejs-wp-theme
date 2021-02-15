@@ -5,7 +5,7 @@
 
 				<div class="header-account">
 					
-					<h4 class="product__add__success__title" v-html="pll__('Your account')">
+					<h4 class="product__add__success__title" v-html="pll__('Mon compte')">
 					</h4>
 					<a  class="close" @click="click_to_close" href="">
 						<span >
@@ -234,17 +234,20 @@
 			'$store.state.wp' : function(){
 
 				this.change_menu(0, '', '')
-				// let $ = this.$
+				
+			},
+			'$store.state.wp.sections' : function(){
+
+				// this.open = 0
+			},
+
+			'$store.state.wp.woo_account' : function(){
 
 				setTimeout(function() {
 
 					init_styled_form('.side-account input')
 
-				}, 50);
-			},
-			'$store.state.wp.sections' : function(){
-
-				// this.open = 0
+				}, 1);
 			}
 		}
 	}
@@ -351,7 +354,8 @@
 
 		overflow: auto;
 		margin-bottom: auto;
-		max-height: 85vh;
+		padding-bottom: 50px;
+		max-height: 80vh;
 
 	}
 
@@ -540,7 +544,7 @@
 		margin-bottom: 10px;
 	}
 
-	.left-col button{
+	.side-account button{
 
 		margin-top: 15px;
 		background-color: #888320;
@@ -553,12 +557,12 @@
 		font-size: 16px;
 		transition: 0.3s !important;
 		text-align: center;
-		padding: 20px 18px;
+		padding: 15px 18px;
 		box-sizing: border-box;
 		
 	}
 
-	.left-col button:hover{
+	.side-account button:hover{
 
 		background-color: white !important;
 		color: #888320 !important;
@@ -566,12 +570,12 @@
 		
 	}
 
-	.left-col button, input, select, textarea{
+	.side-account button, input, select, textarea{
 
 		width: 100%;
 		border: 1px #d9d9d9 solid;
-		padding-top: 11.5px !important;
-		padding-bottom: 11.5px !important;
+/*		padding-top: 11.5px !important;
+		padding-bottom: 11.5px !important;*/
 
 	}
 
@@ -593,6 +597,14 @@
 		margin-left: 8px;
 		margin-top: 5px;
 		color: #422112;
+	}
+
+	#shipping_country_field strong{
+
+		margin-left: 8px;
+		margin-top: 5px;
+		color: #422112;
+
 	}
 
 	.woocommerce-input-wrapper{

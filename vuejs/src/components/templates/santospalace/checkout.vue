@@ -19,7 +19,7 @@
 
 				<div v-else :style="{ height:'50px'}" >					
 				</div>
-				
+
 				<transition name="fade">
 					<div  v-show="checked" v-html="cols_checkout.col_2"></div>
 				</transition>
@@ -76,6 +76,9 @@ export default {
 
 			$('#header').hide()
 
+			$('#footer').hide()
+			
+
 			var payconiq  = $('[alt="Payconiq"]').attr('src');
 
 			if ( payconiq != undefined  ) {
@@ -92,6 +95,8 @@ export default {
 		var $ = this.$
 
 		$('#header').show()
+		
+		$('#footer').show()
 	},
 
 	methods:{
@@ -285,7 +290,7 @@ export default {
 	.checkout_santos .trigge_only_this input[type='checkbox']:checked + label > span:before{
 		content: "";
 		position: absolute;
-		 top: 2px;
+		top: 2px;
 		left: 1px;
 		border-right: 3px solid transparent;
 		border-bottom: 3px solid transparent;

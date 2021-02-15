@@ -72,7 +72,7 @@
 
 				</form>
 				<!-- <hr/> -->
-				<!-- <div v-html="$store.state.wp.cart"></div> -->
+				<div v-html="$store.state.wp.cart"></div>
 			</div>
 		</div>
 	</transition>

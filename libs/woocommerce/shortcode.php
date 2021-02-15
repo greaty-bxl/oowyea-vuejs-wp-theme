@@ -104,12 +104,12 @@ function owy_woo_price( $atts ) {
 		</style>
 		<?php
 		?><div class="mtw-woo-price"><?php
-		if( ! $product->is_type('variable') )
-		{
+		/*if( ! $product->is_type('variable') )
+		{*/
 			woocommerce_get_template( 'loop/price.php' );
-		}
+		//}
 		// For variable products    
-		else 
+		/*else 
 		{
 			$min_price = $product->get_variation_price( 'min' );
 			//$max_price = $product->get_variation_price( 'max' );
@@ -131,7 +131,7 @@ function owy_woo_price( $atts ) {
 					break;
 			}
 			echo '<strong class="amount">À partir de '. $price .'</strong>';
-		}
+		}*/
 		
 		?></div><?php
 		$template = ob_get_clean();

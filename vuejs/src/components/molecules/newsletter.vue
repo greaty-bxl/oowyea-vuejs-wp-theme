@@ -244,7 +244,10 @@ input.input-submit{
 	.content-email-input p{
 
 		text-align: center;
-		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+		width: 80%;
+
 	}
 
 	.content-email-input > *{

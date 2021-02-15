@@ -6,10 +6,10 @@
 			
 			<div class="content-email-input">
 
-				<p style="color: white" v-html="newsletter.title"></p>
+				<p style="color: white" v-html="pll__('RESTEZ AU COURANT DE NOTRE ACTUALITÉ')"></p>
 				<div class="input-col">
 
-					<div class="border-button" style="border-radius: 3px">
+					<div class="border-button" >
 						<input class="input-email" type="email" :name="newsletter.input_email_name" :placeholder="pll__('Email')" required >
 						<input class="input-submit" type="submit" :name="newsletter.input_email_name" :value="pll__('S’inscrire')" required style="font-weight: 700;">
 					</div>
@@ -120,16 +120,12 @@ export default{
 	flex-direction: row;
 }
 
-.border-button > * {
-
-	background-color: transparent;
-	border: 0px;
-}
 
 .border-button {
 
 	background-color: white;
 	display: flex;
+	border-radius: 3px;
 }
 
 
@@ -155,6 +151,9 @@ export default{
 input.input-submit{
 
 	width: auto;
+	border: 1px solid white;
+	border-bottom-right-radius: 3px ;
+	border-top-right-radius: 3px;
 }
 
 .content-email-input p{
@@ -168,10 +167,19 @@ input.input-submit{
 	width: auto;
 }
 
+
+.border-button > *{
+
+	background-color: white;
+	border: none;
+}
+
 .input-email{
 
 	padding: 21px 5px 21px 32px;
 	min-width: 250px;
+	border-bottom-left-radius: 3px !important;
+	border-top-left-radius: 3px !important;
 }
 
 .input-submit{
@@ -196,7 +204,7 @@ input.input-submit{
 
 	position: relative;
 	top: 1px;
-	margin-right: 10px;
+	margin-right: 5px;
 
 }
 

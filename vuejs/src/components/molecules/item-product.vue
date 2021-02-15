@@ -86,7 +86,9 @@
 							<span v-html="get_terms_as_string(item, 'number_usage')"></span>
 						</p>
 					</div>
-					<div class="price" v-html="item.price"></div>
+					
+
+					<Price :item="item" />
 				</a>
 			</div>
 
@@ -95,15 +97,19 @@
 <script>
 
 import {has_term, get_terms_as_string} from 'Libs/wp-functions.js'
+import Price from 'Organisms/santos-price.vue'
 
 export default {
-
 	props: {
 		'item' : Object,
 	},
+	components: {
+		Price
+	},
 
 	mounted () {
-		//console.log('item', this.item);
+		console.log('item', this.item);
+		
 	},
 
 	methods: {
@@ -122,6 +128,7 @@ export default {
 		},
 
 		get_terms_as_string,
+
 	}
 
 }

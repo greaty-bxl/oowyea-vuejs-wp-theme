@@ -49,10 +49,12 @@ function woocommerce_product_vars( $posts ) {
 				$posts[$key2]->form = do_shortcode( '[acfe_form ID="'.get_post_meta( $post->ID, 'contact_us_product_forms', true ).'"]' );
 			}
 
-
-			
+			if( !empty( $posts[$key2]->metas['_product_attributes'] ) )
+			{
+				$posts[$key2]->metas['_product_attributes_json'] = unserialize( $posts[$key2]->metas['_product_attributes'][0] );
+			}
 		}
-	}	
+	}
 
 	$post = $post_before;
 

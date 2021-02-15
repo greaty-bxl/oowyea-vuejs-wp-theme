@@ -14,7 +14,8 @@
 					</div>
 					<div class="single-text"> 
 						<h2 class="open-sans title-single-santospalace" v-html="post.post_title">Colis</h2>
-						<p class="approximate-price"><span v-html="post.price"  ></span></p>
+						<!-- <p class="approximate-price"><span v-html="post.price"  ></span></p> -->
+						<p class="approximate-price"><span><Price :item="post" /></span></p>
 
 
 						<div class="description-padding">
@@ -142,6 +143,7 @@
 <script>
 	import {has_term, get_terms_as_string} from 'Libs/wp-functions.js'
 	import init_styled_form from 'Libs/styled-form.js'
+	import Price from 'Organisms/santos-price.vue'
 
 	export default {
 		data(){
@@ -164,11 +166,12 @@
 					number_usage : this.pll__("P. par jour :"),
 					cup_day : this.pll__("Tasses / jour :"),
 						
-				}
+				},
+				vat: false
 			}
 		},
 		components: {
-			
+			Price
 		},
 		props: {
 			'post' : Object
@@ -348,12 +351,18 @@
 					
 
 					this.tot_price = this.price_format( this.sale_price * this.quantity )
+					
 
 					$('.total_price input').val(this.tot_price)
 				}
 				
 			},
 			price_format: function(price){
+				
+				if( this.vat )
+				{
+					price *= 1.21
+				}
 				
 				let return_price = ''
 				let currency_format = this.$store.state.wp.get_currency_format

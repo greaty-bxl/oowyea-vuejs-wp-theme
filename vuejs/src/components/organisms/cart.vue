@@ -6,11 +6,9 @@
 					
 					<h4 class="product__add__success__title" v-html="pll__('Votre Panier')">
 					</h4>
-					<span class="close" @click="click_to_close">
-						<a href="">
+					<span style="cursor: pointer;" class="close" @click="click_to_close">
 							<svg  class="close" viewBox="0 0 27 27"><g stroke="#422112" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5l26 26M26.5.5l-26 26"></path></g>
 							</svg>
-						</a>
 					</span>
 
 				</div>

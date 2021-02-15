@@ -10,6 +10,8 @@ export default function ( selector ){
 		let label_txt = label.text()
 
 		label.hide()
+		
+		label_txt = label_txt.replace('*','')
 
 		input.attr('placeholder', label_txt);
 

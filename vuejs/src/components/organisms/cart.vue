@@ -49,7 +49,9 @@
 
 					<div v-show="submit_button.button_text" class="cart-update">
 						
-						<button :disabled="disabled"  type="submit" name="update_cart" aria-disabled="true" v-bind:value="submit_button.button_value"  v-html="submit_button.button_text" ><a href=""></a></button>
+						<button :disabled="disabled"  type="submit" name="update_cart" aria-disabled="true" v-bind:value="submit_button.button_value"  v-html="submit_button.button_text">
+							<a href=""></a>
+						</button>
 
 						<div>
 						
@@ -141,6 +143,7 @@
 				if( $(event.target).hasClass('side-cart') || $(event.target).hasClass('close') )
 				{
 					this.open = 0
+
 				}				
 			},
 			remove_cart_url: function(){
@@ -163,13 +166,13 @@
 
 				let new_result_2 = parseInt(this.my_cart_products[key].product_input_value ) + num
 
-				console.log(new_result_2);
+				console.log(new_result_2 , 'new_result_2');
+
+				this.disabled = false
 
 				if( new_result_2 >= 1 )
 				{
 					this.my_cart_products[key].product_input_value = new_result_2
-
-					this.disabled = false
 
 				}
 
@@ -204,11 +207,14 @@
 			'$store.state.wp' : function()
 			{
 				this.update_cart()
+
 				
 			},
 			'$store.state.wp.cart' : function()
 			{
 				this.update_cart()
+
+				this.disabled = true
 			}
 		},
 		computed:{
@@ -382,8 +388,8 @@
 
 	.cart-update button{
 
-		padding-top: 15px;
-		padding-bottom: 15px;
+		padding-top: 15px !important;
+		padding-bottom: 15px  !important;
 		background-color: white;
 		border: 1px solid #888320;
 		color: #888320;
@@ -392,11 +398,15 @@
 
 	}
 
+	.cart-update button[disabled]{
+
+		opacity: 0.5;
+	}
 
 	.cart-update button:hover{
 
-		padding-top: 15px;
-		padding-bottom: 15px;
+		padding-top: 18px;
+		padding-bottom: 18px;
 		background-color: #888320;
 		border: 1px solid white;
 		color: white;

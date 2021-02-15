@@ -434,6 +434,7 @@
 			overflow: auto;
 			margin-bottom: auto;
 			height: 100%;
+			text-align: left;
 
 		}
 
@@ -451,6 +452,7 @@
 		.coll-filters{
 			white-space: nowrap;
 			text-align: left;
+
 		}	
 
 		.collection-filter__list-title{
@@ -567,6 +569,12 @@
 
 
 	@media only screen and (max-width: 1100px){
+
+		.coll-filters{
+			
+			display: block !important;
+			
+		}	
 
 		section.filters{
 

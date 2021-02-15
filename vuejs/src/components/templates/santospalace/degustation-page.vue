@@ -14,11 +14,11 @@
 
 					<ul class="explication-degustation">
 
-						<li> Dégustation de nos cafés</li>
-						<li> Test sur une machine professionnelle automatique à grains</li>
-						<li> Découverte de notre univers et de notre savoir faire</li>
-						<li> Présentation de notre fonctionnement</li>
-						<li> Aperçu de notre gamme complémentaire (Thés, chocolat, consommables…)</li>
+						<li v-html="pll__('Dégustation de nos cafés PAGE')" > </li>
+						<li v-html="pll__('Test sur une machine professionnelle automatique à grains PAGE')"> </li>
+						<li v-html="pll__('Découverte de notre univers et de notre savoir faire PAGE')"> </li>
+						<li v-html="pll__('Présentation de notre fonctionnement PAGE ')"> </li>
+						<li v-html="pll__('Aperçu de notre gamme complémentaire (Thés, chocolat, consommables…) PAGE ')"> </li>
 
 					</ul>
 

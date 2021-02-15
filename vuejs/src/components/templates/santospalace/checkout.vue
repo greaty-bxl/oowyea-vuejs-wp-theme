@@ -152,7 +152,7 @@ export default {
 
 	.checkout_santos{
 
-		width: 50%;
+		width: 50% !important;
 		margin-right: auto;
 		margin-left: auto;
 		margin-bottom: 100px;
@@ -204,7 +204,7 @@ export default {
 		display: block;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
-		/*width: 100%;	*/
+		width: auto;	
 		padding: 1.2em 0.7857142857em;
 		word-break: normal;
 		line-height: inherit;
@@ -547,7 +547,7 @@ export default {
 
 		.checkout_santos{
 
-			width: 100%;
+			width: 100% !important;
 			padding-right: 70px;
 			padding-left: 70px;
 			margin-bottom: 100px;
@@ -565,7 +565,7 @@ export default {
 
 		.checkout_santos{
 
-			width: 100%;
+			width: 100% !important;
 			padding-right: 30px;
 			padding-left: 30px;
 			margin-bottom: 100px;

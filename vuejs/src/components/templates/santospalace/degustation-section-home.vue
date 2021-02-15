@@ -9,11 +9,11 @@
 				<h2 v-html="pll__('Je prends rendez-vous pour une dégustation dans mon bureau SECTION')"></h2>
 				<ul class="explication-degustation">
 
-					<li> Dégustation de nos cafés</li>
-					<li> Test sur une machine professionnelle automatique à grains</li>
-					<li> Découverte de notre univers et de notre savoir faire</li>
-					<li> Présentation de notre fonctionnement</li>
-					<li> Aperçu de notre gamme complémentaire (Thés, chocolat, consommables…)</li>
+					<li v-html="pll__('Dégustation de nos cafés')" > </li>
+					<li v-html="pll__('Test sur une machine professionnelle automatique à grains')"> </li>
+					<li v-html="pll__('Découverte de notre univers et de notre savoir faire')"> </li>
+					<li v-html="pll__('Présentation de notre fonctionnement')"> </li>
+					<li v-html="pll__('Aperçu de notre gamme complémentaire (Thés, chocolat, consommables…)')"> </li>
 					
 				</ul>
 
@@ -68,7 +68,7 @@
 
 
 	.text-degustation{
-		
+
 		padding-left: 120px;
 		width: 50%;	
 		min-height: 100%;

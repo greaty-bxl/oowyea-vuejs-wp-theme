@@ -15,11 +15,26 @@ export default function ( selector ){
 
 		check_state( input, label )
 
-		input.unbind('change keyup').on("change keyup", () => {
+		if(input.attr('type') === 'hidden'){
 
-			check_state( input, label )
-		
-		});
+			var id_input_hide =  input.prop('id');
+
+			if( id_input_hide != undefined  ) {
+
+				input.parents('form').find('[for="'+id+'"]').remove();
+	
+			}
+			
+		}
+		else{
+
+			input.unbind('change keyup').on("change keyup", () => {
+
+				check_state( input, label )
+			
+			});
+
+		}
 		
 	});
 
@@ -50,5 +65,8 @@ export default function ( selector ){
 			input.removeClass('paddingTop-animation-acf')			
 		}
 	}
+
+
+	// $('[type="hidden"]').find('')
 
 }	

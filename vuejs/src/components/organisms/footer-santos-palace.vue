@@ -4,15 +4,7 @@
 
 			<div>
 
-				<div v-html="wp.newsletter" class="div-green-parent">
-
-					<p>OBTENEZ LES DERNIÈRES NOUVELLES</p>
-					<div>
-					<input type="text">
-					<div></div>
-					</div>
-
-				</div>
+				<newsletter></newsletter>
 
 				<div class="contener-footer">
 
@@ -57,12 +49,14 @@
 <script>
 
 	import smart_fonts from "Libs/smart-fonts.js"
+	import newsletter from "Molecules/newsletter.vue"
 	// import is from 'is_js'
 
 	export default {
 
 		components:{
-		
+			
+			newsletter
 		},
 		
 

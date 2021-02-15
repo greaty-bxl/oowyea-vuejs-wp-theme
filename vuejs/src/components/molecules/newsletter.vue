@@ -245,11 +245,41 @@ input.input-submit{
 		text-align: center;
 	}
 
+	.politique-confidentialite div{
+
+		width: 100%;
+		text-align: center;
+		width: 100%;
+	}
+
+
+
 }
 
 
 
 @media screen and ( max-width: 600px){
+
+
+	.input-email{
+
+		min-width: auto;
+		padding: 21px 5px 21px 15px;
+	}
+
+	.input-submit {
+		padding: 21px 15px 21px 5px;
+	}
+
+	.content-email-input p {
+
+		line-height: 25px !important;
+	}
+
+	.border-button{
+
+		width: 90%;
+	}
 
 
 

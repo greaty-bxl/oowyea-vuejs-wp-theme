@@ -6,9 +6,9 @@
 			<div class="image-degustation"></div>
 			<div class="text-degustation">
 			
-				<div class="colonne-degustation" v-html="post.post_content">
+				<div class="colonne-degustation-section" v-html="post.post_content">
 				</div>
-				
+
 				<a class="button-santos-vert" :href="pll__('URL J’ESSAIE')"
 			v-html="pll__('J’ESSAIE')" >J’ESSAIE</a>
 

@@ -6,7 +6,7 @@
 			<h1 v-html="pll__('Dégustation')"></h1>
 		</div>
 
-		<div class="degustation-page">
+		<div class="degustation-page-vue">
 			<div class="text-degustation-page">
 				<div class="colonne-degustation" v-html="post.post_content">
 				</div>
@@ -34,9 +34,7 @@
 		},
 		mounted()
 		{
-
 			init_styled_form('.acfe-form input , .acfe-form textarea ')
-
 		}
 
 
@@ -49,14 +47,15 @@
 
 
 
-.degustation-page{
+.degustation-page-vue{
 
-	min-height: 100vh;
+	/*min-height: 100vh;*/
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 	font-family: 'Montserrat', sans-serif; 
-	padding-top: 100px;
+	padding-top: 150px;
+	padding-bottom: 150px;
 	box-sizing: border-box;
 
 }
@@ -75,7 +74,7 @@
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	/*justify-content: center;*/
 	
 }
 
@@ -83,7 +82,7 @@
 
 	margin-right: auto;
 	margin-bottom: auto;
-	margin-top: auto;
+	/*margin-top: auto;*/
 	margin-left: 7%;
 	width: 70%;
 	text-align: left;
@@ -195,6 +194,13 @@
 }
 
 
+.formulaire-container input.acf-button.button.button-primary.button-large.paddingTop-animation-acf{
+
+	font-weight: 700;
+	font-size: 16px !important;
+}
+
+
 
 @media only screen and (max-width: 1400px) and (min-width: 1100px){
 
@@ -297,7 +303,7 @@
 		margin-bottom: 0px;
 	}
 
-	.degustation-page{
+	.degustation-page-vue{
 
 		width: calc(100% - 140px);
 	}
@@ -328,9 +334,10 @@
 
 @media screen and (max-width: 1100px) {
 	
-	.degustation-page{
+	.degustation-page-vue{
 
 		padding-top: 0px;
+		padding-bottom: 0px;
 		box-sizing: border-box;
 	}
 
@@ -346,7 +353,7 @@
 
 	}
 
-	.degustation-page{
+	.degustation-page-vue{
 
 		width: 100%;
 		display: flex;

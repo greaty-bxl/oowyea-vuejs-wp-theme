@@ -1,8 +1,8 @@
 <template>
 
 	<div class="checkout_santos" >
-		<h5 class="title-home">Paiement</h5>
-
+		<h5 v-if="cols_checkout.title_commande" class="title-home">Paiement</h5>
+		<h5 v-else class="title-home">Facture</h5>
 			<div v-html="cols_checkout.order_notices"></div>
 
 			<form v-if="cols_checkout.woocommerce_order == undefined " name="checkout" method="post" :action="cols_checkout.action" class="form-check-out">
@@ -157,6 +157,12 @@ export default {
 		margin-right: auto;
 		margin-left: auto;
 		margin-bottom: 100px;
+	}
+
+
+	.checkout_santos .woocommerce-error{
+
+		width: auto !important;
 	}
 
 
@@ -588,8 +594,9 @@ export default {
 		font-weight: 700;
 		line-height: 61px;
 		text-transform: uppercase;
-		padding-bottom: 5px;
+		padding-bottom: 30px;
 		margin-bottom: 0;
+		padding-top: 50px;
 		margin: 0px;
 	}
 
@@ -607,6 +614,12 @@ export default {
 
 
 	@media screen and (max-width: 600px){
+
+
+		.checkout_santos table.woocommerce-table.woocommerce-table--order-details.shop_table.order_details{
+
+			width: 100%;
+		}
 
 		.woocommerce-billing-fields__field-wrapper p{
 
@@ -631,6 +644,16 @@ export default {
 
 			padding: 0px;
 
+		}
+
+		.woocommerce-page .col2-set .col-1{
+
+			float: left;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			/*margin-top: 20px;*/
+			margin-bottom: 20px;
 		}
 
 

@@ -76,6 +76,10 @@ function vue_get_acf_option()
 	$acf['field_objects'] = $fields;
 
 
+	/*echo "<pre>";
+	print_r( $acf );
+	exit();*/
+	
 	wp_vue_add_var('acf', $acf);
 }
 add_action( 'vue_vars', 'vue_get_acf_option' );

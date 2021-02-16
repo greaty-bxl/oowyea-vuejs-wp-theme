@@ -80,7 +80,7 @@
 
 		mounted(){
 		
-			console.log( 'slider', this.$store.state.wp );
+			//console.log( 'slider', this.$store.state.wp );
 			//this.$emit('template_mounted', this);
 
 		},

@@ -11,7 +11,7 @@
 				</div>
 
 				<div class="logo-santos">
-					<a :href="this.wp.options.siteurl">
+					<a :href="$store.state.wp.front_page">
 						<Acf field="logo"/>						
 					</a>
 				</div>
@@ -447,7 +447,7 @@ export default {
 
 				if (children.find('.current').length != 0) {
 
-					console.log($(el), 'current');
+					//console.log($(el), 'current');
 
 					$(el).find('.ligne-animation').addClass('current')
 					$(el).addClass('current')
@@ -455,7 +455,7 @@ export default {
 				} 
 				else{
 
-					console.log($(el), 'plus current');
+					//console.log($(el), 'plus current');
 
 					$(el).removeClass('current')
 					$(el).find('.ligne-animation').removeClass('current')
@@ -465,7 +465,7 @@ export default {
 			}
 			else{
 
-				console.log('');
+				//console.log('');
 			}
 
 			

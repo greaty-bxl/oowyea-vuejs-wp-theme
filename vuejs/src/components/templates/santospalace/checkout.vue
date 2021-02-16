@@ -404,8 +404,8 @@ export default {
 
 
 	.checkout_santos dl.variation {
-	    display: flex;
-	    justify-content: center;
+		display: flex;
+		justify-content: center;
 	}
 
 

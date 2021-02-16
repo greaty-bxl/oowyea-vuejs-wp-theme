@@ -292,7 +292,7 @@ export default {
   },
   computed: {
     wp () {   
-      //console.log(cap);
+      console.log('wp update',this.$store.state.wp);
       window.wp = this.$store.state.wp
       return this.$store.state.wp
     }

@@ -34,7 +34,7 @@ function get_new_page(vue, href, callback) {
 
 	$.get( insertParam( href, 'add_to_json', 1 ), (data) => {
 
-		console.log( 'get page', old_url, url );
+		//console.log( 'get page', old_url, url );
 		var json_data
 
 		clearTimeout( timer )

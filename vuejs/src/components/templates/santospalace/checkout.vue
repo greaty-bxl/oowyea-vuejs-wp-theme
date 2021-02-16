@@ -546,7 +546,52 @@ export default {
 		transition: 0.3s !important;	
 	}
 
+	.woocommerce-thankyou-order-details{
 
+		list-style: none;
+	}
+
+
+	.checkout_santos table.woocommerce-table.woocommerce-table--order-details.shop_table.order_details{
+
+		margin-left: auto;
+		margin-right: auto;
+		border: 1px solid #d9d9d9 ;
+		border-radius: 3px;
+		border-collapse: inherit;
+		width: 80%;
+	}
+
+	.checkout_santos section.woocommerce-columns.woocommerce-columns--2.woocommerce-columns--addresses.col2-set.addresses {
+
+		margin-top: 30px;
+
+	}
+
+
+	.checkout_santos ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details li{
+
+		margin-top: 15px;
+	}
+
+
+	.checkout_santos section.woocommerce-order-details{
+
+		margin-top: 30px;
+	}
+
+
+	.title-home{
+
+		color: #422112;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 61px;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+		margin-bottom: 0;
+		margin: 0px;
+	}
 
 	@media screen and (max-width: 1025px) and (min-width: 600px){
 

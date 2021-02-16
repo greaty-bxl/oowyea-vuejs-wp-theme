@@ -59,12 +59,15 @@
 						
 						<input type="hidden" name="_wp_http_referer" v-bind:value="submit_button.input_2_value">
 
-						<div class="subtotal" v-html="submit_button.subtotal"></div>
-				
+						<div class="cart_totals woocommerce" v-html="submit_button.shop_table_responsive"></div>
+			
 						<a class="button_checkout_clone" v-show="submit_button.button_checkout_clone_name" :href="submit_button.button_checkou_href" v-html="submit_button.button_checkout_clone_name">
 						</a>
 					
 					</div>
+
+
+
 
 					<p class="empty" v-if="submit_button.cart_empty" v-html="submit_button.cart_empty"> </p>
 						
@@ -72,7 +75,7 @@
 
 				</form>
 				<!-- <hr/> -->
-				<div v-html="$store.state.wp.cart"></div>
+				<!-- <div v-html="$store.state.wp.cart"></div> -->
 			</div>
 		</div>
 	</transition>
@@ -85,7 +88,7 @@
 	export default{
 		data(){
 			return {
-				open: 0,
+				open: 1,
 				my_cart_products: [],
 
 				disabled: true,
@@ -100,9 +103,15 @@
 			
 			let $ = this.$
 
+			// $(".wc-proceed-to-checkout").first().remove();
+
 			$(document).on('add_to_cart', () => {
 
 				this.open = 1
+
+				let $ = this.$
+
+				$(".wc-proceed-to-checkout").first().remove();
 			});
 
 			$(document).on('add_to_cart after_next_page after__wpnonce', () => {
@@ -231,7 +240,14 @@
 				button_submit['subtotal'] = $(this.$store.state.wp.cart).find('.cart-collaterals').find('.cart-subtotal').html();
 				button_submit['button_checkou_href'] = $(this.$store.state.wp.cart).find('.cart_totals').find('.wc-proceed-to-checkout').find('a').attr('href');
 				button_submit['button_checkout_clone_name'] = $(this.$store.state.wp.cart).find('.cart_totals').find('.wc-proceed-to-checkout').find('a').text();
+
+
+				button_submit['shop_table_responsive'] = $(this.$store.state.wp.cart).find('.cart_totals').html()
+
 				button_submit['cart_empty'] = $(this.$store.state.wp.cart).find('.cart-empty').text();
+
+				// console.log(button_submit);
+
 				
 				return button_submit
 
@@ -382,7 +398,6 @@
 </style>
 
 <style>
-
 
 	.cart-update button{
 
@@ -612,7 +627,52 @@
 		display: inline;
 	}
 
+	.side-cart .woocommerce ul#shipping_method li{
 
+		display: flex;
+		margin: 15px 0 15px;
+	}
+
+	.side-cart .woocommerce ul#shipping_method li input{
+
+		width: auto;
+		margin-right: 10px;
+	}
+
+	.side-cart .woocommerce-shipping-destination{
+
+		display: none;
+	}
+
+	.side-cart .woocommerce-shipping-calculator{
+
+		display: none;
+	}
+
+	.side-cart .cart_totals h2{
+
+		display: none;
+
+	}
+
+	.side-cart .cart_totals {
+
+		margin-top: 20px;
+
+	}
+
+
+	.side-cart .checkout-button{
+
+		display: none !important ;
+	}
+
+	.shipping-calculator-button{
+
+		display: none;
+	}
+
+ 
 	@media screen and (max-width: 600px) {
 
 		.items-carte-container{

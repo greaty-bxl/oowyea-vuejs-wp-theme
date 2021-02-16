@@ -375,11 +375,6 @@ export default {
 		
 	}
 
-	.checkout_santos td p{
-		margin-top: 10px !important;
-		margin-bottom: 10px !important;
-	}
-
 	.checkout_santos tbody td {
 
 		border-top: 1px solid #d9d9d9;
@@ -400,6 +395,17 @@ export default {
 
 		border-top: 1px solid #d9d9d9 !important;
 
+	}
+
+	.checkout_santos dd.variation-Mouture{
+
+		margin-left: 10px;
+	}
+
+
+	.checkout_santos dl.variation {
+	    display: flex;
+	    justify-content: center;
 	}
 
 

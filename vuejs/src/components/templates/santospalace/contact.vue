@@ -7,39 +7,9 @@
 		</div>
 
 		<div class="container-info-contact">
-			<div class="child-info">
-				<h5>Nous aimons entendre nos clients. Vous trouverez ci-dessous des options pour nous contacter. Toutes les communications sont gérées par le personnel de Santos Palace sur place et ne sont jamais externalisées.</h5>
-			</div>
-			<div class="child-info">
-				<h4>ADRESSE</h4>
-				<ul>
-					<li>Rue de Manchester 32-34</li>
-					<li>1080 – Bruxelles</li>
 
-					<p>
-						<a target="_blank" href="https://www.google.com/maps/place/Rue+de+Manchester+32%2F34,+1080+Molenbeek-Saint-Jean/data=!4m2!3m1!1s0x47c3c40a726afb45:0xe72e76a148f96c47?sa=X&ved=2ahUKEwih7uPE7LbuAhUM-6QKHQpNC7IQ8gEwAHoECAYQAQ">Cliquez ici pour connaître l’emplacement.</a>
-					</p>
-				</ul>
-			</div>
-			<div class="child-info">
-				<h4>E-MAIL</h4>
-				<ul>
+			<div v-html="post.post_content"></div>
 
-					<li>
-						Pour des informations générales et des questions relatives à la commande, envoyez-nous un e-mail à:<a href="info@santospalace.be"> info[at]santospalace.be</a>
-					</li>
-		
-				</ul>
-			</div>
-			<div class="child-info">
-				<h4>TÉLÉPHONE / FAX</h4>
-				<ul>
-
-					<li><a href="tel: +32 2 410 44 75">Tel: +32 2 410 44 75</a></li>
-					<li><a href="fax:+3224100138">Fax: +32 2 410 01 38</a></li>
-
-				</ul>
-			</div>
 		</div>
 
 	</div>
@@ -63,9 +33,10 @@
 </script>
 
 <style type="text/css">
-	.child-info{
 
-		border: ;
+	.container-info-contact a{
+
+		text-decoration: none;
 	}
 		
 	.image-contact{
@@ -102,14 +73,16 @@
 		margin-bottom: 150px;
 		width: 50%;
 		text-align: left;
+		font-size: 16px;
 	}
 
-	.child-info{
 
-		border-bottom: 1px solid #666666;
+	.container-info-contact *{
+
+		font-size: 16px;
 	}
 
-	.child-info h5{
+	.container-info-contact h5{
 		margin-top: 0px;
 		margin-bottom: 30px;
 		color: #878220;
@@ -118,7 +91,7 @@
 		font-weight: 500;
 	}
 
-	.child-info h4{
+	.container-info-contact h4{
 		margin-top: 30px;
 		margin-bottom: 0px;
 		color: #878220;
@@ -126,33 +99,41 @@
 		line-height: 24px;
 		font-weight: bold;
 	}
-	.image-contact h1 {
+	.container-info-contact h1 {
 
 		font-weight: bold;
 	}
 
-	.child-info ul *{
+	.container-info-contact ul *{
 
 		color: #666666;
 		font-size: 16px;
 		line-height: 24px;
 		text-decoration: none;
 	}
-	.child-info ul{
+	.container-info-contact ul{
 
 		padding-left: 70px;
+	}
+
+	.container-info-contact p:first-child{
+
+			color: #878220;
+			font-weight: 500;
+			line-height: 24px;
+
 	}
 
 
 	@media screen and (min-width: 1100px){
 
-		.image-contact h1 {
+		.container-info-contact h1 {
 
 			font-size: 7vw !important ;
 			margin: 0px !important;
 		}
 
-		.image-contact h3 {
+		.container-info-contact h3 {
 
 			font-size: 2vw !important ;
 			margin: 0px !important;
@@ -162,7 +143,7 @@
 ²
 	@media screen and (max-width: 1000px){
 
-		.image-contact h1 {
+		.container-info-contact h1 {
 
 			font-size: 7vw !important ;
 			margin: 0px !important;
@@ -173,7 +154,7 @@
 
 	@media screen and ( max-width: 1150px ) and ( min-width: 600px ) {
 
-		.image-contact h1 {
+		.container-info-contact h1 {
 
 			font-size: 10vw !important ;
 			margin: 0px !important;
@@ -220,7 +201,7 @@
 			padding-bottom: 20px;
 		}
 
-		.child-info ul{
+		.container-info-contact ul{
 
 			padding-left: 15px;
 		}

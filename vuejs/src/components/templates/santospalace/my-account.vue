@@ -2,8 +2,8 @@
 
 	<div id="mon-compte">
 		<h5 class="title-compte" v-html="pll__('Mon compte')"></h5>
-		<div v-html="post.post_content" >
-		</div>	
+		<!-- <div v-html="post.post_content" > -->
+		<!-- </div>	 -->
 	</div>
 
 </template>
@@ -39,10 +39,6 @@ export default {
 		$('.woocommerce-error').parents('.woocommerce').find('h2').css('margin-right', 'auto');
 
 		$('.woocommerce-error').parents('.woocommerce').find('.login').css('margin-left', 'auto');
-
-
-
-		
 
 		//resolve login issue 'add to json'
 		var referer_val = $('[name="_wp_http_referer"]').prop('value')
@@ -134,12 +130,9 @@ export default {
 		border: solid #70625B;
 		border-width: 1px;
 		min-width: 200px;
-		/*width: 40%;*/
 		padding-top: 25px;
 		padding-bottom: 25px;
 		line-height: 0px;
-
-
 
 	}
 
@@ -425,6 +418,7 @@ export default {
 			/*font-weight: bold;*/
 
 		}
+
 		#mon-compte  .woocommerce{
 
 			margin: 100px 30px;

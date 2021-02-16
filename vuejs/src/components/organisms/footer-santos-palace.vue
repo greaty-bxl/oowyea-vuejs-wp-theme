@@ -70,21 +70,6 @@
 
 			var $ = this.$
 
-
-		// if ( ! is.desktop() ) {
-
-		// 	$('.tnp-email').first().appendTo('.tnp-field.tnp-field-button');
-		// 	$('.tnp-field.tnp-field-button').first().insertBefore(  $( ".tnp-field.tnp-privacy-field" ))
-
-		// }
-		// else{
-
-			$('.tnp-privacy-field').first().insertAfter('.tnp-field-button')
-			$('.tnp-field-button').prepend($('.tnp-field-email').find('input')) 
-
-
-		// }
-
 		
 		$('.tnp-field , .tnp-field-button').find('input[type=submit]').css('font-weight', '700');
 
@@ -189,9 +174,8 @@
 
 	.droit-reserve a {
 
-		text-decoration: none;
 		color: #666666;
-
+		
 	}
 
 
@@ -356,7 +340,7 @@
 	}
 	.contener-footer a{
 
-		text-decoration-line: none;
+		/*text-decoration-line: none;*/
 		height: 30px;
 
 	}

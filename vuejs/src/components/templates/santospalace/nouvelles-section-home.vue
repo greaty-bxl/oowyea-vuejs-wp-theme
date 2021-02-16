@@ -187,19 +187,6 @@
 
 	}
 
-	.swiper-button-next{
-
-		right: 20px;
-
-		color: #422112;
-	}
-
-	.swiper-button-prev{
-
-		left: 20px;
-		color: #422112;
-	}
-
 	.swiperNouvellesbutton .swiper-slide{
 
 		width: auto;
@@ -325,11 +312,39 @@
 		}
 
 
+		.swiper-button-next{
+
+			right: 50px;
+
+			color: #422112;
+		}
+
+		.swiper-button-prev{
+
+			left: 50px;
+			color: #422112;
+		}
+
+
+
 	}
 
 	@media screen and ( max-width: 1100px ){
 
 	
+
+		.swiper-button-next{
+
+			right: 20px;
+
+			color: #422112;
+		}
+
+		.swiper-button-prev{
+
+			left: 20px;
+			color: #422112;
+		}
 
 		.section-nouvelles .item-product{
 

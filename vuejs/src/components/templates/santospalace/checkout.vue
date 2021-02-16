@@ -15,9 +15,11 @@
 							<span></span>
 						<p @click="Open" v-html="cols_checkout.title_ship_address_text" ></p>
 					</label>
-				</div>				
-				<div v-else :style="{ height:'50px'}" >
 				</div>
+
+				<div v-else :style="{ height:'50px'}" >					
+				</div>
+
 				<transition name="fade">
 					<div  v-show="checked" v-html="cols_checkout.col_2"></div>
 				</transition>
@@ -31,12 +33,6 @@
 
 			<div v-html="cols_checkout.woocommerce_order">
 			</div>
-
-	
-<!-- 
-
-		<div v-html="post.post_content" >
-		</div> -->
 
 	</div>
 
@@ -80,6 +76,9 @@ export default {
 
 			$('#header').hide()
 
+			$('#footer').hide()
+			
+
 			var payconiq  = $('[alt="Payconiq"]').attr('src');
 
 			if ( payconiq != undefined  ) {
@@ -96,6 +95,8 @@ export default {
 		var $ = this.$
 
 		$('#header').show()
+		
+		$('#footer').show()
 	},
 
 	methods:{
@@ -173,10 +174,9 @@ export default {
 		background: rgba(255,255,255,0.6);
 	}
 
-	.fade-enter-active .woocommerce-shipping-fields, .fade-leave-active .woocommerce-shipping-fields, .fade-leave-to .left-col {
+	.fade-enter-active .woocommerce-shipping-fields, .fade-leave-active .woocommerce-shipping-fields, .fade-leave-to .left-col
+	{
 
-	/*	margin-top: -500px;
-		transition: margin-top 0.6s;*/
 		opacity: 0;
 	}
 
@@ -279,14 +279,19 @@ export default {
 	.checkout_santos .trigge_only_this  input[type='checkbox']:checked + label > ins{ height: 100%; }
 
 	.checkout_santos .trigge_only_this input[type='checkbox']:checked + label > span{
-		border: .7em solid #888320;
+
+		/*border: .7em solid #888320;*/
+		background-color: #888320;
+		border-color: #888320;
+		position: relative;
+		border-radius: 3px;
 		animation: shrink-bounce 200ms cubic-bezier(.4,.0,.23,1);
 	}
 	.checkout_santos .trigge_only_this input[type='checkbox']:checked + label > span:before{
 		content: "";
 		position: absolute;
-		/* top: .5em;
-		left: .3em;*/
+		top: 2px;
+		left: 1px;
 		border-right: 3px solid transparent;
 		border-bottom: 3px solid transparent;
 		transform: rotate(45deg);

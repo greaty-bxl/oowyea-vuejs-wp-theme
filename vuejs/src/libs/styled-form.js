@@ -7,9 +7,12 @@ export default function ( selector ){
 		let input = $(el)
 		let id = input.prop('id')
 		let label = $(el).parents('form').find('label[for="'+id+'"]')
+		label.find('.optional').remove()
 		let label_txt = label.text()
 
 		label.hide()
+
+
 		
 		label_txt = label_txt.replace('*','')
 

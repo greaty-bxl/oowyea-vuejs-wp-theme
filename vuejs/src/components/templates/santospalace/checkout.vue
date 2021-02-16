@@ -1,8 +1,8 @@
 <template>
 
 	<div class="checkout_santos" >
-		<h5 class="title-home">Paiement</h5>
-
+		<h5 v-if="cols_checkout.title_commande" class="title-home">Paiement</h5>
+		<h5 v-else class="title-home">Facture</h5>
 			<div v-html="cols_checkout.order_notices"></div>
 
 			<form v-if="cols_checkout.woocommerce_order == undefined " name="checkout" method="post" :action="cols_checkout.action" class="form-check-out">
@@ -157,6 +157,12 @@ export default {
 		margin-right: auto;
 		margin-left: auto;
 		margin-bottom: 100px;
+	}
+
+
+	.checkout_santos .woocommerce-error{
+
+		width: auto !important;
 	}
 
 
@@ -546,7 +552,53 @@ export default {
 		transition: 0.3s !important;	
 	}
 
+	.woocommerce-thankyou-order-details{
 
+		list-style: none;
+	}
+
+
+	.checkout_santos table.woocommerce-table.woocommerce-table--order-details.shop_table.order_details{
+
+		margin-left: auto;
+		margin-right: auto;
+		border: 1px solid #d9d9d9 ;
+		border-radius: 3px;
+		border-collapse: inherit;
+		width: 80%;
+	}
+
+	.checkout_santos section.woocommerce-columns.woocommerce-columns--2.woocommerce-columns--addresses.col2-set.addresses {
+
+		margin-top: 30px;
+
+	}
+
+
+	.checkout_santos ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details li{
+
+		margin-top: 15px;
+	}
+
+
+	.checkout_santos section.woocommerce-order-details{
+
+		margin-top: 30px;
+	}
+
+
+	.title-home{
+
+		color: #422112;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 61px;
+		text-transform: uppercase;
+		padding-bottom: 30px;
+		margin-bottom: 0;
+		padding-top: 50px;
+		margin: 0px;
+	}
 
 	@media screen and (max-width: 1025px) and (min-width: 600px){
 
@@ -562,6 +614,12 @@ export default {
 
 
 	@media screen and (max-width: 600px){
+
+
+		.checkout_santos table.woocommerce-table.woocommerce-table--order-details.shop_table.order_details{
+
+			width: 100%;
+		}
 
 		.woocommerce-billing-fields__field-wrapper p{
 
@@ -586,6 +644,16 @@ export default {
 
 			padding: 0px;
 
+		}
+
+		.woocommerce-page .col2-set .col-1{
+
+			float: left;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			/*margin-top: 20px;*/
+			margin-bottom: 20px;
 		}
 
 

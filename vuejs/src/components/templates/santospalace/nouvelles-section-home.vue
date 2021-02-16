@@ -94,7 +94,7 @@
 		data () {
 			return {
 				active: 0,
-				last_products_slider: this.$store.state.wp.last_products_slider,
+				//last_products_slider: this.$store.state.wp.last_products_slider,
 				swiperMenu: {
 					initialSlide: 0,
 					loop: false,
@@ -169,13 +169,14 @@
 
 						}
 					},
-			},
+				},
+			}
+		},
+		computed: {
+			last_products_slider () {
+				return this.$store.state.wp.last_products_slider
+			}
 		}
-	},
-
-
-
-
 	}
 </script>
 

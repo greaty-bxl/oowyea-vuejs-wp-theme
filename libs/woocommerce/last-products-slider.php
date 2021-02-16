@@ -42,6 +42,10 @@ function get_last_products_slider()
 		exit();*/
 		wp_vue_add_var('last_products_slider', $result );
 	}
+	else
+	{
+		wp_vue_add_var('last_products_slider', array() );
+	}
 
 }
 

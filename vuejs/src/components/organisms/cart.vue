@@ -88,7 +88,7 @@
 	export default{
 		data(){
 			return {
-				open: 1,
+				open: 0,
 				my_cart_products: [],
 
 				disabled: true,

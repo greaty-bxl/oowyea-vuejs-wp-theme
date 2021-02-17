@@ -402,6 +402,15 @@
 		background: #e1e1e1 !important;
 	}
 
+	.filters *{
+		
+		user-select: none !important ;
+		--wp-admin-theme-color: transparent;
+		--wp-admin-theme-color-darker-10: transparent;
+		--wp-admin-theme-color-darker-20: transparent;
+
+	}
+
 	@media only screen and (min-width: 1101px){
 
 
@@ -569,6 +578,11 @@
 
 
 	@media only screen and (max-width: 1100px){
+
+		.icon-arrow-right{
+
+			top: calc( 50% - 8px );
+		}
 
 		.coll-filters{
 			

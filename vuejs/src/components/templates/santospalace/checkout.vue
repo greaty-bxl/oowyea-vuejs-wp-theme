@@ -25,7 +25,7 @@
 				</transition>
 
 
-				<div v-html="cols_checkout.title_commande" ></div>
+				<div v-html="cols_checkout.title_commande"></div>
 
 				<div v-html="cols_checkout.order_review" ></div>
 
@@ -50,6 +50,7 @@ export default {
 		return {
 			ouvert: 0,
 			checked: false,
+
 			// post
 		}
 
@@ -120,15 +121,33 @@ export default {
 
 			console.log(this.post.post_content);
 
-						
-					cols['action'] = $(this.post.post_content).find('.checkout').attr('action');
-					cols['col_1'] =  $(this.post.post_content).find('.col-1').html();
-					cols['col_2'] =  $(this.post.post_content).find('.col-2 .shipping_address').html();
-					cols['title_commande'] =  $(this.post.post_content).find('.order_review_heading').html();
-					cols['title_ship_address_text'] =  $(this.post.post_content).find('#ship-to-different-address span').text();
-					cols['order_review'] =  $(this.post.post_content).find('.woocommerce-checkout-review-order').html();
-					cols['order_notices'] =  $(this.post.post_content).find('.woocommerce-notices-wrapper').html();
-					cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
+			let array_txt = {
+				'Cash on delivery' : this.pll__('PaCash on delivery'),
+				'Pay with cash upon delivery.'  : this.pll__('Pay with cash upon delivery'),
+			}
+
+			/*this.pll__inline([
+				'Cash on delivery pll',
+				'Pay with cash upon delivery'
+				])*/
+
+			$.each(array_txt, function(index, val) {
+				$("*").filter(function() {
+					return $.trim($(this).text()) === index;
+				}).text(val);
+			});
+			
+
+			
+
+			cols['action'] = $(this.post.post_content).find('.checkout').attr('action');
+			cols['col_1'] =  $(this.post.post_content).find('.col-1').html();
+			cols['col_2'] =  $(this.post.post_content).find('.col-2 .shipping_address').html();
+			cols['title_commande'] =  $(this.post.post_content).find('.order_review_heading').html();
+			cols['title_ship_address_text'] =  $(this.post.post_content).find('#ship-to-different-address span').text();
+			cols['order_review'] =  $(this.post.post_content).find('.woocommerce-checkout-review-order').html();
+			cols['order_notices'] =  $(this.post.post_content).find('.woocommerce-notices-wrapper').html();
+			cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
 
 
 			console.log(cols);
@@ -357,8 +376,6 @@ export default {
 
 	.woocommerce-checkout-review-order-table{
 
-		/*margin-left: auto;
-		margin-right: auto;*/
 		width: 100%;
 		border: 1px solid #d9d9d9 ;
 		border-radius: 5px !important;

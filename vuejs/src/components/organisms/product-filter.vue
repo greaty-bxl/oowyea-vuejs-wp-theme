@@ -163,11 +163,11 @@
 
 				var $ = this.$
 
-				$('.collection-filter__list-wrapper').click(function() {
+				$('.collection-filter__list-title').click(function() {
 
 					var contenair_globale = ''
 
-					contenair_globale = $(this)
+					contenair_globale = $(this).parents('.collection-filter__list-wrapper')
 
 
 					if (contenair_globale.find('.collection-filter__list').hasClass('open-filters')) {
@@ -183,7 +183,7 @@
 					}
 					else{
 
-						contenair_globale.addClass('open-filters')
+						contenair_globale.find('.collection-filter__list').addClass('open-filters')
 
 						contenair_globale.find('.collection-filter__list').addClass('open-filters')
 
@@ -842,7 +842,7 @@
 
 			max-width: 100px;
 			word-wrap: break-word;
-			line-height: 20px;
+			line-height: 24px;
 		}
 	}
 

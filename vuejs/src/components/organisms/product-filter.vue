@@ -5,9 +5,9 @@
 			<div class="lists-filter-taxonomie">
 
 				<header class="collection-filter__header">
-					<h2 class="collection-filter__title">Filtres</h2>
-					<p class="collection-filter__description">
-						Sélectionnez une catégorie ou plus pour affiner votre recherche.
+					<h2 class="collection-filter__title" v-html="pll__('Filtres')"></h2>
+					<p class="collection-filter__description" v-html="pll__('Sélectionnez une catégorie ou plus pour affiner votre recherche.')">
+						
 					</p>
 					<button class='icon-close-filter' v-on:click="close_filter">
 						<svg aria-hidden="true" focusable="false" role="presentation"   viewBox="0 0 25 25"><path d="M14.023 12.5L24.685 1.839A1.077 1.077 0 1 0 23.16.315L12.5 10.977 1.839.315A1.077 1.077 0 1 0 .315 1.84L10.977 12.5.315 23.161a1.077 1.077 0 1 0 1.524 1.524L12.5 14.023l10.661 10.662a1.077 1.077 0 1 0 1.524-1.524L14.023 12.5z"></path></svg>
@@ -71,12 +71,10 @@
 
 				<footer class="collection-filter__footer">
 
-					<button class="collection-filter__clear" v-on:click="clear_selection">
-
-					Effacer la sélection
+					<button class="collection-filter__clear" v-on:click="clear_selection" v-html="pll__('Effacer la sélection')">
 
 					</button>
-					<a :href="done_url" class="collection-filter__done button-santos-vert" v-on:click="done">Filtrer</a>
+					<a :href="done_url" class="collection-filter__done button-santos-vert" v-on:click="done" v-html="pll__('Filtrer')"></a>
 				</footer>
 				
 
@@ -409,14 +407,6 @@
 		background: #e1e1e1 !important;
 	}
 
-	.filters *{
-
-		user-select: none !important ;
-		--wp-admin-theme-color: transparent;
-		--wp-admin-theme-color-darker-10: transparent;
-		--wp-admin-theme-color-darker-20: transparent;
-
-	}
 
 	@media only screen and (min-width: 1101px){
 
@@ -550,10 +540,12 @@
 
 		.collection-filter__title {
 
+			font-weight: 700;
 			font-size: 14px;
 			margin-top: 5px;
 			margin-bottom: 5px;
-			font-weight: 500;
+			text-transform: uppercase;
+			
 		}
 
 
@@ -603,8 +595,8 @@
 		}
 		.icon-close-filter svg {
 
-			height: 15px;
-			width: 15px;
+			height: 18px;
+			width: 18px;
 
 		}
 
@@ -645,6 +637,11 @@
 
 			text-align: center;
 			color: white;
+			font-weight: 700;
+			font-size: 14px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			text-transform: uppercase;
 		}
 
 		.collection-filter__checkbox{
@@ -681,7 +678,7 @@
 		}
 
 		.open-filter-rotation{
-			transition: all .1s ease-in-out;
+			transition: all .4s ease-in-out;
 			transform: rotate(90deg);
 		}
 
@@ -770,14 +767,14 @@
 		}
 
 
-		.collection-filter__title {
+/*		.collection-filter__title {
 
 			font-size: 14px;
 			margin-top: 2px;
 			margin-bottom: 5px;
 			font-weight: 500;
 		}
-
+*/
 
 		.collection-filter__footer{
 
@@ -840,7 +837,7 @@
 		}
 		.title-filter{
 
-			max-width: 100px;
+			max-width: 50%;
 			word-wrap: break-word;
 			line-height: 24px;
 		}
@@ -966,11 +963,13 @@
 	.icon-close-filter svg:hover{
 
 		fill: black;
+
 	}
 
 
 	.icon-close-filter{
 
+		margin-top: 3px;
 		transform: translateY(0);
 		color: #000000;
 		position: absolute;
@@ -1030,6 +1029,11 @@
 		outline: none;
 
 	}
+
+	*{
+	-webkit-tap-highlight-color: transparent;
+	}
+
 
 
 

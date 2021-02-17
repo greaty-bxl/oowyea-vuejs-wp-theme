@@ -30,9 +30,14 @@
 
 								<div class="li-espace-between">
 
-								<a class="ligne-animation" :href="child.url" v-html="child.title" v-bind:class="{'current':showButton === child.url}"  >Mouse over me</a>
+								<a class="ligne-animation" v-if="child.url != undefined " :href="child.url" v-html="child.title" v-bind:class="{'current':showButton === child.url}"  >Mouse over me</a>
 
-								<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-right" viewBox="0 0 20 38"><path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd"></path>
+								<a href="" v-else v-html="child.title"  v-bind:class="{'current':showButton === child.url}" >
+									
+								</a>
+
+
+								<svg aria-hidden="true" focusable="false" role="presentation" class="icon-arrow-right-header" viewBox="0 0 20 38"><path d="M15.932 18.649L.466 2.543A1.35 1.35 0 0 1 0 1.505c0-.41.155-.77.466-1.081A1.412 1.412 0 0 1 1.504 0c.41 0 .756.141 1.038.424l16.992 17.165c.31.283.466.636.466 1.06 0 .423-.155.777-.466 1.06L2.542 36.872a1.412 1.412 0 0 1-1.038.424c-.41 0-.755-.141-1.038-.424A1.373 1.373 0 0 1 0 35.813c0-.423.155-.776.466-1.059L15.932 18.65z" fill="#726D75" fill-rule="evenodd"></path>
 								</svg>
 
 								</div>
@@ -306,8 +311,8 @@ export default {
 					$('.count').removeClass('changement-couleur')
 					$('.li-sousmenu').removeClass('open-simple')
 					$('.li-sousmenu').addClass('close-simple')
-					// $('.icon-arrow-right').removeClass('open-simple')
-					// $('.icon-arrow-right').addClass('close-simple')
+					// $('.icon-arrow-right-header').removeClass('open-simple')
+					// $('.icon-arrow-right-header').addClass('close-simple')
 
 
 				}	
@@ -443,6 +448,8 @@ export default {
 
 			if ($(el).find('.dropdown-content').length != 0 ) {
 
+				$(el).find('.ligne-animation').removeAttr('href')
+
 				var children = $(el).find('.dropdown-content')
 
 				if (children.find('.current').length != 0) {
@@ -452,16 +459,15 @@ export default {
 					$(el).find('.ligne-animation').addClass('current')
 					$(el).addClass('current')
 
-				} 
+				}
 				else{
-
-					//console.log($(el), 'plus current');
 
 					$(el).removeClass('current')
 					$(el).find('.ligne-animation').removeClass('current')
 
-
 				}
+
+			
 			}
 			else{
 
@@ -621,7 +627,7 @@ export default {
 
 	}
 
-	.icon-arrow-right{
+	.icon-arrow-right-header{
 
 		width: 15px;
 		height: 15px;
@@ -711,6 +717,7 @@ export default {
 	.mobile-langue{
 
 		display: none !important;
+
 	}
 
 	.ligne-mobile{
@@ -800,7 +807,7 @@ export default {
 		height: 55px;
 	}
 
-	.icon-arrow-right{
+	.icon-arrow-right-header{
 
 		display: none;
 
@@ -920,10 +927,22 @@ export default {
 
 @media only screen and (max-width: 1100px){
 
-	.parent li{
 
+	.mobile-langue{
+
+		margin-bottom: 30px;
+	}
+
+	li.li-sousmenu.sousmenus.childli.dropdown__title.li-espace-between {
 		margin-top: 0px;
 		margin-bottom: 0px;
+		padding-bottom: 28px;
+	}
+
+	.parent li{
+
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
 
 	.desktop-langue{
@@ -981,7 +1000,7 @@ export default {
 
 	.image-logo{
 
-		width: 20%;
+		width: 30%;
 		margin-left: auto;
 		margin-right: auto;
 		
@@ -1012,7 +1031,8 @@ export default {
 
 	.dropdown-content{
 
-		top: 100px;
+		top: 0px;
+		padding-top: 100px;
 		display: flex;
 		flex-direction: column;
 		align-content: center;
@@ -1022,11 +1042,14 @@ export default {
 	.parent{
 		
 		right: 100vw;
-		display: flex;
-		flex-direction: column;
-		align-content: center;
-		justify-content: center;
+		margin-top: 0px;
+		overflow: auto;
 	}
+
+/*	.parent *{
+
+		box-sizing: content-box;
+	}*/
 
 	.icon{
 		right: calc( 100% - 56px );
@@ -1058,7 +1081,7 @@ export default {
 		
 	}
 
-	.icon-arrow-right{
+	.icon-arrow-right-header{
 
 		position: absolute;
 		right: 20%;
@@ -1091,19 +1114,20 @@ export default {
 
 		width: 25%;
 		font-size: 16px;
-		margin-top: 10%;
+		margin-top: 50px;
 
 	}
 
+
 	.ligne-mobile{
 
-		margin-top: 10%;
-
+		margin-top: 50px;
 	}
 
 	.image-logo{
 
 		margin-top: 10%;
+		margin-bottom: 10%;
 	}
 
 	.parent{
@@ -1134,6 +1158,7 @@ export default {
 		padding-bottom: 20px;
 		margin-top: 20px;
 		font-size: 14px;
+		margin-bottom: 50px;
 
 	}
 
@@ -1165,7 +1190,8 @@ export default {
 
 	.div-parent-grandparent{
 
-		margin-top: 15px;
+		margin-top: 28px;
+		
 	}
 
 
@@ -1191,13 +1217,14 @@ export default {
 	.image-logo{
 
 		margin-top: 30px;
+		margin-bottom: 30px;
 		
 	}	
 
 	.grandparent{
 
 		font-size: 14px;
-		margin-top: 28px;
+		margin-top: 18px;
 	}
 
 	.langue{
@@ -1205,10 +1232,15 @@ export default {
 		justify-content: center;
 		padding-top: 15px;
 		padding-bottom: 15px;
-		margin-top: 30px;
+		/*margin-top: 30px;*/
 		font-size: 15px;
 	}
 
+	.parent li a{
+
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
 
 	.parent{
 
@@ -1243,6 +1275,8 @@ export default {
 		position: fixed;
 		width: 100%;
 		right: 100vw;
+		top: 0px;
+		padding-top: 69px;
 
 	}
 
@@ -1272,6 +1306,7 @@ export default {
 	.parent li a{
 
 		max-width: 45%;
+
 	}
 
 	.count{
@@ -1281,7 +1316,7 @@ export default {
 
 	.div-parent-grandparent{
 
-		margin-top: 15px;
+		margin-top: 18px;
 	}
 
 

@@ -287,6 +287,11 @@
 		box-sizing: border-box;
 	}
 
+	.left-col .orders{
+
+		margin-bottom: 50px;
+	}
+
 	.fade-enter-active .left-col, .fade-leave-active .left-col, .fade-leave-to .left-col {
 		margin-right: -500px;
 		transition: margin-right 0.6s;
@@ -358,6 +363,14 @@
 
 	}
 
+	.account-nav{
+
+		overflow: auto;
+		margin-bottom: auto;
+		padding-bottom: 50px;
+		max-height: 80vh;
+	}
+
 	.edit-address-billing.right-content{
 
 		overflow: auto;
@@ -365,11 +378,11 @@
 		max-height: 85vh;
 	}
 
-	.right-content::-webkit-scrollbar-thumb{
+	.left-col *::-webkit-scrollbar-thumb{
 		background: #e1e1e1 !important;
 	}
 
-	.right-content::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:hover{
+	.left-col *::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:hover{
 		background: #e1e1e1 !important;
 	}
 
@@ -382,6 +395,16 @@
 	.woocommerce-EditAccountForm div p{
 
 		margin-top: 15px !important;
+
+	}
+
+	@media screen and (max-width: 600px ){
+
+		.left-col{
+
+			padding: 27px 30px 85px 30px;
+
+		}
 
 	}
 </style>
@@ -616,6 +639,34 @@
 	.side-account p.woocommerce-LostPassword.lost_password{
 
 		margin-top: 15px;
+	}
+
+	@media screen and (max-width: 600px){
+
+		.account-info .u-column1.col-1.woocommerce-Address{
+
+			flex-direction: column;
+		}
+
+		.account-info .woocommerce-Address{
+
+			flex-direction: column;
+			margin-bottom: 30px;
+		}
+
+		.account-nav{
+
+			padding-left: 0px;
+			padding-right: 0px;
+
+		}
+
+		.left-col {
+
+			padding: 27px 30px 85px 30px !important;
+			
+		}
+
 	}
 
 

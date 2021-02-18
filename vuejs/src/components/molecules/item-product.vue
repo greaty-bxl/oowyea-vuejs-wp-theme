@@ -205,6 +205,7 @@ export default {
 		font-weight: 700;
 		margin-right: 25px;
 		margin-left: 25px;
+		text-transform: uppercase;
 		
 	}
 

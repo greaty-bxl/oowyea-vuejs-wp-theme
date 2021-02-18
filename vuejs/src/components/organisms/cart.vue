@@ -453,6 +453,7 @@
 		margin: 0;
 		padding: 17px;
 		border: 1px solid #dcdcdc;	
+		border-radius: 3px;
 		background-color: white;
 		text-align: center;
 		color: #422112;
@@ -664,6 +665,24 @@
 		display: none;
 	}
 
+	.side-cart .woocommerce ul#shipping_method li{
+
+		position: relative;
+	}
+
+	.side-cart .woocommerce ul#shipping_method li input{
+
+		margin: 0px .4375em 0 0;
+		position: absolute;
+		top: calc(50% - 6.5px);
+		font-size: 12px;
+	}
+
+	.woocommerce ul#shipping_method li label{
+
+		margin-left: 20px;
+	}
+
 	@media screen and (max-width: 1125px){
 
 		.woocommerce ul#shipping_method{
@@ -672,9 +691,6 @@
 		}
 
 	}
-
-
-	
  
 	@media screen and (max-width: 600px) {
 
@@ -702,9 +718,21 @@
 
 		.left-col {
 
-			padding: 27px 30px 85px 30px !important;
+			padding: 27px 30px 27px 30px !important;
 			
 		}
+
+		.side-cart .cart_totals{
+
+			font-size: 12px;
+		}
+
+		.side-cart .woocommerce ul#shipping_method li input{
+
+			top: calc(50% - 6px);
+	
+		}
+
 
 	
 	}

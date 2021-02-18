@@ -70,7 +70,7 @@
 		margin-right: auto;
 		margin-top: 50px;
 		margin-top: 75px;
-		margin-bottom: 150px;
+		margin-bottom: 100px;
 		width: 50%;
 		text-align: left;
 		font-size: 16px;
@@ -122,6 +122,13 @@
 			font-weight: 500;
 			line-height: 24px;
 
+	}
+
+	.image-contact h1 {
+
+		font-size: 6vw !important ;
+		padding:  0px 30px  !important;
+		margin: 0px  !important;
 	}
 
 
@@ -176,6 +183,7 @@
 		
 			width: calc( 100% - 140px)		
 		}
+
 	}
 
 	@media screen and ( max-width: 600px ){
@@ -187,7 +195,7 @@
 
 		.image-contact h1 {
 
-			font-size: 10vw !important ;
+			font-size: 12vw !important ;
 			padding:  0px 30px  !important;
 			margin: 0px  !important;
 		}

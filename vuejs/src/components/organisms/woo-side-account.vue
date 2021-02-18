@@ -80,7 +80,7 @@
 	export default {
 		data(){
 			return {
-				open: 0,
+				open: 1,
 				step: 0,
 				current1: '',
 				current2: '',
@@ -354,7 +354,17 @@
 		margin-top: 20px;
 	}
 
-	.account-info.right-content{
+
+	.account-container > div{
+
+		overflow: auto;
+		margin-bottom: auto;
+		max-height: calc( 100vh - 180px);
+
+
+	}
+
+	/*.account-info.right-content{
 
 		overflow: auto;
 		margin-bottom: auto;
@@ -375,8 +385,12 @@
 
 		overflow: auto;
 		margin-bottom: auto;
-		max-height: 85vh;
+		max-height: 80vh;
 	}
+
+	.edit-address-delivery.right-content{
+
+	}*/
 
 	.left-col *::-webkit-scrollbar-thumb{
 		background: #e1e1e1 !important;

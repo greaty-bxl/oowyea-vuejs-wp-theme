@@ -650,7 +650,7 @@
 
 	.padding-appeare > div:first-child{
 
-		padding-top: 30px !important;
+		padding-top: 30px;
 	}
 
 	.padding-appeare.origine{

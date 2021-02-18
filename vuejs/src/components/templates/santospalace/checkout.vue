@@ -119,23 +119,15 @@ export default {
 
 			let cols = {}
 
-			console.log(this.post.post_content);
+			//console.log(this.post.post_content);
 
-			let array_txt = {
-				'Cash on delivery' : this.pll__('PaCash on delivery'),
-				'Pay with cash upon delivery.'  : this.pll__('Pay with cash upon delivery'),
-			}
+			this.pll__([
+				'Cash on delivery',
+				'Pay with cash upon delivery',
+				'.payment_box.payment_method_bacs'
+				], true)
 
-			/*this.pll__inline([
-				'Cash on delivery pll',
-				'Pay with cash upon delivery'
-				])*/
-
-			$.each(array_txt, function(index, val) {
-				$("*").filter(function() {
-					return $.trim($(this).text()) === index;
-				}).text(val);
-			});
+			
 			
 
 			
@@ -150,7 +142,7 @@ export default {
 			cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
 
 
-			console.log(cols);
+			//console.log(cols);
 			
 			return cols
 		}

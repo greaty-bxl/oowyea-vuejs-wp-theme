@@ -165,6 +165,7 @@
 }
 
 .image-degustation-page{
+
 	color: white;
 	background-image: url('https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_degustation-01.png');
 	background-position: center;
@@ -258,8 +259,13 @@
 
 	.image-degustation-page h1 {
 
-		font-size: 7vw !important ;
+		font-size: 6vw !important ;
 		margin: 0px !important;
+	}
+
+	.image-degustation-page {
+
+		margin-top: 100px;
 	}
 
 	.image-degustation-page h3 {
@@ -346,13 +352,6 @@
 		margin-top: 100px;
 	}
 
-	.image-degustation-page h1 {
-
-		font-size: 7vw !important ;
-		margin: 0px !important;
-
-	}
-
 	.degustation-page-vue{
 
 		width: 100%;
@@ -407,7 +406,7 @@
 
 		.image-degustation-page h1 {
 
-			font-size: 10vw !important ;
+			font-size: 12vw !important ;
 			padding:  0px 30px  !important;
 			margin: 0px  !important;
 

@@ -20,7 +20,7 @@
 
 						<div class="description-padding">
 
-							<div class="padding-appeare">
+							<div  class="padding-appeare">
 
 								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
 									<div class="parent-taxonomie-info-single">
@@ -31,6 +31,10 @@
 											</div>
 										</div>
 									</div>
+								</div>
+
+								<div style="padding-top: 0px" v-else>
+									
 								</div>
 
 								<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes')">
@@ -45,6 +49,10 @@
 									
 								</div>
 
+								<div style="padding-top: 0px" v-else>
+									
+								</div>
+
 								<div v-for="(value, key) in terms_list_display" :key="key">
 									<div  style="padding-top: 15px" class="origine"  v-if="post.terms[key]">
 										<p class="titre-taxonomie"> 
@@ -53,9 +61,11 @@
 										</p> 
 									</div>
 								</div>
+								<div style="padding-top: 0px" v-else>
+								</div>
 							
 							</div>
-							<div style="padding-top: 0px">
+							<div style="padding-top: 30px">
 								<p v-html="post.post_content" class="descriptif"></p>
 							</div>
 						</div>
@@ -734,7 +744,7 @@
 		max-width: 400px;
 		margin-top: 30px;
 		/*margin-bottom: 20px;*/
-		padding-top: 0;
+		padding-top: 0 !important;
 		/*border-top: solid 1px #CECECE;*/
 	}
 	.vue-wc-variation {

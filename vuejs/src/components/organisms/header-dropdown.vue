@@ -403,7 +403,7 @@ export default {
 									duration: 200,
 								});
 						
-						$(this).parents('.grandparent').find('.is.desktop()').removeClass('open-simple')
+						$(this).parents('.grandparent').find('.li-sousmenu').removeClass('open-simple')
 						$(this).parents('.grandparent').find('.li-sousmenu').addClass('close-simple')
 						$('.count').removeClass('changement-couleur')
 
@@ -1264,7 +1264,7 @@ export default {
 		width: 16px;
 		display: flex;
 		justify-content: center;
-		line-height: 17px;
+		line-height: 15px;
 
 	}
 

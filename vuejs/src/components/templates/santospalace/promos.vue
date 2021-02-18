@@ -67,11 +67,6 @@
 
 	}
 
-	.page-promos-content p{
-
-		margin-top: 20px;
-
-	}
 
 	.image-background-promo{	
 
@@ -86,7 +81,7 @@
 		
 	}
 
-	@media screen and ( max-width: 1100px ) and ( min-width: 600px) {
+	@media screen and ( max-width: 1125px ) and ( min-width: 600px) {
 
 		.image-background-promo{	
 
@@ -99,7 +94,7 @@
 		.text-global-promo-page{
 
 			width: calc(100% - 140px);
-			margin-bottom: 70px;
+			margin-bottom: 100px;
 		}
 
 		.section-promos-page h2{

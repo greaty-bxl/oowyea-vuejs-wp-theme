@@ -339,6 +339,8 @@ export default {
 	}
 
 
+
+
 }
 
 
@@ -346,7 +348,12 @@ export default {
 
 	@media only screen and (max-width: 1100px) and (min-width: 600px){
 
-		
+		.global-container{
+
+			margin-top: 0px;
+			margin-bottom: 70px;
+
+		}
 		.title-page-boutique{
 
 			font-size: 3vw;
@@ -473,14 +480,17 @@ export default {
 		.global-container{
 
 			margin-top: 0px;
+			margin-bottom: 30px;
+
 		}
+
 
 
 		.section-wc-shop .product-santos{
 
 			width: calc( 100% - 56px);
 			/*padding-bottom: 30px;*/
-			margin: 30px auto;
+			margin: 50px auto;
 		
 		}
 

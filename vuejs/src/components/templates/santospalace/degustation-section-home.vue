@@ -108,7 +108,6 @@
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
-			background-image: url('http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_degustation.png');
 		}
 
 		.text-degustation{
@@ -131,7 +130,7 @@
 			.text-degustation{
 
 				padding-left: 0px;
-				width: calc( 100% - 60px);	
+				box-sizing: border-box;
 				padding: 70px 30px;
 				display: flex;
 			}

@@ -585,7 +585,7 @@
 
 		.textwidget div{
 
-			margin-bottom: 30px;
+			margin-bottom: 40px;
 		}
 
 		.contener-footer div *{

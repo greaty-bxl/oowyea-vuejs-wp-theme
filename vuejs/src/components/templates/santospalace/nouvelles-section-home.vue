@@ -433,6 +433,8 @@
 
 	@media screen and ( max-width: 600px ){
 
+
+
 		.content-flech{
 
 			margin-bottom: 30px;
@@ -486,7 +488,7 @@
 
 			/*font-size: 10vw !important;*/
 			padding-bottom: 30px;
-			width: 60%;
+			width: 90%;
 			margin: 0px auto !important;
 			line-height: 120% !important;
 		}

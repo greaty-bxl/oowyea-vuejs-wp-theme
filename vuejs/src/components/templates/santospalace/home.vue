@@ -68,11 +68,12 @@
 		font-size: 17px;
 	}
 
-	@media screen and ( max-width: 1100px ) and ( min-width: 600px) {
+	@media screen and ( max-width: 1125px ) and ( min-width: 600px) {
 
 		.header-home h1{
 
 			padding-bottom: 30px;
+			font-size: 10vw !important;
 
 		}
 
@@ -102,7 +103,7 @@
 
 		.header-home h1{
 
-			font-size: 10vw !important;
+			font-size: 12vw !important;
 			padding-bottom: 30px;
 			width: 80%;
 			margin: 0px auto !important;

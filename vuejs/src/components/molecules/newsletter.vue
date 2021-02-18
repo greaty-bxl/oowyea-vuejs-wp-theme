@@ -292,6 +292,24 @@ input.input-submit{
 		width: 90%;
 	}
 
+	.politique-confidentialite input {
+		
+		top: calc( 50% - 6.5px);
+		margin-right: 10px;
+	}
+
+	.content-newsletter label{
+
+		justify-content: center;
+
+	}
+
+	.politique-confidentialite div{
+
+		width: 90%;
+
+	}
+
 
 
 }

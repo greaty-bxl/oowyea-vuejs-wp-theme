@@ -80,7 +80,7 @@
 	export default {
 		data(){
 			return {
-				open: 1,
+				open: 0,
 				step: 0,
 				current1: '',
 				current2: '',
@@ -360,7 +360,6 @@
 		overflow: auto;
 		margin-bottom: auto;
 		max-height: calc( 100vh - 180px);
-
 
 	}
 
@@ -655,6 +654,8 @@
 		margin-top: 15px;
 	}
 
+	
+
 	@media screen and (max-width: 600px){
 
 		.account-info .u-column1.col-1.woocommerce-Address{
@@ -677,7 +678,7 @@
 
 		.left-col {
 
-			padding: 27px 30px 85px 30px !important;
+			padding: 27px 30px 27px 30px !important;
 			
 		}
 

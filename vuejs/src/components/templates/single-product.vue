@@ -46,11 +46,9 @@
 											</div>
 										</div>
 									</div>
-									
 								</div>
 
-								<div style="padding-top: 0px" v-else>
-									
+								<div style="padding-top: 0px" v-else>			
 								</div>
 
 								<div v-for="(value, key) in terms_list_display" :key="key">
@@ -60,9 +58,10 @@
 											<span v-html="get_terms_as_string(post, key)"></span>
 										</p> 
 									</div>
+									<div style="padding-top: 0px" v-else>
+									</div>
 								</div>
-								<div style="padding-top: 0px" v-else>
-								</div>
+							
 							
 							</div>
 							<div style="padding-top: 30px">

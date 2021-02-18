@@ -257,7 +257,7 @@
 		justify-content: center;
 		flex-direction: column;
 		font-family: open sans;
-		min-height: auto !important;
+		min-height: 100vh !important;
 
 	}
 
@@ -390,7 +390,7 @@
 	}
 
 
-	@media screen and ( max-width: 1100px ) and ( min-width: 600px) {
+	@media screen and ( max-width: 1125px ) and ( min-width: 600px) {
 
 		.item-product {
 
@@ -408,7 +408,7 @@
 		.section-nouvelles h2{
 
 			padding-bottom: 30px;
-			/*font-size: 6vw !important;*/
+			font-size: 6vw!important;
 			line-height: 120% !important;
 
 		}

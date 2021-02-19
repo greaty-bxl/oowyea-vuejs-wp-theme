@@ -1,20 +1,30 @@
 <template>
 
-	<div class="checkout_santos" >
-		<h5 v-if="cols_checkout.title_commande" class="title-home">Paiement</h5>
+	<div class="checkout_santos " >
+		<h5 v-if="cols_checkout.title_commande == undefined " class="title-home">Paiement</h5>
 		<h5 v-else class="title-home">Facture</h5>
 			<div v-html="cols_checkout.order_notices"></div>
 
+			<div class="woocommerce">
+				
+				<form  v-if="is_user_logged_in == false " class="woocommerce-form woocommerce-form-login login" method="post" v-html="cols_checkout.woocommerce_login">
+				</form>
+
+			</div>
+			
+
 			<form v-if="cols_checkout.woocommerce_order == undefined " name="checkout" method="post" :action="cols_checkout.action" class="form-check-out">
 
-				<div v-html="cols_checkout.col_1"></div>
+				<div class="col-1" v-html="cols_checkout.col_1"></div>
+
+				<div v-html="cols_checkout.col_1_input"></div>
 
 				<div v-if="cols_checkout.col_2" class="trigge_only_this">
 					<input id='one' type='checkbox' v-model="checked">
 						<label class="button-ouverture" for='one'>
 							<span></span>
-						<p @click="Open" v-html="cols_checkout.title_ship_address_text" ></p>
-					</label>
+							<p class="text-2adress" @click="Open"  v-html="cols_checkout.title_ship_address_text" ></p>
+						</label>
 				</div>
 
 				<div v-else :style="{ height:'50px'}" >					
@@ -34,6 +44,8 @@
 			<div v-html="cols_checkout.woocommerce_order">
 			</div>
 
+			<!-- <div v-html="post.post_content"></div> -->
+
 	</div>
 
 </template>
@@ -50,8 +62,8 @@ export default {
 		return {
 			ouvert: 0,
 			checked: false,
+			is_already_logged: false,
 
-			// post
 		}
 
 
@@ -61,7 +73,22 @@ export default {
 		'post' : Object
 	},
 
+	watch : {
+
+		'$store.state.wp.woo_account.is_user_logged_in': function(){
+
+			if (this.is_already_logged == false && this.is_user_logged_in == true ) {
+				this.$('#page-loader').css('display', 'flex');
+				location.reload()
+
+			}
+		},
+	},
+
 	mounted(){
+
+
+		this.is_already_logged = this.$store.state.wp.woo_account.is_user_logged_in
 
 		this.$emit('template_mounted', this);
 
@@ -69,7 +96,7 @@ export default {
 			'.title-home' : 25,
 		})
 
-			init_styled_form('.woocommerce-billing-fields input, .woocommerce-shipping-fields__field-wrapper input')
+			init_styled_form('.woocommerce-billing-fields input, .woocommerce-shipping-fields__field-wrapper input , .login input')
 
 			// hide header
 
@@ -78,7 +105,6 @@ export default {
 			$('#header').hide()
 
 			$('#footer').hide()
-			
 
 			var payconiq  = $('[alt="Payconiq"]').attr('src');
 
@@ -126,10 +152,6 @@ export default {
 				'Pay with cash upon delivery.'  : this.pll__('Pay with cash upon delivery'),
 			}
 
-			/*this.pll__inline([
-				'Cash on delivery pll',
-				'Pay with cash upon delivery'
-				])*/
 
 			$.each(array_txt, function(index, val) {
 				$("*").filter(function() {
@@ -141,6 +163,7 @@ export default {
 			
 
 			cols['action'] = $(this.post.post_content).find('.checkout').attr('action');
+			cols['col_1_input'] =  $(this.post.post_content).find('.col-1').find('.woocommerce-account-fields').html()
 			cols['col_1'] =  $(this.post.post_content).find('.col-1').html();
 			cols['col_2'] =  $(this.post.post_content).find('.col-2 .shipping_address').html();
 			cols['title_commande'] =  $(this.post.post_content).find('.order_review_heading').html();
@@ -148,12 +171,21 @@ export default {
 			cols['order_review'] =  $(this.post.post_content).find('.woocommerce-checkout-review-order').html();
 			cols['order_notices'] =  $(this.post.post_content).find('.woocommerce-notices-wrapper').html();
 			cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
+			cols['woocommerce_login'] =  $(this.post.post_content).find('.login').html();
+
+			
 
 
 			console.log(cols);
 			
 			return cols
-		}
+		},
+
+		is_user_logged_in : function(){
+			return this.$store.state.wp.woo_account.is_user_logged_in
+		},
+
+
 
 	}
 
@@ -170,6 +202,11 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
+	.checkout_santos .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login > p{
+
+		padding-top: 20px;
+	}	
+
 	.checkout_santos{
 
 		width: 50% !important;
@@ -177,7 +214,6 @@ export default {
 		margin-left: auto;
 		margin-bottom: 100px;
 	}
-
 
 	.checkout_santos .woocommerce-error{
 
@@ -236,19 +272,44 @@ export default {
 		border-color: #d9d9d9;
 	}
 
+	.checkout_santos .login input{
+
+		border: 1px transparent solid;
+		background-clip: padding-box;
+		display: block;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		width: auto;	
+		padding: 1.2em 0.7857142857em ;
+		word-break: normal;
+		line-height: inherit;
+		border-color: #d9d9d9;
+
+	}
+
 	.checkout_santos .paddingTop-animation{
 
 		padding-top: 26px !important;
 		padding-bottom: 10px  !important;
 	}
 
+
+
 	.checkout_santos .appear-label{
 
 		margin-top: 5px !important;
 		position: absolute !important;
 		display: flex !important;
-	
 
+	}
+
+	.checkout_santos input#createaccount {
+		margin-right: 15px;
+	}
+
+	.checkout_santos label.woocommerce-form__label.woocommerce-form__label-for-checkbox.checkbox {
+		color: #888320;
+		font-weight: 500;
 	}
 
 	.checkout_santos .trigge_only_this *{ box-sizing: border-box; user-select: none; }
@@ -372,6 +433,11 @@ export default {
 		margin-top: 30px !important;
 		margin-bottom: 30px  !important;
 
+	}
+
+	.button-ouverture p{
+
+		font-weight: 500;
 	}
 
 	.woocommerce-checkout-review-order-table{
@@ -623,6 +689,45 @@ export default {
 		margin: 0px;
 	}
 
+	.col-1 .woocommerce-account-fields{
+
+		display: none;
+	}
+
+
+	.checkout_santos input#createaccount{
+
+	/*	width: 16px;
+		height: 16px;*/
+		border-color: #d9d9d9;
+		border: 1px solid #d9d9d9 ;
+	}
+
+	.woocommerce .woocommerce-form-login .woocommerce-form-login__submit{
+
+		color: white;
+		background-color: #888320;
+		border: 1px solid #888320;
+		border-radius: 3px;
+		transition: 0.3s;
+		padding: 15px;
+		font-weight: 600;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover{
+
+		color: #888320 !important;
+		background-color: white !important;
+	}
+
+	.woocommerce .woocommerce-form-login .woocommerce-form-login__rememberme input{
+
+		display: inherit !important;
+		margin-right: 5px;
+	}
+
 	@media screen and (max-width: 1025px) and (min-width: 600px){
 
 		.checkout_santos{
@@ -638,7 +743,10 @@ export default {
 
 	@media screen and (max-width: 600px){
 
+		.woocommerce .woocommerce-form-login .woocommerce-form-login__submit{
 
+			margin-top: 15px;
+		}
 		.checkout_santos table.woocommerce-table.woocommerce-table--order-details.shop_table.order_details{
 
 			width: 100%;
@@ -675,16 +783,26 @@ export default {
 			width: 100%;
 			display: flex;
 			flex-direction: column;
-			/*margin-top: 20px;*/
 			margin-bottom: 20px;
+		}
+
+		.woocommerce-checkout-payment span{
+
+			text-align: center;
+		}
+
+		label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-form-login__rememberme{
+
+			padding-left: 0px;
+		}
+
+		.text-2adress{
+
+			width: 60%
 		}
 
 
 	}
-
-
-
-
 
 </style>
 

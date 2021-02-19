@@ -399,6 +399,12 @@
 
 <style>
 
+	.woocommerce table.shop_table{
+
+		font-size: 15px;
+		color: #422112;
+	}
+
 	.cart-update button{
 
 		padding-top: 15px !important;
@@ -687,7 +693,13 @@
 
 		.woocommerce ul#shipping_method{
 
-			margin-top: 25px;
+			margin-top: 40px;
+		}
+
+		.left-col {
+
+			padding: 27px 30px 27px 30px !important;
+			
 		}
 
 	}
@@ -716,11 +728,12 @@
 
 		}
 
-		.left-col {
+		.woocommerce ul#shipping_method{
 
-			padding: 27px 30px 27px 30px !important;
-			
+			margin-top: 35px;
 		}
+
+
 
 		.side-cart .cart_totals{
 

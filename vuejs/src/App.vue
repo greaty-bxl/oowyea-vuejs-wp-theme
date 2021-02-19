@@ -118,7 +118,20 @@ export default {
 
     console.log( 'App mounted', this.$store.state.wp );    
 
+    /*pll__('easy find', true )
 
+    pll__('easy find 2', false )
+
+    pll__([
+      'array " 2', 
+      'hello \' '
+      ], true)
+
+    pll__("easy test 2")
+
+    pll__("test 3") + pll__("test 3.2")    
+
+    let nanana = pll__('te(s\')t') + my_function('test 2')*/
     
     this.pages['current'] = this.wp.sections
     this.classes['current'] = this.wp.body_class

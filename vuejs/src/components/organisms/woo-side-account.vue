@@ -139,10 +139,10 @@
 				this.current1 = current1
 				this.current2 = current2
 			},
-			a_to_none: function(html){
+			/*a_to_none: function(html){
 
 				html
-			}
+			}*/
 		},
 		computed:{
 			edit_address_delivery: function()

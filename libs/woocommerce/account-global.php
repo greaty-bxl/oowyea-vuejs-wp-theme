@@ -145,7 +145,7 @@ add_action( 'vue_vars', 'owy_woo_account' );
 
 function woo_account_get_order($data)
 {
-	die(owy_get_order(228));
+	die(owy_get_order($_POST['data']['id']));
 }
 add_action( 'wp_ajax_woo_account_get_order', 'woo_account_get_order' );
 //add_action( 'wp_ajax_nopriv_woo_account_get_order', 'woo_account_get_order' );

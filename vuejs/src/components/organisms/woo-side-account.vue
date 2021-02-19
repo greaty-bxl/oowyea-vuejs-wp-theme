@@ -335,6 +335,12 @@
 		margin-left: 0%;
 		transition: margin-left 0.6s; 
 	}
+
+	.account-nav > a{
+
+		line-height: 40px;
+
+	}
 	.account-nav.step1{
 		margin-left: -100%;
 	}
@@ -582,6 +588,7 @@
 	.side-account button{
 
 		margin-top: 15px;
+		margin-bottom: 15px;
 		background-color: #888320;
 		color: white !important;
 		border: 1px solid #888320 !important;
@@ -649,11 +656,11 @@
 
 	}
 
-	.side-account p.woocommerce-LostPassword.lost_password{
+/*	.side-account p.woocommerce-LostPassword.lost_password{
 
 		margin-top: 15px;
 	}
-
+*/
 	
 
 	@media screen and (max-width: 600px){

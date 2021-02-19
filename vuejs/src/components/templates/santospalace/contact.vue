@@ -131,6 +131,12 @@
 		margin: 0px  !important;
 	}
 
+	.image-contact h3 {
+
+		font-size: 2vw !important
+
+	}
+
 
 	@media screen and (min-width: 1100px){
 
@@ -183,6 +189,14 @@
 		
 			width: calc( 100% - 140px)		
 		}
+
+		.image-contact h1 {
+
+			font-size: 10vw !important ;
+			padding:  0px 30px  !important;
+			margin: 0px  !important;
+		}
+
 
 	}
 

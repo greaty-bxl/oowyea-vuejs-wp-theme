@@ -53,6 +53,11 @@
 			margin: 0px 70px; 
 		}
 
+		.politique-confidentialite input{
+
+			top: 2px;
+		}
+
 	}
 
 	@media screen and ( max-width: 600px ){

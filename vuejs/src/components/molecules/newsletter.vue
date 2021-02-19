@@ -87,8 +87,8 @@ export default{
 {
 
 	background-color: #888320;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 
 }
 
@@ -203,7 +203,7 @@ input.input-submit{
 .politique-confidentialite input{
 
 	position: relative;
-	top: 1px;
+	top: 2px;
 	margin-right: 5px;
 
 }
@@ -228,7 +228,7 @@ input.input-submit{
 }
 
 
-@media screen and ( max-width: 1100px){
+@media screen and ( max-width: 1125px){
 
 	.content-email-input{
 
@@ -237,7 +237,7 @@ input.input-submit{
 
 	.input-col{
 
-		margin-top: 20px;
+		margin-top: 30px;
 		justify-content: center;
 	}
 

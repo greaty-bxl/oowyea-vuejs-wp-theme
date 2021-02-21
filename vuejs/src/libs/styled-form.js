@@ -13,8 +13,15 @@ export default function ( selector ){
 		label.hide()
 
 
+		// console.log(input.parents('.acfe-form').length);
+
+		// label_txt = label_txt.replace('*','')
 		
-		label_txt = label_txt.replace('*','')
+		if (input.parents('.acfe-form').length === 0 )
+		{
+			label_txt = label_txt.replace('*','')
+
+		}
 
 		input.attr('placeholder', label_txt);
 

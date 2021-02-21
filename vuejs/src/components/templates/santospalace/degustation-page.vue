@@ -271,7 +271,7 @@
 	.image-degustation-page h3 {
 
 		font-size: 2vw !important ;
-		margin: 0px !important;
+		/*margin: 0px !important;*/
 		/*padding-bottom: 25px;*/
 	}
 

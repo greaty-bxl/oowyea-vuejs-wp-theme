@@ -696,12 +696,12 @@ export default {
 		border: 1px solid #d9d9d9 ;
 	}
 
-	.woocommerce .woocommerce-form-login .woocommerce-form-login__submit{
+	.checkout_santos .woocommerce .woocommerce-form-login .woocommerce-form-login__submit{
 
 		color: white;
-		background-color: #888320;
+		background-color: #888320 !important;
 		border: 1px solid #888320;
-		border-radius: 3px;
+		border-radius: 3px !important;
 		transition: 0.3s;
 		padding: 15px;
 		font-weight: 600;
@@ -709,19 +709,47 @@ export default {
 		cursor: pointer;
 	}
 
-	.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover{
+	.checkout_santos #mon-compte .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
+
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+	}
+
+	.checkout_santos .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover{
 
 		color: #888320 !important;
 		background-color: white !important;
 	}
 
-	.woocommerce .woocommerce-form-login .woocommerce-form-login__rememberme input{
+	.checkout_santos .woocommerce .woocommerce-form-login .woocommerce-form-login__rememberme input{
 
 		display: inherit !important;
 		margin-right: 5px;
 	}
+	.checkout_santos .woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last{
 
-	@media screen and (max-width: 1025px) and (min-width: 600px){
+		width: 50%;
+		overflow: visible;
+		box-sizing: border-box;
+
+	}
+
+	.checkout_santos #mon-compte .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
+
+		padding: 12px;
+	}
+
+	.checkout_santos .login .form-row-first{
+
+		width: calc(50% - 3px) !important;
+	}	
+	
+	.checkout_santos .login .form-row-last{
+
+		width: calc(50% - 3px) !important;
+	}
+
+	@media screen and (max-width: 1025px) and (min-width: 745px){
 
 		.checkout_santos{
 
@@ -731,10 +759,32 @@ export default {
 			margin-bottom: 100px;
 			box-sizing: border-box;
 		}
+
+		.checkout_santos #mon-compte .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login{
+
+			margin-left: 0px;
+			margin-right: 0px;
+		}
 	}
 
 
-	@media screen and (max-width: 600px){
+	@media screen and (max-width: 745px){
+
+		.checkout_santos .woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last{
+
+			width: 100%;
+		}
+
+		.checkout_santos .login .form-row-first{
+
+			width: 100% !important;
+		}	
+		
+		.checkout_santos .login .form-row-last{
+
+			width: 100% !important;
+		}
+
 
 		.woocommerce .woocommerce-form-login .woocommerce-form-login__submit{
 

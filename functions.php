@@ -5,12 +5,31 @@
  *  Elegant Vue.js WordPress theme.
  */
 
+require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+ 
 define('GREATY_TEMPLATE_PATH', get_template_directory());
 define('GREATY_TEMPLATE_URL', get_template_directory_uri());
 
 /*include GREATY_TEMPLATE_PATH.'/security/security.php';*/
 include GREATY_TEMPLATE_PATH.'/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
 include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
+
+global $owy_active_plugins;
+$owy_active_plugins = get_option( 'active_plugins' );
+
+if( 
+    ( 
+        !in_array('acf-extended/acf-extended.php', $owy_active_plugins) 
+        || 
+        !in_array('custom-post-type-ui/custom-post-type-ui.php', $owy_active_plugins)
+    ) 
+    && 
+    $_GET['page'] == 'oowyea-home' 
+)
+{
+    wp_redirect( admin_url() . 'plugins.php?page=tgmpa-install-plugins', 302 );
+}   
+
 
 /*------------------------------------*\
     Vue.js Libraries & functions
@@ -32,7 +51,6 @@ include GREATY_TEMPLATE_PATH.'/libs/sidebars.php';
 include GREATY_TEMPLATE_PATH.'/libs/sections.php';
 include GREATY_TEMPLATE_PATH.'/libs/posts.php';
 include GREATY_TEMPLATE_PATH.'/libs/woocommerce.php';
-include GREATY_TEMPLATE_PATH.'/libs/pll_include.php';
 include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
 include GREATY_TEMPLATE_PATH.'/libs/image-sizes.php';
 include GREATY_TEMPLATE_PATH.'/libs/mime-types.php';
@@ -42,7 +60,7 @@ include GREATY_TEMPLATE_PATH.'/libs/newsletter.php';
 include GREATY_TEMPLATE_PATH.'/libs/polylang.php';
 
 
-
+include GREATY_TEMPLATE_PATH.'/owy-builder/builder.php';
 
 //include GREATY_TEMPLATE_PATH.'/libs/radio.php';
 
@@ -52,8 +70,8 @@ include GREATY_TEMPLATE_PATH.'/libs/polylang.php';
 //include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
 
 // Code for greaty new site
-include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
-include GREATY_TEMPLATE_PATH.'/libs/fromagerie/fromagerie.php';
+/*include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
+include GREATY_TEMPLATE_PATH.'/libs/fromagerie/fromagerie.php';*/
 
 // Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
@@ -86,7 +104,7 @@ function get_oowyea_home()
 
 function oowyea_menus()
 {
-    add_menu_page( 'oowYea', 'oowYea', 'edit_theme_options', 'oowyea-home', 'get_oowyea_home');
+    add_menu_page( 'oowyea', 'oowyea', 'edit_theme_options', 'oowyea-home', 'get_oowyea_editor', GREATY_TEMPLATE_URL . '/assets/oowyea-ico.svg', 1);
     
 }
 

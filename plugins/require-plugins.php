@@ -10,19 +10,19 @@ function grt_theme_register_required_plugins() {
 		array(
 			'name'      => 'ACF Extended',
 			'slug'      => 'acf-extended',
-			'required'  => false,
+			'required'  => true,
+		),
+		
+		array(
+			'name'      => 'Custom Post Type UI',
+			'slug'      => 'custom-post-type-ui',
+			'required'  => true,
 		),
 
 		array(
 			'name'		=> 'Calculated fields for ACF',
 			'slug'		=> 'calculated-fields-for-acf',
 			'required'	=> false,
-		),
-
-		array(
-			'name'      => 'Custom Post Type UI',
-			'slug'      => 'custom-post-type-ui',
-			'required'  => false,
 		),
 
 		array(

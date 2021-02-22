@@ -17,10 +17,13 @@
 
 				<div class="col-1" v-html="cols_checkout.col_1"></div>
 
+				<div v-if="cols_checkout.col_1_input != undefined ">
+					<br/>
+					<CheckboxAnimated :name="cols_checkout.col_1_input_name"/>
+					<span class="text-2adress" v-html="cols_checkout.col_1_input_span_text" ></span>
+					<br/><br/>
+				</div>
 
-				<div v-html="cols_checkout.col_1_input"></div>
-				
-				<CheckboxAnimated name="test"/>
 
 				<div v-if="cols_checkout.col_2">
 					<br/>
@@ -46,7 +49,6 @@
 			<div v-html="cols_checkout.woocommerce_order">
 			</div>
 
-			<!-- <div v-html="post.post_content"></div> -->
 
 	</div>
 
@@ -109,9 +111,9 @@ export default {
 
 			$('#footer').hide()
 
-			var payconiq  = $('[alt="Payconiq"]').attr('src');
+			let payconiq = $('[alt="Payconiq"]').attr('src');
 
-			var bancontact  = $('[alt="Bancontact"]').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Bancontact.svg');
+			$('[alt="Bancontact"]').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Bancontact.svg');
 
 			$('[for="payment_method_paypal"]').find('img').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Paypal.svg');
 
@@ -120,16 +122,15 @@ export default {
 
 				let image 
 
-			  $('.wc_payment_method').find('label').each( (index, el) => {
+			$('.wc_payment_method').find('label').each( (index, el) => {
 
-			  	image = $(el).find('img')
+				image = $(el).find('img')
 
 				$(el).text('')
 
 				$(el).append(image)
 
-			  	
-			  });
+			});
 
 			
 			if ( payconiq != undefined  ) {
@@ -180,23 +181,24 @@ export default {
 
 			
 
-			cols['action'] = $(this.post.post_content).find('.checkout').attr('action');
-			cols['col_1_input'] =  $(this.post.post_content).find('.col-1').find('.woocommerce-account-fields').html()
-			cols['col_1_input_id'] =  $(this.post.post_content).find('.col-1').find('.woocommerce-account-fields').find('input').attr('id')
-			cols['col_1_input_name'] =  $(this.post.post_content).find('.col-1').find('.woocommerce-account-fields').find('input').attr('name')
-			cols['col_1'] =  $(this.post.post_content).find('.col-1').html();
-			cols['col_2'] =  $(this.post.post_content).find('.col-2 .shipping_address').html();
-			cols['title_commande'] =  $(this.post.post_content).find('.order_review_heading').html();
-			cols['title_ship_address_text'] =  $(this.post.post_content).find('#ship-to-different-address span').text();
-			cols['order_review'] =  $(this.post.post_content).find('.woocommerce-checkout-review-order').html();
-			cols['order_notices'] =  $(this.post.post_content).find('.woocommerce-notices-wrapper').html();
-			cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
-			cols['woocommerce_login'] =  $(this.post.post_content).find('.login').html();
+				cols['action'] = $(this.post.post_content).find('.checkout').attr('action');
+				cols['col_1_input'] =  $(this.post.post_content).find('.col-1').find('.woocommerce-account-fields').html()
+				cols['col_1_input_span_text'] =  $(this.post.post_content).find('.col-1').find('label.woocommerce-form__label.woocommerce-form__label-for-checkbox.checkbox').find('span').text()
+				cols['col_1_input_name'] =  $(this.post.post_content).find('.col-1').find('input#createaccount').attr('name');
+				// .find('.woocommerce-account-fields').find('input').attr('name')
+				cols['col_1'] =  $(this.post.post_content).find('.col-1').html();
+				cols['col_2'] =  $(this.post.post_content).find('.col-2 .shipping_address').html();
+				cols['title_commande'] =  $(this.post.post_content).find('.order_review_heading').html();
+				cols['title_ship_address_text'] =  $(this.post.post_content).find('#ship-to-different-address span').text();
+				cols['order_review'] =  $(this.post.post_content).find('.woocommerce-checkout-review-order').html();
+				cols['order_notices'] =  $(this.post.post_content).find('.woocommerce-notices-wrapper').html();
+				cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
+				cols['woocommerce_login'] =  $(this.post.post_content).find('.login').html();
 
 			
 
 
-			//console.log(cols);
+			console.log(cols);
 			
 			return cols
 		},

@@ -77,7 +77,6 @@
 
 	.button-santos-vert{
 		font-size: 17px;
-		width: 30%;
 		text-decoration: none;
 	}
 

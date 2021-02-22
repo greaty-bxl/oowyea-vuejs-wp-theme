@@ -34,11 +34,6 @@
 
 <style type="text/css">
 
-	.container-info-contact a{
-
-		text-decoration: none;
-	}
-		
 	.image-contact{
 		color: white;
 		background-image: url('https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_contact.png');
@@ -109,7 +104,6 @@
 		color: #666666;
 		font-size: 16px;
 		line-height: 24px;
-		text-decoration: none;
 	}
 	.container-info-contact ul{
 

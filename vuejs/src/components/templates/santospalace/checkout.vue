@@ -17,7 +17,16 @@
 
 				<div class="col-1" v-html="cols_checkout.col_1"></div>
 
+				<div class="trigge_only_this">
+					<input id='two' type='checkbox' >
+					<label class="button-ouverture" for='one'>
+						<span></span>
+					<!-- 	<p class="text-2adress"></p> -->
+					</label>
+				</div>
+
 				<div v-html="cols_checkout.col_1_input"></div>
+				
 
 				<CheckboxAnimated name="test"/>
 
@@ -110,10 +119,32 @@ export default {
 
 			var payconiq  = $('[alt="Payconiq"]').attr('src');
 
+			var bancontact  = $('[alt="Bancontact"]').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Bancontact.svg');
+
+			$('[for="payment_method_paypal"]').find('img').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Paypal.svg');
+
+			$('[alt="eMaestro"]').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Maestro_2016.svg');
+
+
+				let image 
+
+			  $('.wc_payment_method').find('label').each( (index, el) => {
+
+			  	image = $(el).find('img')
+
+				$(el).text('')
+
+				$(el).append(image)
+
+			  	
+			  });
+
+			
 			if ( payconiq != undefined  ) {
 
 				payconiq = payconiq.replace('24x24/payconiq.png', 'payconiqlogo.png')
 				$('[alt="Payconiq"]').attr('src', payconiq);
+
 			}
 			
 			
@@ -159,6 +190,8 @@ export default {
 
 			cols['action'] = $(this.post.post_content).find('.checkout').attr('action');
 			cols['col_1_input'] =  $(this.post.post_content).find('.col-1').find('.woocommerce-account-fields').html()
+			cols['col_1_input_id'] =  $(this.post.post_content).find('.col-1').find('.woocommerce-account-fields').find('input').attr('id')
+			cols['col_1_input_name'] =  $(this.post.post_content).find('.col-1').find('.woocommerce-account-fields').find('input').attr('name')
 			cols['col_1'] =  $(this.post.post_content).find('.col-1').html();
 			cols['col_2'] =  $(this.post.post_content).find('.col-2 .shipping_address').html();
 			cols['title_commande'] =  $(this.post.post_content).find('.order_review_heading').html();
@@ -354,7 +387,7 @@ export default {
 	.checkout_santos input[type='checkbox'] + label:hover, input[type='checkbox']:focus + label{
 	color: #fff;
 	}*/
-	.checkout_santos  .trigge_only_thisinput[type='checkbox'] + label:hover > span, input[type='checkbox']:focus + label > span{
+	.checkout_santos  .trigge_only_this input[type='checkbox'] + label:hover > span, input[type='checkbox']:focus + label > span{
 		background: rgba(255,255,255,.1);
 	}
 	.checkout_santos .trigge_only_this  input[type='checkbox']:checked + label > ins{ height: 100%; }
@@ -379,6 +412,7 @@ export default {
 		transform-origin: 0% 100%;
 		animation: checkbox-check 125ms 250ms cubic-bezier(.4,.0,.23,1) forwards;
 	}
+
 
 	@keyframes shrink-bounce{
 	0%{
@@ -751,6 +785,26 @@ export default {
 		width: calc(50% - 3px) !important;
 	}
 
+	.checkout_santos ul.wc_payment_methods.payment_methods.methods img{
+
+		width: 120px;
+	}
+
+	.checkout_santos img.wc-stripe-card-icon{
+
+		width: 70px !important;
+	}
+
+	.checkout_santos li.wc_payment_method.payment_method_buckaroo_emaestro img{
+
+		width: 70px !important; 
+
+	}
+
+	.checkout_santos ul.payment_methods li[class*=payment_method_stripe_] label>img:first-of-type{
+
+		float: none !important;
+	}
 	@media screen and (max-width: 1025px) and (min-width: 745px){
 
 		.checkout_santos{
@@ -822,7 +876,7 @@ export default {
 
 		}
 
-		.woocommerce-page .col2-set .col-1{
+		.checkout_santos .woocommerce-page .col2-set .col-1{
 
 			float: left;
 			width: 100%;
@@ -831,19 +885,24 @@ export default {
 			margin-bottom: 20px;
 		}
 
-		.woocommerce-checkout-payment span{
+		.checkout_santos .woocommerce-checkout-payment span{
 
 			text-align: center;
 		}
 
-		label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-form-login__rememberme{
+		.checkout_santos label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-form-login__rememberme{
 
 			padding-left: 0px;
 		}
 
-		.text-2adress{
+		.checkout_santos .text-2adress{
 
 			width: 60%
+		}
+
+		.checkout_santos li.wc_payment_method.payment_method_stripe_cc.wc-stripe-no-desc.stripe-small-container label{
+
+			padding-left: 10px;
 		}
 
 

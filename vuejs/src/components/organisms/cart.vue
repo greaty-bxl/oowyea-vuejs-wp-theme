@@ -414,6 +414,7 @@
 		color: #888320;
 		margin-top: 15px;
 		transition: 0.3s;
+		font-size: 16px;
 
 	}
 

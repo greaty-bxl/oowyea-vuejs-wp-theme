@@ -31,6 +31,7 @@
 	$checked-color: #34b93d;
 	$unchecked-color: #9e9e9e;
 	$checkbox-height: 18px;
+	$translateY: 4px;
 	$background-color:#FFFFFF;
 	$font-color:#efefef;
 	$duration: .4s;
@@ -76,7 +77,7 @@
 	.check-box {
 		height: $checkbox-height;
 		width: $checkbox-height;
-		transform: translateY(4px);
+		transform: translateY($translateY);
 		background-color: transparent;
 		border: $checkbox-height * .1 solid $unchecked-color;
 		border-radius: 5px;

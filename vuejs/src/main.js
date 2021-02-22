@@ -27,6 +27,13 @@ Vue.prototype.wp_ajax = wp_ajax
 import pll__ from 'Libs/pll__.js'
 Vue.prototype.pll__ = pll__
 
+/* Actions & Filters */
+import {wpdk_do_action, wpdk_add_action, wpdk_apply_filters, wpdk_add_filter} from 'Libs/action-filter.js'
+Vue.prototype.do_action = wpdk_do_action
+Vue.prototype.add_action = wpdk_add_action
+Vue.prototype.apply_filters = wpdk_apply_filters
+Vue.prototype.add_filter = wpdk_add_filter
+
 /* Fontawesome-icon */
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon' 

@@ -159,6 +159,8 @@ export default function (vue)
 		/* Act on the event */
 		let href = $(event.currentTarget).prop('href')
 
+		href = vue.apply_filters( 'clicked_url', href )
+
 		//event.preventDefault();
 		// Add proprietie css to current link
 

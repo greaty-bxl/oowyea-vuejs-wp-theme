@@ -28,7 +28,7 @@
 
 <style lang="scss" scoped>
 	/* Made by Jimmy Gillam */
-	$checked-color: #34b93d;
+	$checked-color: #888320;
 	$unchecked-color: #9e9e9e;
 	$checkbox-height: 18px;
 	$translateY: 4px;

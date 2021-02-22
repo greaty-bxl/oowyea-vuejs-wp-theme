@@ -373,12 +373,25 @@
 			},
 			price_format: function(price){
 				
+				let vat_amount = 1.21
+
+				if( Array.isArray( this.post.metas._tax_class ) )
+				{
+					if( this.post.metas._tax_class[0] == 'tva-6')
+					{
+						vat_amount = 1.06
+					}
+				}
+
 				if( this.vat )
 				{
-					price *= 1.21
+					price *= vat_amount
 				}
 				
 				let return_price = ''
+
+				price = parseFloat(price).toFixed(2) 
+
 				let currency_format = this.$store.state.wp.get_currency_format
 				let pos = currency_format.pos
 				let symb = currency_format.symb

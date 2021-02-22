@@ -24,7 +24,7 @@
 			'item' : Object,
 		},
 		mounted (){
-			console.log('price', this.item);
+			//console.log('price', this.item);
 
 			if( this.has_term(this.item, 'product_cat', ['accompagnements','cafes', 'pads-et-capsules', 'thes'], 'or') )
 			{

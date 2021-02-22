@@ -17,17 +17,9 @@
 
 				<div class="col-1" v-html="cols_checkout.col_1"></div>
 
-				<div class="trigge_only_this">
-					<input id='two' type='checkbox' >
-					<label class="button-ouverture" for='one'>
-						<span></span>
-					<!-- 	<p class="text-2adress"></p> -->
-					</label>
-				</div>
 
 				<div v-html="cols_checkout.col_1_input"></div>
 				
-
 				<CheckboxAnimated name="test"/>
 
 				<div v-if="cols_checkout.col_2">

@@ -69,10 +69,7 @@ export default{
 
 			formsendEmail['a_url'] = $(this.wp.newsletter).find(".tnp-privacy-field").find('a').attr('href');
 			
-			console.log(formsendEmail);
-
 			return formsendEmail
-
 
 		}
 	}

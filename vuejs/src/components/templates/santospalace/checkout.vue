@@ -28,12 +28,13 @@
 				<div v-html="cols_checkout.col_1_input"></div>
 				
 
-				<div v-if="cols_checkout.col_2" class="trigge_only_this">
-					<input id='one' type='checkbox' v-model="checked">
-						<label class="button-ouverture" for='one'>
-							<span></span>
-							<p class="text-2adress" @click="Open"  v-html="cols_checkout.title_ship_address_text" ></p>
-						</label>
+				<CheckboxAnimated name="test"/>
+
+				<div v-if="cols_checkout.col_2">
+					<br/>
+					<CheckboxAnimated v-model="checked"/>
+					<span class="text-2adress" v-html="cols_checkout.title_ship_address_text" ></span>
+					<br/><br/>
 				</div>
 
 				<div v-else :style="{ height:'50px'}" >					
@@ -65,6 +66,8 @@ import smart_fonts from 'Libs/smart-fonts.js';
 
 import init_styled_form from 'Libs/styled-form.js'
 
+import CheckboxAnimated from 'Molecules/checkbox-animated.vue'
+
 export default {
 
 	data(){
@@ -72,12 +75,11 @@ export default {
 			ouvert: 0,
 			checked: false,
 			is_already_logged: false,
-
 		}
-
-
 	},
-
+	components: {
+		CheckboxAnimated
+	},
 	props: {
 		'post' : Object
 	},

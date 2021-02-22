@@ -16,7 +16,8 @@
 		data(){
 			return {
 				'size_var_prefix' : '',
-				'vat': false
+				'vat': false,
+				'vat_amount': 1.21
 			}
 		},
 		props :{
@@ -29,6 +30,14 @@
 			{
 				this.vat = true
 				this.$parent.vat = true
+			}
+
+			if( Array.isArray( this.item.metas._tax_class ) )
+			{
+				if( this.item.metas._tax_class[0] == 'tva-6')
+				{
+					this.vat_amount = 1.06
+				}
 			}
 
 
@@ -69,7 +78,7 @@
 				let number = parseFloat(string)
 				if( this.vat )
 				{
-					number *= 1.21
+					number *= this.vat_amount
 				}
 
 				return number.toFixed(2) + ' €'

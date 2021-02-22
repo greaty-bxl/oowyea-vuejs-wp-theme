@@ -183,6 +183,26 @@ export default {
 		var $ = this.$
 		this.$emit('template_mounted', this)
 
+		let cart_page = this.$store.state.wp.cart_page
+		let account_page = this.$store.state.wp.woo_account.page_url
+		// Filter function
+		function click_cart_menu( value )
+		{
+			if( cart_page == value )
+			{
+				$(document).trigger('add_to_cart')
+				value = window.location.href.split('#')[0] + '#open_cart';	
+			}
+			if( account_page == value )		
+			{
+				$(document).trigger('open_account')
+				value = window.location.href.split('#')[0] + '#open_account';	
+			}
+			return value;
+		}
+		this.add_filter( 'clicked_url', click_cart_menu );
+		
+
 		$(document).on('click', '.menu-item', function() {
 
 
@@ -347,6 +367,11 @@ export default {
 			last_scroll = new_scroll
 
 		});
+
+
+
+
+		
 
 	},
 	methods:{

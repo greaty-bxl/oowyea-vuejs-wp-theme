@@ -19,16 +19,13 @@
 
 				<div v-html="cols_checkout.col_1_input"></div>
 
-				
+				<CheckboxAnimated name="test"/>
 
-				<CheckboxAnimated name="test-2"/>
-
-				<div v-if="cols_checkout.col_2" class="trigge_only_this">
-					
-						<label class="button-ouverture" for='one'>
-							<CheckboxAnimated name="test-1" v-model="checked"/>
-							<p class="text-2adress" v-html="cols_checkout.title_ship_address_text" ></p>
-						</label>
+				<div v-if="cols_checkout.col_2">
+					<br/>
+					<CheckboxAnimated name="address2" v-model="checked"/>
+					<span class="text-2adress" v-html="cols_checkout.title_ship_address_text" ></span>
+					<br/><br/>
 				</div>
 
 				<div v-else :style="{ height:'50px'}" >					

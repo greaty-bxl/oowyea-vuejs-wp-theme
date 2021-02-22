@@ -76,6 +76,7 @@
 	.check-box {
 		height: $checkbox-height;
 		width: $checkbox-height;
+		transform: translateY(4px);
 		background-color: transparent;
 		border: $checkbox-height * .1 solid $unchecked-color;
 		border-radius: 5px;
@@ -89,6 +90,8 @@
 		-webkit-transition: border-color ease $duration/2;
 		transition: border-color ease $duration/2;
 		cursor:pointer;
+		margin-right: 8px;
+
 
 		&::before, &::after {
 			-moz-box-sizing: border-box;

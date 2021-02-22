@@ -150,10 +150,6 @@
 	/*text-align: left;*/
 }
 
-.button-santos-vert{
-
-	width: 30%;
-}
 
 .text-degustation-page ul{
 	font-size: 50px;

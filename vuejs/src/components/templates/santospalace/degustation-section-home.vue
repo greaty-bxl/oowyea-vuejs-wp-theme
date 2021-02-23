@@ -9,7 +9,7 @@
 				<div class="colonne-degustation-section" v-html="post.post_content">
 				</div>
 
-				<a class="button-santos-vert" :href="pll__('URL J’ESSAIE')"
+				<a class="button-santos-vert essaye" :href="pll__('URL J’ESSAIE')"
 			v-html="pll__('J’ESSAIE')" >J’ESSAIE</a>
 
 			</div>
@@ -81,6 +81,7 @@
 	}
 
 
+
 	@media screen and (max-width: 1100px) and (min-width: 600px){
 
 		.degustation-section-home{
@@ -146,6 +147,12 @@
 </style>
 
 <style type="text/css">
+
+	.essaye{
+
+		width: 30%;
+	}
+
 
 	
 	@media only screen and (max-width: 1400px) and (min-width: 1100px){

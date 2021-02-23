@@ -631,11 +631,6 @@ export default {
 		align-items: center;
 	}
 
-	.woocommerce-checkout-payment span{
-
-		margin-left: 10px !important;
-	}
-
 	.form-row .validate-required{
 
 		margin-bottom: 15px;
@@ -798,6 +793,11 @@ export default {
 	.checkout_santos ul.payment_methods li[class*=payment_method_stripe_] label>img:first-of-type{
 
 		float: none !important;
+	}
+
+	.checkout_santos input#terms{
+
+		margin-right: 10px
 	}
 	@media screen and (max-width: 1025px) and (min-width: 745px){
 

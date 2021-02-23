@@ -44,12 +44,24 @@ function get_menus()
 
 		   if($val['menu_item_parent'] != 0){
 
-		       $res[$val['menu_item_parent']]['child'][] = $val;
+		   		//find parent
+		   		foreach ($res as $key => $parent) 
+		   		{
+		   			if( $parent['ID'] == $val['menu_item_parent'] )
+		   			{
+		   				$res[$key]['child'][] = $val;
+		   			}
+		   		}
+		       //$res[$val['menu_item_parent']]['child'][] = $val;
 		   }
 		   else{
-		       $res[$val['ID']] = $val;
+		       $res[] = $val;
 		   }
 		}
+
+		/*echo "<pre>";
+		print_r( $res );
+		exit();*/
 
 		wp_vue_add_var('menus', $res);
 	}

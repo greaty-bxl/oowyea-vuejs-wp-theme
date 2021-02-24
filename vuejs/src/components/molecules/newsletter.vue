@@ -291,7 +291,7 @@ input.input-submit{
 
 	.politique-confidentialite input {
 		
-		top: calc( 50% - 6.5px);
+		/*top: calc( 50% - 6.5px);*/
 		margin-right: 10px;
 	}
 

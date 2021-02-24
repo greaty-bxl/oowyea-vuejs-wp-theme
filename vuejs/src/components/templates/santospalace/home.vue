@@ -58,6 +58,7 @@
 		font-size: 1.1vw !important;
 		margin: 0px;
 		font-weight: 500;
+		line-height: 120%;
 
 	}
 
@@ -107,7 +108,7 @@
 			padding-bottom: 30px;
 			width: 80%;
 			margin: 0px auto !important;
-			line-height: 10.7vw;
+			line-height: 120%;
 		}
 
 		.header-home p {
@@ -117,6 +118,7 @@
 			box-sizing: content-box;
 			margin-left: 30px;
 			margin-right: 30px;
+			line-height: 130%;
 		}
 
 		.button-cafe{

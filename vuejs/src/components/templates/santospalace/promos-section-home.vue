@@ -117,7 +117,7 @@
 				margin: 0px auto;
 				padding-left: 30px;
 				padding-right: 30px;
-				line-height: 9vw;  
+				line-height: 130%;  
 		}
 
 		.button-section-promos{

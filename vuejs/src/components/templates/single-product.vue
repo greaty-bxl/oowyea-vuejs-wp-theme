@@ -1310,18 +1310,20 @@
 
 
 	@media screen and (max-width: 600px){
-		
+
 		.vue-wc-variation .arrow{
 		width:30px;
 		height:30px;
 		}
 
 		.vue-wc-variation .value {
-		width: calc(70% - 20px);
+		width: calc(65% - 20px);
 		}
 
 		.vue-wc-variation .label {
+		white-space: nowrap;
 		width: calc(30% - 10px);
+
 		}
 
 		.descriptif-machine{

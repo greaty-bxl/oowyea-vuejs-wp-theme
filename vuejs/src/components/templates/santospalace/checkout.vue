@@ -541,7 +541,7 @@ export default {
 
 	.payment_method_buckaroo_payconiq img{
 
-		width: 100px !important;
+		width: 120px !important;
 	}
 
 	.checkout_santos #add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before{

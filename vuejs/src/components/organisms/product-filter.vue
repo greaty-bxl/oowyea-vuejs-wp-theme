@@ -156,12 +156,15 @@
 		},
 		watch: {
 			'$store.state.wp': function() {
+
+				console.log('watch filter');
 				
 				this.clear_selection()
 
 				var $ = this.$
+				$('.open-filters, .open-filter-rotation').removeClass('open-filters open-filter-rotation')
 
-				$('.collection-filter__list-title').click(function() {
+				$('.collection-filter__list-title').unbind('click').click(function() {
 
 					var contenair_globale = ''
 
@@ -176,8 +179,6 @@
 
 						contenair_globale.find('.icon-arrow-right').removeClass('open-filter-rotation')
 
-						console.log('entreee');
-
 					}
 					else{
 
@@ -186,8 +187,7 @@
 						contenair_globale.find('.collection-filter__list').addClass('open-filters')
 
 						contenair_globale.find('.icon-arrow-right').addClass('open-filter-rotation')
-
-						console.log('sorti');
+						
 					}
 
 				});

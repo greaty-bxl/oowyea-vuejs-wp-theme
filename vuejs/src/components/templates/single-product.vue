@@ -1249,18 +1249,6 @@
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
 
-		.vue-wc-variation .arrow{
-		width:30px;
-		height:30px;
-		}
-
-		.vue-wc-variation .value {
-		width: calc(70% - 20px);
-		}
-
-		.vue-wc-variation .label {
-		width: calc(30% - 10px);
-		}
 
 		.col-descriptif{
 
@@ -1322,6 +1310,19 @@
 
 
 	@media screen and (max-width: 600px){
+		
+		.vue-wc-variation .arrow{
+		width:30px;
+		height:30px;
+		}
+
+		.vue-wc-variation .value {
+		width: calc(70% - 20px);
+		}
+
+		.vue-wc-variation .label {
+		width: calc(30% - 10px);
+		}
 
 		.descriptif-machine{
 

@@ -18,34 +18,37 @@
 
 							</swiper-slide>
 
+						
 						</swiper>
 					
 				</div>
 
 				<div class="swiperProductcontent">
-				
+
+				<div>
+					<div class="swiper-button-prev"></div>
+
 					<swiper v-for="(v_slide, index) in last_products_slider" 
 					:key="index"
 					v-show="index == active"
 					class="swipernouvelles" 
 					:options="swiperNouvelles"    
 					:pagination="{ clickable: true }">
-
-						<swiper-slide v-for="post in v_slide.posts" :key="post.ID"  class="product-santos">
-							
-							<Item  :item="post" />
-
-						</swiper-slide>
-					
-					</swiper>
-					<div class="swiper-pagination"></div>
-					<div class="content-flech">
 						
-						<div class="swiper-button-prev"></div>
-						<div class="swiper-button-next"></div>
+							<swiper-slide v-for="post in v_slide.posts" :key="post.ID"  class="product-santos">
+								
+								<Item  :item="post" />
 
-					</div>
-				
+							</swiper-slide>
+					</swiper>
+
+					<div class="swiper-button-next"></div>
+					
+				</div>	
+
+
+					<div class="swiper-pagination"></div>
+
 				</div>
 				
 			</div>
@@ -257,7 +260,6 @@
 		justify-content: center;
 		flex-direction: column;
 		font-family: open sans;
-		min-height: 100vh !important;
 
 	}
 
@@ -293,6 +295,12 @@
 	}
 
 	@media screen and ( min-width: 1100px ){
+
+
+		.section-nouvelles{
+			padding: 140px 0px;
+	
+		}
 
 
 		.section-nouvelles h2 {
@@ -447,13 +455,13 @@
 
 		.swiper-button-next{
 
-			top: 90%;
+			padding: 10px;
 			color: #422112;
 		}
 
 		.swiper-button-prev{
 
-			top: 90%;
+			padding: 10px;
 			color: #422112;
 		}
 
@@ -476,7 +484,7 @@
 
 		.swipernouvelles{
 
-			min-height: 600px;
+			min-height: auto;
 			width: calc(100% - 60px);
 			margin-left: -1%;
 			margin-right: 30px;

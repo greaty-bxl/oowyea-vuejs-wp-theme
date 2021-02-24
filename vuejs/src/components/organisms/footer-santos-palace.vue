@@ -14,7 +14,7 @@
 
 				</div>
 
-				<div v-html="wp.sidebars.footer_generale" ></div>
+				<div v-html="$store.state.wp.sidebars.footer_generale"></div>
 
 				<div class="reseaux-sociaux">
 					
@@ -28,14 +28,14 @@
 
 				<div class="droit-reserve">
 
-					<p>Copyright © Santos Palace 2020 Tous droits réservés 
+					<p v-html="pll__('Copyright © Santos Palace 2020 Tous droits réservés ')" >
 						- <a :href="pll__('URL Terms & Conditions')"
-						v-html="pll__('Terms & Conditions')">Terms & Conditions</a>
+						v-html="pll__('Terms & Conditions')"></a>
 						- <a :href="pll__('URL Privacy Policy')"
 						v-html="pll__('Privacy Policy')"
 						>Privacy Policy</a>
 						- <a :href="pll__('URL Mention légale')"
-						v-html="pll__('Mention légale')">Mention légale</a> 
+						v-html="pll__('Mention légale')"></a> 
 					</p>
 					
 				</div>
@@ -50,7 +50,6 @@
 
 	import smart_fonts from "Libs/smart-fonts.js"
 	import newsletter from "Molecules/newsletter.vue"
-	// import is from 'is_js'
 
 	export default {
 
@@ -71,9 +70,12 @@
 			var $ = this.$
 
 		
-		$('.tnp-field , .tnp-field-button').find('input[type=submit]').css('font-weight', '700');
+			$('.tnp-field , .tnp-field-button').find('input[type=submit]').css('font-weight', '700');
 
-		}
+		},
+
+
+
 	}
 
 

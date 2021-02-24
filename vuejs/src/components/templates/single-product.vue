@@ -132,7 +132,8 @@
 						</div>
 						<div v-if="type != 'contact_us'" >
 							<p v-html="pll__('Livraison estimée entre 24h et 48h.')" ></p>
-							<p style="padding-top: 0px" v-html="pll__('La livraison est gratuite à partir de 100 € en Belgique.')" ></p>
+							<p style="padding-top: 10px" v-html="pll__('La livraison est gratuite à partir de 100 € en Belgique.')" ></p>
+							<p style="padding-top: 10px" v-html="pll__('En dessous dune commande de 100 euros, la livraison est à 8,50 euros tvac')" ></p>
 						</div>
 							
 
@@ -1194,17 +1195,9 @@
 			padding-top: 0px !important
 		}
 
-		
-
-
+	
 
 	}
-
-
-
-
-
-	
 
 
 	@media only screen and (max-width: 1400px) and (min-width: 1100px){
@@ -1250,13 +1243,24 @@
 		}
 
 		.descriptif-machine{
-
 			margin-top: -70px;
 		
-			
 		}
 	}
 	@media screen and (max-width: 1100px) and (min-width: 600px ) {
+
+		.vue-wc-variation .arrow{
+		width:30px;
+		height:30px;
+		}
+
+		.vue-wc-variation .value {
+		width: calc(70% - 20px);
+		}
+
+		.vue-wc-variation .label {
+		width: calc(30% - 10px);
+		}
 
 		.col-descriptif{
 

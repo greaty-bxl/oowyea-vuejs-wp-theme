@@ -146,8 +146,22 @@
 			margin: 0px !important;
 			padding-bottom: 25px;
 		}
+
+
+		.image-contact h3 {
+
+			margin-top: 0px !important;
+
+		}
+
+
+
+
+
+
+
 	}
-²
+
 	@media screen and (max-width: 1000px){
 
 		.container-info-contact h1 {

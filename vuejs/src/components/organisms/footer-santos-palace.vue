@@ -28,12 +28,13 @@
 
 				<div class="droit-reserve">
 
-					<p v-html="pll__('Copyright © Santos Palace 2020 Tous droits réservés ')" >
+					<p>
+						<span v-html="pll__('Copyright © Santos Palace 2020 Tous droits réservés')" ></span>
 						- <a :href="pll__('URL Terms & Conditions')"
 						v-html="pll__('Terms & Conditions')"></a>
 						- <a :href="pll__('URL Privacy Policy')"
 						v-html="pll__('Privacy Policy')"
-						>Privacy Policy</a>
+						></a>
 						- <a :href="pll__('URL Mention légale')"
 						v-html="pll__('Mention légale')"></a> 
 					</p>

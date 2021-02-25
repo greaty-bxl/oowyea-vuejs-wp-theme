@@ -1,13 +1,18 @@
 <template>
-  <div id="grapesjs">
+  <div id="grapesjs" v-show="display">
     <div id="editor-container">
-      <div id="gjs"></div>    
+      <div id="gjs">
+      </div>    
     </div> 
     <div class="panel__wordpress">
     </div>
     <div class="editor_select_template">
       <select>
-        <option>test</option>
+        <optgroup v-for="(group, label) in owy_templates" :key="label" :label="label">
+          <option v-for="(template, key) in group" :key="key" :selected="template.post_name == current_template">
+            {{template.post_title}}
+          </option>
+        </optgroup>
       </select>
     </div>
     <div class="panel__more">
@@ -20,10 +25,17 @@
 import 'grapesjs/dist/css/grapes.min.css';
 import grapesjs from 'grapesjs';
 
+//Custom grapes libs
+import owy_storage from 'PluginLib/grapes/storage.js'
+
 export default {
   data(){
     return {
-      project: null
+      editor : null,
+      project: null,
+      html: '',
+      css: '',
+      js: '',
     }
   },
   components: {
@@ -32,18 +44,19 @@ export default {
   mounted(){
     
     let $ = this.jquery
-
-    //console.log('ajaxurl', window.wp);
+    let Vue = this
 
     require('grapesjs-preset-webpage')
+    require('grapesjs-blocks-flexbox')
 
-    const editor = grapesjs.init({
+
+    this.editor = grapesjs.init({
       autorender: false,
       // Indicate where to init the editor. You can also pass an HTMLElement
       container: '#gjs',
       // Get the content for the canvas directly from the element
       // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
-      fromElement: true,
+      fromElement: false,
       // Size of the editor
       height: '100%',
       width: '100%',
@@ -52,16 +65,22 @@ export default {
           type: 'local',
           stepsBeforeSave: 1
       },
+
+      styleManager: {},
       // Avoid any default panel
       panels: { defaults: [] },
       // Disable alert "save before refresh"
       noticeOnUnload: false,
 
-      plugins: ['gjs-preset-webpage'],
+      plugins: ['gjs-preset-webpage', 'gjs-blocks-flexbox'],
     });
 
-    editor.on('load', () => {
+    //let editor = this.editor
+    
+
+    this.editor.on('load', () => {
       console.log( 'remove elements' );
+
       $('.gjs-pn-options').find('span[title="Fullscreen"], span[title="View code"], .fa-download').remove()
 
       $('.gjs-pn-options').find('span[title="View components"]').trigger('click')
@@ -69,23 +88,13 @@ export default {
       $('.gjs-block-categories .gjs-title').trigger('click')
     });
 
-    editor.StorageManager.add('local', {
-      // New logic for the local storage
-      load() {
-        console.log('load');
-      },
+    this.editor.StorageManager.add('local', owy_storage(Vue) );
 
-      store() {
-        console.log('store');
-        console.log( editor.getHtml(), editor.getCss(), editor.getJs() );
-      },
-    });
+    this.editor.render();
 
-    editor.render();
+    this.editor.BlockManager.getCategories().each(ctg => ctg.set('open', false))
 
-    editor.BlockManager.getCategories().each(ctg => ctg.set('open', false))
-
-    editor.Panels.addPanel({
+    this.editor.Panels.addPanel({
       id: 'panel__wordpress',
       el: '.panel__wordpress',
       buttons: [
@@ -93,8 +102,8 @@ export default {
           id: 'editor-wp-back',
           active: false, // active by default
           className: 'editor-wp-back',
-          label: '<a href="'+window.wp.admin_url+'admin.php?page=oowyea-home"><div><span class="fa fa-wordpress"></span></div></a>',
-          command: 'editor-wp-back', // Built-in command
+          label: '<div><span class="fa fa-close"></span></div>',
+          command: 'editor-wp-back',
         },
         {
           id: 'editor-save',
@@ -106,7 +115,7 @@ export default {
       ],
     });
 
-    editor.Panels.addPanel({
+    this.editor.Panels.addPanel({
       id: 'panel__more',
       el: '.panel__more',
       buttons: [
@@ -120,30 +129,76 @@ export default {
       ],
     });
 
-    editor.Panels.addPanel({
+    this.editor.Panels.addPanel({
       id: 'editor_select_template',
       el: '.editor_select_template',
     });
     
 
-    editor.Commands.add('editor-wp-back', () => {
-      console.log('back to wp admin');
+    this.editor.Commands.add('editor-wp-back', () => {
+      console.log('close', this);
+      this.close()
     });
 
-    editor.Commands.add('editor-save', (editor) => {
+    this.editor.Commands.add('editor-save', (editor) => {
       console.log( editor.getHtml(), editor.getCss(), editor.getJs() );
     });
 
     // 'my-first-block' is the ID of the block
-    editor.BlockManager.add('my-first-block', {
+    this.editor.BlockManager.add('my-first-block', {
       label: 'Simple block',
       category: 'test',
       content: '<div class="my-block">This is a simple block</div>',
     });
 
-    console.log(editor);
 
+    console.log(this.editor);
+  },
+  computed : {
+    display : function () {
+      if( this.$store.state.grapes_template == null)
+      {
+        return false  
+      }
+      else
+      {
+        return true
+      }
+    },
+    owy_templates : function () {
+      return this.$store.state.wp.owy_templates
+    },
+    current_template: function () {
+      return this.$store.state.grapes_template
+    }
+  },
+  methods : {
+    close : function () {
+      this.$store.state.grapes_template = null
+    }
+  },
+  watch : {
+    '$store.state.grapes_template' : function(){
 
+      console.log('watch grapes_template', this.$store.state.grapes_template);
+
+      let grapes_template = this.$store.state.grapes_template
+
+      if( grapes_template !== null )
+      {
+        let metas = grapes_template.metas
+        this.html = metas.html[0]
+        this.css = metas.css[0]
+        this.editor.load() 
+      }
+      else
+      {
+        this.html = ''
+        this.css = ''
+        this.editor.load()
+      }
+      
+    }
   }
 }
 </script>
@@ -189,6 +244,8 @@ export default {
 }
 
 #grapesjs {
+  position: absolute;
+  top: 0;
   height: 100%;
   width: 100%;
 }

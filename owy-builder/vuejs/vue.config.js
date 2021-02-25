@@ -35,6 +35,7 @@ module.exports = {
         image: path.resolve(__dirname, theme_path + 'src/componets/images'),
         //Plugin paths
         PluginComponents: path.resolve(__dirname, 'src/components'),
+        PluginLib: path.resolve(__dirname, 'src/libs'),
         //Plugin_store: path.resolve(__dirname, theme_src + '/store'),
         //Plugin_libs: path.resolve(__dirname, theme_src + '/libs'),
       }

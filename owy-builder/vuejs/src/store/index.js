@@ -7,7 +7,7 @@ console.log( wp );
 
 const store = createStore({
 	state:{
-		current_page: null,
+		grapes_template: null,
 		wp: wp.state,
 	},
 	mutations: {

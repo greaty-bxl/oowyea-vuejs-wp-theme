@@ -1,6 +1,6 @@
 <template>
 	<transition name="fade">
-		<div class="main-container" v-show="display" >
+		<div class="main-container" v-if="display" >
 			<CloseMenu />
 			<slot></slot>
 		</div>

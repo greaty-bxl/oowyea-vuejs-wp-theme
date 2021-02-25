@@ -16,11 +16,13 @@ function get_sections()
 
 	do_action( 'before_sections' );
 
+
+
 	if( is_page() || ( $wp_query->is_posts_page && $page_for_posts ) )
 	{
 		if( $wp_query->is_posts_page && $page_for_posts )
 		{
-			$post = get_page( $page_for_posts );
+			$post = $wp_query->queried_object;
 		}
 
 		if( $post->post_parent == 0 )
@@ -32,7 +34,7 @@ function get_sections()
 			$sections[0] = get_page( $post->post_parent );
 		}
 
-		$sections[0]->template = get_vue_template( $sections[0] );
+		$sections[0]->template = get_vue_template( $sections[0] );		
 
 		$children = get_pages( array( 'child_of' => $sections[0]->ID, 'sort_column' => 'menu_order' ) );
 		
@@ -51,8 +53,8 @@ function get_sections()
 		foreach ($sections as $key => $section) 
 		{
 
-			$sections[$key]->permalink = get_permalink( $section->ID );
-			$sections[$key]->metas = get_post_meta( $section->ID );
+			//$sections[$key]->permalink = get_permalink( $section->ID );
+			//$sections[$key]->metas = get_post_meta( $section->ID );
 
 			if( $section->ID == $page_for_posts )
 			{
@@ -63,7 +65,7 @@ function get_sections()
 				$wp_query->is_posts_page = true;
 				
 				$sections[$key] = (object) array_merge( (array) $sections[$key], (array) get_page( $page_for_posts ) ) ;
-				$sections[$key]->template = get_vue_template();
+				$sections[$key]->template = get_vue_template($sections[0]);
 				//$sections[$key]->children = get_posts() ;
 				$sections[$key]->children = apply_filters( 'posts_results', get_posts() ) ;
 
@@ -74,6 +76,10 @@ function get_sections()
 		}
 
 		$sections = apply_filters( 'posts_results', $sections ) ;
+
+		/*echo '<pre>';
+		print_r($sections[0]);
+		exit();*/
 	}
 	else
 	{

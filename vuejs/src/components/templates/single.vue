@@ -4,37 +4,9 @@
 		<div class="clear"></div>
 			
 			<div class="content-single">
-
-				<div>
-					<img class="image-single-post" :src="this.post.thumb">
-				</div>
-
-				<div class="single-text-post "> 
-
-					<h2 class="montserrat-bold title-single-fromagerie" v-html="post.post_title">Colis</h2>
-
-					<div v-html="this.post.acf_fields.list_colis" class="list-colis">
-
-					</div>
-
-					<div>
-						<p class="commande-prete"> Si vous commandez après <strong>19h30</strong>, votre commande sera prête le <strong>surlendemain</strong>.</p>
-					</div>			
-
-					<h2 class="montserrat-bold title-single-fromagerie-1">Commandes et demandes spéciales</h2>
-
-					<div class="contener-single">
-
-					<formulaire></formulaire>
-
-					</div>
-
-					<div class="retour">
-
-					<button onclick="window.history.back()">Retour</button>
-
-					</div>
-					
+				<img class="image-single-post" :src="this.post.thumb">
+				<h2 class="title-post-single" v-html="post.post_title" ></h2>
+				<div v-html="post.post_content">
 				</div>
 			</div>
 		
@@ -45,35 +17,18 @@
 
 <script>
 
-	import smart_fonts from 'Libs/smart-fonts.js';
-	import formulaire from 'Molecules/formulaire';
 	export default {
 		components: {
-			formulaire
+	
 		},
 		props: {
 			'post' : Object
 		},
 		mounted (){
-			var $ = this.$
 
-
-
-			// this.$emit('template_mounted')
+			// var $ = this.$
 
 			console.log(this.wp);
-	
-	
-			$('.title-21').attr('placeholder', this.post.post_title );
-			$('.title-21').attr('value', this.post.post_title );			
-
-		
-
-			smart_fonts({
-	
-				'.input-single' : 18,
-			})
-
 
 		}
 	}
@@ -84,7 +39,72 @@
 
 </style>
 
-<style scoped>
+<style>
+	
+	.content-single{
+
+		width: 60%;
+		margin: 100px auto 100px auto;
+		box-sizing: content-box;
+		font-size: 16px;
+
+
+	}
+
+	.content-single img{
+
+		width: 100%;
+		height: auto;
+
+	}
+
+	.title-post-single{
+
+		font-size: 40px;
+		color: black;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+
+	@media screen and ( max-width: 1150px ) and ( min-width: 600px ){
+
+		.content-single{
+
+			width: 100%;
+			box-sizing: border-box;
+			padding-left: 70px;
+			padding-right: 70px;
+			margin: 100px 0px;
+
+		}
+
+		.title-post-single{
+
+			font-size: 35px
+		}
+
+	}
+
+	@media screen and ( max-width: 600px ){
+
+		.content-single{
+
+			width: 100%;
+			box-sizing: border-box;
+			padding-left: 30px;
+			padding-right: 30px;
+			margin: 73px 0px;
+
+		}
+
+		.title-post-single{
+
+			font-size: 25px
+		}
+
+	}
+
 
 
 </style>

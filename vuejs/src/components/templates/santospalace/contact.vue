@@ -2,8 +2,8 @@
 	<div class="section-wrap contact-santos" >
 
 		<div class="image-contact">
-			<h3>Contact</h3>
-			<h1>Nous contacter</h1>
+			<h3 v-html="pll__('Contact')"></h3>
+			<h1 v-html="pll__('Nous contacter')" ></h1>
 		</div>
 
 		<div class="container-info-contact">

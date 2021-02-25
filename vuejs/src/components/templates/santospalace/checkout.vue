@@ -608,6 +608,13 @@ export default {
 
 	}
 
+	.checkout_santos .woocommerce-shipping-methods li label{
+
+		margin-left: auto;
+		margin-right: auto;
+
+	}
+
 	.checkout_santos .woocommerce-shipping-methods li  input{
 
 		width: auto;

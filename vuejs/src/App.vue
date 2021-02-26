@@ -356,7 +356,7 @@ html{
 
 #app {
   position: absolute;
-  font-family: 'Open sans', sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

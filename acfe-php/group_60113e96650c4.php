@@ -124,9 +124,8 @@ acf_add_local_field_group(array(
 	'location' => array(
 		array(
 			array(
-				'param' => 'post_type',
+				'param' => 'owy-no-location',
 				'operator' => '==',
-				'value' => 'post',
 			),
 		),
 	),
@@ -146,7 +145,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1612966306,
+	'modified' => 1614244735,
 ));
 
 endif;

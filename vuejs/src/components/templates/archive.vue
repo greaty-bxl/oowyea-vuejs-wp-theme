@@ -20,9 +20,6 @@
 				<a :href="item.permalink">
 					<h4 v-html="item.post_title"></h4>	        
 				</a>
-				<div v-html="item.post_excerpt">
-
-				</div>
 			</div>			     
 
 		</template>

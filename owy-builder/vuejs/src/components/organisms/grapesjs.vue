@@ -83,11 +83,13 @@ export default {
 
     this.editor.on('load', () => {
 
-      $('.gjs-pn-options').find('span[title="Fullscreen"], span[title="View code"], .fa-download').remove()
+      $('.gjs-pn-options').find('span[title="Fullscreen"], span[title="View code"], .fa-download, .fa-trash').remove()
 
       $('.gjs-pn-options').find('span[title="View components"]').trigger('click')
 
       $('.gjs-block-categories .gjs-title').trigger('click')
+
+      $('.gjs-block-categories .gjs-title').first().trigger('click')
       
     });
 
@@ -97,7 +99,13 @@ export default {
       {
         find.text( this.editor.DomComponents.getComponents().length - 1 )
       }
+
+      //console.log( this.editor.DomComponents.getType('wrapper').model );
     });
+
+    /*this.editor.on('component:styleUpdate', (test)=>{
+        console.log(test);
+    })*/
 
     this.editor.StorageManager.add('local', owy_storage(Vue) );
 
@@ -182,6 +190,8 @@ export default {
         }
       }
     })
+
+    
     
     
     

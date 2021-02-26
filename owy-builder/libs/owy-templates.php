@@ -98,9 +98,6 @@ function owy_builder_get_templates()
 			}	
 		}
 		
-		/*echo "<pre>";
-		print_r( $owy_templates );
-		exit();*/
 		//update_option( 'owy_builder_css', '' );
 
 		if( is_admin() )
@@ -149,7 +146,7 @@ function owy_builder_get_css()
 	?>
 	<style type="text/css">
 	<?php
-	echo get_option( 'owy_builder_css', '' );
+	echo str_replace('#wrapper', 'body', get_option( 'owy_builder_css', '' ) );
 	?>
 	</style>
 	<?php

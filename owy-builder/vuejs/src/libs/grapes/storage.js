@@ -47,7 +47,13 @@ export default function (Vue) {
 				html = jhtml.html()
 
 				grapes_template.metas.html[0] = html//Vue.editor.getHtml()
-				Vue.$store.state.wp.owy_builder_css = Vue.editor.getCss()
+				let css = Vue.editor.getCss()
+
+				css = css.replace('body', '#wrapper')
+
+				console.log('save css', css);
+
+				Vue.$store.state.wp.owy_builder_css = css
 				//grapes_template.metas.css[0] = Vue.editor.getCss()
 				//grapes_template.metas.js[0] = Vue.editor.getJs()
 
@@ -56,7 +62,7 @@ export default function (Vue) {
 				wp_ajax('owy_save_template', {
 					'post': grapes_template,
 					'html' : html,
-					'css' : Vue.editor.getCss(),
+					'css' : css,
 					//'js' : Vue.editor.getJs()
 				}, (result) => {
 

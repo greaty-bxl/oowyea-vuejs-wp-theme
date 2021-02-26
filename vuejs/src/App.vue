@@ -27,7 +27,7 @@
         </div>
       <!-- </div> -->
       <!-- Footer -->
-      <Footer/>
+      <!-- <Footer/> -->
       <!-- <AudioPlayerBottom />
       <Editor v-if="wp.user_can.edit_theme_options" /> -->
     </div>
@@ -35,7 +35,7 @@
       <v-icon name="spinner" class="fa-pulse"></v-icon>
     </div>
     <div class="owy-mailto-ico hide"><v-icon name="at" class="at"/></div>
-    <GpdrIntro />
+    <!-- <GpdrIntro /> -->
   </div>
 </template>
 
@@ -48,9 +48,8 @@
 
 
 //Footer
-import Footer from 'Organisms/footer-santos-palace.vue'
-
-import GpdrIntro from 'Molecules/gpdr-intro.vue'
+//import Footer from 'Organisms/footer-santos-palace.vue'
+//import GpdrIntro from 'Molecules/gpdr-intro.vue'
 
 //import AudioPlayerBottom from 'Organisms/audio-player-bottom.vue'
 //import Editor from 'Organisms/editor.vue'
@@ -97,8 +96,8 @@ export default {
   },
   components: {
     //Header,
-    Footer,
-    GpdrIntro
+    //Footer,
+    //GpdrIntro
     //AudioPlayerBottom,
     //Editor
   },
@@ -384,7 +383,7 @@ body{
   display: flex;
   flex-direction: column;
   /*justify-content: space-between;*/
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   width: 100%;
 }
 

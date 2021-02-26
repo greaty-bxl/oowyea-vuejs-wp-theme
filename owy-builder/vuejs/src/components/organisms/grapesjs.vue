@@ -80,7 +80,7 @@ export default {
 
     //let editor = this.editor
     
-
+    //remove no need elements and close blockmanager cats
     this.editor.on('load', () => {
 
       $('.gjs-pn-options').find('span[title="Fullscreen"], span[title="View code"], .fa-download, .fa-trash').remove()
@@ -89,30 +89,33 @@ export default {
 
       $('.gjs-block-categories .gjs-title').trigger('click')
 
-      $('.gjs-block-categories .gjs-title').first().trigger('click')
+      //$('.gjs-block-categories .gjs-title').first().trigger('click')
       
     });
 
+    //re-count body elements excluding other hidden templates
     this.editor.on('run', () => {
       let find = this.jquery('.gjs-layer__t-wrapper > .gjs-layer-count')
       if( find.length )
       {
         find.text( this.editor.DomComponents.getComponents().length - 1 )
       }
-
-      //console.log( this.editor.DomComponents.getType('wrapper').model );
     });
 
-    /*this.editor.on('component:styleUpdate', (test)=>{
-        console.log(test);
-    })*/
-
+    //use wp ajax as storage
     this.editor.StorageManager.add('local', owy_storage(Vue) );
+    
+    //replace asset modal
+    this.editor.Commands.add('open-assets', {
+      run() {
+        console.log('assets');
+      }
+    })
 
+    //render editor
     this.editor.render();
 
-    this.editor.BlockManager.getCategories().each(ctg => ctg.set('open', false))
-
+    //add top panels
     this.editor.Panels.addPanel({
       id: 'panel__wordpress',
       el: '.panel__wordpress',
@@ -153,26 +156,85 @@ export default {
       el: '.editor_select_template',
     });
     
-
+    //add commands
     this.editor.Commands.add('editor-wp-back', () => {
       console.log('close', this);
       this.close()
     });
 
     this.editor.Commands.add('editor-save', (editor) => {
-      //console.log( editor.getHtml(), editor.getCss(), editor.getJs() );
       editor.store()
     });
 
-    // 'my-first-block' is the ID of the block
+    //block test
     this.editor.BlockManager.add('my-first-block', {
       label: 'Simple block',
       category: 'test',
-      content: '<div class="my-block">This is a simple block</div>',
+      content: '<div data-gjs-type="test" data-widget="test" class="my-block">This is a simple block</div>',
+      attributes: {
+        test: 'Insert h1 block'
+      }
+    });
+
+    this.editor.DomComponents.addType('test', {
+        isComponent: function(el) {
+          if( $(el).data('widget') == 'test' )
+          {
+            return true
+          }
+          else
+          {
+            return false
+          }
+        },
+        model: {
+          defaults: {
+            traits: [
+              // Strings are automatically converted to text types
+              'id', // Same as: { type: 'text', name: 'name' }
+              'title',
+              'data-test',
+              {
+                type: 'button',
+                //label: 'hello',
+                text: 'Click me',
+                full: true,
+                command: () => alert('Hello'),
+              },
+              {
+                type: 'select', // Type of the trait
+                label: 'Type', // The label you will see in Settings
+                name: 'type', // The name of the attribute/property to use on component
+                options: [
+                  { id: 'text', name: 'Text'},
+                  { id: 'email', name: 'Email'},
+                  { id: 'password', name: 'Password'},
+                  { id: 'number', name: 'Number'},
+                ]
+              }, 
+              {
+                type: 'checkbox',
+                name: 'required',
+              }
+            ],
+            // As by default, traits are binded to attributes, so to define
+            // their initial value we can use attributes
+            //attributes: { type: 'text', required: true },
+          },
+        },
+        init() {
+          this.on('change:attributes:id', () => {
+            console.log('change id');
+          });
+        },
+
+        /*handleTypeChange() {
+          console.log('Input type changed to: ', this.getAttributes().type);
+        },*/
     });
 
 
-
+    //manage other template as type
     this.editor.DomComponents.addType('other-templates', {
       model : {
         defaults: {
@@ -189,11 +251,7 @@ export default {
           editable: false
         }
       }
-    })
-
-    
-    
-    
+    })    
     
 
     console.log('gjs Editor', this.editor);

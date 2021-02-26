@@ -139,6 +139,60 @@ export default {
 				$('[alt="Payconiq"]').attr('src', payconiq);
 
 			}
+
+
+			$('.wc_payment_method').find('input').unbind().click(function(event) {
+
+				$('.payment_box').removeClass('active_payment')
+
+				$('.payment_box').addClass('disable-payement')
+
+				$('.payment_box').animate({
+
+					opacity: 0,
+					easing: 'swing',
+					duration: 400,
+
+				}, 200,  function() {
+
+				$(this).hide();
+
+				});
+
+
+				var payment_box = $(this).parent('.wc_payment_method').find('.payment_box')
+
+				if ( payment_box.hasClass('active_payment') ) {
+
+					console.log('');
+				}
+				else{
+
+					payment_box.removeClass('disable-payement')
+
+					payment_box.addClass('active_payment')
+
+
+					payment_box.show('slow/400/fast', function() {
+
+						$(this).animate({
+
+						opacity: 1,
+						easing: 'swing',
+						duration: 200,
+
+					})
+						
+					});
+
+				}
+
+				
+
+
+
+			});
+
 			
 			
 	},
@@ -806,6 +860,13 @@ export default {
 
 		margin-right: 10px
 	}
+
+	#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box{
+
+		transition: all 1s ease-out !important;
+	}
+
+
 	@media screen and (max-width: 1025px) and (min-width: 745px){
 
 		.checkout_santos{

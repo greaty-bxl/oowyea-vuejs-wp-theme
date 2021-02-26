@@ -34,6 +34,7 @@
     "vue-color": "^2.8.1",
     "vue-gapi": "^0.3.1",
     "vue-lottie": "^0.2.1",
+    "vue-masonry-wall": "^0.3.1",
     "vue-scrollmagic": "^1.2.0",
     "vue-swiper": "^0.5.0",
     "vue-youtube": "^1.4.0",

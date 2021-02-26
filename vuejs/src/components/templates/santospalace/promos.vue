@@ -70,8 +70,8 @@
 
 	.image-background-promo{	
 
-		height: 55vh;
-		width: 75%;
+		height: 33vw;
+		width: 50vw;
 		margin-top: 100px;
 		margin-left: auto;
 		margin-right: auto;

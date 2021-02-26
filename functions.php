@@ -249,8 +249,8 @@ function greatytheme_header_scripts()
 // Load HTML5 Blank styles
 function greatytheme_styles()
 {
-    wp_register_style('normalize', get_template_directory_uri() . '/normalize.min.css', array(), '1.0', 'all');
-    wp_enqueue_style('normalize'); // Enqueue it!
+    //wp_register_style('normalize', get_template_directory_uri() . '/normalize.min.css', array(), '1.0', 'all');
+    //wp_enqueue_style('normalize'); // Enqueue it!
 
     /*wp_register_style('greatytheme', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('greatytheme'); // Enqueue it!*/

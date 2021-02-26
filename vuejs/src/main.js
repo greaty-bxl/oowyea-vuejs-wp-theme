@@ -5,6 +5,7 @@ import store from './store/index.js'
 Vue.config.productionTip = false
 
 Vue.prototype.$ = window.jquery
+Vue.prototype.jquery = window.jquery
 Vue.prototype.ajaxurl = window.ajaxurl
 Vue.prototype.wp = window.wp
 

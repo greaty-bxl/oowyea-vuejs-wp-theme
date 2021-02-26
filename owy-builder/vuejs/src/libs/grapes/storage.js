@@ -3,18 +3,32 @@ import wp_ajax from 'Libs/wp-ajax.js';
 export default function (Vue) {
 
 	let store = Vue.$store.state
-
+	let otherTclass = 'owy-protected-other-templates'
 	return {
 		// New logic for the local storage
-		load(keys, clb, clbErr) {
-			console.log('Grapes load', keys, clb, clbErr);
+		load(keys, clb) {
+			
 
 			let result = []
 			result['gjs-html'] = Vue.html
-			result['gjs-css'] = Vue.css
-			result['gjs-js'] = Vue.js
+
+			let otherHtml = ''
+			Vue.jquery.each(store.wp.owy_templates, function(index, group) {
+				Vue.jquery.each(group, function(index, template) {
+					otherHtml += template.metas.html[0]
+				});
+			});
+
+			result['gjs-html'] += '<div data-gjs-type="other-templates" class="'+otherTclass+'">'+otherHtml+'<style>.'+otherTclass+'{display:none}</style></div>'
+
+			result['gjs-css'] = store.wp.owy_builder_css
+
+			console.log('Grapes load', store.wp.owy_builder_css);
+			//result['gjs-js'] = Vue.js
 
 			clb(result);
+
+
 		},
 
 		store() {
@@ -25,16 +39,25 @@ export default function (Vue) {
 				store.ajax_template_saving = true
 
 				let grapes_template = store.grapes_template 
+				let html = Vue.editor.getHtml()
 
-				grapes_template.metas.html[0] = Vue.editor.getHtml()
-				grapes_template.metas.css[0] = Vue.editor.getCss()
-				grapes_template.metas.js[0] = Vue.editor.getJs()
+				let jhtml = Vue.jquery('<div>'+html+'</div>')
+				jhtml.find('.'+otherTclass).remove()
+
+				html = jhtml.html()
+
+				grapes_template.metas.html[0] = html//Vue.editor.getHtml()
+				Vue.$store.state.wp.owy_builder_css = Vue.editor.getCss()
+				//grapes_template.metas.css[0] = Vue.editor.getCss()
+				//grapes_template.metas.js[0] = Vue.editor.getJs()
+
+				
 
 				wp_ajax('owy_save_template', {
 					'post': grapes_template,
-					'html' : Vue.editor.getHtml(),
+					'html' : html,
 					'css' : Vue.editor.getCss(),
-					'js' : Vue.editor.getJs()
+					//'js' : Vue.editor.getJs()
 				}, (result) => {
 
 					store.ajax_template_saving = false

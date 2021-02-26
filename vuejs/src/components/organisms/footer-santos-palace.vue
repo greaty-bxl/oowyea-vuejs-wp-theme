@@ -48,7 +48,7 @@
 
 <script>
 
-	import smart_fonts from "Libs/smart-fonts.js"
+	//import smart_fonts from "Libs/smart-fonts.js"
 	import newsletter from "Molecules/newsletter.vue"
 	// import is from 'is_js'
 
@@ -64,9 +64,9 @@
 
 			this.$emit('template_mounted', this);
 
-			smart_fonts({
+			/*smart_fonts({
 				'.text-contact' : 52.8,
-			})
+			})*/
 
 			var $ = this.$
 

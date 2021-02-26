@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header/>
+    <!-- <Header/> -->
     <div id="app-scroller">
       <!-- <div id="pages"> -->
         <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
@@ -44,7 +44,7 @@
 //Header
 //import Header from 'Organisms/header.vue'
 // import Header from 'Organisms/simple-header.vue'
-import Header from 'Organisms/header-dropdown.vue'
+//import Header from 'Organisms/header-dropdown.vue'
 
 
 //Footer
@@ -63,7 +63,7 @@ import init_scrolltop from 'Libs/init-scrolltop.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
-import smart_fonts from 'Libs/smart-fonts.js'
+//import smart_fonts from 'Libs/smart-fonts.js'
 import on_screen from 'Libs/on-screen.js'
 import woocommerceAjax from 'Libs/woocommerce-ajax.js'
 import acf_ajax from 'Libs/acf-front-ajax.js'
@@ -96,7 +96,7 @@ export default {
     }
   },
   components: {
-    Header,
+    //Header,
     Footer,
     GpdrIntro
     //AudioPlayerBottom,
@@ -113,12 +113,19 @@ export default {
       this.Templates[name] = () => import( `Templates/${file}` )
 
     });
+
+    //load builder default vue for grapes templates
+    require.context('Organisms/', true, /builder-html\.vue$/i);
+    let builder_html = () => import( `Organisms/builder-html.vue` )
+
+    this.jquery.each(this.$store.state.wp.builder_templates_list, (index) => {
+      this.Templates[index] = builder_html
+    });
+
   },
   mounted (){
 
-    console.log( 'App mounted', this.$store.state.wp );    
-
-
+    console.log( 'App mounted', this.$store.state.wp );
     
     this.pages['current'] = this.wp.sections
     this.classes['current'] = this.wp.body_class
@@ -287,7 +294,7 @@ export default {
         }, section)
       }*/
 
-      smart_fonts()
+      //smart_fonts()
     }
   },
   computed: {
@@ -302,13 +309,12 @@ export default {
 
 <style>
 
-@import '~Styles/wp-content.css';
+/*@import '~Styles/wp-content.css';
 @import '~Styles/noty.css';
 @import '~Styles/woocommerce.css';
 @import '~Styles/acf-front.css';
-@import '~Styles/santospalace.css';
+@import '~Styles/santospalace.css';*/
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
 /* width */
 ::-webkit-scrollbar { 
@@ -340,14 +346,19 @@ html{
   width: 100vw;
   overflow:hidden;
 }
+body{
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 #app {
   position: absolute;
-  font-family: 'Montserrat', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #666666;
   height: 100vh;
   width: 100%;
   overflow-y: auto;

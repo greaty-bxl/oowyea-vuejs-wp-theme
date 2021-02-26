@@ -28,7 +28,7 @@
 <script>
 // import is from "is_js"
 import Acf from "Organisms/acf"
-import smart_fonts from 'Libs/smart-fonts.js';
+//import smart_fonts from 'Libs/smart-fonts.js';
 
 
 
@@ -137,10 +137,10 @@ export default {
 
 	$('.count').parent('a').attr('href', last);
 
-	smart_fonts({
+	/*smart_fonts({
 		'.menu-item-type-post_type' : 22,
 		
-	})
+	})*/
 
 	},
 

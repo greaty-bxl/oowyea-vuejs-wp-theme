@@ -120,7 +120,7 @@
 
 <script>
 
-	import smart_fonts from "Libs/smart-fonts.js"
+	//import smart_fonts from "Libs/smart-fonts.js"
 	// import Alpl from 'Molecules/animation-line-per-line';
 	// import anime from 'animejs/lib/anime.es.js';
 	export default {
@@ -263,9 +263,9 @@
 
 	
 
-			smart_fonts({
+			/*smart_fonts({
 				'.text-contact' : 52.8,
-			})
+			})*/
 
 		}
 	}

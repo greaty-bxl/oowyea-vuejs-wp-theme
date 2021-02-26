@@ -20,7 +20,8 @@ $template_words = array(
     '404',
     'search',
     'author',
-    'shop'
+    'shop',
+    'attachment'
 );
 
 
@@ -76,7 +77,7 @@ function is_hierarchical_template($name)
 
                     if( is_hierarchical_template( $path ) )
                     {
-                        $vue_hierarchy[] = $basename;
+                        $vue_hierarchy[$basename] = $basename;
                     }
                     else
                     {
@@ -93,10 +94,40 @@ function is_hierarchical_template($name)
     }
     get_vue_templates(GREATY_TEMPLATE_PATH.'/vuejs/src/components/templates');
 
+    global $builder_templates;
+    global $builder_templates_list;
+
+    $builder_templates = get_posts( array(
+        'post_type' => 'owy_template',
+        'posts_per_page' => -1
+    ) );
+
+    $builder_templates_list = array();
+
+    foreach ($builder_templates as $key => $template) 
+    {
+        $name = str_replace('owy-template-', '', $template->post_name );
+
+        if( is_hierarchical_template( $name ) )
+        {
+            $vue_hierarchy[$name] = $name;
+            $builder_templates_list[$name] = $template;
+            /*echo "h:" . $template->post_name;
+            echo "<br/>";*/
+        }
+        else
+        {
+            $vue_templates[$name] = $template->post_title;
+            $builder_templates_list[$name] = $template;
+            /*echo "t:" . $template->post_name;
+            echo "<br/>";*/
+        }
+    }
+
     /*echo "<pre>";
-    print_r( $vue_hierarchy );
-    echo "<pre>";
     print_r( $vue_templates );
+    echo "<pre>";
+    print_r( array_values( $vue_hierarchy ) );
     exit();*/
 
 /*

@@ -8,6 +8,8 @@ console.log( wp );
 const store = createStore({
 	state:{
 		grapes_template: null,
+		ajax_template_saving: false,
+		ajax_template_saving_queue: false,
 		wp: wp.state,
 	},
 	mutations: {

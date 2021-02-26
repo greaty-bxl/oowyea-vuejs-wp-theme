@@ -2,6 +2,7 @@
   <div id="grapesjs" v-show="display">
     <div id="editor-container">
       <div id="gjs">
+        
       </div>    
     </div> 
     <div class="panel__wordpress">
@@ -65,6 +66,8 @@ export default {
           type: 'local',
           stepsBeforeSave: 1
       },
+      
+      protectedCss: '',
 
       styleManager: {},
       // Avoid any default panel
@@ -79,13 +82,21 @@ export default {
     
 
     this.editor.on('load', () => {
-      console.log( 'remove elements' );
 
       $('.gjs-pn-options').find('span[title="Fullscreen"], span[title="View code"], .fa-download').remove()
 
       $('.gjs-pn-options').find('span[title="View components"]').trigger('click')
 
       $('.gjs-block-categories .gjs-title').trigger('click')
+      
+    });
+
+    this.editor.on('run', () => {
+      let find = this.jquery('.gjs-layer__t-wrapper > .gjs-layer-count')
+      if( find.length )
+      {
+        find.text( this.editor.DomComponents.getComponents().length - 1 )
+      }
     });
 
     this.editor.StorageManager.add('local', owy_storage(Vue) );
@@ -141,7 +152,8 @@ export default {
     });
 
     this.editor.Commands.add('editor-save', (editor) => {
-      console.log( editor.getHtml(), editor.getCss(), editor.getJs() );
+      //console.log( editor.getHtml(), editor.getCss(), editor.getJs() );
+      editor.store()
     });
 
     // 'my-first-block' is the ID of the block
@@ -152,7 +164,30 @@ export default {
     });
 
 
-    console.log(this.editor);
+
+    this.editor.DomComponents.addType('other-templates', {
+      model : {
+        defaults: {
+          layerable: false,
+          removable: false,
+
+          draggable: false,
+          droppable: false,
+          badgable: false,
+          stylable: false,
+          highlightable: false,
+          copyable: false,
+          resizable: false,
+          editable: false
+        }
+      }
+    })
+    
+    
+    
+
+    console.log('gjs Editor', this.editor);
+    
   },
   computed : {
     display : function () {
@@ -183,21 +218,22 @@ export default {
       console.log('watch grapes_template', this.$store.state.grapes_template);
 
       let grapes_template = this.$store.state.grapes_template
+      
+      //this.editor.DomComponents.clear()
+      this.html = ''
 
       if( grapes_template !== null )
       {
         let metas = grapes_template.metas
-        this.html = metas.html[0]
-        this.css = metas.css[0]
+        if( Array.isArray( metas.html ) )
+        {
+          if( metas.html[0] )
+          {
+            this.html = metas.html[0]   
+          }
+        }      
         this.editor.load() 
       }
-      else
-      {
-        this.html = ''
-        this.css = ''
-        this.editor.load()
-      }
-      
     }
   }
 }
@@ -264,4 +300,12 @@ export default {
 .gjs-pn-devices-c{
   left: 34%;
 }
+
+/* .gjs-layer__t-wrapper:first-child .gjs-layer-children > .gjs-layers > .gjs-layer:last-child {
+  display: none !important; 
+}*/
+
+/* .gjs-layer__t-wrapper > .gjs-layer-count , .gjs-layer__t-wrapper > .gjs-layer-vis  {
+  display: none;
+}   */
 </style>

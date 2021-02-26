@@ -28,7 +28,7 @@
 
 <script>
 	
-	import smart_fonts from 'Libs/smart-fonts.js';	
+	//import smart_fonts from 'Libs/smart-fonts.js';	
 
 export default{
 
@@ -37,10 +37,10 @@ mounted(){
 
 	var $ = this.$
 
-	smart_fonts({
+	/*smart_fonts({
 	
 		'.input-single' : 18,
-	})
+	})*/
 
 
 	$('.myform').on('submit',function(event){

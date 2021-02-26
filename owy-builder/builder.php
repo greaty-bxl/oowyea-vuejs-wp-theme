@@ -11,9 +11,13 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 
 	define('owy_builder_page_admin', 'oowyea-home');
 
-	include owy_builder_dir . 'libs/builder-vars.php';
 	include owy_builder_dir . 'libs/register-utils-post-types.php';
-	include owy_builder_dir . 'libs/owy-templates.php';
+
+	
+	include owy_builder_dir . 'libs/builder-vars.php';
+	include owy_builder_dir . 'libs/owy-templates.php';	
+	
+	
 
 	function get_oowyea_editor()
 	{

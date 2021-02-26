@@ -53,8 +53,10 @@
 
 	.content-single img{
 
-		width: 100%;
-		height: auto;
+/*		width: 100%;
+		height: auto;*/
+		height: 50vh;
+		width: 75vh;
 
 	}
 
@@ -77,6 +79,12 @@
 			padding-right: 70px;
 			margin: 100px 0px;
 
+		}
+
+		.content-single img{
+
+			width: 100%;
+			height: auto;
 		}
 
 		.title-post-single{
@@ -102,6 +110,13 @@
 
 			font-size: 25px
 		}
+
+		.content-single img{
+
+			width: 100%;
+			height: auto;
+		}
+
 
 	}
 

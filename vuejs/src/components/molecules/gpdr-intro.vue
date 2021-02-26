@@ -2,8 +2,8 @@
 	<div id="gpdr-intro" v-if="!wp.gpdr_accepted && !is_privacy_policy_page">
       <div id="gpdr-message">
         <div>
-			<h3><strong>POLITIQUE DE COOKIE</strong></h3>
-			<div v-html="wp.sidebars['gpdr-intro']"></div>
+			<h3><strong v-html="pll__('POLITIQUE DE COOKIE')" ></strong></h3>
+			<div v-html="$store.state.wp.sidebars['gpdr-intro']"></div>
 			<button class="button-cookie" v-on:click="accept">J'accepte</button>        
         </div>        
       </div>
@@ -15,7 +15,7 @@
 		mounted () {
 			let $ = this.$
 
-			
+			console.log(this.$store.state.wp.sidebars);
 			
 			$('#app').on('section-top-ready', () => {
 				
@@ -125,7 +125,7 @@ h3{
 
 .button-cookie {
 
-	background-color: #70625B !important;
+	background-color: #888320 !important;
 	color: white !important;
 	margin-top: 16px;
 	border: solid #70625B;

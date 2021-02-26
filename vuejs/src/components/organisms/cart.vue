@@ -714,7 +714,7 @@
 			flex-direction: column !important;
 		}
 
-		.col-1{
+		.side-cart .col-1{
 
 			display: flex;
 		}

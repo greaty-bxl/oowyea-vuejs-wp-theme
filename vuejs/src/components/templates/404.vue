@@ -1,6 +1,13 @@
 <template>
 	<div class="section-wrap">
 		<div class="clear"></div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 		<h1>404</h1>
 		<p>...</p>
 		

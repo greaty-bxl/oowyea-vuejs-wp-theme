@@ -688,16 +688,12 @@
 	.woocommerce ul#shipping_method li label{
 
 		/*margin-left: 20px;*/
-	}
+	}	
 
 	
 
 	@media screen and (max-width: 1125px){
 
-		.woocommerce ul#shipping_method{
-
-			margin-top: 40px;
-		}
 
 		.left-col {
 

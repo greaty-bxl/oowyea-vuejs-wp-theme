@@ -493,6 +493,7 @@
 
 	.side-account tbody td{
 
+		font-size: 14px;
 		padding: 10px 5px;
 	}	
 
@@ -656,14 +657,59 @@
 
 	}
 
-/*	.side-account p.woocommerce-LostPassword.lost_password{
 
-		margin-top: 15px;
+	.side-account table{
+
+		width: 100% !important;
 	}
-*/
-	
+
+	.side-account table.woocommerce-table.woocommerce-table--order-details.shop_table.order_details	tfoot tr th{
+
+		font-size: 14px;
+	}
+
+	.side-account table.woocommerce-table.woocommerce-table--order-details.shop_table.order_details	tfoot *{
+
+		padding-bottom: 7.5px;
+		padding-top: 7.5px;
+		font-size: 14px;
+	}
+
+	.side-account table.woocommerce-table.woocommerce-table--order-details.shop_table.order_details thead th{
+
+		color: #888320;
+		font-size: 15px;
+
+	}
+
+	.side-account ul.wc-item-meta{
+
+		list-style: none;
+		padding-left: 0;
+
+	}
+
+
+	.side-account ul.wc-item-meta li{
+
+		display: -webkit-box;
+		margin-top: 15px;
+
+	}
+
+	.side-account ul.wc-item-meta li p{
+
+		margin: 0px 0px 0px 10px;
+
+	}
 
 	@media screen and (max-width: 600px){
+
+		.side-account  tbody td{
+
+			font-size: 12px;
+			padding: 10px 5px;
+		}	
 
 		.account-info .u-column1.col-1.woocommerce-Address{
 

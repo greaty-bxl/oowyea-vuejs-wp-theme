@@ -704,16 +704,15 @@
 	}
 
 
-		@media screen and (max-width: 1000px){
+	@media screen and (max-width: 1000px){
 
-			.woocommerce ul#shipping_method{
+		.woocommerce ul#shipping_method{
 
-				margin-top: 40px;
-			}
-	
+			margin-top: 40px;
 		}
-	 
- 
+
+	}
+
 	@media screen and (max-width: 600px) {
 
 		.items-carte-container{

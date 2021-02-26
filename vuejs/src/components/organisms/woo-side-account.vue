@@ -494,12 +494,12 @@
 	.side-account tbody td{
 
 		font-size: 14px;
-		padding: 10px 5px;
+		padding-top: 10px;
 	}	
 
 	.side-account .my_account_orders thead th{
 
-		padding: 10px 5px;
+		padding-top: 10px;
 	}
 	.side-account input{
 

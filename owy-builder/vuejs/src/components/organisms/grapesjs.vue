@@ -10,7 +10,7 @@
     <div class="editor_select_template">
       <select>
         <optgroup v-for="(group, label) in owy_templates" :key="label" :label="label">
-          <option v-for="(template, key) in group" :key="key" :selected="template.post_name == current_template">
+          <option v-for="(template, key) in group" :key="key" :selected="template.post_name == current_template_name">
             {{template.post_title}}
           </option>
         </optgroup>
@@ -18,6 +18,10 @@
     </div>
     <div class="panel__more">
       
+    </div>
+
+    <div id="vue-modals" style="display: none">
+      <WpData :attrs="modal_wp_data_attrs"/>
     </div>
   </div>
 </template>
@@ -28,6 +32,10 @@ import grapesjs from 'grapesjs';
 
 //Custom grapes libs
 import owy_storage from 'PluginLib/grapes/storage.js'
+import owy_panels from 'PluginLib/grapes/owy-panels.js'
+
+//Import modals
+import WpData from 'PluginComponents/molecules/modal-wp-data'
 
 export default {
   data(){
@@ -37,10 +45,11 @@ export default {
       html: '',
       css: '',
       js: '',
+      modal_wp_data_attrs: {}
     }
   },
   components: {
-      
+      WpData
   },
   mounted(){
     
@@ -102,6 +111,28 @@ export default {
       }
     });
 
+    this.editor.on('component:selected', (el) => {
+
+      let excludeTypes = ['wrapper']
+
+      let toolbar = el.attributes.toolbar
+      let toolbar_str = JSON.stringify( toolbar )
+
+      if( toolbar_str.search("owy-cmd-wp-data") == -1 && !excludeTypes.includes(el.attributes.type) )
+      {
+        toolbar[toolbar.length] = {
+          attributes: {class: 'fa fa-wordpress'},
+          command: 'owy-cmd-wp-data'
+        }
+
+        toolbar[toolbar.length] = {
+          attributes: {class: 'fa fa-bolt'},
+          command: 'owy-cmd-actions'
+        }
+
+      }
+    });    
+
     //use wp ajax as storage
     this.editor.StorageManager.add('local', owy_storage(Vue) );
     
@@ -115,46 +146,7 @@ export default {
     //render editor
     this.editor.render();
 
-    //add top panels
-    this.editor.Panels.addPanel({
-      id: 'panel__wordpress',
-      el: '.panel__wordpress',
-      buttons: [
-        {
-          id: 'editor-wp-back',
-          active: false, // active by default
-          className: 'editor-wp-back',
-          label: '<div><span class="fa fa-close"></span></div>',
-          command: 'editor-wp-back',
-        },
-        {
-          id: 'editor-save',
-          active: false, // active by default
-          className: 'editor-save',
-          label: '<div><span class="fa fa-save"></span></div>',
-          command: 'editor-save', // Built-in command
-        },
-      ],
-    });
-
-    this.editor.Panels.addPanel({
-      id: 'panel__more',
-      el: '.panel__more',
-      buttons: [
-        {
-          id: 'editor-wp-back',
-          active: false, // active by default
-          className: 'editor-wp-back',
-          label: '<div><span class="fa fa-comment"></span></div>',
-          command: '', // Built-in command
-        }
-      ],
-    });
-
-    this.editor.Panels.addPanel({
-      id: 'editor_select_template',
-      el: '.editor_select_template',
-    });
+    owy_panels( this.editor )
     
     //add commands
     this.editor.Commands.add('editor-wp-back', () => {
@@ -165,6 +157,33 @@ export default {
     this.editor.Commands.add('editor-save', (editor) => {
       editor.store()
     });
+
+    this.editor.Commands.add('owy-cmd-wp-data', (editor) => {
+      console.log('open modal wp data', editor.getSelected() );
+      Vue.modal_wp_data_attrs = {
+        //editor : editor,
+        selected : editor.getSelected()
+      }
+
+      editor.Modal.open({
+        title : 'Apply WordPess data',
+        content : '<div id="modal-content"></div>'
+      }).onceClose( () =>{
+        //move modal vue out
+        $('#modal-content > #modal-wp-data').appendTo('#vue-modals')
+      })
+
+      //move modal vue in
+      $('#vue-modals > #modal-wp-data').appendTo('#modal-content')
+    })
+
+    this.editor.Commands.add('owy-cmd-actions', (editor) => {
+      editor.Modal.open({
+        title : 'Create interaction between elements and context',
+        content : '<div id="modal-content"></div>'
+      })
+    })
+    
 
     //block test
     this.editor.BlockManager.add('my-first-block', {
@@ -233,7 +252,6 @@ export default {
         },*/
     });
 
-
     //manage other template as type
     this.editor.DomComponents.addType('other-templates', {
       model : {
@@ -271,8 +289,18 @@ export default {
     owy_templates : function () {
       return this.$store.state.wp.owy_templates
     },
-    current_template: function () {
-      return this.$store.state.grapes_template
+    current_template_name: function () {
+      let current_template = this.$store.state.grapes_template
+
+      if( typeof current_template === 'object' && current_template !== null )
+      {
+        return current_template.post_name
+      }
+      else
+      {
+        return ''
+      }
+      
     }
   },
   methods : {
@@ -287,7 +315,6 @@ export default {
 
       let grapes_template = this.$store.state.grapes_template
       
-      //this.editor.DomComponents.clear()
       this.html = ''
 
       if( grapes_template !== null )
@@ -308,6 +335,30 @@ export default {
 </script>
 
 <style lang="scss">
+
+.gjs-cv-canvas{
+  width: calc(100% - 280px)
+}
+
+.gjs-pn-views{
+  width: 280px;
+}
+
+.gjs-pn-views .gjs-pn-buttons{
+  justify-content: stretch;
+}
+
+.gjs-pn-views .gjs-pn-buttons .gjs-pn-btn{
+  width: 100%;
+}
+
+.gjs-pn-views-container{
+  width: 280px;
+}
+
+.gjs-pn-options{
+  right: 280px;
+}
 
 .gjs-one-bg{
   background: #23363D;
@@ -335,12 +386,25 @@ export default {
 .editor_select_template{
   position: absolute;
   top: 0px;
-  z-index: 1000;
-  left: 80px;
+  z-index: 99;
+  left: 115px;
+  text-align: left;
+  width: 150px;
+  height: 40px;
+  border-right: solid 1px rgba(0,0,0,0.3);
+  padding-top: 8px;
 }
 
 .editor_select_template select{
+  height: 24px;
+}
 
+.editor_select_template select, .editor_select_template select optgroup, .editor_select_template select option{
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: #23363D;
+  color: #fff;
 }
 
 #editor {
@@ -366,7 +430,7 @@ export default {
 }
 
 .gjs-pn-devices-c{
-  left: 34%;
+  left: 270px;
 }
 
 /* .gjs-layer__t-wrapper:first-child .gjs-layer-children > .gjs-layers > .gjs-layer:last-child {

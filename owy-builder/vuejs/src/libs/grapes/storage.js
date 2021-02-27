@@ -26,7 +26,14 @@ export default function (Vue) {
 			console.log('Grapes load', store.wp.owy_builder_css);
 			//result['gjs-js'] = Vue.js
 
+
+			Vue.editor.DomComponents.clear(); // Clear components
+			Vue.editor.CssComposer.clear(); 
+
+			Vue.editor.select(null)
 			clb(result);
+
+			Vue.editor.UndoManager.clear();
 
 
 		},

@@ -2,8 +2,14 @@
 	<Page class="owy-templates">
 		<h1>Design your WebApp</h1>
 		<p>
-			Need more info and docs? <a href="">Check our website to find doc and tutorials.</a>
+			Need more info and docs? <a href=""><i>Check the <b>oowyea</b> website to find doc and tutorials.</i></a>
 		</p>
+		<div class="owy-colors">
+			<div class="owy-color" style="background: #1BC8CA;"></div>
+			<div class="owy-color" style="background: #6953ED;"></div>
+			<div class="owy-color" style="background: #66976F;"></div>
+			<div class="owy-color" style="background: #CAAB1B;"></div>
+		</div>
 		<div v-for="(group, key) in group_templates" :key="key">
 			<h2 v-html="key"></h2>
 			<div class="row">
@@ -44,5 +50,14 @@
 		display: inline-block;
 		margin-right: 10px;
 		white-space: all;
+	}
+
+	.owy-colors .owy-color{
+		display: inline-block;
+		height: 40px;
+		width: 40px;
+		border-radius: 40px;
+		margin-right: 10px;
+		border: 2.5px solid rgba(255,255,255,0.8);
 	}
 </style>

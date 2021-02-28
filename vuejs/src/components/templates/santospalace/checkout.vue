@@ -141,7 +141,7 @@ export default {
 			}
 
 
-			$('.wc_payment_method').find('input').unbind().click(function(event) {
+			$('.wc_payment_method').find('input').unbind().click(function() {
 
 				$('.payment_box').removeClass('active_payment')
 

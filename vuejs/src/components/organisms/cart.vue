@@ -233,6 +233,9 @@
 
 				button_submit = {}
 
+				this.pll__('livraison: ')
+
+
 				button_submit['button_value'] =  $(this.$store.state.wp.cart).find('.actions').find('button').attr('value');
 				button_submit['button_text'] =  $(this.$store.state.wp.cart).find("[name='update_cart']").text();
 				button_submit['input_1_value'] = $(this.$store.state.wp.cart).find('#woocommerce-cart-nonce').attr('value');
@@ -250,6 +253,7 @@
 
 				
 				return button_submit
+
 
 			}
 		}

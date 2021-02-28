@@ -168,22 +168,31 @@ export default {
 				}
 				else{
 
+
+					console.log('entreeee');
+
 					payment_box.removeClass('disable-payement')
 
 					payment_box.addClass('active_payment')
 
 
 					payment_box.show('slow/200/fast', function() {
-
-						$(this).animate({
-
-						opacity: 1,
-						easing: 'swing',
-						duration: 500,
-
-					})
 						
 					});
+
+					setTimeout(function() {
+
+						payment_box.animate({
+
+							opacity: 1,
+							easing: 'swing',
+							duration: 500,
+
+						})
+
+					}, 300);
+
+				
 
 				}
 
@@ -864,6 +873,12 @@ export default {
 	#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box{
 
 		transition: all 1s ease-out !important;
+	}
+
+
+	#add_payment_method #payment ul.payment_methods, .woocommerce-cart #payment ul.payment_methods, .woocommerce-checkout #payment ul.payment_methods a{
+
+		color: white !important;
 	}
 
 

@@ -173,13 +173,13 @@ export default {
 					payment_box.addClass('active_payment')
 
 
-					payment_box.show('slow/400/fast', function() {
+					payment_box.show('slow/200/fast', function() {
 
 						$(this).animate({
 
 						opacity: 1,
 						easing: 'swing',
-						duration: 200,
+						duration: 500,
 
 					})
 						

@@ -67,7 +67,7 @@
 							</div>
 
 
-							<div v-if="post.acf_fields.fichier_a_telecharger != undefined" style="padding-top: 30px">
+							<div v-if="post.acf_fields.fichier_a_telecharger != undefined" style="padding-top: 10px,     margin-bottom: 30px;}">
 								<a class="download button-santos-vert" href="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/02/Texte-site-Valerie.pdf"  target="_blank" v-html="pll__('Télécharger le pdf pour plus dinformations')" ></a>
 							</div>
 						</div>

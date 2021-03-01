@@ -175,8 +175,6 @@ export default function (vue)
 				borderBottom: '0px solid white',
 			});
 
-			
-
 			if ( href === url_link  ) {
 				
 				$(this).find('a').css({
@@ -192,13 +190,17 @@ export default function (vue)
 			else{
 
 				$(this).find('a').removeClass('current-page')
+
+
 			}
 			
 		});
 
 		if ( open_link(event, href) )
 		{
+			
 			event.preventDefault();
+
 		}
 
 		
@@ -210,6 +212,12 @@ export default function (vue)
 			console.log( 'click', event.currentTarget );
 			let target = $(event.currentTarget)
 			//event.preventDefault()
+
+			if (event.currentTarget.hasClass('download')) {
+
+				on_click(event)
+			}
+
 			if( target.data('trigger') )
 			{
 				//console.log('trigger link');
@@ -217,7 +225,7 @@ export default function (vue)
 				event.preventDefault();
 			}
 			else if(  target.hasClass('owy-mailto') )
-			{
+			{	
 				let adr = target.data('adr')
 				let domain = target.data('domain')
 				let mail = adr+'@'+domain
@@ -232,7 +240,7 @@ export default function (vue)
 				on_click(event)
 			}
 			else
-			{
+			{	
 				event.preventDefault()
 			}
 		});

@@ -67,8 +67,6 @@
 					</div>
 
 
-
-
 					<p class="empty" v-if="submit_button.cart_empty" v-html="submit_button.cart_empty"> </p>
 						
 
@@ -100,7 +98,7 @@
 			// let quantity;
 
 			// quantity =  $(el).find('.quantity').value()
-			
+
 			let $ = this.$
 
 			// $(".wc-proceed-to-checkout").first().remove();
@@ -202,8 +200,6 @@
 					products[index]['product_thumbnail'] = $(el).find('.product-thumbnail').html()
 					products[index]['product_price'] = $(el).find('.woocommerce-Price-amount.amount').html()
 
-
-
 				});
 
 				this.my_cart_products = products
@@ -225,6 +221,7 @@
 			}
 		},
 		computed:{
+
 			submit_button: function () 
 			{
 				let $ = this.$
@@ -233,9 +230,19 @@
 
 				button_submit = {}
 
-				this.pll__('livraison: ')
+				
+				// this.pll__(
+				// 	'.woocommerce-shipping-methods label', true)
+
+				// ('.woocommerce-shipping-methods')
+
+				// if () {}
+
+				// this.pll__(
+				// 	'.woocommerce-shipping-methods [for="shipping_method_0_free_shipping4"]', true)
 
 
+		
 				button_submit['button_value'] =  $(this.$store.state.wp.cart).find('.actions').find('button').attr('value');
 				button_submit['button_text'] =  $(this.$store.state.wp.cart).find("[name='update_cart']").text();
 				button_submit['input_1_value'] = $(this.$store.state.wp.cart).find('#woocommerce-cart-nonce').attr('value');
@@ -249,10 +256,28 @@
 
 				button_submit['cart_empty'] = $(this.$store.state.wp.cart).find('.cart-empty').text();
 
-				// console.log(button_submit);
+
+
+				var bdi = $(this.$store.state.wp.cart).find('.woocommerce-shipping-methods bdi').text()
+
+				$('.woocommerce-shipping-methods label').append('  <span class="woocommerce-Price-amount amount">'+ bdi +'</span>')
+
+
+				$( "html[lang='fr-BE'] .side-cart .woocommerce ul#shipping_method li input" ).prop( "checked", true );
+
+				return button_submit
+
 
 				
-				return button_submit
+
+					// html[lang="fr-BE"] .side-cart .woocommerce ul#shipping_method li:nth-child(2n){
+
+					// 	display: none !important;
+					// }
+
+				// shipping_method_0_flexible_shipping_3_2
+
+
 
 
 			}
@@ -272,7 +297,6 @@
 		border-bottom: 1px solid rgb(220, 220, 220);
 
 	}
-
 
 	.header-carte h4{
 
@@ -402,6 +426,22 @@
 </style>
 
 <style>
+
+	html[lang="nl-BE"] .side-cart .woocommerce ul#shipping_method li:nth-child(2n){
+
+		display: none !important;
+	}
+
+	html[lang="fr-BE"] .side-cart .woocommerce ul#shipping_method li:first-child{
+
+		display: none !important;
+	}
+
+	.side-cart .woocommerce ul#shipping_method li label{
+
+		padding-left: 20px;
+	}
+
 
 	.woocommerce table.shop_table{
 
@@ -708,16 +748,13 @@
 	}
 
 
-	@media screen and (max-width: 1000px){
+
+	@media screen and (max-width: 600px) {
 
 		.woocommerce ul#shipping_method{
 
 			margin-top: 40px;
 		}
-
-	}
-
-	@media screen and (max-width: 600px) {
 
 		.items-carte-container{
 

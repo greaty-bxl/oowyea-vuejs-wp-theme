@@ -65,6 +65,11 @@
 							<div style="padding-top: 30px">
 								<p v-html="post.post_content" class="descriptif"></p>
 							</div>
+
+
+							<div v-if="post.acf_fields.fichier_a_telecharger != undefined" style="padding-top: 30px">
+								<a class="download button-santos-vert" href="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/02/Texte-site-Valerie.pdf"  target="_blank" v-html="pll__('Télécharger le pdf pour plus dinformations')" ></a>
+							</div>
 						</div>
 
 						<div class="vue-wc-variations" v-if="Object.keys(variations_selects).length > 0">

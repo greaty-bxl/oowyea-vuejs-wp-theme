@@ -2,7 +2,7 @@
 	<div class="section-wrap owy-single-product" :id="'section_' + _uid">
 		<div class="clear"></div>
 		
-			<div class="content-single">
+			<div class="content-single-product">
 				<div  class="retour">
 					<button onclick="window.history.back()" 
 					v-html="pll__('Retour')">Retour</button>
@@ -630,7 +630,7 @@
 
 	}
 	
-	.content-single{
+	.content-single-product{
 
 		display: flex;
 		flex-direction: column;
@@ -698,12 +698,12 @@
 		font-weight: 500;
 	}
 
-	.content-single ul{
+	.content-single-product ul{
 
 		padding-left: 16px;
 	}
 
-	.content-single{
+	.content-single-product{
 
 		text-align: left;
 		color: #4D4D4D;
@@ -1052,7 +1052,7 @@
 
 	}
 
-	.content-single input{
+	.content-single-product input{
 
 		color: #4D4D4D;
 	}
@@ -1264,7 +1264,7 @@
 			max-width: 200px;
 		}
 
-		.content-single{
+		.content-single-product{
 
 			display: flex;
 			flex-direction: column;
@@ -1375,7 +1375,7 @@
 
 		}
 
-		.content-single{
+		.content-single-product{
 
 			display: flex;
 			flex-direction: column;
@@ -1439,12 +1439,12 @@
 		text-align: center;
 	}
 
-	.content-single del{
+	.content-single-product del{
 
 		display: none !important;
 	}
 
-	.content-single bdi {
+	.content-single-product bdi {
 
 		display: none !important;
 	}

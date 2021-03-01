@@ -67,7 +67,7 @@
 							</div>
 
 
-							<div v-if="post.acf_fields.fichier_a_telecharger != undefined" style="margin-top: 10px,     margin-bottom: 30px;}">
+							<div class="download" v-if="post.acf_fields.fichier_a_telecharger != undefined">
 								<a class="download button-santos-vert" href="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/02/Texte-site-Valerie.pdf"  target="_blank" v-html="pll__('Télécharger le pdf pour plus dinformations')" ></a>
 							</div>
 						</div>
@@ -520,6 +520,14 @@
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+
+	.download{
+
+		margin-top: 30px;
+		margin-bottom: 30px;
+		font-size: 16px;
+	}
 
 	.woocommerce img, .woocommerce-page img{
 

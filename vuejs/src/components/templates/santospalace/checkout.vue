@@ -1,6 +1,6 @@
 <template>
 
-	<div class="checkout_santos " >
+	<div class="checkout_santos woocommerce-checkout" >
 		<h5 v-if="cols_checkout.title_commande == undefined " class="title-home">Paiement</h5>
 		<h5 v-else class="title-home">Facture</h5>
 			<div v-html="cols_checkout.order_notices"></div>
@@ -257,11 +257,6 @@ export default {
 				cols['order_notices'] =  $(this.post.post_content).find('.woocommerce-notices-wrapper').html();
 				cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
 				cols['woocommerce_login'] =  $(this.post.post_content).find('.login').html();
-
-			
-
-
-			console.log(cols);
 			
 			return cols
 		},
@@ -706,7 +701,7 @@ export default {
 		margin-bottom: 15px;
 	}
 
-	.checkout_santos .woocommerce #payment #place_order, .woocommerce-page #payment #place_order{
+	.checkout_santos #place_order{
 
 		background-color: #888320 !important;
 		color: white !important;
@@ -722,7 +717,7 @@ export default {
 	}
 
 
-	.checkout_santos .woocommerce #payment #place_order, .woocommerce-page #payment #place_order:hover{
+	.checkout_santos #place_order:hover{
 
 		background-color: white !important;
 		color: #888320 !important;

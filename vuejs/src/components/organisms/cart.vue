@@ -263,7 +263,9 @@
 				$('.woocommerce-shipping-methods label').append('  <span class="woocommerce-Price-amount amount">'+ bdi +'</span>')
 
 
-				$( "html[lang='fr-BE'] .side-cart .woocommerce ul#shipping_method li input" ).prop( "checked", true );
+				// $( ".side-cart .woocommerce ul#shipping_method li input" ).prop( "checked", true );
+
+				$( "html[lang='fr-BE'] .side-cart ul#shipping_method input" ).attr( "checked", "checked");
 
 				return button_submit
 
@@ -427,12 +429,12 @@
 
 <style>
 
-	html[lang="nl-BE"] .side-cart .woocommerce ul#shipping_method li:nth-child(2n){
+	html[lang="nl-BE"] .side-cart .woocommerce ul#shipping_method li:first-child{
 
 		display: none !important;
 	}
 
-	html[lang="fr-BE"] .side-cart .woocommerce ul#shipping_method li:first-child{
+	html[lang="fr-BE"] .side-cart .woocommerce ul#shipping_method li:nth-child(2n){
 
 		display: none !important;
 	}
@@ -440,6 +442,16 @@
 	.side-cart .woocommerce ul#shipping_method li label{
 
 		padding-left: 20px;
+	}
+
+	.side-cart .woocommerce ul#shipping_method li span:first-child{
+		display: initial;
+
+	}
+
+	.woocommerce ul#shipping_method .amount{
+
+		display: none;
 	}
 
 

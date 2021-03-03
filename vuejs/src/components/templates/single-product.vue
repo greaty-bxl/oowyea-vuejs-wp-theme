@@ -66,13 +66,17 @@
 								<p v-html="post.post_content" class="descriptif"></p>
 							</div>
 
+								<div class="download-parent" >
+									
+									<div  v-for="item in post.acf_fields.fichier_a_telecharger" :key="key">
+										<a v-if="item.pdf != false" class="download " :href="item.pdf"  target="_blank" v-html="item.text_button"  >
+										
+										</a>
+									</div>
 
-							<div class="download" v-if="post.acf_fields.fichier_a_telecharger != undefined">
-								<a class="download " href="http://santospalace.test/bruxelles/wp-content/uploads/sites/2/2021/02/Texte-site-Valerie.pdf"  target="_blank"  >
-									<div class="button-santos-vert" v-html="pll__('Télécharger le pdf pour plus dinformations')" ></div>
+								</div>
+								
 
-								</a>
-							</div>
 						</div>
 
 						<div class="vue-wc-variations" v-if="Object.keys(variations_selects).length > 0">
@@ -526,12 +530,33 @@
 
 
 	.download{
-		text-decoration-line: none;
 		margin-top: 30px;
 		margin-bottom: 30px;
 		font-size: 16px;
 		text-align: center;
 		line-height: 150%;
+	}
+
+	.download-parent div:first-child{
+
+		margin-top: 30px;
+	}
+
+	.download-parent div{
+
+		margin-top: 15px;
+		color: black;
+	}
+
+
+	.download-parent div a{
+		color: black;
+		content: '';
+		left: 0;
+		bottom: 1px;
+		border-width: 0 0 1px;
+		border-style: solid;
+		text-decoration: none;
 	}
 
 	.woocommerce img, .woocommerce-page img{

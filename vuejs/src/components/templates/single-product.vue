@@ -66,12 +66,19 @@
 								<p v-html="post.post_content" class="descriptif"></p>
 							</div>
 
-							<!-- 	<div class="download-parent" >
+								<div  v-if="post.acf_fields.fichier_a_telecharger != undefined" class="download-parent">
 									<div  v-for="item in post.acf_fields.fichier_a_telecharger" :key="key">
 										<a v-if="item.pdf != false" class="download " :href="item.pdf"  target="_blank" v-html="item.text_button"  >
 										</a>
 									</div>
-								</div> -->
+								</div>
+
+								<div  v-else class="download-parent">
+									<div  v-for="item in post.acf_fields.bestand_om_te_downloaden" :key="key">
+										<a v-if="item.pdf != false" class="download " :href="item.pdf"  target="_blank" v-html="item.tekst_knop"  >
+										</a>
+									</div>
+								</div>
 								
 
 						</div>

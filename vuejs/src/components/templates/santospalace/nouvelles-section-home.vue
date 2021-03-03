@@ -25,12 +25,12 @@
 
 				<div class="swiperProductcontent">
 
-				<div>
-					<div class="swiper-button-prev"></div>
+				<div v-for="(v_slide, index) in last_products_slider" :key="index" v-show="index == active">
+					<div class="swiper-button-prev" :id="'swiper-button-prev-'+index"></div>
 
-					<swiper v-for="(v_slide, index) in last_products_slider" 
-					:key="index"
-					v-show="index == active"
+					<swiper  
+					
+					
 					class="swipernouvelles" 
 					:options="swiperNouvelles"    
 					:pagination="{ clickable: true }">
@@ -42,7 +42,7 @@
 							</swiper-slide>
 					</swiper>
 
-					<div class="swiper-button-next"></div>
+					<div class="swiper-button-next" :id="'swiper-button-next-'+index"></div>
 					
 				</div>	
 
@@ -66,9 +66,9 @@
 	import is from 'is_js'
 
 
-	
-	export default {
+	let SwiperArray = []
 
+	export default {
 		components: {
 			Item,
 			Swiper,
@@ -91,6 +91,12 @@
 		methods: {
 			change_slider : function(index){
 				this.active = index
+
+				//SwiperArray[index].$el.trigger('click')
+				//SwiperArray[index].slideReset()
+
+
+				console.log('change_slider', index);
 			}
 		},
 
@@ -121,7 +127,8 @@
 					preloadImages: false,
 					lazy: true,
 					type: 'bullets',
-				
+					
+					progress: true,
 
 					loop: false,
 					allowTouchMove: true,
@@ -153,21 +160,26 @@
 						type: 'bullets',
 						clickable: true,
 						renderBullet: function (index, className) {
-						return '<span class="' + className + '"></span>';
-
-					}
+							return '<span class="' + className + '"></span>';
+						}
 					},
 
-					navigation: {
+					/*navigation: {
 						nextEl: '.swiper-button-next',
 						prevEl: '.swiper-button-prev',
-					},
+					},*/
 
 					on : {
 						init : function(){
 
 							let $ = window.jquery
-
+							let index = SwiperArray.length
+							SwiperArray[index] = this
+							
+							this.params.navigation.nextEl = '#swiper-button-next-'+index
+							this.params.navigation.prevEl = '#swiper-button-prev-'+index
+							
+							this.update();
 							$(this.$el).find('.swiper-slide').css('visibility', 'visible').animate({'opacity':1}, 500);
 
 						}

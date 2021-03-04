@@ -67,16 +67,20 @@
 							</div>
 
 								<div v-if="post.acf_fields.fichier_a_telecharger != undefined" class="download-parent">
-									<div  v-for="(item, key)  in post.acf_fields.fichier_a_telecharger" :key="key" >
-										<a data-trigger="download-pdf" v-if="item.pdf != false" class="download " :href="item.pdf" target="_blank" v-html="item.text_button"  >
-										</a>
+									<div style="padding-bottom: 30px">
+										<div  v-for="(item, key)  in post.acf_fields.fichier_a_telecharger" :key="key" >
+											<a data-trigger="download-pdf" v-if="item.pdf != false" class="download " :href="item.pdf" target="_blank" v-html="item.text_button"  >
+											</a>
+										</div>
 									</div>
 								</div>
 
-								<div  v-else  class="download-parent">
-									<div  v-for="(item, key) in post.acf_fields.bestand_om_te_downloaden" :key="key" >
-										<a v-if="item.pdf != false" class="download " :href="item.pdf"  target="_blank" v-html="item.tekst_knop"  >
-										</a>
+								<div  v-if="post.acf_fields.bestand_om_te_downloaden != undefined" class="download-parent">
+									<div style="padding-bottom: 30px">
+										<div  v-for="(item, key) in post.acf_fields.bestand_om_te_downloaden" :key="key" >
+											<a v-if="item.pdf != false" class="download " :href="item.pdf"  target="_blank" v-html="item.tekst_knop"  >
+											</a>
+										</div>
 									</div>
 								</div>
 								

@@ -21,7 +21,7 @@ function owy_template_posttype() {
         'label' => 'Group'
     ) );
 
-    /*register_post_type( 'owy_wp_data',
+    register_post_type( 'owy_wp_data',
         array(
             'labels' => array(
                 'name' => __( 'oowYea WP Data' ),
@@ -34,7 +34,7 @@ function owy_template_posttype() {
             'show_ui' => true,
             'show_in_menu' => true,
         )
-    );*/
+    );
 
     register_post_type( 'owy_query',
         array(

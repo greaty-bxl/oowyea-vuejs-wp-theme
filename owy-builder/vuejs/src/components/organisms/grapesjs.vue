@@ -297,10 +297,13 @@ export default {
     })    
 
     $( this.editor.SelectorManager.selectorTags.$states ).append('<option>test</option>')
-    console.log(  )
+    
     
 
     console.log('gjs Editor', this.editor);
+
+    console.log( 'undo', this.editor.UndoManager )
+    
     
   },
   computed : {

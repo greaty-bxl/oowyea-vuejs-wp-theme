@@ -18,6 +18,7 @@
 <script>
 
 	import wp_ajax from 'Libs/wp-ajax.js'
+	import is_json from 'Libs/is-json.js'
 
 	export default {
 		/*props : {
@@ -26,9 +27,102 @@
 		data(){
 			return {
 				wp_data_form : null,
+				history : false
 			}
 		},
 		mounted(){
+			let $ = this.jquery 
+
+			//convert form in serialized object (for name as array)
+			$.fn.serializeObject = function() {
+				var data = {};
+
+				function buildInputObject(arr, val) {
+				if (arr.length < 1) {
+				return val;  
+				}
+				var objkey = arr[0];
+				if (objkey.slice(-1) == "]") {
+				objkey = objkey.slice(0,-1);
+				}  
+				var result = {};
+				if (arr.length == 1){
+				result[objkey] = val;
+				} else {
+				arr.shift();
+				var nestedVal = buildInputObject(arr,val);
+				result[objkey] = nestedVal;
+				}
+				return result;
+				}
+
+				function gatherMultipleValues( that ) {
+				var final_array = [];
+				$.each(that.serializeArray(), function( key, field ) {
+				// Copy normal fields to final array without changes
+				if( field.name.indexOf('[]') < 0 ){
+				final_array.push( field );
+				return true; // That's it, jump to next iteration
+				}
+
+				// Remove "[]" from the field name
+				var field_name = field.name.split('[]')[0];
+
+				// Add the field value in its array of values
+				var has_value = false;
+				$.each( final_array, function( final_key, final_field ){
+				if( final_field.name === field_name ) {
+				has_value = true;
+				final_array[ final_key ][ 'value' ].push( field.value );
+				}
+				});
+				// If it doesn't exist yet, create the field's array of values
+				if( ! has_value ) {
+				final_array.push( { 'name': field_name, 'value': [ field.value ] } );
+				}
+				});
+				return final_array;
+				}
+
+				// Manage fields allowing multiple values first (they contain "[]" in their name)
+				var final_array = gatherMultipleValues( this );
+
+				// Then, create the object
+				$.each(final_array, function() {
+				var val = this.value;
+				var c = this.name.split('[');
+				var a = buildInputObject(c, val);
+				$.extend(true, data, a);
+				});
+
+				return data;
+			};
+
+			
+			setTimeout(() => {
+				//restor field values about history and save
+				this.$parent.editor.on('run:core:undo', () => {
+					if( is_json )
+					{
+						let fields = JSON.parse( this.attr.selected.getAttributes()['data-wp-data'] )
+						$.each(fields, function(index, val) {
+							
+							$('[name="'+val.name+'"]').val(val.value)
+						});
+
+						this.history = true
+						$('.acf-container form').trigger('change')
+					}
+				});
+
+				//delete wp data post on delete element
+				this.$parent.editor.on('component:remove', (el) => {
+					if( el.attributes.attributes['data-wp-data-id'] )
+					{
+						console.log(el);
+					}
+				});
+			}, 1);
 			
 		},
 		computed : {
@@ -44,25 +138,56 @@
 			init_acf(){
 				setTimeout( ()=>{
 					let $ = this.jquery
+					let form_jq = $('.acf-container form')
 
 					$(document).trigger('acf/setup_fields', $('.acf-container'))
 					$(window).trigger('load')
 
+					$('.acf-container form').append('<input type="hidden" name="vue_wp_data" value="true">')
+
 					$('.acf-form-submit input').hide()//.addClass('gjs-btn-prim gjs-btn--full')
 					$('.acf-container').show()
+					form_jq.attr('action', window.location.href );
+
+					$('[data-name="template"] input').val(this.grapes_template.post_name)
+					$('[data-name="component_id"] input').val(this.attr.ccid)
 
 					console.log('init acf', this.attr.ccid);
 
-					let form_jq = $('.acf-container form')
+					
 
-					form_jq.find('[data-name="query_from"] select').unbind('change').on('change', (e) => {
-						console.log('query type change', $(e.currentTarget) );
+					form_jq.unbind('change').on('change', (e) => {
+						//
 
+						var form_data = $(e.currentTarget).serializeObject()
+						var form_serialize = $(e.currentTarget).serializeArray()	
+
+						console.log('form_serialize', form_serialize );
+
+						form_data.action = "owy_save_wp_data"
+
+						console.log('form_data', form_data, this.ajaxurl );
+
+						$.post(this.ajaxurl, form_data, (data) => {
+							let json = $.parseJSON( data )
+							console.log('save wp data', json, this.attr );
+							if( !this.history )
+							{
+								this.attr.selected.setAttributes({ 
+									'data-wp-data': JSON.stringify(form_serialize), 
+									'data-wp-data-id' : json.post_id  
+								});
+							}
+
+							this.history = false
+							
+						});
+
+						
 					});
 
 					form_jq.on('submit', function(event) {
 						event.preventDefault();
-						console.log('submit');
 					});
 
 				}, 1 )

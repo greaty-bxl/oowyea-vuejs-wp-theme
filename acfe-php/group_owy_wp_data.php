@@ -66,7 +66,7 @@ acf_add_local_field_group(array(
 			'placeholder' => '',
 		),
 		array(
-			'key' => 'field_603d1c4ca2f86',
+			'key' => 'field_6040dad4eb7b9',
 			'label' => 'Parent query',
 			'name' => 'parent_query',
 			'type' => 'select',
@@ -168,37 +168,6 @@ acf_add_local_field_group(array(
 			),
 		),
 		array(
-			'key' => 'field_603cfc8249e67',
-			'label' => 'Parent query',
-			'name' => 'parent_query',
-			'type' => 'select',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_603c0194e42bd',
-						'operator' => '==',
-						'value' => 'parent',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-			),
-			'default_value' => false,
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'return_format' => 'value',
-			'ajax' => 0,
-			'placeholder' => '',
-		),
-		array(
 			'key' => 'field_603c04b6e48c4',
 			'label' => 'Apply result to',
 			'name' => 'apply_result_to',
@@ -260,8 +229,9 @@ acf_add_local_field_group(array(
 						'background' => 'Set Image as background',
 						'style' => 'Set Value to style',
 						'attribute' => 'Set Value to attribute',
-						'display' => 'Conditional display',
 						'loop' => 'Loop list',
+						'display' => 'Conditional display',
+						'javascript' => 'Javascript action',
 					),
 					'default_value' => false,
 					'allow_null' => 0,
@@ -277,8 +247,9 @@ acf_add_local_field_group(array(
 	'location' => array(
 		array(
 			array(
-				'param' => 'owy-no-location',
+				'param' => 'post_type',
 				'operator' => '==',
+				'value' => 'owy_wp_data',
 			),
 		),
 	),
@@ -298,7 +269,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1614852255,
+	'modified' => 1614873820,
 ));
 
 endif;

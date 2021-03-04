@@ -23,7 +23,7 @@ export default function (Vue) {
 
 			result['gjs-css'] = store.wp.owy_builder_css
 
-			console.log('Grapes load', store.wp.owy_builder_css);
+			//console.log('Grapes load', store.wp.owy_builder_css);
 			//result['gjs-js'] = Vue.js
 
 
@@ -39,7 +39,7 @@ export default function (Vue) {
 		},
 
 		store() {
-			console.log('Grapes ajax save');
+			//console.log('Grapes ajax save');
 
 			if( !store.ajax_template_saving )
 			{
@@ -58,7 +58,7 @@ export default function (Vue) {
 
 				css = css.replace('body', '#wrapper')
 
-				console.log('save css', css);
+				//console.log('save css', css);
 
 				Vue.$store.state.wp.owy_builder_css = css
 				//grapes_template.metas.css[0] = Vue.editor.getCss()
@@ -71,7 +71,7 @@ export default function (Vue) {
 					'html' : html,
 					'css' : css,
 					//'js' : Vue.editor.getJs()
-				}, (result) => {
+				}, (/*result*/) => {
 
 					store.ajax_template_saving = false
 
@@ -80,7 +80,7 @@ export default function (Vue) {
 						Vue.jquery.each(group, function(index2, template) {
 							if( grapes_template['ID'] == template['ID'] )
 							{
-								console.log('replace in store', grapes_template);
+								//console.log('replace in store', grapes_template);
 								Vue.$store.state.wp.owy_templates[index1][index2] = grapes_template
 							}
 						});
@@ -92,7 +92,7 @@ export default function (Vue) {
 						this.store()
 					}
 
-					console.log(result, this);
+					//console.log(result, this);
 				})
 			}
 			else

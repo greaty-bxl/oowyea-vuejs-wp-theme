@@ -213,11 +213,6 @@ export default function (vue)
 			let target = $(event.currentTarget)
 			//event.preventDefault()
 
-			if (event.currentTarget.hasClass('download')) {
-
-				on_click(event)
-			}
-
 			if( target.data('trigger') )
 			{
 				//console.log('trigger link');

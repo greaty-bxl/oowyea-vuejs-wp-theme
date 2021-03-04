@@ -703,6 +703,17 @@
 
 	}
 
+	html[lang="nl-BE"] .side-cart .woocommerce ul#shipping_method li:first-child{
+
+		display: none !important;
+	}
+
+	html[lang="fr-BE"] .side-cart .woocommerce ul#shipping_method li:nth-child(2n){
+
+		display: none !important;
+	}
+
+
 	@media screen and (max-width: 600px){
 
 		.side-account  tbody td{

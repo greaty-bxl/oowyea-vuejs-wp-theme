@@ -120,7 +120,7 @@ export default {
 			$('[alt="eMaestro"]').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Maestro_2016.svg');
 
 
-				let image 
+			let image 
 
 			$('.wc_payment_method').find('label').each( (index, el) => {
 
@@ -130,6 +130,23 @@ export default {
 
 				$(el).append(image)
 
+
+			});
+
+			$('.woocommerce-shipping-methods li').each( (index, el) => {
+
+				var input1 = $(el).find('input')
+
+				if(input1.css('display') == 'none')
+				{
+					console.log('11');
+				}
+				else{
+
+					input1.addClass('lalal')
+					console.log('12');
+				}
+				
 			});
 
 			
@@ -141,24 +158,10 @@ export default {
 			}
 
 
+			$('.wc_payment_methods payment_methods .methods li:eq(0)').find('.payment_box').addClass('disable-payement')
+
+
 			$('.wc_payment_method').find('input').unbind().click(function() {
-
-				$('.payment_box').removeClass('active_payment')
-
-				$('.payment_box').addClass('disable-payement')
-
-				$('.payment_box').animate({
-
-					opacity: 0,
-					easing: 'swing',
-					duration: 400,
-
-				}, 200,  function() {
-
-				$(this).hide();
-
-				});
-
 
 				var payment_box = $(this).parent('.wc_payment_method').find('.payment_box')
 
@@ -168,6 +171,20 @@ export default {
 				}
 				else{
 
+					$('.payment_box').removeClass('active_payment')
+
+
+					$('.payment_box').animate({
+
+						opacity: 0,
+						easing: 'swing',
+						duration: 400,
+
+					}, 200,  function() {
+
+					$(this).hide();
+
+					});
 
 					console.log('entreeee');
 
@@ -191,19 +208,11 @@ export default {
 						})
 
 					}, 300);
-
 				
-
 				}
 
-				
-
-
-
 			});
-
-			
-			
+					
 	},
 
 	beforeDestroy(){
@@ -257,6 +266,26 @@ export default {
 				cols['order_notices'] =  $(this.post.post_content).find('.woocommerce-notices-wrapper').html();
 				cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
 				cols['woocommerce_login'] =  $(this.post.post_content).find('.login').html();
+
+
+
+			$("html[lang='nl-BE'] .checkout_santos .woocommerce-shipping-methods li:eq( 1 )").css('display', 'none');
+
+			$("html[lang='fr-BE'] .checkout_santos .woocommerce-shipping-methods li:eq( 2 )").css('display', 'none');
+
+			$("[data-title='Verzending']").find('input:eq(0)').prop( "checked", false );
+			$("[data-title='Verzending']").find('li:eq(0)').css('display', 'none');
+
+			$("[data-title='Expédition']").find('input:eq(0)').prop( "checked", true );
+			$("[data-title='Expédition']").find('input:eq(0)').css('display', 'none');
+
+			$("[data-title='Expédition']").find('input:eq(1)').prop( "checked", false );
+			$("[data-title='Expédition']").find('li:eq(1)').css('display', 'none');
+
+            $("[data-title='Verzending']").find('input:eq(1)').prop( "checked", true );
+            $("[data-title='Verzending']").find('input:eq(1)').css('display', 'none');
+
+
 			
 			return cols
 		},
@@ -692,7 +721,7 @@ export default {
 	.checkout_santos .woocommerce form .form-row label.checkbox, .woocommerce-page form .form-row label.checkbox {
 
 		display: flex;
-		justify-content: center;
+		justify-content: left;
 		align-items: center;
 	}
 
@@ -780,8 +809,6 @@ export default {
 
 	.checkout_santos input#createaccount{
 
-	/*	width: 16px;
-		height: 16px;*/
 		border-color: #d9d9d9;
 		border: 1px solid #d9d9d9 ;
 	}
@@ -876,6 +903,27 @@ export default {
 		color: white !important;
 	}
 
+	label.woocommerce-form__label.woocommerce-form__label-for-checkbox.checkbox{
+
+		display: flex;
+		flex-direction: row;
+
+	}
+
+	.checkout_santos p.form-row.validate-required{
+
+		position: relative;
+	}
+
+	.checkout_santos input#terms {
+		position: absolute;
+		top: calc( 50% - 6px ); 
+	}
+
+	.checkout_santos span.woocommerce-terms-and-conditions-checkbox-text {
+
+		margin-left: 25px;
+	}
 
 	@media screen and (max-width: 1025px) and (min-width: 745px){
 
@@ -978,17 +1026,26 @@ export default {
 		}
 
 
+		.checkout_santos p.form-row.validate-required{
+
+			position: initial;
+		}
+
+		.checkout_santos input#terms {
+			position: initial;
+			margin-top: 5px;
+		}
+
+		.checkout_santos span.woocommerce-terms-and-conditions-checkbox-text {
+
+			margin-left: 0px;
+		}
+
+
+
+
 	}
 
 </style>
-
-<style scoped >
-
-
-
-</style>
-
-
-
 
 

@@ -119,6 +119,17 @@ export default {
 
 			$('[alt="eMaestro"]').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Maestro_2016.svg');
 
+			$("[data-title='Verzending']").find('input:eq(0)').prop( "checked", false );
+			$("[data-title='Verzending']").find('li:eq(0)').css('display', 'none');
+
+			$("[data-title='Expédition']").find('input:eq(0)').prop( "checked", true );
+			$("[data-title='Expédition']").find('input:eq(0)').css('display', 'none');
+
+			$("[data-title='Expédition']").find('input:eq(1)').prop( "checked", false );
+			$("[data-title='Expédition']").find('li:eq(1)').css('display', 'none');
+
+            $("[data-title='Verzending']").find('input:eq(1)').prop( "checked", true );
+            $("[data-title='Verzending']").find('input:eq(1)').css('display', 'none');
 
 			let image 
 
@@ -247,7 +258,7 @@ export default {
 
 			this.pll__([
 				'Cash on delivery',
-				'Pay with cash upon delivery',
+				'.variation-Mouture',
 				'.payment_box.payment_method_bacs'
 				], true)
 
@@ -273,20 +284,6 @@ export default {
 
 			$("html[lang='fr-BE'] .checkout_santos .woocommerce-shipping-methods li:eq( 2 )").css('display', 'none');
 
-			$("[data-title='Verzending']").find('input:eq(0)').prop( "checked", false );
-			$("[data-title='Verzending']").find('li:eq(0)').css('display', 'none');
-
-			$("[data-title='Expédition']").find('input:eq(0)').prop( "checked", true );
-			$("[data-title='Expédition']").find('input:eq(0)').css('display', 'none');
-
-			$("[data-title='Expédition']").find('input:eq(1)').prop( "checked", false );
-			$("[data-title='Expédition']").find('li:eq(1)').css('display', 'none');
-
-            $("[data-title='Verzending']").find('input:eq(1)').prop( "checked", true );
-            $("[data-title='Verzending']").find('input:eq(1)').css('display', 'none');
-
-
-			
 			return cols
 		},
 

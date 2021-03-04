@@ -66,15 +66,15 @@
 								<p v-html="post.post_content" class="descriptif"></p>
 							</div>
 
-								<div  v-if="post.acf_fields.fichier_a_telecharger != undefined" class="download-parent">
-									<div  v-for="item in post.acf_fields.fichier_a_telecharger" :key="key">
-										<a v-if="item.pdf != false" class="download " :href="item.pdf"  target="_blank" v-html="item.text_button"  >
+								<div v-if="post.acf_fields.fichier_a_telecharger != undefined" class="download-parent">
+									<div  v-for="(item, key)  in post.acf_fields.fichier_a_telecharger" :key="key" >
+										<a data-trigger="download-pdf" v-if="item.pdf != false" class="download " :href="item.pdf" target="_blank" v-html="item.text_button"  >
 										</a>
 									</div>
 								</div>
 
-								<div  v-else class="download-parent">
-									<div  v-for="item in post.acf_fields.bestand_om_te_downloaden" :key="key">
+								<div  v-else  class="download-parent">
+									<div  v-for="(item, key) in post.acf_fields.bestand_om_te_downloaden" :key="key" >
 										<a v-if="item.pdf != false" class="download " :href="item.pdf"  target="_blank" v-html="item.tekst_knop"  >
 										</a>
 									</div>
@@ -228,6 +228,13 @@
 			}
 
 			this.change_price_tot()
+
+			$(document).on('download-pdf', function(event, a) {
+				event.preventDefault();
+				console.log(a);
+
+				window.open($(a).attr('href'), '_blank');
+			});
 
 			this.$emit('template_mounted')
 		},

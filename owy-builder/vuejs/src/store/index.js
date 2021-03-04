@@ -10,6 +10,7 @@ const store = createStore({
 		grapes_template: null,
 		ajax_template_saving: false,
 		ajax_template_saving_queue: false,
+		modal_wp_data_attrs: {},
 		wp: wp.state,
 	},
 	mutations: {

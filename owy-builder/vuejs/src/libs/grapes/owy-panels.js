@@ -1,4 +1,5 @@
-export default function( editor ){
+export default function( editor, Vue ){
+	let $ = window.jquery
 	//add top panels
 	editor.Panels.addPanel({
 		id: 'panel__wordpress',
@@ -45,4 +46,53 @@ export default function( editor ){
 		id: 'editor_select_template',
 		el: '.editor_select_template',
 	});
+
+
+	const pn = editor.Panels
+	let wp_data_panel = null
+
+	pn.addButton('views', {
+		id: 'wp-data-panel',
+		attributes: {
+			class: 'fa fa-wordpress', 
+			title: "Edit WordPress data"
+		},
+		active: false,
+		command: {
+			run: function (editor) {
+				if(wp_data_panel == null)
+				{
+					const editMenuDiv = document.createElement('div')
+					editMenuDiv.innerHTML = `
+						<div id="panel-wp-data">
+						</div>
+						`
+					const panels = pn.getPanel('views-container')
+					panels.set('appendContent', editMenuDiv).trigger('change:appendContent')
+					
+					wp_data_panel = editMenuDiv
+
+					$('#vue-modals > #modal-wp-data').appendTo('#panel-wp-data')
+				}
+				if( editor.getSelected() )
+				{
+					Vue.$store.state.modal_wp_data_attrs = {
+						editor : editor,
+						selected : editor.getSelected(),
+						ccid: editor.getSelected().ccid
+					}	
+				}
+				
+				
+				wp_data_panel.style.display = 'block'
+			},
+			stop: function (/*editor*/) {
+				if(wp_data_panel != null)
+				{
+					//$('#panel-wp-data > #modal-wp-data').appendTo('#vue-modals')
+					wp_data_panel.style.display = 'none'
+				}
+			}
+		}
+	})
 }

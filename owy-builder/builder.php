@@ -8,14 +8,17 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 	define('owy_builder_dir', plugin_dir_path(__FILE__) );
 	define('owy_builder_url', GREATY_TEMPLATE_URL . '/owy-builder/' );
 
-
 	define('owy_builder_page_admin', 'oowyea-home');
+
+	define('is_owy_builder', ($_GET['page'] == owy_builder_page_admin) );
+	
 
 	include owy_builder_dir . 'libs/register-utils-post-types.php';
 
-	
 	include owy_builder_dir . 'libs/builder-vars.php';
 	include owy_builder_dir . 'libs/owy-templates.php';	
+	include owy_builder_dir . 'libs/get_wp_data_form.php';
+	
 	
 	
 

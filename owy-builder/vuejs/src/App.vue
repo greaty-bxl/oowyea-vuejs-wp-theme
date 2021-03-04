@@ -1,11 +1,13 @@
 <template>
   <OwyTemplates />
   <Grapes />
+  <OwyShortcuts />
 </template>
 
 <script>
   import Grapes from 'PluginComponents/organisms/grapesjs'
   import OwyTemplates from 'PluginComponents/organisms/templates'
+  import OwyShortcuts from 'PluginComponents/organisms/shortcuts'
 
   export default {
     data(){
@@ -16,6 +18,7 @@
     components: {
       OwyTemplates,
       Grapes,
+      OwyShortcuts,
     },
     created ()  {
       

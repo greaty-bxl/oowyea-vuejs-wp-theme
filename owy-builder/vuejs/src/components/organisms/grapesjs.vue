@@ -21,7 +21,7 @@
     </div>
 
     <div id="vue-modals" style="display: none">
-      <WpData :attrs="modal_wp_data_attrs"/>
+      <WpData/>
     </div>
   </div>
 </template>
@@ -45,7 +45,7 @@ export default {
       html: '',
       css: '',
       js: '',
-      modal_wp_data_attrs: {}
+      current_panel: ''
     }
   },
   components: {
@@ -92,11 +92,16 @@ export default {
     //remove no need elements and close blockmanager cats
     this.editor.on('load', () => {
 
-      $('.gjs-pn-options').find('span[title="Fullscreen"], span[title="View code"], .fa-download, .fa-trash').remove()
+      //$('.gjs-pn-options').find('span[title="Fullscreen"], span[title="View code"], .fa-download, .fa-trash').remove()
+      $('.gjs-pn-options').find('span[title="Fullscreen"], .fa-download, .fa-trash').remove()
 
       $('.gjs-pn-options').find('span[title="View components"]').trigger('click')
 
+      $('[title="Open Blocks"]').trigger('click')
+
       $('.gjs-block-categories .gjs-title').trigger('click')
+
+      $('[title="Open Style Manager"]').trigger('click')
 
       //$('.gjs-block-categories .gjs-title').first().trigger('click')
       
@@ -111,9 +116,16 @@ export default {
       }
     });
 
-    this.editor.on('component:selected', (el) => {
+    //keep current panel open
+    $(document).on('click', '.gjs-pn-views .gjs-pn-btn', (event)=> {
+      console.log( $(event.currentTarget).attr('title') );
+      this.current_panel = $(event.currentTarget).attr('title')
+    });
 
-      let excludeTypes = ['wrapper']
+    this.editor.on('component:selected', (/*el*/) => {
+
+      //add buttons on toolbar component
+      /*let excludeTypes = ['wrapper']
 
       let toolbar = el.attributes.toolbar
       let toolbar_str = JSON.stringify( toolbar )
@@ -129,9 +141,17 @@ export default {
           attributes: {class: 'fa fa-bolt'},
           command: 'owy-cmd-actions'
         }
+      }*/
 
+      //keep current panel open
+      let pn_bt = $('[title="'+this.current_panel+'"]')
+      if( !pn_bt.hasClass('gjs-pn-active') )
+      {
+        pn_bt.trigger('click')
       }
-    });    
+      
+    });  
+  
 
     //use wp ajax as storage
     this.editor.StorageManager.add('local', owy_storage(Vue) );
@@ -146,7 +166,7 @@ export default {
     //render editor
     this.editor.render();
 
-    owy_panels( this.editor )
+    owy_panels( this.editor, Vue )
     
     //add commands
     this.editor.Commands.add('editor-wp-back', () => {
@@ -158,10 +178,10 @@ export default {
       editor.store()
     });
 
-    this.editor.Commands.add('owy-cmd-wp-data', (editor) => {
+    /*this.editor.Commands.add('owy-cmd-wp-data', (editor) => {
       console.log('open modal wp data', editor.getSelected() );
-      Vue.modal_wp_data_attrs = {
-        //editor : editor,
+      Vue.$store.state.modal_wp_data_attrs = {
+        editor : editor,
         selected : editor.getSelected()
       }
 
@@ -182,7 +202,7 @@ export default {
         title : 'Create interaction between elements and context',
         content : '<div id="modal-content"></div>'
       })
-    })
+    })*/
     
 
     //block test
@@ -270,6 +290,9 @@ export default {
         }
       }
     })    
+
+    $( this.editor.SelectorManager.selectorTags.$states ).append('<option>test</option>')
+    console.log(  )
     
 
     console.log('gjs Editor', this.editor);
@@ -335,7 +358,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .gjs-cv-canvas{
   width: calc(100% - 280px)
 }
@@ -373,7 +395,7 @@ export default {
   background: #4D94AE;
 }
 .gjs-four-color {
-    color: #4D94AE;
+  color: #4D94AE;
 }
 .gjs-four-color-h:hover{
   color: #4D94AE;
@@ -395,11 +417,11 @@ export default {
   padding-top: 8px;
 }
 
-.editor_select_template select{
+select{
   height: 24px;
 }
 
-.editor_select_template select, .editor_select_template select optgroup, .editor_select_template select option{
+select, select optgroup, select option{
   border: none;
   outline: none;
   box-shadow: none;
@@ -414,8 +436,9 @@ export default {
 #grapesjs {
   position: absolute;
   top: 0;
-  height: 100%;
+  height: calc(100% - 40px);
   width: 100%;
+  z-index: 1000;
 }
 #editor-container {
   height: 100%;

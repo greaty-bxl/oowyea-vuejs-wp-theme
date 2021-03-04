@@ -1,9 +1,6 @@
 <template>
 	<Page class="owy-templates">
 		<h1>Design your WebApp</h1>
-		<p>
-			Need more info and docs? <a href=""><i>Check the <b>oowyea</b> website to find doc and tutorials.</i></a>
-		</p>
 		<div class="owy-colors">
 			<div class="owy-color" style="background: #1BC8CA;"></div>
 			<div class="owy-color" style="background: #6953ED;"></div>

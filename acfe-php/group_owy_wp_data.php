@@ -7,6 +7,36 @@ acf_add_local_field_group(array(
 	'title' => 'WordPress Data',
 	'fields' => array(
 		array(
+			'key' => 'field_604098c5b5dd6',
+			'label' => 'template',
+			'name' => 'template',
+			'type' => 'acfe_hidden',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
+			'key' => 'field_604098d5b5dd7',
+			'label' => 'component_id',
+			'name' => 'component_id',
+			'type' => 'acfe_hidden',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
 			'key' => 'field_603c0194e42bd',
 			'label' => 'Query From',
 			'name' => 'query_from',
@@ -48,44 +78,6 @@ acf_add_local_field_group(array(
 						'field' => 'field_603c0194e42bd',
 						'operator' => '==',
 						'value' => 'parent',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-			),
-			'default_value' => false,
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'return_format' => 'value',
-			'ajax' => 0,
-			'placeholder' => '',
-		),
-		array(
-			'key' => 'field_603cf6e634542',
-			'label' => 'Example',
-			'name' => 'example',
-			'type' => 'select',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_603c0194e42bd',
-						'operator' => '==',
-						'value' => 'current',
-					),
-				),
-				array(
-					array(
-						'field' => 'field_603c0194e42bd',
-						'operator' => '==',
-						'value' => 'user',
 					),
 				),
 			),
@@ -306,7 +298,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1614694247,
+	'modified' => 1614852255,
 ));
 
 endif;

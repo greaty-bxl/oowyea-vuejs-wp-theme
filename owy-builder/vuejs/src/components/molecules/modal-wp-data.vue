@@ -12,8 +12,7 @@
 			<div class="acf-container" v-html="wp_data_form">
 				
 			</div>
-		</div>
-		
+		</div>		
 	</div>
 </template>
 <script>
@@ -26,15 +25,10 @@
 		}*/
 		data(){
 			return {
-				wp_data_form : null
+				wp_data_form : null,
 			}
 		},
 		mounted(){
-			
-			
-				//this.init_acf()
-			
-			
 			
 		},
 		computed : {
@@ -61,15 +55,23 @@
 
 					let form_jq = $('.acf-container form')
 
-					form_jq.unbind('change').on('change', (e) => {
-						console.log('form change', $(e.currentTarget).serializeArray() );
+					form_jq.find('[data-name="query_from"] select').unbind('change').on('change', (e) => {
+						console.log('query type change', $(e.currentTarget) );
 
+					});
+
+					form_jq.on('submit', function(event) {
+						event.preventDefault();
+						console.log('submit');
 					});
 
 				}, 1 )
 			}
 		},
 		watch : {
+			'$store.state.grapes_template' : function(){
+				this.wp_data_form = null
+			},
 			'$store.state.modal_wp_data_attrs' : function(){
 				
 				let $ = this.jquery
@@ -81,7 +83,12 @@
 				this.wp_data_form = null
 				$('.acf-container').hide()
 
-				wp_ajax('owy_get_builder_wp_data_form_ajx', {}, (result)=>{
+				let data = {
+					template: this.grapes_template.post_name,
+					id : this.attr.ccid
+				}
+
+				wp_ajax('owy_get_builder_wp_data_form_ajx', data, (result)=>{
 					this.wp_data_form = result
 					this.init_acf()
 				})

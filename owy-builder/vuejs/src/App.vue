@@ -20,8 +20,10 @@
       Grapes,
       OwyShortcuts,
     },
+    beforeCreate(){
+      this.jquery('body').removeClass('wp-core-ui')
+    },
     created ()  {
-      
     },
     mounted(){      
       console.log('Store:',this.$store.state);

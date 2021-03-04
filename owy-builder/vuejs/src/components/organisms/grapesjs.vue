@@ -178,6 +178,11 @@ export default {
       editor.store()
     });
 
+    this.editor.Commands.add('owy-publish-template', () => {
+      console.log('publish');
+    });
+
+
     /*this.editor.Commands.add('owy-cmd-wp-data', (editor) => {
       console.log('open modal wp data', editor.getSelected() );
       Vue.$store.state.modal_wp_data_attrs = {

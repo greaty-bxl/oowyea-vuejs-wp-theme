@@ -4,7 +4,7 @@ class wp{
 
 	/* State */
 	constructor(){
-		this.state = window.wp
+		this.state = window.owy_wp
 	}
 
 	update_wp(state, payload){

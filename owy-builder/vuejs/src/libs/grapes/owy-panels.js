@@ -20,8 +20,9 @@ export default function( editor, Vue ){
 				command: 'editor-save', // Built-in command
 			},
 			{
-				id: 'publish',
+				id: 'editor-publish',
 				active: false,
+				className: 'editor-publish',
 				label: '<div title="Publish"><span class="fa fa-upload"></span></div>',
 				command: 'owy-publish-template'
 			}

@@ -7,7 +7,7 @@ Vue.config.productionTip = false
 Vue.prototype.$ = window.jquery
 Vue.prototype.jquery = window.jquery
 Vue.prototype.ajaxurl = window.ajaxurl
-Vue.prototype.wp = window.wp
+Vue.prototype.wp = window.owy_wp
 
 import pushHistory from 'Libs/push-history.js'
 Vue.prototype.pushHistory = pushHistory

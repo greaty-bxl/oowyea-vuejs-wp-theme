@@ -83,7 +83,7 @@ function wp_vue_add_var($key, $value)
 	{
 		?>
 		<script type="text/javascript">
-			window.wp['<?= $key ?>'] = <?= $value ?>
+			window.owy_wp['<?= $key ?>'] = <?= $value ?>
 		</script>
 		<?php
 	}
@@ -95,7 +95,7 @@ function wp_vue_add_var($key, $value)
 			$value = json_encode( $value );
 			?>
 			<script type="text/javascript">
-				window.wp['<?= $key ?>'] = <?= $value ?>
+				window.owy_wp['<?= $key ?>'] = <?= $value ?>
 			</script>
 			<?php
 		}
@@ -103,7 +103,7 @@ function wp_vue_add_var($key, $value)
 		{
 			?>
 			<script type="text/javascript">
-				window.wp['<?= $key ?>'] = '<?= $value ?>'
+				window.owy_wp['<?= $key ?>'] = '<?= $value ?>'
 			</script>
 			<?php
 

@@ -21,7 +21,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 		<script>
 			window.ajaxurl = "<?= admin_url('admin-ajax.php'); ?>";
-			window.wp = {};
+			window.owy_wp = {};
 		</script>
 		<?php wp_head(); ?>
 		<script>

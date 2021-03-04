@@ -74,15 +74,17 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 	function owy_builder_enqueue($hook) {
 	    if( $hook == 'toplevel_page_' . owy_builder_page_admin )
 	    {
+	    	
+
 	    	wp_enqueue_script( 'jquery' );
 
 	    	wp_enqueue_script( 'jquery-effects-core' );
 
-    		wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
-    	    wp_enqueue_script('conditionizr'); // Enqueue it!
+    		//wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
+    	    //wp_enqueue_script('conditionizr'); // Enqueue it!
 
-    	    wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
-    	    wp_enqueue_script('modernizr'); // Enqueue it!
+    	    //wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
+    	    //wp_enqueue_script('modernizr'); // Enqueue it!
 	    	    
 	    	wp_register_script('greatythemescripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
 	    	wp_enqueue_script('greatythemescripts'); // Enqueue it!
@@ -100,6 +102,10 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 	    	    wp_enqueue_script('oowyea-editor-app', plugin_dir_url(__FILE__) .'/vuejs/dist/app.js', array('greatythemescripts'), '1.0', true );
 	    	    wp_enqueue_script('oowyea-editor-chunk-vendors', plugin_dir_url(__FILE__) . '/vuejs/dist/chunk-vendors.js', array('vue-app'), '1.0', true);
 	    	}
+	    	
+	    	wp_enqueue_media();
+
+	    	wp_deregister_style('wp-admin');
 	    }
 	}
 	add_action('admin_enqueue_scripts', 'owy_builder_enqueue', 100);
@@ -110,7 +116,7 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 	    	?>
 	    	<script type="text/javascript">
 	    		window.ajaxurl = "<?= admin_url('admin-ajax.php'); ?>";
-	    		window.wp = {};
+	    		window.owy_wp = {};
 	    	</script>
 	    	<?php
 	    }
@@ -143,7 +149,7 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 	{
 		if( $_GET['page'] == owy_builder_page_admin )
 	    {
-	    	wp_deregister_style('wp-admin');
+	    	
 	    }
 	}
 	add_action('admin_init','remove_default_stylesheets');

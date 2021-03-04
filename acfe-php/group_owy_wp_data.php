@@ -57,7 +57,7 @@ acf_add_local_field_group(array(
 				'parent' => 'Parent query',
 				'code' => 'Custom code (filter)',
 			),
-			'default_value' => false,
+			'default_value' => 'current',
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
@@ -269,7 +269,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1614873820,
+	'modified' => 1614891399,
 ));
 
 endif;

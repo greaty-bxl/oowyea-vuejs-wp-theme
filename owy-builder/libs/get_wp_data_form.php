@@ -1,11 +1,13 @@
 <?php
+include 'wp-data-get-value-choices.php';
+
 function owy_get_builder_form()
 {
 	if( is_owy_builder )
 	{
 		//include GREATY_TEMPLATE_PATH . '/acfe-php/group_owy_wp_data.php';
 
-		acf_form_head();
+		/*acf_form_head();
 		
 		//ob_start();
 
@@ -16,7 +18,7 @@ function owy_get_builder_form()
 		
 		wp_vue_add_var('wp_data_form',  $form );
 
-		exit();
+		exit();*/
 	}	
 }
 //add_action( 'vue_vars', 'owy_get_builder_form' );
@@ -41,6 +43,8 @@ function owy_get_builder_wp_data_form_ajx()
 		'return' => admin_url()
 	);
 
+	
+
 	$post = get_posts( array(
 		'post_type' => 'owy_wp_data',
 		'meta_key' => 'component_id',
@@ -49,12 +53,16 @@ function owy_get_builder_wp_data_form_ajx()
 
 	if( !empty($post) )
 	{
+		global $query_from; 
+		$query_from = get_field('query_from', $post[0]->ID );
 		$setting['post_id'] = $post[0]->ID;
 	}
 	else
 	{
 		$setting['new_post'] = true;
 	}
+
+
 
 
 	ob_start();
@@ -75,28 +83,42 @@ add_action( 'wp_ajax_owy_get_builder_wp_data_form_ajx', 'owy_get_builder_wp_data
 
 function owy_builder_wp_data_acf_filter($field)
 {
+	global $query_from; 
 	$vue_data = $_POST['data'];
 
 	if( $_POST['is_vue'] )
 	{
+		if( $field['name'] == 'query_from' )
+		{
+			
+			if( !$query_from )
+			{
+				$query_from = $field['default_value'];
+			}
+	
+		}
+
 		if( $field['name'] == 'value' )
 		{
 			if( isset( $vue_data['template'] ) )
 			{
+				
+				ob_start();
+				echo "<pre>";
+				get_value_choices($vue_data['template'], $query_from);
+				echo "</pre>";
 
-				$field['choices'] = array(
-					'test' => 'Test'
-				);
+				$field['instructions'] = ob_get_clean();
+				$field['choices'] = array();
 			}
 		}
 	}
 	return $field;
-	
 }
 add_filter( 'acf/load_field', 'owy_builder_wp_data_acf_filter', 10 );
 
-
-function my_pre_save_post($post_id) {
+//create post wp data if not exist
+function owy_wp_data_acf_pre_save_post($post_id) {
 	if( $post_id == 0 && $_POST['vue_wp_data'] )
 	{
 		$post = array(
@@ -107,11 +129,13 @@ function my_pre_save_post($post_id) {
 	}
 	return $post_id;
 }
-add_filter( 'acf/pre_save_post', 'my_pre_save_post' );
+add_filter( 'acf/pre_save_post', 'owy_wp_data_acf_pre_save_post' );
 
+//convert acf form head as ajax
 add_action( 'wp_ajax_owy_save_wp_data', 'acf_form_head' );
 
-function owy_save_wp_data_return_json($post_id){
+//return json ID to vue panel
+function owy_save_wp_data_acf_return_json($post_id){
 
 	if( $_POST['vue_wp_data'] )
 	{
@@ -123,4 +147,4 @@ function owy_save_wp_data_return_json($post_id){
 	}
 }
 
-add_action( 'acf/save_post', 'owy_save_wp_data_return_json', 20 );
+add_action( 'acf/save_post', 'owy_save_wp_data_acf_return_json', 20 );

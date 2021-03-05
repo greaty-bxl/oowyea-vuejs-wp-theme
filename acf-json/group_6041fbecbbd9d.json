@@ -1,10 +1,10 @@
 {
-    "key": "group_60113e96650c4",
-    "title": "Contact",
+    "key": "group_6041fbecbbd9d",
+    "title": "Contact nl",
     "fields": [
         {
-            "key": "field_60113e9ca99cc",
-            "label": "Nom",
+            "key": "field_6041fbece4020",
+            "label": "Nom (nl)",
             "name": "nom",
             "type": "text",
             "instructions": "",
@@ -22,7 +22,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_60113ea4a99cd",
+            "key": "field_6041fbece4401",
             "label": "Prénom",
             "name": "prenom",
             "type": "text",
@@ -41,7 +41,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_60113eada99ce",
+            "key": "field_6041fbece47fd",
             "label": "E-mail",
             "name": "email",
             "type": "email",
@@ -59,7 +59,7 @@
             "append": ""
         },
         {
-            "key": "field_6023bc0fb940c",
+            "key": "field_6041fbece4baa",
             "label": "TVA",
             "name": "tva",
             "type": "text",
@@ -78,7 +78,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_6023bc1bb940d",
+            "key": "field_6041fbece4fd5",
             "label": "Téléphone",
             "name": "telephone",
             "type": "text",
@@ -97,7 +97,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_60113eb7a99cf",
+            "key": "field_6041fbece53a4",
             "label": "Message",
             "name": "message",
             "type": "textarea",
@@ -141,5 +141,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1614937727
+    "modified": 1614937733
 }

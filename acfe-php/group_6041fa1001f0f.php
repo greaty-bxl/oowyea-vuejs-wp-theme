@@ -3,12 +3,12 @@
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
-	'key' => 'group_60113e96650c4',
-	'title' => 'Contact',
+	'key' => 'group_6041fa1001f0f',
+	'title' => 'Demande pro nl',
 	'fields' => array(
 		array(
-			'key' => 'field_60113e9ca99cc',
-			'label' => 'Nom',
+			'key' => 'field_6041fa1031798',
+			'label' => 'Nom (obligatoire) nl',
 			'name' => 'nom',
 			'type' => 'text',
 			'instructions' => '',
@@ -26,28 +26,9 @@ acf_add_local_field_group(array(
 			'maxlength' => '',
 		),
 		array(
-			'key' => 'field_60113ea4a99cd',
-			'label' => 'Prénom',
-			'name' => 'prenom',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_60113eada99ce',
-			'label' => 'E-mail',
-			'name' => 'email',
+			'key' => 'field_6041fa1031c2a',
+			'label' => 'Adresse e-mail (obligatoire)',
+			'name' => 'adresse_e-mail',
 			'type' => 'email',
 			'instructions' => '',
 			'required' => 1,
@@ -63,26 +44,7 @@ acf_add_local_field_group(array(
 			'append' => '',
 		),
 		array(
-			'key' => 'field_6023bc0fb940c',
-			'label' => 'TVA',
-			'name' => 'tva',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_6023bc1bb940d',
+			'key' => 'field_6041fa1031f9a',
 			'label' => 'Téléphone',
 			'name' => 'telephone',
 			'type' => 'text',
@@ -101,12 +63,12 @@ acf_add_local_field_group(array(
 			'maxlength' => '',
 		),
 		array(
-			'key' => 'field_60113eb7a99cf',
+			'key' => 'field_6041fa1032373',
 			'label' => 'Message',
 			'name' => 'message',
 			'type' => 'textarea',
 			'instructions' => '',
-			'required' => 1,
+			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
@@ -124,8 +86,9 @@ acf_add_local_field_group(array(
 	'location' => array(
 		array(
 			array(
-				'param' => 'owy-no-location',
+				'param' => 'post_type',
 				'operator' => '==',
+				'value' => 'contact_shop_entry',
 			),
 		),
 	),
@@ -145,7 +108,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1614937727,
+	'modified' => 1614936613,
 ));
 
 endif;

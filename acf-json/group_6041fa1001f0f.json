@@ -1,10 +1,10 @@
 {
-    "key": "group_60113e96650c4",
-    "title": "Contact",
+    "key": "group_6041fa1001f0f",
+    "title": "Demande pro nl",
     "fields": [
         {
-            "key": "field_60113e9ca99cc",
-            "label": "Nom",
+            "key": "field_6041fa1031798",
+            "label": "Nom (obligatoire) nl",
             "name": "nom",
             "type": "text",
             "instructions": "",
@@ -22,28 +22,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_60113ea4a99cd",
-            "label": "Prénom",
-            "name": "prenom",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_60113eada99ce",
-            "label": "E-mail",
-            "name": "email",
+            "key": "field_6041fa1031c2a",
+            "label": "Adresse e-mail (obligatoire)",
+            "name": "adresse_e-mail",
             "type": "email",
             "instructions": "",
             "required": 1,
@@ -59,26 +40,7 @@
             "append": ""
         },
         {
-            "key": "field_6023bc0fb940c",
-            "label": "TVA",
-            "name": "tva",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_6023bc1bb940d",
+            "key": "field_6041fa1031f9a",
             "label": "Téléphone",
             "name": "telephone",
             "type": "text",
@@ -97,12 +59,12 @@
             "maxlength": ""
         },
         {
-            "key": "field_60113eb7a99cf",
+            "key": "field_6041fa1032373",
             "label": "Message",
             "name": "message",
             "type": "textarea",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -120,8 +82,9 @@
     "location": [
         [
             {
-                "param": "owy-no-location",
-                "operator": "=="
+                "param": "post_type",
+                "operator": "==",
+                "value": "contact_shop_entry"
             }
         ]
     ],
@@ -141,5 +104,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1614937727
+    "modified": 1614936613
 }

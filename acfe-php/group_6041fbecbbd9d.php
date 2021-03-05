@@ -3,12 +3,12 @@
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
-	'key' => 'group_60113e96650c4',
-	'title' => 'Contact',
+	'key' => 'group_6041fbecbbd9d',
+	'title' => 'Contact nl',
 	'fields' => array(
 		array(
-			'key' => 'field_60113e9ca99cc',
-			'label' => 'Nom',
+			'key' => 'field_6041fbece4020',
+			'label' => 'Nom (nl)',
 			'name' => 'nom',
 			'type' => 'text',
 			'instructions' => '',
@@ -26,7 +26,7 @@ acf_add_local_field_group(array(
 			'maxlength' => '',
 		),
 		array(
-			'key' => 'field_60113ea4a99cd',
+			'key' => 'field_6041fbece4401',
 			'label' => 'Prénom',
 			'name' => 'prenom',
 			'type' => 'text',
@@ -45,7 +45,7 @@ acf_add_local_field_group(array(
 			'maxlength' => '',
 		),
 		array(
-			'key' => 'field_60113eada99ce',
+			'key' => 'field_6041fbece47fd',
 			'label' => 'E-mail',
 			'name' => 'email',
 			'type' => 'email',
@@ -63,7 +63,7 @@ acf_add_local_field_group(array(
 			'append' => '',
 		),
 		array(
-			'key' => 'field_6023bc0fb940c',
+			'key' => 'field_6041fbece4baa',
 			'label' => 'TVA',
 			'name' => 'tva',
 			'type' => 'text',
@@ -82,7 +82,7 @@ acf_add_local_field_group(array(
 			'maxlength' => '',
 		),
 		array(
-			'key' => 'field_6023bc1bb940d',
+			'key' => 'field_6041fbece4fd5',
 			'label' => 'Téléphone',
 			'name' => 'telephone',
 			'type' => 'text',
@@ -101,7 +101,7 @@ acf_add_local_field_group(array(
 			'maxlength' => '',
 		),
 		array(
-			'key' => 'field_60113eb7a99cf',
+			'key' => 'field_6041fbece53a4',
 			'label' => 'Message',
 			'name' => 'message',
 			'type' => 'textarea',
@@ -145,7 +145,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1614937727,
+	'modified' => 1614937733,
 ));
 
 endif;

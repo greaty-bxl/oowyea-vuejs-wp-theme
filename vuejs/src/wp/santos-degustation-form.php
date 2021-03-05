@@ -8,7 +8,7 @@ function degustation_form( $sections )
 	{
 		if( $section->template)
 		{
-			$sections[$key]->degustation_form = do_shortcode( '[acfe_form name="contact"]' );
+			$sections[$key]->degustation_form = do_shortcode( '[acfe_form name="contact-'.pll_current_language().'"]' );
 		}
 	}
 

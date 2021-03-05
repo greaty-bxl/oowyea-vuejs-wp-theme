@@ -1,7 +1,7 @@
 <template>
 
 	<div class="checkout_santos woocommerce-checkout" >
-		<h5 v-if="cols_checkout.title_commande == undefined " class="title-home">Paiement</h5>
+		<h5 v-if="cols_checkout.title_commande == undefined " class="title-home" v-html="pll__('Paiement')"></h5>
 		<h5 v-else class="title-home">Facture</h5>
 			<div v-html="cols_checkout.order_notices"></div>
 

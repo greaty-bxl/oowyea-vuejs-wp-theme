@@ -197,10 +197,6 @@ export default {
 				}
 				else{
 
-					$('active_payment').find('input').remove()
-
-				
-
 					$('.payment_box').animate({
 
 						opacity: 0,

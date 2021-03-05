@@ -40,13 +40,13 @@
 				</transition>
 
 
-				<div v-html="cols_checkout.title_commande"></div>
+				<div   v-html="cols_checkout.title_commande"></div>
 
-				<div v-html="cols_checkout.order_review" ></div>
+				<div  v-html="cols_checkout.order_review" ></div>
 
 			</form>
 
-			<div v-html="cols_checkout.woocommerce_order">
+			<div  v-html="cols_checkout.woocommerce_order">
 			</div>
 
 
@@ -88,6 +88,15 @@ export default {
 
 			}
 		},
+
+		// '$store.state.wp.woo_account' : function()
+		// {
+
+		// 	var $ = this.$
+
+		
+			
+		// }
 	},
 
 	mounted(){
@@ -106,6 +115,7 @@ export default {
 			// hide header
 
 			var $ = this.$
+
 
 			$('#header').hide()
 
@@ -179,11 +189,17 @@ export default {
 				if ( payment_box.hasClass('active_payment') ) {
 
 					console.log('');
+
+
+
+
+
 				}
 				else{
 
-					$('.payment_box').removeClass('active_payment')
+					$('active_payment').find('input').remove()
 
+				
 
 					$('.payment_box').animate({
 
@@ -219,10 +235,29 @@ export default {
 						})
 
 					}, 300);
+
+
+					
+
+					setTimeout(function() {
+
+						$('input').remove()
+
+						console.log('qljkqsdfjk');
+
+					}, 10);
+
 				
 				}
 
 			});
+
+			this.pll__([
+				'.payment_method_buckaroo_payconiq p:eq(0)', 
+				'.payment_method_paypal p',
+				'.payment_method_buckaroo_emaestro p:eq(0)'
+				], true)
+
 					
 	},
 
@@ -244,6 +279,8 @@ export default {
 		}
 	},
 
+
+
 	computed:{
 
 		cols_checkout: function(){
@@ -256,19 +293,11 @@ export default {
 
 			//console.log(this.post.post_content);
 
-			this.pll__([
-				'Cash on delivery',
-				'.variation-Mouture',
-				'.payment_box.payment_method_bacs'
-				], true)
-
-			
 
 				cols['action'] = $(this.post.post_content).find('.checkout').attr('action');
 				cols['col_1_input'] =  $(this.post.post_content).find('.col-1').find('.woocommerce-account-fields').html()
 				cols['col_1_input_span_text'] =  $(this.post.post_content).find('.col-1').find('label.woocommerce-form__label.woocommerce-form__label-for-checkbox.checkbox').find('span').text()
 				cols['col_1_input_name'] =  $(this.post.post_content).find('.col-1').find('input#createaccount').attr('name');
-				// .find('.woocommerce-account-fields').find('input').attr('name')
 				cols['col_1'] =  $(this.post.post_content).find('.col-1').html();
 				cols['col_2'] =  $(this.post.post_content).find('.col-2 .shipping_address').html();
 				cols['title_commande'] =  $(this.post.post_content).find('.order_review_heading').html();
@@ -278,11 +307,16 @@ export default {
 				cols['woocommerce_order'] =  $(this.post.post_content).find('.woocommerce-order').html();
 				cols['woocommerce_login'] =  $(this.post.post_content).find('.login').html();
 
+				
+
+
 
 
 			$("html[lang='nl-BE'] .checkout_santos .woocommerce-shipping-methods li:eq( 1 )").css('display', 'none');
 
 			$("html[lang='fr-BE'] .checkout_santos .woocommerce-shipping-methods li:eq( 2 )").css('display', 'none');
+
+			console.log(cols);
 
 			return cols
 		},
@@ -920,6 +954,19 @@ export default {
 	.checkout_santos span.woocommerce-terms-and-conditions-checkbox-text {
 
 		margin-left: 25px;
+	}
+
+	.checkout_santos .woocommerce-privacy-policy-text{
+
+		text-align: left;
+	}
+
+	.checkout_santos #add_payment_method #payment ul.payment_methods li img.stripe-icon, .woocommerce-checkout #payment ul.payment_methods li img.stripe-icon{
+
+		    max-width: 60px !important;
+		    padding-left: 3px !important;
+		    margin: 0;
+		}
 	}
 
 	@media screen and (max-width: 1025px) and (min-width: 745px){

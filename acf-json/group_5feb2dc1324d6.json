@@ -1,0 +1,81 @@
+{
+    "key": "group_5feb2dc1324d6",
+    "title": "Children taxonomies",
+    "fields": [
+        {
+            "key": "field_5ffd598eeb322",
+            "label": "Taxonomies list",
+            "name": "taxonomies_list",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_repeater_stylised_button": 0,
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add a taxonomy",
+            "sub_fields": [
+                {
+                    "key": "field_5feb2eb387e41",
+                    "label": "Taxonomies",
+                    "name": "other_taxonomy_relation",
+                    "type": "acfe_taxonomies",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "",
+                    "field_type": "select",
+                    "default_value": "",
+                    "return_format": "name",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "choices": [],
+                    "ajax": 0,
+                    "placeholder": "",
+                    "search_placeholder": "",
+                    "layout": "",
+                    "toggle": 0,
+                    "allow_custom": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "product_cat"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1610439207
+}

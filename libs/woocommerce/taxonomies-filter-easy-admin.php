@@ -130,14 +130,14 @@ function owy_register_filter_easy_admin()
 			),
 			'active' => true,
 			'description' => '',
-			'acfe_display_title' => '',
+			/*'acfe_display_title' => '',
 			'acfe_autosync' => array(
 				0 => 'php',
 				1 => 'json',
 			),
 			'acfe_form' => 0,
 			'acfe_meta' => '',
-			'acfe_note' => '',
+			'acfe_note' => '',*/
 		));
 	}
 }

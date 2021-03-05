@@ -966,7 +966,7 @@ export default {
 		    max-width: 60px !important;
 		    padding-left: 3px !important;
 		    margin: 0;
-		}
+		
 	}
 
 	@media screen and (max-width: 1025px) and (min-width: 745px){

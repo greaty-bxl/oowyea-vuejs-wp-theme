@@ -103,6 +103,10 @@
 
 			// $(".wc-proceed-to-checkout").first().remove();
 
+
+			// this.pll__(['.variation-Mouture , .variation-Poids'],true)
+
+
 			$(document).on('add_to_cart', () => {
 
 				this.open = 1

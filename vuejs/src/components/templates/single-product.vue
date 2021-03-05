@@ -90,7 +90,7 @@
 
 								<div v-if="post.acf_fields.bestand_om_te_downloaden == false || post.acf_fields.fichier_a_telecharger == false " >
 									
-									<p style="padding-bottom: 30px" v-html="pll__('Plus d’infos sur la machine ci-dessous')"></p>
+									<p class="text-plus-d-info" style="padding-bottom: 30px;" v-html="pll__('Plus d’infos sur la machine ci-dessous')"></p>
 
 								</div>
 								
@@ -567,6 +567,11 @@
 		margin-top: 30px;
 	}
 */
+	.text-plus-d-info{
+
+		color: #888320;
+		font-weight: 600 !important;
+	}
 	.download-parent div{
 
 		margin-top: 15px;

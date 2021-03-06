@@ -18,7 +18,7 @@ function create_template_if_not_exist($template_name)
 						)
 					),
 					'meta_input' => array(
-					    'html' => '<h1 class="title">Your template: '.$template_name.'</h1>',
+					    'owy_html' => '<h1 class="title">Your template: '.$template_name.'</h1>',
 					)
 				)
 			);
@@ -119,7 +119,7 @@ function owy_builder_save_templates()
 		$post = array(
 			'ID' =>  $data['post']['ID'],
 			'meta_input' => array(
-				'html' => $data['html']
+				'owy_html' => $data['owy_html']
 			)
 		);
 
@@ -157,10 +157,22 @@ function owy_builder_meta_html_if_not($post_id, $post)
 {
 
 	//$html = get_post_meta( $post_id, 'html', true);
-	if( !metadata_exists('post', $post_id, 'html') )
-	{
-		update_post_meta( $post_id, 'html', '' );
+	if( $post->post_type == 'owy_template' && $post->post_status != 'auto-draft' )
+	{		
+		if( strpos($post->post_name, 'owy-template') !== 0 )
+		{
+			wp_update_post( array(
+				'ID' => $post_id,
+				'post_name' => 'owy-template-'.$post->post_name
+			));
+		}
+
+		if( !metadata_exists('post', $post_id, 'owy_html') )
+		{
+			update_post_meta( $post_id, 'owy_html', '' );
+		}
 	}
+	
 }
 
 add_action( 'save_post', 'owy_builder_meta_html_if_not', 100, 2 );

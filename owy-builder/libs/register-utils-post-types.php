@@ -14,6 +14,13 @@ function owy_template_posttype() {
             'show_in_rest' => false,
             'show_ui' => true,
             'show_in_menu' => true,
+            'supports' => array( 
+              'title', 
+              'editor', 
+              'thumbnail', 
+              'custom-fields', 
+              'revisions' 
+            )
         )
     );
 

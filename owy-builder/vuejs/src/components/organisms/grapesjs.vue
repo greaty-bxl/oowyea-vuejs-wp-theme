@@ -346,18 +346,17 @@ export default {
 
       let grapes_template = this.$store.state.grapes_template
       
-      this.html = ''
+      this.owy_html = ''
 
       if( grapes_template !== null )
       {
         let metas = grapes_template.metas
-        if( Array.isArray( metas.html ) )
+
+        if( metas.owy_html )
         {
-          if( metas.html[0] )
-          {
-            this.html = metas.html[0]   
-          }
-        }      
+          this.owy_html = metas.owy_html  
+        }
+            
         this.editor.load() 
       }
     }

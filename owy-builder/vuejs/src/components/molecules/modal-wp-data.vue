@@ -102,9 +102,10 @@
 			setTimeout(() => {
 				//restor field values about history and save
 				this.$parent.editor.on('run:core:undo', () => {
-					if( is_json )
+					let data = this.attr.selected.getAttributes()['data-wp-data']
+					if( is_json(data) )
 					{
-						let fields = JSON.parse( this.attr.selected.getAttributes()['data-wp-data'] )
+						let fields = JSON.parse( data )
 						$.each(fields, function(index, val) {
 							
 							$('[name="'+val.name+'"]').val(val.value)

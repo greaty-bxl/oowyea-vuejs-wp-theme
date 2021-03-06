@@ -1,27 +1,6 @@
 <?php
-include 'wp-data-get-value-choices.php';
+include 'wp-data-get-values.php';
 
-function owy_get_builder_form()
-{
-	if( is_owy_builder )
-	{
-		//include GREATY_TEMPLATE_PATH . '/acfe-php/group_owy_wp_data.php';
-
-		/*acf_form_head();
-		
-		//ob_start();
-
-		acf_form(array(
-			'field_groups' => array('group_owy_wp_data')
-		));
-		//$form = ob_get_clean();
-		
-		wp_vue_add_var('wp_data_form',  $form );
-
-		exit();*/
-	}	
-}
-//add_action( 'vue_vars', 'owy_get_builder_form' );
 
 if( is_owy_builder )
 {
@@ -43,8 +22,6 @@ function owy_get_builder_wp_data_form_ajx()
 		'return' => admin_url()
 	);
 
-	
-
 	$post = get_posts( array(
 		'post_type' => 'owy_wp_data',
 		'meta_key' => 'component_id',
@@ -53,16 +30,18 @@ function owy_get_builder_wp_data_form_ajx()
 
 	if( !empty($post) )
 	{
-		global $query_from; 
-		$query_from = get_field('query_from', $post[0]->ID );
+		global $owy_wp_data_query_from;
+		global $owy_wp_data_example;
+
+		$owy_wp_data_query_from = get_field('query_from', $post[0]->ID );
+		$owy_wp_data_example = get_field('example', $post[0]->ID );
+
 		$setting['post_id'] = $post[0]->ID;
 	}
 	else
 	{
 		$setting['new_post'] = true;
 	}
-
-
 
 
 	ob_start();
@@ -83,33 +62,38 @@ add_action( 'wp_ajax_owy_get_builder_wp_data_form_ajx', 'owy_get_builder_wp_data
 
 function owy_builder_wp_data_acf_filter($field)
 {
-	global $query_from; 
+	global $owy_wp_data_query_from; 
+	global $owy_wp_data_example;
+	global $owy_wp_data_example_type;
+
 	$vue_data = $_POST['data'];
+
+	$template_name = str_replace('owy-template-', '', $vue_data['template']);
 
 	if( $_POST['is_vue'] )
 	{
 		if( $field['name'] == 'query_from' )
 		{
-			
 			if( !$query_from )
 			{
-				$query_from = $field['default_value'];
+				$owy_wp_data_query_from = $field['default_value'];
 			}
-	
+		}
+
+		if( $field['name'] == 'example' )
+		{
+			$field['choices'] = owy_wp_data_get_example($template_name, $owy_wp_data_query_from);
+			if( empty($field['choices']) )
+			{
+				$field['instructions'] = 'Please create content example';
+			}
 		}
 
 		if( $field['name'] == 'value' )
 		{
-			if( isset( $vue_data['template'] ) )
+			if( isset( $template_name ) )
 			{
-				
-				ob_start();
-				echo "<pre>";
-				get_value_choices($vue_data['template'], $query_from);
-				echo "</pre>";
-
-				$field['instructions'] = ob_get_clean();
-				$field['choices'] = array();
+				$field['choices'] = owy_wp_data_get_value_choices($template_name, $owy_wp_data_query_from);
 			}
 		}
 	}

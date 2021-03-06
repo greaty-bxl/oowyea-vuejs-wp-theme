@@ -10,8 +10,19 @@ function my_posts_results_filter( $posts ) {
 	foreach ($posts as $key2 => $child) 
 	{						
 		$posts[$key2]->permalink = get_permalink( $child->ID );
-		$posts[$key2]->metas = get_post_meta( $child->ID );
+
+		$metas = get_post_meta( $child->ID );
+
+		foreach ($metas as $key => $meta) {
+			if( count($meta) == 1 )
+			{
+				$metas[$key] = $meta[0];
+			}
+		}
+		$posts[$key2]->metas = $metas;
 		$posts[$key2]->thumb = get_the_post_thumbnail_url( $child->ID );
+		$posts[$key2]->post_author_object = get_userdata( $child->post_author );
+		unset( $posts[$key2]->post_author_object->data->user_pass );
 	    // $posts[$key2]->fields = get_field( 'image_projet' );
 	    //$posts[$key2]->terms = get_the_terms( $child->ID, 'product_cat' );
 		$posts[$key2]->terms = array();

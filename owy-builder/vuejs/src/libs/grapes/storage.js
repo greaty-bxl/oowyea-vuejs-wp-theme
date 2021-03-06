@@ -10,12 +10,12 @@ export default function (Vue) {
 			
 
 			let result = []
-			result['gjs-html'] = Vue.html
+			result['gjs-html'] = Vue.owy_html
 
 			let otherHtml = ''
 			Vue.jquery.each(store.wp.owy_templates, function(index, group) {
 				Vue.jquery.each(group, function(index, template) {
-					otherHtml += template.metas.html[0]
+					otherHtml += template.metas.owy_html
 				});
 			});
 
@@ -53,7 +53,7 @@ export default function (Vue) {
 
 				html = jhtml.html()
 
-				grapes_template.metas.html[0] = html//Vue.editor.getHtml()
+				grapes_template.metas.owy_html = html//Vue.editor.getHtml()
 				let css = Vue.editor.getCss()
 
 				css = css.replace('body', '#wrapper')
@@ -68,7 +68,7 @@ export default function (Vue) {
 
 				wp_ajax('owy_save_template', {
 					'post': grapes_template,
-					'html' : html,
+					'owy_html' : html,
 					'css' : css,
 					//'js' : Vue.editor.getJs()
 				}, (/*result*/) => {

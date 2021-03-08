@@ -497,6 +497,7 @@
 		text-align: center;
 		color: #422112;
 		width: 70px;
+		font-size: 12px;
 
 	}
 

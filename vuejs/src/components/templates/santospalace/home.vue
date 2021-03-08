@@ -104,7 +104,7 @@
 
 		.header-home h1{
 
-			font-size: 12vw !important;
+			font-size: 10vw !important;
 			padding-bottom: 30px;
 			width: 80%;
 			margin: 0px auto !important;

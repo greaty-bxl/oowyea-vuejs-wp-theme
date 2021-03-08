@@ -66,7 +66,9 @@
 								<p v-html="post.post_content" class="descriptif"></p>
 							</div>
 
-								<div v-if="post.acf_fields.fichier_a_telecharger != false" >
+							<div v-if="has_term(post, 'product_cat', 'horeca') || has_term(post, 'product_cat', 'machines-a-cafe-at-home') || has_term(post, 'product_cat', 'mousseur-a-lait') ">
+								
+								<div v-if="post.acf_fields.fichier_a_telecharger != false && post.acf_fields.fichier_a_telecharger != undefined " >
 									<div class="download-parent">
 										<div style="padding-bottom: 30px">
 											<div  v-for="(item, key)  in post.acf_fields.fichier_a_telecharger" :key="key" >
@@ -77,7 +79,7 @@
 									</div>
 								</div>
 
-								<div  v-if="post.acf_fields.bestand_om_te_downloaden != false" >
+								<div  v-if="post.acf_fields.bestand_om_te_downloaden != undefined && post.acf_fields.bestand_om_te_downloaden != undefined  "  >
 									<div class="download-parent">
 										<div style="padding-bottom: 30px">
 											<div  v-for="(item, key) in post.acf_fields.bestand_om_te_downloaden" :key="key" >
@@ -94,6 +96,9 @@
 
 								</div>
 								
+
+							</div>
+		
 
 						</div>
 
@@ -160,13 +165,12 @@
 							<img v-for="child in wp.acf.options.galerie_icons" :key="child.ID" :src="child.url">
 
 						</div>
-						<div v-if="type != 'contact_us'" >
+						<div v-if="type != 'contact_us'" class="contact-prix" >
 							<p v-html="pll__('Livraison estimée entre 24h et 48h.')" ></p>
 							<p style="padding-top: 10px" v-html="pll__('La livraison est gratuite à partir de 100 € en Belgique.')" ></p>
 							<p style="padding-top: 10px" v-html="pll__('En dessous dune commande de 100 euros, la livraison est à 8,50 euros tvac')" ></p>
 						</div>
 							
-
 					</div>
 
 				</div>
@@ -566,7 +570,9 @@
 
 		margin-top: 30px;
 	}
+
 */
+
 	.text-plus-d-info{
 
 		color: #888320;
@@ -1381,9 +1387,12 @@
 
 
 
-
 	@media screen and (max-width: 600px){
 
+		.contact-prix{
+
+			margin-bottom: 30px !important;
+		}
 
 		.vue-wc-variation .arrow{
 		width:30px;

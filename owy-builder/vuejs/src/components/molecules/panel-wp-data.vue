@@ -30,7 +30,7 @@
 				history : false,
 				form_selector : '#modal-wp-data .acf-container form',
 				is_saving : false,
-				exclude_types : [] 
+				exclude_types : [],
 			}
 		},
 		mounted(){
@@ -64,6 +64,9 @@
 			
 		},
 		computed : {
+			editor : function () {
+				return this.$parent.editor
+			},
 			attr : function () {
 				let current = this.$store.state.modal_wp_data_attrs
 				return current
@@ -106,6 +109,13 @@
 						this.save_acf_form()
 					});
 
+					form_jq.find('[data-name="example"] select').on('change', () => {
+						console.log('change example', this.editor.getComponents() );
+
+						console.log(this.data_simulate);
+						this.data_simulate.simulate()
+
+					});
 					//disable submit form
 					form_jq.on('submit', function(event) {
 						event.preventDefault();

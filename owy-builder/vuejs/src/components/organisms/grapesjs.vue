@@ -32,7 +32,9 @@ import grapesjs from 'grapesjs';
 
 //Custom grapes libs
 import owy_storage from 'PluginLib/grapes/storage.js'
-import owy_panels from 'PluginLib/grapes/owy-panels.js'
+
+
+
 
 //Import modals
 import WpData from 'PluginComponents/molecules/panel-wp-data'
@@ -141,7 +143,7 @@ export default {
     });
 
     this.editor.on('component:selected', (/*el*/) => {
-      //keep current panel open on select other component
+      //get back current panel open on select other component
       let pn_bt = $('[title="'+this.current_panel+'"]')
       if( !pn_bt.hasClass('gjs-pn-active') )
       {
@@ -163,7 +165,8 @@ export default {
     //render editor
     this.editor.render();
 
-    owy_panels( this.editor, Vue )
+    //Init Panels
+    this.init_owy_panels()
     
     //add commands
     this.editor.Commands.add('editor-wp-back', () => {
@@ -184,107 +187,13 @@ export default {
       $('.gjs-pn-views .fa-wordpress').trigger('click')
     });
 
-    /*this.editor.Commands.add('owy-cmd-wp-data', (editor) => {
-      console.log('open modal wp data', editor.getSelected() );
-      Vue.$store.state.modal_wp_data_attrs = {
-        editor : editor,
-        selected : editor.getSelected()
-      }
-
-      editor.Modal.open({
-        title : 'Apply WordPess data',
-        content : '<div id="modal-content"></div>'
-      }).onceClose( () =>{
-        //move modal vue out
-        $('#modal-content > #modal-wp-data').appendTo('#vue-modals')
-      })
-
-      //move modal vue in
-      $('#vue-modals > #modal-wp-data').appendTo('#modal-content')
-    })
-
-    this.editor.Commands.add('owy-cmd-actions', (editor) => {
-      editor.Modal.open({
-        title : 'Create interaction between elements and context',
-        content : '<div id="modal-content"></div>'
-      })
-    })*/
-    
-
-    //block test
-    this.editor.BlockManager.add('my-first-block', {
-      label: 'Simple block',
-      category: 'test',
-      content: '<div data-gjs-type="test" data-widget="test" class="my-block">This is a simple block</div>',
-      attributes: {
-        test: 'Insert h1 block'
-      }
-    });
-
-    this.editor.DomComponents.addType('test', {
-        isComponent: function(el) {
-          if( $(el).data('widget') == 'test' )
-          {
-            return true
-          }
-          else
-          {
-            return false
-          }
-        },
-        model: {
-          defaults: {
-            traits: [
-              // Strings are automatically converted to text types
-              'id', // Same as: { type: 'text', name: 'name' }
-              'title',
-              'data-test',
-              {
-                type: 'button',
-                //label: 'hello',
-                text: 'Click me',
-                full: true,
-                command: () => alert('Hello'),
-              },
-              {
-                type: 'select', // Type of the trait
-                label: 'Type', // The label you will see in Settings
-                name: 'type', // The name of the attribute/property to use on component
-                options: [
-                  { id: 'text', name: 'Text'},
-                  { id: 'email', name: 'Email'},
-                  { id: 'password', name: 'Password'},
-                  { id: 'number', name: 'Number'},
-                ]
-              }, 
-              {
-                type: 'checkbox',
-                name: 'required',
-              }
-            ],
-            // As by default, traits are binded to attributes, so to define
-            // their initial value we can use attributes
-            //attributes: { type: 'text', required: true },
-          },
-        },
-        init() {
-          this.on('change:attributes:id', () => {
-            console.log('change id');
-          });
-        },
-
-        /*handleTypeChange() {
-          console.log('Input type changed to: ', this.getAttributes().type);
-        },*/
-    });
-
     //manage other template as type
+    //other templates are inserted inside the current to don't lose global classes
     this.editor.DomComponents.addType('other-templates', {
       model : {
         defaults: {
           layerable: false,
           removable: false,
-
           draggable: false,
           droppable: false,
           badgable: false,
@@ -295,17 +204,18 @@ export default {
           editable: false
         }
       }
-    })    
+    })
 
+    //init block
+    this.init_owy_blocks()
+
+    //tries
     $( this.editor.SelectorManager.selectorTags.$states ).append('<option>test</option>')
     
-    
-
     console.log('gjs Editor', this.editor);
 
-    console.log('colors', $('.sp-container ') )
     
-    console.log('colors 2', this.editor.getModel() );
+    
   },
   computed : {
     display : function () {

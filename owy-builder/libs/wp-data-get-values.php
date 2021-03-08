@@ -53,7 +53,7 @@ function owy_choices_get_group( $values, $excludes, $parent = '')
 			}
 			else
 			{
-				$choices[$parent . $key] = $key . ' (' . $value . ')';	
+				$choices[$parent . $key] = $key . ' (' . strip_tags( $value ) . ')';	
 			}
 		}
 	}

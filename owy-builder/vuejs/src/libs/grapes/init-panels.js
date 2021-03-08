@@ -1,7 +1,8 @@
-export default function( editor, Vue ){
-	let $ = window.jquery
+export default function(){
+	let $ = this.jquery
+	let Vue = this
 	//add top panels
-	editor.Panels.addPanel({
+	this.editor.Panels.addPanel({
 		id: 'panel__wordpress',
 		el: '.panel__wordpress',
 		buttons: [
@@ -29,7 +30,7 @@ export default function( editor, Vue ){
 		],
 	});
 
-	editor.Panels.addPanel({
+	this.editor.Panels.addPanel({
 		id: 'panel__more',
 		el: '.panel__more',
 		buttons: [
@@ -43,14 +44,14 @@ export default function( editor, Vue ){
 		],
 	});
 
-	editor.Panels.addPanel({
+	this.editor.Panels.addPanel({
 		id: 'editor_select_template',
 		el: '.editor_select_template',
 	});
 
 
-	//init wp data panel
-	const pn = editor.Panels
+	const pn = this.editor.Panels
+	//init wp data panel	
 	let wp_data_panel = null
 
 	pn.addButton('views', {
@@ -93,6 +94,43 @@ export default function( editor, Vue ){
 				{
 					//$('#panel-wp-data > #modal-wp-data').appendTo('#vue-modals')
 					wp_data_panel.style.display = 'none'
+				}
+			}
+		}
+	})
+
+	//init state interaction panel
+	let state_panel = null
+
+	pn.addButton('views', {
+		id: 'wp-data-panel',
+		attributes: {
+			class: 'fa fa-bolt', 
+			title: "Edit States interaction"
+		},
+		active: false,
+		command: {
+			run: function (/*editor*/) {
+				if(state_panel == null)
+				{
+					const editMenuDiv = document.createElement('div')
+					editMenuDiv.innerHTML = `
+						<div id="panel-states-interact">
+						</div>
+						`
+					const panels = pn.getPanel('views-container')
+					panels.set('appendContent', editMenuDiv).trigger('change:appendContent')
+					
+					state_panel = editMenuDiv
+				}
+				
+				
+				state_panel.style.display = 'block'
+			},
+			stop: function (/*editor*/) {
+				if(state_panel != null)
+				{
+					state_panel.style.display = 'none'
 				}
 			}
 		}

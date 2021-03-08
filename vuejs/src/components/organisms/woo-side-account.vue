@@ -714,6 +714,18 @@
 	}
 
 
+	@media screen and ( max-width: 1025px) and ( min-width: 600px){
+
+
+		.account-container > div{
+
+			max-height:  70vh !important;
+
+		}
+
+	}
+
+
 	@media screen and (max-width: 600px){
 
 		.side-account  tbody td{

@@ -217,7 +217,7 @@
 
 		.image-contact h1 {
 
-			font-size: 12vw !important ;
+			font-size: 10vw !important ;
 			padding:  0px 30px  !important;
 			margin: 0px  !important;
 		}

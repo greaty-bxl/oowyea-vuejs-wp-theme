@@ -25,6 +25,7 @@
 </template>
 
 <script>
+	
 
 	import init_styled_form from 'Libs/styled-form.js'
 	
@@ -33,8 +34,11 @@
 			'post' : Object
 		},
 		mounted()
-		{
+		{	
+			console.log(this.post);
 			init_styled_form('.acfe-form input , .acfe-form textarea ')
+
+			this.pll__('Submit', true)
 		}
 
 
@@ -402,7 +406,7 @@
 
 		.image-degustation-page h1 {
 
-			font-size: 12vw !important ;
+			font-size: 10vw !important ;
 			padding:  0px 30px  !important;
 			margin: 0px  !important;
 

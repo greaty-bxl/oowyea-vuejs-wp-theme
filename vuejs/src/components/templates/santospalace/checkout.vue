@@ -190,10 +190,6 @@ export default {
 
 					console.log('');
 
-
-
-
-
 				}
 				else{
 
@@ -232,18 +228,6 @@ export default {
 
 					}, 300);
 
-
-					
-
-					setTimeout(function() {
-
-						$('input').remove()
-
-						console.log('qljkqsdfjk');
-
-					}, 10);
-
-				
 				}
 
 			});

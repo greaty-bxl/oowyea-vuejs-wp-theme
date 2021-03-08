@@ -710,7 +710,7 @@
 
 		.custom-html-widget div {
 	
-			width: auto;
+			width: 40%;
 			margin-right: 20px;
 			margin-left: 20px;
 			margin-bottom: 40px;

@@ -83,18 +83,15 @@
 
 		mounted(){
 		
-			//console.log( 'slider', this.$store.state.wp );
-			//this.$emit('template_mounted', this);
+			SwiperArray = []
+
+			console.log('mounted');
 
 		},
 
 		methods: {
 			change_slider : function(index){
 				this.active = index
-
-				//SwiperArray[index].$el.trigger('click')
-				//SwiperArray[index].slideReset()
-
 
 				console.log('change_slider', index);
 			}
@@ -172,9 +169,14 @@
 					on : {
 						init : function(){
 
+							console.log('init');
 							let $ = window.jquery
 							let index = SwiperArray.length
+							console.log('index' , index);
+
 							SwiperArray[index] = this
+
+							console.log('this' , this);
 							
 							this.params.navigation.nextEl = '#swiper-button-next-'+index
 							this.params.navigation.prevEl = '#swiper-button-prev-'+index

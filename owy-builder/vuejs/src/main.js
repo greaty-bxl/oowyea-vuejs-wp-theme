@@ -4,14 +4,17 @@ import store from './store/index.js'
 
 const app = Vue.createApp(App);
 
+import serializeObject from 'Libs/jquery/serializeObject.js'
+window.jquery.fn.serializeObject = serializeObject
+
 app.config.globalProperties.jquery = window.jquery
+
+
 app.config.globalProperties.ajaxurl = window.ajaxurl
 app.config.globalProperties.wp = window.owy_wp
 app.config.globalProperties.acf = window.acf
 
 
 app.use(store);
-//import PeerRoom from '../../../../themes/oowyea-vuejs-wp-theme/vuejs/src/libs/peer-room.js'
-//import PeerRoom from 'Theme_libs/peer-room.js'
 
 app.mount('#editor')

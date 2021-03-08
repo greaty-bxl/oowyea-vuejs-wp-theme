@@ -74,4 +74,6 @@ module.exports = {
   },
   transpileDependencies: ['ansi-regex'],
 
+  publicPath: './'
+
 }

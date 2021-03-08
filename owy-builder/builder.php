@@ -17,7 +17,7 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 
 	include owy_builder_dir . 'libs/builder-vars.php';
 	include owy_builder_dir . 'libs/owy-templates.php';	
-	include owy_builder_dir . 'libs/get_wp_data_form.php';
+	include owy_builder_dir . 'libs/wp-data-get-form.php';
 	
 	
 	
@@ -99,8 +99,18 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 	    	else
 	    	{
 	    	    // vue dist
-	    	    wp_enqueue_script('oowyea-editor-app', plugin_dir_url(__FILE__) .'/vuejs/dist/app.js', array('greatythemescripts'), '1.0', true );
-	    	    wp_enqueue_script('oowyea-editor-chunk-vendors', plugin_dir_url(__FILE__) . '/vuejs/dist/chunk-vendors.js', array('vue-app'), '1.0', true);
+	    	    wp_enqueue_script('oowyea-editor-app', owy_builder_url .'vuejs/dist/app.js', array('greatythemescripts'), '1.0', true );
+
+	    	    wp_enqueue_script('oowyea-editor-chunk-vendors', 
+	    	    	owy_builder_url . 'vuejs/dist/chunk-vendors.js', 
+	    	    	array('greatythemescripts'), '1.0', true);
+	    	    
+
+	    	    wp_register_style('vue-chunk-vendors-css', owy_builder_url . 'vuejs/dist/chunk-vendors.css', array(), '1.0', 'all');
+	    	    wp_enqueue_style('vue-chunk-vendors-css'); // Enqueue it!
+
+	    	    wp_register_style('vue-css', owy_builder_url . 'vuejs/dist/app.css', array(), '1.0', 'all');
+	    	    wp_enqueue_style('vue-css'); // Enqueue it!
 	    	}
 	    	
 	    	wp_enqueue_media();

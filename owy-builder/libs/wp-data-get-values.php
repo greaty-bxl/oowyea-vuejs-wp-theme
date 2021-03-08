@@ -40,7 +40,7 @@ function owy_wp_data_get_example( $template_name, $query_from )
 	return $choices;
 }
 
-function owy_choices_get_group( $values, $excludes)
+function owy_choices_get_group( $values, $excludes, $parent = '')
 {
 	$choices = array();
 	foreach ( $values as $key => $value) 
@@ -49,11 +49,11 @@ function owy_choices_get_group( $values, $excludes)
 		{
 			if( is_array($value) || is_object($value) )
 			{
-				$choices[$key] = owy_choices_get_group( $value, $excludes );
+				$choices[$parent . $key] = owy_choices_get_group( $value, $excludes, $parent . sanitize_title( $key ) .'|' );
 			}
 			else
 			{
-				$choices[$key] = $key . ' (' . $value . ')';	
+				$choices[$parent . $key] = $key . ' (' . $value . ')';	
 			}
 		}
 	}
@@ -68,17 +68,18 @@ function owy_wp_data_get_value_choices( $template_name, $query_from )
 	$excludes = array('to_ping', 'pinged', 'ping_status', 'allcaps', 'cap_key');
 
 	$choices = array();
-	echo "<pre>";
-
-	if( $owy_wp_data_example_type == 'post' )
+	
+	if( $owy_wp_data_example )
 	{
-		$post = get_post( $owy_wp_data_example );
-		$post = apply_filters( 'posts_results', $post )[0];
+		if( $owy_wp_data_example_type == 'post' )
+		{
+			$post = get_post( $owy_wp_data_example );
+			if( !empty( $post ) ) $post = apply_filters( 'posts_results', $post )[0];
 
-		$choices = owy_choices_get_group( $post, $excludes );
-		
-	}
-	echo "</pre>";
+			$choices = owy_choices_get_group( $post, $excludes );
+			
+		}
+	}	
 	
 	return $choices;
 }

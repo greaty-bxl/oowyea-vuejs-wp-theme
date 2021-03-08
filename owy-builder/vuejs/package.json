@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "grapesjs": "^0.16.41",
+    "grapesjs": "^0.16.44",
     "grapesjs-blocks-flexbox": "^0.1.1",
     "grapesjs-preset-webpage": "^0.1.11",
+    "grapesjs-style-bg": "^1.0.5",
     "swiper": "^6.4.8",
     "vue": "^3.0.0",
     "vuex": "^4.0.0-rc.2"

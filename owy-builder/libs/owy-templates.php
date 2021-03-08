@@ -18,7 +18,7 @@ function create_template_if_not_exist($template_name)
 						)
 					),
 					'meta_input' => array(
-					    'owy_html' => '<h1 class="title">Your template: '.$template_name.'</h1>',
+					    'owy_html' => '<h1 class="title" id="'.uniqid().'">Start your template: '.$template_name.'</h1>',
 					)
 				)
 			);

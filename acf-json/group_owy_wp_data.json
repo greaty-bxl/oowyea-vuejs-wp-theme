@@ -74,8 +74,10 @@
                 "class": "",
                 "id": ""
             },
-            "choices": [],
-            "default_value": false,
+            "choices": {
+                "none": "- Select an example -"
+            },
+            "default_value": "none",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -309,5 +311,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1614953925
+    "modified": 1615040332
 }

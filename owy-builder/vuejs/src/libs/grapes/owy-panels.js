@@ -49,6 +49,7 @@ export default function( editor, Vue ){
 	});
 
 
+	//init wp data panel
 	const pn = editor.Panels
 	let wp_data_panel = null
 

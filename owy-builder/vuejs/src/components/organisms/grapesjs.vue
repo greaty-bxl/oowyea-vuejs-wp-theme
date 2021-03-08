@@ -35,7 +35,10 @@ import owy_storage from 'PluginLib/grapes/storage.js'
 import owy_panels from 'PluginLib/grapes/owy-panels.js'
 
 //Import modals
-import WpData from 'PluginComponents/molecules/modal-wp-data'
+import WpData from 'PluginComponents/molecules/panel-wp-data'
+
+import style_bg_plugin from 'grapesjs-style-bg';
+import 'grapick/dist/grapick.min.css';
 
 export default {
   data(){
@@ -58,10 +61,13 @@ export default {
 
     require('grapesjs-preset-webpage')
     require('grapesjs-blocks-flexbox')
+    //require('grapesjs-style-bg')
 
 
     this.editor = grapesjs.init({
+      avoidInlineStyle: 1,
       autorender: false,
+      showOffsets: 1,
       // Indicate where to init the editor. You can also pass an HTMLElement
       container: '#gjs',
       // Get the content for the canvas directly from the element
@@ -78,14 +84,26 @@ export default {
       
       protectedCss: '',
 
+      //canvasCss: '',
+
       styleManager: {},
       // Avoid any default panel
       panels: { defaults: [] },
       // Disable alert "save before refresh"
       noticeOnUnload: false,
 
-      plugins: ['gjs-preset-webpage', 'gjs-blocks-flexbox'],
+      plugins: ['gjs-preset-webpage', 'gjs-blocks-flexbox', style_bg_plugin],
     });
+
+
+    this.editor.StyleManager.removeProperty('decorations', 'background-color');
+    this.editor.StyleManager.removeProperty('decorations', 'background');
+    
+    this.editor.StyleManager.addProperty('decorations',{
+      //name: 'background',
+      property: 'background',
+      type: 'bg',
+    }, { at: 0 });
 
     //let editor = this.editor
     
@@ -123,33 +141,12 @@ export default {
     });
 
     this.editor.on('component:selected', (/*el*/) => {
-
-      //add buttons on toolbar component
-      /*let excludeTypes = ['wrapper']
-
-      let toolbar = el.attributes.toolbar
-      let toolbar_str = JSON.stringify( toolbar )
-
-      if( toolbar_str.search("owy-cmd-wp-data") == -1 && !excludeTypes.includes(el.attributes.type) )
-      {
-        toolbar[toolbar.length] = {
-          attributes: {class: 'fa fa-wordpress'},
-          command: 'owy-cmd-wp-data'
-        }
-
-        toolbar[toolbar.length] = {
-          attributes: {class: 'fa fa-bolt'},
-          command: 'owy-cmd-actions'
-        }
-      }*/
-
-      //keep current panel open
+      //keep current panel open on select other component
       let pn_bt = $('[title="'+this.current_panel+'"]')
       if( !pn_bt.hasClass('gjs-pn-active') )
       {
         pn_bt.trigger('click')
       }
-      
     });  
   
 
@@ -182,6 +179,10 @@ export default {
       console.log('publish');
     });
 
+    this.editor.Commands.add('owy-cmd-wp-data', (/*editor*/) => {
+
+      $('.gjs-pn-views .fa-wordpress').trigger('click')
+    });
 
     /*this.editor.Commands.add('owy-cmd-wp-data', (editor) => {
       console.log('open modal wp data', editor.getSelected() );
@@ -302,9 +303,9 @@ export default {
 
     console.log('gjs Editor', this.editor);
 
-    console.log( 'undo', this.editor.UndoManager )
+    console.log('colors', $('.sp-container ') )
     
-    
+    console.log('colors 2', this.editor.getModel() );
   },
   computed : {
     display : function () {
@@ -463,6 +464,9 @@ select, select optgroup, select option{
   left: 270px;
 }
 
+.gjs-four-color .gjs-sm-clear{
+  display: inline-block !important;
+}
 /* .gjs-layer__t-wrapper:first-child .gjs-layer-children > .gjs-layers > .gjs-layer:last-child {
   display: none !important; 
 }*/

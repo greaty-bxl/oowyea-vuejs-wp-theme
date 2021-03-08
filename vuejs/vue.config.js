@@ -61,5 +61,4 @@ module.exports = {
     disableHostCheck: true
   },
   transpileDependencies: ['ansi-regex'],
-
 }

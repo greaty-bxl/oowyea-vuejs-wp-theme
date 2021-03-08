@@ -47,12 +47,7 @@ function owy_get_builder_wp_data_form_ajx()
 	ob_start();
 
 	acf_form($setting);
-	echo "<pre>";
-	echo var_dump($post[0]);
-	echo "</pre>";
-	echo "<pre>";
-	echo var_dump($_POST);
-	echo "</pre>";
+	
 	$form = ob_get_clean();
 
 	die( $form );
@@ -82,7 +77,7 @@ function owy_builder_wp_data_acf_filter($field)
 
 		if( $field['name'] == 'example' )
 		{
-			$field['choices'] = owy_wp_data_get_example($template_name, $owy_wp_data_query_from);
+			$field['choices'] = array_replace($field['choices'], owy_wp_data_get_example($template_name, $owy_wp_data_query_from) );
 			if( empty($field['choices']) )
 			{
 				$field['instructions'] = 'Please create content example';

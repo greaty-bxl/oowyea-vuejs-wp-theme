@@ -79,8 +79,9 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'choices' => array(
+				'none' => '- Select an example -',
 			),
-			'default_value' => false,
+			'default_value' => 'none',
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
@@ -317,7 +318,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1614953925,
+	'modified' => 1615040332,
 ));
 
 endif;

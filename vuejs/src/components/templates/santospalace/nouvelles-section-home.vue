@@ -223,6 +223,7 @@
 		margin-left: -1%;
 		margin-right: auto;
 		margin-left: auto;
+		display: flex;
 	}
 
 	.div-filtre-nouvelles{
@@ -306,6 +307,13 @@
 	.title-product{
 
 		margin-bottom: 20px !important;
+	}
+
+
+	.swiper-wrapper{
+
+		margin-top: auto !important;
+		margin-bottom: auto !important;
 	}
 
 	@media screen and ( min-width: 1100px ){

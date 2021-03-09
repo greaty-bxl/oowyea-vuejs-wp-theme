@@ -470,12 +470,14 @@
 		.swiper-button-next{
 
 			padding: 10px;
+			right: 0px;
 			color: #422112;
 		}
 
 		.swiper-button-prev{
 
 			padding: 10px;
+			left: 0px;
 			color: #422112;
 		}
 

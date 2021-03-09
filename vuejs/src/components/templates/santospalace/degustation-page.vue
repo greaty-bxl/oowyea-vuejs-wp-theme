@@ -38,8 +38,9 @@
 			console.log(this.post);
 			init_styled_form('.acfe-form input , .acfe-form textarea ')
 
-			this.pll__('Submit', true)
-		}
+			this.pll__('Submit', true)	
+			
+		}	
 
 
 

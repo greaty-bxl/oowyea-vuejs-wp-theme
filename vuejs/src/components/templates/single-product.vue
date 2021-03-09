@@ -1172,12 +1172,14 @@
 	}
 
 	.continuer-achat button{
+
 		font-size: 16px !important;
 		border: none;
 		background-color: white;
 		text-decoration-line: none;
 		color: #888320 !important;
 		padding-left: 0px;
+		text-align: left;
 	}
 
 
@@ -1437,7 +1439,7 @@
 
 		.title-single-santospalace{
 
-			font-size: 30px;
+			font-size: 25px;
 		}
 
 		.col-descriptif h2{

@@ -719,7 +719,7 @@
 
 		.reseaux-sociaux{
 
-			margin-top: 10px;
+			margin-top: 30px;
 		}
 
 		.contener-footer {

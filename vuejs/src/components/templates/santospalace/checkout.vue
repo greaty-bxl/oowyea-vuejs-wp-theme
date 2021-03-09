@@ -179,10 +179,10 @@ export default {
 			}
 
 
-			$('.wc_payment_methods payment_methods .methods li:eq(0)').find('.payment_box').addClass('disable-payement')
+			$('.wc_payment_methods .payment_methods .methods li:eq(0)').find('.payment_box').addClass('active_payment')
 
 
-			$('.wc_payment_method').find('input').unbind().click(function() {
+			$('.input-radio').unbind().click(function() {
 
 				var payment_box = $(this).parent('.wc_payment_method').find('.payment_box')
 
@@ -192,6 +192,8 @@ export default {
 
 				}
 				else{
+
+					$('.payment_box').removeClass('active_payment')
 
 					$('.payment_box').animate({
 
@@ -943,10 +945,15 @@ export default {
 
 	.checkout_santos #add_payment_method #payment ul.payment_methods li img.stripe-icon, .woocommerce-checkout #payment ul.payment_methods li img.stripe-icon{
 
-		    max-width: 60px !important;
-		    padding-left: 3px !important;
-		    margin: 0;
+			max-width: 60px !important;
+			padding-left: 3px !important;
+			margin: 0;
 		
+	}
+
+	.wc_payment_method *{
+
+		color: white !important;
 	}
 
 	@media screen and (max-width: 1025px) and (min-width: 745px){

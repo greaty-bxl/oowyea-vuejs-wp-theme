@@ -3,10 +3,12 @@
 	<div class="section-wrap">
 		<div class="clear"></div>
 			
-			<div class="content-single">
-				<img class="image-single-post" :src="this.post.thumb">
-				<h2 class="title-post-single" v-html="post.post_title" ></h2>
-				<div v-html="post.post_content">
+			<div class="content-blog">
+
+				<h1 class="title-post-blog" v-html="post.post_title" ></h1>
+				<img class="image-blog-post" :src="this.post.thumb">
+				
+				<div class="clear_content_blog post" v-html="post.post_content">
 				</div>
 			</div>
 		
@@ -40,38 +42,68 @@
 </style>
 
 <style>
-	
-	.content-single{
+
+	.content-blog{
 
 		width: 60%;
 		margin: 100px auto 100px auto;
 		box-sizing: content-box;
 		font-size: 16px;
 
+	}
+
+	.clear_content_blog a{
+
+		color: #666666;
 
 	}
 
-	.content-single img{
+	.clear_content_blog h1, .clear_content_blog h2, .clear_content_blog h3{
 
-/*		width: 100%;
-		height: auto;*/
-		height: 50vh;
-		width: 75vh;
-
-	}
-
-	.title-post-single{
-
-		font-size: 40px;
 		color: black;
 		font-weight: 600;
-		text-transform: uppercase;
+		text-align: left;
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+
+		
 	}
+
+	.content-blog img{
+
+		height: 63vh;
+		width: 95vh;
+
+	}
+
+	.title-post-blog{
+
+		color:#888320;
+		font-size: 40px;
+		font-weight: 600;
+		text-align: center;
+		/*width: 95vh;*/
+		margin-top: 100px;
+		margin-left: auto;
+		margin-right: auto;
+
+	}
+
+	.content-blog p{
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+		line-height: 200%;
+		font-size: 20px !important;
+	}
+
+
 
 
 	@media screen and ( max-width: 1150px ) and ( min-width: 600px ){
 
-		.content-single{
+		.content-blog{
 
 			width: 100%;
 			box-sizing: border-box;
@@ -81,22 +113,51 @@
 
 		}
 
-		.content-single img{
+		.content-blog img{
 
 			width: 100%;
 			height: auto;
 		}
 
-		.title-post-single{
+		.title-post-blog{
 
 			font-size: 35px
 		}
 
+		.content-blog p{
+
+			width: 100%;
+			padding: 0px;
+		}
+
+		.content-blog{
+
+			margin: 70px auto 100px auto;
+		
+		}
+
+		.clear_content_blog h1, .clear_content_blog h2, .clear_content_blog h3{
+
+			width: 100%;
+			
+		}
 	}
 
 	@media screen and ( max-width: 600px ){
 
-		.content-single{
+
+		.title-post-blog{
+
+			width: auto;
+		}
+
+		.content-blog p{
+
+			width: 100%;
+			padding: 0px;
+		}
+
+		.content-blog{
 
 			width: 100%;
 			box-sizing: border-box;
@@ -106,15 +167,21 @@
 
 		}
 
-		.title-post-single{
+		.title-post-blog{
 
 			font-size: 25px
 		}
 
-		.content-single img{
+		.content-blog img{
 
 			width: 100%;
 			height: auto;
+		}
+
+		.clear_content_blog h1, .clear_content_blog h2, .clear_content_blog h3{
+			
+			width: 100%;
+			
 		}
 
 

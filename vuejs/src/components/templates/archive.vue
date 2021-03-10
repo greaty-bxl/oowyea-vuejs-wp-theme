@@ -123,7 +123,7 @@ export default {
 	}
 
 	.section-blog h4{
-		font-size: 21px;
+		font-size: 18px;
 		font-weight: 400;
 		margin-top: 16px;
 		margin-bottom: 16px;

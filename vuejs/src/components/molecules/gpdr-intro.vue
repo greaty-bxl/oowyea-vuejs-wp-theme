@@ -128,7 +128,7 @@ h3{
 	background-color: #888320 !important;
 	color: white !important;
 	margin-top: 16px;
-	border: solid #70625B;
+	border: solid #888320;
 	border-width: 1px;
 	min-width: 200px;
 	padding-top: 25px;
@@ -145,7 +145,7 @@ h3{
 .button-cookie:hover {
 
 	background-color: white !important;
-	color: #70625B !important;
+	color: #888320 !important;
 	transition: 0.3;
 	
 

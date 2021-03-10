@@ -123,7 +123,6 @@ export default {
 	}
 
 	.section-blog h4{
-		text-transform: uppercase;
 		font-size: 21px;
 		font-weight: 400;
 		margin-top: 16px;

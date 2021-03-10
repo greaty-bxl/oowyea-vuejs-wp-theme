@@ -98,7 +98,7 @@
 		font-size: 20px !important;
 	}
 
-	@media screen and ( max-width: 1300px ) and ( min-width: 1150px ){
+	@media screen and ( max-width: 1330px ) and ( min-width: 1150px ){
 
 
 		.content-blog p{

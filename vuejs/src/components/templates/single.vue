@@ -6,7 +6,7 @@
 			<div class="content-blog">
 
 				<h1 class="title-post-blog" v-html="post.post_title" ></h1>
-				<img class="image-blog-post" :src="this.post.thumb">
+				<img style="margin-top: 50px" class="image-blog-post" :src="this.post.thumb">
 				
 				<div class="clear_content_blog post" v-html="post.post_content">
 				</div>
@@ -63,7 +63,7 @@
 		color: black;
 		font-weight: 600;
 		text-align: left;
-		width: 80%;
+		width: 70%;
 		margin-left: auto;
 		margin-right: auto;
 
@@ -83,22 +83,37 @@
 		font-size: 40px;
 		font-weight: 600;
 		text-align: center;
-		/*width: 95vh;*/
 		margin-top: 100px;
 		margin-left: auto;
 		margin-right: auto;
+		margin-bottom: 0;
 
 	}
 
 	.content-blog p{
 		margin-left: auto;
 		margin-right: auto;
-		width: 80%;
+		width: 70%;
 		line-height: 200%;
 		font-size: 20px !important;
 	}
 
+	@media screen and ( max-width: 1300px ) and ( min-width: 1150px ){
 
+
+		.content-blog p{
+
+			width: 80%;
+	
+		}
+
+		.clear_content_blog h1, .clear_content_blog h2, .clear_content_blog h3{
+
+			width: 80%;
+			
+		}
+
+	}
 
 
 	@media screen and ( max-width: 1150px ) and ( min-width: 600px ){

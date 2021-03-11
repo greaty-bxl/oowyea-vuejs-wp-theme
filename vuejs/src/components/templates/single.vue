@@ -91,7 +91,7 @@
 	.button-rond-next{
 
 		top: 150px;
-		right: 70px;
+		right: -70px;
 		position: absolute;
 		height: 25px;
 		width: 25px;
@@ -100,7 +100,7 @@
 
 	.button-rond-prev{
 		top: 150px;
-		left: 70px;
+		left: -70px;
 		/*right: 0px;*/
 		position: absolute;
 		height: 25px;
@@ -182,6 +182,18 @@
 
 
 	@media screen and ( max-width: 1150px ) and ( min-width: 600px ){
+
+
+		.button-rond-next{
+			top: 100px;
+			right: 70px;
+
+		}
+
+		.button-rond-prev{
+			top: 100px;
+			left: 70px;
+		}
 
 		.content-blog{
 
@@ -267,14 +279,14 @@
 		.button-rond-next{
 
 			right: 30px;
-			top: 70px;
+			top: 30px;
 
 		}
 
 		.button-rond-prev{
 
 			left: 30px;
-			top: 70px;
+			top: 30px;
 		
 		}
 

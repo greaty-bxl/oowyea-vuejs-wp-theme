@@ -70,11 +70,11 @@
 	.button-rond a{
 
 		display: flex;
-		position: absolute;
+		position: fixed;
 		height: 30px;
 		width: 30px;
-		right: 0px;
-		left: 0px;
+		/*right: 0px;*/
+		/*left: 0px;*/
 		background-color: #888320;
 		border: 1px solid #888320;
 		border-radius: 100%;
@@ -90,21 +90,21 @@
 
 	.button-rond-next{
 
-		top: 150px;
-		right: -70px;
-		position: absolute;
-		height: 25px;
-		width: 25px;
+		top: 50%;
+		right: 70px;
+		position: fixed;
+		height: 30px;
+		width: 30px;
 
 	}
 
 	.button-rond-prev{
-		top: 150px;
-		left: -70px;
+		top: 50%;
+		left: 70px;
 		/*right: 0px;*/
-		position: absolute;
-		height: 25px;
-		width: 25px;
+		position: fixed;
+		height: 30px;
+		width: 30px;
 	}
 
 	.content-blog{
@@ -185,14 +185,14 @@
 
 
 		.button-rond-next{
-			top: 100px;
-			right: 70px;
+			top: 50%;
+			right: 35px;
 
 		}
 
 		.button-rond-prev{
-			top: 100px;
-			left: 70px;
+			top: 50%;
+			left: 30px;
 		}
 
 		.content-blog{
@@ -276,17 +276,22 @@
 			
 		}
 
+		.button-rond a{
+
+			position: absolute;
+		}
+
 		.button-rond-next{
 
-			right: 30px;
-			top: 30px;
+			right: 15px;
+			top: 70%;
 
 		}
 
 		.button-rond-prev{
 
-			left: 30px;
-			top: 30px;
+			left: 10px;
+			top: 70%;
 		
 		}
 

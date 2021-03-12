@@ -63,7 +63,7 @@
 
 	.button-rond svg{
 		margin: auto;
-		height: 20px !important;
+		height: 15px !important;
 
 	}
 

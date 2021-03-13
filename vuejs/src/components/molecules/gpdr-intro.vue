@@ -4,6 +4,15 @@
         <div>
 			<h3><strong v-html="pll__('POLITIQUE DE COOKIE')" ></strong></h3>
 			<div v-html="$store.state.wp.sidebars['gpdr-intro']"></div>
+			<p v-html="pll__('Google Analytic')"></p>
+			<div>
+
+				<button v-on:click="accept" class="google-accepter" v-html="pll__('Accepter')">
+				</button>
+				<button v-on:click="accept" class="google-refus" v-html="pll__('Refuser')">
+				</button>
+			
+				</div>
 			<button class="button-cookie" v-on:click="accept">J'accepte</button>        
         </div>        
       </div>
@@ -12,10 +21,18 @@
 
 <script>
 	export default {
+
+		data(){
+			return {
+				google_boolen: true,
+			}
+		},
 		mounted () {
 			let $ = this.$
 
 			console.log(this.$store.state.wp.sidebars);
+
+			console.log(this.google_boolen);
 			
 			$('#app').on('section-top-ready', () => {
 				
@@ -28,31 +45,63 @@
 			});
 		},
 		methods:{
+
+			// refus_google: function(){
+
+			// 	this.google_boolen = false
+
+			// 	console.log(this.google_boolen);
+			// },
+
+			// accept_google: function(){
+
+			// 	this.google_boolen = true
+
+			// 	console.log(this.google_boolen);
+			// },
+
 			accept: function(event){
 
 				let $ = this.$
 
-				$(event.toElement).prop('disabled', true)
+				console.log(this);
 
-				this.wp_ajax('gpdr_update_state', true, (result) => {
-					
-					if( result )
-					{
-						let wp = this.$store.state.wp
-						wp.gpdr_accepted = true
+				if ( $(event.toElement).hasClass('google-refus'))
+				{
 
-						this.$store.commit({
-							type: 'update_wp',
-							wp: wp
-						})
+					this.google_boolen = false
+				}
+				else 
+				{
+					this.google_boolen = true
+				}
 
-						$('#app').data('scrolling', '')
-					}
-					else
-					{
-						$(event.toElement).prop('disabled', false)
-					}
-				})
+				if ( $(event.toElement).hasClass('button-cookie')){
+
+					$(event.toElement).prop('disabled', true)
+
+					this.wp_ajax('gpdr_update_state', {gpdr: true, google: this.google_boolen}, (result) => {
+						
+						if( result )
+						{
+							let wp = this.$store.state.wp
+							wp.gpdr_accepted = true
+
+							this.$store.commit({
+								type: 'update_wp',
+								wp: wp
+							})
+
+							$('#app').data('scrolling', '')
+						}
+						else
+						{
+							$(event.toElement).prop('disabled', false)
+						}
+					})
+				}
+
+				
 			}
 		},
 		computed: {
@@ -151,6 +200,24 @@ h3{
 
 }
 
+
+.google-refus{
+
+	background-color: #f55;
+	color: #fff;
+	border: 1px solid rgba(0,0,0,.3);
+	padding: 5px 13.5px;
+
+}
+
+.google-accepter{
+
+	background-color: #888320;
+	color: #fff;
+	border: 1px solid rgba(0,0,0,.3);
+	padding: 5px 13.5px;
+	
+}
 
 @media screen and (max-width: 600px){
 

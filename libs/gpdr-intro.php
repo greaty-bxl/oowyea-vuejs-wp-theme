@@ -13,9 +13,41 @@ function check_gpdr_intro_accepted()
 }
 add_action( 'vue_vars', 'check_gpdr_intro_accepted', 0 );
 
+
+function check_google_accepted()
+{
+	$Google_accepted = false;
+
+	// echo('<pre>');
+	// print_r($_COOKIE["owy_gpdr_accepted"]);
+	// echo('<pre>');
+	// exit();
+
+	// if( $_COOKIE["owy_gpdr_accepted"] == 'true' )
+	if( $_POST['data']['google'] == 'true' )
+		
+	{
+		?>
+		<script type="text/javascript">
+			
+		</script>
+		<?php
+		$Google_accepted = true;
+	}
+	wp_vue_add_var( 'gpdr_accepted', $gpdr_accepted );
+}
+add_action( 'wp_head', 'check_google_accepted', 0 );
+
+
 function gpdr_update_state()
 {
-	setcookie('owy_gpdr_accepted', 'true', time()+62208000, '/', $_SERVER['HTTP_HOST']);
+	$_POST['data']['gpdr'];
+	$_POST['data']['google'];
+
+	if( $_POST['data']['gpdr'] == 'true' )
+	{
+		setcookie('owy_gpdr_accepted', 'true', time()+62208000, '/', $_SERVER['HTTP_HOST']);
+	}
 	die( json_encode( $_COOKIE ) );
 }
 

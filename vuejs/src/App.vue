@@ -277,7 +277,7 @@ export default {
           }, 1 )
         })
 
-       
+
 
       });
 
@@ -329,7 +329,8 @@ export default {
           const analytics = Analytics({
             plugins: [
               googleAnalytics({
-                trackingId: 'G-XLSHGNBKSL'
+                trackingId: 'G-D5MP1HH93Z'
+              
               })
             ]
           })

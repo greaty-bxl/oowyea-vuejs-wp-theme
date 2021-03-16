@@ -5,14 +5,14 @@ export default function () {
 
 	console.log('blocks', this.editor.BlockManager.getAll() );
 
-	/*let blocks = []
+	let blocks = []
 	$.each(this.editor.BlockManager.getAll().models, (index, val) => {
 		blocks[ blocks.length ] = val.id
 	});
 
 	$.each(blocks, (index, val) => {
 		this.editor.BlockManager.remove(val)
-	});*/
+	});
 
 	//block test
 	this.editor.BlockManager.add('my-first-block', {

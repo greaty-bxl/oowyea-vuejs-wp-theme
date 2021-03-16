@@ -2,7 +2,6 @@ import { createStore } from "vuex"
 
 import wp from 'Store/wp.js'
 import option from 'Store/option.js'
-import bldOptions from 'PluginStore/options.js'
 
 const store = createStore({
 	state:{
@@ -11,8 +10,8 @@ const store = createStore({
 		ajax_template_saving_queue: false,
 		examples_vars : {},
 		modal_wp_data_attrs: {},
-		wp: wp.state,
-		bldOptions : bldOptions.state
+		right_menu : null,
+		wp: wp.state,		
 	},
 	mutations: {
 		/* WP */
@@ -22,8 +21,6 @@ const store = createStore({
 		/* Option */
 		set_option: option.set_option,
 		get_option: option.get_option,
-		/* builder options */
-		open_bldOptions: bldOptions.open,
 	}
 })
 

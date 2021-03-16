@@ -1,6 +1,10 @@
 <template>
 	<Page class="owy-templates">
-		<h1>Design your WebApp <span class="pointer" ><font-awesome-icon icon="cogs" /></span> <span class="pointer" ><font-awesome-icon icon="book" /></span></h1>
+		<h1>
+			Design your WebApp
+			&nbsp;<span class="pointer" @click="$store.state.right_menu = 'main'" ><font-awesome-icon icon="cogs" /></span>
+			&nbsp;<span class="pointer" @click="$store.state.right_menu = 'docs'"><font-awesome-icon icon="book" /></span>
+		</h1>
 		<div class="owy-colors">
 			<div class="owy-color" style="background: #1BC8CA;"></div>
 			<div class="owy-color" style="background: #6953ED;"></div>

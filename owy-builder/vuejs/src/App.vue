@@ -2,12 +2,16 @@
   <OwyTemplates />
   <Grapes />
   <OwyShortcuts />
+  <OwyOptions v-show="$store.state.right_menu == 'main'" />
+  <OwyDocs v-show="$store.state.right_menu == 'docs'" />
 </template>
 
 <script>
   import Grapes from 'PluginComponents/organisms/grapesjs'
   import OwyTemplates from 'PluginComponents/organisms/templates'
   import OwyShortcuts from 'PluginComponents/organisms/shortcuts'
+  import OwyOptions from 'PluginComponents/organisms/options'
+  import OwyDocs from 'PluginComponents/organisms/docs'
 
   import PeerRoom from 'Libs/peer-room.js'
 
@@ -21,6 +25,8 @@
       OwyTemplates,
       Grapes,
       OwyShortcuts,
+      OwyOptions,
+      OwyDocs
     },
     beforeCreate(){
       this.jquery('body').removeClass('wp-core-ui')
@@ -133,6 +139,10 @@
   
   #grapesjs {
     
+  }
+
+  .pointer {
+    cursor: pointer;
   }
 
   

@@ -27,7 +27,7 @@
 				return 'url(' + this.wp_store().owy_builder_url + "assets/thumb.svg" + ')'
 			},
 			open_template : function(post){
-				console.log('open');
+				window.location.hash = post.post_name
 				this.$store.state.grapes_template = post
 			}
 		}

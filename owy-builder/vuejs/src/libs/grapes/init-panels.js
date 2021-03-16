@@ -31,20 +31,6 @@ export default function(){
 	});
 
 	this.editor.Panels.addPanel({
-		id: 'panel__more',
-		el: '.panel__more',
-		buttons: [
-			{
-				id: 'editor-wp-back',
-				active: false, // active by default
-				className: 'editor-wp-back',
-				label: '<div><span class="fa fa-comment"></span></div>',
-				command: '', // Built-in command
-			}
-		],
-	});
-
-	this.editor.Panels.addPanel({
 		id: 'editor_select_template',
 		el: '.editor_select_template',
 	});
@@ -75,7 +61,7 @@ export default function(){
 					
 					wp_data_panel = editMenuDiv
 
-					$('#vue-modals > #modal-wp-data').appendTo('#panel-wp-data')
+					$('#vue-for-grapes > #modal-wp-data').appendTo('#panel-wp-data')
 				}
 				if( editor.getSelected() )
 				{
@@ -86,13 +72,11 @@ export default function(){
 					}	
 				}
 				
-				
 				wp_data_panel.style.display = 'block'
 			},
 			stop: function (/*editor*/) {
 				if(wp_data_panel != null)
 				{
-					//$('#panel-wp-data > #modal-wp-data').appendTo('#vue-modals')
 					wp_data_panel.style.display = 'none'
 				}
 			}

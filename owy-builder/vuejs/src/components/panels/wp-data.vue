@@ -8,7 +8,7 @@
 			</div>
 			<div class="gjs-sm-header">
 				Selected: #{{attr.ccid}}
-			</div>
+			</div>			
 			<div class="acf-container" v-html="wp_data_form">
 				
 			</div>
@@ -27,33 +27,33 @@
 		data(){
 			return {
 				wp_data_form : null,
-				history : false,
+				restoring : false,
 				form_selector : '#modal-wp-data .acf-container form',
 				is_saving : false,
 				exclude_types : [],
+				update_content : false
 			}
 		},
 		mounted(){
-			//let $ = this.jquery 
-
 			//setTimout 1ms to avoid async issue
 			setTimeout(() => {
 				//restor field values about history and save
 				this.$parent.editor.on('run:core:undo', () => {
-					this.history_restore_fields()
+					this.restore_fields_from_attrs()
 				});
 
 				this.$parent.editor.on('run:core:redo', () => {
-					this.history_restore_fields()
+					this.restore_fields_from_attrs()
 				});
 
 				//delete wp data post on delete element
-				this.$parent.editor.on('component:remove', (el) => {
+				//issue on close
+				/*this.$parent.editor.on('component:remove', (el) => {
 					if( el.attributes.attributes['data-wp-data-id'] )
 					{
-						console.log(el);
+						console.log('remove',el);
 					}
-				});
+				});*/
 				
 				this.$parent.editor.on('component:selected', (el) => {
 					//add wp icon on toolbar if data saved
@@ -80,6 +80,8 @@
 				setTimeout( ()=>{
 					let $ = this.jquery
 					let form_jq = $(this.form_selector)
+					let queryfrom_input = $('[data-name="query_from"] select')
+					let example_input = form_jq.find('[data-name="example"] select')
 
 					//init acf scripts on the form loaded
 					$(document).trigger('acf/setup_fields', $('.acf-container'))
@@ -109,18 +111,57 @@
 						this.save_acf_form()
 					});
 
-					form_jq.find('[data-name="example"] select').on('change', () => {
-						console.log('change example', this.editor.getComponents() );
-
-						console.log(this.data_simulate);
-						this.data_simulate.simulate()
-
+					example_input.on('change', () => {
+						this.update_content = true
 					});
+
+					$('[data-name="open_query_generator"] ').on('click', () => {
+						this.editor.Modal
+						.onceOpen( () => {
+
+							$('#vue-for-grapes > #owy-wp-query-vue').appendTo('#gjs-mdl-c')
+
+							let wp_query_modal = this.$parent.$refs.WpQuery
+
+							wp_query_modal.opened('new_post')
+							
+						}).onceClose( () => {
+							$('#gjs-mdl-c > #owy-wp-query-vue').appendTo('#vue-for-grapes')
+							this.editor.Modal.setContent('').setTitle('')
+						}).open({
+							title : 'WP Query Generator'
+						})
+					});
+
 					//disable submit form
 					form_jq.on('submit', function(event) {
 						event.preventDefault();
 					});
 
+					//simulate if needed
+					if( this.update_content )
+					{
+						this.wp_data_simulate()
+						this.update_content = false
+					}
+
+					//get current example from data or from other same queries
+					let acf_attr = this.wp_data_get_formated_data_from_acf_attr(this.attr.selected)
+					if( acf_attr )
+					{
+						//if example has been changed by another similar query then reload the form with new info
+						if( example_input.val() != acf_attr.example && acf_attr.example != undefined )
+						{
+							example_input.val( acf_attr.example )
+							this.reload_form_and_save()
+						}
+						//On choose current check if a same query has an example then reload the form
+						if( example_input.val() == 'none' && queryfrom_input.val() == 'current' )
+						{
+							example_input.val( this.wp_date_get_example_from_others('current') )
+							this.reload_form_and_save()
+						}
+					}					
 				}, 1 )
 			},
 			get_acf_form : function(){
@@ -151,8 +192,8 @@
 
 					$.post(this.ajaxurl, form_data, (data) => {
 						let json = $.parseJSON( data )
-						//console.log('save wp data', json, this.attr );
-						if( !this.history )
+						console.log('save wp data', json, this.attr );
+						if( !this.restoring )
 						{
 							this.attr.selected.setAttributes({ 
 								'data-wp-data': this.get_data_attr_for_grapes_comp(), 
@@ -160,8 +201,10 @@
 							});
 						}
 
-						this.history = false
+						this.restoring = false
 						this.is_saving = false
+
+						this.wp_data_simulate(this.attr.selected)
 
 						if( callback !== null )
 						{
@@ -202,7 +245,7 @@
 			active_form : function(){
 				this.jquery('#modal-wp-data .acf-container').css('pointer-event', 'auto');
 			},
-			history_restore_fields : function(){
+			restore_fields_from_attrs : function(){
 				let $ = this.jquery
 				let data = this.attr.selected.getAttributes()['data-wp-data']
 				if( is_json(data) )
@@ -212,7 +255,7 @@
 						$('[name="'+val.name+'"]').val(val.value)
 					});
 
-					this.history = true
+					this.restoring = true
 					this.reload_form_and_save()
 				}
 			},
@@ -237,7 +280,6 @@
 				this.wp_data_form = null
 			},
 			'$store.state.modal_wp_data_attrs' : function(){
-				
 				this.get_acf_form()
 			}
 		}

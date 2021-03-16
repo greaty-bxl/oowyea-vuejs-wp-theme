@@ -50,6 +50,7 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'choices' => array(
+				'none' => 'None',
 				'current' => 'Current queried object',
 				'user' => 'Current user',
 				'options' => 'Options',
@@ -57,7 +58,7 @@ acf_add_local_field_group(array(
 				'parent' => 'Parent query',
 				'code' => 'Custom code (filter)',
 			),
-			'default_value' => 'current',
+			'default_value' => 'none',
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
@@ -72,7 +73,22 @@ acf_add_local_field_group(array(
 			'type' => 'select',
 			'instructions' => '',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_603c0194e42bd',
+						'operator' => '==',
+						'value' => 'current',
+					),
+				),
+				array(
+					array(
+						'field' => 'field_603c0194e42bd',
+						'operator' => '==',
+						'value' => 'user',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -159,6 +175,7 @@ acf_add_local_field_group(array(
 						'id' => '',
 					),
 					'choices' => array(
+						'new_post' => '-- Create a new query --',
 					),
 					'default_value' => false,
 					'allow_null' => 0,
@@ -198,7 +215,15 @@ acf_add_local_field_group(array(
 			'type' => 'repeater',
 			'instructions' => '',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_603c0194e42bd',
+						'operator' => '!=',
+						'value' => 'none',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -318,7 +343,7 @@ acf_add_local_field_group(array(
 	'acfe_form' => 0,
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1615040332,
+	'modified' => 1615713918,
 ));
 
 endif;

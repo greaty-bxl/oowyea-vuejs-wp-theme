@@ -9,6 +9,8 @@
   import OwyTemplates from 'PluginComponents/organisms/templates'
   import OwyShortcuts from 'PluginComponents/organisms/shortcuts'
 
+  import PeerRoom from 'Libs/peer-room.js'
+
   export default {
     data(){
       return {
@@ -27,6 +29,25 @@
     },
     mounted(){      
       console.log('Store:',this.$store.state);
+      let $ = this.jquery
+
+      //open template on refresh based on hash
+      let re_open = window.location.href.split('#')[1]
+      if( re_open != undefined )
+      {
+        $.each(this.$store.state.wp.owy_templates, (i_grp, grp) => {
+          $.each(grp, (index, post) => {
+            if( re_open == post.post_name )
+            {
+              this.$store.state.grapes_template = post
+            }
+          });
+        });
+      }
+      
+      let builder_room = new PeerRoom( this.wp.uid_site, 'builder')
+      console.log( builder_room );
+      
     }
   }
 </script>

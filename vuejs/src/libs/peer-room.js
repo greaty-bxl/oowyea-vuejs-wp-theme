@@ -16,8 +16,8 @@ export default class PeerRoom {
 	constructor (project_suffix, roomname, user_data = {}){
 
 		let peer_server = {
-			host: 'peerjs.game.logic.website',
-			port: 9000,
+			host: 'p2p.oowyea.com',
+			port: '',
 			path: '/',
 			secure: true
 		}
@@ -69,6 +69,7 @@ export default class PeerRoom {
 			}
 		}).on('connection', ( dataConnection ) => {
 			dataConnection.on('data', (result) => {
+				console.log( 'connected', result );
 				this.on_peer_message(dataConnection, result)
 			})
 		}).on('error', function(err) {

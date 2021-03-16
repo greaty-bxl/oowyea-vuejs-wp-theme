@@ -16,29 +16,29 @@
         </optgroup>
       </select>
     </div>
-    <div class="panel__more">
-      
-    </div>
 
-    <div id="vue-modals" style="display: none">
+    <div id="vue-for-grapes" style="display: none">
       <WpData/>
+      <WpQuery ref="WpQuery"/>
     </div>
   </div>
 </template>
 
 <script>
+//Grapes import
 import 'grapesjs/dist/css/grapes.min.css';
 import grapesjs from 'grapesjs';
 
-//Custom grapes libs
+//Custom Grapes libs
 import owy_storage from 'PluginLib/grapes/storage.js'
 
+//Import panels
+import WpData from 'PluginComponents/panels/wp-data.vue'
 
+//Import panels
+import WpQuery from 'PluginComponents/modals/wp-query.vue'
 
-
-//Import modals
-import WpData from 'PluginComponents/molecules/panel-wp-data'
-
+//Grapes plugins
 import style_bg_plugin from 'grapesjs-style-bg';
 import 'grapick/dist/grapick.min.css';
 
@@ -54,18 +54,19 @@ export default {
     }
   },
   components: {
-      WpData
+      WpData,
+      WpQuery
   },
   mounted(){
     
     let $ = this.jquery
     let Vue = this
 
+    //Grapes plugins as require
     require('grapesjs-preset-webpage')
     require('grapesjs-blocks-flexbox')
-    //require('grapesjs-style-bg')
 
-
+    //init grapes
     this.editor = grapesjs.init({
       avoidInlineStyle: 1,
       autorender: false,
@@ -138,7 +139,7 @@ export default {
 
     //keep current panel open
     $(document).on('click', '.gjs-pn-views .gjs-pn-btn', (event)=> {
-      console.log( $(event.currentTarget).attr('title') );
+      //console.log( $(event.currentTarget).attr('title') );
       this.current_panel = $(event.currentTarget).attr('title')
     });
 
@@ -171,6 +172,7 @@ export default {
     //add commands
     this.editor.Commands.add('editor-wp-back', () => {
       console.log('close', this);
+      window.location.hash = ''
       this.close()
     });
 
@@ -214,7 +216,7 @@ export default {
     
     console.log('gjs Editor', this.editor);
 
-    
+    this.editor.SelectorManager.add('selectorName');
     
   },
   computed : {
@@ -277,7 +279,12 @@ export default {
 
 <style lang="scss">
 .gjs-cv-canvas{
-  width: calc(100% - 280px)
+  width: calc(100% - 280px);
+}
+
+.gjs-mdl-content{
+  max-height: calc(100vh - 160px);
+  overflow: auto;
 }
 
 .gjs-pn-views{
@@ -345,6 +352,10 @@ select, select optgroup, select option{
   box-shadow: none;
   background: #23363D;
   color: #fff;
+  width: 100%;
+  font-weight: lighter;
+  font-size: 0.75rem;
+  padding: 0px 5px;
 }
 
 #editor {

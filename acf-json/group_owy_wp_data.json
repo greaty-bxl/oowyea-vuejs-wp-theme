@@ -46,6 +46,7 @@
                 "id": ""
             },
             "choices": {
+                "none": "None",
                 "current": "Current queried object",
                 "user": "Current user",
                 "options": "Options",
@@ -53,7 +54,7 @@
                 "parent": "Parent query",
                 "code": "Custom code (filter)"
             },
-            "default_value": "current",
+            "default_value": "none",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -68,7 +69,22 @@
             "type": "select",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_603c0194e42bd",
+                        "operator": "==",
+                        "value": "current"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_603c0194e42bd",
+                        "operator": "==",
+                        "value": "user"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -153,7 +169,9 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": [],
+                    "choices": {
+                        "new_post": "-- Create a new query --"
+                    },
                     "default_value": false,
                     "allow_null": 0,
                     "multiple": 0,
@@ -192,7 +210,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_603c0194e42bd",
+                        "operator": "!=",
+                        "value": "none"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -311,5 +337,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1615040332
+    "modified": 1615713918
 }

@@ -121,7 +121,6 @@ function owy_save_wp_data_acf_return_json($post_id){
 		$return = array(
 			'post_id' => $post_id
 		);
-
 		die( json_encode( $return ) );
 	}
 }

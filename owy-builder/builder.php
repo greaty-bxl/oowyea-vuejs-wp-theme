@@ -18,7 +18,7 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 	include owy_builder_dir . 'libs/builder-vars.php';
 	include owy_builder_dir . 'libs/owy-templates.php';	
 	include owy_builder_dir . 'libs/wp-data-get-form.php';
-	
+	include owy_builder_dir . 'libs/acf-admin.php';
 	
 	
 

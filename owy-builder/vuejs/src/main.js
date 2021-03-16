@@ -20,7 +20,17 @@ glProps.ajaxurl = window.ajaxurl
 glProps.wp = window.owy_wp
 glProps.acf = window.acf
 
+/*
+	font awesome	
+*/
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+
+library.add(fas)
+app.component('font-awesome-icon', FontAwesomeIcon)
+//app.config.productionTip = false
 
 /* 
 	grapes functions
@@ -31,8 +41,11 @@ glProps.init_owy_panels = init_owy_panels
 import init_owy_blocks from 'PluginLib/grapes/init-blocks.js'
 glProps.init_owy_blocks = init_owy_blocks
 
-import data_simulate from 'PluginLib/grapes/wp-data-simulate.js'
-glProps.data_simulate = data_simulate
+import wp_data from 'PluginLib/grapes/wp-data-funct.js'
+let $ = glProps.jquery
+$.each(wp_data, (index, val) => {
+	glProps[index] = val
+});
 
 /*
 	Init App

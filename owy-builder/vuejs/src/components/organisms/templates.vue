@@ -1,6 +1,6 @@
 <template>
 	<Page class="owy-templates">
-		<h1>Design your WebApp</h1>
+		<h1>Design your WebApp <span class="pointer" ><font-awesome-icon icon="cogs" /></span> <span class="pointer" ><font-awesome-icon icon="book" /></span></h1>
 		<div class="owy-colors">
 			<div class="owy-color" style="background: #1BC8CA;"></div>
 			<div class="owy-color" style="background: #6953ED;"></div>
@@ -56,5 +56,9 @@
 		border-radius: 40px;
 		margin-right: 10px;
 		border: 2.5px solid rgba(255,255,255,0.8);
+	}
+
+	.owy-templates h1 span{
+		font-size: 70%;
 	}
 </style>

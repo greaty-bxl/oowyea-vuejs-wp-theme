@@ -4,27 +4,32 @@
         <div>
 			<h3><strong v-html="pll__('POLITIQUE DE COOKIE')" ></strong></h3>
 			<div v-html="$store.state.wp.sidebars['gpdr-intro']"></div>
-			<p v-html="pll__('Google Analytic')"></p>
-			<div>
 
-				<button v-on:click="accept" class="google-accepter" v-html="pll__('Accepter')">
-				</button>
-				<button v-on:click="accept" class="google-refus" v-html="pll__('Refuser')">
-				</button>
-			
-				</div>
-			<button class="button-cookie" v-on:click="accept">J'accepte</button>        
+			<p class="google-analytic" v-html="pll__('Google Analytic')"></p>
+			<div class="div-button" >
+
+			<button v-on:click="accept({gpdr: true, google: true})" class="button-santos-vert google-accepter" v-html="pll__('Accepter')">
+			</button>
+
+			<button v-on:click="accept({gpdr: true, google: false})" class="button-santos-vert  google-refus" v-html="pll__('Refuser')">
+			</button>
+
+			</div>
+
         </div>        
       </div>
     </div>
 </template>
 
 <script>
+
+	// import VueAnalytics from 'vue-analytics'
+	// import Vue from 'vue';
 	export default {
 
 		data(){
 			return {
-				google_boolen: true,
+				google_boolean: true,
 			}
 		},
 		mounted () {
@@ -32,7 +37,8 @@
 
 			console.log(this.$store.state.wp.sidebars);
 
-			console.log(this.google_boolen);
+			console.log(this.google_boolean);
+
 			
 			$('#app').on('section-top-ready', () => {
 				
@@ -42,45 +48,24 @@
 				{		
 					$('#app').data('scrolling', 'gpdr')
 				}
+
+				if ( this.$store.state.wp.google_accepted ) 
+				{
+					//this.init_google()
+				}
 			});
 		},
 		methods:{
 
-			// refus_google: function(){
-
-			// 	this.google_boolen = false
-
-			// 	console.log(this.google_boolen);
-			// },
-
-			// accept_google: function(){
-
-			// 	this.google_boolen = true
-
-			// 	console.log(this.google_boolen);
-			// },
-
-			accept: function(event){
+			accept: function(arg){
 
 				let $ = this.$
 
-				console.log(this);
-
-				if ( $(event.toElement).hasClass('google-refus'))
-				{
-
-					this.google_boolen = false
-				}
-				else 
-				{
-					this.google_boolen = true
-				}
-
-				if ( $(event.toElement).hasClass('button-cookie')){
+				console.log(arg);
 
 					$(event.toElement).prop('disabled', true)
 
-					this.wp_ajax('gpdr_update_state', {gpdr: true, google: this.google_boolen}, (result) => {
+					this.wp_ajax('gpdr_update_state', arg, (result) => {
 						
 						if( result )
 						{
@@ -93,16 +78,37 @@
 							})
 
 							$('#app').data('scrolling', '')
+
 						}
 						else
 						{
 							$(event.toElement).prop('disabled', false)
 						}
-					})
-				}
 
+					})
+
+					console.log(arg.google, 'arg.google');
+
+					if( arg.google === true ){
+
+						this.$store.state.wp.google_accepted = true
+					} 
+
+			},
+			// init_google : function(){
 				
-			}
+			// 	// 	Vue.use(VueAnalytics, {
+			// 	// 	id: 'UA-XXX-X'
+			// 	// })
+			// 	// (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			// 	// (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			// 	// m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			// 	// })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			// 	// ga('create', 'UA-XXXXX-Y', 'auto');
+			// 	// ga('send', 'pageview');
+				
+			// }
 		},
 		computed: {
 			wp () {
@@ -172,51 +178,55 @@ h3{
 	font-size: 22px;
 }
 
-.button-cookie {
-
-	background-color: #888320 !important;
-	color: white !important;
-	margin-top: 16px;
-	border: solid #888320;
-	border-width: 1px;
-	min-width: 200px;
-	padding-top: 25px;
-	padding-bottom: 25px;
-	line-height: 0;
-	border-radius: 0px;
-	margin-bottom: 16px;
-	font-size: 18px;
-	line-height: 0px;
-	margin-top: 22px;
-
-}
-
-.button-cookie:hover {
-
-	background-color: white !important;
-	color: #888320 !important;
-	transition: 0.3;
-	
-
-}
-
 
 .google-refus{
+	margin-top: 15px;
+	background-color: white !important;
+	color: #888320 !important;
+	border: 1px solid #888320 !important;
+	transition: all 0.2s ease-out;
+	font-size: 16px;
 
-	background-color: #f55;
-	color: #fff;
-	border: 1px solid rgba(0,0,0,.3);
-	padding: 5px 13.5px;
+}
+
+.google-refus:hover{
+
+	background-color: white;
+	color: #f55;
 
 }
 
 .google-accepter{
 
-	background-color: #888320;
-	color: #fff;
-	border: 1px solid rgba(0,0,0,.3);
-	padding: 5px 13.5px;
-	
+	font-size: 16px;
+
+}
+
+.google-accepter:hover{
+
+	background-color: white;
+	color: #888320;
+}
+
+.google-analytic{
+
+	margin-top: 30px;
+	margin-bottom: 15px;
+	font-weight: 600;
+	font-size: 16px;
+
+}
+
+.div-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-button button{
+
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @media screen and (max-width: 600px){

@@ -1,3 +1,5 @@
+import basics from 'PluginLib/grapes/blocks/basics.js'
+
 export default function () {
 	console.log('init blocks', this.editor);
 	
@@ -14,16 +16,8 @@ export default function () {
 		this.editor.BlockManager.remove(val)
 	});
 
-	//block test
-	this.editor.BlockManager.add('my-first-block', {
-		label: 'Simple block',
-		category: 'test',
-		content: '<div data-gjs-type="test" data-widget="test" class="my-block">This is a simple block</div>',
-		attributes: {
-			test: 'Insert h1 block'
-		}
-	});
-	
+	basics(this.editor.BlockManager)
+
 	this.editor.DomComponents.addType('test', {
 			isComponent: function(el) {
 				if( $(el).data('widget') == 'test' )

@@ -73,6 +73,9 @@ import acf_ajax from 'Libs/acf-front-ajax.js'
 
 //Vue.prototype.noty = noty
 
+import Analytics from 'analytics'
+import googleAnalytics from '@analytics/google-analytics'
+
 function vue_key_to_name(str)
 {
   var base = new String(str).substring(str.lastIndexOf('/') + 1); 
@@ -273,9 +276,17 @@ export default {
             })
           }, 1 )
         })
+
+       
+
       });
 
+      this.google_condition()
+
       on_screen()
+
+
+      console.log(this.$store.state.wp.google_accepted);
 
     });
 
@@ -301,7 +312,50 @@ export default {
       }*/
 
       smart_fonts()
+    },
+
+    google_condition(){
+
+      let $ = this.$
+
+      console.log( this.$store.state.wp, "this.$store.state.wp.gpdr_accepted");
+
+      if( this.$store.state.wp.google_accepted ){
+
+       console.log('event google');
+
+          on_screen()
+
+          const analytics = Analytics({
+            plugins: [
+              googleAnalytics({
+                trackingId: 'G-XLSHGNBKSL'
+              })
+            ]
+          })
+
+          analytics.page()
+
+          $(document).on('after_data_next_page', (event) => {
+              console.log(event , 'after_data_next_page');
+            analytics.page()
+          });
+
+      }
+
     }
+  },
+
+  watch:{
+    '$store.state.wp.google_accepted' : function()
+    {
+   
+        this.google_condition()
+
+        console.log(this.$store.state.wp);
+      
+    }
+   
   },
   computed: {
     wp () {   

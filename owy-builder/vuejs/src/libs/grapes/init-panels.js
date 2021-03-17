@@ -10,7 +10,7 @@ export default function(){
 				id: 'editor-wp-back',
 				active: false, // active by default
 				className: 'editor-wp-back',
-				label: '<div title="Close editor"><span class="fa fa-close"></span></div>',
+				label: '<div title="Close editor"><span class="fas fa-times"></span></div>',
 				command: 'editor-wp-back',
 			},
 			{
@@ -43,7 +43,7 @@ export default function(){
 	pn.addButton('views', {
 		id: 'wp-data-panel',
 		attributes: {
-			class: 'fa fa-wordpress', 
+			class: 'fab fa-wordpress-simple',
 			title: "Edit WordPress data"
 		},
 		active: false,
@@ -119,4 +119,7 @@ export default function(){
 			}
 		}
 	})
+
+	
+	console.log( 'Panels', this.editor.Panels.getPanels()  )
 }

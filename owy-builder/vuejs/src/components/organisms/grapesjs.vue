@@ -65,7 +65,7 @@ export default {
     //Grapes plugins as require
     require('grapesjs-preset-webpage')
     require('grapesjs-blocks-flexbox')
-
+    console.log('theme', this.wp.theme_url+'/plugins/fontawesome-free-5.15.2-web/css/all.css');
     //init grapes
     this.editor = grapesjs.init({
       avoidInlineStyle: 1,
@@ -87,6 +87,7 @@ export default {
       
       protectedCss: '',
 
+      cssIcons : this.wp.theme_url+'/plugins/fontawesome-free-5.15.2-web/css/all.min.css',
       //canvasCss: '',
 
       styleManager: {},

@@ -327,6 +327,10 @@ export default {
   color: #4D94AE;
 }
 
+.gjs-pn-btn {
+  font-size: 16px;
+}
+
 .gjs-pn-btn a{
   color: inherit;
 }

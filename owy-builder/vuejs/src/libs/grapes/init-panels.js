@@ -120,6 +120,27 @@ export default function(){
 		}
 	})
 
+	/*
+		Replace Fontawesome oldated icones
+	*/
+	let replace_icos = {
+		'fa fa-square-o' : 'far fa-square',
+		'fa fa-repeat' : 'fas fa-redo',
+		'fa fa-mobile' : 'fas fa-mobile-alt',
+		'fa fa-tablet' : 'fas fa-tablet-alt'
+	}
+
+	$.each(this.editor.Panels.getPanels().models, function(i_pan, panel) {
+		$.each(panel.buttons.models, function(i_bt, button) {
+			
+			let fa_class = button.attributes.className
+
+			$.each(replace_icos, function(replace, by) {
+				fa_class = fa_class.replace(replace, by)
+			});
+
+			button.set('className', fa_class)
+		});
+	});
 	
-	console.log( 'Panels', this.editor.Panels.getPanels()  )
 }

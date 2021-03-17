@@ -37,6 +37,7 @@ module.exports = {
         PluginComponents: path.resolve(__dirname, 'src/components'),
         PluginLib: path.resolve(__dirname, 'src/libs'),
         PluginStore: path.resolve(__dirname, 'src/store'),
+        PluginStyle: path.resolve(__dirname, 'src/style'),
         //Plugin_libs: path.resolve(__dirname, theme_src + '/libs'),
       }
     },

@@ -169,6 +169,9 @@ export default {
 
     //Init Panels
     this.init_owy_panels()
+
+    //Init Sectors
+    this.init_owy_sectors()
     
     //add commands
     this.editor.Commands.add('editor-wp-back', () => {

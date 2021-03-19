@@ -78,7 +78,7 @@ export default class PeerRoom {
 			}
 		}).on('connection', ( dataConnection ) => {
 			dataConnection.on('data', (result) => {
-				console.log( 'connected', result );
+				//console.log( 'connected', result );
 				this.on_peer_message(dataConnection, result)
 			})
 		}).on('error', function(err) {
@@ -119,24 +119,27 @@ export default class PeerRoom {
 			return
 		}
 
-		console.log( 'receive data', result )
-
-
 		if(result.update_users)
 		{
 			console.log('update_users');
 			this.users = result.update_users
 			this.send_to_all({'user_data_update':this.user_data})
 		}
-		if(result.add_to_all) 
+		else if(result.add_to_all) 
 		{
 			this.save_data(result.add_to_all.key, result.add_to_all.data)
 		}
-		if(result.user_data_update)
+		else if(result.user_data_update)
 		{
 			this.users_data[dataConnection.peer] = result.user_data_update
 			this.event('user_data_update', '*', this.users_data)
-		}	
+		}
+		else if( typeof result === 'object' )
+		{
+			this.event('receive_data', '*', result)
+		}
+
+
 	}
 
 	make_me_host(){

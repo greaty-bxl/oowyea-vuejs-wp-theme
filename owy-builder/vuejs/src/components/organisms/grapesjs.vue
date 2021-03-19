@@ -100,14 +100,14 @@ export default {
     });
 
 
-    this.editor.StyleManager.removeProperty('decorations', 'background-color');
+    /*this.editor.StyleManager.removeProperty('decorations', 'background-color');
     this.editor.StyleManager.removeProperty('decorations', 'background');
     
     this.editor.StyleManager.addProperty('decorations',{
       //name: 'background',
       property: 'background',
       type: 'bg',
-    }, { at: 0 });
+    }, { at: 0 });*/
 
     //let editor = this.editor
     
@@ -165,7 +165,7 @@ export default {
     })
 
     //render editor
-    this.editor.render();
+    this.editor.render()
 
     //Init Panels
     this.init_owy_panels()

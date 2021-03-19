@@ -1,6 +1,6 @@
 <template>
   <OwyTemplates />
-  <Grapes />
+  <Grapes ref="grapes"/>
   <OwyShortcuts />
   <OwyOptions v-show="$store.state.right_menu == 'main'" />
   <OwyDocs v-show="$store.state.right_menu == 'docs'" />
@@ -12,8 +12,6 @@
   import OwyShortcuts from 'PluginComponents/organisms/shortcuts'
   import OwyOptions from 'PluginComponents/organisms/options'
   import OwyDocs from 'PluginComponents/organisms/docs'
-
-  import PeerRoom from 'Libs/peer-room.js'
 
   export default {
     data(){
@@ -50,20 +48,8 @@
           });
         });
       }
-      
-      this.$store.state.builder_room = new PeerRoom( {
-        room_group: this.wp.uid_site,
-        room_name: 'owy_builder',
-        passphrase: this.wp.peer_admin_key,
-        peer_server: {
-          host: 'p2p.oowyea.com',
-          port: '',
-          path: '/',
-          secure: true
-        }
-      })
-      
-      console.log( this.$store.state.builder_room );
+
+      this.init_peer_collab()
       
     }
   }

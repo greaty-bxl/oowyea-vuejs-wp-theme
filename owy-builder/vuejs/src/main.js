@@ -45,6 +45,9 @@ glProps.init_owy_panels = init_owy_panels
 import init_owy_blocks from 'PluginLib/grapes/init-blocks.js'
 glProps.init_owy_blocks = init_owy_blocks
 
+import init_owy_sectors from 'PluginLib/grapes/init-sectors.js'
+glProps.init_owy_sectors = init_owy_sectors
+
 import wp_data from 'PluginLib/grapes/wp-data-funct.js'
 let $ = glProps.jquery
 $.each(wp_data, (index, val) => {

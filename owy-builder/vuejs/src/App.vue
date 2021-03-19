@@ -51,8 +51,19 @@
         });
       }
       
-      let builder_room = new PeerRoom( this.wp.uid_site, 'builder')
-      console.log( builder_room );
+      this.$store.state.builder_room = new PeerRoom( {
+        room_group: this.wp.uid_site,
+        room_name: 'owy_builder',
+        passphrase: this.wp.peer_admin_key,
+        peer_server: {
+          host: 'p2p.oowyea.com',
+          port: '',
+          path: '/',
+          secure: true
+        }
+      })
+      
+      console.log( this.$store.state.builder_room );
       
     }
   }

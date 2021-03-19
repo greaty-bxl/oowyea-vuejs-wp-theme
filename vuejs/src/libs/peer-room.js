@@ -10,27 +10,36 @@
 
 import Peer from 'peerjs'
 import Dexie from 'dexie'
+import CryptoJS from 'crypto-js'
 
 export default class PeerRoom {
 
-	constructor (project_suffix, roomname, user_data = {}){
+	constructor (args){
 
-		let peer_server = {
-			host: 'p2p.oowyea.com',
-			port: '',
-			path: '/',
-			secure: true
+		let defaultArgs = {
+			room_group: null,
+			room_name: null,
+			passphrase: null,
+			peer_server: {
+				host: 'p2p.oowyea.com',
+				port: '',
+				path: '/',
+				secure: true
+			},
+			user_data: {}
 		}
 
-		let user_id = this.get_user_id(roomname)
-		let host_id = project_suffix+'-'+roomname
+		args = Object.assign(defaultArgs, args)
+		this.args = args
+
+		let user_id = this.get_user_id(args.room_name)
+		let host_id = args.room_group+'-'+args.room_name
 		let user_peer_id = host_id+'-'+user_id
-		let user_peer = new Peer(user_peer_id, peer_server)
+		let user_peer = new Peer(user_peer_id, args.peer_server)
 		let host_peer = null
 		let users = []
-		
-		console.log(user_data)
-		this.peer_server = peer_server
+
+		this.peer_server = args.peer_server
 		this.user_id = user_id
 		this.host_id = host_id
 		this.user_peer_id = user_peer_id
@@ -42,13 +51,13 @@ export default class PeerRoom {
 		this.conns = {}
 		this.users = users
 		this.users_data = {}
-		this.roomname = roomname
+		this.roomname = args.room_name
 		this.update_data_hooks = {}
 		this.init_data_hooks = {}
 		this.events = {}
 
-		this.user_data = user_data
-		user_data['peerID'] = user_id
+		this.user_data = args.user_data
+		this.user_data['peerID'] = user_id
 
 		this.db = null
 
@@ -91,6 +100,27 @@ export default class PeerRoom {
 	}
 
 	on_peer_message(dataConnection, result){
+		
+		let decrypt_error = false
+
+		if( this.args.passphrase != null && typeof result !== 'object' )
+		{
+			try {
+				result = JSON.parse( CryptoJS.AES.decrypt( result, this.args.passphrase ).toString(CryptoJS.enc.Utf8) )
+			} catch (error) {
+				console.error(error);
+				decrypt_error = error
+			}
+		}
+
+		if( decrypt_error )
+		{
+			console.log( 'decrypt data error' );
+			return
+		}
+
+		console.log( 'receive data', result )
+
 
 		if(result.update_users)
 		{
@@ -98,7 +128,7 @@ export default class PeerRoom {
 			this.users = result.update_users
 			this.send_to_all({'user_data_update':this.user_data})
 		}
-		if (result.add_to_all) 
+		if(result.add_to_all) 
 		{
 			this.save_data(result.add_to_all.key, result.add_to_all.data)
 		}
@@ -195,7 +225,12 @@ export default class PeerRoom {
 	}
 
 	as_peer_send_data( as_peer, user, data ){
-		this.promiseConnection(as_peer, user, function(conn){
+		this.promiseConnection(as_peer, user, (conn) =>{
+			
+			if( this.args.passphrase != null )
+			{
+				data = CryptoJS.AES.encrypt( JSON.stringify(data), this.args.passphrase ).toString()
+			}
 			conn.send(data);
 		});
 	}
@@ -211,7 +246,7 @@ export default class PeerRoom {
 	send_to_all(data){
 		let $this = this;
 		this.users.forEach(async function(user) { 
-			$this.send_data( user, data )	
+			$this.send_data( user, data )
 		})
 	}
 
@@ -279,7 +314,14 @@ export default class PeerRoom {
 
 			conn.on('open', () => {
 				this.conns[user] = conn
-				conn.send({ 'user_data_update': this.user_data })
+				let data = { 'user_data_update': this.user_data }
+
+				if( this.args.passphrase != null )
+				{
+					data = CryptoJS.AES.encrypt( JSON.stringify(data), this.args.passphrase ).toString()
+				}
+				conn.send( data )
+
 				callback( conn )
 			}).on('error', (err) => {
 				console.log( 'peer error', user, err.type, err )

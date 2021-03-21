@@ -53,14 +53,20 @@
 			},
 			init_chat : function(){
 
-				this.room.on('user_data_update', (user) => {
+				this.room.on('user_data_update', () => {
 					this.users = this.room.get_other_users()
-					console.log('room', this.room.get_other_users(), this.room.users_data, user );
 				});
 
 				this.room.on('update_data', (data) => {
-					console.log('update_data', data);
+					console.log('update_data');
+					data.db.each(message => console.log(message))
+
 				});
+
+				setTimeout( () => {
+					console.log( 'db', this.room.db['builder_room_message'] )
+				}, 1000);
+				
 					
 			},
 			send_message : function(e){
@@ -71,8 +77,8 @@
 
 				console.log( $(e.target).serializeObject() );*/
 				this.room.add_to_all('builder_room_message', {
-					message : this.input_message,
 					timestamp : Date.now(),
+					message : this.input_message,
 					read : false,
 				})
 				console.log( this.input_message, Date.now() );

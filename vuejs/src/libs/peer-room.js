@@ -60,7 +60,7 @@ export default class PeerRoom {
 		this.user_data = args.user_data
 		this.user_data['peerID'] = user_id
 
-		this.db = null
+		this.db = new Dexie('PeerDB-'+this.roomname)
 
 		this.user_peer.on('open', (id) => {
 

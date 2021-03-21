@@ -1,15 +1,19 @@
 <template>
   <OwyTemplates />
   <Grapes ref="grapes"/>
+  <OwyCode v-show="$store.state.code_page" />
   <OwyShortcuts />
+  <OwyChatBuilder />
   <OwyOptions v-show="$store.state.right_menu == 'main'" />
-  <OwyDocs v-show="$store.state.right_menu == 'docs'" />
+  <OwyDocs v-show="$store.state.right_menu == 'docs'" />  
 </template>
 
 <script>
   import Grapes from 'PluginComponents/organisms/grapesjs'
   import OwyTemplates from 'PluginComponents/organisms/templates'
   import OwyShortcuts from 'PluginComponents/organisms/shortcuts'
+  import OwyChatBuilder from 'PluginComponents/organisms/chat'
+  import OwyCode from 'PluginComponents/organisms/code'
   import OwyOptions from 'PluginComponents/organisms/options'
   import OwyDocs from 'PluginComponents/organisms/docs'
 
@@ -22,9 +26,11 @@
     components: {
       OwyTemplates,
       Grapes,
+      OwyCode,
       OwyShortcuts,
+      OwyChatBuilder,
       OwyOptions,
-      OwyDocs
+      OwyDocs,
     },
     beforeCreate(){
       this.jquery('body').removeClass('wp-core-ui')

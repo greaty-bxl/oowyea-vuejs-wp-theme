@@ -4,6 +4,7 @@
 		<div class="shortcut">Post types & taxonomies</div>
 		<div class="shortcut">Forms</div>
 		<div class="shortcut">Users roles</div>
+		<div class="shortcut" @click="$store.state.code_page = true">Custom Code</div>
 	</div>
 </template>
 

@@ -51,6 +51,7 @@ export default class PeerRoom {
 		this.conns = {}
 		this.users = users
 		this.users_data = {}
+
 		this.roomname = args.room_name
 		this.update_data_hooks = {}
 		this.init_data_hooks = {}
@@ -68,7 +69,7 @@ export default class PeerRoom {
 			this.is_user_connect = true
 
 			this.users_data[this.user_peer_id] = this.user_data
-			this.event('user_data_update', '*', this.users_data)
+			//this.event('user_data_update', this.user_data)
 
 			this.make_me_host()
 
@@ -78,7 +79,6 @@ export default class PeerRoom {
 			}
 		}).on('connection', ( dataConnection ) => {
 			dataConnection.on('data', (result) => {
-				//console.log( 'connected', result );
 				this.on_peer_message(dataConnection, result)
 			})
 		}).on('error', function(err) {
@@ -88,10 +88,9 @@ export default class PeerRoom {
 				$this.users.push($this.user_peer_id)
 				$this.make_me_host()*/
 			}
-			else
-			{
-				//console.log('user error', err.type, err)
-			}
+			
+			console.log('user error', err.type, err)
+
 		}).on('close', function(){
 			console.log('close')
 		}).on('disconnected', function(){
@@ -119,7 +118,7 @@ export default class PeerRoom {
 			return
 		}
 
-		if(result.update_users)
+		if(result.update_users )
 		{
 			console.log('update_users');
 			this.users = result.update_users
@@ -131,12 +130,23 @@ export default class PeerRoom {
 		}
 		else if(result.user_data_update)
 		{
-			this.users_data[dataConnection.peer] = result.user_data_update
-			this.event('user_data_update', '*', this.users_data)
+			if( JSON.stringify(this.users_data[dataConnection.peer]) !== JSON.stringify(result.user_data_update) )
+			{
+				if( this.users_data[dataConnection.peer] === undefined )
+				{
+					this.event('user_join', result.user_data_update)
+				}
+				this.users_data[dataConnection.peer] = result.user_data_update
+				this.event('user_data_update', result.user_data_update)
+			}
+		}
+		else if(result.new_user)
+		{
+			this.event('new_user', result.new_user)
 		}
 		else if( typeof result === 'object' )
 		{
-			this.event('receive_data', '*', result)
+			this.event('receive_data', result)
 		}
 
 
@@ -216,15 +226,17 @@ export default class PeerRoom {
 
 	host_new_user( new_peer ){
 		let $this = this;
-		console.log('host_new_user', new_peer, this.users)
+		//console.log('host_new_user', new_peer, this.users)
 		if( this.users.indexOf(new_peer) == -1 )
 		{
 			this.users.push(new_peer)
 		}
-		this.users.forEach(async function(user) { 
-			console.log('each', user)
+		this.users.forEach( function(user) { 
 			$this.host_send_data( user, {'update_users': $this.users} )	
+			$this.host_send_data( user, {'new_user': new_peer} )
 		})
+
+		this.event('new_user', new_peer)
 	}
 
 	as_peer_send_data( as_peer, user, data ){
@@ -272,7 +284,7 @@ export default class PeerRoom {
 		delete data.id
 		this.db[key].add(data);
 
-		this.event('update_data', key, {data: data, db: this.db[key]})
+		this.event('update_data', {key: key, data: data, db: this.db[key]})
 
 		console.log('save_data', data)
 	}
@@ -285,17 +297,17 @@ export default class PeerRoom {
 		})
 	}
 
-	on(eventName, key, callback){
-		if( typeof this.events[eventName] === "undefined") this.events[eventName] = {}
-		if( typeof this.events[eventName][key] === "undefined") this.events[eventName][key] = []
-		var length = this.events[eventName][key].length
-		if( typeof callback == 'function' && this.events[eventName][key].includes(callback) === false ) this.events[eventName][key][length] = callback
+	on(eventName, /*key, */callback){
+		if( typeof this.events[eventName] === "undefined") this.events[eventName] = []
+		//if( typeof this.events[eventName][key] === "undefined") this.events[eventName][key] = []
+		var length = this.events[eventName].length
+		if( typeof callback == 'function' && this.events[eventName].includes(callback) === false ) this.events[eventName][length] = callback
 	}
 
-	event(eventName, key, result){
+	event(eventName, /*key, */result){
 		if( this.events[eventName] )
 		{
-			this.events[eventName][key].forEach( callback => {
+			this.events[eventName].forEach( callback => {
 				callback( result )
 			})
 		}
@@ -336,11 +348,24 @@ export default class PeerRoom {
 				}
 				delete this.users_data[user]
 				delete this.conns[user]
-				this.event('user_data_update', '*', this.users_data)
+				//this.event('user_data_update', this.users_data)
 			}).on('disconnected', () => {
 				console.log('peer disconnected', user)
 			})
 		}
+	}
+
+	get_user_by_id( peer_id ){
+
+		for ( const [key, value] of Object.entries(this.users_data) ) 
+		{
+			console.log(peer_id, key, value);
+		}
+
+		/*this.users_data.forEach( (key,user) => {
+			console.log(peer_id, key, user)
+		})*/
+		//console.log(peer_id, this.users_data["604f6b2761177_oowyea-owy_builder-0a5db1a5-2f9b-428e-ab1a-56abcfe395cb"] );
 	}
 
 	/*

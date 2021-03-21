@@ -1,8 +1,11 @@
 import PeerRoom from 'Libs/peer-room.js'
+import noty from 'Libs/noty.js'
 
 export default function () {
 
 	//let $ = this.jquery 
+	let current_user = this.$store.state.wp.current_user
+	let user_data = current_user.data
 
 	this.$store.state.builder_room = new PeerRoom( {
 		room_group: this.wp.uid_site,
@@ -13,22 +16,25 @@ export default function () {
 			port: '',
 			path: '/',
 			secure: true
+		},
+		user_data: {
+			name : user_data.display_name
 		}
 	})
+
+	console.log( 'current_user', user_data);
 
 	let room = this.$store.state.builder_room
 
 	let editor = this.$refs.grapes.editor
 	console.log('peer collab', editor );
 
-	let ShortTimer;
+	let ShortTimer; //avoid repeated events
 
 	editor.on('load', () => {
-		console.log('load');
-
 		
 		editor.on('component:selected', () => {
-			console.log( editor.getSelected() )
+			//console.log( editor.getSelected() )
 		})
 
 		editor.on('component:styleUpdate', () => {
@@ -45,8 +51,8 @@ export default function () {
 		})
 	});
 
-	room.on('receive_data', '*', (data) => {
-		console.log('data', data);
+	room.on('receive_data', (data) => {
+		console.log('receive_data', data);
 
 		if( data['type'] == "updatecss" )
 		{
@@ -54,23 +60,24 @@ export default function () {
 		}
 	});
 
+	/*room.on('user_data_update', (result) => {
 
-	//let ShortTimer;
-
-	/*setTimeout( () => {
-		editor.on('component:update', () => {
-
-			clearTimeout( ShortTimer );
-			ShortTimer = setTimeout( () => {
-				let selected = editor.getSelected()
-				let selector = .text()
-				if( selected )
-				{
-					console.log('component is update', editor.getSelected(), $('.gjs-clm-sel-id').text() + $('.gjs-clm-sel-rule').text() );
-				}
-			}, 100);
+		console.log('new_user', result );
+		
+		noty({
+			text: result.name,
+			type: 'success'
 		})
+	});*/
 
-	},1);*/
+	room.on('user_join', (result) => {
+
+		console.log('User join', result );
+		
+		noty({
+			text: 'User join: ' + result.name,
+			type: 'success'
+		})
+	});
 	
 }

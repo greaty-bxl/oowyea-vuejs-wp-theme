@@ -32,6 +32,7 @@ function init_classics_wp_variables()
 	wp_vue_add_var('upload_baseurl', wp_get_upload_dir()['baseurl'] );
 	wp_vue_add_var('admin_url', get_admin_url() );
 	wp_vue_add_var('theme_url', GREATY_TEMPLATE_URL );
+	wp_vue_add_var('current_user', wp_get_current_user() );
 	
 }
 add_action( 'vue_vars', 'init_classics_wp_variables' );

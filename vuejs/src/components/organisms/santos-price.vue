@@ -26,7 +26,7 @@
 		mounted (){
 			//console.log('price', this.item);
 
-			if( this.has_term(this.item, 'product_cat', ['accompagnements','cafes', 'pads-et-capsules', 'thes'], 'or') )
+			if( this.has_term(this.item, 'product_cat', ['accompagnements','cafes', 'pads-et-capsules', 'thes', 'machines-a-cafe-at-home','mousseur-a-lait','porcelaines'], 'or') )
 			{
 				this.vat = true
 				this.$parent.vat = true
@@ -85,6 +85,7 @@
 			},
 
 			vat_prefix: function () {
+
 				if( this.vat )
 				{
 					return '<small class="woocommerce-price-suffix">'+ this.pll__('TVAC') +'</small>'	

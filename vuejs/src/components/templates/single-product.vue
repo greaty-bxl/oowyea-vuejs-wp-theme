@@ -16,6 +16,10 @@
 						<h2 class="open-sans title-single-santospalace" v-html="post.post_title">Colis</h2>
 						<p class="approximate-price"><span><Price :item="post" /></span></p>
 
+						<p v-if="has_term(post, 'product_cat', 'cafes')" class="approximate-price">
+							<span style="color: #666; font-weight: 400;" v-html="pll__('Prix plus avantageux par poids progressif.')">
+							</span>
+						</p>
 						<div class="description-padding">
 
 							<div  class="padding-appeare">
@@ -168,7 +172,7 @@
 						<div v-if="type != 'contact_us'" class="contact-prix" >
 							<p v-html="pll__('Livraison estimée entre 24h et 48h.')" ></p>
 							<p style="padding-top: 10px" v-html="pll__('La livraison est gratuite à partir de 100 € en Belgique.')" ></p>
-							<p style="padding-top: 10px" v-html="pll__('En dessous dune commande de 100 euros, la livraison est à 8,50 euros tvac')" ></p>
+							<p style="padding-top: 10px" v-html="pll__('En dessous dune commande de 100 euros, la livraison est à 8,50 euros tvac.')" ></p>
 						</div>
 							
 					</div>

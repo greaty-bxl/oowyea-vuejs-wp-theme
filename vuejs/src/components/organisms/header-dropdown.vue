@@ -529,6 +529,15 @@ export default {
 
 <style>
 
+	.ligne-animation{
+
+		-o-user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		user-select: none; 
+		cursor: pointer;
+	}
+
 	li:has(> a.current){
 
 		color: #888320 !important;

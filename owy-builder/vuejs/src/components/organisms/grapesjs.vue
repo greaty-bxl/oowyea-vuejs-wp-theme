@@ -329,6 +329,9 @@ export default {
 .gjs-four-color-h:hover{
   color: #4D94AE;
 }
+.gjs-four-bg{
+  background: #4D94AE;
+}
 
 .gjs-pn-btn {
   font-size: 16px;

@@ -18,7 +18,8 @@ export default function () {
 			secure: true
 		},
 		user_data: {
-			name : user_data.display_name
+			name : user_data.display_name,
+			id : user_data.ID
 		}
 	})
 

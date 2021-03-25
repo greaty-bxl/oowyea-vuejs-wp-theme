@@ -6,16 +6,18 @@
   <OwyChatBuilder />
   <OwyOptions v-show="$store.state.right_menu == 'main'" />
   <OwyDocs v-show="$store.state.right_menu == 'docs'" />  
+  <OwySites v-show="$store.state.right_menu == 'my-sites'" />
 </template>
 
 <script>
   import Grapes from 'PluginComponents/organisms/grapesjs'
   import OwyTemplates from 'PluginComponents/organisms/templates'
   import OwyShortcuts from 'PluginComponents/organisms/shortcuts'
-  import OwyChatBuilder from 'PluginComponents/organisms/chat'
+  import OwyChatBuilder from 'PluginComponents/organisms/chat-2'
   import OwyCode from 'PluginComponents/organisms/code'
   import OwyOptions from 'PluginComponents/organisms/options'
   import OwyDocs from 'PluginComponents/organisms/docs'
+  import OwySites from 'PluginComponents/organisms/my-sites'
 
   export default {
     data(){
@@ -31,6 +33,7 @@
       OwyChatBuilder,
       OwyOptions,
       OwyDocs,
+      OwySites
     },
     beforeCreate(){
       this.jquery('body').removeClass('wp-core-ui')
@@ -56,6 +59,8 @@
       }
 
       this.init_peer_collab()
+
+
       
     }
   }
@@ -101,6 +106,13 @@
 
   h1, h2, h3, h4, h5, h6{
     color: inherit;
+    box-sizing: border-box;
+  }
+
+  .clear{
+    display: inline-block;
+    width: 100%;
+    float: none;
   }
 
   body,

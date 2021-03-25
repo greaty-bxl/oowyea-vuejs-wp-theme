@@ -60,7 +60,49 @@ export default class PeerRoom {
 		this.user_data = args.user_data
 		this.user_data['peerID'] = user_id
 
+		this.db = null
+
 		this.db = new Dexie('PeerDB-'+this.roomname)
+		this.db.open()
+		.then( (db) => {
+			this.db = db
+			this.event('dexie_db_ready', this.db )
+		}).catch(err => {
+			if( err.name == "NoSuchDatabaseError" )
+			{
+				console.log('error db', err);
+				this.db = new Dexie('PeerDB-'+this.roomname)
+				let new_store = {}
+				new_store['owy_init_db'] = "++id,&uid"
+				this.db.version(1).stores( new_store )
+				this.db['owy_init_db'].add({});
+				
+				this.db.open().then( (db) => {
+					console.log('open db', db);
+					this.event('dexie_db_ready', this.db )
+				}).catch(err => {
+					console.log('error db', err);
+				})
+
+				//this.event('dexie_db_ready', this.db )
+			}
+			
+
+		})
+		
+		//this.db = new Dexie('PeerDB-'+this.roomname)
+		//this.db.version(1)
+		//this.db.open()
+		/*.then( (db) => {
+			
+			this.event('dexie_db_ready', this.db )
+		});
+
+
+		/*setTimeout( () => {
+			console.log('ready', this.db.tables);
+		}, 1000);*/
+				
 
 		this.user_peer.on('open', (id) => {
 
@@ -68,7 +110,8 @@ export default class PeerRoom {
 
 			this.is_user_connect = true
 
-			this.users_data[this.user_peer_id] = this.user_data
+			//this.users_data[this.user_peer_id] = this.user_data
+			
 			//this.event('user_data_update', this.user_data)
 
 			this.make_me_host()
@@ -78,6 +121,9 @@ export default class PeerRoom {
 				this.synchro_data()
 			}
 		}).on('connection', ( dataConnection ) => {
+
+			console.log('connection', dataConnection);
+
 			dataConnection.on('data', (result) => {
 				this.on_peer_message(dataConnection, result)
 			})
@@ -118,11 +164,12 @@ export default class PeerRoom {
 			return
 		}
 
-		if(result.update_users )
+		if( result.update_users )
 		{
 			console.log('update_users');
 			this.users = result.update_users
 			this.send_to_all({'user_data_update':this.user_data})
+			this.event('user_data_update', result.update_users)
 		}
 		else if(result.add_to_all) 
 		{
@@ -136,12 +183,16 @@ export default class PeerRoom {
 				{
 					this.event('user_join', result.user_data_update)
 				}
+
+				console.log('dataConnection.peer', dataConnection.peer);
 				this.users_data[dataConnection.peer] = result.user_data_update
 				this.event('user_data_update', result.user_data_update)
+				
 			}
 		}
 		else if(result.new_user)
 		{
+			console.log('new_user');
 			this.event('new_user', result.new_user)
 		}
 		else if( typeof result === 'object' )
@@ -155,16 +206,23 @@ export default class PeerRoom {
 	make_me_host(){
 		let $this = this;
 
+		console.log('make me host');
+
 		this.host_peer = new Peer($this.host_id, $this.peer_server)
 
 		this.host_peer.on('open', function(id) {
-			console.log('My host ID is: ' + id)
+			console.log('My host ID is: ' + id, $this.conns)
+
+			
 			$this.is_host = true
 			$this.is_host_connect = true
+
 			if( $this.users.indexOf($this.user_peer_id) == -1 )
 			{
 				$this.users.push($this.user_peer_id)
-			}			
+			}
+
+			$this.event('user_data_update', {})		
 		}).on('connection', function( dataConnection ) {
 			console.log( 'host connection',  dataConnection.peer )
 			$this.host_new_user( dataConnection.peer )
@@ -179,8 +237,8 @@ export default class PeerRoom {
 				$this.host_peer.on('open', function() {
 					console.log('host open');
 					$this.is_host_connect = true
-				}).on('close', function(){
-					console.log('host close', $this.host_peer)
+				}).on('close', function(id){
+					console.log('host close', id)
 					$this.is_host_connect = false
 					$this.make_me_host()
 				}).on('disconnected', function(){
@@ -193,9 +251,14 @@ export default class PeerRoom {
 			}
 			else
 			{
-				//console.log('error', err.type, err)
+				console.log('error', err.type, err)
 			}	
-		});
+		}).on('close', function(id){
+			console.log('user close', id);
+		}).on('disconnected', function(/*id*/){
+			console.log('user disconnected', $this);
+
+		}) 
 	}
 
 	update_user_data( data ){
@@ -206,6 +269,10 @@ export default class PeerRoom {
 		var other_users = {}
 		other_users = Object.assign({}, this.users_data)
 		delete other_users[this.user_peer_id]
+		if( this.is_host )
+		{
+			delete other_users[this.host_id]
+		}
 		return other_users
 	}
 
@@ -225,28 +292,32 @@ export default class PeerRoom {
 	}
 
 	host_new_user( new_peer ){
-		let $this = this;
-		//console.log('host_new_user', new_peer, this.users)
+		//let $this = this;
+		
 		if( this.users.indexOf(new_peer) == -1 )
 		{
 			this.users.push(new_peer)
 		}
-		this.users.forEach( function(user) { 
-			$this.host_send_data( user, {'update_users': $this.users} )	
-			$this.host_send_data( user, {'new_user': new_peer} )
+		this.users.forEach( (user) => { 
+			console.log('host send users', new_peer, user)
+			this.host_send_data( user, {'update_users': this.users} )	
+			this.host_send_data( user, {'new_user': new_peer} )
 		})
 
 		this.event('new_user', new_peer)
 	}
 
 	as_peer_send_data( as_peer, user, data ){
+
 		this.promiseConnection(as_peer, user, (conn) =>{
-			
+
 			if( this.args.passphrase != null )
 			{
 				data = CryptoJS.AES.encrypt( JSON.stringify(data), this.args.passphrase ).toString()
 			}
 			conn.send(data);
+
+			console.log('as_peer_send_data', conn);
 		});
 	}
 
@@ -274,16 +345,23 @@ export default class PeerRoom {
 	}
 
 	save_data(key, data){
+
+		console.log('save_data', this.db);
+
+		var currentVersion = this.db.verno;
+		this.db.close()
 		this.db = new Dexie('PeerDB-'+this.roomname)
+
 		let tempArray = Object.assign( {}, data )
 		delete tempArray.uid
 		let new_store = {}
 		new_store[key] = "++id,&uid"+Object.keys(tempArray).join()
-		this.db.version(1).stores( new_store )
+		this.db.version(currentVersion + 1).stores( new_store )
 
 		delete data.id
 		this.db[key].add(data);
 
+		this.db.open()
 		this.event('update_data', {key: key, data: data, db: this.db[key]})
 
 		console.log('save_data', data)
@@ -315,17 +393,27 @@ export default class PeerRoom {
 
 	promiseConnection( as_peer, user, callback ){
 		//let $this = this;
+
+		console.log( 'promiseConnection', this.user_peer );
+
 		if( user == this.user_peer_id )
 		{
 			return
 		}
+
 		if( this.conns[user] )
 		{
-			if(this.conns[user].open ) callback( this.conns[user] )
+			if(this.conns[user].open ){
+				console.log('conn is already open', user);
+				callback( this.conns[user] )
+			} 
 		}
 		else //first connection with other peers
 		{
+			
+
 			var conn = as_peer.connect(user)
+			//var conn = as_peer.reconnect(user)
 
 			conn.on('open', () => {
 				this.conns[user] = conn
@@ -336,8 +424,9 @@ export default class PeerRoom {
 					data = CryptoJS.AES.encrypt( JSON.stringify(data), this.args.passphrase ).toString()
 				}
 				conn.send( data )
-
 				callback( conn )
+				console.log( 'open new connection' );
+
 			}).on('error', (err) => {
 				console.log( 'peer error', user, err.type, err )
 			}).on('close', () => {
@@ -348,7 +437,8 @@ export default class PeerRoom {
 				}
 				delete this.users_data[user]
 				delete this.conns[user]
-				//this.event('user_data_update', this.users_data)
+				this.event('user_data_update', {})
+				/*this.make_me_host()*/
 			}).on('disconnected', () => {
 				console.log('peer disconnected', user)
 			})

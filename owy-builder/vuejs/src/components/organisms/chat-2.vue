@@ -1,7 +1,7 @@
 <template>
 	<div id="owy-chat-builder" @click="_close">
 		<div class="chat-button" @click="_open"><font-awesome-icon icon="comment" /></div>
-		<div class="wrapper" v-if="open == true">
+		<div class="wrapper" v-show="open == true">
 			<div class="chat-wrap gjs-one-bg">
 				<h3 class="clear">Users:</h3>
 				<div class="users">					
@@ -14,11 +14,11 @@
 					<div class="messages">
 						<div class="message" v-for="(message, key) in messages" :key="key" 
 						v-bind:class="{ 
-							'itsme' : me.ID == message.user_id, 
-							'gjs-four-bg' : me.ID == message.user_id,
-							'other' : me.ID != message.user_id
+							'itsme' : room.user_peer_id == message.peer, 
+							'gjs-four-bg' : room.user_peer_id == message.peer,
+							'other' : room.user_peer_id != message.peer
 						}">
-							<label v-if="me.ID != message.user_id" class="author gjs-four-color" v-html="get_name( message )" ></label>
+							<label v-if="room.user_peer_id != message.peer" class="author gjs-four-color" v-html="get_name( message )" ></label>
 							<div class="text" v-html="format_text(message.message)"></div>
 						</div>
 					</div>
@@ -35,14 +35,15 @@
 </template>
 
 <script>
+
+	import strip_tags from 'locutus/php/strings/strip_tags'
+
 	export default {
 		data(){
 			return {
-				open: true,
+				open: false,
 				users : {},
-				user_name_by_id: {},
 				room : null,
-				room_ready : false,
 				db_ready : false,
 				input_message: '',
 				messages : [],
@@ -59,90 +60,81 @@
 				}
 			},
 			init_chat : function(){
-
-				this.room.on('user_data_update', () => {
-					
-					let users = this.room.get_other_users()
-					this.user_name_by_id = {}
-					this.jquery.each(users, (index, val) => {
-						this.user_name_by_id[val.id] = val.name
-					});
-					
+				
+				this.room.on('users:update', (users) => {
+					console.log('users:update', users);
+					this.users = {}
 					this.users = users
-					console.log(this.room);
-				});
-
-				this.room.on('update_data', () => {
-					this.db_to_message()
-
-				});
-
-				this.room.on('dexie_db_ready', () => {
-					this.db_ready = true
-					this.db_to_message()
-				});					
-			},
-			db_to_message : function(){
-				this.room.db.table('builder_room_message').toArray().then( (messages) => {					
-					this.messages = messages
-					let block = this.jquery('.room-chat .messages')
-					setTimeout(function() {
-						block.scrollTop(block[0].scrollHeight)
-					}, 100);
-					setTimeout(function() {
-						block.scrollTop(block[0].scrollHeight)
-					}, 500);
-					setTimeout(function() {
-						block.scrollTop(block[0].scrollHeight)
-					}, 1000);
-					
 				})
+
+				this.room.on('database:ready', (database) => {
+					this.db_ready = true
+					this.database = database
+					this.update_messages()
+				})
+
+				this.room.on('database:save:message', () => {
+					this.update_messages()
+				})
+			},
+			update_messages : function()
+			{
+				this.database.get('message', (result) => {
+					this.messages = result
+					this.force_scroll_down()
+				})
+			},
+			force_scroll_down : function(){
+				
+				let block = this.jquery('.room-chat .messages')
+				setTimeout(function() {
+					block.scrollTop(block[0].scrollHeight)
+				}, 100);
+				setTimeout(function() {
+					block.scrollTop(block[0].scrollHeight)
+				}, 500);
+				setTimeout(function() {
+					block.scrollTop(block[0].scrollHeight)
+				}, 1000);
 			},
 			send_message : function(e){
 
 				e.preventDefault();
 
-				this.room.add_to_all('builder_room_message', {
-					timestamp : Date.now(),
+				this.database.save('message', {
 					message : this.input_message,
 					read : false,
-					user_id : this.room.user_data.id,
-					user_name : this.room.user_data.name
+					user_name : this.room.user_data.name,
+				}, () => {
+					console.log('saved');
 				})
 
 				this.input_message = ''
 				
 			},
 			format_text : function(str){
+				str = strip_tags( str, '<a>' )
 				str = str.split('\n').join('<br />')
 				return str
 			},
 			get_name : function(message){
-				let by_id = this.user_name_by_id[message.user_id]
-				if( by_id )
-				{
-					return by_id
-				}
-				else
-				{
-					return message.user_name + ' (offline)'
-				}
+				return message.user_name
 			}
 		},
 		computed : {
 			me : function(){
 				return this.$store.state.wp.current_user
-			}
+			},
 		},
 		watch : {
 			'$store.state.builder_room' : function(){
 				this.room = this.$store.state.builder_room
-				if( this.room != null && this.room_ready == false )
+				if( this.room != null )
 				{
-					this.room_ready = true
+					console.log(this.room);
 					this.init_chat()
 				}
-			}
+			},
 		}
 	}
 </script>

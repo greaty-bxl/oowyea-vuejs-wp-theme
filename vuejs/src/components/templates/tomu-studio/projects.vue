@@ -21,7 +21,7 @@
 	mounted(){
 		// this.$emit('template_mounted')
 // 
-		// console.log(this.wp.projects , 'projects');
+		console.log(this.wp.projects , 'projects');
 
 		}
 	}

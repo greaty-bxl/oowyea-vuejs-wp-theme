@@ -60,7 +60,7 @@ function owy_register_filter_easy_admin()
 
 					$owy_hide_on_screen[] = $rl_tax['slug'];
 
-					$fields[] = array(
+					$fields[ sanitize_title( $rl_tax['label'] ) ] = array(
 						'key' => 'field_'.uniqid(),
 						'label' => $rl_tax['label'],
 						'name' => 'owy_field_'.$rl_tax['slug'],

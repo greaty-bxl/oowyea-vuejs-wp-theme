@@ -172,7 +172,9 @@
 						<div v-if="type != 'contact_us'" class="contact-prix" >
 							<p v-html="pll__('Livraison estimée entre 24h et 48h.')" ></p>
 							<p style="padding-top: 10px" v-html="pll__('La livraison est gratuite à partir de 100 € en Belgique.')" ></p>
-							<p style="padding-top: 10px" v-html="pll__('En dessous dune commande de 100 euros, la livraison est à 8,50 euros tvac.')" ></p>
+							<!-- <span></span> -->
+							<p style="padding-top: 10px" v-html="pll__('en dessous')"></p>
+						
 						</div>
 							
 					</div>
@@ -1267,6 +1269,10 @@
 
 			margin-bottom: 100px;
 
+		}
+
+		.contact-prix p{
+			white-space: nowrap;
 		}
 
 

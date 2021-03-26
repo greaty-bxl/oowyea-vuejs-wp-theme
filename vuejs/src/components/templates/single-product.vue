@@ -220,7 +220,7 @@
 					cup_day : this.pll__("Tasses / jour :"),
 						
 				},
-				vat: false
+				vat: true
 			}
 		},
 		components: {
@@ -419,7 +419,7 @@
 			},
 			price_format: function(price){
 				
-				let vat_amount = 1.21
+				/*let vat_amount = 1.21
 
 				if( Array.isArray( this.post.metas._tax_class ) )
 				{
@@ -432,7 +432,7 @@
 				if( this.vat )
 				{
 					price *= vat_amount
-				}
+				}*/
 				
 				let return_price = ''
 

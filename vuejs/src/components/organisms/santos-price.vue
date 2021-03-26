@@ -16,7 +16,7 @@
 		data(){
 			return {
 				'size_var_prefix' : '',
-				'vat': false,
+				'vat': true,
 				'vat_amount': 1.21
 			}
 		},
@@ -26,7 +26,7 @@
 		mounted (){
 			//console.log('price', this.item);
 
-			if( this.has_term(this.item, 'product_cat', ['accompagnements','cafes', 'pads-et-capsules', 'thes', 'machines-a-cafe-at-home','mousseur-a-lait','porcelaines'], 'or') )
+			/*if( this.has_term(this.item, 'product_cat', ['accompagnements','cafes', 'pads-et-capsules', 'thes', 'machines-a-cafe-at-home','mousseur-a-lait','porcelaines'], 'or') )
 			{
 				this.vat = true
 				this.$parent.vat = true
@@ -38,7 +38,7 @@
 				{
 					this.vat_amount = 1.06
 				}
-			}
+			}*/
 
 
 			if( this.has_term(this.item, 'product_cat', 'cafes') )
@@ -76,10 +76,10 @@
 
 			format_price: function( string ){
 				let number = parseFloat(string)
-				if( this.vat )
+				/*if( this.vat )
 				{
 					number *= this.vat_amount
-				}
+				}*/
 
 				return number.toFixed(2) + ' €'
 			},

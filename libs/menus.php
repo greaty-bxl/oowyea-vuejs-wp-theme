@@ -14,10 +14,6 @@ function get_menus()
 	}
 	wp_vue_add_var('menus', $menus);
 }
-<<<<<<< Updated upstream
-
-add_action( 'vue_vars', 'get_menus' );
-=======
 
 add_action( 'vue_vars', 'get_menus' );
 

@@ -41,15 +41,9 @@
 <script>
 
 //Header
-//import Header from 'Organisms/header.vue'
-<<<<<<< Updated upstream
-//import Header from 'Organisms/simple-header.vue'
-import Header from 'Organisms/header-light-burger.vue'
-
-=======
 // import Header from 'Organisms/simple-header.vue'
 import Header from 'Organisms/header-tomu-studio.vue'
->>>>>>> Stashed changes
+
 
 //Footer
 import Footer from 'Organisms/footer.vue'
@@ -305,11 +299,7 @@ html{
 }
 #app {
   position: absolute;
-<<<<<<< Updated upstream
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-=======
   font-family: 'Montserrat', sans-serif !important;
->>>>>>> Stashed changes
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

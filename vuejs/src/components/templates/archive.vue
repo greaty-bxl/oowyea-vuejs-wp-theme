@@ -3,7 +3,7 @@
 
 		<div class="clear"></div>
 		
-		<div class="image-blog">
+		<div v-bind:style="{ 'background-image': 'url(' + post.thumb + ')'  }" class="image-blog">
 			<h3 v-html="pll__('Blog')"></h3>
 			<h1>Santos Palace</h1>
 		</div>
@@ -66,11 +66,11 @@ export default {
 
 	.section-blog .image-blog{
 		color: white;
-		background-image: url('https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_contact.png');
+		background-color: #888320;
 		background-position: center;
 		background-size: cover; 
 		margin-top: 100px;
-		background-color: #FAFAFA;
+		/*background-color: #FAFAFA;*/
 		padding-bottom: 50px;
 		display: flex;
 		justify-content: center;

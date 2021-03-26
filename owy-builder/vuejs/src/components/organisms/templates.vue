@@ -1,7 +1,7 @@
 <template>
 	<Page class="owy-templates">
 		<h1>
-			Design your WebApp
+			Design your website
 			&nbsp;<span class="pointer" @click="$store.state.right_menu = 'main'" ><font-awesome-icon icon="cogs" /></span>
 			&nbsp;<span class="pointer" @click="$store.state.right_menu = 'docs'"><font-awesome-icon icon="book" /></span>
 		</h1>

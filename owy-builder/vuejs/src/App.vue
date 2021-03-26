@@ -7,6 +7,7 @@
   <OwyOptions v-show="$store.state.right_menu == 'main'" />
   <OwyDocs v-show="$store.state.right_menu == 'docs'" />  
   <OwySites v-show="$store.state.right_menu == 'my-sites'" />
+  <OwyWpFrame v-show="$store.state.right_menu == 'wp-frame'" />
 </template>
 
 <script>
@@ -18,6 +19,7 @@
   import OwyOptions from 'PluginComponents/organisms/options'
   import OwyDocs from 'PluginComponents/organisms/docs'
   import OwySites from 'PluginComponents/organisms/my-sites'
+  import OwyWpFrame from 'PluginComponents/organisms/wp-frame'
 
   export default {
     data(){
@@ -33,7 +35,8 @@
       OwyChatBuilder,
       OwyOptions,
       OwyDocs,
-      OwySites
+      OwySites,
+      OwyWpFrame
     },
     beforeCreate(){
       this.jquery('body').removeClass('wp-core-ui')

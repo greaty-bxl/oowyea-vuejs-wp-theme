@@ -1,9 +1,14 @@
 <template>
 	<RightMenu >
 		<div class="sites">
-			<h3 class="clear">My Sites</h3>
+			<h3 class="clear">My websites</h3>
 			<div class="site" v-for="(item, key) in $store.state.wp.builder_my_sites" :key="key">
 				<a :href="item.oowyea_url">{{item.blogname}}</a>
+			</div>
+			<div class="site">
+				<button @click="$store.state.right_menu = 'wp-frame'; open_new_site() ">
+					Create a new website
+				</button>
 			</div>
 		</div>
 	</RightMenu>
@@ -15,6 +20,11 @@
 		components : {
 			RightMenu
 		},
+		methods : {
+			open_new_site : function () {
+				this.$store.state.wp_frame = this.$store.state.wp.network_admin_url + 'site-new.php'
+			}
+		}
 	}
 </script>
 <style scoped>

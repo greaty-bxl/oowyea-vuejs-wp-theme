@@ -72,4 +72,3 @@ add_action( 'vue_vars', 'get_menus' );
 // }
 
 // add_action( 'vue_vars', 'get_menus' );
->>>>>>> Stashed changes

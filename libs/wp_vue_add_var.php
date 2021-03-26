@@ -28,6 +28,10 @@ function init_classics_wp_variables()
 
 	$options =  unserialize_in_array( wp_load_alloptions() );
 	wp_vue_add_var('options', $options );
+<<<<<<< Updated upstream
+=======
+	// wp_vue_add_var('front_page', pll_home_url() );
+>>>>>>> Stashed changes
 	wp_vue_add_var('upload_baseurl', wp_get_upload_dir()['baseurl'] );
 }
 add_action( 'vue_vars', 'init_classics_wp_variables' );

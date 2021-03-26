@@ -34,6 +34,10 @@
     "vue-color": "^2.7.1",
     "vue-gapi": "^0.3.1",
     "vue-lottie": "^0.2.1",
+<<<<<<< Updated upstream
+=======
+    "vue-masonry-wall": "^0.3.2",
+>>>>>>> Stashed changes
     "vue-scrollmagic": "^1.2.0",
     "vue-swiper": "^0.5.0",
     "vue-youtube": "^1.4.0",

@@ -14,11 +14,11 @@
 					<div class="messages">
 						<div class="message" v-for="(message, key) in messages" :key="key" 
 						v-bind:class="{ 
-							'itsme' : room.user_peer_id == message.peer, 
-							'gjs-four-bg' : room.user_peer_id == message.peer,
-							'other' : room.user_peer_id != message.peer
+							'itsme' : room.user_data.name == message.user_name, 
+							'gjs-four-bg' : room.user_data.name == message.user_name,
+							'other' : room.user_data.name != message.user_name
 						}">
-							<label v-if="room.user_peer_id != message.peer" class="author gjs-four-color" v-html="get_name( message )" ></label>
+							<label v-if="room.user_data.name != message.user_name" class="author gjs-four-color" v-html="get_name( message )" ></label>
 							<div class="text" v-html="format_text(message.message)"></div>
 						</div>
 					</div>

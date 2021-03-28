@@ -164,6 +164,9 @@ export default {
       }
     })
 
+    //init block
+    this.init_owy_blocks()
+
     //render editor
     this.editor.render()
 
@@ -172,6 +175,9 @@ export default {
 
     //Init Sectors
     this.init_owy_sectors()
+
+    //Init Traits    
+    this.init_owy_traits()
     
     //add commands
     this.editor.Commands.add('editor-wp-back', () => {
@@ -212,8 +218,7 @@ export default {
       }
     })
 
-    //init block
-    this.init_owy_blocks()
+    
 
     //tries
     $( this.editor.SelectorManager.selectorTags.$states ).append('<option>test</option>')
@@ -398,6 +403,39 @@ select, select optgroup, select option{
 
 .gjs-four-color .gjs-sm-clear{
   display: inline-block !important;
+}
+
+#gjs-sm-advanced-selector{
+  padding-bottom: 7px;
+}
+
+#gjs-sm-advanced-selector .gjs-sm-title{
+  display: none;
+}
+
+#gjs-sm-advanced-selector .gjs-sm-properties{
+  padding: 0px;
+}
+
+.gjs-clm-sels-info {
+  margin: 7px 0 0;
+}
+
+.gjs-traits-label{
+  display: none;
+}
+
+.gjs-trt-traits{
+  padding-top: 15px;
+}
+
+.gjs-block {
+  min-height: 72px;
+}
+.gjs-block-label .icon {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 /* .gjs-layer__t-wrapper:first-child .gjs-layer-children > .gjs-layers > .gjs-layer:last-child {
   display: none !important; 

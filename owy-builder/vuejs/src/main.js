@@ -48,6 +48,9 @@ glProps.init_owy_blocks = init_owy_blocks
 import init_owy_sectors from 'PluginLib/grapes/init-sectors.js'
 glProps.init_owy_sectors = init_owy_sectors
 
+import init_owy_traits from 'PluginLib/grapes/init-traits.js'
+glProps.init_owy_traits = init_owy_traits
+
 import init_peer_collab from 'PluginLib/peer/init-peer-collab-2.js'
 glProps.init_peer_collab = init_peer_collab
 

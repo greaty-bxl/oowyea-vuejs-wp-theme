@@ -11,7 +11,7 @@ const store = createStore({
 		examples_vars : {},
 		modal_wp_data_attrs: {},
 		code_page: false,
-		right_menu : 'my-sites',
+		right_menu : null,
 		wp_frame : null,
 		wp: wp.state,
 		builder_room: null,	

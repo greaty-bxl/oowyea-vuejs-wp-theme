@@ -1,5 +1,7 @@
 import basics from 'PluginLib/grapes/blocks/basics.js'
 
+import * as Vue from "vue";
+
 export default function () {
 	console.log('init blocks', this.editor);
 	
@@ -14,6 +16,57 @@ export default function () {
 
 	$.each(blocks, (index, val) => {
 		this.editor.BlockManager.remove(val)
+	});
+
+	const blocks_vue = require.context('Blocks/', true, /\.(block\.vue)$/i);
+	blocks_vue.keys().map(key => {
+
+		/*let name = vue_key_to_name( key )*/
+
+		console.log('context ', key);
+		/*this.Templates[name] = () => import( `Templates/${file}` )*/
+
+	});
+
+	const blocks_config = require.context('Blocks/', true, /\.(config\.js)$/i);
+	blocks_config.keys().map(key => {
+
+		/*let name = vue_key_to_name( key )*/
+		let file = key.substring(2)
+		//let vue_file = file.replace('config.js', 'block.vue') 
+		
+		let block_object = require( `Blocks/${file}` ).default
+		//let vue_object = () => import( `Blocks/${vue_file}` ).default
+		
+		let el = document.createElement('div');
+		Vue.createApp(block_object.vue).mount(el)
+
+		//let el = document.createElement('div');
+		
+
+		//console.log('block_vue ', block_object.vue, el );
+
+		$('head style').each( (index, style) => {
+			if( $(style).text().indexOf( 'grapesjs add css' ) >= 0 )
+			{
+				$(el).append( '<style>' + $(style).text() + '<style>' )
+			}
+		});
+		
+
+		let default_block = {
+			slug : '',
+			label: 'give a name to your block',
+			category: 'block',
+			content: $(el).html()
+		}
+
+		block_object = Object.assign( default_block, block_object )
+
+
+		this.editor.BlockManager.add(block_object.slug, block_object);
+		/*this.Templates[name] = () => import( `Templates/${file}` )*/
+
 	});
 
 	basics(this.editor.BlockManager)

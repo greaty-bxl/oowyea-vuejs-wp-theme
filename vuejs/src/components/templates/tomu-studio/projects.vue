@@ -1,10 +1,16 @@
 <template>
 	
 	<div class="section-global-project">
-		
-		<div class="background-project" v-for="(item, index) in wp.projects" :key="index"  :style= "{'background-image': 'url('+item.thumb+')' }">
 
-		</div>
+		<img  v-if="is" v-for="(item, index) in wp.projects" :key="index"  :src="item.thumb" style="padding-bottom: 30px">	
+
+		<span v-else>
+
+			<div  class="background-project" v-for="(item, index) in wp.projects" :key="index"  :style= "{'background-image': 'url('+item.thumb+')' }">
+			</div>
+
+		</span>
+	
 
 	</div>	
 
@@ -14,14 +20,27 @@
 
 
 <script type="text/javascript">
-	
+
+	import is from 'is_js'
+
 	export default{
+
+	data(){
+
+		// currentRoute: window.location.pathname
+		return {
+			is : is.mobile(),
+			// showButton : window.location.toString()
+		}
+	},
 
 
 	mounted(){
-		// this.$emit('template_mounted')
+		this.$emit('template_mounted')
 // 
-		console.log(this.wp.projects , 'projects');
+		console.log( this.is , 'is');
+
+		// if (true) {}
 
 		}
 	}
@@ -58,6 +77,7 @@
 
 		background: no-repeat;
 		background-size: cover;
+		background-position: center;
 
 	}
 
@@ -385,6 +405,27 @@
 		}
 
 		
+	}
+
+	@media screen and ( max-width: 600px ){
+
+		.section-global-project img{
+
+			width: 100% !important;
+			height: auto !important;
+			    
+		}
+
+		.section-global-project{
+
+			width: calc( 100% - 60px );
+			padding-left: 0px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+
+
 	}
 
 

@@ -41,7 +41,7 @@
 <script>
 
 //Header
-// import Header from 'Organisms/simple-header.vue'
+//import Header from 'Organisms/header.vue'
 import Header from 'Organisms/header-tomu-studio.vue'
 
 
@@ -55,7 +55,7 @@ import Footer from 'Organisms/footer.vue'
 //import is from 'is_js'
 import init_scrolltop from 'Libs/init-scrolltop.js'
 //import scrollSection from 'Libs/scroll-sections.js'
-import scrollSection from 'Libs/scroll-sections-v2.js'
+// import scrollSection from 'Libs/scroll-sections-v2.js'
 //import scrollSection from 'Libs/scroll-sections-v3.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
@@ -138,7 +138,7 @@ export default {
       init_scrolltop(this)
 
       //auto scroll next section
-      scrollSection(this)
+      // scrollSection(this)
 
       
 
@@ -308,7 +308,7 @@ html{
   width: 100%;
   overflow-y: auto;
   z-index: auto;
-  background: rgb(40, 40, 40);
+  /*background: rgb(40, 40, 40);*/
 }
 
 #app-scroller {
@@ -362,7 +362,7 @@ html{
   color: rgba(255,255,255,0.5);
 }
 
-.section-wrap{
+/*.section-wrap{
   background: rgb(40, 40, 40);
-}
+}*/
 </style>

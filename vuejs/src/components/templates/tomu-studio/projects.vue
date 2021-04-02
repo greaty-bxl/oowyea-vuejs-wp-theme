@@ -1,17 +1,16 @@
 <template>
 	
-	<div class="section-global-project">
+	<div class="section-global-project on-screen">
 
-		<img  v-if="is" v-for="(item, index) in wp.projects" :key="index"  :src="item.thumb" style="padding-bottom: 30px">	
-
-		<span v-else>
-
-			<div  class="background-project" v-for="(item, index) in wp.projects" :key="index"  :style= "{'background-image': 'url('+item.thumb+')' }">
+			<div class="content-project"  v-for="(item, index) in wp.projects" :key="index"  >
+				<a :href="item.permalink">
+					<img v-if="is" :src="item.thumb">	
+					<div v-else class="background-project" :style= "{'background-image': 'url('+item.thumb+')' }" ></div>
+					<div class="animation-title" >
+						<p v-html="item.post_title"></p>
+					</div>
+				</a>
 			</div>
-
-		</span>
-	
-
 	</div>	
 
 	
@@ -37,10 +36,15 @@
 
 	mounted(){
 		this.$emit('template_mounted')
-// 
-		console.log( this.is , 'is');
 
-		// if (true) {}
+		let $ = this.$
+
+		$('.section-global-project').on('enter-screen', () => {
+			console.log('enter-screen');
+
+			$('.header-tomu-container').css('color', '#9fade1');
+			
+		})
 
 		}
 	}
@@ -48,38 +52,126 @@
 
 </script>
 
+<style lang="scss">
+
+	* {
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+
+
+	.content-project {
+
+	&:hover {
+
+		.animation-title {
+			opacity: 1;
+			transform: scale(1.15,1.15);
+			-webkit-transform:scale(1.15,1.15);
+			-moz-transform:scale(1.15,1.15);
+			-ms-transform:scale(1.15,1.15);
+			-o-transform:scale(1.15,1.15);
+		}
+		.background-project {
+			opacity: 1;
+			transform: scale(1.15,1.15);
+			-webkit-transform:scale(1.15,1.15);
+			-moz-transform:scale(1.15,1.15);
+			-ms-transform:scale(1.15,1.15);
+			-o-transform:scale(1.15,1.15);
+		}
+	}
+	}
+
+</style>
+
 <style type="text/css">
 
-	.current-menu-item a{
+	.content-project{
 
-		color:#9fade1 !important;
+		position: relative;
+		overflow: hidden;
 	}
 
-	.header-tomu-container svg{
-
-		color:#9fade1 !important;
-	}
-
-
-	.section-global-project{
-
-		width: calc( 100% - 245px );
-	}
 	
-	.section-global-project div:nth-child(odd) { 
+	.animation-title *{
 
+		all: unset;
+	}
+	.animation-title{
+
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 0;
+		background-color: #ffffffb0;
 		display: flex;
-		justify-content: flex-end;
+		align-items: start;
+		opacity:0;
+		-webkit-transition:all 0.45s ease-in-out;
+		-moz-transition:all 0.45s ease-in-out;
+		-o-transition:all 0.45s ease-in-out;
+		-ms-transition:all 0.45s ease-in-out;
+		transition:all 0.45s ease-in-out;
+		color: black;
+		font-size: 25px; 
+	
+	}
+
+	.content-project a{
+
+		text-decoration: none;
+	}
+
+	.animation-title p{
+
+		width: 80%;
+		margin-left: auto;
+		margin-right: calc(6% + 20px);
+		text-align: center;
+		font-weight: 500;
+		padding-top: calc(8% + 20px);
 
 	}
 
 	.background-project{
 
+		height: 100%;
+		width: 100%;
 		background: no-repeat;
 		background-size: cover;
 		background-position: center;
+		-webkit-transition:all 0.25s ease-in-out;
+		-moz-transition:all 0.25s ease-in-out;
+		-o-transition:all 0.25s ease-in-out;
+		-ms-transition:all 0.25s ease-in-out;
+		transition:all 0.25s ease-in-out;
+		/*-webkit-filter: grayscale(100%) contrast(120%);*/
+		/*filter: grayscale(100%) contrast(120%);*/
+
 
 	}
+
+	.section-global-project{
+
+		width: calc( 100% - 245px );
+		position: relative;
+	}
+	
+	.content-project:nth-child(odd) { 
+
+		/*display: flex;*/
+		justify-content: flex-end;
+
+	}
+
+
 
 	.section-global-project {
 
@@ -89,13 +181,13 @@
 		padding-left: 70px;
 	}
 
-	.section-global-project div:nth-child(16n+1){
+	.content-project:nth-child(16n+1){
 
 		width: 30vw;
 		height: 40vw;
 	}	
 
-	.section-global-project div:nth-child(16n+2){
+	.content-project:nth-child(16n+2){
 		width: 30vw;
 		margin-top: -22.5vw;
 		height: 40vw;
@@ -103,7 +195,7 @@
 		margin-bottom: 70px;
 	}
 
-	.section-global-project div:nth-child(16n+3){
+	.content-project:nth-child(16n+3){
 
 		margin-top: -17.5vw;
 		margin-bottom: 70px;
@@ -111,7 +203,7 @@
 		height: 25vw;
 	}
 
-	.section-global-project div:nth-child(16n+4){
+	.content-project:nth-child(16n+4){
 
 		width: 47vw;
 		height: 33vw;
@@ -120,7 +212,7 @@
 
 	}
 
-	.section-global-project div:nth-child(16n+5){
+	.content-project:nth-child(16n+5){
 
 		width: 30vw;
 		height: 40vw;
@@ -128,7 +220,7 @@
 
 	}
 
-	.section-global-project div:nth-child(16n+6){
+	.content-project:nth-child(16n+6){
 
 		width: 35vw;
 		height: 22.5vw;
@@ -138,7 +230,7 @@
 
 	}
 
-	.section-global-project div:nth-child(16n+7){
+	.content-project:nth-child(16n+7){
 
 		width: calc( 50vw - 140px)  ;
 		height: 50vw;
@@ -148,7 +240,7 @@
 
 	}
 
-	.section-global-project div:nth-child(16n+8){
+	.content-project:nth-child(16n+8){
 
 		width: 25vw;
 		height: 35vw;
@@ -160,7 +252,7 @@
 
 	}
 
-	.section-global-project div:nth-child(16n+9){
+	.content-project:nth-child(16n+9){
 
 		width: 25vw;
 		height: 35vw;
@@ -171,7 +263,7 @@
 
 	}
 
-	.section-global-project div:nth-child(16n+10){
+	.content-project:nth-child(16n+10){
 
 		width: 30vw;
 		margin-top: 100px;
@@ -179,7 +271,7 @@
 		
 	}	
 
-	.section-global-project div:nth-child(16n+11){
+	.content-project:nth-child(16n+11){
 
 		width: calc( 100% - 30vw - 70px );
 		margin-top: -12.5vw;
@@ -188,7 +280,7 @@
 		margin-bottom: 70px;
 	}
 
-	.section-global-project div:nth-child(16n+12){
+	.content-project:nth-child(16n+12){
 
 		margin-top: -27.5vw;
 		margin-bottom: 70px;
@@ -198,7 +290,7 @@
 		height: 40vw;
 	}
 
-	.section-global-project div:nth-child(16n+13){
+	.content-project:nth-child(16n+13){
 
 		width: calc( 100% - 30vw - 70px );
 		height: 50vw;
@@ -208,7 +300,7 @@
 
 	}
 
-	.section-global-project div:nth-child(16n+14){
+	.content-project:nth-child(16n+14){
 
 		width: 30vw;
 		margin-top: 100px;
@@ -216,7 +308,7 @@
 
 	}
 
-	.section-global-project div:nth-child(16n+15){
+	.content-project:nth-child(16n+15){
 	
 		width: 30vw;
 		margin-top: -25vw;
@@ -226,7 +318,7 @@
 
 	}
 
-	.section-global-project div:nth-child(16n+16){
+	.content-project:nth-child(16n+16){
 	
 		width: 30vw;
 		/*margin-left: 70px;*/
@@ -236,12 +328,12 @@
 
 	}
 
-	.section-global-project div{
+/*	.section-global-project div{
 
 		display: flex;
 		flex-direction: column;
 	}
-
+*/
 	.section-global-project img{
 
 		height: 50px;
@@ -258,13 +350,13 @@
 
 
 
-		.section-global-project div:nth-child(16n+1){
+		.content-project:nth-child(16n+1){
 
 			width: 30vw;
 			height: 40vw;
 		}	
 
-		.section-global-project div:nth-child(16n+2){
+		.content-project:nth-child(16n+2){
 			width: 30vw;
 			margin-top: -22.5vw;
 			height: 40vw;
@@ -272,7 +364,7 @@
 			margin-bottom: 30px;
 		}
 
-		.section-global-project div:nth-child(16n+3){
+		.content-project:nth-child(16n+3){
 
 			margin-top: -17.5vw;
 			margin-bottom: 30px;
@@ -280,7 +372,7 @@
 			height: 25vw;
 		}
 
-		.section-global-project div:nth-child(16n+4){
+		.content-project:nth-child(16n+4){
 
 			width: 47vw;
 			height: 33vw;
@@ -289,7 +381,7 @@
 
 		}
 
-		.section-global-project div:nth-child(16n+5){
+		.content-project:nth-child(16n+5){
 
 			width: 30vw;
 			height: 40vw;
@@ -297,7 +389,7 @@
 
 		}
 
-		.section-global-project div:nth-child(16n+6){
+		.content-project:nth-child(16n+6){
 
 			width: 35vw;
 			height: 22.5vw;
@@ -307,7 +399,7 @@
 
 		}
 
-		.section-global-project div:nth-child(16n+7){
+		.content-project:nth-child(16n+7){
 
 			width: calc( 43.9vw - 30px);
 			height: 50vw;
@@ -317,7 +409,7 @@
 
 		}
 
-		.section-global-project div:nth-child(16n+8){
+		.content-project:nth-child(16n+8){
 
 			width: 25vw;
 			height: 35vw;
@@ -329,7 +421,7 @@
 
 		}
 
-		.section-global-project div:nth-child(16n+9){
+		.content-project:nth-child(16n+9){
 
 			width: 25vw;
 			height: 35vw;
@@ -339,7 +431,7 @@
 
 		}
 
-		.section-global-project div:nth-child(16n+10){
+		.content-project:nth-child(16n+10){
 
 			width: 30vw;
 			margin-top: 100px;
@@ -347,7 +439,7 @@
 			
 		}	
 
-		.section-global-project div:nth-child(16n+11){
+		.content-project:nth-child(16n+11){
 
 			width: calc( 100% - 30vw - 30px );
 			margin-top: -12.5vw;
@@ -356,7 +448,7 @@
 			margin-bottom: 30px;
 		}
 
-		.section-global-project div:nth-child(16n+12){
+		.content-project:nth-child(16n+12){
 
 			margin-top: -27.5vw;
 			margin-bottom: 30px;
@@ -366,7 +458,7 @@
 			height: 40vw;
 		}
 
-		.section-global-project div:nth-child(16n+13){
+		.content-project:nth-child(16n+13){
 
 			width: calc( 100% - 30vw - 30px );
 			height: 50vw;
@@ -376,7 +468,7 @@
 
 		}
 
-		.section-global-project div:nth-child(16n+14){
+		.content-project:nth-child(16n+14){
 
 			width: 30vw;
 			margin-top: 100px;
@@ -384,7 +476,7 @@
 
 		}
 
-		.section-global-project div:nth-child(16n+15){
+		.content-project:nth-child(16n+15){
 		
 			width: 30vw;
 			margin-top: -25vw;
@@ -394,7 +486,7 @@
 
 		}
 
-		.section-global-project div:nth-child(16n+16){
+		.content-project:nth-child(16n+16){
 		
 			width: 30vw;
 			/*margin-left: 30px;*/
@@ -413,7 +505,7 @@
 
 			width: 100% !important;
 			height: auto !important;
-			    
+
 		}
 
 		.section-global-project{
@@ -422,6 +514,37 @@
 			padding-left: 0px;
 			margin-left: auto;
 			margin-right: auto;
+		}
+
+		.content-project{
+
+			width: 100% !important;
+			margin: 0px 0px 15px 0px !important;
+			height: auto !important;
+		}
+
+		.animation-title {
+			font-size: 18px ;
+			padding: 15px 0px;
+			height: auto;
+			display: block;
+			position: initial;
+			width: 100%;
+			left: 0;
+			top: 0;
+			background-color: white;
+			display: flex;
+			align-items: center;
+			opacity: 1;
+			transition: all 0.45s ease-in-out;
+			color: black;
+		}
+
+		.animation-title p{
+
+			padding-top: 0px;
+			width: calc( 100% - 60px  );
+			margin-left: 0px;
 		}
 
 

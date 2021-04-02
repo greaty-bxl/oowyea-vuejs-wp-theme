@@ -6,7 +6,7 @@ function gtr_get_appareils( $appareils_1 = null ) {
 
 	$args5 = array(
 		'post_type' => 'project',
-		'posts_per_page' => 16,
+		'posts_per_page' => -1,
 		// 'tax_query' =>  array( 
 							
 		// 				array(

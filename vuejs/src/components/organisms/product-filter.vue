@@ -21,7 +21,7 @@
 						<div class="collection-filter__list-wrapper" v-for="(taxonomy, index) in shop_filter" :key="index">
 							<h3 class="collection-filter__list-title">
 								
-								<p class="title-filter" v-html="taxonomy.label"></p>
+								<p class="title-filter"  v-html="taxonomy.label"></p>
 
 								<div class="collection-filter__arrow" >
 
@@ -146,13 +146,8 @@
 
 		mounted(){
 
-
-			//var $ = this.$			
-
 			this.$emit('template_mounted', this);
-
-			
-
+							
 		},
 		watch: {
 			'$store.state.wp': function() {
@@ -162,6 +157,22 @@
 				this.clear_selection()
 
 				var $ = this.$
+
+				var lang = $('html')[0].lang
+
+				if (lang === 'nl-BE') {
+
+					$('.title-filter:contains("Origines")').text('Afkomst')
+					$('.title-filter:contains("Variétés")').text('Koffiesoort')
+					$('.title-filter:contains("Arômes")').text('Aroma')
+					$('.title-filter:contains("Intensités")').text('Intensiteit')
+					$('.title-filter:contains("Acidités")').text('Aciditeit')
+					$('.title-filter:contains("Types de thé")').text('Soorten thee')
+					$('.title-filter:contains("Type d&#130;infusion")').text('Type infusie')
+					$('.title-filter:contains("Saveur du Thé")').text('Smaak van thee')
+
+				}
+
 				$('.open-filters, .open-filter-rotation').removeClass('open-filters open-filter-rotation')
 
 				$('.collection-filter__list-title').unbind('click').click(function() {
@@ -259,6 +270,7 @@
 				this.terms_combos = this.$store.state.wp.terms_combos
 
 
+
 			}
 		},
 		methods: {
@@ -294,6 +306,8 @@
 					var current_url = new URL(location.href);
 					var new_url = current_url.origin + current_url.pathname + query_string
 					this.done_url = new_url
+
+
 				}
 
 

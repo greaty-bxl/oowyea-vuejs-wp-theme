@@ -1,29 +1,21 @@
 <?php
 
-function gtr_get_appareils( $appareils_1 = null ) {
+function gtr_get_projects( $projects_1 = null ) {
 
 	global $posts;
 
 	$args5 = array(
 		'post_type' => 'project',
 		'posts_per_page' => -1,
-		// 'tax_query' =>  array( 
-							
-		// 				array(
-		// 				'taxonomy'      => 'product_cat',
-		// 				'terms'  => 23,
-		// 				)
-							 
-		// 		)
-		
+
 	);
 
-    $appareils = get_posts($args5);
+    $projects = get_posts($args5);
 
-    $appareils = apply_filters( 'posts_results', $appareils ) ;
+    $projects = apply_filters( 'posts_results', $projects ) ;
 
-    wp_vue_add_var('projects', $appareils);
+    wp_vue_add_var('projects', $projects);
        
        
 };
-add_action( 'vue_vars', 'gtr_get_appareils' ); // used on load
+add_action( 'vue_vars', 'gtr_get_projects' ); // used on load

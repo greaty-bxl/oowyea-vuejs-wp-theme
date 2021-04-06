@@ -17,7 +17,7 @@ include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
 global $owy_active_plugins;
 $owy_active_plugins = get_option( 'active_plugins' );
 
-if( 
+/*if( 
     ( 
         !in_array('acf-extended/acf-extended.php', $owy_active_plugins) 
         || 
@@ -28,7 +28,7 @@ if(
 )
 {
     wp_redirect( admin_url() . 'plugins.php?page=tgmpa-install-plugins', 302 );
-}   
+}  */ 
 
 
 /*------------------------------------*\
@@ -59,6 +59,7 @@ include GREATY_TEMPLATE_PATH.'/libs/gpdr-intro.php';
 include GREATY_TEMPLATE_PATH.'/libs/newsletter.php';
 include GREATY_TEMPLATE_PATH.'/libs/polylang.php';
 include GREATY_TEMPLATE_PATH.'/libs/peers.php';
+include GREATY_TEMPLATE_PATH.'/libs/multisite/multisite.php';
 
 include GREATY_TEMPLATE_PATH.'/owy-builder/builder.php';
 

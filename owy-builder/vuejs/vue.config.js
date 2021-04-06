@@ -32,7 +32,8 @@ module.exports = {
         Templates: path.resolve(__dirname, theme_path + 'src/components/templates'),
         Pages: path.resolve(__dirname, theme_path + 'src/components/pages'),
         Game: path.resolve(__dirname, theme_path + 'src/phaser-games'),
-        image: path.resolve(__dirname, theme_path + 'src/componets/images'),
+        image: path.resolve(__dirname, theme_path + 'src/components/images'),
+        Blocks: path.resolve(__dirname, theme_path + 'src/components/blocks'),
         //Plugin paths
         PluginComponents: path.resolve(__dirname, 'src/components'),
         PluginLib: path.resolve(__dirname, 'src/libs'),

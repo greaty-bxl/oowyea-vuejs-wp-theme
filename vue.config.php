@@ -42,6 +42,11 @@ function is_hierarchical_template($name)
 
 /*if( is_vuejs_dev )
 {*/
+    global $vue_hierarchy;
+    global $vue_hierarchy_builtin;
+    global $vue_templates;
+    global $vue_templates_builtin;
+
     $vue_hierarchy = array();
     $vue_templates = array();
     //Get vue template
@@ -93,6 +98,9 @@ function is_hierarchical_template($name)
         }
     }
     get_vue_templates(GREATY_TEMPLATE_PATH.'/vuejs/src/components/templates');
+
+    $vue_hierarchy_builtin = $vue_hierarchy;
+    $vue_templates_builtin = $vue_templates;
 
     global $builder_templates;
     global $builder_templates_list;

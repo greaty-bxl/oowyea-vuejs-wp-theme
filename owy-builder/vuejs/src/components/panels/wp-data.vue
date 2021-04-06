@@ -268,7 +268,7 @@
 					if( toolbar_str.search("owy-cmd-wp-data") == -1 )
 					{
 						toolbar[toolbar.length] = {
-							attributes: {class: 'fa fa-wordpress'},
+							attributes: {class: 'fab fa-wordpress-simple'},
 							command: 'owy-cmd-wp-data'
 						}
 					}

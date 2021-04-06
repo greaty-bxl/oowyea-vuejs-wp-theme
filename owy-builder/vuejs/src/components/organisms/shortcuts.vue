@@ -4,6 +4,12 @@
 		<div class="shortcut">Post types & taxonomies</div>
 		<div class="shortcut">Forms</div>
 		<div class="shortcut">Users roles</div>
+		<div class="shortcut" @click="$store.state.code_page = true">Custom Code</div>
+		<div class="shortcut" 
+			v-if="$store.state.wp.builder_my_sites" 
+			@click="$store.state.right_menu = 'my-sites'">
+			My Sites
+		</div>
 	</div>
 </template>
 

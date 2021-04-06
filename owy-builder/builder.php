@@ -2,11 +2,13 @@
 if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 {
 
-	define('owy_builder_is_vuejs_dev', true);
-	define('owy_builder_vuejs_server', 'http://localhost:8081/');
+	 
+	
 
 	define('owy_builder_dir', plugin_dir_path(__FILE__) );
 	define('owy_builder_url', GREATY_TEMPLATE_URL . '/owy-builder/' );
+
+	include owy_builder_dir . 'vuejs.config.php';
 
 	define('owy_builder_page_admin', 'oowyea-home');
 
@@ -19,6 +21,7 @@ if( wp_get_theme()->get( 'Name' ) == 'OOWYEA' )
 	include owy_builder_dir . 'libs/owy-templates.php';	
 	include owy_builder_dir . 'libs/wp-data-get-form.php';
 	include owy_builder_dir . 'libs/acf-admin.php';
+	include owy_builder_dir . 'libs/my-sites.php';
 	
 	
 

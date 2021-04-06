@@ -1,26 +1,74 @@
 <?php
+function owy_template_get_default_html($type)
+{
+	$html = '<p>example</p>';
 
-function create_template_if_not_exist($template_name)
+	if( in_array($type, array('hierarchy', 'page', 'master') ) ) 
+	{
+		ob_start();
+		?>
+		
+		<h1>Heading</h1>
+		<p>content</p>
+		
+		<?php
+		$html = ob_get_clean(); 
+	}
+	elseif( $type == 'header' )
+	{
+		ob_start();
+		?>
+		
+		logo
+		
+		<?php
+		$html = ob_get_clean();
+	}
+	elseif( $type == 'footer' )
+	{
+		ob_start();
+		?>
+		
+		<p>footer content</p>
+		
+		<?php
+		$html = ob_get_clean();
+	}
+
+	return $html;
+}
+
+function create_template_if_not_exist($template_name, $type = 'hierarchy', $group = null)
 {
 	if( is_admin() )
 	{
 		if( !post_exists($template_name) )
 		{
-			wp_insert_post(
-				array(
-					'post_title' => $template_name,
-					'post_name' => 'owy-template-'.$template_name,
+			if( $group == null ) $group = $type;
+
+			$owy_template = array(
+					'post_title' => ucfirst( $template_name ),
+					'post_name' => 'owy-template-'. sanitize_title( $template_name ),
 					'post_type' => 'owy_template',
 					'post_status' => 'publish',
 					'tax_input' => array(
 						'owy_templates_group' => array(
-							'Hierarchy'
+							ucfirst( $group )
 						)
 					),
 					'meta_input' => array(
-					    'owy_html' => '<h1 class="title" id="'.uniqid().'">Start your template: '.$template_name.'</h1>',
+					    'owy_html' => owy_template_get_default_html($type),
+					    'type' => $type
 					)
-				)
+				);
+
+			if( in_array( $type, array('page','hierarchy') ) ){
+				$owy_template['meta_input']['header'] = 'header';
+				$owy_template['meta_input']['footer'] = 'footer';
+			}
+
+			wp_insert_post(
+				$owy_template
 			);
 		}
 	}
@@ -41,6 +89,11 @@ function owy_builder_get_templates()
 			'post' => 'single',
 			'attachment' => 'attachment'
 		);
+
+		create_template_if_not_exist('footer', 'footer', 'Reusables');
+		create_template_if_not_exist('header', 'header', 'Reusables');		
+		create_template_if_not_exist('Sample Page', 'page', 'Pages');
+		create_template_if_not_exist('Block example', 'block', 'Reusables');
 
 		//init single template
 		foreach (get_post_types() as $key => $type) 
@@ -67,6 +120,8 @@ function owy_builder_get_templates()
 			}	
 		}
 
+		
+
 		global $builder_templates;
 		global $builder_templates_list;
 		/*$owy_templates = get_posts(array(
@@ -77,6 +132,8 @@ function owy_builder_get_templates()
 		$owy_templates = $builder_templates;
 
 		$owy_templates = apply_filters( 'posts_results', $owy_templates );
+
+		/* Group owy templates by terms */
 
 		$grouped = array();
 
@@ -97,14 +154,59 @@ function owy_builder_get_templates()
 				}
 			}	
 		}
-		
+
+
+		$groups = get_terms( 'owy_templates_group', array(
+		    'hide_empty' => false,
+		) );
+
+		$terms_group_order = array();
+
+		foreach ($groups as $key => $group) {
+			if( $grouped[ $group->name ] ) 
+			{
+				$terms_group_order[$group->name] = $grouped[ $group->name ];
+			}
+			else
+			{
+				$terms_group_order[$group->name] = array();
+			}
+
+		}
+
+		/* Add builtin templates */	
+		$owy_vue_templates = array();
+		global $vue_hierarchy_builtin, $vue_templates_builtin;
+
+		$owy_vue_templates[ 'Vue.js Hierarchy' ] = array();
+
+		foreach ($vue_hierarchy_builtin as $key => $name) {
+			$owy_vue_templates[ 'Vue.js Hierarchy' ][] = array(
+				'post_title' => $name,
+				'metas' => array(
+					'type' => 'vue'
+				)
+			);
+		}
+
+		$owy_vue_templates[ 'Vue.js Custom templates' ] = array();
+
+		foreach ($vue_templates_builtin as $key => $name) {
+			$owy_vue_templates[ 'Vue.js Custom templates' ][] = array(
+				'post_title' => $name,
+				'metas' => array(
+					'type' => 'vue'
+				)
+			);
+		}
 		//update_option( 'owy_builder_css', '' );
 
 		if( is_admin() )
 		{
 			wp_vue_add_var('owy_builder_css', get_option( 'owy_builder_css', '' ) );
 		}
-		wp_vue_add_var('owy_templates', $grouped);
+		wp_vue_add_var('owy_templates', $terms_group_order);
+		wp_vue_add_var('owy_vue_templates', $owy_vue_templates);
 		wp_vue_add_var('builder_templates_list', $builder_templates_list);
 	}
 }

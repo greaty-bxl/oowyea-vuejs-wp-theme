@@ -100,14 +100,14 @@ export default {
     });
 
 
-    this.editor.StyleManager.removeProperty('decorations', 'background-color');
+    /*this.editor.StyleManager.removeProperty('decorations', 'background-color');
     this.editor.StyleManager.removeProperty('decorations', 'background');
     
     this.editor.StyleManager.addProperty('decorations',{
       //name: 'background',
       property: 'background',
       type: 'bg',
-    }, { at: 0 });
+    }, { at: 0 });*/
 
     //let editor = this.editor
     
@@ -130,13 +130,13 @@ export default {
     });
 
     //re-count body elements excluding other hidden templates
-    this.editor.on('run', () => {
+    /*this.editor.on('run', () => {
       let find = this.jquery('.gjs-layer__t-wrapper > .gjs-layer-count')
       if( find.length )
       {
         find.text( this.editor.DomComponents.getComponents().length - 1 )
       }
-    });
+    });*/
 
     //keep current panel open
     $(document).on('click', '.gjs-pn-views .gjs-pn-btn', (event)=> {
@@ -164,14 +164,20 @@ export default {
       }
     })
 
+    //init block
+    this.init_owy_blocks()
+
     //render editor
-    this.editor.render();
+    this.editor.render()
 
     //Init Panels
     this.init_owy_panels()
 
     //Init Sectors
     this.init_owy_sectors()
+
+    //Init Traits    
+    this.init_owy_traits()
     
     //add commands
     this.editor.Commands.add('editor-wp-back', () => {
@@ -207,13 +213,16 @@ export default {
           highlightable: false,
           copyable: false,
           resizable: false,
-          editable: false
-        }
+          editable: false,
+          attributes : {
+            'style' : 'display:none'
+          }
+        },
+      },
+      view : {
+        
       }
     })
-
-    //init block
-    this.init_owy_blocks()
 
     //tries
     $( this.editor.SelectorManager.selectorTags.$states ).append('<option>test</option>')
@@ -329,6 +338,9 @@ export default {
 .gjs-four-color-h:hover{
   color: #4D94AE;
 }
+.gjs-four-bg{
+  background: #4D94AE;
+}
 
 .gjs-pn-btn {
   font-size: 16px;
@@ -395,6 +407,39 @@ select, select optgroup, select option{
 
 .gjs-four-color .gjs-sm-clear{
   display: inline-block !important;
+}
+
+#gjs-sm-advanced-selector{
+  padding-bottom: 7px;
+}
+
+#gjs-sm-advanced-selector .gjs-sm-title{
+  display: none;
+}
+
+#gjs-sm-advanced-selector .gjs-sm-properties{
+  padding: 0px;
+}
+
+.gjs-clm-sels-info {
+  margin: 7px 0 0;
+}
+
+.gjs-traits-label{
+  display: none;
+}
+
+.gjs-trt-traits{
+  padding-top: 15px;
+}
+
+.gjs-block {
+  min-height: 72px;
+}
+.gjs-block-label .icon {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 /* .gjs-layer__t-wrapper:first-child .gjs-layer-children > .gjs-layers > .gjs-layer:last-child {
   display: none !important; 

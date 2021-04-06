@@ -1,19 +1,25 @@
 <template>
   <OwyTemplates />
-  <Grapes />
+  <Grapes ref="grapes"/>
+  <OwyCode v-if="$store.state.code_page" />
   <OwyShortcuts />
+  <OwyChatBuilder />
   <OwyOptions v-show="$store.state.right_menu == 'main'" />
-  <OwyDocs v-show="$store.state.right_menu == 'docs'" />
+  <OwyDocs v-show="$store.state.right_menu == 'docs'" />  
+  <OwySites v-show="$store.state.right_menu == 'my-sites'" />
+  <OwyWpFrame v-show="$store.state.right_menu == 'wp-frame'" />
 </template>
 
 <script>
   import Grapes from 'PluginComponents/organisms/grapesjs'
   import OwyTemplates from 'PluginComponents/organisms/templates'
   import OwyShortcuts from 'PluginComponents/organisms/shortcuts'
+  import OwyChatBuilder from 'PluginComponents/organisms/chat-2'
+  import OwyCode from 'PluginComponents/organisms/code'
   import OwyOptions from 'PluginComponents/organisms/options'
   import OwyDocs from 'PluginComponents/organisms/docs'
-
-  import PeerRoom from 'Libs/peer-room.js'
+  import OwySites from 'PluginComponents/organisms/my-sites'
+  import OwyWpFrame from 'PluginComponents/organisms/wp-frame'
 
   export default {
     data(){
@@ -24,9 +30,13 @@
     components: {
       OwyTemplates,
       Grapes,
+      OwyCode,
       OwyShortcuts,
+      OwyChatBuilder,
       OwyOptions,
-      OwyDocs
+      OwyDocs,
+      OwySites,
+      OwyWpFrame
     },
     beforeCreate(){
       this.jquery('body').removeClass('wp-core-ui')
@@ -50,20 +60,10 @@
           });
         });
       }
-      
-      this.$store.state.builder_room = new PeerRoom( {
-        room_group: this.wp.uid_site,
-        room_name: 'owy_builder',
-        passphrase: this.wp.peer_admin_key,
-        peer_server: {
-          host: 'p2p.oowyea.com',
-          port: '',
-          path: '/',
-          secure: true
-        }
-      })
-      
-      console.log( this.$store.state.builder_room );
+
+      this.init_peer_collab()
+
+
       
     }
   }
@@ -79,8 +79,8 @@
 
   /* width */
   ::-webkit-scrollbar { 
-    width: 5px;
-    height: 5px;
+    width: 5px !important;
+    height: 5px !important;
   }
 
   /* Track */
@@ -90,6 +90,9 @@
   #editor *::-webkit-scrollbar-track {
     background: rgba(255,255,255,0.05);
   }
+
+  #editor *::-webkit-scrollbar-corner { background: rgba(255,255,255,0.05); }
+
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
@@ -109,6 +112,13 @@
 
   h1, h2, h3, h4, h5, h6{
     color: inherit;
+    box-sizing: border-box;
+  }
+
+  .clear{
+    display: inline-block;
+    width: 100%;
+    float: none;
   }
 
   body,

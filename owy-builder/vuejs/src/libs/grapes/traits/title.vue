@@ -9,14 +9,19 @@
 	}
 </script>
 <style>
-	.gjs-trt-trait--title{
+	.gjs-trt-trait--grp-title{
 		padding: 10px;
-		margin-top: 5px;
+		margin: 5px 0px;
 		border-width: 1px 0px;
 		border-style: solid;
 		border-color: rgba(0,0,0,.2);
 	}
-	.gjs-trt-trait--title .gjs-field-events{
+	.gjs-trt-trait--grp-title .gjs-field-events{
 		display: none;
+	}
+
+	.gjs-trt-trait--grp-title .gjs-label-wrp{
+		width: 100%;
+		font-weight: bold;
 	}
 </style>

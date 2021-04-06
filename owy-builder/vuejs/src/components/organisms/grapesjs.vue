@@ -130,13 +130,13 @@ export default {
     });
 
     //re-count body elements excluding other hidden templates
-    this.editor.on('run', () => {
+    /*this.editor.on('run', () => {
       let find = this.jquery('.gjs-layer__t-wrapper > .gjs-layer-count')
       if( find.length )
       {
         find.text( this.editor.DomComponents.getComponents().length - 1 )
       }
-    });
+    });*/
 
     //keep current panel open
     $(document).on('click', '.gjs-pn-views .gjs-pn-btn', (event)=> {
@@ -213,12 +213,16 @@ export default {
           highlightable: false,
           copyable: false,
           resizable: false,
-          editable: false
-        }
+          editable: false,
+          attributes : {
+            'style' : 'display:none'
+          }
+        },
+      },
+      view : {
+        
       }
     })
-
-    
 
     //tries
     $( this.editor.SelectorManager.selectorTags.$states ).append('<option>test</option>')

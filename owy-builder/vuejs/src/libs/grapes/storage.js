@@ -4,6 +4,7 @@ export default function (Vue) {
 
 	let store = Vue.$store.state
 	let otherTclass = 'owy-protected-other-templates'
+	
 	return {
 		// New logic for the local storage
 		load(keys, clb) {
@@ -12,20 +13,66 @@ export default function (Vue) {
 			let result = []
 			result['gjs-html'] = Vue.owy_html
 
+			let header_html = ''
+			let footer_html = ''
+			let type = store.grapes_template.metas.type
+			
+
 			let otherHtml = ''
 			Vue.jquery.each(store.wp.owy_templates, function(index, group) {
 				Vue.jquery.each(group, function(index, template) {
+
+					console.log(template.post_name, store.grapes_template.metas.header);
+
+					if( template.post_name == 'owy-template-'+store.grapes_template.metas.header )
+					{
+						header_html = template.metas.owy_html
+					}
+					if( template.post_name == 'owy-template-'+store.grapes_template.metas.footer )
+					{
+						footer_html = template.metas.owy_html
+					}
 					otherHtml += template.metas.owy_html
 				});
 			});
 
-			result['gjs-html'] += '<div data-gjs-type="other-templates" class="'+otherTclass+'">'+otherHtml+'<style>.'+otherTclass+'{display:none}</style></div>'
+			result['gjs-html'] += '<div data-gjs-type="other-templates" style="display:none" class="'+otherTclass+'">'+otherHtml+'<style>.'+otherTclass+'{display:none}</style></div>'
+			
+
+			if( type == 'header' )
+			{
+				header_html = result['gjs-html']
+				result['gjs-html'] = ''
+			}
+			else if( type == 'footer' )
+			{
+				footer_html = result['gjs-html']
+				result['gjs-html'] = ''
+			}
+			else
+			{
+				result['gjs-html'] = '<section class="owy-section">'+ result['gjs-html'] +'</section>'
+			}
+
+			if( header_html ){
+				result['gjs-html'] = '<header>'+header_html+'</header>' + result['gjs-html']
+			}
+
+			if( footer_html ){
+				result['gjs-html'] += '<footer>'+footer_html+'</footer>'
+			}
+
+
+			console.log('Grapes load', result['gjs-html'] );
 
 			result['gjs-css'] = store.wp.owy_builder_css
 
-			//console.log('Grapes load', store.wp.owy_builder_css);
+			
 			//result['gjs-js'] = Vue.js
 
+			
+
+			console.log('load', result);
 
 			Vue.editor.DomComponents.clear(); // Clear components
 			Vue.editor.CssComposer.clear(); 
@@ -43,6 +90,7 @@ export default function (Vue) {
 
 			if( !store.ajax_template_saving )
 			{
+				let type = store.grapes_template.metas.type
 				store.ajax_template_saving = true
 
 				let grapes_template = store.grapes_template 
@@ -51,8 +99,22 @@ export default function (Vue) {
 				let jhtml = Vue.jquery('<div>'+html+'</div>')
 				jhtml.find('.'+otherTclass).remove()
 
-				html = jhtml.html()
 
+				let selector = '.owy-section'
+
+				if( type == 'header' )
+				{
+					selector = 'header'
+				}
+
+				if( type == 'footer' )
+				{
+					selector = 'footer'
+				}
+
+				html = jhtml.find(selector).html()
+
+				console.log('store', html);
 				grapes_template.metas.owy_html = html//Vue.editor.getHtml()
 				let css = Vue.editor.getCss()
 

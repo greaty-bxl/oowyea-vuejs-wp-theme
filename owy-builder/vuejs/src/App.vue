@@ -79,8 +79,8 @@
 
   /* width */
   ::-webkit-scrollbar { 
-    width: 5px;
-    height: 5px;
+    width: 5px !important;
+    height: 5px !important;
   }
 
   /* Track */
@@ -90,6 +90,9 @@
   #editor *::-webkit-scrollbar-track {
     background: rgba(255,255,255,0.05);
   }
+
+  #editor *::-webkit-scrollbar-corner { background: rgba(255,255,255,0.05); }
+
 
   /* Handle */
   ::-webkit-scrollbar-thumb {

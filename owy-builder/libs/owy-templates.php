@@ -3,18 +3,14 @@ function owy_template_get_default_html($type)
 {
 	$html = '<p>example</p>';
 
-	if( in_array($type, array('hierarchy', 'page') ) ) 
+	if( in_array($type, array('hierarchy', 'page', 'master') ) ) 
 	{
 		ob_start();
 		?>
-		<section class="section">
-			<div class="background"></div>
-			<div class="content">
-				<h1>Heading</h1>
-				<p>content</p>
-			</div>
-			<div class="fixed"></div>
-		</section>
+		
+		<h1>Heading</h1>
+		<p>content</p>
+		
 		<?php
 		$html = ob_get_clean(); 
 	}
@@ -22,9 +18,9 @@ function owy_template_get_default_html($type)
 	{
 		ob_start();
 		?>
-		<header>
-			logo
-		</header>
+		
+		logo
+		
 		<?php
 		$html = ob_get_clean();
 	}
@@ -32,13 +28,9 @@ function owy_template_get_default_html($type)
 	{
 		ob_start();
 		?>
-		<footer class="section">
-			<div class="background"></div>
-			<div class="content">
-				<p>footer content</p>
-			</div>
-			<div class="fixed"></div>
-		</footer>
+		
+		<p>footer content</p>
+		
 		<?php
 		$html = ob_get_clean();
 	}
@@ -54,8 +46,7 @@ function create_template_if_not_exist($template_name, $type = 'hierarchy', $grou
 		{
 			if( $group == null ) $group = $type;
 
-			wp_insert_post(
-				array(
+			$owy_template = array(
 					'post_title' => ucfirst( $template_name ),
 					'post_name' => 'owy-template-'. sanitize_title( $template_name ),
 					'post_type' => 'owy_template',
@@ -69,7 +60,15 @@ function create_template_if_not_exist($template_name, $type = 'hierarchy', $grou
 					    'owy_html' => owy_template_get_default_html($type),
 					    'type' => $type
 					)
-				)
+				);
+
+			if( in_array( $type, array('page','hierarchy') ) ){
+				$owy_template['meta_input']['header'] = 'header';
+				$owy_template['meta_input']['footer'] = 'footer';
+			}
+
+			wp_insert_post(
+				$owy_template
 			);
 		}
 	}
@@ -90,6 +89,11 @@ function owy_builder_get_templates()
 			'post' => 'single',
 			'attachment' => 'attachment'
 		);
+
+		create_template_if_not_exist('footer', 'footer', 'Reusables');
+		create_template_if_not_exist('header', 'header', 'Reusables');		
+		create_template_if_not_exist('Sample Page', 'page', 'Pages');
+		create_template_if_not_exist('Block example', 'block', 'Reusables');
 
 		//init single template
 		foreach (get_post_types() as $key => $type) 
@@ -116,10 +120,7 @@ function owy_builder_get_templates()
 			}	
 		}
 
-		create_template_if_not_exist('footer', 'footer', 'Reusables');
-		create_template_if_not_exist('header', 'header', 'Reusables');		
-		create_template_if_not_exist('Sample Page', 'page', 'Pages');
-		create_template_if_not_exist('Block example', 'block', 'Reusables');
+		
 
 		global $builder_templates;
 		global $builder_templates_list;

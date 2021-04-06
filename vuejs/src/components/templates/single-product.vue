@@ -24,7 +24,7 @@
 
 							<div  class="padding-appeare">
 
-								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes')">
+								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes') || has_term(post, 'product_cat', 'koffies')">
 									<div class="parent-taxonomie-info-single">
 										<p class="titre-taxonomie" v-html="pll__('Intensité')"></p>
 										<div class="valeur-taxonomie" >
@@ -39,7 +39,7 @@
 									
 								</div>
 
-								<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes')">
+								<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes') || has_term(post, 'product_cat', 'koffies')">
 									<div class="parent-taxonomie-info-single">
 										<p class="titre-taxonomie" v-html="pll__('Acidité')"></p>
 										<div class="valeur-taxonomie"  >

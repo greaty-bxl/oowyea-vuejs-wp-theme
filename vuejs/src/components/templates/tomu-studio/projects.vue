@@ -71,11 +71,7 @@
 
 		.animation-title {
 			opacity: 1;
-			transform: scale(1.15,1.15);
-			-webkit-transform:scale(1.15,1.15);
-			-moz-transform:scale(1.15,1.15);
-			-ms-transform:scale(1.15,1.15);
-			-o-transform:scale(1.15,1.15);
+
 		}
 		.background-project {
 			opacity: 1;
@@ -131,12 +127,12 @@
 
 	.animation-title p{
 
-		width: 80%;
+		width: 50%;
 		margin-left: auto;
-		margin-right: calc(6% + 20px);
-		text-align: center;
+		margin-right: 20px;
+		text-align: right;
 		font-weight: 500;
-		padding-top: calc(8% + 20px);
+		padding-top: 20px;
 
 	}
 
@@ -198,7 +194,7 @@
 	.content-project:nth-child(16n+3){
 
 		margin-top: -17.5vw;
-		margin-bottom: 70px;
+		margin-bottom: 100px;
 		width: 30vw;
 		height: 25vw;
 	}
@@ -538,16 +534,17 @@
 			opacity: 1;
 			transition: all 0.45s ease-in-out;
 			color: black;
+
 		}
 
 		.animation-title p{
 
 			padding-top: 0px;
 			width: calc( 100% - 60px  );
-			margin-left: 0px;
+			margin-left: auto;
+			text-align: right;
+
 		}
-
-
 
 	}
 

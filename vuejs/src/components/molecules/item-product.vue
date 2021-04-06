@@ -13,10 +13,10 @@
 
 						<p class="title-product" v-html="item.post_title"></p>
 
-						<div class="div-terms" v-if="has_term(item, 'product_cat', 'cafes')">
+						<div class="div-terms" v-if="has_term(item, 'product_cat', 'cafes') || has_term(item, 'product_cat', 'koffies')">
 							
 							<div class="parent-taxonomie-info">
-								<p class="titre-taxonomie">Intensité</p>
+								<p class="titre-taxonomie" v-html="pll__('Intensité')"></p>
 								<div class="valeur-taxonomie" >
 									<div v-for="count_intesity in 5" :key="count_intesity" 
 									v-bind:class="{ filled: isFilled( item, count_intesity, 'intensity' ) }">
@@ -26,10 +26,10 @@
 							
 						</div>
 
-						<div class="div-terms" v-if="has_term(item, 'product_cat', 'cafes')">
+						<div class="div-terms" v-if="has_term(item, 'product_cat', 'cafes') || has_term(item, 'product_cat', 'koffies')">
 							
 							<div class="parent-taxonomie-info">
-								<p class="titre-taxonomie">Acidité</p>
+								<p class="titre-taxonomie" v-html="pll__('Acidité')"></p>
 								<div class="valeur-taxonomie" >
 									<div v-for="acidity_points in 5" :key="acidity_points" 
 									v-bind:class="{ filled: isFilled( item, acidity_points, 'acidity' ) }">
@@ -39,10 +39,10 @@
 							
 						</div>
 
-						<div class="div-terms thes" v-if="has_term(item, 'product_cat', 'thes')">
+						<div class="div-terms thes" v-if="has_term(item, 'product_cat', 'thes') || has_term(item, 'product_cat', 'thees')">
 							
 							<div class="parent-taxonomie-info parent-taxonomie-info-thes">
-								<p class="titre-taxonomie">Thé</p>
+								<p class="titre-taxonomie" v-html="pll__('Thé')"></p>
 								<div class="valeur-taxonomie" >
 									<p class="value-terms-thes" v-html="get_terms_as_string(item, 'type_the')"></p>
 								</div>
@@ -50,10 +50,10 @@
 							
 						</div>
 
-						<div class="div-terms thes" v-if="has_term(item, 'product_cat', 'thes')">
+						<div class="div-terms thes" v-if="has_term(item, 'product_cat', 'thes') || has_term(item, 'product_cat', 'thees')">
 							
 							<div class="parent-taxonomie-info parent-taxonomie-info-thes">
-								<p class="titre-taxonomie">Type d’infusion</p>
+								<p class="titre-taxonomie" v-html="pll__('Type d’infusion')"></p>
 								<div class="valeur-taxonomie" >
 									<p class="value-terms-thes" v-html="get_terms_as_string(item, 'type_infusion')"></p>
 								</div>
@@ -61,7 +61,7 @@
 							
 						</div>
 
-						<p class="flavour" v-if="has_term(item, 'product_cat', 'cafes') && get_terms_as_string(item, 'flavoring')" >
+						<p class="flavour" v-if="has_term(item, 'product_cat', 'cafes') || has_term(item, 'product_cat', 'koffies') && get_terms_as_string(item, 'flavoring')" >
 							<span v-html="get_terms_as_string(item, 'origine')"></span> | <span v-html="get_terms_as_string(item, 'flavoring')"></span>
 						</p>
 

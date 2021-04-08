@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <Header/>
-    <div id="app-scroller">
+    <!-- <smooth-scrollbar  id="app-scroller"> -->
+      <div id="app-scroller">
       <!-- <div id="pages"> -->
         <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
           <div class="section" 
@@ -28,10 +29,10 @@
       <!-- </div> -->
       <!-- Footer -->
       <Footer/>
-      
+      </div>
       <!-- <AudioPlayerBottom />
       <Editor v-if="wp.user_can.edit_theme_options" /> -->
-    </div>
+    <!-- </smooth-scrollbar> -->
     <div id="page-loader">
       <v-icon name="spinner" class="fa-pulse"></v-icon>
     </div>
@@ -46,11 +47,11 @@ import Header from 'Organisms/header-tomu-studio.vue'
 
 
 //Footer
-import Footer from 'Organisms/footer.vue'
+import Footer from 'Organisms/footer-tomu.vue'
 
 //import AudioPlayerBottom from 'Organisms/audio-player-bottom.vue'
 //import Editor from 'Organisms/editor.vue'
-
+// 
 //Functions
 //import is from 'is_js'
 import init_scrolltop from 'Libs/init-scrolltop.js'
@@ -68,6 +69,12 @@ import woocommerceAjax from 'Libs/woocommerce-ajax.js'
 //import fullpage from 'fullpage.js'
 
 //Vue.prototype.noty = noty
+
+// import Vue from 'vue'
+import Scrollbar from 'smooth-scrollbar'
+// Vue.use(SmoothScrollbar)
+
+// console.log(SmoothScrollbar);
 
 function vue_key_to_name(str)
 {
@@ -111,8 +118,8 @@ export default {
   },
   mounted (){
 
-    console.log( 'App mounted' );    
-    
+    console.log( 'App mounted' ); 
+
     this.pages['current'] = this.wp.sections
     this.classes['current'] = this.wp.body_class
 
@@ -139,8 +146,6 @@ export default {
 
       //auto scroll next section
       // scrollSection(this)
-
-      
 
       //ready
       $(document).trigger('first_page_ready')
@@ -231,13 +236,49 @@ export default {
       //init on screen detection 
       on_screen()
 
+      
+      console.log(Scrollbar);
+
+
+      class MyPlugin extends Scrollbar.ScrollbarPlugin {
+        static pluginName = 'myPlugin';
+
+        onInit() {
+        console.log('hello world!');
+
+        // this._mount();
+        }
+
+        onUpdate() {
+          
+          $('#app').trigger('scroll')
+
+        // this._mount();
+        }
+      }
+
+      Scrollbar.use(MyPlugin)
+
+      Scrollbar.init(document.querySelector('#app-scroller'), {
+        damping: 0.1,
+        plugins:{
+
+         myPlugin:{
+
+         }
+        }
+      });
+
+
     });
 
   },
   methods : {
     template_mounted(){
 
-      //let $ = this.$
+      // let $ = this.$
+
+
 
       //console.log('template_mounted')
 
@@ -306,16 +347,21 @@ html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /*color: #2c3e50;*/
   height: 100vh;
   width: 100%;
-  overflow-y: auto;
-  z-index: auto;
+  overflow: hidden;
+  /*color: #2c3e50;*/
+  
+  
   /*background: rgb(40, 40, 40);*/
 }
 
 #app-scroller {
   z-index: 0;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  z-index: auto;
 }
 
 .clear{

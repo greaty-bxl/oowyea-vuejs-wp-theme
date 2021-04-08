@@ -16,14 +16,24 @@ export default () => {
 		})
 	}
 
+	// $('.bnotify').bind("style-change", function(){
+ //    alert("changed");
+	// });
+
+
 	function scan_screen(){
 		$('.on-screen').each( (index, el) => {
 
 			var elTop = $(el).offset().top +  $('#app').scrollTop()
+
+			// console.log(elTop , 'elTop');
 			// var elTop2 = $(el).position().top +  $('#app').scrollTop() 
 
 		
 			var elBott = elTop + $(el).outerHeight()  
+
+			// console.log(elTop , 'elTop');
+
 			var top = $('#app').scrollTop()
 			var bottom = $('#app').scrollTop() + $('#app').outerHeight() 
 
@@ -85,7 +95,8 @@ export default () => {
 	leave('.on-screen')
 
 	$("#app").on('before_next_page', () => {
-		leave('.on-screen')
+		console.log('before_next_page');
+		leave('.on-screen')	
 	});
 
 	$("#app").on('section-top-ready', () => {
@@ -93,6 +104,8 @@ export default () => {
 	});
 
 	$("#app").scroll( () => { 
+
+		console.log('scrooapp');
 		
 		scrollingType =  $('#app').data('scrolling')
 
@@ -115,9 +128,26 @@ export default () => {
 		scan_screen()
 	})
 
-	$(window).resize( () => { scan_screen() })
-	$(document).on('before_next_page', () => { leave('.on-screen') })
-	$(document).on('after_next_page', () => { scan_screen() })
-	scan_screen()
+// 	$(window).resize( () => { scan_screen() })
+// 	$(document).on('before_next_page', () => { leave('.on-screen') })
+// 	$(document).on('after_next_page', () => { scan_screen() })
+// 	scan_screen()
+
+
+// 	$(window).bind('mousewheel DOMMouseScroll', function(event){
+// 	if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+// 	// scroll up
+// 		$('.scroll-content').css('transform')
+
+// 		console.log($('.scroll-content').css('matrix'));
+
+// 	}
+// 	else {
+// 	// scroll down
+// 			console.log($('.scroll-content').css('matrix'));
+
+// 	console.log('2222');
+// 	}
+// 	});
 }
 

@@ -29,12 +29,14 @@
 
 		let $ = this.$
 
-		console.log(this.post, 'postsss');
+		console.log(this.post, 'posts');
 
 		$('.team-name').on('enter-screen', () => {
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#FCD190');
+			$('.current-menu-item a ').css('color', '#FCD190');
+
 			
 		})
 
@@ -104,7 +106,7 @@
 		.Team-section{
 
 			display: flex;
-			flex-direction: column;
+			flex-direction: column-reverse;
 			width: calc( 100% - 60px );
 			padding-left: 30px;
 		}
@@ -119,8 +121,8 @@
 			
 			padding-left: 30px;
 			text-align: left;
-			padding-top: 5vh;
-			padding-bottom: 20vh;
+			padding-bottom: 5vh;
+			padding-top: 10vh;
 			display: flex;
 			flex-direction: column;
 			font-weight: 800;

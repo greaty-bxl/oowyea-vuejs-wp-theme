@@ -89,6 +89,10 @@ import is from 'is_js'
 	opacity: 0;
 	}
 
+	.menu a{
+		color: black;
+	}
+
 	.header-tomu-container{
 		transition: all 1s ease-out;
 		position: fixed;

@@ -34,7 +34,7 @@ include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
 include GREATY_TEMPLATE_PATH.'/libs/image-sizes.php';
 include GREATY_TEMPLATE_PATH.'/libs/mime-types.php';
 include GREATY_TEMPLATE_PATH.'/libs/_wpnonce.php';
-
+include GREATY_TEMPLATE_PATH.'/libs/include-tomu-studio.php';
 //include GREATY_TEMPLATE_PATH.'/libs/radio.php';
 
 

@@ -22,6 +22,7 @@
     "peerjs": "^1.3.1",
     "phaser": "^3.24.1",
     "scrollmagic": "^2.0.8",
+    "smooth-scrollbar": "^8.6.1",
     "spectrum-colorpicker": "^1.8.1",
     "swiper": "^5.4.5",
     "velocity-animate": "^1.5.2",
@@ -36,6 +37,7 @@
     "vue-gapi": "^0.3.1",
     "vue-lottie": "^0.2.1",
     "vue-scrollmagic": "^1.2.0",
+    "vue-smooth-scrollbar": "^0.1.2",
     "vue-swiper": "^0.5.0",
     "vue-youtube": "^1.4.0",
     "vuex": "^3.5.1"

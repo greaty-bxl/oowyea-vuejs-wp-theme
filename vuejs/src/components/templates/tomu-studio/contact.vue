@@ -31,6 +31,10 @@
 				
 			})
 
+			$('.contact-tomu div').on('leave-screen', () => {
+				console.log('leave-screen');
+			})
+
 		}
 	}
 

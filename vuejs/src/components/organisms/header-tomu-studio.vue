@@ -1,7 +1,7 @@
 <template>
 	
 
-	<div>
+	<div id="header">
 		<div  class="icon button-header"  :class="['close', {'active': this.open}]" >
 			<div class="burger"
 		@click="toggleNav" ></div>

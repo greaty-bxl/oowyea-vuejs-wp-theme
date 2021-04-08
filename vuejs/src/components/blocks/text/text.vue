@@ -1,5 +1,5 @@
 <template>
-	<component data-owy-block="text" data-test="test" contenteditable="true" :is="tagname" >
+	<component data-owy-block="text" contenteditable="true" :is="tagname" >
 		Your text here
 	</component>
 </template>

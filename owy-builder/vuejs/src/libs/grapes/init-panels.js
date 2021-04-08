@@ -1,6 +1,6 @@
 export default function(){
 	let $ = this.jquery
-	let Vue = this
+	//let Vue = this
 	//add top panels
 	this.editor.Panels.addPanel({
 		id: 'panel__wordpress',
@@ -31,12 +31,127 @@ export default function(){
 	});
 
 	this.editor.Panels.addPanel({
+		id: 'panel__left',
+		el: '.panel__left',
+		buttons: [
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-columns"></span><p>Models</p></div>',
+				command: '',
+			},
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-upload"></span><p>Media</p></div>',
+				command: '',
+			},
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-image"></span><p>Photos</p></div>',
+				command: '',
+			},
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-shapes"></span><p>Elements</p></div>',
+				command: '',
+			},
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-paragraph"></span><p>Text</p></div>',
+				command: '',
+			},
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-music"></span><p>Audio</p></div>',
+				command: '',
+			},
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-video"></span><p>Video</p></div>',
+				command: '',
+			},
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-square"></span><p>Backg...</p></div>',
+				command: '',
+			},
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-bolt"></span><p>Effects</p></div>',
+				command: '',
+			},
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-database"></span><p>API\'s</p></div>',
+				command: '',
+			},
+		],
+	});
+
+	this.editor.Panels.addPanel({
 		id: 'editor_select_template',
 		el: '.editor_select_template',
 	});
 
+	/*const pn = this.editor.Panels
+	let assets_panel = null
 
-	const pn = this.editor.Panels
+	pn.addButton('views', {
+		id: 'owy-assets',
+		attributes: {
+			class: 'fas fa-photo-video',
+			title: "Edit WordPress data"
+		},
+		active: false,
+		command: {
+			run:	() => {
+				if(assets_panel == null)
+				{
+					const panel_container = document.createElement('div')
+					panel_container.innerHTML = `
+						<div id="panel-owy-assets">
+						</div>
+						`
+					const panels = pn.getPanel('views-container')
+					panels.set('appendContent', panel_container).trigger('change:appendContent')
+					
+					assets_panel = panel_container
+
+
+					this.editor.BlockManager.add('my-first-block', {
+						label: 'Simple block',
+						content: '<div class="my-block">This is a simple block</div>',
+						category: 'owy-assets'
+						});
+
+					this.editor.BlockManager.render()
+
+					$( ".gjs-block-category:contains('owy-assets')" ).appendTo('#panel-owy-assets').find('.gjs-title').remove()
+					console.log( 'test' )
+				}
+				
+				assets_panel.style.display = 'block'
+
+			},
+			stop: function () {
+				if(assets_panel != null)
+				{
+					assets_panel.style.display = 'none'
+				}
+			}
+		}
+	})*/
+
+	/*const pn = this.editor.Panels
 	//init wp data panel	
 	let wp_data_panel = null
 
@@ -74,7 +189,7 @@ export default function(){
 				
 				wp_data_panel.style.display = 'block'
 			},
-			stop: function (/*editor*/) {
+			stop: function () {
 				if(wp_data_panel != null)
 				{
 					wp_data_panel.style.display = 'none'
@@ -94,7 +209,7 @@ export default function(){
 		},
 		active: false,
 		command: {
-			run: function (/*editor*/) {
+			run: function () {
 				if(state_panel == null)
 				{
 					const editMenuDiv = document.createElement('div')
@@ -111,14 +226,14 @@ export default function(){
 				
 				state_panel.style.display = 'block'
 			},
-			stop: function (/*editor*/) {
+			stop: function () {
 				if(state_panel != null)
 				{
 					state_panel.style.display = 'none'
 				}
 			}
 		}
-	})
+	})*/
 
 	/*
 		Replace Fontawesome oldated icones

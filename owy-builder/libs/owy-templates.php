@@ -19,7 +19,7 @@ function owy_template_get_default_html($type)
 		ob_start();
 		?>
 		
-		logo
+		<span>logo</span>
 		
 		<?php
 		$html = ob_get_clean();
@@ -217,6 +217,7 @@ function owy_builder_save_templates()
 	if( user_can( wp_get_current_user(), 'edit_theme_options' ) )
 	{
 		$data = $_POST['data'];
+		$post_id = $data['post']['ID'];
 
 		$post = array(
 			'ID' =>  $data['post']['ID'],
@@ -225,17 +226,47 @@ function owy_builder_save_templates()
 			)
 		);
 
+		$hf_els = array('header', 'footer');
+		$hf_res = array();
+		foreach ($hf_els as $hf_el) 
+		{
+			$to_up = array();
+
+			if( $data[$hf_el.'_html'] )
+			{
+				$header = get_page_by_path( 'owy-template-' . $data['post']['metas'][$hf_el], OBJECT, 'owy_template' );
+
+				$to_up = array(
+					'ID' => $header->ID,
+					'meta_input' => array(
+						'owy_html' => $data[$hf_el.'_html']
+					)
+				);
+
+				$hf_res[$hf_el] = wp_update_post( $to_up, true );
+			}
+		}
+		
+
+
 		update_option( 'owy_builder_css', $data['css'] );
 
 		$update = wp_update_post( $post, true );
 
 		if( !is_wp_error( $update ) )
 		{
-			die( json_encode( apply_filters( 'posts_results', get_post( $update ) )[0] ) );
+			die( json_encode( array( 
+				'data' => $data,
+				'post' => $post,
+				'update' => $update,
+				'hf_res' => $hf_res
+			) ) );
 		}
 		else
 		{
-			die( json_encode( $update ) );
+			die( json_encode( array(
+				'error' => "can't save template"
+			) ) );
 		}
 
 		

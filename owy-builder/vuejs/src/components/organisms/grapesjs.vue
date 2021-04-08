@@ -7,6 +7,8 @@
     </div> 
     <div class="panel__wordpress">
     </div>
+    <div class="panel__left">
+    </div>
     <div class="editor_select_template">
       <select>
         <optgroup v-for="(group, label) in owy_templates" :key="label" :label="label">
@@ -158,9 +160,10 @@ export default {
     this.editor.StorageManager.add('local', owy_storage(Vue) );
     
     //replace asset modal
+    let owy_assets = this.owy_assets
     this.editor.Commands.add('open-assets', {
-      run() {
-        console.log('assets');
+      run(editor, editor2, opts) {
+        owy_assets(opts)
       }
     })
 
@@ -263,6 +266,12 @@ export default {
   methods : {
     close : function () {
       this.$store.state.grapes_template = null
+    },
+    drop : function(event){
+      console.log('drop', event);
+    },
+    allowdrop : function(event){
+      console.log('allowDrop', event);
     }
   },
   watch : {
@@ -292,7 +301,8 @@ export default {
 
 <style lang="scss">
 .gjs-cv-canvas{
-  width: calc(100% - 280px);
+  width: calc(100% - 340px);
+  left: 60px;
 }
 
 .gjs-mdl-content{
@@ -393,13 +403,45 @@ select, select optgroup, select option{
   height: 100%;
   width: 100%;
 }
+
 .panel__wordpress{
   position: absolute;
   top: 0;
 }
+
 .panel__more{
   width: 100%;
 }
+
+.panel__left{
+  position: absolute;
+  top: 40px; 
+  height: calc(100vh - 80px);
+  width: 60px;
+  box-sizing: border-box;
+}
+.panel__left:before{
+  content: ' ';
+  top: 0px;
+  left: 0px;
+  width: 60px;
+  height: 2px;
+  background: rgba(0,0,0,.2);
+  position: absolute;
+  display: block;
+}
+.panel__left .gjs-pn-buttons{
+  flex-direction: column;
+}
+
+.panel__left .gjs-pn-buttons p{
+  font-size: .55rem;
+  padding: 0 0 5px;
+  margin: 0;
+  text-align: center;
+}
+
+
 
 .gjs-pn-devices-c{
   left: 270px;

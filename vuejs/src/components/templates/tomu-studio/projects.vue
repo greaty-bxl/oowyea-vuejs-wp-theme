@@ -1,8 +1,8 @@
 <template>
 	
-	<div class="section-global-project on-screen">
+	<div class="section-global-project ">
 
-			<div class="content-project"  v-for="(item, index) in wp.projects" :key="index"  >
+			<div class="content-project on-screen"  v-for="(item, index) in wp.projects" :key="index"  >
 				<a :href="item.permalink">
 					<img v-if="is" :src="item.thumb">	
 					<div v-else class="background-project" :style= "{'background-image': 'url('+item.thumb+')' }" ></div>
@@ -39,11 +39,16 @@
 
 		let $ = this.$
 
-		$('.section-global-project').on('enter-screen', () => {
+		$('.content-project').on('enter-screen', () => {
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#9fade1');
-			
+			$('.current-menu-item a').css('color', '#9fade1');
+		})
+
+		$('.section-global-project').on('leave-screen', () => {
+			//console.log('leave screen', event.target);
+			console.log('leave-screen');
 		})
 
 		}
@@ -505,7 +510,7 @@
 		}
 
 		.section-global-project{
-
+			padding-top: 50px;
 			width: calc( 100% - 60px );
 			padding-left: 0px;
 			margin-left: auto;

@@ -19,7 +19,11 @@
 
 
 <script type="text/javascript">
-	
+
+	import Vue from 'vue'
+	import SmoothScrollbar from 'vue-smooth-scrollbar'
+	Vue.use(SmoothScrollbar)
+
 	export default{
 
 		mounted(){
@@ -53,9 +57,10 @@
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', 'black');
-			
-		})
+			$('.current-menu-item a').css('color', 'black');
 
+		})
+		
 		}
 	}
 
@@ -78,16 +83,7 @@
 		font-weight: 700;
 		font-size: 80px;
 	}
-/*
-	@keyframes spin {
-		0% {  color: #bdb5d9; content:"DESIGN"; }
-		20% { color: #fddaa7; content:"SPACES"; }
-		40% { color: #e6b4e6; content:"INTERIOR";}
-		60% { color: #86dadc; content:"HOSPITALITY"; }
-		80% {  color: #e6b1c2; content: "RESTAURANT";}
-		100% {  color: #dbcdbe; content: "SCENOGRAPHY";}
-	}
-*/
+
 	.home-section p{
 		all: unset;
 		text-align: left;
@@ -146,7 +142,5 @@
 			margin-left: 0px;
 		}
 	}
-
-
 
 </style>

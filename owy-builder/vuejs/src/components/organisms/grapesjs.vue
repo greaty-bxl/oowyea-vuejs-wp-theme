@@ -124,6 +124,8 @@ export default {
 
       $('.gjs-block-categories .gjs-title').trigger('click')
 
+      $('.gjs-block-categories .gjs-title').first().trigger('click')
+
       $('[title="Open Style Manager"]').trigger('click')
 
       //$('.gjs-block-categories .gjs-title').first().trigger('click')
@@ -416,9 +418,13 @@ select, select optgroup, select option{
 .panel__left{
   position: absolute;
   top: 0px; 
-  height: calc(100vh - 80px);
+  height: calc(100vh - 40px);
   width: 60px;
   box-sizing: border-box;
+  overflow-x: none;
+  overflow-y: auto;
+
+  
 }
 .panel__left:before{
   content: ' ';
@@ -427,7 +433,7 @@ select, select optgroup, select option{
   width: 2px;
   height: 40px;
   background: rgba(0,0,0,.2);
-  position: absolute;
+  position: fixed;
   display: block;
 }
 .panel__left .gjs-pn-buttons{

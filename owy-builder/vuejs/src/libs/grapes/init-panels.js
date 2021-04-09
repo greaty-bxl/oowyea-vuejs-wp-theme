@@ -7,13 +7,6 @@ export default function(){
 		el: '.panel__wordpress',
 		buttons: [
 			{
-				id: 'editor-wp-back',
-				active: false, // active by default
-				className: 'editor-wp-back',
-				label: '<div title="Close editor"><span class="fas fa-times"></span></div>',
-				command: 'editor-wp-back',
-			},
-			{
 				id: 'editor-save',
 				active: false, // active by default
 				className: 'editor-save',
@@ -26,6 +19,11 @@ export default function(){
 				className: 'editor-publish',
 				label: '<div title="Publish"><span class="fa fa-upload"></span></div>',
 				command: 'owy-publish-template'
+			},
+			{
+				active: false,
+				label: '<div title="Show"><span class="fa fa-rocket"></span></div>',
+				command: ''
 			}
 		],
 	});
@@ -35,65 +33,62 @@ export default function(){
 		el: '.panel__left',
 		buttons: [
 			{
+				id: 'editor-wp-back',
 				active: false, // active by default
-				className: 'editor-wp-back',
+				label: '<div title="Close editor"><span class="fas fa-times"></span></div>',
+				command: 'editor-wp-back',
+			},
+			{
+				active: false, // active by default
 				label: '<div><span class="fas fa-columns"></span><p>Models</p></div>',
 				command: '',
 			},
 			{
 				active: false, // active by default
-				className: 'editor-wp-back',
 				label: '<div><span class="fas fa-upload"></span><p>Media</p></div>',
 				command: '',
 			},
 			{
 				active: false, // active by default
-				className: 'editor-wp-back',
 				label: '<div><span class="fas fa-image"></span><p>Photos</p></div>',
 				command: '',
 			},
 			{
 				active: false, // active by default
-				className: 'editor-wp-back',
 				label: '<div><span class="fas fa-shapes"></span><p>Elements</p></div>',
 				command: '',
 			},
 			{
 				active: false, // active by default
-				className: 'editor-wp-back',
 				label: '<div><span class="fas fa-paragraph"></span><p>Text</p></div>',
 				command: '',
 			},
 			{
 				active: false, // active by default
-				className: 'editor-wp-back',
 				label: '<div><span class="fas fa-music"></span><p>Audio</p></div>',
 				command: '',
 			},
 			{
 				active: false, // active by default
-				className: 'editor-wp-back',
 				label: '<div><span class="fas fa-video"></span><p>Video</p></div>',
 				command: '',
 			},
 			{
 				active: false, // active by default
-				className: 'editor-wp-back',
 				label: '<div><span class="fas fa-square"></span><p>Backg...</p></div>',
 				command: '',
 			},
 			{
 				active: false, // active by default
-				className: 'editor-wp-back',
 				label: '<div><span class="fas fa-bolt"></span><p>Effects</p></div>',
 				command: '',
 			},
 			{
 				active: false, // active by default
-				className: 'editor-wp-back',
 				label: '<div><span class="fas fa-database"></span><p>API\'s</p></div>',
 				command: '',
 			},
+			
 		],
 	});
 

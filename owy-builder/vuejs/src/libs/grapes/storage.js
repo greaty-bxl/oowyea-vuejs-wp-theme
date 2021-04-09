@@ -1,9 +1,11 @@
 import wp_ajax from 'Libs/wp-ajax.js';
 
+
 export default function (Vue) {
 
 	let store = Vue.$store.state
 	let otherTclass = 'owy-protected-other-templates'
+	let $ = Vue.jquery
 	
 	return {
 		// New logic for the local storage
@@ -17,8 +19,8 @@ export default function (Vue) {
 			let type = store.grapes_template.metas.type
 
 			let otherHtml = ''
-			Vue.jquery.each(store.wp.owy_templates, function(index, group) {
-				Vue.jquery.each(group, function(index, template) {
+			$.each(store.wp.owy_templates, function(index, group) {
+				$.each(group, function(index, template) {
 
 					if( template.post_name == 'owy-template-'+store.grapes_template.metas.header )
 					{
@@ -47,6 +49,10 @@ export default function (Vue) {
 				footer_html = result['gjs-html']
 				result['gjs-html'] = ''
 			}
+			else if( type == 'block' )
+			{
+				result['gjs-html'] = '<section class="owy-section">'+ result['gjs-html'] +'</section>'
+			}
 			else
 			{
 				result['gjs-html'] = '<section class="owy-section">'+ result['gjs-html'] +'</section>'
@@ -60,6 +66,8 @@ export default function (Vue) {
 				result['gjs-html'] += '<footer>'+footer_html+'</footer>'
 			}
 
+			result['gjs-html'] = '<div id="app" data-gjs-name="App">' + result['gjs-html'] + '</div>'
+
 			result['gjs-css'] = store.wp.owy_builder_css
 
 
@@ -70,10 +78,18 @@ export default function (Vue) {
 			clb(result);
 
 			Vue.editor.UndoManager.clear();
+
+			$('[title="Open Layer Manager"]').trigger('click')
+
+			$('.gjs-layer-title').first().find('.gjs-layer-caret').click()
+
+			$('.gjs-layer-title').first().hide();
+
+			$('.gjs-layer-title').eq(1).find('.gjs-layer-caret').click()
+			
 		},
 
-		store() {
-			//console.log('Grapes ajax save');
+		store(/*data*/) {
 
 			if( !store.ajax_template_saving )
 			{
@@ -83,7 +99,9 @@ export default function (Vue) {
 				let grapes_template = store.grapes_template 
 				let html = Vue.editor.getHtml()
 
-				let jhtml = Vue.jquery('<div>'+html+'</div>')
+				//console.log('getComponents', JSON.parse( data['gjs-components'] ) );
+
+				let jhtml = $('<div>'+html+'</div>')
 				jhtml.find('.'+otherTclass).remove()
 
 
@@ -101,24 +119,18 @@ export default function (Vue) {
 				}
 				else if( type == 'hierarchy' || type == 'page' )
 				{
-					console.log('save header and footer');
 					header_html = jhtml.find('header').html()
 					footer_html = jhtml.find('footer').html()
 				}
 
 				html = jhtml.find(selector).html()
 
-				console.log('store', html);
-				grapes_template.metas.owy_html = html//Vue.editor.getHtml()
+				grapes_template.metas.owy_html = html
 				let css = Vue.editor.getCss()
 
 				css = css.replace('body', '#wrapper')
 
-				//console.log('save css', css);
-
 				Vue.$store.state.wp.owy_builder_css = css
-				//grapes_template.metas.css[0] = Vue.editor.getCss()
-				//grapes_template.metas.js[0] = Vue.editor.getJs()
 
 				
 
@@ -127,26 +139,24 @@ export default function (Vue) {
 					'owy_html' : html,
 					'css' : css,
 					'header_html' : header_html,
-					'footer_html' : footer_html
+					'footer_html' : footer_html,
 					//'js' : Vue.editor.getJs()
-				}, (result) => {
-
-					console.log('result', result);
+				}, (/*result*/) => {
 
 					store.ajax_template_saving = false
 
 					let hf_names = ['header', 'footer']
 					let hf_html = ''
 
-					Vue.jquery.each(store.wp.owy_templates, function(index1, group) {
+					$.each(store.wp.owy_templates, function(index1, group) {
 						
-						Vue.jquery.each(group, function(index2, template) {
+						$.each(group, function(index2, template) {
 
-							Vue.jquery.each(hf_names, function(index3, hf_name) {
+							$.each(hf_names, function(index3, hf_name) {
 
 								if( template['post_name'] == 'owy-template-'+ grapes_template['metas'][hf_name])
 								{
-									console.log('replace '+hf_name+' in store', template);
+									//console.log('replace '+hf_name+' in store', template);
 									if( hf_name == 'header' ) hf_html = header_html
 									else hf_html = footer_html
 

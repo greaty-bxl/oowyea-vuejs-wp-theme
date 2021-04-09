@@ -51,9 +51,7 @@
 		},
 		methods : {
 			load_form : function (settings = {}) {
-
 				
-
 				let $ = this.jquery
 
 				let settings_remove = [
@@ -77,8 +75,6 @@
 				this.acf_setting = acf_setting
 
 				wp_ajax('owy_acf_admin_get_form', acf_setting, (form) => {
-
-					console.log('load_form form', form);
 					
 					let form_html = $('<div>'+form+'</div>')
 					if( settings.autosave )
@@ -95,9 +91,9 @@
 
 					$(window).trigger('load')					
 
-					/*setTimeout( ()=>{
+					setTimeout( ()=>{
 						this.loaded()
-					}, 1 )*/
+					}, 1 )
 				})
 			},
 			loaded : function()

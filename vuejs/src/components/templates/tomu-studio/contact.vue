@@ -67,7 +67,7 @@
 	.contact-tomu ul{
 
 		width: 30%;
-		margin: 40vh 70px 0px auto;
+		margin: 50vh 70px 0px auto;
 
 	}
 

@@ -19,13 +19,7 @@
 							</span>
 		
 					</div>
-			
-						<div class="retour">
-							
-							<button onclick="window.history.back()">Retour</button>
-
-						</div>
-				
+		
 				</div>
 
 			</div>

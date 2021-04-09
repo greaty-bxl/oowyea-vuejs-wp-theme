@@ -12,8 +12,8 @@
 				<div class="child-container">
 					
 					<div class="filtre-parent-div">
-						<div><p class="title-page-boutique" v-html="shop_header.label"></p></div>
-						<div class="filters">
+						<!-- <div><p class="title-page-boutique" v-html="shop_header.label"></p></div> -->
+						<div class="filters-1">
 							<button 
 								class="button-santos-vert" 
 								style="padding: 15px 25px;" 
@@ -159,7 +159,7 @@ export default {
 
 	.filtre-parent-div{
 
-		border-bottom: 1px solid #dddddd;
+		/*border-bottom: 1px solid #dddddd;*/
 
 	}
 
@@ -175,6 +175,11 @@ export default {
 
 	.filters > * {
 		display: inline-block;
+	}
+
+	.filters-1{
+		display: flex;
+		margin-left: auto;
 	}
 
 	.parent-taxonomie-info{
@@ -207,7 +212,7 @@ export default {
 
 		.image-shop h1 {
 
-			font-size: 7vw !important ;
+			font-size: 4vw !important ;
 			margin: 0px !important;
 		}
 
@@ -258,6 +263,7 @@ export default {
 
 		.parent-product{
 
+			margin-top: -45px;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
@@ -314,6 +320,11 @@ export default {
 			flex-direction: column;
 		}
 
+	/*	.filters{
+
+			margin-left: 0;
+		}*/
+
 	}
 
 	@media only screen and (min-width: 600px){
@@ -344,9 +355,12 @@ export default {
 }
 
 
-	
-
 	@media only screen and (max-width: 1100px) and (min-width: 600px){
+
+		.button-santos-vert{
+
+			font-size: 15px;
+		}
 
 		.global-container{
 

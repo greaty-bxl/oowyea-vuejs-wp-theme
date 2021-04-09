@@ -89,12 +89,13 @@ import is from 'is_js'
 	opacity: 0;
 	}
 
-	.menu a{
+	.menu a {
 		color: black;
 		text-decoration: none;
+		font-weight: 800 !important;
 	}
 
-	.menu a:focus {
+	.header-tomu-container a:focus {
 		outline: none;
 		
 	}
@@ -129,7 +130,7 @@ import is from 'is_js'
 		width: 100px;
 		font-size: 19px;
 		margin-top: 25px;
-		font-weight: 800;
+		font-weight: 800 !important;
 		
 		
 	}

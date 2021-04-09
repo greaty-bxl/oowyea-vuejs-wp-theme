@@ -135,6 +135,38 @@ export default {
       //console.log('JQuery Ready', $, this.ajaxurl)
       
       //$.fn.notify = notify
+      console.log(Scrollbar);
+
+
+      class MyPlugin extends Scrollbar.ScrollbarPlugin {
+        static pluginName = 'myPlugin';
+
+        onInit() {
+        console.log('hello world!');
+
+        // this._mount();
+        }
+
+        onUpdate() {
+          
+          $('#app').trigger('scroll')
+
+        // this._mount();
+        }
+      }
+
+      Scrollbar.use(MyPlugin)
+
+      window.scroll = Scrollbar.init(document.querySelector('#app-scroller'), {
+        damping: 0.1,
+        plugins:{
+
+         myPlugin:{
+
+         }
+        }
+      });
+
 
       links_and_anchors(this)
 
@@ -236,38 +268,7 @@ export default {
       //init on screen detection 
       on_screen()
 
-      
-      console.log(Scrollbar);
-
-
-      class MyPlugin extends Scrollbar.ScrollbarPlugin {
-        static pluginName = 'myPlugin';
-
-        onInit() {
-        console.log('hello world!');
-
-        // this._mount();
-        }
-
-        onUpdate() {
-          
-          $('#app').trigger('scroll')
-
-        // this._mount();
-        }
-      }
-
-      Scrollbar.use(MyPlugin)
-
-      Scrollbar.init(document.querySelector('#app-scroller'), {
-        damping: 0.1,
-        plugins:{
-
-         myPlugin:{
-
-         }
-        }
-      });
+    
 
 
     });

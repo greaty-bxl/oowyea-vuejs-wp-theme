@@ -2,7 +2,7 @@
   <OwyTemplates />
   <Grapes ref="grapes"/>
   <OwyCode v-if="$store.state.code_page" />
-  <OwyShortcuts />
+  <OwyShortcuts/>
   <OwyChatBuilder />
   <OwyOptions v-show="$store.state.right_menu == 'main'" />
   <OwyDocs v-show="$store.state.right_menu == 'docs'" />  

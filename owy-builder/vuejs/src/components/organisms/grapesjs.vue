@@ -18,7 +18,6 @@
         </optgroup>
       </select>
     </div>
-
     <div id="vue-for-grapes" style="display: none">
       <WpData/>
       <WpQuery ref="WpQuery"/>
@@ -364,7 +363,7 @@ export default {
   position: absolute;
   top: 0px;
   z-index: 99;
-  left: 115px;
+  left: 175px;
   text-align: left;
   width: 150px;
   height: 40px;
@@ -407,6 +406,7 @@ select, select optgroup, select option{
 .panel__wordpress{
   position: absolute;
   top: 0;
+  left: 60px;
 }
 
 .panel__more{
@@ -415,7 +415,7 @@ select, select optgroup, select option{
 
 .panel__left{
   position: absolute;
-  top: 40px; 
+  top: 0px; 
   height: calc(100vh - 80px);
   width: 60px;
   box-sizing: border-box;
@@ -423,9 +423,9 @@ select, select optgroup, select option{
 .panel__left:before{
   content: ' ';
   top: 0px;
-  left: 0px;
-  width: 60px;
-  height: 2px;
+  left: 60px;
+  width: 2px;
+  height: 40px;
   background: rgba(0,0,0,.2);
   position: absolute;
   display: block;
@@ -441,10 +441,14 @@ select, select optgroup, select option{
   text-align: center;
 }
 
-
+.panel__bottom{
+  height: 40px;
+  bottom: 0px;
+  width: 100%;
+}
 
 .gjs-pn-devices-c{
-  left: 270px;
+  left: 330px;
 }
 
 .gjs-four-color .gjs-sm-clear{

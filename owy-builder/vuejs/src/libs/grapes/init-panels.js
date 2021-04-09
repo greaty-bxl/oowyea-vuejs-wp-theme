@@ -102,6 +102,19 @@ export default function(){
 		el: '.editor_select_template',
 	});
 
+	this.editor.Panels.addPanel({
+		el: '.panel__bottom',
+		buttons: [
+			{
+				active: false, // active by default
+				className: 'editor-wp-back',
+				label: '<div><span class="fas fa-columns"></span></div>',
+				command: '',
+			}
+		]
+	});
+	
+
 	/*const pn = this.editor.Panels
 	let assets_panel = null
 

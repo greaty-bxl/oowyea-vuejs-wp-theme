@@ -1,5 +1,5 @@
 <template>
-	<div v-html="form_html">
+	<div class="acf-admin" v-html="form_html">
 
 	</div>
 </template>
@@ -21,10 +21,11 @@
 			}
 		},
 		mounted() {
-			if ( this.settings ) 
+
+			/*if ( this.settings ) 
 			{
 				this.load_form(this.settings)
-			}
+			}*/
 
 			//let $ = this.jquery
 
@@ -51,6 +52,8 @@
 		methods : {
 			load_form : function (settings = {}) {
 
+				
+
 				let $ = this.jquery
 
 				let settings_remove = [
@@ -75,6 +78,8 @@
 
 				wp_ajax('owy_acf_admin_get_form', acf_setting, (form) => {
 
+					console.log('load_form form', form);
+					
 					let form_html = $('<div>'+form+'</div>')
 					if( settings.autosave )
 					{
@@ -90,9 +95,9 @@
 
 					$(window).trigger('load')					
 
-					setTimeout( ()=>{
+					/*setTimeout( ()=>{
 						this.loaded()
-					}, 1 )
+					}, 1 )*/
 				})
 			},
 			loaded : function()
@@ -145,5 +150,14 @@
 </script>
 
 <style>
-	
+	.acf-admin form * {
+		background-color: transparent !important;
+	}
+
+	.acf-admin .acf-input-wrap > *:first-child {
+		border: none;
+		outline: none;
+		color: inherit;
+		background-color: rgba(0,0,0,0.2) !important;
+	}
 </style>

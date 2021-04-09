@@ -91,8 +91,14 @@ import is from 'is_js'
 
 	.menu a{
 		color: black;
+		text-decoration: none;
 	}
 
+	.menu a:focus {
+		outline: none;
+		
+	}
+	
 	.header-tomu-container{
 		transition: all 1s ease-out;
 		position: fixed;

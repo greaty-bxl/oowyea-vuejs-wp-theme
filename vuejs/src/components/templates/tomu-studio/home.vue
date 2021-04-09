@@ -53,15 +53,29 @@
 		});
 		}, 2000);
 
-		$('.spin').on('enter-screen', () => {
+		$('[data-state="current"] .spin').on('enter-screen', () => {
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', 'black');
-			$('.current-menu-item a').css('color', 'black');
+			$('.header-tomu-container a').css('color', 'black');
+
+			var href = $('#home').attr('data-permalink');
+			this.pushHistory( href )
+
+			$('a[href="'+ href +'"]').css('color', 'black');
 
 		})
+
+		$('.spin').on('leave-screen', () => {
+			//console.log('leave screen', event.target);
+			console.log('leave-screen');
+		})
+
+
 		
 		}
+
+
 	}
 
 

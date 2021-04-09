@@ -18,6 +18,7 @@ export default function (vue)
 
 		//event.preventDefault();
 
+		console.log('links-and-anchors');	
 	
 		if( is_same_site ){
 
@@ -35,9 +36,9 @@ export default function (vue)
 
 				if( document.location.href == href && push ) return
 
-				var start
+				//var start
 
-				/*if( section.position().top + $('#app').scrollTop() > $('#app').scrollTop() )
+				/*if( section.offset().top + $('#app').scrollTop() > $('#app').scrollTop() )
 				{
 					start = '100vh'; 
 				}
@@ -46,7 +47,7 @@ export default function (vue)
 					start = '-100vh';
 				}*/
 
-				start = 0
+				/*start = 0
 
 				var clone = section.clone()
 
@@ -69,16 +70,20 @@ export default function (vue)
 				});
 				console.log( clone.find('.section-wrap') );
 
-				section.parent().prepend(clone)
+				$('#app').prepend(clone)
 
-				$('#app').trigger('clone')
+				$('#app').trigger('clone')*/
 				$('#app').trigger('before_next_page')
 
 				$('#app').data('scrolling', 'links-and-anchors')
 
 				if( push ) vue.pushHistory( href )
 
-				clone.stop().animate({
+				console.log('section anchor' , section.offset().top);
+
+				window.scroll.scrollTop = section.offset().top + window.scroll.scrollTop
+
+				/*clone.stop().animate({
 					top: '0',
 					opacity: 1
 					},
@@ -90,7 +95,7 @@ export default function (vue)
 						},
 						done: () => {
 
-							$('#app').scrollTop( section.position().top + $('#app').scrollTop() )
+							$('#app-scroller').scrollTop( section.offset().top + $('#app-scroller').scrollTop() )
 							
 
 							clone.animate({
@@ -117,8 +122,22 @@ export default function (vue)
 								})	
 							}							
 						}
-					});
+					});*/
 
+					clearTimeout( timer )
+					timer = setTimeout( () => {
+						$('#app').data('scrolling', '')
+					}, 15)
+					$('#app').trigger('after_next_page')
+
+					if( vue.$store.state.wp.sections[section.index()] )
+					{
+						vue.$store.commit({
+							type: 'section_change',
+							current_section: vue.$store.state.wp.sections[section.index()],
+						})	
+					}
+					
 					return true
 			}
 			else

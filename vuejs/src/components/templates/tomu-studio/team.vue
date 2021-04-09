@@ -1,13 +1,13 @@
 <template>
 
-	<div class="Team-section">
+	<div class="Team-section ">
 
 		<div class="team-image">
 			<img :src="post.thumb">
 		</div>
 		
-		<div class="team-name on-screen">
-			<p>TUNG</p>
+		<div class="team-name ">
+			<p class="principal on-screen">TUNG</p>
 			<p>SANDRINE</p>
 			<p>MORGANE</p>
 			<p>WALDO</p>
@@ -31,11 +31,14 @@
 
 		console.log(this.post, 'posts');
 
-		$('.team-name').on('enter-screen', () => {
+		$('[data-state="current"] .principal').on('enter-screen', () => {
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#FCD190');
-			$('.current-menu-item a ').css('color', '#FCD190');
+			$('.header-tomu-container a').css('color', 'black');
+			var href = $('#team').attr('data-permalink');
+			this.pushHistory( href )
+			$('a[href="'+ href +'"]').css('color', '#FCD190');
 
 			
 		})
@@ -47,6 +50,11 @@
 </script>
 
 <style type="text/css">
+
+	.Team-section.section-wrap{
+
+		flex-direction: row;
+	}
 	
 	.Team-section img{
 

@@ -40,13 +40,24 @@
 		let $ = this.$
 		console.log(this.wp);
 
-		$('.section-global-press').on('enter-screen', () => {
+		$('[data-state="current"] .section-global-press').on('enter-screen', () => {
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#E4A8BC');
-			$('.current-menu-item a').css('color', '#E4A8BC');
+			// $('.current-menu-item a').css('color', '#E4A8BC');
+
+		
+			var href = $('#press').attr('data-permalink');
+			console.log('href' , href);
+			this.pushHistory( href )
+			$('.header-tomu-container a').css('color', 'black');
+			$('a[href="'+ href +'"]').css('color', '#E4A8BC');
 			
 		})
+
+
+
+		// this.pushHistory( href )
 
 		}
 	}
@@ -59,6 +70,7 @@
 
 		padding-top: 0px;
 		padding-bottom: 50px;
+		min-height: 100vh;
 
 	}
 

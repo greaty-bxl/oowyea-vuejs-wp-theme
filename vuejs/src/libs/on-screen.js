@@ -2,9 +2,10 @@ import is from 'is_js'
 export default () => {
 
 	var $ = window.jquery
-	var last_scroll = $('#app').scrollTop()
+	var last_scroll = window.scroll.scrollTop
 	var sens = 0
 	var scrollingType = ''
+	//var wait = 0
 	
 
 	function leave(el)
@@ -24,18 +25,18 @@ export default () => {
 	function scan_screen(){
 		$('.on-screen').each( (index, el) => {
 
-			var elTop = $(el).offset().top +  $('#app').scrollTop()
+			var elTop = $(el).offset().top +  window.scroll.scrollTop
 
 			// console.log(elTop , 'elTop');
-			// var elTop2 = $(el).position().top +  $('#app').scrollTop() 
+			// var elTop2 = $(el).position().top +  window.scroll.scrollTop 
 
 		
 			var elBott = elTop + $(el).outerHeight()  
 
 			// console.log(elTop , 'elTop');
 
-			var top = $('#app').scrollTop()
-			var bottom = $('#app').scrollTop() + $('#app').outerHeight() 
+			var top = window.scroll.scrollTop
+			var bottom = window.scroll.scrollTop + $('#app').outerHeight() 
 
 			//console.log( $(el).prop('class'), elBott, bottom );
 
@@ -94,22 +95,31 @@ export default () => {
 
 	leave('.on-screen')
 
+
+
 	$("#app").on('before_next_page', () => {
 		console.log('before_next_page');
+		//wait = 1
 		leave('.on-screen')	
 	});
 
+	/*$("#app").on('after_next_page', () => {
+
+		wait = 0
+
+	});*/
+
 	$("#app").on('section-top-ready', () => {
-		last_scroll = $('#app').scrollTop()
+		last_scroll = window.scroll.scrollTop
 	});
 
 	$("#app").scroll( () => { 
-
-		console.log('scrooapp');
 		
+		if( $('#app').data('scrolling') != '' ) return
+
 		scrollingType =  $('#app').data('scrolling')
 
-		var new_scroll = $('#app').scrollTop()
+		var new_scroll = window.scroll.scrollTop
 		if( new_scroll >  last_scroll )
 		{
 			sens = 1

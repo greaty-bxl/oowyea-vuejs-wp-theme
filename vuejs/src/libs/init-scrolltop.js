@@ -8,12 +8,13 @@ export default function(vue){
 	{
 		var current_location = remove_get_from_url( window.location.href )
 
+		console.log('location', current_location);
 		var section = $('.section[data-permalink="'+current_location+'"]')
 		if( section.length == 0 )
 		{
 			section = $('.section').first() 
 		}
-		//console.log('scrolltop init', section);
+		console.log('scrolltop init', section);
 
 		if( $('#app') && section.length )
 		{
@@ -21,12 +22,15 @@ export default function(vue){
 			$('#app').css('pointer-events', 'none');
 			$('#app').data('scrolling', 'init-scrolltop')
 
-			var newScroll = section.offset().top + $('#app').scrollTop()
+			let scrollTop = window.scroll.scrollTop
+			if( !scrollTop ) scrollTop = 0
+
+			var newScroll = section.offset().top + scrollTop
 			if( newScroll < 0 ) newScroll == 0
 
-			$('#app').scrollTop( newScroll )
+			window.scroll.scrollTop = newScroll
 
-			//console.log('newScroll', newScroll);
+			console.log('newScroll', section.offset().top , window.scroll);
 
 			
 
@@ -36,6 +40,7 @@ export default function(vue){
 
 				window.current_section = section.attr('id')
 				window.current_section_index =  section.index()
+
 				console.log(section.index());
 				$('#app').css('pointer-events', 'auto');
 				vue.$store.commit({

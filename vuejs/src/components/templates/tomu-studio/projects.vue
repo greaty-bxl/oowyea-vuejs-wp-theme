@@ -1,6 +1,6 @@
 <template>
 	
-	<div class="section-global-project ">
+	<div class="section-global-project">
 
 			<div class="content-project on-screen"  v-for="(item, index) in wp.projects" :key="index"  >
 				<a :href="item.permalink">
@@ -39,11 +39,15 @@
 
 		let $ = this.$
 
-		$('.content-project').on('enter-screen', () => {
+		$('[data-state="current"] .content-project').on('enter-screen', () => {
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#9fade1');
-			$('.current-menu-item a').css('color', '#9fade1');
+			$('.header-tomu-container a').css('color', 'black');
+
+			var href = $('#projets').attr('data-permalink');
+			this.pushHistory( href )
+			$('a[href="'+ href +'"]').css('color', '#9fade1');
 		})
 
 		$('.section-global-project').on('leave-screen', () => {
@@ -121,7 +125,7 @@
 		-ms-transition:all 0.45s ease-in-out;
 		transition:all 0.45s ease-in-out;
 		color: black;
-		font-size: 25px; 
+		font-size: 22px; 
 	
 	}
 
@@ -134,7 +138,7 @@
 
 		width: 50%;
 		margin-left: auto;
-		margin-right: 20px;
+		margin-right: 25px;
 		text-align: right;
 		font-weight: 500;
 		padding-top: 20px;
@@ -161,7 +165,7 @@
 
 	.section-global-project{
 
-		width: calc( 100% - 245px );
+		width: calc( 100% - 245px ) !important;
 		position: relative;
 	}
 	
@@ -194,6 +198,7 @@
 		height: 40vw;
 		margin-left : calc( 30vw + 70px );
 		margin-bottom: 70px;
+		display: block !important;
 	}
 
 	.content-project:nth-child(16n+3){
@@ -345,7 +350,7 @@
 
 
 		.section-global-project {
-			width: calc( 100% - 180px );
+			width: calc( 100% - 180px ) !important;
 			padding-left: 50px;
 		}
 
@@ -511,7 +516,7 @@
 
 		.section-global-project{
 			padding-top: 50px;
-			width: calc( 100% - 60px );
+			width: calc( 100% - 60px ) !important;
 			padding-left: 0px;
 			margin-left: auto;
 			margin-right: auto;

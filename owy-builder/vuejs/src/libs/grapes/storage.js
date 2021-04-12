@@ -66,7 +66,7 @@ export default function (Vue) {
 				result['gjs-html'] += '<footer>'+footer_html+'</footer>'
 			}
 
-			result['gjs-html'] = '<div id="app" data-gjs-name="App">' + result['gjs-html'] + '</div>'
+			result['gjs-html'] = '<div id="app">' + result['gjs-html'] + '</div>'
 
 			result['gjs-css'] = store.wp.owy_builder_css
 

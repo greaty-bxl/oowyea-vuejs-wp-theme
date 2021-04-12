@@ -493,7 +493,7 @@
 
 	.side-account tbody td{
 
-		font-size: 14px;
+		font-size: 12px;
 		padding-top: 10px;
 	}	
 

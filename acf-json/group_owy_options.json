@@ -15,13 +15,16 @@
                 "class": "",
                 "id": ""
             },
+            "user_roles": [
+                "all"
+            ],
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
         },
         {
             "key": "field_6050ac4d33beb",
-            "label": "Peer Server",
+            "label": "Custom Peer Server",
             "name": "peer_server",
             "type": "text",
             "instructions": "",
@@ -37,6 +40,148 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_60749303dc157",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "message": "<a target=\"_blank\" href=\"https:\/\/github.com\/peers\/peerjs-server\">Create your peer server<\/a>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_60748b6d6d6ea",
+            "label": "Developer",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_6074906c9f4bb",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "message": "Only available for \"Super Admin\"",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_60748b886d6eb",
+            "label": "Vuejs Template development",
+            "name": "is_template_development",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "super_admin"
+            ],
+            "message": "Active",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_60748dcb9ea02",
+            "label": "",
+            "name": "template_development_server",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "super_admin"
+            ],
+            "default_value": "",
+            "placeholder": "Server: http:\/\/localhost:8080\/ (default if empty)"
+        },
+        {
+            "key": "field_60748bcc6d6ec",
+            "label": "Vuejs Builder development",
+            "name": "is_builder_development",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "super_admin"
+            ],
+            "message": "Active",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_60748df09ea03",
+            "label": "Server",
+            "name": "builder_development_server",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "super_admin"
+            ],
+            "default_value": "",
+            "placeholder": "Server: http:\/\/localhost:8081\/ (default if empty)"
         }
     ],
     "location": [
@@ -63,5 +208,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1617960563
+    "modified": 1618252918
 }

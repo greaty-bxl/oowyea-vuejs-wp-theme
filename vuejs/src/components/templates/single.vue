@@ -4,7 +4,7 @@
 		<div class="clear"></div>
 			<div class="section-global-project on-screen">
 
-				<div class="content-single">
+				<div class="content-single-1">
 
 					<div class="content-project"  v-for="(item, index) in post.acf_fields.galery" :key="index">
 
@@ -97,11 +97,11 @@
 
 		.desciption-tomu-project{
 
-			/*height: 100%;*/
 			margin-top: auto;
 			margin-bottom: auto;
 			display: flex;
 			justify-content: center;
+			flex-direction: column;
 			
 			
 
@@ -112,7 +112,7 @@
 			height: auto;
 			font-size: 16px;
 			text-align: left;
-			font-weight: 700;
+			/*font-weight: 400;*/
 
 		}
 

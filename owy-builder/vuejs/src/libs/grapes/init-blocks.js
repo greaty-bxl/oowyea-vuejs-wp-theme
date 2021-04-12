@@ -31,7 +31,7 @@ export default function () {
 	const defaultType = domc.getType("cell");
 	const defaultModel = defaultType.model;
 	const defaultView = defaultType.view;
-
+	
 	this.editor.DomComponents.addType('block', {
 		isComponent: function(el) {
 			if( $(el).data('owy-block') !== undefined && $(el).data('owy-block') !== 'text' )
@@ -76,14 +76,14 @@ export default function () {
 		view : textView
 	});
 
-	let main_blocks = ['header', 'section', 'footer']
+	let main_blocks = ['app', 'header', 'section', 'footer']
 	
 	for (var i = 0; i < main_blocks.length; i++) {
 
 		let val = main_blocks[i]
 		this.editor.DomComponents.addType(val, {
 			isComponent: function(el) {
-				if( $(el).prop('tagName') == val.toUpperCase() )
+				if( $(el).prop('tagName') == val.toUpperCase() ||  $(el).prop('id') == val )
 				{
 					return true
 				}

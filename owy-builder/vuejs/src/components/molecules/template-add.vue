@@ -50,15 +50,17 @@
 
 	.template-add {
 		display: inline-block;
+		position: relative;
 	}
 
 	.drop {
-		margin-top: -6px;
+		margin-top: -36px;
 		height: 0px;
 		width: 0px;
 		display: block;
 		position: relative;
 		overflow: visible;
+		position: absolute;
 	}
 
 	ul {

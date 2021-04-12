@@ -42,8 +42,8 @@
 	import ItemTemplate from 'PluginComponents/molecules/template-item.vue'
 	import AddTemplate from 'PluginComponents/molecules/template-add.vue'
 	import Editable from 'PluginComponents/molecules/editable.vue'
-	import Sortable from 'sortablejs';
-
+	import Sortable from 'sortablejs'
+	import interact from 'interactjs'
 
 	export default{
 		name: 'templates',
@@ -54,8 +54,30 @@
 			Editable
 		},
 		mounted(){
-			console.log( Sortable )
+			console.log( Sortable, interact )
 			this.init_sortable()
+
+			let $ = this.jquery 
+			//const page_scroll = { x: 0, y: 0 }
+
+			interact('.page').draggable({
+				ignoreFrom: '.owy-item-template, .pointer, h2, .owy-colors',
+				listeners: {
+					move (event) {
+
+						let x = $('.page').scrollLeft()
+						x = x + (event.dx * -1)
+						$('.page').scrollLeft(x)
+
+						let y = $('.page').scrollTop()
+						y = y + (event.dy * -1)
+						$('.page').scrollTop(y)
+					}
+				},
+				cursorChecker () {
+					return 'move'
+				}
+			})
 		},
 		methods : {
 			init_sortable : function(){
@@ -96,11 +118,17 @@
 <style>
 	.owy-templates .row {
 		white-space: nowrap;
+		margin-bottom: 30px;
 	}
 	.owy-templates .row > *{
 		display: inline-block;
 		margin-right: 10px;
 		white-space: all;
+	}
+
+	.owy-colors {
+		display: inline-block;
+		clear: both;
 	}
 
 	.owy-colors .owy-color{
@@ -112,6 +140,12 @@
 		border: 2.5px solid rgba(255,255,255,0.8);
 	}
 
+	.owy-templates h1{
+		-webkit-user-select: none; /* Safari */
+		-ms-user-select: none; /* IE 10 and IE 11 */
+		user-select: none; /* Standard syntax */
+	}
+
 	.owy-templates h1 span{
 		font-size: 70%;
 	}
@@ -119,7 +153,7 @@
 
 <style scoped>
 	h2{
-		display: flex;
+		display: inline-block;
 	}
 
 	.group .dragger, .group .add{

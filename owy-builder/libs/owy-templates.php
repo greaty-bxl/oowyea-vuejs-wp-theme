@@ -1,4 +1,8 @@
 <?php
+
+global $owy_has_created_template;
+$owy_has_created_template = false;
+
 function owy_template_get_default_html($type)
 {
 	$html = '<p>example</p>';
@@ -40,6 +44,8 @@ function owy_template_get_default_html($type)
 
 function create_template_if_not_exist($template_name, $type = 'hierarchy', $group = null)
 {
+	global $owy_has_created_template;
+
 	if( is_admin() )
 	{
 		if( !post_exists($template_name) )
@@ -70,6 +76,8 @@ function create_template_if_not_exist($template_name, $type = 'hierarchy', $grou
 			wp_insert_post(
 				$owy_template
 			);
+
+			$owy_has_created_template = true;
 		}
 	}
 }
@@ -81,6 +89,8 @@ function create_page_if_not_exist($page_name, $template, $callback)
 
 function owy_builder_get_templates()
 {
+	global $owy_has_created_template;
+
 	if( user_can( wp_get_current_user(), 'edit_theme_options' ) )
 	{
 
@@ -92,9 +102,14 @@ function owy_builder_get_templates()
 
 		create_template_if_not_exist('footer', 'footer', 'Reusables');
 		create_template_if_not_exist('header', 'header', 'Reusables');		
-		create_template_if_not_exist('Sample Page', 'page', 'Pages');
 		create_template_if_not_exist('Block example', 'block', 'Reusables');
 
+		create_template_if_not_exist('index');
+		create_template_if_not_exist('author');
+
+		create_template_if_not_exist('Sample Page', 'page', 'Pages');
+
+		$posts_type = array();
 		//init single template
 		foreach (get_post_types() as $key => $type) 
 		{
@@ -108,18 +123,63 @@ function owy_builder_get_templates()
 					if( $post_type_object->name == 'post' )
 					{
 						create_template_if_not_exist( 'archive' );
+						$posts_type[] = 'post';
 					}
 				}
 				else
 				{
 					$template_name = 'single-'.$post_type_object->name;
 					create_template_if_not_exist( 'archive-'.$post_type_object->name );
+					$posts_type[] = $post_type_object->name;
 				}
 
 				create_template_if_not_exist($template_name);
 			}	
+		}		
+
+		$tax_exeptions = array('post_format');
+
+		foreach (get_taxonomies() as $key => $value) {
+
+			$name = $key;
+			$tax_object = get_taxonomy( $value );
+			$object_types = $tax_object->object_type;
+
+			if( !in_array($name, $tax_exeptions) )
+			{
+				$find = array();
+
+				foreach ($posts_type as $key => $post_type) 
+				{
+					if( in_array($post_type, $object_types) )
+					{
+						$find[] = $post_type;
+					}
+				}
+
+				if( count( $find ) > 0 )
+				{
+					if( $tax_object->rewrite['slug'] )
+					{
+						$name = $tax_object->rewrite['slug'];
+					}
+
+					create_template_if_not_exist($name);
+				}
+			}
 		}
 
+		if( $owy_has_created_template )
+		{
+			$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+			?>
+			<script type="text/javascript">
+				window.location = "<?php echo $actual_link ?>"
+			</script>
+			<?php
+			exit();
+		}
 		
 
 		global $builder_templates;

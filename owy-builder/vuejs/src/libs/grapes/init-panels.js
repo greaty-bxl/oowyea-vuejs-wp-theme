@@ -2,6 +2,9 @@ export default function(){
 	let $ = this.jquery
 	//let Vue = this
 	//add top panels
+
+	let siteurl = this.$store.state.wp.options.siteurl
+
 	this.editor.Panels.addPanel({
 		id: 'panel__wordpress',
 		el: '.panel__wordpress',
@@ -22,11 +25,12 @@ export default function(){
 			},
 			{
 				active: false,
-				label: '<div title="Show"><span class="fa fa-rocket"></span></div>',
-				command: ''
+				label: '<a target="_blank" href="'+ siteurl +'"><div title="Show the website"><span class="fa fa-rocket"></span></div></a>',
+				//command: 'owy-show-website'
 			}
 		],
-	});
+	});	
+
 
 	this.editor.Panels.addPanel({
 		id: 'panel__left',

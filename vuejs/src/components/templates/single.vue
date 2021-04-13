@@ -8,19 +8,24 @@
 
 					<div class="content-project"  v-for="(item, index) in post.acf_fields.galery" :key="index">
 
-							<div v-if="index === 1 " class="desciption-tomu-project" v-html="post.post_content"></div>
-							<span v-else>
-								
-							<img v-if="is" :src="item">	
-							<div v-else class="background-project" :style= "{'background-image': 'url('+item+')' }" >
-								
+							<div v-if="index === 1" class="desciption-tomu-project" v-html="post.post_content">					
 							</div>
 
+							<span v-else>
+								<img v-if="is" :src="item">	
+								<div v-else class="background-project" :style= "{'background-image': 'url('+item+')' }" >	
+								</div>
 							</span>
 		
 					</div>
-		
+
 				</div>
+
+				<div  class="retour">
+					<button onclick="window.history.back()" 
+					v-html="pll__('Retour')"></button>
+				</div>
+				
 
 			</div>
 		
@@ -91,9 +96,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 	
-	input:focus {
-	color: #70625b !important;
-	}
+		input:focus {
+		color: #70625b !important;
+		}
+
+		.retour{	
+			
+			padding: 47px 0px 
+		}
+
+		.retour button{
+			font-size: 16px !important;
+			border: none;
+			background-color: white;
+			text-decoration-line: none;
+			color: black !important;
+			padding-left: 0px;
+
+		}
+
 
 		.desciption-tomu-project{
 

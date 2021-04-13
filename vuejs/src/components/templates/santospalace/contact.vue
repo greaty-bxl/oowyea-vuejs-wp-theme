@@ -120,7 +120,7 @@
 
 	.image-contact h1 {
 
-		font-size: 6vw !important ;
+		font-size: 4vw !important ;
 		padding:  0px 30px  !important;
 		margin: 0px  !important;
 	}

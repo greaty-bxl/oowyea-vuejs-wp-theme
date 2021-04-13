@@ -252,7 +252,7 @@
 
 		.image-histoire h1 {
 
-			font-size: 7vw !important ;
+			font-size: 4vw !important ;
 			margin: 0px !important;
 		}
 

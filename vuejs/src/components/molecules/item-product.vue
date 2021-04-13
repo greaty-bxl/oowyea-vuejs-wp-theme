@@ -256,6 +256,9 @@ export default {
 	}
 
 	.flavour{
+
+		margin-left: 20px;
+		margin-right: 20px;
 		font-size: 14px;
 		color: #666666;
 	}
@@ -273,7 +276,7 @@ export default {
 	@media screen and (min-width: 1100px){
 
 
-		.title-product{
+		.title-product{ 
 
 			font-size: 15px;
 			margin-bottom: 25px;

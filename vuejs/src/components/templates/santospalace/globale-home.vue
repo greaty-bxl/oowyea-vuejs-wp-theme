@@ -6,11 +6,11 @@
 			
 			<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_logo-rond.svg">
 
-			<a href="" class="button-santos-vert" v-html="pll__('VISITER LE SITE BRUXELLES')">
+			<a :href="pll__(' Url VISITER LE SITE BRUXELLES')" class="button-santos-vert" v-html="pll__('VISITER LE SITE BRUXELLES')">
 				
 			</a>
 
-			<a href="" class="button-santos-vert" v-html="pll__('VISITER LE SITE KOKSIJDE')">
+			<a :href="pll__(' Url VISITER LE SITE KOKSIJDE')" class="button-santos-vert" v-html="pll__('VISITER LE SITE KOKSIJDE')">
 				
 			</a>	
 

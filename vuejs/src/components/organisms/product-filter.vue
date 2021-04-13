@@ -161,7 +161,8 @@
 				var lang = this.$store.state.wp.current_language
 
 
-				if (lang === 'nl') {
+				if (lang === 'nl')
+				{
 
 					$('.title-filter:contains("Origines")').text('Afkomst')
 					$('.title-filter:contains("Variétés")').text('Koffiesoort')
@@ -171,6 +172,16 @@
 					$('.title-filter:contains("Types de thé")').text('Soorten thee')
 					$('.title-filter:contains("Type d&#130;infusion")').text('Type infusie')
 					$('.title-filter:contains("Saveur du Thé")').text('Smaak van thee')
+					$('.title-filter:contains("Tasses par jour")').text('Kopje per dag')
+					$('.title-filter:contains("Types de machines")').text('Soorten machines')
+					$('.title-filter:contains("Type d&#130;infusion")').text('Soorten machines')
+					$('.title-filter:contains("Marques")').text('Merken')
+					$('.title-filter:contains("Groupe")').text('Groep')
+					$('.title-filter:contains("Personnes par jour")').text('Mensen per dag')
+
+					
+
+
 
 				}
 

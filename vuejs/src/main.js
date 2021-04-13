@@ -19,6 +19,10 @@ Vue.prototype.wp_options_synch = wp_options_synch
 import generate_schemes from 'Libs/generate-schemes.js'
 Vue.prototype.generate_schemes = generate_schemes
 
+/* PLL Translate function */
+import pll__ from 'Libs/pll__.js'
+Vue.prototype.pll__ = pll__	
+
 /* Fontawesome-icon */
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon' 

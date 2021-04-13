@@ -42,10 +42,12 @@
 		'DESIGN',
 		'SPACES',
 		'INTERIOR',
+		'FURNITURE',
 		'HOSPITALITY',
 		'RESTAURANT',
 		'SCENOGRAPHY',
 		], i = 0;
+		
 		setInterval(function(){
 		$('#spin').fadeOut(function(){
 		$(this).html(words[i=(i+1)%words.length]).css('color', color[i]);	

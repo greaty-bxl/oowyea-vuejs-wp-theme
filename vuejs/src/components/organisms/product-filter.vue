@@ -150,7 +150,7 @@
 							
 		},
 		watch: {
-			'$store.state.wp': function() {
+			'$store.state.wp.product_cat_child': function() {
 
 				console.log('watch filter');
 				

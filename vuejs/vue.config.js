@@ -16,7 +16,8 @@ module.exports = {
         Templates: path.resolve(__dirname, 'src/components/templates'),
         Pages: path.resolve(__dirname, 'src/components/pages'),
         Game: path.resolve(__dirname, 'src/phaser-games'),
-        image: path.resolve(__dirname, 'src/components/images'),
+        Image: path.resolve(__dirname, 'src/components/images'),
+        Blocks: path.resolve(__dirname, 'src/components/blocks'),
       }
     },
     output: {

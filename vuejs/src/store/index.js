@@ -15,6 +15,7 @@ export default new Vuex.Store({
 		wp: wp.state,
 		radio: radio.state,
 		option: option.state,
+		blocks: []
 	},
 	mutations: {
 		/* WP */

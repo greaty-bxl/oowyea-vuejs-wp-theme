@@ -1,5 +1,5 @@
 <template>
-	<img src="">
+	<img data-owy-block="img" src="">
 </template>
 <script>
 	export default {

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <Header/> -->
+    <header><component :is="header" :header_name="header_name"></component></header>
     <div id="app-scroller">
       <!-- <div id="pages"> -->
         <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
@@ -27,7 +27,7 @@
         </div>
       <!-- </div> -->
       <!-- Footer -->
-      <!-- <Footer/> -->
+      <footer><component :is="footer" :footer_name="footer_name"/></footer>
       <!-- <AudioPlayerBottom />
       <Editor v-if="wp.user_can.edit_theme_options" /> -->
     </div>
@@ -66,11 +66,7 @@ import animate_next_page from 'Libs/animate-next-page.js'
 import on_screen from 'Libs/on-screen.js'
 import woocommerceAjax from 'Libs/woocommerce-ajax.js'
 import acf_ajax from 'Libs/acf-front-ajax.js'
-//import acf_to_css from 'Libs/acf-to-css.js'
 
-//import fullpage from 'fullpage.js'
-
-//Vue.prototype.noty = noty
 
 function vue_key_to_name(str)
 {
@@ -91,7 +87,11 @@ export default {
       classes:{
         'current': '',
         'next': '',
-      }
+      },
+      header : null,
+      header_name : null,
+      footer: null,
+      footer_name: null
     }
   },
   components: {
@@ -101,9 +101,19 @@ export default {
     //AudioPlayerBottom,
     //Editor
   },
-  created ()  {
+  created (){
+    //preload blocks
+    const blocks_config = require.context('Blocks/', true, /\.(config\.js)$/i);
+    blocks_config.keys().map(key => {
+
+      let file = key.substring(2)   
+      let block_object = require( `Blocks/${file}` ).default
+      
+      this.$store.state.blocks[block_object.slug] = block_object
+    })
+
     //automatically load templates
-    const req = require.context('Templates/', true, /\.(js|vue)$/i);
+    const req = require.context('Templates/', true, /\.vue$/i);
     req.keys().map(key => {
 
       let name = vue_key_to_name( key )
@@ -121,6 +131,8 @@ export default {
       this.Templates[index] = builder_html
     });
 
+    console.log('Templates', this.Templates);
+
   },
   mounted (){
 
@@ -135,15 +147,10 @@ export default {
       })
 
     //navigate in the website
-    
-
     this.$(document).ready( ($) => {
       //console.log('JQuery Ready', $, this.ajaxurl)
       
       //$.fn.notify = notify
-
-
-
       links_and_anchors(this)
 
       woocommerceAjax(this)
@@ -170,38 +177,6 @@ export default {
           sections: this.pages['current'],
         })
       });
-      //new page with transition
-      /*$(document).on('reload_query', (event, wp) => {
-        
-        let keep_scrollTop = $('#app').scrollTop()
-
-        $('[data-state="current"]').animate({
-          opacity: 0,
-          },
-          500, ()=> {
-          this.classes['current'] = ''
-          this.pages['current'] = ''
-
-          setTimeout( ()=>{
-            this.classes['current'] = wp.body_class
-            this.pages['current'] = wp.sections
-
-            setTimeout( ()=>{
-
-              $('#app').scrollTop(keep_scrollTop)
-              links_and_anchors(this)
-
-              this.$store.commit({
-                type: 'sections_load',
-                sections: this.pages['current'],
-              })
-              setTimeout( ()=>{
-                $('[data-state="current"]').animate({opacity:1}, 50)
-              }, 50)              
-            }, 1 )          
-          }, 1 ) 
-        });   
-      })*/
 
       $(document).on('new_page', (event) => { /* event from: links-and-anchors.js */
         
@@ -303,6 +278,29 @@ export default {
       return this.$store.state.wp
     }
   },
+  watch: {
+    '$store.state.wp.current_section' : function(){
+      let template = this.$store.state.wp.current_section.template
+      let builder_templates_list = this.$store.state.wp.builder_templates_list
+
+      console.log('test', this.Templates)
+
+      if( builder_templates_list[template] )
+      {
+        template = builder_templates_list[template]
+        if( template['metas']['header'] )
+        {
+          this.header = this.Templates[ template['metas']['header'] ]
+          this.header_name = template['metas']['header']
+        }
+        if( template['metas']['footer'] )
+        {
+          this.footer = this.Templates[ template['metas']['footer'] ]
+          this.footer_name = template['metas']['footer']
+        }
+      }
+    }
+  }
 }
 </script>
 

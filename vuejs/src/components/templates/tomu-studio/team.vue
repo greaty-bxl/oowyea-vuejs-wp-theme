@@ -36,7 +36,7 @@
 
 			$('.header-tomu-container').css('color', '#FCD190');
 			$('.header-tomu-container a').css('color', 'black');
-			var href = $('#team').attr('data-permalink');
+			var href = $('.Team-section').parent().attr('data-permalink');
 			this.pushHistory( href )
 			$('a[href="'+ href +'"]').css('color', '#FCD190');
 

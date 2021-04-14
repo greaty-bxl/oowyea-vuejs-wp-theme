@@ -45,7 +45,7 @@
 			$('.header-tomu-container').css('color', '#9fade1');
 			$('.header-tomu-container a').css('color', 'black');
 
-			var href = $('#projets').attr('data-permalink');
+			var href = $('.section-global-project').parent().attr('data-permalink');
 			this.pushHistory( href )
 			$('a[href="'+ href +'"]').css('color', '#9fade1');
 		})

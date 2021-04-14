@@ -13,7 +13,7 @@
 					
 					<div class="filtre-parent-div">
 						<!-- <div><p class="title-page-boutique" v-html="shop_header.label"></p></div> -->
-						<div class="filters-1">
+						<div class="filters filters-1">
 							<button 
 								class="button-santos-vert" 
 								style="padding: 15px 25px;" 
@@ -178,8 +178,8 @@ export default {
 	}
 
 	.filters-1{
-		display: flex;
-		margin-left: auto;
+		display: flex !important;
+		margin-left: auto !important;
 	}
 
 	.parent-taxonomie-info{

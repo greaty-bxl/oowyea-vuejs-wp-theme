@@ -179,60 +179,60 @@ export default {
 			}
 
 
-			$('.wc_payment_methods .payment_methods .methods li:eq(0)').find('.payment_box').addClass('active_payment')
+			// $('.wc_payment_methods .payment_methods .methods li:eq(0)').find('.payment_box').addClass('active_payment')
 
 
-			$('.input-radio').unbind().click(function() {
+			// $('.input-radio').unbind().click(function() {
 
-				var payment_box = $(this).parent('.wc_payment_method').find('.payment_box')
+			// 	var payment_box = $(this).parent('.wc_payment_method').find('.payment_box')
 
-				if ( payment_box.hasClass('active_payment') ) {
+			// 	if ( payment_box.hasClass('active_payment') ) {
 
-					console.log('');
+			// 		console.log('');
 
-				}
-				else{
+			// 	}
+			// 	else{
 
-					$('.payment_box').removeClass('active_payment')
+			// 		$('.payment_box').removeClass('active_payment')
 
-					$('.payment_box').animate({
+			// 		$('.payment_box').animate({
 
-						opacity: 0,
-						easing: 'swing',
-						duration: 400,
+			// 			opacity: 0,
+			// 			easing: 'swing',
+			// 			duration: 400,
 
-					}, 200,  function() {
+			// 		}, 200,  function() {
 
-					$(this).hide();
+			// 		$(this).hide();
 
-					});
+			// 		});
 
-					console.log('entreeee');
+			// 		console.log('entreeee');
 
-					payment_box.removeClass('disable-payement')
+			// 		payment_box.removeClass('disable-payement')
 
-					payment_box.addClass('active_payment')
+			// 		payment_box.addClass('active_payment')
 
 
-					payment_box.show('slow/200/fast', function() {
+			// 		payment_box.show('slow/200/fast', function() {
 						
-					});
+			// 		});
 
-					setTimeout(function() {
+			// 		setTimeout(function() {
 
-						payment_box.animate({
+			// 			payment_box.animate({
 
-							opacity: 1,
-							easing: 'swing',
-							duration: 500,
+			// 				opacity: 1,
+			// 				easing: 'swing',
+			// 				duration: 500,
 
-						})
+			// 			})
 
-					}, 300);
+			// 		}, 300);
 
-				}
+			// 	}
 
-			});
+			// });
 
 			this.pll__([
 				'.payment_method_buckaroo_payconiq p:eq(0)', 
@@ -323,6 +323,24 @@ export default {
 <style >
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
+	#payment .payment_methods li[class*="payment_method_pay_gateway"] label{
+
+		display: flex;
+		text-align: left;
+
+	}
+
+	#payment .payment_methods li[class*="payment_method_pay_gateway"] img{
+
+		margin-left: 15px;
+		
+	}
+	
+	.payment_box{
+
+		display: none !important;
+	}
 
 	.checkout_santos .woocommerce-no-js form.woocommerce-form-coupon, .woocommerce-no-js form.woocommerce-form-login > p{
 
@@ -639,10 +657,10 @@ export default {
 		background-color: #f7f7f7;
 	}
 
-	.payment_method_buckaroo_payconiq img{
+/*	.payment_method_buckaroo_payconiq img{
 
 		width: 120px !important;
-	}
+	}*/
 
 	.checkout_santos #add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before{
 
@@ -879,11 +897,11 @@ export default {
 		width: calc(50% - 3px) !important;
 	}
 
-	.checkout_santos ul.wc_payment_methods.payment_methods.methods img{
+/*	.checkout_santos ul.wc_payment_methods.payment_methods.methods img{
 
 		width: 120px;
 	}
-
+*/
 	.checkout_santos img.wc-stripe-card-icon{
 
 		width: 70px !important;

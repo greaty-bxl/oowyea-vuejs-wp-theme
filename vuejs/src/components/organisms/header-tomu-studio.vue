@@ -51,6 +51,28 @@ import is from 'is_js'
 
 			}
 
+			let $ = this.$
+
+
+			setTimeout(function() 
+
+			{
+					$('.pll-parent-menu-item a').click(function() {
+						
+						setTimeout(function() {
+							document.location.reload();
+						}, 500);
+						
+					});
+
+
+			}, 500);
+
+		
+
+	
+			
+
 			open
 		},
 
@@ -82,6 +104,97 @@ import is from 'is_js'
 
 <style type="text/css">
 
+	li.pll-parent-menu-item{
+
+		text-align: center;
+		margin-top: 20px;
+		display: flex;
+		font-size: 16px;
+	}
+
+
+	.pll-parent-menu-item:hover > ul{
+		transition: transform 1s ease-out;
+		display: block;
+	}
+
+	.pll-parent-menu-item ul{
+
+		display: none;
+		position: absolute;
+		left: 50px;
+
+	}
+
+	.pll-parent-menu-item > a{
+
+		pointer-events:none;
+		margin-left: auto;
+		text-align: right;
+
+	}
+
+	ul.sub-menu {
+
+		width: 100px;
+
+	}
+
+
+
+	.pll-parent-menu-item ul .current-lang{
+
+		display: none;
+		/*position: absolute;*/
+
+	}
+
+	.pll-parent-menu-item:after {
+
+		content: '\003E';
+		height: 18px;
+		width: 18px;
+		margin-top: 1.5px;
+		color: black;
+		margin-left: 5px;
+		transition: transform 0.2s ease-out;
+		transform-origin: center;
+
+	}
+
+	.pll-parent-menu-item:hover:after {
+
+		transform: rotate(90deg) translateY(0px) translateX(0px);
+		/*transition: all 1s ease-out;*/
+
+	}
+
+	.sub-menu{
+
+		padding-top: 30px;
+	}
+
+	.lang-item{
+
+		padding-right: 17px;
+	}
+
+
+
+/*	.lang-item ~ .lang-item:before {
+		content: '';
+		background: yellow;
+		width:  10%;
+		height: 2em;
+		float: left;
+	}*/
+
+
+	.sub-menu {
+
+		width: 100%;
+	}
+
 	.fade-enter-active, .fade-leave-active {
 	transition: opacity .5s;
 	}
@@ -92,7 +205,10 @@ import is from 'is_js'
 	.menu a {
 		color: black;
 		text-decoration: none;
+		cursor: pointer;
 		font-weight: 800 !important;
+		width: 100px;
+		text-align: right
 	}
 
 	.header-tomu-container a:focus {
@@ -101,7 +217,7 @@ import is from 'is_js'
 	}
 	
 	.header-tomu-container{
-		transition: all 1s ease-out;
+		/*transition: all 1s ease-out;*/
 		position: fixed;
 		display: flex;
 		flex-direction: column;
@@ -148,6 +264,12 @@ import is from 'is_js'
 	}
 
 
+	.lang-item{
+
+		text-align: left;
+	}
+
+
 
 	@media screen and ( max-width: 1125px ) and ( min-width: 600px){
 
@@ -179,11 +301,30 @@ import is from 'is_js'
 
 	@media screen and ( max-width: 600px ){
 
+		li.pll-parent-menu-item{
+
+			position: relative;
+		}
+
+		.sub-menu{
+
+			width: 100px;
+			right: calc( 50% + 17px )
+		}
+
+		.pll-parent-menu-item ul{
+
+			right: 17px;
+			left: auto;
+		}
+
+
 		.header-tomu-container{
 			width: 100%;
 			background-color: white;
 			left: 0;
 		}
+
 		.burger{
 			width: 30px;
 			height: 2px;

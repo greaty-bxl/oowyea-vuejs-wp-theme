@@ -256,6 +256,8 @@ export default {
 	}
 
 	.flavour{
+		padding-left: 20px;
+		padding-bottom: 20px;
 		font-size: 14px;
 		color: #666666;
 	}

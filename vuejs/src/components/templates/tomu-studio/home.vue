@@ -1,5 +1,5 @@
 <template>
-    <div class="section-wrap">
+    <div class="section-wrap home-url">
     <div class="clear"></div>
 		<div class="home-section">
 			
@@ -50,8 +50,8 @@
 		
 		setInterval(function(){
 		$('#spin').fadeOut(function(){
-		$(this).html(words[i=(i+1)%words.length]).css('color', color[i]);	
-		$(this).html(words[i=(i+1)%words.length]).fadeIn();
+		// $(this).html(words[i=(i+1)%words.length]).css('color', color[i]);	
+		$(this).html(words[i=(i+1)%words.length]).fadeIn().css('color', color[i]);;
 		});
 		}, 2000);
 
@@ -61,7 +61,7 @@
 			$('.header-tomu-container').css('color', 'black');
 			$('.header-tomu-container a').css('color', 'black');
 
-			var href = $('#home').attr('data-permalink');
+			var href =  $('.home-url').parent().attr('data-permalink');
 			this.pushHistory( href )
 
 			$('a[href="'+ href +'"]').css('color', 'black');

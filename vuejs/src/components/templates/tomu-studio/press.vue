@@ -47,7 +47,7 @@
 			$('.current-menu-item a').css('color', 'black');
 
 		
-			var href = $('.section-global-project').parent().attr('data-permalink');
+			var href = $('.section-global-news').parent().attr('data-permalink');
 			console.log('href' , href);
 			this.pushHistory( href )
 			$('.header-tomu-container a').css('color', 'black');

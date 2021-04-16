@@ -67,7 +67,7 @@
 	.contact-tomu ul{
 
 		width: 30%;
-		margin: 50vh 70px 0px auto;
+		margin: 0vh 70px 0px auto;
 
 	}
 
@@ -84,9 +84,17 @@
 
 	}
 
+	@media  screen and ( max-width: 1305px ) and ( max-width: 0px ){
 
+		.contact-tomu ul{
 
+		 margin: 60vh 70px 0 auto;
 
+		}
+
+	}
+
+   
 
 	@media  screen and ( max-width: 700px ){
 
@@ -97,6 +105,7 @@
 			margin: 40vh 30px 0px auto;
 
 		}
+
 	}
 
 

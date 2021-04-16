@@ -120,7 +120,7 @@
 
 			display: flex;
 			flex-direction: column-reverse !important;
-			width: calc( 100% - 60px );
+			width: calc( 100% - 60px ) !important;
 			padding-left: 30px;
 		}
 

@@ -99,6 +99,11 @@
 
 	}
 
+	#team{
+
+		width: auto !important;
+	}
+
 	@media screen and ( max-width: 1130px ) and ( min-width: 700px ){
 
 		.Team-section img {
@@ -114,7 +119,7 @@
 		.Team-section{
 
 			display: flex;
-			flex-direction: column-reverse;
+			flex-direction: column-reverse !important;
 			width: calc( 100% - 60px );
 			padding-left: 30px;
 		}

@@ -31,16 +31,13 @@ Vue.prototype.pll__ = pll__
 /* Fontawesome-icon */
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon' 
+
 // globally
 Vue.component('v-icon', Icon)
 /* end Fontawesome-icon */
 
 /* Actions & Filters */
-import {wpdk_do_action, wpdk_add_action, wpdk_apply_filters, wpdk_add_filter} from 'Libs/action-filter.js'
-Vue.prototype.do_action = wpdk_do_action
-Vue.prototype.add_action = wpdk_add_action
-Vue.prototype.apply_filters = wpdk_apply_filters
-Vue.prototype.add_filter = wpdk_add_filter
+require('Libs/action-filter.js')
 
 
 if( process.env.NODE_ENV === 'development' ) console.log('development mode')
@@ -50,4 +47,4 @@ new Vue({
 	render: h => h(App),
 }).$mount('#app')
 
-window.vue = Vue
+window.owy_vue = Vue

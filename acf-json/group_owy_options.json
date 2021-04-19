@@ -3,6 +3,631 @@
     "title": "Owy Options",
     "fields": [
         {
+            "key": "field_607d091e4b5f9",
+            "label": "Deployment",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_607d094a4b5fa",
+            "label": "This website state",
+            "name": "this_website_state",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "choices": {
+                "dev": "Development",
+                "demo": "Demo",
+                "prod": "Production Serveur"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_607d0a9a5b1b9",
+            "label": "FTP Demo",
+            "name": "ftp_demo",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_607d094a4b5fa",
+                        "operator": "!=",
+                        "value": "demo"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "sub_fields": [
+                {
+                    "key": "field_607d0b5a5b1bb",
+                    "label": "Server",
+                    "name": "server",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_607d0b695b1bc",
+                    "label": "User",
+                    "name": "user",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0b7d5b1bd",
+                    "label": "Password",
+                    "name": "password",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0b895b1be",
+                    "label": "Port",
+                    "name": "port",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                }
+            ]
+        },
+        {
+            "key": "field_607d0bf25b1c6",
+            "label": "SQL Demo",
+            "name": "sql_demo",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_607d094a4b5fa",
+                        "operator": "!=",
+                        "value": "demo"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "sub_fields": [
+                {
+                    "key": "field_607d0bf25b1c7",
+                    "label": "Server",
+                    "name": "server",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_607d0c055b1cb",
+                    "label": "Database name",
+                    "name": "database_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0bf25b1c8",
+                    "label": "User",
+                    "name": "user",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0bf25b1c9",
+                    "label": "Password",
+                    "name": "password",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0bf25b1ca",
+                    "label": "Port",
+                    "name": "port",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                }
+            ]
+        },
+        {
+            "key": "field_607d0bb75b1c4",
+            "label": "",
+            "name": "sync_demo",
+            "type": "acfe_button",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_607d094a4b5fa",
+                        "operator": "!=",
+                        "value": "demo"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "button_value": "Sync Demo",
+            "button_type": "button",
+            "button_class": "button button-secondary",
+            "button_id": "",
+            "button_before": "",
+            "button_after": "",
+            "button_ajax": 0
+        },
+        {
+            "key": "field_607d0ba25b1bf",
+            "label": "FTP Production",
+            "name": "ftp_production",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_607d094a4b5fa",
+                        "operator": "!=",
+                        "value": "prod"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "sub_fields": [
+                {
+                    "key": "field_607d0ba25b1c0",
+                    "label": "Server",
+                    "name": "server",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_607d0ba25b1c1",
+                    "label": "User",
+                    "name": "user",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0ba25b1c2",
+                    "label": "Password",
+                    "name": "password",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0ba25b1c3",
+                    "label": "Port",
+                    "name": "port",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                }
+            ]
+        },
+        {
+            "key": "field_607d0c235b1cc",
+            "label": "SQL Production",
+            "name": "sql_production",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_607d094a4b5fa",
+                        "operator": "!=",
+                        "value": "prod"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "sub_fields": [
+                {
+                    "key": "field_607d0c235b1cd",
+                    "label": "Server",
+                    "name": "server",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_607d0c235b1ce",
+                    "label": "Database name",
+                    "name": "database_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0c235b1cf",
+                    "label": "User",
+                    "name": "user",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0c235b1d0",
+                    "label": "Password",
+                    "name": "password",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607d0c235b1d1",
+                    "label": "Port",
+                    "name": "port",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "user_roles": [
+                        "all"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                }
+            ]
+        },
+        {
+            "key": "field_607d0bd75b1c5",
+            "label": "",
+            "name": "sync_production",
+            "type": "acfe_button",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_607d094a4b5fa",
+                        "operator": "!=",
+                        "value": "prod"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "button_value": "Sync Production",
+            "button_type": "button",
+            "button_class": "button button-secondary",
+            "button_id": "",
+            "button_before": "",
+            "button_after": "",
+            "button_ajax": 0
+        },
+        {
             "key": "field_60701ba047427",
             "label": "P2P",
             "name": "",
@@ -208,5 +833,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1618252918
+    "modified": 1618808328
 }

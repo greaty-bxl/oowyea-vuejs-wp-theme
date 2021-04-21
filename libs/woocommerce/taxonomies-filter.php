@@ -165,6 +165,10 @@ function owy_get_product_cat_filters_lists_with_relations() {
 		{
 			$current_term = get_term_by( 'slug', $_GET['product_cat'], 'product_cat' );
 
+			/*echo "<pre>";
+			print_r($current_term);
+			echo "</pre>";*/
+
 			// get the thumbnail id using the queried category term_id
 			$thumbnail_id = get_term_meta( $current_term->term_id, 'thumbnail_id', true ); 
 
@@ -273,6 +277,9 @@ function owy_get_product_cat_filters_lists_with_relations() {
 			}
 			wp_vue_add_var('shop_filter', $shop_filter );
 			
+			/*echo "<pre>";
+			print_r($shop_filter);
+			exit();*/
 		}
 	}
 }

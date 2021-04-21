@@ -150,9 +150,8 @@
 							
 		},
 		watch: {
-			'$store.state.wp.product_cat_child': function() {
+			'$store.state.wp': function() {
 
-				console.log('watch filter');
 				
 				this.clear_selection()
 
@@ -204,7 +203,11 @@
 
 				});
 
+
+
 				this.product_cat_child = this.$store.state.wp.product_cat_child
+
+				//console.log( this.product_cat_child );
 
 				var current_url = new URL(location.href)
 				var current_params = current_url.searchParams;
@@ -300,17 +303,12 @@
 								query_string += '&' + tax.slug + '[' + new_key + ']=' + term.slug
 							}
 						});
-						
 					});
-
 					
 					var current_url = new URL(location.href);
 					var new_url = current_url.origin + current_url.pathname + query_string
 					this.done_url = new_url
-
-
 				}
-
 
 				this.close_filter()
 			},

@@ -24,7 +24,7 @@
 
 							<div  class="padding-appeare">
 
-								<div class="cafes" v-if="has_term(post, 'product_cat', 'cafes') || has_term(post, 'product_cat', 'koffies')">
+								<div class="cafes" v-if="has_term(post, 'product_cat', ['cafes', 'koffies'])">
 									<div class="parent-taxonomie-info-single">
 										<p class="titre-taxonomie" v-html="pll__('Intensité')"></p>
 										<div class="valeur-taxonomie" >
@@ -39,7 +39,7 @@
 									
 								</div>
 
-								<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', 'cafes') || has_term(post, 'product_cat', 'koffies')">
+								<div class="cafes acidity-terms" v-if="has_term(post, 'product_cat', ['cafes', 'koffies'])">
 									<div class="parent-taxonomie-info-single">
 										<p class="titre-taxonomie" v-html="pll__('Acidité')"></p>
 										<div class="valeur-taxonomie"  >
@@ -70,7 +70,7 @@
 								<p v-html="post.post_content" class="descriptif"></p>
 							</div>
 
-							<div v-if="has_term(post, 'product_cat', 'horeca') || has_term(post, 'product_cat', 'machines-a-cafe-at-home') || has_term(post, 'product_cat', 'mousseur-a-lait') ">
+							<div v-if="has_term(post, 'product_cat', ['horeca','machines-a-cafe-at-home','mousseur-a-lait', 'horeca-nl', 'koffiemachines-bijzonder', 'melkopschuimer-bijzonder'])">
 								
 								<div v-if="post.acf_fields.fichier_a_telecharger != false && post.acf_fields.fichier_a_telecharger != undefined " >
 									<div class="download-parent">
@@ -170,7 +170,7 @@
 
 						</div>
 						<div v-if="type != 'contact_us'" class="contact-prix" >
-							<p v-html="pll__('Livraison estimée entre 24h et 48h.')" ></p>
+							<p v-if="!has_term(post, 'product_cat', ['ijmachine', 'koffiemachines-work', 'koffiemachines-horeca', 'koffiemachines-bijzonder', 'machine-a-glacons', 'machines-a-cafe-entreprise', 'machines-a-cafe-at-home', 'machines-a-cafe-horeca', 'washmachine'])" v-html="pll__('Livraison estimée entre 24h et 48h.')" ></p>
 							<p style="padding-top: 10px" v-html="pll__('La livraison est gratuite à partir de 100 € en Belgique.')" ></p>
 							<!-- <span></span> -->
 							<p style="padding-top: 10px" v-html="pll__('en dessous')"></p>
@@ -218,7 +218,6 @@
 					flavor_the : this.pll__("Saveur du thé :"),
 					number_usage : this.pll__("P. par jour :"),
 					cup_day : this.pll__("Tasses / jour :"),
-						
 				},
 				vat: true
 			}
@@ -233,7 +232,7 @@
 
 			var $ = this.$
 
-			console.log(this.post);
+			//console.log(this.post);
 
 			setTimeout(function() {
 
@@ -255,7 +254,7 @@
 
 			$(document).on('download-pdf', function(event, a) {
 				event.preventDefault();
-				console.log(a);
+				//console.log(a);
 
 				window.open($(a).attr('href'), '_blank');
 			});
@@ -320,10 +319,6 @@
 
 					//console.log(this.quantity);
 				}
-
-				
-
-				
 			},
 			change_price_tot: function(){
 				
@@ -408,31 +403,13 @@
 				else
 				{
 
-					
-
-					this.tot_price = this.price_format( this.sale_price * this.quantity )
-					
+					this.tot_price = this.price_format( this.sale_price * this.quantity )					
 
 					$('.total_price input').val(this.tot_price)
 				}
 				
 			},
 			price_format: function(price){
-				
-				/*let vat_amount = 1.21
-
-				if( Array.isArray( this.post.metas._tax_class ) )
-				{
-					if( this.post.metas._tax_class[0] == 'tva-6')
-					{
-						vat_amount = 1.06
-					}
-				}
-
-				if( this.vat )
-				{
-					price *= vat_amount
-				}*/
 				
 				let return_price = ''
 
@@ -474,7 +451,7 @@
 		},
 		watch : {
 			'$store.state.wp' : function(){
-				console.log('reload product');
+				//console.log('reload product');
 
 				let $ = this.$
 				

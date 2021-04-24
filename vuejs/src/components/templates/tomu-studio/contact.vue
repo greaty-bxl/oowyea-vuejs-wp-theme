@@ -1,12 +1,12 @@
 <template>
 		
-		<div class="contact-tomu on-screen">
+		<div  class="contact-tomu on-screen">
 
 			<div class="on-screen">
-				<ul> 
+				<ul>
+					<li><a target="_blank" href="mailto: HELLO@TOMUSTUDIO.COM">HELLO@TOMUSTUDIO.COM</a></li>
 					<li> <a target="_blank" href="https://www.google.com/maps/place/Avenue+Brugmann+16,+1060+Saint-Gilles/@50.8217959,4.3512311,17z/data=!3m1!4b1!4m5!3m4!1s0x47c3c458b350e9cb:0x1e6f59366739416!8m2!3d50.8217959!4d4.3534198">AVENUE BRUGMANN 16</a></li>
 					<li> <a target="_blank" href="https://www.google.com/maps/place/Avenue+Brugmann+16,+1060+Saint-Gilles/@50.8217959,4.3512311,17z/data=!3m1!4b1!4m5!3m4!1s0x47c3c458b350e9cb:0x1e6f59366739416!8m2!3d50.8217959!4d4.3534198">1060 BRUSSELS</a></li>
-					<li><a target="_blank" href="mailto: HELLO@TOMUSTUDIO.COM">HELLO@TOMUSTUDIO.COM</a></li>
 					<li><a target="_blank" href="tel:+32 2 897 15 33">+32 2 897 15 33</a></li>
 				</ul>
 			</div>
@@ -66,14 +66,20 @@
 
 	.contact-tomu ul{
 
-		width: 30%;
-		margin: 0vh 70px 0px auto;
+		width: 50%;
+		/*display: flex;*/
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: auto;
+		margin-bottom: auto;
+		font-size: 50px;
+		line-height: 95%;
 
 	}
 
 	.contact-tomu ul li{
 
-		text-align: right;
+		text-align: left;
 
 	}
 
@@ -88,7 +94,7 @@
 
 		.contact-tomu ul{
 
-		 margin: 60vh 70px 0 auto;
+			margin: 60vh 70px 0 auto;
 
 		}
 

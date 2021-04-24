@@ -1,6 +1,6 @@
 <template>
 
-		<div id="footer" class="footer-tomu">
+		<div style="font-weight: bold;" id="footer" class="footer-tomu">
 		<p><span id='year'></span> TOMU studio / GREATY</p>
 		</div>
 

@@ -84,11 +84,11 @@
 		}
 		.background-project {
 			opacity: 1;
-			transform: scale(1.15,1.15);
-			-webkit-transform:scale(1.15,1.15);
-			-moz-transform:scale(1.15,1.15);
-			-ms-transform:scale(1.15,1.15);
-			-o-transform:scale(1.15,1.15);
+			// transform: scale(1.15,1.15);
+			// -webkit-transform:scale(1.15,1.15);
+			// -moz-transform:scale(1.15,1.15);
+			// -ms-transform:scale(1.15,1.15);
+			// -o-transform:scale(1.15,1.15);
 		}
 	}
 	}
@@ -183,7 +183,7 @@
 		padding-top: 100px;
 		padding-bottom: 100px;
 		box-sizing: border-box;
-		padding-left: 70px;
+		padding-left: 245px;
 	}
 
 	.content-project:nth-child(16n+1){
@@ -215,6 +215,7 @@
 		height: 33vw;
 		margin-left: auto;
 		margin-bottom: 70px;
+		margin-right: 140px;
 
 	}
 
@@ -223,6 +224,7 @@
 		width: 30vw;
 		height: 40vw;
 		margin-left: auto;
+		margin-right: 140px;
 
 	}
 
@@ -231,7 +233,7 @@
 		width: 35vw;
 		height: 22.5vw;
 		margin-right: 70px;
-		margin-left: calc( 100% - 65vw - 70px );
+		margin-left: calc( 100% - 65vw - 170px ) !important;
 		margin-top: -40vw;
 
 	}
@@ -279,7 +281,7 @@
 
 	.content-project:nth-child(16n+11){
 
-		width: calc( 100% - 30vw - 70px );
+		width: 40vw;
 		margin-top: -12.5vw;
 		height: 40vw;	
 		margin-left : calc( 30vw + 70px );
@@ -298,11 +300,12 @@
 
 	.content-project:nth-child(16n+13){
 
-		width: calc( 100% - 30vw - 70px );
+		width: 40vw;
 		height: 50vw;
 		margin-left: auto;
 		/*margin-top: calc(  17.5vw + 100px );*/
 		box-sizing: content-box;
+		margin-right: 170px;
 
 	}
 
@@ -330,9 +333,10 @@
 		/*margin-left: 70px;*/
 		height: 33vw;
 		margin-left : calc( 30vw + 70px );
-		width: calc( 100% - 30vw - 70px );
+		width: 40vw;
 
 	}
+
 
 /*	.section-global-project div{
 
@@ -346,6 +350,11 @@
 		width: 50px;
 	}
 
+	.content-project{
+		zoom: 0.8;
+		-moz-transform: scale(0.7);
+	}
+
 	@media screen and ( max-width: 1125px ) and ( min-width: 600px){
 
 
@@ -353,8 +362,6 @@
 			width: calc( 100% - 180px ) !important;
 			padding-left: 50px;
 		}
-
-
 
 		.content-project:nth-child(16n+1){
 
@@ -470,6 +477,7 @@
 			height: 50vw;
 			margin-left: auto;
 			/*margin-top: calc(  17.5vw + 100px );*/
+			margin-right: 170px;
 			box-sizing: content-box;
 
 		}

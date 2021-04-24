@@ -8,8 +8,14 @@
 					<p>IS A CREATIVE OFFICE</p>
 					<p>BASED IN BRUSSELS</p>
 					<p>A CITY WE LOVE</p>
-					<div>WE DO <p id="spin" class="on-screen spin" ></p></div>
+					<div class="we-do" style="text-align: left; margin-bottom: 40px;">WE DO <br>
+					<p id="spin" class="on-screen spin" ></p>
+					</div>
 				</div>
+
+				<!-- <div  v-html="wp.menus['burger-menu']"></div> -->
+
+
 
 		</div>
 	<div class="clear"></div>
@@ -51,7 +57,7 @@
 		setInterval(function(){
 		$('#spin').fadeOut(function(){
 		// $(this).html(words[i=(i+1)%words.length]).css('color', color[i]);	
-		$(this).html(words[i=(i+1)%words.length]).fadeIn().css('color', color[i]);;
+		$(this).html(words[i=(i+1)%words.length]).fadeIn().css('color', color[i]);
 		});
 		}, 2000);
 
@@ -73,9 +79,35 @@
 			console.log('leave-screen');
 		})
 
+		$('.lang-item').appendTo('.home-section > div')
 
+
+
+		setTimeout(function() 
+
+		{
+				$('.lang-item').click(function() {
+					
+					setTimeout(function() {
+						document.location.reload();
+					}, 500);
+					
+				});
+
+			
+
+
+		}, 500);
+
+		$('.lang-item').each(function(index) {
+
+			$(this).css('padding-left',  30 * index);
+			
+		});
 		
 		}
+
+
 
 
 	}
@@ -84,6 +116,28 @@
 </script>
 
 <style type="text/css">
+
+	.current-lang a{
+
+		text-decoration: underline !important;
+	}
+
+	p#spin{
+
+		line-height: 100%;
+	}
+	.lang-item{
+
+		all: unset;
+		font-size: 40px;
+		line-height: 100%;
+
+	}
+	.lang-item a{
+
+		text-decoration: none;
+		color: black;
+	}
 
 	#spin {
 		/*width: 250px;*/
@@ -97,13 +151,13 @@
 	}
 	.home-section > div{
 		font-weight: 700;
-		font-size: 80px;
+		font-size: 50px;
 	}
 
 	.home-section p{
 		all: unset;
 		text-align: left;
-		line-height: 100%;
+		line-height: 85%;
 	}
 
 	.home-section > div > div{
@@ -124,13 +178,25 @@
 
 	.home-section{
 
-		padding-left: 70px;
-		width: calc( 100vw - 245px)
+		padding-left: 245px;
+		width: calc( 100vw - 700px)
 	}
 	@media screen and ( max-width: 1250px ) and ( min-width: 740px ){
 
 		.home-section > div{
 			font-size: 50px;
+		}
+
+		.home-section{
+
+			padding-left: 70px;
+			width: calc( 100vw - 250px);
+		}
+
+		.we-do{
+
+			display: flex;
+			flex-direction: column !important;
 		}
 	}
 	

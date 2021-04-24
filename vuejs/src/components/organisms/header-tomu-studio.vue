@@ -51,27 +51,7 @@ import is from 'is_js'
 
 			}
 
-			let $ = this.$
-
-
-			setTimeout(function() 
-
-			{
-					$('.pll-parent-menu-item a').click(function() {
-						
-						setTimeout(function() {
-							document.location.reload();
-						}, 500);
-						
-					});
-
-
-			}, 500);
-
-		
-
-	
-			
+			// let $ = this.$
 
 			open
 		},
@@ -179,17 +159,6 @@ import is from 'is_js'
 		padding-right: 17px;
 	}
 
-
-
-/*	.lang-item ~ .lang-item:before {
-		content: '';
-		background: yellow;
-		width:  10%;
-		height: 2em;
-		float: left;
-	}*/
-
-
 	.sub-menu {
 
 		width: 100%;
@@ -228,7 +197,7 @@ import is from 'is_js'
 		color: #252525;
 		height: 100vh;
 		box-sizing: content-box;
-		left: calc( 100vw - 245px);
+		left: calc( 100vw - 420px);
 		z-index: 3000;
 
 	}

@@ -1,7 +1,7 @@
 <?php 
 do_action( 'before_document' );
 
-$previous_url = $_SERVER['HTTP_REFERER'];
+// $previous_url = $_SERVER['HTTP_REFERER'];
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 <!doctype html>

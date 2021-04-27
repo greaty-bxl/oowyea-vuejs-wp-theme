@@ -1,8 +1,9 @@
 <template>
     <div class="section-wrap home-url">
     <div class="clear"></div>
-		<div class="home-section">
-			
+		<div style="position: relative;" class="home-section">
+				
+
 				<div>
 					<p>TOMU STUDIO</p>
 					<p>IS A CREATIVE OFFICE</p>
@@ -12,8 +13,9 @@
 					<p id="spin" class="on-screen spin" ></p>
 					</div>
 				</div>
+				<div class="div-lang" style="position: absolute; top: 70%; left: 60%; height: auto"></div>
 
-				<!-- <div  v-html="wp.menus['burger-menu']"></div> -->
+				
 
 
 
@@ -79,23 +81,19 @@
 			console.log('leave-screen');
 		})
 
-		$('.lang-item').appendTo('.home-section > div')
+		$('.lang-item').appendTo('.div-lang')
 
 
 
 		setTimeout(function() 
-
 		{
 				$('.lang-item').click(function() {
 					
 					setTimeout(function() {
 						document.location.reload();
-					}, 500);
+					}, 1000);
 					
 				});
-
-			
-
 
 		}, 500);
 
@@ -116,6 +114,11 @@
 </script>
 
 <style type="text/css">
+
+	.div-lang{
+
+		top: 70%
+	}
 
 	.current-lang a{
 

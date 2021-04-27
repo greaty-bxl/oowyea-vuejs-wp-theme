@@ -82,6 +82,8 @@
 						form_html.find('.acf-form-submit input').remove()
 					}
 
+					form_html.find('form').append('<input type="hidden" name="vue_acf_admin_form" value="true">')
+
 					if( is.function( this.settings['filter_jq_html'] ) )
 					{
 						form_html = this.settings['filter_jq_html'](form_html)
@@ -114,32 +116,55 @@
 					if( is.function( this.settings['submit'] ) )
 					{
 						this.settings['submit'](this)
-					}					
+					}
+					
+					this.save_form()
 				});
 
 				this.form_jq.on('change', (e) => {
-					
+					let field = $(e.target).parents('.acf-field').first()
+					this.last_change = {
+						name : field.data('name'),
+						key : field.data('key'),
+						value : $(e.target).val(),
+						target : e.target
+					}
+
 					if( is.function( this.settings['change'] ) )
 					{
-						let field = $(e.target).parents('.acf-field').first()
-						this.last_change = {
-							name : field.data('name'),
-							key : field.data('key'),
-							value : $(e.target).val(),
-							target : e.target
-						}
 						this.settings['change']( this )
-						this.update_form_data()
 					}
+					this.update_form_data()
 				});
 			},
 			update_form_data : function(){
 				this.form_data.serializeObject = this.form_jq.serializeObject()
 				this.form_data.serializeArray = this.form_jq.serializeArray()
 				this.form_data.serialize = this.form_jq.serialize()
+
+				if( this.settings.autosave )
+				{
+					this.form_jq.submit();
+				}
 			},
 			reload : function() {
 				this.load_form( this.settings )
+			},
+			save_form : function() {
+				if( is.function( this.settings['save'] ) )
+				{
+					this.settings['save'](this)
+				}
+				let $ = this.jquery
+				let form_data = this.form_data.serializeObject
+				form_data.action = 'owy_acf_admin_save_form'
+
+				console.log( 'ajaxurl' ,this.ajaxurl );
+
+				$.post(this.ajaxurl, form_data, (data) => {
+					console.log('saved', data);
+				})
+				
 			}
 		}
 	}

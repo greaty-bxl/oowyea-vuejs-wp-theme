@@ -19,6 +19,8 @@
 				id : 'owy-options',
 				field_groups : ['group_owy_options'],
 				autosave : true,
+				new_post : false,
+				post_id : 'option',
 				saved : () => {
 					console.log('saved');
 				},

@@ -19,8 +19,8 @@
       </select>
     </div>
     <div id="vue-for-grapes" style="display: none">
-      <WpData/>
-      <WpQuery ref="WpQuery"/>
+      <!-- <WpData/>
+      <WpQuery ref="WpQuery"/> -->
     </div>
   </div>
 </template>
@@ -34,10 +34,10 @@ import grapesjs from 'grapesjs';
 import owy_storage from 'PluginLib/grapes/storage.js'
 
 //Import panels
-import WpData from 'PluginComponents/panels/wp-data.vue'
+//import WpData from 'PluginComponents/panels/wp-data.vue'
 
 //Import panels
-import WpQuery from 'PluginComponents/modals/wp-query.vue'
+//import WpQuery from 'PluginComponents/modals/wp-query.vue'
 
 //Grapes plugins
 import style_bg_plugin from 'grapesjs-style-bg';
@@ -55,8 +55,8 @@ export default {
     }
   },
   components: {
-      WpData,
-      WpQuery
+      /*WpData,
+      WpQuery*/
   },
   mounted(){
     

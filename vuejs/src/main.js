@@ -43,6 +43,11 @@ Vue.component('v-icon', Icon)
 
 if( process.env.NODE_ENV === 'development' ) console.log('development mode')
 
+import VueGtag from "vue-gtag";
+Vue.use(VueGtag, {
+  config: { id: "G-QM2JLPWXSX" }
+});
+
 new Vue({
 	store,
 	render: h => h(App),

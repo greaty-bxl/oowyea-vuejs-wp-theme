@@ -73,8 +73,14 @@ import acf_ajax from 'Libs/acf-front-ajax.js'
 
 //Vue.prototype.noty = noty
 
-import Analytics from 'analytics'
+/*import Analytics from 'analytics'
 import googleAnalytics from '@analytics/google-analytics'
+import googleTagManager from '@analytics/google-tag-manager'
+*/
+//import gtag from 'analytics-gtag'
+
+
+
 
 function vue_key_to_name(str)
 {
@@ -276,12 +282,9 @@ export default {
             })
           }, 1 )
         })
-
-
-
       });
 
-      this.google_condition()
+      
 
       on_screen()
 
@@ -289,6 +292,8 @@ export default {
       console.log(this.$store.state.wp.google_accepted);
 
     });
+
+    this.google_condition()
 
   },
   methods : {
@@ -318,29 +323,52 @@ export default {
 
       let $ = this.$
 
-      console.log( this.$store.state.wp, "this.$store.state.wp.gpdr_accepted");
-
       if( this.$store.state.wp.google_accepted ){
 
-       console.log('event google');
+        
+        console.log('page_view');
+        this.$gtag.event('page_view')
 
-          on_screen()
+        $(document).on('after_next_page', () => {
+          console.log('page_view');
+          this.$gtag.event('page_view')
+        });
 
-          const analytics = Analytics({
-            plugins: [
-              googleAnalytics({
-                trackingId: 'G-D5MP1HH93Z'
-              
-              })
-            ]
-          })
+        /*gtag("config", "G-QM2JLPWXSX")*/
 
+        /*const analytics = Analytics({
+          app: 'santospalace',
+          version: 100,
+          plugins: [
+            googleAnalytics({
+              trackingId: '2452703530',
+              debug: true
+            }),
+            googleTagManager({
+              containerId: 'GTM-P9XP4H3',
+              debug: true
+            })
+          ],
+          debug: true
+        })
+        //analytics.plugins.enable(['google-analytics', 'google-tag-manager'])
+
+        analytics.ready( () => {
           analytics.page()
+          console.log('analytics.page', analytics.getState() )
 
-          $(document).on('after_data_next_page', (event) => {
-              console.log(event , 'after_data_next_page');
+          $(document).on('after_next_page', () => {
+            console.log('after_next_page');
             analytics.page()
+            console.log('analytics.page', analytics.getState() )
           });
+
+        })*/
+
+
+        
+
+       
 
       }
 
@@ -351,7 +379,7 @@ export default {
     '$store.state.wp.google_accepted' : function()
     {
    
-        this.google_condition()
+        //this.google_condition()
 
         console.log(this.$store.state.wp);
       

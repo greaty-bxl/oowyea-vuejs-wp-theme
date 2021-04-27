@@ -4,13 +4,13 @@
 		
 		<div>
 			
-			<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_logo-rond.svg">
+			<img src="https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_logo-rond.svg">
 
-			<a href="" class="button-santos-vert" v-html="pll__('VISITER LE SITE BRUXELLES')">
+			<a href="https://santospalaceshop.be/bruxelles/" class="button-santos-vert" v-html="pll__('VISITER LE SITE BRUXELLES')">
 				
 			</a>
 
-			<a href="" class="button-santos-vert" v-html="pll__('VISITER LE SITE KOKSIJDE')">
+			<a href="#" class="button-santos-vert" v-html="pll__('VISITER LE SITE KOKSIJDE') + ' (coming soon)' ">
 				
 			</a>	
 

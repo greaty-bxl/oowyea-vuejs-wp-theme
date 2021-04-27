@@ -7,11 +7,9 @@
 		</div>
 
 		<div class="container-info-contact">
-
 			<div v-html="post.post_content"></div>
-
 		</div>
-
+		
 	</div>
 </template>
 
@@ -120,7 +118,7 @@
 
 	.image-contact h1 {
 
-		font-size: 6vw !important ;
+		font-size: 4vw !important ;
 		padding:  0px 30px  !important;
 		margin: 0px  !important;
 	}
@@ -166,7 +164,7 @@
 
 		.container-info-contact h1 {
 
-			font-size: 7vw !important ;
+			font-size: 4vw !important ;
 			margin: 0px !important;
 		}
 
@@ -177,7 +175,7 @@
 
 		.container-info-contact h1 {
 
-			font-size: 10vw !important ;
+			font-size: 7vw !important ;
 			margin: 0px !important;
 		}
 
@@ -200,7 +198,7 @@
 
 		.image-contact h1 {
 
-			font-size: 10vw !important ;
+			font-size: 7vw !important ;
 			padding:  0px 30px  !important;
 			margin: 0px  !important;
 		}
@@ -217,7 +215,7 @@
 
 		.image-contact h1 {
 
-			font-size: 10vw !important ;
+			font-size: 15vw !important ;
 			padding:  0px 30px  !important;
 			margin: 0px  !important;
 		}

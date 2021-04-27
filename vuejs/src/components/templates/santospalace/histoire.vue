@@ -252,7 +252,7 @@
 
 		.image-histoire h1 {
 
-			font-size: 7vw !important ;
+			font-size: 4vw !important ;
 			margin: 0px !important;
 		}
 
@@ -354,13 +354,13 @@
 
 		.image-histoire h1 {
 
-			font-size: 10vw !important ;
+			font-size: 4vw !important ;
 			margin: 0px !important;
 		}
 
 		.image-histoire h3 {
 
-			font-size: 4vw !important ;
+			font-size: 2vw !important ;
 			margin: 0px !important;
 			padding-bottom: 20px;
 		}
@@ -402,14 +402,14 @@
 
 		.image-histoire h1 {
 
-			font-size: 15vw !important ;
+			font-size: 7vw !important ;
 			padding:  0px 30px  !important;
 			margin: 0px  !important;
 		}
 
 		.image-histoire h3 {
 
-			font-size: 6vw !important ;
+			font-size: 4vw !important ;
 			padding-left: 30px  !important;
 			padding-right: 30px  !important;
 			margin: 0px !important;

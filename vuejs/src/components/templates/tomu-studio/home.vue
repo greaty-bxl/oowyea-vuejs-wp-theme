@@ -13,7 +13,7 @@
 					<p id="spin" class="on-screen spin" ></p>
 					</div>
 				</div>
-				<div class="div-lang" style="position: absolute; top: 70%; left: 60%; height: auto"></div>
+				<div class="div-lang" style="position: absolute; top: 70%; left: 60%; height: auto" v-html="$store.state.wp.switcher_lagage"></div>
 
 				
 
@@ -81,22 +81,6 @@
 			console.log('leave-screen');
 		})
 
-		$('.lang-item').appendTo('.div-lang')
-
-
-
-		setTimeout(function() 
-		{
-				$('.lang-item').click(function() {
-					
-					setTimeout(function() {
-						document.location.reload();
-					}, 1000);
-					
-				});
-
-		}, 500);
-
 		$('.lang-item').each(function(index) {
 
 			$(this).css('padding-left',  30 * index);
@@ -115,6 +99,8 @@
 
 <style type="text/css">
 
+	
+
 	.div-lang{
 
 		top: 70%
@@ -132,7 +118,7 @@
 	.lang-item{
 
 		all: unset;
-		font-size: 40px;
+		font-size: 30px;
 		line-height: 100%;
 
 	}

@@ -11,14 +11,14 @@
 
 					<div class="border-button" >
 						<input class="input-email" type="email" :name="newsletter.input_email_name" :placeholder="pll__('Email')" required >
-						<input class="input-submit" type="submit" :name="newsletter.input_email_name" :value="pll__('S’inscrire')" required style="font-weight: 700;">
+						<input class="input-submit" type="submit" :value="pll__('S’inscrire')" required style="font-weight: 700;">
 					</div>
 				</div>
 
 			</div>
 			
 			<label class="politique-confidentialite">
-				<div >
+				<div>
 					
 					<input class="checkbox-input" type="checkbox" :name="newsletter.input_checkbox" required>
 					<a target="_blank" 
@@ -26,13 +26,11 @@
 					v-html="pll__('En continuant, vous acceptez la politique de confidentialité')" ></a>
 
 				</div>
-
-				<!-- :href="newsletter.a_url" -->
 				
 			</label>
 			
 		</form>
-	
+		
 	</div>
 
 	

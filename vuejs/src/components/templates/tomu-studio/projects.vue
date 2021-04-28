@@ -233,7 +233,7 @@
 		width: 35vw;
 		height: 22.5vw;
 		margin-right: 70px;
-		margin-left: calc( 100% - 65vw - 170px ) !important;
+		margin-left: calc( 100% - 65vw - 170px );
 		margin-top: -40vw;
 
 	}
@@ -407,7 +407,7 @@
 			width: 35vw;
 			height: 22.5vw;
 			margin-right: 30px;
-			margin-left: calc( 100% - 65vw - 30px );
+			margin-left: calc( 100% - 65vw - 170px );
 			margin-top: -40vw;
 
 		}
@@ -565,7 +565,6 @@
 		}
 
 	}
-
 
 
 </style>

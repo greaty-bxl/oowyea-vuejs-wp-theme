@@ -108,7 +108,9 @@
 		.contact-tomu ul{
 
 			width: auto;
-			margin: 40vh 30px 0px auto;
+			margin: 40vh 30px 0px 30px;
+			font-size: 30px;
+			word-wrap: break-word;
 
 		}
 

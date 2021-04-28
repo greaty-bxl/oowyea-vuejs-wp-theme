@@ -1,6 +1,6 @@
 <?php
 
-function gtr_get_projects( $projects_1 = null ) {
+function gtr_get_projects() {
 
 	global $posts;
 

@@ -21,10 +21,13 @@
 				<div >
 					
 					<input class="checkbox-input" type="checkbox" :name="newsletter.input_checkbox" required>
-					<a target="_blank" :href="newsletter.a_url" 
+					<a target="_blank" 
+					:href="pll__('url newsletter')"
 					v-html="pll__('En continuant, vous acceptez la politique de confidentialité')" ></a>
 
 				</div>
+
+				<!-- :href="newsletter.a_url" -->
 				
 			</label>
 			

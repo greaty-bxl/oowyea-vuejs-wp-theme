@@ -452,6 +452,12 @@ export default {
 	@media only screen and (max-width: 600px) {
 
 
+		.filters-1{
+			
+			display: none !important;
+		}
+
+
 		.filtre-parent-div div{
 
 			display: none;
@@ -459,8 +465,9 @@ export default {
 
 
 		.filtre-parent-div{
-			padding-top: 20px;
-			padding-bottom: 20px;
+			padding-top: 30px;
+			padding-bottom: 30px;
+			border-bottom: 0.2px solid #c6c3c3;
 		}
 
 		.filtre-parent-div.no-filter{

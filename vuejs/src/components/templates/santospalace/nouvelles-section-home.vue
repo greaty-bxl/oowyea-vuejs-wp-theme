@@ -500,11 +500,11 @@
 		box-sizing: content-box;
 		}
 
-		.item-product {
+	/*	.item-product {
 
 			margin-right: 15px;
 
-		}
+		}*/
 
 		.swipernouvelles{
 

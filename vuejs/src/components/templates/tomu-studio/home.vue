@@ -120,7 +120,7 @@
 		all: unset;
 		font-size: 30px;
 		line-height: 100%;
-
+		
 	}
 	.lang-item a{
 

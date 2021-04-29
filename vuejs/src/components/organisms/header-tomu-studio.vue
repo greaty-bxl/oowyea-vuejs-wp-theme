@@ -10,8 +10,6 @@
 
 		</div>
 	
-			
-
 		<transition name="fade">
 		<div class="header-tomu-container" v-if="open">
 
@@ -25,8 +23,6 @@
 					<div  v-html="$store.state.wp.menus['burger-menu']"></div>
 
 				</div>
-
-			
 
 		</div>
 		</transition>
@@ -89,6 +85,32 @@ import is from 'is_js'
 </style>
 
 <style type="text/css">
+
+	.menu-item:first-child:hover a{
+
+		color: rgb(159, 173, 225) !important;
+
+	}
+
+	.menu-item a{
+		transition: transform 1s ease-out;
+	}
+	
+
+	.menu-item:hover:nth-child(16n+2) a{
+
+		color:  rgb(252, 209, 144) !important;
+	}
+
+	.menu-item:hover:nth-child(16n+3) a{
+
+		color:	rgb(228, 168, 188) !important;
+	}
+
+	.menu-item:hover:nth-child(16n+4) a{
+
+		color: rgb(187, 215, 179) !important;
+	}
 
 	li.pll-parent-menu-item{
 

@@ -640,9 +640,10 @@ export default {
 
 	.checkout_santos .wc_payment_methods.payment_methods.methods li{
 
-		flex-wrap: wrap;
+		flex-wrap: inherit;
 		display: flex;
 		line-height: 52px !important;
+		margin-bottom: 10px !important;
 
 	}
 

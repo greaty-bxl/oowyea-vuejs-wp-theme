@@ -110,7 +110,7 @@
 
 					</div>
 
-					<img class="image-logo" src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/logo_marionnette_santos_palace.svg">
+					<img class="image-logo" src="https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/logo_marionnette_santos_palace.svg">
 
 				</ul>
 
@@ -124,7 +124,7 @@
 
 						<div @click="open_account">
 
-							<img class="image-compte" src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/login-01.svg">
+							<img class="image-compte" src="https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/login-01.svg">
 
 						</div>
 

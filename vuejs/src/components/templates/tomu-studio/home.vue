@@ -34,6 +34,16 @@
 
 	export default{
 
+		data(){
+
+			// currentRoute: window.location.pathname
+			return {
+				on: true,
+				// showButton : window.location.toString()
+			}
+		},
+
+
 		mounted(){
 
 		let $ = this.$
@@ -45,6 +55,7 @@
 		'#86dadc',
 		'#e6b1c2',
 		'#dbcdbe',
+		'#dbcdbe',
 		];
 		var words = [
 		'DESIGN',
@@ -55,13 +66,43 @@
 		'RESTAURANT',
 		'SCENOGRAPHY',
 		], i = 0;
-		
-		setInterval(function(){
-		$('#spin').fadeOut(function(){
-		// $(this).html(words[i=(i+1)%words.length]).css('color', color[i]);	
-		$(this).html(words[i=(i+1)%words.length]).fadeIn().css('color', color[i]);
-		});
-		}, 2000);
+
+
+
+			 setInterval(function(){
+			$('#spin').fadeOut(function(){
+
+				$(this).html(words[i=(i+1)%words.length]).fadeIn().css('color', color[i]);
+
+				console.log(words[i=(i+1)%words.length]);
+			});
+			}, 2000);
+
+			var lasttext = words[words.length - 1]
+			console.log(lasttext)
+
+			// boucle()
+			// function boucle(){
+
+			// 	var time = 500;
+			// 	$.each(words, function(index, val) {
+			// 		setTimeout( function(){ $('#spin').text(val) }, time)
+			// 		time += 500;
+			// 		console.log(val);
+			// 		console.log(lasttext);
+			// 		// contains(words[words.length - 1]);
+			// 		if ( val === lasttext) {
+			// 			console.log('text to find');
+
+			// 			boucle()
+			// 			// time
+			// 		}
+			// 	});
+
+
+			// }
+	
+
 
 		$('[data-state="current"] .spin').on('enter-screen', () => {
 			console.log('enter-screen');
@@ -81,12 +122,16 @@
 			console.log('leave-screen');
 		})
 
-		$('.lang-item').each(function(index) {
 
-			$(this).css('padding-left',  30 * index);
-			
-		});
-		
+		},
+
+		beforeDestroy(){
+
+			this.on = false
+
+			// console.log(set);
+
+			console.log('beforeDestroy');
 		}
 
 
@@ -99,8 +144,25 @@
 
 <style type="text/css">
 
-	
 
+	.lang-item:nth-child(16n+2){
+
+		padding-left: 30px;
+
+	}
+
+	.lang-item:nth-child(16n+3){
+
+		padding-left: 60px;
+
+	}
+
+	.lang-item:nth-child(16n+4){
+
+		padding-left: 90px;
+
+	}
+	
 	.div-lang{
 
 		top: 70%

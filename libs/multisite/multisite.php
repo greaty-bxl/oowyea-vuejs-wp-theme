@@ -6,8 +6,12 @@ function owy_builder_network_admin_url()
 	{
 
 		$network_admin_url = network_admin_url();
-		wp_vue_add_var('network_admin_url', $network_admin_url);	
-
+		wp_vue_add_var('network_admin_url', $network_admin_url);
+		wp_vue_add_var('is_multisite', 1);	
+	}
+	else
+	{
+		wp_vue_add_var('is_multisite', 0);	
 	}
 }
 add_action( 'vue_vars', 'owy_builder_network_admin_url' );

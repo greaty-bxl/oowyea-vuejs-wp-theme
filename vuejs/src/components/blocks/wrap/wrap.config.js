@@ -4,5 +4,8 @@ export default {
 	'slug' : 'wrap',
 	'label' : '<i class="far fa-square icon"></i>Wrap',
 	'category': 'Simple blocks',
-	'vue' : wrap
+	'vue' : wrap,
+	'propsTraits' : {
+
+	},
 }

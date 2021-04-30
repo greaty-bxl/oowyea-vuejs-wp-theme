@@ -13,10 +13,10 @@ export default class Database{
 		this.stores = {}
 		this.default_cols = "++id,&uid,timestamp,peer"
 		for (const [key, object] of Object.entries(objects)) {
-			console.log('db object',key,object);
+			//console.log('db object',key,object);
 			this.stores[key] = this.default_cols
-			for (const [label, type] of Object.entries(object)) {
-				console.log('db object',label, type);
+			for (const [label/*, type*/] of Object.entries(object)) {
+				//console.log('db object',label, type);
 				this.stores[key] += ','+label
 			}
 		}

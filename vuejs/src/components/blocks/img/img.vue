@@ -6,3 +6,11 @@
 
 	}
 </script>
+<style scoped>
+	/* grapes_canvas */
+	img{
+		height: 20px;
+		width: 20px;
+		background-color: #000;
+	}
+</style>

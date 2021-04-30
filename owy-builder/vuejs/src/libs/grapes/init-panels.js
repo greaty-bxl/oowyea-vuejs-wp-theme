@@ -39,7 +39,7 @@ export default function(){
 			{
 				id: 'editor-wp-back',
 				active: false, // active by default
-				label: '<div title="Close editor"><span class="fas fa-times"></span></div>',
+				label: '<div title="Close editor"><span class="fas fa-home"></span><p>Home</p></div>',
 				command: 'editor-wp-back',
 			},
 			{

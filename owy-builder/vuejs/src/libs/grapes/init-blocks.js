@@ -18,7 +18,7 @@ export default function () {
 		this.editor.BlockManager.remove(val)
 	});
 
-	console.log('types', this.editor.DomComponents.getTypes(), this.editor.DomComponents.getType("checkbox") );
+	//console.log('types', this.editor.DomComponents.getTypes(), this.editor.DomComponents.getType("checkbox") );
 
 
 	/* Set types */
@@ -153,6 +153,7 @@ export default function () {
 	});*/
 
 	/* Auto add blocks */
+
 	const blocks_config = require.context('Blocks/', true, /\.(config\.js)$/i);
 	blocks_config.keys().map(key => {
 
@@ -162,14 +163,6 @@ export default function () {
 		let el = document.createElement('div');
 		let new_comp = Vue.createApp( block_object.vue, {} )
 		new_comp.mount(el)
-
-		$('head style').each( (index, style) => {
-			if( $(style).text().indexOf( 'grapesjs add css' ) >= 0 )
-			{
-				$(el).append( '<style>' + $(style).text() + '<style>' )
-			}
-		});
-		
 
 		let default_block = {
 			slug : '',
@@ -182,19 +175,26 @@ export default function () {
 		}
 
 		block_object = Object.assign( default_block, block_object )
-
-		console.log(block_object);
 		
 		this.editor.BlockManager.add(block_object.slug, block_object);
 		/*this.Templates[name] = () => import( `Templates/${file}` )*/
 
 		//let block_name = $(el).find('>*').first().data('block')
 
-		
-
 	});
 
-	
+
+	let componentsDevStyle = ''
+	$('head style').each( (index, style) => {
+		if( $(style).text().indexOf( 'grapes_canvas' ) >= 0 )
+		{
+			//$(el).append( '<style>' + $(style).text() + '<style>' )
+
+			componentsDevStyle += $(style).text()
+		}
+	});
+	console.log( componentsDevStyle, this.editor );
+	this.$store.state.componentsStyle = componentsDevStyle
 	//basics(this.editor.BlockManager)
 
 	

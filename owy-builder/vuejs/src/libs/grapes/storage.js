@@ -34,10 +34,7 @@ export default function (Vue) {
 						otherHtml += template.metas.owy_html
 					}
 				});
-			});
-
-			result['gjs-html'] += '<div data-gjs-type="other-templates" style="display:none" class="'+otherTclass+'">'+otherHtml+'<style>.'+otherTclass+'{display:none}</style></div>'
-			
+			});			
 
 			if( type == 'header' )
 			{
@@ -68,6 +65,8 @@ export default function (Vue) {
 
 			result['gjs-html'] = '<div id="app">' + result['gjs-html'] + '</div>'
 
+			result['gjs-html'] += '<div data-gjs-type="other-templates" class="'+otherTclass+'">'+otherHtml+'</div>'
+
 			result['gjs-css'] = store.wp.owy_builder_css
 
 
@@ -76,6 +75,14 @@ export default function (Vue) {
 
 			Vue.editor.select(null)
 			clb(result);
+
+			const head = Vue.editor.Canvas.getDocument().head;
+			head.insertAdjacentHTML('beforeend', `<style>`+
+				store.componentsStyle
+				+`</style>`)
+
+
+			//Vue.editor.setStyle(  );
 
 			Vue.editor.UndoManager.clear();
 

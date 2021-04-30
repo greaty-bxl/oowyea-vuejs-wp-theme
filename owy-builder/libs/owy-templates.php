@@ -334,6 +334,15 @@ function owy_builder_save_templates()
 }
 add_action( 'wp_ajax_owy_save_template', 'owy_builder_save_templates' );
 
+function owy_builder_save_global_css()
+{
+	if( user_can( wp_get_current_user(), 'edit_theme_options' ) )
+	{
+		update_option( 'owy_builder_css', $data['css'] );
+	}
+}
+add_action( 'wp_ajax_owy_save_css', 'owy_builder_save_global_css' );
+
 function owy_builder_get_css()
 {
 	?>

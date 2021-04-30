@@ -6,12 +6,13 @@ import option from 'Store/option.js'
 const store = createStore({
 	state:{
 		grapes_template: null,
+		componentsStyle: '',
 		ajax_template_saving: false,
 		ajax_template_saving_queue: false,
 		examples_vars : {},
 		modal_wp_data_attrs: {},
 		code_page: false,
-		right_menu : 'main',//null,
+		right_menu : null,
 		wp_frame : null,
 		wp: wp.state,
 		builder_room: null,	

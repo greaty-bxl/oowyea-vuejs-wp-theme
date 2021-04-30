@@ -1,17 +1,25 @@
 <template>
-	<component data-owy-block="wrap" :is="tagname" style="min-height: 20px">
-		
+	<component 
+		data-owy-block="wrap" 
+		:is="tagname" 
+		v-html="innerHTML"
+		>
 	</component>
 </template>
 <script>
 	export default {
 		props : {
+			innerHTML : String,
 			tagname : {
 				type: String,
 				default: 'div',
-				field: 'select',
-				values: ['div', 'ul', 'li', 'ANY']
 			}
-		}
+		},
 	}
 </script>
+<style>
+	/* grapes_canvas */
+	[data-owy-block="wrap"].is_empty {
+		min-height: 100px
+	}
+</style>

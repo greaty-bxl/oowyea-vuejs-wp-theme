@@ -61,28 +61,9 @@ include GREATY_TEMPLATE_PATH.'/libs/polylang.php';
 include GREATY_TEMPLATE_PATH.'/libs/peers.php';
 include GREATY_TEMPLATE_PATH.'/libs/multisite/multisite.php';
 
-/*require GREATY_TEMPLATE_PATH.'/libs/css-parser.php';
-$oCssParser = new CssParser();
-
-$oCssParser->load_file(GREATY_TEMPLATE_PATH.'/libs/test.css');
-$oCssParser->parse();
-
-echo "<pre>";
-print_r($oCssParser->parsed);
-exit();*/
-
 include GREATY_TEMPLATE_PATH.'/owy-builder/builder.php';
 
-//include GREATY_TEMPLATE_PATH.'/libs/radio.php';
 
-
-
-// Playing with Phaser (do not include in Greaty Theme)
-//include GREATY_TEMPLATE_PATH.'/libs/phaser/phaser.php';
-
-// Code for greaty new site
-/*include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
-include GREATY_TEMPLATE_PATH.'/libs/fromagerie/fromagerie.php';*/
 
 // Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';

@@ -47,6 +47,11 @@
 
 	export default{
 		name: 'templates',
+		data(){
+			return {
+				page_drag: null
+			}
+		},
 		components : {
 			Page,
 			ItemTemplate,
@@ -54,13 +59,13 @@
 			Editable
 		},
 		mounted(){
-			console.log( Sortable, interact )
+			//console.log( Sortable, interact )
 			this.init_sortable()
 
 			let $ = this.jquery 
 			//const page_scroll = { x: 0, y: 0 }
 
-			interact('.page').draggable({
+			this.page_drag = interact('.owy-templates').draggable({
 				ignoreFrom: '.owy-item-template, .pointer, h2, .owy-colors',
 				listeners: {
 					move (event) {
@@ -110,7 +115,7 @@
 		watch : {
 			'$store.state.wp.owy_templates' : function(){				
 				this.init_sortable()
-			}
+			},
 		}
 	}
 </script>

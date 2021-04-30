@@ -1,0 +1,7 @@
+#app{
+	min-height: 100vh;
+}
+
+[data-gjs-type="section"].is_empty {
+	min-height: 100px;
+}

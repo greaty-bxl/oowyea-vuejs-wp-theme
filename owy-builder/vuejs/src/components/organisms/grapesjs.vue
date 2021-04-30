@@ -18,10 +18,6 @@
         </optgroup>
       </select>
     </div>
-    <div id="vue-for-grapes" style="display: none">
-      <!-- <WpData/>
-      <WpQuery ref="WpQuery"/> -->
-    </div>
   </div>
 </template>
 
@@ -33,15 +29,13 @@ import grapesjs from 'grapesjs';
 //Custom Grapes libs
 import owy_storage from 'PluginLib/grapes/storage.js'
 
-//Import panels
-//import WpData from 'PluginComponents/panels/wp-data.vue'
-
-//Import panels
-//import WpQuery from 'PluginComponents/modals/wp-query.vue'
-
 //Grapes plugins
 import style_bg_plugin from 'grapesjs-style-bg';
 import 'grapick/dist/grapick.min.css';
+
+//
+import grapes_canvas_empty_comps from 'PluginLib/grapes/canvas-is-empty.js'
+import grapes_no_body from 'PluginLib/grapes/no-body.js'
 
 export default {
   data(){
@@ -66,6 +60,7 @@ export default {
     //Grapes plugins as require
     require('grapesjs-preset-webpage')
     require('grapesjs-blocks-flexbox')
+
     console.log('theme', this.wp.theme_url+'/plugins/fontawesome-free-5.15.2-web/css/all.css');
     //init grapes
     this.editor = grapesjs.init({
@@ -98,7 +93,15 @@ export default {
       noticeOnUnload: false,
 
       plugins: ['gjs-preset-webpage', 'gjs-blocks-flexbox', style_bg_plugin],
+
+      canvas: {
+          styles: [
+            this.wp.theme_url+'/owy-builder/assets/grapes-frames.css'
+          ] 
+      }
     });
+
+    console.log( this.wp.theme_url+'/owy-builder/assets/grapes-frames.css' );
 
 
     /*this.editor.StyleManager.removeProperty('decorations', 'background-color');
@@ -182,6 +185,12 @@ export default {
 
     //Init Traits    
     this.init_owy_traits()
+
+    //Add detect empty elements and add class (is_empty)
+    grapes_canvas_empty_comps(this.editor)
+
+    //avoid body edition
+    grapes_no_body(this.editor)
     
     //add commands
     this.editor.Commands.add('editor-wp-back', () => {
@@ -500,4 +509,12 @@ select, select optgroup, select option{
 /* .gjs-layer__t-wrapper > .gjs-layer-count , .gjs-layer__t-wrapper > .gjs-layer-vis  {
   display: none;
 }   */
+
+.fa.fa-arrows:before{
+  content: "\f0b2";
+}
+
+.fa.fa-trash-o:before{
+  content: "\f1f8";
+}
 </style>

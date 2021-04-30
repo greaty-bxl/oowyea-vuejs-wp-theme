@@ -11,38 +11,37 @@
 	function recursive_replace($, $html, blocks)
 	{
 		//console.log( 'recursive_replace' , $html , blocks )
+		
+		//https://css-tricks.com/creating-vue-js-component-instances-programmatically/
+		//https://vuejs.org/v2/guide/render-function.html#The-Virtual-DOM
 
 		if( $html.attr('data-owy-block') )
 		{
 
+			let content_html = recursive_replace($, $('<div>'+$html.html()+'</div>'), blocks).html()
+
 			var ComponentClass = Vue.extend(blocks[$html.attr('data-owy-block')].vue)
-			var instance = new ComponentClass()
-			instance.$mount() // pass nothing
+			var instance = new ComponentClass({
+				propsData: { 
+					//tagname: 'ul',
+					innerHTML: content_html
+				}		
+			})
+
+			instance.$mount()
 
 			$html.replaceWith( instance.$el )
 			
-			console.log('is blocks', instance );
-		}
-
-
-
-		if( $html.contents() )
+			console.log('is blocks', $html.attr('data-owy-block'), instance );
+		} 
+		else if( $html.contents() )
 		{
 			$html.contents().each(function(index, el) {
 
 				if( el.nodeName != '#text' )
 				{
 					el = recursive_replace($, $(el), blocks, 1)
-					//$html[0].children[index] = el
-					//$html.find(el).replaceWith(el);
-					console.log( 'el', el, $html.find(el) )
-				}
-
-				if( el.nodeName == '#text' )
-				{
-					//$(el)[0].textContent = 'replace text'
-					console.log( 'el text', el, $html.find(el) )
-				}				
+				}			
 			});
 		}
 
@@ -83,7 +82,7 @@
 
 				//console.log( 'html' , $(html) , this.$store.state.blocks )
 
-				let $html = recursive_replace( $, $(html), this.$store.state.blocks)
+				let $html = recursive_replace( $, $('<div>'+html+'</div>'), this.$store.state.blocks)
 
 				
 

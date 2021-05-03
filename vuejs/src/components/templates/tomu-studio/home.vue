@@ -10,7 +10,7 @@
 					<p>BASED IN BRUSSELS</p>
 					<p>A CITY WE LOVE</p>
 					<div class="we-do" style="text-align: left; margin-bottom: 40px;">WE DO <br>
-					<p id="spin" class="on-screen spin" ></p>
+					<p class="on-screen spin" > <span id="spin"></span> </p>
 					</div>
 				</div>
 				<div class="div-lang" style="position: absolute; top: 70%; left: 60%; height: auto" v-html="$store.state.wp.switcher_lagage"></div>
@@ -47,39 +47,39 @@
 		mounted(){
 
 		let $ = this.$
-		// (function(){
-		var color = [
-		'#bdb5d9',
-		'#fddaa7',
-		'#e6b4e6',
-		'#86dadc',
-		'#e6b1c2',
-		'#dbcdbe',
-		'#dbcdbe',
-		];
-		var words = [
-		'DESIGN',
-		'SPACES',
-		'INTERIOR',
-		'FURNITURE',
-		'HOSPITALITY',
-		'RESTAURANT',
-		'SCENOGRAPHY',
-		], i = 0;
+		// // (function(){
+		// var color = [
+		// '#bdb5d9',
+		// '#fddaa7',
+		// '#e6b4e6',
+		// '#86dadc',
+		// '#e6b1c2',
+		// '#dbcdbe',
+		// '#dbcdbe',
+		// ];
+		// var words = [
+		// 'DESIGN',
+		// 'SPACES',
+		// 'INTERIOR',
+		// 'FURNITURE',
+		// 'HOSPITALITY',
+		// 'RESTAURANT',
+		// 'SCENOGRAPHY',
+		// ], i = 0;
 
 
 
-			 setInterval(function(){
-			$('#spin').fadeOut(function(){
+		// 	setInterval(function(){
+		// 	$('#spin').fadeOut(function(){
 
-				$(this).html(words[i=(i+1)%words.length]).fadeIn().css('color', color[i]);
+		// 		$(this).html(words[i=(i+1)%words.length]).fadeIn().css('color', color[i]);
 
-				console.log(words[i=(i+1)%words.length]);
-			});
-			}, 2000);
+		// 		console.log(words[i=(i+1)%words.length]);
+		// 	});
+		// 	}, 2000);
 
-			var lasttext = words[words.length - 1]
-			console.log(lasttext)
+		// 	var lasttext = words[words.length - 1]
+		// 	console.log(lasttext)
 
 			// boucle()
 			// function boucle(){
@@ -101,7 +101,9 @@
 
 
 			// }
-	
+			
+		var href =  $('.home-url').parent().attr('data-permalink');
+		$('.href-home-logo').attr('href', href); 
 
 
 		$('[data-state="current"] .spin').on('enter-screen', () => {
@@ -109,9 +111,14 @@
 
 			$('.header-tomu-container').css('color', 'black');
 			$('.header-tomu-container a').css('color', 'black');
+			$('.header-tomu-container svg').css('color', 'black');
+
 
 			var href =  $('.home-url').parent().attr('data-permalink');
 			this.pushHistory( href )
+
+			$('.href-home-logo').attr('href', href); 
+
 
 			$('a[href="'+ href +'"]').css('color', 'black');
 
@@ -144,6 +151,27 @@
 
 <style type="text/css">
 
+	#spin:before{
+		animation-name: spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation: ease-out;
+	}
+
+	@keyframes spin {
+		0% {content: "DESIGN"; color:#bdb5d9;}
+		16% {content: "SPACES"; color:#fddaa7;}
+		33% {content: "INTERIOR"; color:#e6b4e6;}
+		50% {content: "FURNITURE"; color:#86dadc;}
+		66% {content: "HOSPITALITY"; color:#e6b1c2; }
+		83% {content: "RESTAURANT"; color:#dbcdbe;}
+		100% {content: "SCENOGRAPHY";color:#dbcdbe;}
+	}
+
+	.menu-tomu a{
+
+		color: black;
+	}
 
 	.lang-item:nth-child(16n+2){
 

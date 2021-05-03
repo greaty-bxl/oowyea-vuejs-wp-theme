@@ -100,6 +100,19 @@
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+		
+		.desciption-tomu-project p:first-child{
+
+			font-size: 20px;
+			text-transform: uppercase;
+
+		}
+
+		.desciption-tomu-project p{
+
+			font-size: 16px;
+			line-height: 130%;
+		}
 	
 		input:focus {
 		color: #70625b !important;
@@ -160,7 +173,7 @@
 			width: 100%;
 			left: 0;
 			top: 0;
-			background-color: #ffffffb0;
+			background-color: #ffffffd1;
 			display: flex;
 			align-items: start;
 			opacity:0;
@@ -296,7 +309,6 @@
 				box-sizing: border-box;
 				padding-left: 245px;
 			}
-
 			.content-project:nth-child(16n+1){
 
 				width: 30vw;
@@ -326,7 +338,7 @@
 				height: 33vw;
 				margin-left: auto;
 				margin-bottom: 70px;
-				margin-right: 140px;
+				margin-right: 245px;
 
 			}
 
@@ -335,7 +347,7 @@
 				width: 30vw;
 				height: 40vw;
 				margin-left: auto;
-				margin-right: 140px;
+				margin-right: 245px;
 
 			}
 
@@ -344,7 +356,7 @@
 				width: 35vw;
 				height: 22.5vw;
 				margin-right: 70px;
-				margin-left: calc( 100% - 65vw - 170px ) !important;
+				margin-left: calc( 100% - 65vw - 315px );
 				margin-top: -40vw;
 
 			}
@@ -416,7 +428,7 @@
 				margin-left: auto;
 				/*margin-top: calc(  17.5vw + 100px );*/
 				box-sizing: content-box;
-				margin-right: 170px;
+				margin-right: 245px;
 
 			}
 
@@ -449,6 +461,7 @@
 			}
 
 
+
 		/*	.section-global-project div{
 
 				display: flex;
@@ -462,7 +475,7 @@
 			}
 
 			.content-project{
-				zoom: 0.8;
+				zoom: 0.7;
 				-moz-transform: scale(0.7);
 			}
 

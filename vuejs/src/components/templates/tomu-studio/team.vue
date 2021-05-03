@@ -35,6 +35,7 @@
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#FCD190');
+			$('.header-tomu-container svg').css('color', '#FCD190');
 			$('.header-tomu-container a').css('color', 'black');
 			var href = $('.Team-section').parent().attr('data-permalink');
 			this.pushHistory( href )
@@ -172,7 +173,7 @@
 			width: 100% !important;
 			left: 0;
 			top: 0 !important;
-			background-color: #ffffffb0 !important;
+			background-color: #ffffffd1 !important;
 			display: flex;
 			align-items: start;
 			opacity:0 !important;
@@ -194,37 +195,6 @@
 		
 	}
 
-
-
-/*	@media screen and ( max-width: 1130px ){
-
-		.animation-title-team{
-
-			height: 100% !important;
-			position: absolute;
-			width: 100% !important;
-			left: 0;
-			top: 0 !important;
-			background-color: #ffffffb0 !important;
-			display: flex;
-			align-items: start;
-			opacity: 1 !important;
-			-webkit-transition:all 0.45s ease-in-out;
-			-moz-transition:all 0.45s ease-in-out;
-			-o-transition:all 0.45s ease-in-out;
-			-ms-transition:all 0.45s ease-in-out;
-			transition:all 0.45s ease-in-out;
-			color: black;
-			font-size: 22px;
-			display: flex;
-			flex-direction: column;
-			align-items: flex-end;
-			padding-top: 20px;
-			font-weight: bold;
-
-		}
-	}
-*/
 	@media screen and ( max-width: 1130px ) and ( min-width: 700px ){
 
 		.Team-section img {
@@ -281,6 +251,22 @@
 			
 		}
 
+		.team-image{
+
+			height: auto;
+		}
+
+		.animation-title-team p:first-child{
+
+			margin-top: 20px;
+			/*margin-bottom: 10px;*/
+		}
+
+		.animation-title-team p{
+
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
 
 	}
 

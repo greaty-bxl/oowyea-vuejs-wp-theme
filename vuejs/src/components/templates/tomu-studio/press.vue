@@ -44,6 +44,7 @@
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#E4A8BC');
+			$('.header-tomu-container svg').css('color', '#E4A8BC');
 			$('.current-menu-item a').css('color', 'black');
 
 		
@@ -131,7 +132,7 @@
 		width: 100%;
 		left: 0;
 		top: 0;
-		background-color: #ffffffb0;
+		background-color: #ffffffd1;
 		display: flex;
 		align-items: start;
 		opacity:0;
@@ -231,6 +232,7 @@
 		height: 33vw;
 		margin-left: auto;
 		margin-bottom: 70px;
+		margin-right: 245px;
 
 	}
 
@@ -239,6 +241,7 @@
 		width: 30vw;
 		height: 40vw;
 		margin-left: auto;
+		margin-right: 245px;
 
 	}
 
@@ -247,7 +250,7 @@
 		width: 35vw;
 		height: 22.5vw;
 		margin-right: 70px;
-		margin-left: calc( 100% - 65vw - 70px );
+		margin-left: calc( 100% - 65vw - 315px );
 		margin-top: -40vw;
 
 	}
@@ -319,6 +322,7 @@
 		margin-left: auto;
 		/*margin-top: calc(  17.5vw + 100px );*/
 		box-sizing: content-box;
+		margin-right: 245px;
 
 	}
 
@@ -351,6 +355,7 @@
 	}
 
 
+
 /*	.section-global-project div{
 
 		display: flex;
@@ -364,8 +369,8 @@
 	}
 
 	.content-project{
-		zoom: 0.8;
-		-moz-transform: scale(0.8);
+		zoom: 0.7;
+		-moz-transform: scale(0.5);
 	}
 
 	@media screen and ( max-width: 1125px ) and ( min-width: 600px){

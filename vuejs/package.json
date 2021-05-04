@@ -32,6 +32,7 @@
     "vue-awesome-swiper": "^4.1.1",
     "vue-click-outside": "^1.1.0",
     "vue-color": "^2.8.1",
+    "vue-easy-slider": "^5.3.4",
     "vue-gapi": "^0.3.1",
     "vue-lottie": "^0.2.1",
     "vue-scrollmagic": "^1.2.0",

@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0b6ae7"],{"1dca":function(e,n){throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n> <?php\n| if( ! ( function_exists( 'wp_get_attachment_by_post_name' ) ) ) {\n|     function wp_get_attachment_by_post_name( $post_name ) {")}}]);
+//# sourceMappingURL=chunk-2d0b6ae7.js.map

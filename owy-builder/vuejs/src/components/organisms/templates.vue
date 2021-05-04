@@ -122,6 +122,7 @@
 
 <style>
 	.owy-templates .row {
+		display: flex;
 		white-space: nowrap;
 		margin-bottom: 30px;
 	}

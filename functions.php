@@ -86,7 +86,7 @@ function auto_include_php_scripts($dir, &$results = array()) {
         }
     }
 }
-auto_include_php_scripts(GREATY_TEMPLATE_PATH.'/vuejs/src/wp');
+auto_include_php_scripts(GREATY_TEMPLATE_PATH.'/vuejs/src');
 
 
 function get_oowyea_home()

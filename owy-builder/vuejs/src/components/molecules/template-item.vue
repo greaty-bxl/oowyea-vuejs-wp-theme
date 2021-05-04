@@ -63,6 +63,8 @@
 		padding: 10px;
 		text-align: center;
 		white-space: normal;
+		height: 20px;
+		overflow: hidden;
 	}
 	.owy-item-template.type-hierarchy .thumb{
 		color: #557EE6;

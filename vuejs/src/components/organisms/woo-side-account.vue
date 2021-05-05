@@ -705,12 +705,12 @@
 
 	html[lang="nl-BE"] .side-cart .woocommerce ul#shipping_method li:first-child{
 
-		display: none !important;
+		/*display: none !important;*/
 	}
 
 	html[lang="fr-BE"] .side-cart .woocommerce ul#shipping_method li:nth-child(2n){
 
-		display: none !important;
+		/*display: none !important;*/
 	}
 
 

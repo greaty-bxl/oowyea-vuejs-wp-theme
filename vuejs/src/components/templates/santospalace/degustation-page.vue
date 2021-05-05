@@ -168,7 +168,7 @@
 .image-degustation-page{
 
 	color: white;
-	background-image: url('https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_degustation-01.png');
+	background-image: url('https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_degustation-01.png');
 	background-position: center;
 	background-size: cover; 
 /*	margin-top: 100px;*/

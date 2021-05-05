@@ -12,7 +12,7 @@
 		<div class="histoire-row-first">
 			<div class="parent-relative">
 				
-				<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_02.png">
+				<img src="https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_02.png">
 
 			</div>
 			
@@ -27,7 +27,7 @@
 		<div class="histoire-row-reverse">
 			<div class="parent-relative">
 				
-				<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_03.png">
+				<img src="https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_03.png">
 
 			</div>
 			
@@ -42,7 +42,7 @@
 		<div class="histoire-row">
 			<div class="parent-relative">
 				
-				<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_04.png">
+				<img src="https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_04.png">
 
 			</div>
 			
@@ -57,7 +57,7 @@
 		<div class="histoire-row-reverse">
 			<div class="parent-relative">
 				
-				<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_05.png">
+				<img src="https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_05.png">
 
 			</div>
 			
@@ -72,7 +72,7 @@
 		<div class="histoire-row">
 			<div class="parent-relative">
 
-				<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_06-1.png">
+				<img src="https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_06-1.png">
 			</div>
 			
 			<div class="text-historique">
@@ -87,7 +87,7 @@
 		<div class="histoire-row-reverse">
 			<div class="parent-relative">
 				
-				<img src="https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_07.png">
+				<img src="https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_07.png">
 
 			</div>
 			
@@ -230,7 +230,7 @@
 
 	.image-histoire{
 		color: white;
-		background-image: url('https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_01.png');
+		background-image: url('https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/01/santos-palace_histoire_01.png');
 		background-position: center;
 		background-size: cover; 
 		margin-top: 100px;

@@ -123,13 +123,13 @@ export default {
 
 			let payconiq = $('[alt="Payconiq"]').attr('src');
 
-			$('[alt="Bancontact"]').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Bancontact.svg');
+			$('[alt="Bancontact"]').attr('src', 'https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/02/Bancontact.svg');
 
-			$('[for="payment_method_paypal"]').find('img').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Paypal.svg');
+			$('[for="payment_method_paypal"]').find('img').attr('src', 'https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/02/Paypal.svg');
 
-			$('[alt="eMaestro"]').attr('src', 'https://demo-santospalace.greaty.be/bruxelles/wp-content/uploads/sites/2/2021/02/Maestro_2016.svg');
+			$('[alt="eMaestro"]').attr('src', 'https://santospalaceshop.be/bruxelles/wp-content/uploads/sites/2/2021/02/Maestro_2016.svg');
 
-			$("[data-title='Verzending']").find('input:eq(0)').prop( "checked", false );
+			/*$("[data-title='Verzending']").find('input:eq(0)').prop( "checked", false );
 			$("[data-title='Verzending']").find('li:eq(0)').css('display', 'none');
 
 			$("[data-title='Expédition']").find('input:eq(0)').prop( "checked", true );
@@ -139,7 +139,7 @@ export default {
 			$("[data-title='Expédition']").find('li:eq(1)').css('display', 'none');
 
             $("[data-title='Verzending']").find('input:eq(1)').prop( "checked", true );
-            $("[data-title='Verzending']").find('input:eq(1)').css('display', 'none');
+            $("[data-title='Verzending']").find('input:eq(1)').css('display', 'none');*/
 
 			let image 
 

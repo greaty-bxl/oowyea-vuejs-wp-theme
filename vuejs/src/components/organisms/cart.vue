@@ -258,6 +258,12 @@
 
 				button_submit['shop_table_responsive'] = $(this.$store.state.wp.cart).find('.cart_totals').html()
 
+				if( button_submit['shop_table_responsive'] )
+				{
+					button_submit['shop_table_responsive'] = button_submit['shop_table_responsive'].replace('TVA', this.pll__('TVA') )
+					button_submit['shop_table_responsive'] = button_submit['shop_table_responsive'].replace('livraison', this.pll__('livraison') )
+				}				
+
 				button_submit['cart_empty'] = $(this.$store.state.wp.cart).find('.cart-empty').text();
 
 
@@ -415,18 +421,22 @@
 <style>
 
 
-	.side-cart .woocommerce ul#shipping_method li label{
+	/*.side-cart .woocommerce ul#shipping_method li label{
 
 		padding-left: 20px;
-	}
+	}*/
 
 	.side-cart .woocommerce ul#shipping_method li span:first-child{
 		display: initial;
 
 	}
 
-	.woocommerce ul#shipping_method .amount{
+	/*.woocommerce ul#shipping_method .amount{
 
+		display: none;
+	}*/
+
+	[name="shipping_method[0]"]{
 		display: none;
 	}
 
@@ -723,10 +733,10 @@
 		/*margin-left: 20px;*/
 	}
 
-	.side-cart tr.woocommerce-shipping-totals.shipping{
+	/*.side-cart tr.woocommerce-shipping-totals.shipping{
 
 		display: none;
-	}
+	}*/
 
 
 	@media screen and (max-width: 1125px){

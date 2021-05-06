@@ -10,7 +10,7 @@
 					<p>BASED IN BRUSSELS</p>
 					<p>A CITY WE LOVE</p>
 					<div class="we-do" style="text-align: left; margin-bottom: 40px;">WE DO <br>
-					<p class="on-screen spin" > <span id="spin"></span> </p>
+					<p class="on-screen spin" > <a href=""><span id="spin"></span></a>  </p>
 					</div>
 				</div>
 				<div class="div-lang" style="position: absolute; top: 70%; left: 60%; height: auto" v-html="$store.state.wp.switcher_lagage"></div>
@@ -101,9 +101,12 @@
 
 
 			// }
+
+		var href_project = $('.section-global-project').parent().attr('data-permalink');
+		$('.spin a').attr('href', href_project); 
 			
-		var href =  $('.home-url').parent().attr('data-permalink');
-		$('.href-home-logo').attr('href', href); 
+		var href_home =  $('.home-url').parent().attr('data-permalink');
+		$('.href-home-logo').attr('href', href_home); 
 
 
 		$('[data-state="current"] .spin').on('enter-screen', () => {
@@ -230,7 +233,7 @@
 	}
 	.home-section > div{
 		font-weight: 700;
-		font-size: 50px;
+		font-size: 60px;
 	}
 
 	.home-section p{

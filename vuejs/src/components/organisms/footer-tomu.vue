@@ -16,6 +16,7 @@
 		<p>
 			<span id='year'></span> TOMU studio / <a href="https://greaty.be">GREATY</a>
 		</p>
+		
 		</div>
 
 </template>
@@ -34,8 +35,10 @@
 					console.log('enter-screen');
 					$('.header-tomu-container').css('color', '#fdd498');
 					$('.current-menu-item a').css('color', '#fdd498');
-					
+	
 			})
+
+	
 		}
 	}
 
@@ -43,24 +46,74 @@
 </script>
 
 <style type="text/css">
-	
+
+	.social-links{
+
+		display: flex;
+		align-items: center;
+		justify-content: flex-end !important;
+		margin-left: 245px;
+		text-align: right;
+
+	}
+
+	.contact-tomu svg{
+
+		text-align: right;
+	}
+
+	.svg-inline--fa{
+
+		width: 30px;
+		padding-left: 20px;
+	}
+
+	.fa-facebook-f{
+
+		width: 20px;
+	}
+
+	.footer-tomu a{
+
+		text-decoration: none;
+		color: black;
+		cursor: pointer;
+
+	}
+
+	.footer-tomu p{
+		margin-top: 15px;
+		margin-bottom: 0px;
+	}
+
 	.footer-tomu{
 		text-align: right;
 		padding-right: 245px;
-		margin-top: -50px;
+		padding-bottom: 70px;
+		margin-top: -120px;
 		font-size: 16px;
 		box-sizing: content-box;
+		z-index: 1;
+		height: 0;
 	}
+
+	.footer-tomu a{
+
+		z-index: 4000;
+	}
+
 	@media  screen and ( max-width: 1225px ) and ( min-width: 700px ){
 
 		.footer-tomu{
 			padding-right: 50px;
+			/*padding-bottom: 50px*/
 		}
 	}
 	@media  screen and ( max-width: 700px ){
 
 		.footer-tomu{
 			padding-right: 30px;
+			padding-bottom: 50px;
 		}
 	}
 

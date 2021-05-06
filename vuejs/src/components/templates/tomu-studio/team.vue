@@ -115,11 +115,15 @@
 
 	.Team-section {
 		
-		padding-left: 245px;
 		display: flex;
 		flex-direction: row;
 		color: #fdd498;
 		font-size: 19px;
+	}
+
+	.content-team{
+
+		padding-left: 245px;
 	}
 
 	.Team-section *{
@@ -203,7 +207,9 @@
 			/*height: 40vw;*/
 		}
 
-		.Team-section {
+
+
+		.content-team {
 			
 			padding-left: 70px;
 
@@ -219,7 +225,7 @@
 
 	@media screen and ( max-width: 700px ){
 
-		.Team-section {
+		.content-team {
 			
 			padding-left: 30px;
 			

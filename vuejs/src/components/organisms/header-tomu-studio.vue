@@ -209,11 +209,13 @@ import is from 'is_js'
 
 	.header-tomu-container a:focus {
 		outline: none;
+
 		
 	}
 	
 	.header-tomu-container{
 		/*transition: all 1s ease-out;*/
+		padding-top: 20vh;
 		position: fixed;
 		display: flex;
 		flex-direction: column;
@@ -222,7 +224,7 @@ import is from 'is_js'
 		vertical-align: center;
 		text-align: right;
 		color: #252525;
-		height: 100vh;
+		height: 60vh;
 		box-sizing: content-box;
 		left: calc( 100vw - 420px);
 		z-index: 3000;
@@ -243,8 +245,15 @@ import is from 'is_js'
 		font-size: 19px;
 		margin-top: 25px;
 		font-weight: 800 !important;
+		z-index: 3000;
 		
 		
+		
+	}
+
+	.menu-tomu a{
+
+		color: black;
 	}
 
 	ul * {

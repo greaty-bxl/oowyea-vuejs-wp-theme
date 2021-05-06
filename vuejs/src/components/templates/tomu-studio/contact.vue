@@ -52,7 +52,7 @@
 
 <style type="text/css">
 
-	.social-links{
+/*	.social-links{
 
 		display: flex;
 		align-items: center;
@@ -77,7 +77,7 @@
 
 		width: 30px;
 	}
-	
+	*/
 	.contact-tomu *{
 		all: none;
 		justify-content: center;

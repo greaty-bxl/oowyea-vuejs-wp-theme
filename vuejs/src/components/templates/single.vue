@@ -63,10 +63,7 @@
 		mounted (){
 			var $ = this.$
 
-			// $('.retour').html('[add_to_cart id="99"]')
 			console.log(this.post);
-
-			
 
 			$('.title-21').attr('placeholder', this.post.post_title );
 			$('.title-21').attr('value', this.post.post_title );
@@ -76,16 +73,23 @@
 
 			$('.header-tomu-container').css('color', '#BBB5D6');
 			$('.current-page').css('color', '#BBB5D6');
-			// $('.title-filter:contains("Origines")').text('Afkomst')
 			
+			if( this.post.post_type == 'project' ){
+
+				$('.menu-item:first-child a').css('color', 'rgb(159, 173, 225) !important');
+				$('.header-tomu-container svg').css('color', '#9fade1');
+			}
+			else{
+
+				$('.menu-item:nth-child(16n+3) a').css('color', 'rgb(228, 168, 188) !important');
+				$('.header-tomu-container svg').css('color', 'rgb(228, 168, 188)');
+			}
 			
 		})
-
-
 			
 			this.$emit('template_mounted')
 
-			console.log(this.wp);
+			console.log(this.post , 'post');
 
 			smart_fonts({
 	
@@ -100,7 +104,12 @@
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
-		
+		.desciption-tomu-project{
+
+			height: 100%;
+			display: flex;
+			justify-content: flex-end;
+		}
 		.desciption-tomu-project p:first-child{
 
 			font-size: 20px;
@@ -317,10 +326,10 @@
 
 			.content-project:nth-child(16n+2){
 				width: 30vw;
-				margin-top: -22.5vw;
+				margin-top: -40vw;
 				height: 40vw;
 				margin-left : calc( 30vw + 70px );
-				margin-bottom: 70px;
+				margin-bottom: calc( 70px + 17.5vw);
 				display: block !important;
 			}
 

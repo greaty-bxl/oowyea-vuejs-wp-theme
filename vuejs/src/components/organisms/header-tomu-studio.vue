@@ -204,7 +204,7 @@ import is from 'is_js'
 		cursor: pointer;
 		font-weight: 800 !important;
 		width: 100px;
-		text-align: right
+		text-align: left;
 	}
 
 	.header-tomu-container a:focus {
@@ -281,6 +281,7 @@ import is from 'is_js'
 		.header-tomu-container{
 
 			left: calc( 100vw - 215px);
+			text-align: left;
 
 		}
 
@@ -339,8 +340,8 @@ import is from 'is_js'
 			transform: translate(-50%,-50%);
 			box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 			transition: 0.5s;
-			top: 30px;
-			left: calc( 100% - 30px);
+			top: 40px;
+			left: calc( 100% - 40px);
 			z-index: 3001;
 		}
 		.burger::before{

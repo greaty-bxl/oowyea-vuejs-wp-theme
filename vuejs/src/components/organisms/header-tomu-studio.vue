@@ -52,7 +52,25 @@ import is from 'is_js'
 
 			}
 			
-			// let $ = this.$
+			let $ = this.$
+			setTimeout(function() {
+
+				$('.menu-item').click(function() {
+					/* Act on the event */
+
+					setTimeout(function() {
+
+						console.log('event scrool');
+						// alert('2')
+						$('#app').trigger('scroll')
+
+					}, 10);
+					
+				});
+
+			}, 10);
+
+		
 
 			open
 		},
@@ -85,6 +103,11 @@ import is from 'is_js'
 
 <style type="text/css">
 
+	.menu{
+
+		margin-top: 10px;
+	}
+
 	.menu-item:first-child:hover a{
 
 		color: rgb(159, 173, 225) !important;
@@ -94,7 +117,6 @@ import is from 'is_js'
 	.menu-item a{
 		transition: transform 1s ease-out;
 	}
-	
 
 	.menu-item:hover:nth-child(16n+2) a{
 
@@ -238,6 +260,7 @@ import is from 'is_js'
 	}
 
 	.menu-tomu{
+
 		margin-right: 70px;
 		margin-left: 70px;
 		height: auto;
@@ -246,8 +269,7 @@ import is from 'is_js'
 		margin-top: 25px;
 		font-weight: 800 !important;
 		z-index: 3000;
-		
-		
+		line-height: 125%;
 		
 	}
 
@@ -329,6 +351,8 @@ import is from 'is_js'
 			width: 100%;
 			background-color: white;
 			left: 0;
+			height: 100vh;
+			padding-top: 0px;
 		}
 
 		.burger{
@@ -384,15 +408,27 @@ import is from 'is_js'
 			transform: rotate(135deg);
 		}
 
-		.fade-enter-active, .fade-leave-active, .fade-leave-to {
-			background: rgba(255,255,255,0);
-			transition: background 0.6s;
+
+	/*	.fade-enter-active, .fade-leave-active {
+			transition: margin-right 1s;
 		}
 
-		.fade-enter-to{
-			background: rgba(255,255,255,0.6);
+		.fade-enter, .fade-leave-to {
+			margin-right: -500px;
 		}
-
+*/
+		.fade-enter-active {
+		transition: all .6s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+		}
+		.fade-leave-active {
+		transition: all .6s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+		}
+		.fade-enter, .fade-leave-to
+		/* .slide-fade-leave-active below version 2.1.8 */ {
+		transform: translateX(500px);
+		/*opacity: 0;*/	
+		}
+		/*
 		.fade-enter-active .left-col, .fade-leave-active .left-col, .fade-leave-to .left-col {
 			margin-right: -500px;
 			transition: margin-right 0.6s;
@@ -400,7 +436,7 @@ import is from 'is_js'
 
 		.fade-enter-to .left-col{
 			margin-right: 0px;
-		}
+		}*/
 
 		.lang-item {
 
@@ -412,11 +448,10 @@ import is from 'is_js'
 
 			height: 30px;
 			width: 40px;
-			top: 15px;
-			left: calc( 100% - 50px);
+			top: 25px;
+			left: calc( 100% - 60px);
 			position: fixed;
 			z-index: 3002
-		
 
 		}
 

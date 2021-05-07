@@ -44,6 +44,11 @@
 			
 		})
 
+		$('[data-state="current"] .principal').on('leave-screen', () => {
+			
+			
+		})
+
 		}
 
 	}
@@ -219,6 +224,15 @@
 
 			height: auto;
 			
+		}
+
+		.animation-title-team p{
+
+			margin-top: 10px;
+			margin-bottom: 10px;
+			margin-right: 0px;
+			text-align: right;
+			font-weight: bold;
 		}
 
 	}

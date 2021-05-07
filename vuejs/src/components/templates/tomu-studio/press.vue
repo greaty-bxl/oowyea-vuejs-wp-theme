@@ -40,7 +40,7 @@
 		let $ = this.$
 		console.log(this.wp);
 
-		$('[data-state="current"] .section-global-press').on('enter-screen', () => {
+		$('[data-state="current"] .section-global-news').on('enter-screen', () => {
 			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#E4A8BC');
@@ -53,6 +53,10 @@
 			this.pushHistory( href )
 			$('.header-tomu-container a').css('color', 'black');
 			$('a[href="'+ href +'"]').css('color', '#E4A8BC');
+			
+		})
+
+		$('.section-global-press').on('leave-screen', () => {
 			
 		})
 
@@ -136,11 +140,11 @@
 		display: flex;
 		align-items: start;
 		opacity:0;
-		-webkit-transition:all 0.25s ease-in-out;
-		-moz-transition:all 0.25s ease-in-out;
-		-o-transition:all 0.25s ease-in-out;
-		-ms-transition:all 0.25s ease-in-out;
-		transition:all 0.25s ease-in-out;
+		-webkit-transition:all 0.30s ease-in-out;
+		-moz-transition:all 0.30s ease-in-out;
+		-o-transition:all 0.30s ease-in-out;
+		-ms-transition:all 0.30s ease-in-out;
+		transition:all 0.30s ease-in-out;
 		color: black;
 		font-size: 22px; 
 	
@@ -355,7 +359,6 @@
 	}
 
 
-
 /*	.section-global-project div{
 
 		display: flex;
@@ -495,6 +498,7 @@
 			height: 50vw;
 			margin-left: auto;
 			/*margin-top: calc(  17.5vw + 100px );*/
+			margin-right: 170px;
 			box-sizing: content-box;
 
 		}
@@ -567,7 +571,7 @@
 			display: flex;
 			align-items: center;
 			opacity: 1;
-			transition: all 0.25s ease-in-out;
+			transition: all 0.30s ease-in-out;
 			color: black;
 
 		}
@@ -580,7 +584,6 @@
 			text-align: right;
 			margin-right: 0px !important;
 			margin-bottom: 30px !important;
-			line-height: 140%;
 
 		}
 
@@ -589,9 +592,7 @@
 			padding-top: 30px;
 		}
 
-
 	}
-
 
 
 </style>

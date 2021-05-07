@@ -14,7 +14,7 @@
 			</div>
 
 		<p>
-			<span id='year'></span> TOMU studio / <a href="https://greaty.be">GREATY</a>
+			© <span id='year'></span> TOMU studio / <a target="_blank" href="https://greaty.be">GREATY</a>
 		</p>
 		
 		</div>
@@ -34,7 +34,7 @@
 			$('.contact-tomu div').on('enter-screen', () => {
 					console.log('enter-screen');
 					$('.header-tomu-container').css('color', '#fdd498');
-					$('.current-menu-item a').css('color', '#fdd498');
+					// $('.current-menu-item a').css('color', '#fdd498');
 	
 			})
 
@@ -64,13 +64,13 @@
 
 	.svg-inline--fa{
 
-		width: 30px;
+		width: 20px;
 		padding-left: 20px;
 	}
 
 	.fa-facebook-f{
 
-		width: 20px;
+		width: 12px;
 	}
 
 	.footer-tomu a{
@@ -91,7 +91,7 @@
 		padding-right: 245px;
 		padding-bottom: 70px;
 		margin-top: -120px;
-		font-size: 16px;
+		font-size: 14px;
 		box-sizing: content-box;
 		z-index: 1;
 		height: 0;
@@ -108,13 +108,47 @@
 			padding-right: 50px;
 			/*padding-bottom: 50px*/
 		}
+
+		.contact-tomu ul, .social-links{
+
+			margin-right: 0px;
+		}
+
+		.social-links{
+
+			margin-right: 0px !important;
+
+		}
+
 	}
 	@media  screen and ( max-width: 700px ){
+
+		.social-links{
+
+			margin-right: 0px !important;
+
+		}
+
+		.desciption-tomu-project p:first-child{
+			margin-bottom: 0px;
+		}
+
+		.content-project-single:nth-child(16n+2){
+
+			margin: 0px 0px 25px 0px !important;
+
+		}
 
 		.footer-tomu{
 			padding-right: 30px;
 			padding-bottom: 50px;
 		}
+
+		.contact-tomu ul, .social-links{
+
+			margin-right: 0px;
+		}
+
 	}
 
 </style>

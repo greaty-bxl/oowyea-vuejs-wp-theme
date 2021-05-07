@@ -269,15 +269,15 @@
 		.logo-mobile{
 
 			position: absolute;
-			top: 50px;
+			top: 30px;
 			width: 70px;
 		}
 
-/*		.home-section{
+		#contact .contact-tomu{
 
-			position: inherit;
+			min-height: auto !important;
 		}
-*/
+
 		.div-lang{
 
 			position: inherit;

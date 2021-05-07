@@ -42,7 +42,6 @@
 		$('[data-state="current"] .content-project').on('enter-screen', () => {
 			console.log('enter-screen');
 
-			$('.header-tomu-container').css('color', '#9fade1');
 			$('.header-tomu-container svg').css('color', '#9fade1');
 			$('.header-tomu-container a').css('color', 'black');
 
@@ -116,15 +115,15 @@
 		width: 100%;
 		left: 0;
 		top: 0;
-		background-color: #ffffffd1;
+		background-color: hsl(0deg 0% 100% / 89%);
 		display: flex;
 		align-items: start;
 		opacity:0;
-		-webkit-transition:all 0.45s ease-in-out;
-		-moz-transition:all 0.45s ease-in-out;
-		-o-transition:all 0.45s ease-in-out;
-		-ms-transition:all 0.45s ease-in-out;
-		transition:all 0.45s ease-in-out;
+		-webkit-transition:all 0.30s ease-in-out;
+		-moz-transition:all 0.30s ease-in-out;
+		-o-transition:all 0.30s ease-in-out;
+		-ms-transition:all 0.30s ease-in-out;
+		transition:all 0.30s ease-in-out;
 		color: black;
 		font-size: 22px; 
 	
@@ -139,10 +138,10 @@
 
 		width: 50%;
 		margin-left: auto;
-		margin-right: 25px;
+		margin-right: 35px;
 		text-align: right;
 		font-weight: 500;
-		padding-top: 20px;
+		padding-top: 30px;
 
 	}
 
@@ -408,7 +407,7 @@
 			width: 35vw;
 			height: 22.5vw;
 			margin-right: 30px;
-			margin-left: calc( 100% - 65vw - 170px );
+			margin-left: calc( 100% - 65vw - 280px );
 			margin-top: -40vw;
 
 		}
@@ -539,7 +538,7 @@
 		}
 
 		.animation-title {
-			font-size: 18px ;
+			font-size: 20px ;
 			padding: 15px 0px;
 			height: auto;
 			display: block;
@@ -551,7 +550,7 @@
 			display: flex;
 			align-items: center;
 			opacity: 1;
-			transition: all 0.45s ease-in-out;
+			transition: all 0.30s ease-in-out;
 			color: black;
 
 		}
@@ -562,7 +561,14 @@
 			width: calc( 100% - 60px  );
 			margin-left: auto;
 			text-align: right;
+			margin-right: 0px !important;
+			margin-bottom: 30px !important;
 
+		}
+
+		.animation-title{
+
+			padding-top: 30px;
 		}
 
 	}

@@ -1,9 +1,16 @@
 <template>
     <div class="section-wrap home-url">
     <div class="clear"></div>
-		<div style="position: relative;" class="home-section">
-				
+		<div class="home-section">
 
+				<div style="height: auto;" class="logo-mobile">
+			
+					<svg xmlns="http://www.w3.org/2000/svg" id="Calque_1" data-name="Calque 1" viewBox="0 0 85.22 85.22" fill="currentColor" ><defs>
+					</defs>
+					<path class="cls-1" d="M20.25,32.48V73a10,10,0,0,1-1,3.87A5.91,5.91,0,0,1,16.1,80a9.78,9.78,0,0,1-3.86,1,9.79,9.79,0,0,1-3.87-1A5.93,5.93,0,0,1,5.2,76.85a9.83,9.83,0,0,1-1-3.87V32.48a9.78,9.78,0,0,1,1-3.86,6,6,0,0,1,3.17-3.18,9.93,9.93,0,0,1,3.87-1,9.93,9.93,0,0,1,3.86,1,6,6,0,0,1,3.18,3.18,10,10,0,0,1,1,3.86M8,21a12.14,12.14,0,0,0-3.72,2.22v-19H81V73a9.83,9.83,0,0,1-1,3.87A5.93,5.93,0,0,1,76.85,80,9.83,9.83,0,0,1,73,81a9.78,9.78,0,0,1-3.86-1,5.91,5.91,0,0,1-3.18-3.17A9.83,9.83,0,0,1,65,73V32.48a12.26,12.26,0,0,0-7.55-11.31,11.26,11.26,0,0,0-4.26-.92,14.3,14.3,0,0,0-3.59.41,12.56,12.56,0,0,0-2.94,1.21,12.3,12.3,0,0,0-2.22,1.65,12,12,0,0,0-1.8,2.09,12,12,0,0,0-1.8-2.09,12.3,12.3,0,0,0-2.22-1.65,12.35,12.35,0,0,0-9.27-1.21,11.75,11.75,0,0,0-2.84,1.16,12.28,12.28,0,0,0-2.32,1.7,12,12,0,0,0-1.8,2.09,12,12,0,0,0-1.8-2.09,12,12,0,0,0-5.16-2.86,13.82,13.82,0,0,0-3.47-.41A11.38,11.38,0,0,0,8,21M81.63,81.64A12.19,12.19,0,0,0,85.22,73V0H0V73a12.08,12.08,0,0,0,.93,4.69,11.86,11.86,0,0,0,2.66,4,11.86,11.86,0,0,0,4,2.66,12.08,12.08,0,0,0,4.69.93,12.26,12.26,0,0,0,11.31-7.55A12.06,12.06,0,0,0,24.48,73V32.48a9.93,9.93,0,0,1,1-3.86,6,6,0,0,1,3.18-3.18,9.93,9.93,0,0,1,3.86-1,9.93,9.93,0,0,1,3.87,1,6,6,0,0,1,3.18,3.18,9.93,9.93,0,0,1,1,3.86V78.84a3.48,3.48,0,0,0,0,.46,1.7,1.7,0,0,0,.62,1.07,2.06,2.06,0,0,0,1.5.62,2,2,0,0,0,1.49-.62,2,2,0,0,0,.62-1.5V32.48a10,10,0,0,1,1-3.86,6,6,0,0,1,3.18-3.18,9.93,9.93,0,0,1,3.86-1,9.93,9.93,0,0,1,3.87,1,6,6,0,0,1,3.17,3.18,9.78,9.78,0,0,1,1,3.86V73a12.08,12.08,0,0,0,.93,4.69,12.38,12.38,0,0,0,6.62,6.62,12.08,12.08,0,0,0,4.69.93,12.13,12.13,0,0,0,8.65-3.58" />
+					</svg>
+				
+				</div>
 				<div>
 					<p>TOMU STUDIO</p>
 					<p>IS A CREATIVE OFFICE</p>
@@ -13,12 +20,7 @@
 					<p class="on-screen spin" > <a href=""><span id="spin"></span></a>  </p>
 					</div>
 				</div>
-				<div class="div-lang" style="position: absolute; top: 70%; left: 60%; height: auto" v-html="$store.state.wp.switcher_lagage"></div>
-
-				
-
-
-
+				<div style="color: black !important;" class="div-lang" v-html="$store.state.wp.switcher_lagage"></div>
 		</div>
 	<div class="clear"></div>
 	</div>
@@ -47,60 +49,6 @@
 		mounted(){
 
 		let $ = this.$
-		// // (function(){
-		// var color = [
-		// '#bdb5d9',
-		// '#fddaa7',
-		// '#e6b4e6',
-		// '#86dadc',
-		// '#e6b1c2',
-		// '#dbcdbe',
-		// '#dbcdbe',
-		// ];
-		// var words = [
-		// 'DESIGN',
-		// 'SPACES',
-		// 'INTERIOR',
-		// 'FURNITURE',
-		// 'HOSPITALITY',
-		// 'RESTAURANT',
-		// 'SCENOGRAPHY',
-		// ], i = 0;
-
-
-
-		// 	setInterval(function(){
-		// 	$('#spin').fadeOut(function(){
-
-		// 		$(this).html(words[i=(i+1)%words.length]).fadeIn().css('color', color[i]);
-
-		// 		console.log(words[i=(i+1)%words.length]);
-		// 	});
-		// 	}, 2000);
-
-		// 	var lasttext = words[words.length - 1]
-		// 	console.log(lasttext)
-
-			// boucle()
-			// function boucle(){
-
-			// 	var time = 500;
-			// 	$.each(words, function(index, val) {
-			// 		setTimeout( function(){ $('#spin').text(val) }, time)
-			// 		time += 500;
-			// 		console.log(val);
-			// 		console.log(lasttext);
-			// 		// contains(words[words.length - 1]);
-			// 		if ( val === lasttext) {
-			// 			console.log('text to find');
-
-			// 			boucle()
-			// 			// time
-			// 		}
-			// 	});
-
-
-			// }
 
 		var href_project = $('.section-global-project').parent().attr('data-permalink');
 		$('.spin a').attr('href', href_project); 
@@ -127,7 +75,7 @@
 
 		})
 
-		$('.spin').on('leave-screen', () => {
+		$('[data-state="current"] .spin').on('leave-screen', () => {
 			//console.log('leave screen', event.target);
 			console.log('leave-screen');
 		})
@@ -153,6 +101,21 @@
 </script>
 
 <style type="text/css">
+
+
+	.home-section{
+
+		position: relative;
+	}
+
+	.div-lang{
+
+		position: absolute;
+		top: 70%;
+		left: 60%;
+		height: auto !important;
+
+	}
 
 
 	.spin a{
@@ -228,7 +191,7 @@
 	}
 
 	#spin {
-		/*width: 250px;*/
+		padding-top: 3px;
 		margin-left: 10px;
 		text-align: left;
 	}
@@ -269,6 +232,17 @@
 		padding-left: 245px;
 		width: calc( 100vw - 700px)
 	}
+
+
+	@media screen and ( min-width: 600px ){
+
+		.logo-mobile{
+
+			display: none !important;
+		}
+
+	}
+
 	@media screen and ( max-width: 1250px ) and ( min-width: 740px ){
 
 		.home-section > div{
@@ -290,6 +264,29 @@
 	
 
 	@media screen and ( max-width: 740px ){
+
+
+		.logo-mobile{
+
+			position: absolute;
+			top: 50px;
+			width: 70px;
+		}
+
+/*		.home-section{
+
+			position: inherit;
+		}
+*/
+		.div-lang{
+
+			position: inherit;
+			margin-top: -150px;
+			left: 0px;
+
+		}
+
+
 
 		.home-section{
 

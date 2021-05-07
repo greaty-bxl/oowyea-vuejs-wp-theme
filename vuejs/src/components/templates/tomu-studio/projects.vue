@@ -39,7 +39,7 @@
 
 		let $ = this.$
 
-		$('[data-state="current"] .content-project').on('enter-screen', () => {
+		$('[data-state="current"] .section-global-project').on('enter-screen', () => {
 			console.log('enter-screen');
 
 			$('.header-tomu-container svg').css('color', '#9fade1');
@@ -50,7 +50,7 @@
 			$('a[href="'+ href +'"]').css('color', '#9fade1');
 		})
 
-		$('.section-global-project').on('leave-screen', () => {
+		$('[data-state="current"] .section-global-project').on('leave-screen', () => {
 			//console.log('leave screen', event.target);
 			console.log('leave-screen');
 		})

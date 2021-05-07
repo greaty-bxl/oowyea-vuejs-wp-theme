@@ -97,7 +97,13 @@
 			})
 
 
-		}
+		},
+		beforDestroy(){
+			var $ = this.$
+
+			$('.menu-item:first-child a').css('color', 'black');
+
+		},
 	}
 </script>
 

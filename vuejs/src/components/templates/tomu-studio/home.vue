@@ -154,6 +154,12 @@
 
 <style type="text/css">
 
+
+	.spin a{
+
+		text-decoration: none;
+	}
+
 	#spin:before{
 		animation-name: spin;
 		animation-duration: 2s;
@@ -233,13 +239,13 @@
 	}
 	.home-section > div{
 		font-weight: 700;
-		font-size: 60px;
+		font-size: 70px;
 	}
 
 	.home-section p{
 		all: unset;
 		text-align: left;
-		line-height: 85%;
+		line-height: 95%;
 	}
 
 	.home-section > div > div{
@@ -304,6 +310,12 @@
 
 		#spin {
 			margin-left: 0px;
+		}
+
+		.home-section p{
+			all: unset;
+			text-align: left;
+			line-height: 105%;
 		}
 	}
 

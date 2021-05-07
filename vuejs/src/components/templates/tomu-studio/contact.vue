@@ -41,7 +41,7 @@
 				
 			})
 
-			$('.contact-tomu div').on('leave-screen', () => {
+			$('[data-state="current"] .contact-tomu div').on('leave-screen', () => {
 				console.log('leave-screen');
 			})
 
@@ -159,9 +159,32 @@
 
 		}
 
+		.contact-tomu{
+
+			justify-content: start;
+			height: 80vh;
+			min-height: auto;
+		}
+
+		#contact{
+
+			height: 80vh;
+			min-height: auto;
+		}
+
 
 	}
 
 
+
+</style>
+
+<style scoped>
+	
+	.section{
+
+		min-height: 80vh;
+
+	}
 
 </style>

@@ -1,53 +1,61 @@
 <template>
 
 	<div class="checkout_santos woocommerce-checkout" >
+		
 		<h5 v-if="cols_checkout.title_commande == undefined " class="title-home" v-html="pll__('Paiement')"></h5>
 		<h5 v-else class="title-home">Facture</h5>
-			<div v-html="cols_checkout.order_notices"></div>
 
-			<div class="woocommerce">
-				
-				<form  v-if="is_user_logged_in == false " class="woocommerce-form woocommerce-form-login login" method="post" v-html="cols_checkout.woocommerce_login">
-				</form>
 
-			</div>
+		<div v-html="cols_checkout.order_notices"></div>
+
+		<div class="woocommerce">
 			
-
-			<form v-if="cols_checkout.woocommerce_order == undefined " name="checkout" method="post" :action="cols_checkout.action" class="form-check-out">
-
-				<div class="col-1" v-html="cols_checkout.col_1"></div>
-
-				<div v-if="cols_checkout.col_1_input != undefined ">
-					<br/>
-					<CheckboxAnimated :name="cols_checkout.col_1_input_name"/>
-					<span class="text-2adress" v-html="cols_checkout.col_1_input_span_text" ></span>
-					<br/><br/>
-				</div>
-
-
-				<div v-if="cols_checkout.col_2">
-					<br/>
-					<CheckboxAnimated v-model="checked"/>
-					<span class="text-2adress" v-html="cols_checkout.title_ship_address_text" ></span>
-					<br/><br/>
-				</div>
-
-				<div v-else :style="{ height:'50px'}" >					
-				</div>
-
-				<transition name="fade">
-					<div  v-show="checked" v-html="cols_checkout.col_2"></div>
-				</transition>
-
-
-				<div   v-html="cols_checkout.title_commande"></div>
-
-				<div  v-html="cols_checkout.order_review" ></div>
-
+			<form  v-if="is_user_logged_in == false " class="woocommerce-form woocommerce-form-login login" method="post" v-html="cols_checkout.woocommerce_login">
 			</form>
 
-			<div  v-html="cols_checkout.woocommerce_order">
+		</div>
+		
+
+		<form v-if="cols_checkout.woocommerce_order == undefined " name="checkout" method="post" :action="cols_checkout.action" class="form-check-out">
+
+			<div class="col-1" v-html="cols_checkout.col_1"></div>
+
+			<div v-if="cols_checkout.col_1_input != undefined ">
+				<br/>
+				<CheckboxAnimated :name="cols_checkout.col_1_input_name"/>
+				<span class="text-2adress" v-html="cols_checkout.col_1_input_span_text" ></span>
+				<br/><br/>
 			</div>
+
+
+			<div v-if="cols_checkout.col_2">
+				<br/>
+				<CheckboxAnimated v-model="checked"/>
+				<span class="text-2adress" v-html="cols_checkout.title_ship_address_text" ></span>
+				<br/><br/>
+			</div>
+
+			<div v-else :style="{ height:'50px'}" >					
+			</div>
+
+			<transition name="fade">
+				<div  v-show="checked" v-html="cols_checkout.col_2"></div>
+			</transition>
+
+
+			<div   v-html="cols_checkout.title_commande"></div>
+
+			<div  v-html="cols_checkout.order_review" ></div>
+
+		</form>
+
+		<div  v-html="cols_checkout.woocommerce_order">
+		</div>
+
+		<div  class="retour">
+			<a :href="this.wp.front_page"
+			v-html="pll__('Retour au site')"></a>
+		</div>
 
 
 	</div>
@@ -319,6 +327,17 @@ export default {
 
 
 </script>
+
+<style scoped>
+	.retour a{
+		all: unset;
+		margin-top: 30px;
+		color: #888320;
+		text-decoration: underline;
+		cursor: pointer;
+		display: block;
+	}
+</style>
 
 <style >
 

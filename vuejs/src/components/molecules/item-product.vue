@@ -2,11 +2,8 @@
 			<div class="item-product">
 				<a :href="item.permalink">
 					<div class="div-grey">
-						<div>
-							
-						</div>
 
-							<div class="cadre">
+						<div class="cadre">
 							<img class="image-product" v-bind:src="item.thumb">
 
 						</div>
@@ -238,6 +235,7 @@ export default {
 
 		display: flex;
 		flex-direction: row;
+		text-align: right;
 
 	}
 
@@ -256,7 +254,7 @@ export default {
 	}
 
 	.flavour{
-		padding-left: 20px;
+		padding-left: 0px;
 		padding-bottom: 20px;
 		font-size: 14px;
 		color: #666666;

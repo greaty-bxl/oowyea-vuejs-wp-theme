@@ -143,11 +143,11 @@
 						},
 
 						400: {
-						slidesPerView: 1.7,
+						slidesPerView: 1,
 						},
 
 						100: {
-						slidesPerView: 	0.9,
+						slidesPerView: 1,
 						},
 					},
 
@@ -447,9 +447,14 @@
 
 			/*font-size: 3.3vw !important;*/
 			width: auto; 
-			margin: 0px auto;
+			margin: 0px;
 			line-height: 120%;
 
+		}
+
+		.section-nouvelles .flavour{
+			width: 100%;
+			padding: 0;
 		}
 
 		.button-section-nouvelles{
@@ -527,9 +532,14 @@
 
 		.section-nouvelles p {
 				/*font-size: 17px !important;*/
-				width: 70%;
-				margin: 0px auto;
+				/*width: 70%;*/
+				margin: 0px;
 				line-height: 120%;  
+		}
+
+		.section-nouvelles .flavour{
+			width: 100%;
+			padding: 0;
 		}
 
 		.section-nouvelles button p {

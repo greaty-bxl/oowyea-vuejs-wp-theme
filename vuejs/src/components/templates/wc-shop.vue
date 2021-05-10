@@ -476,7 +476,7 @@ export default {
 
 		.image-shop h1 {
 
-			font-size: 15vw !important ;
+			font-size: 13vw !important ;
 			margin: 0px !important;
 			padding:  0px 30px  !important;
 

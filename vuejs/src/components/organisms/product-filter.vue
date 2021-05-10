@@ -616,7 +616,7 @@
 		.label-content{
 
 			max-width: 50px;
-			word-wrap: break-word;
+			/*word-wrap: break-word;*/
 			
 		}
 		
@@ -851,7 +851,7 @@
 		.title-filter{
 
 			max-width: 50%;
-			word-wrap: break-word;
+			/*word-wrap: break-word;*/
 			line-height: 24px;
 		}
 	}

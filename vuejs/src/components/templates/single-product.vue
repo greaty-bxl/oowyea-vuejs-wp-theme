@@ -5,7 +5,7 @@
 			<div class="content-single-product">
 				<div  class="retour">
 					<button onclick="window.history.back()" 
-					v-html="pll__('Retour')">Retour</button>
+					v-html="pll__('Retour')"></button>
 				</div>
 				<div class="contenu-single">
 

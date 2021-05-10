@@ -8,6 +8,7 @@ function santos_register_mail_string()
 	$registers = array(
 		"Hi %s,",
 		"Just to let you know &mdash; we\'ve received your order #%s, and it is now being processed:",
+		"Your Santos Palace Brussel order has been received!"
 	);
 
 	foreach ($registers as $value) {
@@ -25,10 +26,9 @@ function santos_woocommerce_mail($args)
 	$doc['.shipped_via']->parent()->prepend('<span>'.pll__('livraison').':</span>');
 	$shipped_via = $doc['.shipped_via']->remove();
 	
+	$args['subject'] = pll__($args['subject']);
+
 	$args['message'] = $doc->html();
-	
-	echo $args['message'];
-	exit();
 
 	return $args;
 }

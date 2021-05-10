@@ -95,6 +95,7 @@
 		},
 		mounted(){
 
+			console.log('cart', this.wp);
 			// let quantity;
 
 			// quantity =  $(el).find('.quantity').value()

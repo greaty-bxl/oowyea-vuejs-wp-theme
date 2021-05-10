@@ -2,6 +2,7 @@
 
 	<div class="checkout_santos woocommerce-checkout" >
 		
+		<!-- <div v-html="wp.cart"></div> -->
 		<h5 v-if="cols_checkout.title_commande == undefined " class="title-home" v-html="pll__('Paiement')"></h5>
 		<h5 v-else class="title-home">Facture</h5>
 

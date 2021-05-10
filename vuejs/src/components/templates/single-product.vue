@@ -170,7 +170,7 @@
 
 						</div>
 						<div v-if="type != 'contact_us'" class="contact-prix" >
-							<p v-if="!has_term(post, 'product_cat', ['ijmachine', 'koffiemachines-work', 'koffiemachines-horeca', 'koffiemachines-bijzonder', 'machine-a-glacons', 'machines-a-cafe-entreprise', 'machines-a-cafe-at-home', 'machines-a-cafe-horeca', 'washmachine'])" v-html="pll__('Livraison estimée entre 24h et 48h.')" ></p>
+							<p v-if="!has_term(post, 'product_cat', ['ijmachine', 'koffiemachines-work', 'koffiemachines-horeca', 'koffiemachines-bijzonder', 'machine-a-glacons', 'machines-a-cafe-entreprise', 'machines-a-cafe-at-home', 'machines-a-cafe-horeca', 'washmachine'])" v-html="pll__('Livraison estimée entre 2 et 3 jours ouvrables')" ></p>
 							<p style="padding-top: 10px" v-html="pll__('La livraison est gratuite à partir de 100 € en Belgique.')" ></p>
 							<!-- <span></span> -->
 							<p style="padding-top: 10px" v-html="pll__('en dessous')"></p>

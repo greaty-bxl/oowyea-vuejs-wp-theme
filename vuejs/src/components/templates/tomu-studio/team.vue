@@ -29,18 +29,14 @@
 
 		let $ = this.$
 
-		console.log(this.post, 'posts');
-
 		$('[data-state="current"] .principal').on('enter-screen', () => {
-			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#FCD190');
 			$('.header-tomu-container svg').css('color', '#FCD190');
 			$('.header-tomu-container a').css('color', 'black');
 			var href = $('.Team-section').parent().attr('data-permalink');
-			this.pushHistory( href )
-			$('a[href="'+ href +'"]').css('color', '#FCD190');
-
+			//this.pushHistory( href )
+			$('.menu-item a[href="'+ href +'"]').css('color', '#FCD190');
 			
 		})
 

@@ -10,6 +10,8 @@ export default function(vue){
 		{
 			$('#app').data('scrolling', 'init-scrolltop')
 
+			// console.log(section , 'section test');
+
 			$('#app').scrollTop( section.position().top + $('#app').scrollTop() )
 
 			clearTimeout( timer )

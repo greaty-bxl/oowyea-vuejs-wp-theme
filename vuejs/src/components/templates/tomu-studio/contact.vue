@@ -1,6 +1,6 @@
 <template>
 		
-		<div  class="contact-tomu on-screen">
+		<div  class="contact-tomu">
 
 			<div class="on-screen">
 				<ul>
@@ -26,24 +26,35 @@
 		mounted(){
 
 			let $ = this.$
-			
-			$('[data-state="current"] .contact-tomu div').on('enter-screen', () => {
-				console.log('enter-screen');
-				// $('.header-tomu-container').css('color', '#BBD7B3');
+
+			var href_contact = $('#contact').attr('data-permalink');
+
+			function colorize() {
 				$('.header-tomu-container svg').css('color', '#BBD7B3');
 				$('.header-tomu-container a').css('color', 'black');
+				$('.menu-item a[href="'+ href_contact +'"]').css('color', '#BBD7B3');
+				//vue.pushHistory( href_contact )
+			}
+
+			/*setTimeout( () => {
+				href_contact = $('#contact').attr('data-permalink');
+				$('.menu-item a[href="'+ href_contact +'"]').click( () => {
+					colorize(this)
+				});
+
+			}, 10);*/
 
 
-				var href = $('#contact').attr('data-permalink');
-				console.log('href' , href);
-				this.pushHistory( href )
-				$('a[href="'+ href +'"]').css('color', '#BBD7B3');
+			$('[data-state="current"] .contact-tomu div').on('enter-screen', () => {
+				console.log('contact enter');
+				href_contact = $('#contact').attr('data-permalink');
+				colorize()
 				
 			})
 
-			$('[data-state="current"] .contact-tomu div').on('leave-screen', () => {
-				console.log('leave-screen');
-			})
+			// $('[data-state="current"] .contact-tomu div').on('leave-screen', () => {
+
+			// })
 
 		}
 	}

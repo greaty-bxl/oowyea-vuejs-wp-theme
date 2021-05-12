@@ -14,7 +14,7 @@
 		<div class="header-tomu-container" v-if="open">
 
 				<div class="menu-tomu" >
-					<a class="href-home-logo" href="">
+					<a class="href-home-logo">
 					<svg xmlns="http://www.w3.org/2000/svg" id="Calque_1" data-name="Calque 1" viewBox="0 0 85.22 85.22" fill="currentColor" ><defs>
 					</defs>
 					<path class="cls-1" d="M20.25,32.48V73a10,10,0,0,1-1,3.87A5.91,5.91,0,0,1,16.1,80a9.78,9.78,0,0,1-3.86,1,9.79,9.79,0,0,1-3.87-1A5.93,5.93,0,0,1,5.2,76.85a9.83,9.83,0,0,1-1-3.87V32.48a9.78,9.78,0,0,1,1-3.86,6,6,0,0,1,3.17-3.18,9.93,9.93,0,0,1,3.87-1,9.93,9.93,0,0,1,3.86,1,6,6,0,0,1,3.18,3.18,10,10,0,0,1,1,3.86M8,21a12.14,12.14,0,0,0-3.72,2.22v-19H81V73a9.83,9.83,0,0,1-1,3.87A5.93,5.93,0,0,1,76.85,80,9.83,9.83,0,0,1,73,81a9.78,9.78,0,0,1-3.86-1,5.91,5.91,0,0,1-3.18-3.17A9.83,9.83,0,0,1,65,73V32.48a12.26,12.26,0,0,0-7.55-11.31,11.26,11.26,0,0,0-4.26-.92,14.3,14.3,0,0,0-3.59.41,12.56,12.56,0,0,0-2.94,1.21,12.3,12.3,0,0,0-2.22,1.65,12,12,0,0,0-1.8,2.09,12,12,0,0,0-1.8-2.09,12.3,12.3,0,0,0-2.22-1.65,12.35,12.35,0,0,0-9.27-1.21,11.75,11.75,0,0,0-2.84,1.16,12.28,12.28,0,0,0-2.32,1.7,12,12,0,0,0-1.8,2.09,12,12,0,0,0-1.8-2.09,12,12,0,0,0-5.16-2.86,13.82,13.82,0,0,0-3.47-.41A11.38,11.38,0,0,0,8,21M81.63,81.64A12.19,12.19,0,0,0,85.22,73V0H0V73a12.08,12.08,0,0,0,.93,4.69,11.86,11.86,0,0,0,2.66,4,11.86,11.86,0,0,0,4,2.66,12.08,12.08,0,0,0,4.69.93,12.26,12.26,0,0,0,11.31-7.55A12.06,12.06,0,0,0,24.48,73V32.48a9.93,9.93,0,0,1,1-3.86,6,6,0,0,1,3.18-3.18,9.93,9.93,0,0,1,3.86-1,9.93,9.93,0,0,1,3.87,1,6,6,0,0,1,3.18,3.18,9.93,9.93,0,0,1,1,3.86V78.84a3.48,3.48,0,0,0,0,.46,1.7,1.7,0,0,0,.62,1.07,2.06,2.06,0,0,0,1.5.62,2,2,0,0,0,1.49-.62,2,2,0,0,0,.62-1.5V32.48a10,10,0,0,1,1-3.86,6,6,0,0,1,3.18-3.18,9.93,9.93,0,0,1,3.86-1,9.93,9.93,0,0,1,3.87,1,6,6,0,0,1,3.17,3.18,9.78,9.78,0,0,1,1,3.86V73a12.08,12.08,0,0,0,.93,4.69,12.38,12.38,0,0,0,6.62,6.62,12.08,12.08,0,0,0,4.69.93,12.13,12.13,0,0,0,8.65-3.58" />
@@ -49,10 +49,14 @@ import is from 'is_js'
 			if ( !is.mobile() ) {
 
 				this.open = true
-
+				
+				
 			}
-			
+				
 			let $ = this.$
+	
+			
+
 			setTimeout(function() {
 
 				$('.menu-item').click(function() {
@@ -73,6 +77,8 @@ import is from 'is_js'
 		
 
 			open
+
+
 		},
 
 		methods: {
@@ -82,13 +88,33 @@ import is from 'is_js'
 
 					this.open = true
 
-					console.log(this.open);
+					// let $ = this.$
+
+					// setTimeout(function() {
+
+					// 	$('.current_page_parent > a').css('display', 'none');
+
+					// 	var home = $('.current_page_parent > a').attr('href');
+
+					// 	console.log(home);
+
+					// 	$('.href-home-logo').attr('href', home);
+
+					// }, 10);
+				
+
 				}
 				else{
 
-					this.open = false	
+					// let $ = this.$
 
-					console.log(this.open);
+					this.open = false
+
+					// var home = $('.home-url').parent('.section').attr('data-permalink');
+					// console.log(home);
+
+					// 
+
 				}
 			}
 		},
@@ -103,34 +129,43 @@ import is from 'is_js'
 
 <style type="text/css">
 
+	.menu li:first-child{
+
+		display: none;
+	}
+
 	.menu{
 
 		margin-top: 10px;
 	}
 
-	.menu-item:first-child:hover a{
+	@media screen and (min-width: 1125){
 
-		color: rgb(159, 173, 225) !important;
 
-	}
+		.menu-item:hover:nth-child(16n+2) a{
 
-	.menu-item a{
-		transition: transform 1s ease-out;
-	}
+			color: rgb(159, 173, 225) !important;
 
-	.menu-item:hover:nth-child(16n+2) a{
+		}
 
-		color:  rgb(252, 209, 144) !important;
-	}
+		.menu-item a{
+			transition: transform 1s ease-out;
+		}
 
-	.menu-item:hover:nth-child(16n+3) a{
+		.menu-item:hover:nth-child(16n+3) a{
 
-		color:	rgb(228, 168, 188) !important;
-	}
+			color:  rgb(252, 209, 144) !important;
+		}
 
-	.menu-item:hover:nth-child(16n+4) a{
+		.menu-item:hover:nth-child(16n+4) a{
 
-		color: rgb(187, 215, 179) !important;
+			color:	rgb(228, 168, 188) !important;
+		}
+
+		.menu-item:hover:nth-child(16n+5) a{
+
+			color: rgb(187, 215, 179) !important;
+		}
 	}
 
 	li.pll-parent-menu-item{
@@ -250,7 +285,13 @@ import is from 'is_js'
 		box-sizing: content-box;
 		left: calc( 100vw - 420px);
 		z-index: 3000;
+		pointer-events: none;
 
+	}
+
+	.header-tomu-container a{
+
+		pointer-events: initial;
 	}
 
 	.header-tomu-container svg{
@@ -322,12 +363,27 @@ import is from 'is_js'
 		}
 
 
+	/*	.menu-item:first-child:hover a{
+
+			color: black;
+
+		}*/
+
+		.menu-item a{
+			transition: transform 1s ease-out;
+		}
 
 	
-		
+
 	}
 
 	@media screen and ( max-width: 600px ){
+
+		.menu li:first-child{
+
+			display: block;
+		}
+
 
 		li.pll-parent-menu-item{
 
@@ -358,7 +414,7 @@ import is from 'is_js'
 		.burger{
 			width: 30px;
 			height: 2px;
-			background-color: #422112;
+			background-color: black;
 			position: fixed;
 			left: 50%;
 			transform: translate(-50%,-50%);
@@ -374,9 +430,9 @@ import is from 'is_js'
 			width: 18px;
 			height: 2px;
 			left: 0;
-			background: #422112;
 			box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 			transition: 0.5s;
+			background-color: black;
 		}
 		.burger::after{
 			content: '';
@@ -384,7 +440,7 @@ import is from 'is_js'
 			width: 30px;
 			height: 2px;
 			left: 0;
-			background: #422112;
+			background-color: black;
 			box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 			transition: 0.5s;
 		}

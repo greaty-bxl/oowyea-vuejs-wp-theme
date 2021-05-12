@@ -58,7 +58,6 @@
 
 
 		$('[data-state="current"] .spin').on('enter-screen', () => {
-			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', 'black');
 			$('.header-tomu-container a').css('color', 'black');
@@ -66,7 +65,7 @@
 
 
 			var href =  $('.home-url').parent().attr('data-permalink');
-			this.pushHistory( href )
+			//this.pushHistory( href )
 
 			$('.href-home-logo').attr('href', href); 
 
@@ -77,7 +76,7 @@
 
 		$('[data-state="current"] .spin').on('leave-screen', () => {
 			//console.log('leave screen', event.target);
-			console.log('leave-screen');
+
 		})
 
 
@@ -265,6 +264,11 @@
 
 	@media screen and ( max-width: 740px ){
 
+		.lang-item{
+
+			padding-left: 0px !important;
+			text-align: left;
+		}
 
 		.logo-mobile{
 

@@ -40,19 +40,16 @@
 		let $ = this.$
 
 		$('[data-state="current"] .section-global-project').on('enter-screen', () => {
-			console.log('enter-screen');
 
 			$('.header-tomu-container svg').css('color', '#9fade1');
 			$('.header-tomu-container a').css('color', 'black');
-
 			var href = $('.section-global-project').parent().attr('data-permalink');
-			this.pushHistory( href )
-			$('a[href="'+ href +'"]').css('color', '#9fade1');
+			//this.pushHistory( href )
+			$('.menu-item a[href="'+ href +'"]').css('color', '#9fade1');
 		})
 
 		$('[data-state="current"] .section-global-project').on('leave-screen', () => {
-			//console.log('leave screen', event.target);
-			console.log('leave-screen');
+		
 		})
 
 		}

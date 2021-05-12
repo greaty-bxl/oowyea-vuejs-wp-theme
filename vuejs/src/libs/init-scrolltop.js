@@ -14,9 +14,21 @@ export default function(vue){
 		{
 			section = $('.section').first() 
 		}
+
+		let pos = false
+		console.log( vue.$store.state.history_scroll, current_location, window.location.href);
+
+		if( vue.$store.state.is_history == true && vue.$store.state.history_scroll[current_location] )
+		{
+			console.log('scroll to pos', vue.$store.state.history_scroll[current_location]);
+			window.scroll.scrollTop = vue.$store.state.history_scroll[current_location]
+			pos = true
+		}
+
+		vue.$store.state.is_history = false
 		console.log('scrolltop init', section);
 
-		if( $('#app') && section.length )
+		if( $('#app') && section.length && !pos )
 		{
 			//$('#app').css('', 'value');
 			$('#app').css('pointer-events', 'none');
@@ -30,9 +42,9 @@ export default function(vue){
 
 			window.scroll.scrollTop = newScroll
 
-			console.log('newScroll', section.offset().top , window.scroll);
+			console.log(newScroll, 'newScroll');
 
-			
+			console.log('newScroll', section.offset().top , window.scroll);
 
 			clearTimeout( timer )
 			timer = setTimeout( () => {
@@ -49,6 +61,7 @@ export default function(vue){
 				})
 
 				$('#app').trigger('section-top-ready')
+				$('#app').trigger('scroll')
 				
 			}, 51)
 		}		

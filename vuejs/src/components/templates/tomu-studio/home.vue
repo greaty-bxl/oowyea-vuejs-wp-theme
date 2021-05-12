@@ -3,7 +3,7 @@
     <div class="clear"></div>
 		<div class="home-section">
 
-				<div style="height: auto;" class="logo-mobile">
+				<div style="height: auto;" class="div-home logo-mobile">
 			
 					<svg xmlns="http://www.w3.org/2000/svg" id="Calque_1" data-name="Calque 1" viewBox="0 0 85.22 85.22" fill="currentColor" ><defs>
 					</defs>
@@ -11,7 +11,7 @@
 					</svg>
 				
 				</div>
-				<div>
+				<div class="div-home" >
 					<p>TOMU STUDIO</p>
 					<p>IS A CREATIVE OFFICE</p>
 					<p>BASED IN BRUSSELS</p>
@@ -65,7 +65,9 @@
 
 
 			var href =  $('.home-url').parent().attr('data-permalink');
-			//this.pushHistory( href )
+
+			if( !this.$store.state.is_history )this.pushHistory( href )
+
 
 			$('.href-home-logo').attr('href', href); 
 
@@ -109,10 +111,17 @@
 
 	.div-lang{
 
-		position: absolute;
+		/*position: absolute;
 		top: 70%;
 		left: 60%;
-		height: auto !important;
+		height: auto !important;*/
+		font-weight: bold;
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+		margin-left: -275px;
+		margin-top: -150px;
+
 
 	}
 
@@ -162,11 +171,6 @@
 
 	}
 	
-	.div-lang{
-
-		top: 70%
-	}
-
 	.current-lang a{
 
 		text-decoration: underline !important;
@@ -199,9 +203,9 @@
 		animation-delay: 2s;
 		animation: spin 20s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
 	}
-	.home-section > div{
+	.div-home{
 		font-weight: 700;
-		font-size: 70px;
+		font-size: 4vw;
 	}
 
 	.home-section p{
@@ -210,14 +214,14 @@
 		line-height: 95%;
 	}
 
-	.home-section > div > div{
+	.we-do{
 		line-height: 100%;
 		display: flex;
 		flex-direction: row;
 		
 	}
 	
-	.home-section > div{
+	.div-home{
 
 		height: 100vh;
 		display: flex;
@@ -244,7 +248,7 @@
 
 	@media screen and ( max-width: 1250px ) and ( min-width: 740px ){
 
-		.home-section > div{
+		.div-home{
 			font-size: 50px;
 		}
 
@@ -258,6 +262,11 @@
 
 			display: flex;
 			flex-direction: column !important;
+		}
+
+		.div-lang{
+
+			margin-left: -70px;
 		}
 	}
 	
@@ -284,13 +293,14 @@
 
 		.div-lang{
 
-			position: inherit;
+			font-weight: bold;
+			display: flex;
+			flex-direction: column;
+			width: auto;
+			margin-left: 0px;
 			margin-top: -150px;
-			left: 0px;
 
 		}
-
-
 
 		.home-section{
 
@@ -299,12 +309,12 @@
 
 		}
 
-		.home-section > div{
+		.div-home{
 
 			font-size: 30px;
 		}
 
-		.home-section > div > div{
+		.we-do{
 			flex-direction: column;
 			text-align: left;
 		}

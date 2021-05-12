@@ -44,7 +44,7 @@
 			$('.header-tomu-container').css('color', '#E4A8BC');
 			$('.header-tomu-container svg').css('color', '#E4A8BC');
 			var href = $('.section-global-news').parent().attr('data-permalink');
-			//this.pushHistory( href )
+			if( !this.$store.state.is_history )this.pushHistory( href )
 			$('.header-tomu-container a').css('color', 'black');
 			$('.menu-item a[href="'+ href +'"]').css('color', '#E4A8BC');
 			

@@ -38,21 +38,15 @@
 		this.$emit('template_mounted')
 
 		let $ = this.$
-		console.log(this.wp);
 
 		$('[data-state="current"] .section-global-news').on('enter-screen', () => {
-			console.log('enter-screen');
 
 			$('.header-tomu-container').css('color', '#E4A8BC');
 			$('.header-tomu-container svg').css('color', '#E4A8BC');
-			// $('.current-menu-item a').css('color', 'black');
-
-		
 			var href = $('.section-global-news').parent().attr('data-permalink');
-			console.log('href' , href);
-			this.pushHistory( href )
+			//this.pushHistory( href )
 			$('.header-tomu-container a').css('color', 'black');
-			$('a[href="'+ href +'"]').css('color', '#E4A8BC');
+			$('.menu-item a[href="'+ href +'"]').css('color', '#E4A8BC');
 			
 		})
 

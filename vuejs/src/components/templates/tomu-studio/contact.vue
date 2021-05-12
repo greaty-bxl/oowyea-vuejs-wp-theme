@@ -33,6 +33,7 @@
 				$('.header-tomu-container svg').css('color', '#BBD7B3');
 				$('.header-tomu-container a').css('color', 'black');
 				$('.menu-item a[href="'+ href_contact +'"]').css('color', '#BBD7B3');
+				if( !this.$store.state.is_history ) this.pushHistory( href_contact )
 				//vue.pushHistory( href_contact )
 			}
 

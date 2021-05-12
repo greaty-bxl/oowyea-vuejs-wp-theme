@@ -15,6 +15,8 @@ export default new Vuex.Store({
 		wp: wp.state,
 		radio: radio.state,
 		option: option.state,
+		is_history: false,
+		history_scroll: {}
 	},
 	mutations: {
 		/* WP */

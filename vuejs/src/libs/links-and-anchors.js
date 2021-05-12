@@ -2,6 +2,7 @@ export default function (vue)
 {
 	var $ = vue.$
 	var timer;
+	var last_url = window.location.href
 
 	function open_link(event, href, push = true)
 	{
@@ -81,7 +82,11 @@ export default function (vue)
 
 				console.log('section anchor' , section.offset().top);
 
-				window.scroll.scrollTop = section.offset().top + window.scroll.scrollTop
+				if( vue.$store.state.is_history == false && !vue.$store.state.history_scroll[href] )
+				{
+					console.log("section scroll");
+					window.scroll.scrollTop = section.offset().top + window.scroll.scrollTop
+				}
 
 				/*clone.stop().animate({
 					top: '0',
@@ -127,6 +132,7 @@ export default function (vue)
 					clearTimeout( timer )
 					timer = setTimeout( () => {
 						$('#app').data('scrolling', '')
+						$('#app').trigger('scroll')
 					}, 15)
 					$('#app').trigger('after_next_page')
 
@@ -137,15 +143,33 @@ export default function (vue)
 							current_section: vue.$store.state.wp.sections[section.index()],
 						})	
 					}
+
+					last_url = window.location.href
 					
 					return true
 			}
 			else
 			{
+
+				//save scroll
+				if( !vue.$store.state.is_history )
+				{
+					vue.$store.state.history_scroll[window.location.href] = window.scroll.scrollTop	
+					console.log('save scroll', window.scroll.scrollTop, vue.$store.state.history_scroll );
+				}
+				else
+				{
+					vue.$store.state.history_scroll[last_url] = window.scroll.scrollTop	
+					console.log('save scroll hist', last_url);
+				}
+				
+
 				$(document).trigger({
 					type:"new_page",
 					href: href,
 				})
+
+				last_url = window.location.href
 
 				return true
 			}
@@ -217,6 +241,9 @@ export default function (vue)
 
 	//if using history browser
 	function popstate_redirect(event){
+		console.log('history', event);
+		vue.$store.state.is_history = true
+
 		open_link(event, document.location.href, false)
 	}
 

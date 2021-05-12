@@ -44,6 +44,7 @@
 			$('.header-tomu-container svg').css('color', '#9fade1');
 			$('.header-tomu-container a').css('color', 'black');
 			var href = $('.section-global-project').parent().attr('data-permalink');
+			if( !this.$store.state.is_history )this.pushHistory( href )
 			//this.pushHistory( href )
 			$('.menu-item a[href="'+ href +'"]').css('color', '#9fade1');
 		})

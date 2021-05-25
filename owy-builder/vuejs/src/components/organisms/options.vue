@@ -6,6 +6,7 @@
 <script>
 	import RightMenu from 'PluginComponents/containers/right-menu.vue'
 	import AcfAdmin from 'PluginComponents/molecules/acf-admin.vue'
+	//import ftp from 'basic-ftp'
 
 	export default {
 		components : {
@@ -28,6 +29,19 @@
 					console.log('change', acf);
 				},
 			})
+
+			console.log('acf', this.acf);
+
+			/*const ftp = require("basic-ftp")
+
+			console.log('ftp', ftp);*/
+
+
+			this.acf.addAction('acfe/fields/button/success/name=theme_export', function($el, data){
+				
+				// do_something();
+				console.log('acf', 'export', $el, data);
+			});
 		}
 	}
 </script>

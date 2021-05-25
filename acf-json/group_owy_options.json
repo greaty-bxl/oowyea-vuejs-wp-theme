@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_607d091e4b5f9",
-            "label": "Deployment",
+            "label": "Export",
             "name": "",
             "type": "accordion",
             "instructions": "",
@@ -23,10 +23,10 @@
             "endpoint": 0
         },
         {
-            "key": "field_607d094a4b5fa",
-            "label": "This website state",
-            "name": "this_website_state",
-            "type": "select",
+            "key": "field_607d0bb75b1c4",
+            "label": "",
+            "name": "theme_vue_optimize",
+            "type": "acfe_button",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -38,35 +38,85 @@
             "user_roles": [
                 "all"
             ],
-            "choices": {
-                "dev": "Development",
-                "demo": "Demo",
-                "prod": "Production Serveur"
+            "button_value": "Optimize Vue.js sources",
+            "button_type": "button",
+            "button_class": "button button-secondary",
+            "button_id": "",
+            "button_before": "",
+            "button_after": "",
+            "button_ajax": 1
+        },
+        {
+            "key": "field_609a4617f3635",
+            "label": "",
+            "name": "theme_export",
+            "type": "acfe_button",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
-            "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
+            "user_roles": [
+                "all"
+            ],
+            "button_value": "Export as theme",
+            "button_type": "button",
+            "button_class": "button button-secondary",
+            "button_id": "",
+            "button_before": "",
+            "button_after": "",
+            "button_ajax": 1
+        },
+        {
+            "key": "field_609a4470a6db2",
+            "label": "Synchronize",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_609a448ba6db3",
+            "label": "peer server",
+            "name": "synch_peer_server",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "default_value": "",
             "placeholder": ""
         },
         {
-            "key": "field_607d0a9a5b1b9",
-            "label": "Demo",
-            "name": "demo_server",
-            "type": "group",
+            "key": "field_609a44bda6db4",
+            "label": "peer room",
+            "name": "synch_peer_room",
+            "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_607d094a4b5fa",
-                        "operator": "!=",
-                        "value": "demo"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -75,308 +125,42 @@
             "user_roles": [
                 "all"
             ],
-            "layout": "block",
-            "acfe_seamless_style": 0,
-            "acfe_group_modal": 0,
-            "sub_fields": [
-                {
-                    "key": "field_6080476b1fc2e",
-                    "label": "FTP",
-                    "name": "",
-                    "type": "accordion",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "open": 0,
-                    "multi_expand": 0,
-                    "endpoint": 0
-                },
-                {
-                    "key": "field_607d0b5a5b1bb",
-                    "label": "Server",
-                    "name": "ftp_server",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_607d0b695b1bc",
-                    "label": "User",
-                    "name": "ftp_user",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_607d0b7d5b1bd",
-                    "label": "Password",
-                    "name": "ftp_password",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_607d0b895b1be",
-                    "label": "Port",
-                    "name": "ftp_port",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_608142dec5e60",
-                    "label": "Folder",
-                    "name": "folder",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_60804893a5967",
-                    "label": "SQL",
-                    "name": "",
-                    "type": "accordion",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "open": 0,
-                    "multi_expand": 0,
-                    "endpoint": 0
-                },
-                {
-                    "key": "field_607d0bf25b1c7",
-                    "label": "Server",
-                    "name": "sql_server",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_607d0c055b1cb",
-                    "label": "Database name",
-                    "name": "sql_database_name",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_607d0bf25b1c8",
-                    "label": "User",
-                    "name": "sql_user",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_607d0bf25b1c9",
-                    "label": "Password",
-                    "name": "sql_password",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_607d0bf25b1ca",
-                    "label": "Port",
-                    "name": "sql_port",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_6086899cfeeff",
-                    "label": "Prefix",
-                    "name": "sql_prefix",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_607d0bb75b1c4",
+            "key": "field_609a44cea6db5",
+            "label": "peer secret key",
+            "name": "synch_peer_secret_key",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "user_roles": [
+                "all"
+            ],
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_609a4567a6db8",
             "label": "",
-            "name": "sync_demo",
+            "name": "synch_action",
             "type": "acfe_button",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_607d094a4b5fa",
-                        "operator": "!=",
-                        "value": "demo"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -385,355 +169,13 @@
             "user_roles": [
                 "all"
             ],
-            "button_value": "Sync Demo",
+            "button_value": "Synchronize",
             "button_type": "button",
             "button_class": "button button-secondary",
             "button_id": "",
             "button_before": "",
             "button_after": "",
-            "button_ajax": 1
-        },
-        {
-            "key": "field_6080492abe998",
-            "label": "Production",
-            "name": "production_server",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_607d094a4b5fa",
-                        "operator": "!=",
-                        "value": "prod"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "user_roles": [
-                "all"
-            ],
-            "layout": "block",
-            "acfe_seamless_style": 0,
-            "acfe_group_modal": 0,
-            "sub_fields": [
-                {
-                    "key": "field_6080492abe999",
-                    "label": "FTP",
-                    "name": "",
-                    "type": "accordion",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "open": 0,
-                    "multi_expand": 0,
-                    "endpoint": 0
-                },
-                {
-                    "key": "field_6080492abe99a",
-                    "label": "Server",
-                    "name": "ftp_server",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_6080492abe99b",
-                    "label": "User",
-                    "name": "ftp_user",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6080492abe99c",
-                    "label": "Password",
-                    "name": "ftp_password",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6080492abe99d",
-                    "label": "Port",
-                    "name": "ftp_port",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_60814308c5e61",
-                    "label": "Folder",
-                    "name": "folder",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6080492abe99e",
-                    "label": "SQL",
-                    "name": "",
-                    "type": "accordion",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "open": 0,
-                    "multi_expand": 0,
-                    "endpoint": 0
-                },
-                {
-                    "key": "field_6080492abe99f",
-                    "label": "Server",
-                    "name": "sql_server",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_6080492abe9a0",
-                    "label": "Database name",
-                    "name": "sql_database_name",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6080492abe9a1",
-                    "label": "User",
-                    "name": "sql_user",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6080492abe9a2",
-                    "label": "Password",
-                    "name": "sql_password",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6080492abe9a3",
-                    "label": "Port",
-                    "name": "sql_port",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_608689c4fef00",
-                    "label": "Prefix",
-                    "name": "sql_prefix",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "user_roles": [
-                        "all"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
-        },
-        {
-            "key": "field_607d0bd75b1c5",
-            "label": "",
-            "name": "sync_production",
-            "type": "acfe_button",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_607d094a4b5fa",
-                        "operator": "!=",
-                        "value": "prod"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "user_roles": [
-                "all"
-            ],
-            "button_value": "Sync Production",
-            "button_type": "button",
-            "button_class": "button button-secondary",
-            "button_id": "",
-            "button_before": "",
-            "button_after": "",
-            "button_ajax": 1
+            "button_ajax": 0
         },
         {
             "key": "field_60701ba047427",
@@ -941,5 +383,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1619433056
+    "modified": 1620723253
 }

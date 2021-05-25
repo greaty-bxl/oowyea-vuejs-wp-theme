@@ -342,6 +342,7 @@
 			.content-project-single:nth-child(16n+2){
 				width: 40vw;
 				margin-top: -40vw;
+				/*overflow: visible;*/
 				height: 40vw;
 				margin-left : calc( 30vw + 70px );
 				margin-bottom: calc( 70px + 17.5vw);
@@ -512,6 +513,7 @@
 				}	
 
 				.content-project-single:nth-child(16n+2){
+					overflow: visible;
 					width: 50vw;
 					margin-top: -22.5vw;
 					height: 40vw;

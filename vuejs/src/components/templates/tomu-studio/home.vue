@@ -18,8 +18,17 @@
 					<p>A CITY WE LOVE</p>
 					<div class="we-do" style="text-align: left; margin-bottom: 40px;">WE DO <br>
 					<p class="on-screen spin" > <a href=""><span id="spin"></span></a>  </p>
+				<!-- 	<p class='center'>
+
+					  <p class="awesome">ISN'T THIS AWESOME!</p>
+
+					</p> -->
 					</div>
 				</div>
+
+
+		
+
 				<div style="color: black !important;" class="div-lang" v-html="$store.state.wp.switcher_lagage"></div>
 		</div>
 	<div class="clear"></div>
@@ -62,24 +71,16 @@
 			$('.header-tomu-container').css('color', 'black');
 			$('.header-tomu-container a').css('color', 'black');
 			$('.header-tomu-container svg').css('color', 'black');
-
-
 			var href =  $('.home-url').parent().attr('data-permalink');
 
-			if( !this.$store.state.is_history )this.pushHistory( href )
-
+			if( !this.$store.state.is_history ) this.pushHistory( href )
 
 			$('.href-home-logo').attr('href', href); 
-
-
 			$('a[href="'+ href +'"]').css('color', 'black');
 
 		})
 
-		$('[data-state="current"] .spin').on('leave-screen', () => {
-			//console.log('leave screen', event.target);
-
-		})
+			$('[data-state="current"] .spin').on('leave-screen', () => {})
 
 
 		},
@@ -87,21 +88,98 @@
 		beforeDestroy(){
 
 			this.on = false
-
-			// console.log(set);
-
 			console.log('beforeDestroy');
+
 		}
 
-
-
-
 	}
-
 
 </script>
 
 <style type="text/css">
+
+
+	
+	.center {
+	  
+	  margin: 0 auto;
+	  
+	}
+
+	.awesome {
+	  
+	  font-family: futura;
+	  font-style: italic;
+	  
+	  width:100%;
+	  
+	  margin: 0 auto;
+	  text-align: center;
+	  
+	  color:#313131;
+	  font-size:45px;
+	  font-weight: bold;
+	  position: absolute;
+	  -webkit-animation:colorchange 20s infinite alternate;
+	  
+	  
+	}
+
+	@-webkit-keyframes colorchange {
+	  0% {
+	    
+	    color: blue !important;
+	  }
+	  
+	  10% {
+	    
+	    color: #8e44ad;
+	  }
+	  
+	  20% {
+	    
+	    color: #1abc9c;
+	  }
+	  
+	  30% {
+	    
+	    color: #d35400;
+	  }
+	  
+	  40% {
+	    
+	    color: blue;
+	  }
+	  
+	  50% {
+	    
+	    color: #34495e;
+	  }
+	  
+	  60% {
+	    
+	    color: blue;
+	  }
+	  
+	  70% {
+	    
+	    color: #2980b9;
+	  }
+	  80% {
+	 
+	    color: #f1c40f;
+	  }
+	  
+	  90% {
+	 
+	    color: #2980b9;
+	  }
+	  
+	  100% {
+	    
+	    color: pink;
+	  }
+	}
 
 
 	.home-section{
@@ -111,20 +189,14 @@
 
 	.div-lang{
 
-		/*position: absolute;
-		top: 70%;
-		left: 60%;
-		height: auto !important;*/
 		font-weight: bold;
 		display: flex;
 		flex-direction: column;
 		width: 100vw;
 		margin-left: -275px;
-		margin-top: -150px;
-
+		margin-top: -13vw;
 
 	}
-
 
 	.spin a{
 
@@ -132,19 +204,16 @@
 	}
 
 	#spin:before{
-		animation-name: spin;
-		animation-duration: 2s;
-		animation-iteration-count: infinite;
-		animation: ease-out;
+		-webkit-animation:spin 20s infinite alternate;
 	}
 
-	@keyframes spin {
-		0% {content: "DESIGN"; color:#bdb5d9;}
-		16% {content: "SPACES"; color:#fddaa7;}
-		33% {content: "INTERIOR"; color:#e6b4e6;}
-		50% {content: "FURNITURE"; color:#86dadc;}
-		66% {content: "HOSPITALITY"; color:#e6b1c2; }
-		83% {content: "RESTAURANT"; color:#dbcdbe;}
+	@-webkit-keyframes spin {
+		14% {content: "DESIGN"; color:#bdb5d9;}
+		28% {content: "SPACES"; color:#fddaa7;}
+		42% {content: "INTERIOR"; color:#e6b4e6;}
+		57% {content: "FURNITURE"; color:#86dadc;}
+		71% {content: "HOSPITALITY"; color:#e6b1c2; }
+		85% {content: "RESTAURANT"; color:#dbcdbe;}
 		100% {content: "SCENOGRAPHY";color:#dbcdbe;}
 	}
 
@@ -267,6 +336,7 @@
 		.div-lang{
 
 			margin-left: -70px;
+			margin-top: -250px;
 		}
 	}
 	
@@ -275,7 +345,7 @@
 
 		.lang-item{
 
-			padding-left: 0px !important;
+			/*padding-left: 0px !important;*/
 			text-align: left;
 		}
 
@@ -297,8 +367,27 @@
 			display: flex;
 			flex-direction: column;
 			width: auto;
-			margin-left: 0px;
+			margin-left: -30px;
 			margin-top: -150px;
+			align-items: center;
+
+		}
+
+		.lang-item:nth-child(16n+2){
+
+			padding-left: 15px;
+
+		}
+
+		.lang-item:nth-child(16n+3){
+
+			padding-left: 30px;
+
+		}
+
+		.lang-item:nth-child(16n+4){
+
+			padding-left: 60px;
 
 		}
 

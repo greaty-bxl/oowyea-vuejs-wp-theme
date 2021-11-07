@@ -66,7 +66,7 @@
 						return '<del>' + this.format_price(metas._regular_price[0]) + '</del>&nbsp;' + this.format_price(metas._sale_price[0]) + '&nbsp;' + this.vat_prefix() + this.size_var_prefix
 					}
 				}
-				else if( metas._price )
+				else if( metas._price && this.item.terms.product_type[0].slug != 'contact_us'  )
 				{
 					return this.format_price(metas._price) + '&nbsp;' + this.vat_prefix() + this.size_var_prefix
 				}

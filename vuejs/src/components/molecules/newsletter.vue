@@ -90,6 +90,12 @@ export default{
 
 }
 
+.content-newsletter > form
+{
+	max-width: 860px;
+    margin: auto;
+}
+
 .content-email-input
 {
 	display: flex;
@@ -107,7 +113,6 @@ export default{
 
 .content-email-input > *
 {	
-	width: 45%;
 	background-color: transparent;
 
 }

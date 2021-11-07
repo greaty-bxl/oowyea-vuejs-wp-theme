@@ -160,7 +160,8 @@
 				var lang = this.$store.state.wp.current_language
 
 
-				if (lang === 'nl') {
+				if (lang === 'nl') 
+				{
 
 					$('.title-filter:contains("Origines")').text('Afkomst')
 					$('.title-filter:contains("Variétés")').text('Koffiesoort')

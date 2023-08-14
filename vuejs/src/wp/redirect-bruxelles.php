@@ -9,4 +9,4 @@ function redirect_to_brussels()
 	}	
 	
 }
-add_action( 'wp', 'redirect_to_brussels' );
+//add_action( 'wp', 'redirect_to_brussels' );

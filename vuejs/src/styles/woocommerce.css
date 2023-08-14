@@ -59,4 +59,8 @@
 
 	}
 
+.payment_method_ccvonlinepayments_card_bcmc img{
+	max-width: 40px;
+	margin-left: 28px !important;
+}
 

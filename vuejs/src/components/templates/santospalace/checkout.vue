@@ -770,6 +770,10 @@ export default {
 		margin-left: 10px !important;
 	}
 
+	/*.woocommerce-checkout #payment ul.payment_methods li img{
+		max-width: 120px !important;
+	}*/
+
 	.checkout_santos .woocommerce form .form-row label.checkbox, .woocommerce-page form .form-row label.checkbox {
 
 		display: flex;

@@ -10,7 +10,7 @@
 				
 			</a>
 
-			<a href="#" class="button-santos-vert" v-html="pll__('VISITER LE SITE KOKSIJDE') + ' (coming soon)' ">
+			<a href="https://santospalaceshop.be/koksijde/" class="button-santos-vert" v-html="pll__('VISITER LE SITE KOKSIJDE')">
 				
 			</a>	
 

@@ -114,13 +114,13 @@ function get_sections()
 	{
 		$section = apply_filters( 'section', $section );
 		
-		if( $section->post_content )
+		if( @$section->post_content )
 		{
 			$sections[$key]->post_content = apply_filters( 'the_content', $section->post_content );
 		}
 	}
 
-	if( $wp_query->queried_object->post_content )
+	if( @$wp_query->queried_object->post_content )
 	{
 		$wp_query->queried_object->post_content = apply_filters( 'the_content', $wp_query->queried_object->post_content );
 	}

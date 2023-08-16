@@ -34,12 +34,11 @@ function vue_get_acf( $section )
 	}
 	
 
-	if( is_singular( $section->post_type ) )
+	if( is_singular( @$section->post_type ) )
 	{
 		$object_id = $section->ID;
-	}	
-	
-	$section->acf_fields = get_fields( $object_id );
+		$section->acf_fields = get_fields( $object_id );
+	}
 	
 	return $section;
 }
@@ -115,7 +114,7 @@ function return_acf_message(){
 
 	
 
-	if( $_POST['is_acf_ajax'] )
+	if( @$_POST['is_acf_ajax'] )
 	{
 		
 		$return = array('new_acf'=> do_shortcode( '[acfe_form ID="'.$acf_form['ID'].'"]' ) );

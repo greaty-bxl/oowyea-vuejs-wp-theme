@@ -43,12 +43,12 @@
 
 //Header
 //import Header from 'Organisms/header.vue'
-// import Header from 'Organisms/simple-header.vue'
-import Header from 'Organisms/header-dropdown.vue'
+import Header from 'Organisms/simple-header.vue'
+//import Header from 'Organisms/header-dropdown.vue'
 
 
 //Footer
-import Footer from 'Organisms/footer-santos-palace.vue'
+import Footer from 'Organisms/footer.vue'
 
 import GpdrIntro from 'Molecules/gpdr-intro.vue'
 

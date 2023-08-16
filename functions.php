@@ -11,7 +11,7 @@ define('GREATY_TEMPLATE_URL', get_template_directory_uri());
 /*include GREATY_TEMPLATE_PATH.'/security/security.php';*/
 include GREATY_TEMPLATE_PATH.'/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
 include GREATY_TEMPLATE_PATH.'/plugins/require-plugins.php';
-include GREATY_TEMPLATE_PATH.'/plugins/phpquery/phpQuery/phpQuery.php';
+//include GREATY_TEMPLATE_PATH.'/plugins/phpquery/phpQuery/phpQuery.php';
 
 /*------------------------------------*\
     Vue.js Libraries & functions
@@ -32,12 +32,12 @@ include GREATY_TEMPLATE_PATH.'/libs/menus.php';
 include GREATY_TEMPLATE_PATH.'/libs/sidebars.php';
 include GREATY_TEMPLATE_PATH.'/libs/sections.php';
 include GREATY_TEMPLATE_PATH.'/libs/posts.php';
-include GREATY_TEMPLATE_PATH.'/libs/woocommerce.php';
+//include GREATY_TEMPLATE_PATH.'/libs/woocommerce.php';
 include GREATY_TEMPLATE_PATH.'/libs/pll_include.php';
 include GREATY_TEMPLATE_PATH.'/libs/ajax-login.php';
 include GREATY_TEMPLATE_PATH.'/libs/image-sizes.php';
 include GREATY_TEMPLATE_PATH.'/libs/mime-types.php';
-include GREATY_TEMPLATE_PATH.'/libs/_wpnonce.php';
+//include GREATY_TEMPLATE_PATH.'/libs/_wpnonce.php';
 include GREATY_TEMPLATE_PATH.'/libs/gpdr-intro.php';
 include GREATY_TEMPLATE_PATH.'/libs/newsletter.php';
 include GREATY_TEMPLATE_PATH.'/libs/polylang.php';
@@ -54,14 +54,14 @@ include GREATY_TEMPLATE_PATH.'/libs/polylang.php';
 
 // Code for greaty new site
 include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
-include GREATY_TEMPLATE_PATH.'/libs/fromagerie/fromagerie.php';
+//include GREATY_TEMPLATE_PATH.'/libs/fromagerie/fromagerie.php';
 
 // Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
 
 
 //auto include php vue
-function auto_include_php_scripts($dir, &$results = array()) {
+/*function auto_include_php_scripts($dir, &$results = array()) {
     $files = scandir($dir);
 
     foreach ($files as $key => $value) {
@@ -77,7 +77,7 @@ function auto_include_php_scripts($dir, &$results = array()) {
         }
     }
 }
-auto_include_php_scripts(GREATY_TEMPLATE_PATH.'/vuejs/src/wp');
+auto_include_php_scripts(GREATY_TEMPLATE_PATH.'/vuejs/src/wp');*/
 
 
 function get_oowyea_home()
@@ -132,6 +132,9 @@ if (function_exists('add_theme_support'))
     // Localisation Support
     load_theme_textdomain('greatytheme', get_template_directory() . '/languages');
 }
+
+
+
 
 /*------------------------------------*\
     ACF

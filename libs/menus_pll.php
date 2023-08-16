@@ -1,6 +1,6 @@
 <?php
 
-function get_menus_pll()
+/*function get_menus_pll()
 {	
 	// $args =
 	$pll = pll_the_languages( array('echo' => 0));
@@ -8,5 +8,5 @@ function get_menus_pll()
 	wp_vue_add_var('pll', $pll);
 }
 
-add_action( 'vue_vars', 'get_menus_pll' );
+add_action( 'vue_vars', 'get_menus_pll' );*/
 

@@ -20,7 +20,7 @@ add_action( 'wp', 'owy_force_json_function' );*/
 
 function vue_return_json()
 {
-	if ( isset( $_GET['add_to_json'] ) || $_COOKIE['owy_force_json'] /* && !$_GET['_wpnonce']*/ ) 
+	if ( isset( $_GET['add_to_json'] ) || @$_COOKIE['owy_force_json'] /* && !$_GET['_wpnonce']*/ ) 
 	{
 		setcookie("owy_force_json", 0, time()-1, '/');
 

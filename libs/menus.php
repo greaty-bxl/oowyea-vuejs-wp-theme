@@ -21,7 +21,8 @@ function get_menus()
 {
 	$menuLocations = get_nav_menu_locations();
 	$menus;
-	$menus_array;
+	$menus_array = array();
+	$array = null;
 
 	foreach ($menuLocations as $key => $menuLocation) 
 	{
@@ -35,7 +36,11 @@ function get_menus()
 	
 	$res  = array();
 	
-	$array = json_decode(json_encode($menus_array['header-menu']), true);
+	if ( @$menus_array['header-menu'] )
+	{
+		$array = json_decode(json_encode($menus_array['header-menu']), true);	
+	}
+	
 
 	if( is_array( $array ) )
 	{

@@ -2,7 +2,7 @@
 
 function find_string_and_register()
 {
-	if( !function_exists('pll_register_string') || $_GET['page'] !== 'mlang_strings' )
+	if( !function_exists('pll_register_string') || @$_GET['page'] !== 'mlang_strings' )
 	{
 		return;
 	}

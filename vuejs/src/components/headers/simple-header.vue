@@ -1,4 +1,4 @@
-	<template>
+<template>
 	<div id="header" class="header-greaty">
         <header>
 			<nav id="main-navbar-1" class="navbar navbar-default navbar-fixed-top">

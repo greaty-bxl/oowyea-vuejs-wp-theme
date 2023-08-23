@@ -8,7 +8,7 @@
 			<VideoBackground src="assets/al_piccolo_mondo_video.mp4" poster="assets/home-poster.png" class="video-container"/>
 
 			<div style="min-height: 100vh" class="d-flex align-items-center justify-content-center">
-				<div data-scroll data-scroll-speed="0.5" class="col-6 p-6" style="text-align: left;">
+				<div data-scroll data-scroll-speed="2" class="col-6 p-6" style="text-align: left;">
 					<h1 data-scroll class="title">
 						<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">UNE</div> 
 						<div data-scroll data-scroll-speed="0.3" data-scroll-direction="horizontal">HISTOIRE DE</div>
@@ -20,7 +20,7 @@
 					</div>
 
 				</div>
-				<div data-scroll data-scroll-speed="-1" style="min-height: 100vh" class="col-6 home-imgs">
+				<div data-scroll data-scroll-speed="-2" style="min-height: 100vh" class="col-6 home-imgs">
 					<div id="img1" class="to-reveal" :class="{reveal: img1}" style="background-image: url('assets/Leo-et-Aldo-Spagnuolo-les-fondateurs-du-al-piccolo-mondo-en-1979.png')"></div>
 					<div id="img2" class="to-reveal" :class="{reveal: img2}" style="background-image: url('assets/Terrasse-2023.png')"></div>
 					<div id="img3" class="to-reveal" :class="{reveal: img3}" style="background-image: url('assets/03-Al-Piccolo-Mondo-11-21.png')"></div>
@@ -134,7 +134,7 @@
 				{
 					setTimeout( () => {
 						this.$(element).addClass('reveal')
-					}, 300 )					
+					}, 450 )					
 				}
 				// Ajoutez votre code ici
 

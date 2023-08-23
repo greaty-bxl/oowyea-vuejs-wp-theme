@@ -3,9 +3,11 @@
 		<div class="clear"></div>
 
 	
-		<div class="wp-content">
+		<div class="wp-content p-6" >
 
-			<h1 v-html="post.post_title"></h1>
+			<h1>
+				NOTRE SAVOIR FAIRE, <br>DEPUIS 1979
+			</h1>
 			<div v-html="post.post_content"></div>
 		
 		</div>
@@ -29,7 +31,7 @@
 
 <style scoped>
 	.section-wrap {
-		padding: 100px;
+		text-align: left;
 		background-color: #971732;
 	}
 </style>

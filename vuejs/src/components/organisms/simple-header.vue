@@ -25,7 +25,9 @@
 			<img class="logo" src="assets/logo-al-piccolo-mondo.svg">
 			
 			<div class="d-flex align-items-center justify-content-end topRightMenuOpen">
-				<div>
+				
+				<div class="d-flex align-items-end justify-content-end">
+					<div class="resa" :class="{hidden:show}">Réservation</div>
 					<div class="dropdown">
 						<span class="dropdown-toggle" id="dropdownLangsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							FR
@@ -162,11 +164,21 @@
 	}
 
 	.topRightMenuOpen > div {
-		margin-left: 50px;
+		margin-left: 30px;
+	}
+
+	.topRightMenuOpen .resa {
+		font-size: 20px;
+		margin-right: 30px;
+	}
+
+	.topRightMenuOpen .resa.hidden {
+		visibility: hidden;
 	}
 
 	.topRightMenuOpen .dropdown-menu {
-		background-color: rgba(255, 255, 255, 0.05);
+
+		background-color: #B49E5C;
 		font-size: inherit;
 		color: inherit;
 		min-width: 0;
@@ -174,7 +186,9 @@
 	}
 
 	.topRightMenuOpen .dropdown-menu a {
-		color: inherit;
+		color: white;
+		padding-top: 0px;
+		padding-bottom: 0px;
 	}
 	.topRightMenuOpen .dropdown-menu a:hover {
 		background-color: transparent;

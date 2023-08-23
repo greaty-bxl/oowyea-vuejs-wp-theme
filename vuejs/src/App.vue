@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" data-scroll-container>
     <Header/>
-    <div id="app-scroller">
+    <div id="app-scroller" ref="appScroller">
       <!-- <div id="pages"> -->
         <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
           <div class="section" 
@@ -57,14 +57,14 @@ import GpdrIntro from 'Molecules/gpdr-intro.vue'
 
 //Functions
 //import is from 'is_js'
-import init_scrolltop from 'Libs/init-scrolltop.js'
+//import init_scrolltop from 'Libs/init-scrolltop.js'
 //import scrollSection from 'Libs/scroll-sections.js'
 // import scrollSection from 'Libs/scroll-sections-v2.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
 import smart_fonts from 'Libs/smart-fonts.js'
-import on_screen from 'Libs/on-screen.js'
+//import on_screen from 'Libs/on-screen.js'
 import woocommerceAjax from 'Libs/woocommerce-ajax.js'
 import acf_ajax from 'Libs/acf-front-ajax.js'
 //import acf_to_css from 'Libs/acf-to-css.js'
@@ -80,7 +80,8 @@ import googleTagManager from '@analytics/google-tag-manager'
 //import gtag from 'analytics-gtag'
 
 
-
+import LocomotiveScroll from 'locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 function vue_key_to_name(str)
 {
@@ -141,6 +142,12 @@ export default {
     pll__("test 3") + pll__("test 3.2")    
 
     let nanana = pll__('te(s\')t') + my_function('test 2')*/
+
+    this.$store.state.locomotive = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true,
+      // Autres options si nécessaire
+    }); 
     
     this.pages['current'] = this.wp.sections
     this.classes['current'] = this.wp.body_class
@@ -167,7 +174,7 @@ export default {
       
       //console.log('store', this.$store.state.wp)
       //init scroll if child
-      init_scrolltop(this)
+      //init_scrolltop(this)
 
       //auto scroll next section
       // scrollSection(this)
@@ -266,7 +273,7 @@ export default {
 
                 //$('#footer').show();
 
-                init_scrolltop(this)
+                //init_scrolltop(this)
                 
                 links_and_anchors(this)
 
@@ -286,7 +293,7 @@ export default {
 
       
 
-      on_screen()
+      //on_screen()
 
 
       console.log(this.$store.state.wp.google_accepted);
@@ -439,14 +446,14 @@ html{
 
 #app {
   position: absolute;
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: "futura-pt", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #666666;
-  height: 100vh;
+  color: #5C5C5C;
   width: 100%;
-  overflow-y: auto;
+  /*height: 100vh;
+  overflow-y: auto;*/
   z-index: 0;
 }
 

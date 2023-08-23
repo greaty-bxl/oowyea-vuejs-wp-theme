@@ -1,5 +1,7 @@
 //import getField from "Libs/acf-get-field.js"
 
+
+
 class wp{
 
 	/* State */
@@ -43,6 +45,12 @@ class wp{
 				if( max == count )
 				{
 					state.wp = Object.assign({}, state.wp)
+
+					console.log('locomotive update');
+					if( state.locomotive != null )
+					{
+						state.locomotive.update()
+					}					
 				}
 			}
 		}

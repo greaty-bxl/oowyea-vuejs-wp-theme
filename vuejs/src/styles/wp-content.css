@@ -1,5 +1,5 @@
 body {
-  font-family: Montserrat, sans-serif;
+  font-family: "futura-pt", sans-serif;
   font-weight: 400;
   /*word-wrap: break-word;*/
 }
@@ -20,10 +20,18 @@ h3{
 }
 
 .wp-content h1{
+	font-family: "nimbus-roman", serif;
+	color: #B49E5C !important;
+	font-size: 90px !important;
+	margin-bottom: 60px;
 
-	color: #888320 !important;
-	font-size: 40px !important;
+}
 
+.section-link {
+	font-family: "nimbus-roman", serif;
+	color: #B49E5C !important;
+	font-size: 30px !important;
+	text-decoration: none;
 }
 
 .wp-content h2{
@@ -40,9 +48,23 @@ h3{
 }
 
 .wp-content p{
-
-	font-size: 17px;
+	font-weight: 300;
+	font-size: 24px;
 	line-height: 140%;
 
 }
 
+.clickable {
+	cursor: pointer;
+}
+
+.ul-simply {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+.p-6 {
+	padding: 100px;
+}

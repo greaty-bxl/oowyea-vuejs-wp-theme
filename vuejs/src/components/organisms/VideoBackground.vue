@@ -1,6 +1,6 @@
 <template>
   <div>
-    <video playsinline autoplay muted loop id="bgvid">
+    <video playsinline autoplay muted loop id="bgvid" :poster="poster">
         <!-- <source src="@/Assets/AlPiccoloMondo_FINAL.mp4" type="video/webm"> -->
         <source :src="src" type="video/mp4">
     </video>
@@ -37,9 +37,10 @@ video {
 <script>
 export default {
   props:{
-    src : String
+    src : String,
+    poster : String
   },
-  mounted() {
+  /*mounted() {
     window.addEventListener("scroll", this.parallaxEffect);
   },
   beforeDestroy() {
@@ -52,6 +53,6 @@ export default {
       const scrolled = window.scrollY;
       video.style.transform = `translateX(-50%) translateY(${-(scrolled * 0.3)}px)`;
     },
-  },
+  },*/
 };
 </script>

@@ -3,7 +3,7 @@
 		<div class="clear"></div>
 
 		
-		<div class="wp-content vue-page ">
+		<div class="wp-content">
 
 			<VideoBackground src="assets/al_piccolo_mondo_video.mp4" poster="assets/home-poster.png" class="video-container"/>
 

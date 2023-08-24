@@ -27,6 +27,10 @@ h3{
 
 }
 
+.text-gold {
+	color: #B49E5C !important;
+}
+
 .section-link {
 	font-family: "nimbus-roman", serif;
 	color: #B49E5C !important;
@@ -67,4 +71,9 @@ h3{
 
 .p-6 {
 	padding: 100px;
+}
+
+.wp-content hr {
+	width: 100%;
+	margin: 50px 0px;
 }

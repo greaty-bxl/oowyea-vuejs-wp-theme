@@ -163,6 +163,11 @@
 		background-color: #971732;
 	}
 
+	.topRightMenuOpen {
+		font-size: 17px;	
+	}
+	
+
 	.topRightMenuOpen > div {
 		margin-left: 30px;
 	}
@@ -179,7 +184,7 @@
 	.topRightMenuOpen .dropdown-menu {
 
 		background-color: #B49E5C;
-		font-size: inherit;
+		
 		color: inherit;
 		min-width: 0;
 		margin-left: -1rem;

@@ -26,7 +26,11 @@
 			<div class="col-6" data-scroll data-scroll-speed="-1.5">
 				<div class="text-gold p-6">
 					<p>Suivez-nous sur : <br></p>
-					<p>Ouvert 7 jours sur 7 (fermeture annuelle du 1 au 31 août) Déjeuner 12:00 - 15:00 Dîner 18:00 - 00:00 (fermeture du restaurant à minuit)</p>
+					<p>
+						Ouvert 7 jours sur 7 (fermeture annuelle du 1 au 31 août) <br>
+						Déjeuner 12:00 - 15:00 <br>
+						Dîner 18:00 - 00:00 (fermeture du restaurant à minuit)
+					</p>
 					<p>19 rue Jourdan, 1060 Bruxelles (Saint-Gilles) – Belgique +32 2 538 87 94 info@alpiccolomondo.com</p>
 					<div>
 						<a href="#" class="text-gold" style="text-decoration: none;">>> RÉSERVER UNE TABLE</a>

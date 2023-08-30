@@ -3,20 +3,22 @@
 		<transition name="slide-right">
 			<div v-show="show" class="menu-fullscreen">
 				<ul class="ul-simply texts">
-					<li>Réservation</li>
-					<li>La Carte</li>
-					<li>Le Restaurant</li>
-					<li>La Cuisine</li>
-					<li>Banquet</li>
-					<li>Contact</li>
-					<li>Jobs</li>
-					<li>Faqs</li>
+					<li><a href="#" @mousemove="moveImg">Réservation</a></li>
+					<li><a href="#">La Carte</a></li>
+					<li><a href="#">Le Restaurant</a></li>
+					<li><a href="#">La Cuisine</a></li>
+					<li><a href="#">Banquet</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Jobs</a></li>
+					<li><a href="#">Faqs</a></li>
 				</ul>
 			</div>
 			
 		</transition>
 		<transition name="slide-left">
-			<div v-show="show" class="menu-left">
+			<div v-show="show" class="menu-left d-flex align-items-center justify-content-center">
+				<div class="img-move" 
+					:style="{backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',transform: 'translate('+img_translate.x+','+img_translate.y+') skewX(-7deg)'}"></div>
 			</div>
 		</transition>
 		
@@ -60,8 +62,14 @@
 		data() {
 			return {
 				locomotive_active: false,
-				show: false,
+				show: true,
 				minify: false,
+				img_translate:{
+					x: '0px',
+					y: '0px'
+				},
+				timer: null,
+				animating: false,
 			}
 		},
 		mounted () {
@@ -75,6 +83,25 @@
 				console.log('click');
 
 				this.show = !this.show;
+			},
+			moveImg(args) {
+				console.log('move', args.movementX, args.movementY );
+				
+				if(!this.animating)
+				{
+					this.animating = true
+					
+					this.img_translate.x = (args.layerX * 2) + 'px'
+					this.img_translate.y = ((args.layerY - 30) * 3) + 'px'
+
+
+
+					clearTimeout( this.timer )
+					this.timer = setTimeout( () => { 
+						this.animating = false						
+					}, 50 )	
+				}
+				
 			}
 		},
 		computed: {
@@ -152,6 +179,40 @@
 		padding-top: 150px;
 		padding-right: 250px;
 		text-align: right;
+	}
+
+	.menu-fullscreen a {
+		color: inherit;
+		text-decoration: none;
+		display: inline-block;
+		position: relative;
+	}
+
+	.menu-fullscreen a:after {		
+		background: none repeat scroll 0 0 transparent;
+		bottom: 18px;
+		content: "";
+		display: block;
+		height: 12px;
+		left: -3%; 
+		position: absolute;
+		background: rgba(180, 158, 92, 0.5);
+		transition: all 0.3s ease-in-out 0s;
+		width: 0;
+	}
+
+	.menu-fullscreen a:hover:after { 
+		width: 106%; 
+		left: -3%; 
+	}
+
+	.menu-left .img-move {
+		margin-top: -100px;
+		margin-left: -100px;
+		width: 400px;
+		height: 400px;
+		background-size: cover;
+		transition: all 0.6s ease-out 0s;
 	}
 
 	.menu-left {		

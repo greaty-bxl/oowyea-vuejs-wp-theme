@@ -3,22 +3,32 @@
 		<transition name="slide-right">
 			<div v-show="show" class="menu-fullscreen">
 				<ul class="ul-simply texts">
-					<li><a href="#" @mousemove="moveImg">Réservation</a></li>
-					<li><a href="#">La Carte</a></li>
-					<li><a href="#">Le Restaurant</a></li>
+					<li v-for="(item, key) in menuMove" :key="key">
+						<a href="#"  :data-index="key" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu" v-html="item.page"></a>
+					</li>
+					<!-- <li><a href="#" data-index="1" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu">La Carte</a></li>
+					<li><a href="#" data-index="2" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu">Le Restaurant</a></li>
 					<li><a href="#">La Cuisine</a></li>
 					<li><a href="#">Banquet</a></li>
 					<li><a href="#">Contact</a></li>
 					<li><a href="#">Jobs</a></li>
-					<li><a href="#">Faqs</a></li>
+					<li><a href="#">Faqs</a></li> -->
 				</ul>
 			</div>
 			
 		</transition>
 		<transition name="slide-left">
-			<div v-show="show" class="menu-left d-flex align-items-center justify-content-center">
-				<div class="img-move" 
-					:style="{backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',transform: 'translate('+img_translate.x+','+img_translate.y+') skewX(-7deg)'}"></div>
+			<div v-show="show" class="menu-left">
+				<div style="width: 100%; height:100vh" class="d-flex align-items-center justify-content-center">
+					
+					<div class="img-move" v-for="(item, key) in menuMove" :key="key"
+						:style="{
+							backgroundImage: item.backgroundImage,
+							transform: 
+								'translate('+item.x+','+item.y+') skewX('+item.skewX+'deg)', width: item.width + 'px', opacity: item.opacity }
+						">
+					</div>
+				</div>
 			</div>
 		</transition>
 		
@@ -62,15 +72,52 @@
 		data() {
 			return {
 				locomotive_active: false,
-				show: true,
+				show: false,
 				minify: false,
-				img_translate:{
-					x: '0px',
-					y: '0px'
-				},
-				timer: null,
+				menuMove: [
+					
+				],
+				timer: [],
+				timer_skewX: [],
+				timer_out: [],
 				animating: false,
 			}
+		},
+		beforeMount(){
+			this.menuMove = [
+					{
+						page: 'Réservation',
+						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+					},
+					{
+						page: 'La Carte',
+						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+					},
+					{
+						page: 'Le Restaurant',
+						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+					},
+					{
+						page: 'La Cuisine',
+						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+					},
+					{
+						page: 'Banquet',
+						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+					},
+					{
+						page: 'Contact',
+						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+					},
+					{
+						page: 'Jobs',
+						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+					},
+					{
+						page: 'Faqs',
+						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+					},
+				] 
 		},
 		mounted () {
 			/*let locomotive = this.$store.state.locomotive
@@ -85,22 +132,76 @@
 				this.show = !this.show;
 			},
 			moveImg(args) {
-				console.log('move', args.movementX, args.movementY );
+				console.log('move', this.menuMove[0] );
+
+				let index = args.target.dataset.index
+
 				
-				if(!this.animating)
+				
+				if( !this.animating )
 				{
 					this.animating = true
 					
-					this.img_translate.x = (args.layerX * 2) + 'px'
-					this.img_translate.y = ((args.layerY - 30) * 3) + 'px'
+					/*this.menuMove[index].x = (args.layerX * 1.5) + 'px'
+					this.menuMove[index].y = ((args.layerY - 30) * 3) + 'px'
 
+					this.menuMove[index].skewX = args.movementX*/
+					
 
+					this.$set(this.menuMove, index, {
+						...this.menuMove[index],
+						x: (args.layerX * 1.5) + 'px',
+						y: ((args.layerY - 30) * 3) + 'px',
+						skewX: args.movementX,
+					});
 
-					clearTimeout( this.timer )
-					this.timer = setTimeout( () => { 
+					clearTimeout( this.timer[index] )
+					this.timer[index] = setTimeout( () => { 
 						this.animating = false						
 					}, 50 )	
 				}
+
+				clearTimeout( this.timer_skewX[index] )
+				this.timer_skewX[index] = setTimeout( () => { 
+					/*this.menuMove[index].skewX = 0	*/
+					
+					this.$set(this.menuMove, index, {
+						...this.menuMove[index],
+						skewX: 0,
+					});
+
+				}, 50 )				
+				
+			},
+			overMenu ( args ) {
+				let index = args.target.dataset.index
+
+				clearTimeout( this.timer_out[index] )
+				this.$set(this.menuMove, index, {
+					...this.menuMove[index],
+					'margin-left': '200px',
+					width: 400,
+					opacity: 1,
+				});
+
+			
+			},
+			outMenu ( args ) {
+				let index = args.target.dataset.index
+
+				clearTimeout( this.timer_out[index] )
+				this.timer_out[index] = setTimeout( () => { 
+					/*this.menuMove[index].width = 0
+					this.menuMove[index].opacity = 0*/	
+					
+					this.$set(this.menuMove, index, {
+						...this.menuMove[index],
+						'margin-left': '0px',
+						width: 0,
+						opacity: 0,
+					});
+
+				}, 150 )	
 				
 			}
 		},
@@ -207,12 +308,15 @@
 	}
 
 	.menu-left .img-move {
+		position: absolute;
 		margin-top: -100px;
-		margin-left: -100px;
+		opacity: 0;
+		margin-left: 200px;
 		width: 400px;
 		height: 400px;
 		background-size: cover;
-		transition: all 0.6s ease-out 0s;
+		background-position: center center;
+		transition: transform 0.6s ease-out 0s, width 0.3s ease-in 0s, opacity 0.3s ease-in 0s, margin-left 0.3s ease-in 0s;
 	}
 
 	.menu-left {		
@@ -224,7 +328,7 @@
 		background-color: #971732;
 	}
 
-	.topRightMenuOpen {
+	.topRightMenuOpen, .topRightMenuOpen .dropdown-item {
 		font-size: 17px;	
 	}
 	
@@ -325,6 +429,74 @@
 	.close-bt .bar-2 {
 		margin-top: 0px;
 		transform: rotate(-45deg) ;
+	}
+
+	@media (max-width: 991px) {
+		.menu-fullscreen {
+			width: 100%;
+		}
+		.menu-left {
+			display: none;
+		}
+		.menu-left .img-move{
+			display: none;
+		}
+
+		.menu-fullscreen .ul-simply.texts {
+			margin-top: 20px;
+			position: absolute;
+			right: 40px;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.menu-fullscreen {
+			font-size: 35px;
+		}
+
+		.menu-fullscreen a:after {		
+			bottom: 13px;
+			height: 6px;
+			width: 0;
+		}
+
+		.menu-fullscreen .ul-simply.texts {
+			margin-top: 20px;
+			right: 30px;
+		}
+
+		.header-menu {
+			padding: 20px;
+		}
+
+		.header-menu .logo {
+			width: 35%;
+		}
+
+		.topRightMenuOpen {
+			transform: translateY(4vw);
+		}
+
+		.topRightMenuOpen, .topRightMenuOpen .dropdown-item {
+			font-size: 13px;
+		}
+
+		.topRightMenuOpen .resa {
+			font-size: 15px;
+			margin-right: 20px;
+		}
+
+		.menu-bt {
+			transform: scale(0.8);
+		}
+
+		.header-menu.minify .menu-bt{
+			transform: translateY(200px) scale(0.8);
+		}
+
+		.topRightMenuOpen > div {
+			margin-left: 10px;
+		}
 	}
 
 </style>

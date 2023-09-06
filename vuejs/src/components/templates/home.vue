@@ -1,5 +1,5 @@
 <template>
-	<div class="section-wrap" data-scroll-section>
+	<div class="section-wrap">
 		<div class="clear"></div>
 
 		
@@ -7,8 +7,8 @@
 
 			<VideoBackground src="assets/al_piccolo_mondo_video.mp4" poster="assets/home-poster.png" class="video-container"/>
 
-			<div style="min-height: 100vh" class="d-flex align-items-center justify-content-center">
-				<div data-scroll data-scroll-speed="2" class="col-6 p-6" style="text-align: left;">
+			<div style="min-height: 100vh;" class="row">
+				<div data-scroll data-scroll-speed="2" class="col-xl-6 col-lg-12 p-6" style="text-align: left;">
 					<h1 data-scroll class="title">
 						<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">UNE</div> 
 						<div data-scroll data-scroll-speed="0.3" data-scroll-direction="horizontal">HISTOIRE DE</div>
@@ -20,7 +20,7 @@
 					</div>
 
 				</div>
-				<div data-scroll data-scroll-speed="-2" style="min-height: 100vh" class="col-6 home-imgs">
+				<div data-scroll data-scroll-speed="-1" style="min-height: 100vh;" class="col-xl-6 col-lg-12 home-imgs d-flex align-items-end justify-content-end">
 					<div id="img1" class="to-reveal" :class="{reveal: img1}" style="background-image: url('assets/Leo-et-Aldo-Spagnuolo-les-fondateurs-du-al-piccolo-mondo-en-1979.png')"></div>
 					<div id="img2" class="to-reveal" :class="{reveal: img2}" style="background-image: url('assets/Terrasse-2023.png')"></div>
 					<div id="img3" class="to-reveal" :class="{reveal: img3}" style="background-image: url('assets/03-Al-Piccolo-Mondo-11-21.png')"></div>
@@ -159,36 +159,61 @@
 		transition: all 0.7s ease-out;
 	}
 
+
 	.home-imgs #img1 {
-		margin-top: 27vh;
-		width: 35vh; 
-		height:0vh; 
+		bottom: 32vh;
+		right: 45%;
+		width: 39vh;
+		height: 0vh; 
 	}
 
 	.home-imgs #img2 {
-		margin-top: 35vh;
-		margin-left: 37vh;
-		width: 45vh; 
+		bottom: calc(39vh + 2.5%);
+		right: -15%;
+		width: 57%;
 		height: 0vh; 	
 	}
 
 	.home-imgs #img3 {
-		margin-top: 62vh;
-		margin-left: 10vh;
-		width: 55vh; 
-		height: 0vh; 	
+		bottom: 0vh;
+		right: 10%;
+		width: 57vh;
+		height: 0vh; 
 	}
 
 	.home-imgs #img1.reveal {
-		height:45vh; 
+		height: 50vh;
 	}
 
 	.home-imgs #img2.reveal {
-		height:25vh; 
+		height: 29vh;
 	}
 
 	.home-imgs #img3.reveal {
-		height:38vh; 
+		height: 39vh 
+	}
+
+	@media (max-width: 991px) {
+		.home-imgs {
+			margin-top: -350px;
+			transform: scale(0.9) translateY(7%) !important;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.home-imgs {
+			margin-top: -450px;
+			transform: scale(0.6) translateY(40%) translateX(5%) !important;
+		}
+
+		.home-imgs #img3 {
+			right: 0%;
+		}
+
+		.home-imgs #img2 {
+			width: 75%;
+			right: -35%;
+		}
 	}
 
 	#element-to-animate {

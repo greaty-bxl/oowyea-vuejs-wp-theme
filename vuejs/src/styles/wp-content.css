@@ -27,6 +27,8 @@ h3{
 
 }
 
+
+
 .text-gold {
 	color: #B49E5C !important;
 }
@@ -109,10 +111,47 @@ h3{
 
 
 .p-6 {
-	padding: 100px;
+	padding: 150px 100px !important;
+}
+
+.no-padding {
+	padding: 0 !important;
 }
 
 .wp-content hr {
 	width: 100%;
 	margin: 50px 0px;
+}
+
+/* responsive */
+
+
+@media (max-width: 991px) {
+	.wp-content h1 {
+		font-size: 70px !important;
+	}
+
+	.p-6 {
+		padding: 100px 70px !important;
+	}
+
+
+}
+
+@media (max-width: 767px) {
+	.wp-content h1 {
+		font-size: 50px !important;
+	}
+
+	.wp-content p{
+		font-size: 18px;
+	}
+
+	.section-link {
+		font-size: 20px !important;
+	}
+
+	.p-6 {
+		padding: 70px 35px !important;
+	}
 }

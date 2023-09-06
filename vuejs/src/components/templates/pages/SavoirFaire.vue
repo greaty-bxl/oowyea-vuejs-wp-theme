@@ -1,9 +1,9 @@
 <template>
-	<div class="section-wrap" data-scroll-section>
+	<div class="section-wrap" >
 		<div class="clear"></div>
 
 	
-		<div style="min-height: 100vh" class="wp-content d-flex flex-column align-items-start justify-content-center">
+		<div style="" class="wp-content d-flex flex-column align-items-start justify-content-center">
 
 			<h1 class="p-6" data-scroll data-scroll-speed="1">
 				NOTRE SAVOIR FAIRE, <br>DEPUIS 1979
@@ -19,12 +19,12 @@
 			</swiper>
 		</div>
 
-		<div class="row wp-content">
-			<div class="col-6 p-6">
+		<div class="row wp-content" >
+			<div class="col-xl-6 col-lg-12 p-6 ">
 				&nbsp;
 			</div>
-			<div class="col-6" data-scroll data-scroll-speed="-1.5">
-				<div class="text-gold p-6">
+			<div class="col-xl-6 col-lg-12" data-scroll data-scroll-speed="-1.5">
+				<div class="text-gold p-6" style="margin-bottom: 70px">
 					<p>Suivez-nous sur : <br></p>
 					<p>
 						Ouvert 7 jours sur 7 (fermeture annuelle du 1 au 31 août) <br>
@@ -61,21 +61,23 @@
 					preloadImages: true,
 					lazy: false,
 					loop: true,
-					spaceBetween: 60,
+					
 					breakpoints: {
 						// when window width is >= 320px
 						1100: {
 						slidesPerView: 3.8,
-
-						},
-
-						400: {
-						slidesPerView: 1,
+						spaceBetween: 60,
 						},
 
 						100: {
-						slidesPerView: 1,
+						slidesPerView: 2.17,
+						spaceBetween: 30,
 						},
+
+						/*100: {
+						slidesPerView: 1.8,
+						spaceBetween: 20,
+						},*/
 					},
 				}
 			}
@@ -121,6 +123,23 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	@media (max-width: 1099px) {
+		.swiper-wrap {
+			width: 160%;
+			margin-left: -60%;
+			padding: 100px 0;
+			margin-top: -100px;
+		}
+
+		.swiper-slide {
+			padding-bottom: 48%; /* ceci crée le carré */
+		}
+	}
+
+	@media (max-width: 399px) {
+
 	}
 </style>
 

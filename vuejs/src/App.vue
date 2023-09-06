@@ -5,6 +5,7 @@
       <!-- <div id="pages"> -->
         <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
           <div class="section" 
+            data-scroll-section
             v-for="(section, key2) in page" 
             :key="section.post_name" 
             :id="section.post_name" 
@@ -146,16 +147,24 @@ export default {
     this.$store.state.locomotive = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       smooth: true,
+      smartphone: {
+        smooth: true,
+        direction : 'vertical',
+        horizontalGesture: false,
+      }
       // Autres options si nécessaire
     }); 
+
+
+    //this.$store.state.locomotive.destroy();
     
     this.pages['current'] = this.wp.sections
     this.classes['current'] = this.wp.body_class
 
     this.$store.commit({
-        type: 'sections_load',
-        sections: this.pages['current'],
-      })
+      type: 'sections_load',
+      sections: this.pages['current'],
+    })
 
     //navigate in the website
     
@@ -478,6 +487,16 @@ html{
   /*justify-content: space-between;*/
   min-height: 100vh;
   width: 100%;
+  overflow-x: hidden;
+}
+
+.section-wrap::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.section-wrap::-webkit-scrollbar { 
+  width: 0px;
+  height: 0px;
 }
 
 #header{

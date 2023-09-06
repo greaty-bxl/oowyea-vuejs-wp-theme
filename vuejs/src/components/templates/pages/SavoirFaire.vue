@@ -10,17 +10,17 @@
 			</h1>
 			
 			<swiper class="swiper-wrap" :options="swiper" >
-				<swiper-slide class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/1.jpg)'}" data-scroll data-scroll-speed="-1"></swiper-slide>
-				<swiper-slide class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/2.jpg)'}" data-scroll data-scroll-speed="0.5"></swiper-slide>
-				<swiper-slide class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/3.jpg)'}" data-scroll data-scroll-speed="-1.2"></swiper-slide>
-				<swiper-slide class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/4.jpg)'}" data-scroll data-scroll-speed="1"></swiper-slide>
-				<swiper-slide class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/5.jpg)'}" data-scroll data-scroll-speed="-0.7"></swiper-slide>
-				<swiper-slide class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/6.jpg)'}" data-scroll data-scroll-speed="1.5"></swiper-slide>
+				<swiper-slide @click.native="open_img('assets/savoir-faire/1.jpg')" class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/1.jpg)'}" data-scroll data-scroll-speed="-1"></swiper-slide>
+				<swiper-slide @click.native="open_img('assets/savoir-faire/2.jpg')" class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/2.jpg)'}" data-scroll data-scroll-speed="0.5"></swiper-slide>
+				<swiper-slide @click.native="open_img('assets/savoir-faire/3.jpg')" class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/3.jpg)'}" data-scroll data-scroll-speed="-1.2"></swiper-slide>
+				<swiper-slide @click.native="open_img('assets/savoir-faire/4.jpg')" class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/4.jpg)'}" data-scroll data-scroll-speed="1"></swiper-slide>
+				<swiper-slide @click.native="open_img('assets/savoir-faire/5.jpg')" class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/5.jpg)'}" data-scroll data-scroll-speed="-0.7"></swiper-slide>
+				<swiper-slide @click.native="open_img('assets/savoir-faire/6.jpg')" class="swiper-slide" :style="{backgroundImage: 'url(assets/savoir-faire/6.jpg)'}" data-scroll data-scroll-speed="1.5"></swiper-slide>
 			</swiper>
 		</div>
 
 		<div class="row wp-content" >
-			<div class="col-xl-6 col-lg-12 p-6 ">
+			<div class="col-xl-6 col-lg-12">
 				&nbsp;
 			</div>
 			<div class="col-xl-6 col-lg-12" data-scroll data-scroll-speed="-1.5">
@@ -31,13 +31,19 @@
 						Déjeuner 12:00 - 15:00 <br>
 						Dîner 18:00 - 00:00 (fermeture du restaurant à minuit)
 					</p>
-					<p>19 rue Jourdan, 1060 Bruxelles (Saint-Gilles) – Belgique +32 2 538 87 94 info@alpiccolomondo.com</p>
+					<p>
+						<a class="text-gold" target="_blank" href="https://goo.gl/maps/GvXUBsJf2VEKwhpW9">19 rue Jourdan, 1060 Bruxelles (Saint-Gilles) – Belgique</a> <br>
+						<a class="text-gold" href="tel:003225388794">+32 2 538 87 94</a><br> 
+						<a class="text-gold" href="mailto:info@alpiccolomondo.com">info@alpiccolomondo.com</a>
+					</p>
 					<div>
-						<a href="#" class="text-gold" style="text-decoration: none;">>> RÉSERVER UNE TABLE</a>
+						<a href="#" class="section-link text-gold" style="text-decoration: none;">>> RÉSERVER UNE TABLE</a>
 					</div>	
 				</div>
 			</div>	
 		</div>
+
+		
 		
 		<div class="clear"></div>
 	</div>
@@ -84,6 +90,12 @@
 		},
 		mounted (){
 			this.$emit('template_mounted')
+		},
+		methods : {
+			open_img (url) {
+				console.log('click');
+				this.$store.state.fullImg = url
+			}
 		}
 	}
 </script>
@@ -124,6 +136,8 @@
 		justify-content: center;
 		align-items: center;
 	}
+
+	
 
 	@media (max-width: 1099px) {
 		.swiper-wrap {

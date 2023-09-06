@@ -18,6 +18,7 @@ export default new Vuex.Store({
 		actions: {},
 		filters: {},
 		locomotive: null,
+		fullImg: null,
 	},
 	mutations: {
 		/* WP */

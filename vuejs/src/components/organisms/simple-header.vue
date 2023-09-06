@@ -58,7 +58,9 @@
 			</div>
 		</div>
 
-		
+		<div class="fullImgContainer" v-if="$store.state.fullImg">
+			
+		</div>
 
 	</div>
 	
@@ -130,6 +132,14 @@
 				console.log('click');
 
 				this.show = !this.show;
+
+				if( !this.show ){
+					this.locomotive.start()
+				}
+				else
+				{
+					this.locomotive.stop()
+				}
 			},
 			moveImg(args) {
 				console.log('move', this.menuMove[0] );
@@ -247,6 +257,10 @@
 		transition: all 0.2s linear;
 	}
 
+	.header-menu .logo {
+		width: 210px;
+	}
+
 	.header-menu .menu-bt {
 		transition: all 0.2s linear;
 	}
@@ -267,10 +281,10 @@
 	}
 
 	.menu-fullscreen {
-		
+		overflow: auto;
 		font-weight: 300;
 		font-style: normal;
-		font-size: 55px;
+		font-size: 45px;
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -429,6 +443,19 @@
 	.close-bt .bar-2 {
 		margin-top: 0px;
 		transform: rotate(-45deg) ;
+	}
+
+
+	.fullImgContainer {
+		background-color: #000000;
+		position: fixed;
+		height: 100vh;
+		width: 100%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 5000;
 	}
 
 	@media (max-width: 991px) {

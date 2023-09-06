@@ -22,9 +22,9 @@ h3{
 .wp-content h1{
 	font-family: "nimbus-roman", serif;
 	color: #B49E5C !important;
-	font-size: 90px !important;
-	margin-bottom: 60px;
-
+	font-size: 75px !important;
+	margin-bottom: 45px;
+	line-height: 100%;
 }
 
 
@@ -34,7 +34,7 @@ h3{
 }
 
 .section-link {
-	margin-top: 50px;
+	margin-top: 30px;
 	font-family: "nimbus-roman", serif;
 	color: #B49E5C !important;
 	font-size: 30px !important;
@@ -94,8 +94,8 @@ h3{
 
 .wp-content p{
 	font-weight: 300;
-	font-size: 24px;
-	line-height: 160%;
+	font-size: 20px;
+	line-height: 200%;
 
 }
 
@@ -111,7 +111,7 @@ h3{
 
 
 .p-6 {
-	padding: 150px 100px !important;
+	padding: 150px 120px !important;
 }
 
 .no-padding {

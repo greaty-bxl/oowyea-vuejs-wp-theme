@@ -1,16 +1,20 @@
 <template>
 	<div data-scroll-section>
-		<div data-scroll data-scroll-speed="2" style="min-height: 100vh;" class="wp-content d-flex flex-column align-items-center justify-content-center p-6">			
-			<img class="logo-footer" width="350" src="assets/logo-footer_al-piccolo-mondo.svg">
+		<div style="min-height: 100vh;padding-top: 100px !important;" class="footer wp-content d-flex flex-column align-items-center justify-content-center p-6">			
+			<img class="logo-footer" width="300" src="assets/logo-footer_al-piccolo-mondo.svg">
 			<hr/>
 			<div class="row " style="width:100%; text-align: left;">
 				<div class="col-xl-5 col-lg-12 no-padding">
 					<p>
 						<span class="text-gold">Al Piccolo Mondo</span> <br>
-						19 rue Jourdan, 1060 Bruxelles (Saint-Gilles) <br>
+						<!-- 19 rue Jourdan, 1060 Bruxelles (Saint-Gilles) <br>
 						Belgique<br><br> 
 						+32 2 538 87 94<br>
-						info@alpiccolomondo.com
+						info@alpiccolomondo.com -->
+
+						<a class="text-grey" target="_blank" href="https://goo.gl/maps/GvXUBsJf2VEKwhpW9">19 rue Jourdan, 1060 Bruxelles (Saint-Gilles) – Belgique</a> <br><br>
+						<a class="text-grey" href="tel:003225388794">+32 2 538 87 94</a><br> 
+						<a class="text-grey" href="mailto:info@alpiccolomondo.com">info@alpiccolomondo.com</a>
 					</p>
 				</div>
 				<div class="col-xl-5 col-lg-12 no-padding">
@@ -31,7 +35,7 @@
 			</div>
 			<hr/>
 			<div id="legal" class="d-flex row" style="font-size:15px;width: 100%;">
-				<div class="col-lg-6 col-sm-12 no-padding copyright" style="text-align: left;">Copyright © Al Piccolo Mondo 2023 - Powered by Greaty.be</div>
+				<div class="col-lg-6 col-sm-12 no-padding copyright" style="text-align: left;">Copyright © Al Piccolo Mondo 2023 - Powered by <a class="text-grey" target="_blank" href="https://greaty.be">Greaty.be</a></div>
 				<div class="col-lg-6 col-sm-12 no-padding mentions" style="text-align: right;">
 					<ul>
 						<li>Mentions légales</li>
@@ -62,11 +66,15 @@
 		margin-left: 20px;
 	}
 
-	@media (max-width: 767px) {
-		.logo-footer{
-			width: 70%;
-		}
+	.footer p{
+		font-size: 18px !important;
+	}
 
+	.text-grey {
+		color: #5C5C5C;
+	}
+
+	@media (max-width: 991px) {
 		#legal {			
 			flex-direction: column-reverse !important;	
 			text-align: right;
@@ -86,6 +94,14 @@
 			display: block;
 			margin-left: 20px;
 		}
+	}
+
+	@media (max-width: 767px) {
+		.logo-footer{
+			width: 70%;
+		}
+
+		
 		
 	}
 </style>

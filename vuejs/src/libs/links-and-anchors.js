@@ -7,10 +7,16 @@ export default function (vue)
 	{
 		var is_same_site = 0
 
+		if( event.currentTarget.target == "_blank" )
+		{
+			return false
+		}
+
 		if( href )
 		{
 			if( href.search( vue.wp.options.siteurl ) === 0 ) is_same_site = 1
 		}
+
 
 
 	
@@ -198,7 +204,6 @@ export default function (vue)
 
 		if ( open_link(event, href) )
 		{
-			
 			event.preventDefault();
 
 		}

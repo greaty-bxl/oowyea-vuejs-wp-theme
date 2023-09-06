@@ -5,7 +5,7 @@
 		
 		<div class="wp-content">
 
-			<VideoBackground src="assets/al_piccolo_mondo_video.mp4" poster="assets/home-poster.png" class="video-container"/>
+			<VideoBackground src="assets/al_piccolo_mondo_540p.mp4" poster="assets/home-poster.png" class="video-container"/>
 
 			<div style="min-height: 100vh;" class="row">
 				<div data-scroll data-scroll-speed="2" class="col-xl-6 col-lg-12 p-6" style="text-align: left;">
@@ -16,7 +16,7 @@
 					</h1>
 					<div v-html="post.post_content"></div>	
 					<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-						<a class="section-link" href="#">>> DÉCOUVRIR LA CARTE</a>
+						<a class="section-link" target="_blank" href="assets/76707-Menu-BR-SC-12.pdf">>> DÉCOUVRIR LA CARTE</a>
 					</div>
 
 				</div>

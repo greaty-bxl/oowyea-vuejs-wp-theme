@@ -341,7 +341,7 @@
 
 				footer{
 
-				padding: 20px 70px;
+				padding: 20px 70px 100px;
 				display: flex;
 				-webkit-box-orient: vertical;
 				flex-direction: column;
@@ -410,7 +410,7 @@
 
 		footer{
 
-		padding: 40px 70px;
+		padding: 40px 70px 100px;
 		color: #e1e1e1;
 		height:  calc( 100vh - 80px);
 		display: flex;
@@ -473,7 +473,7 @@
 
 			footer{
 
-			padding: 30px 40px;
+			padding: 30px 40px 100px;
 			color: #e1e1e1;
 			/*height:  calc( 100vh - 80px);*/
 			display: flex;

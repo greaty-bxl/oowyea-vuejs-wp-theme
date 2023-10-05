@@ -6,8 +6,10 @@
 				<div class="post-client">
 				<div class="member" v-for="child in wp.members" :key="child.ID">
 					<img class="image on-screen" width="100%" :src="child.thumb">
-					<p class="nom" v-html="child.post_title"></p>
-					<p class="fuction" v-html="child.post_content"></p>
+					<div class="members-textes">
+						<p class="nom" v-html="child.post_title"></p>
+						<p class="fuction" v-html="child.post_content"></p>	
+					</div>					
 				</div>
 					
 				</div>
@@ -145,9 +147,15 @@ export default {
 	
 	.member{
 		color: #e1e1e1;
-		padding-left: 5px;
-		padding-right: 5px;
+		padding-left: 15px;
+		padding-right: 15px;
+		min-height: 500px;
+		line-height: 230%;
 
+	}
+
+	.members-textes{
+		min-height: 250px;
 	}
 
 	.member .image{

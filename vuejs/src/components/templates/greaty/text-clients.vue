@@ -5,7 +5,7 @@
 			<div class="div-text-homepage" >
 			<div class="center-flex">
 			<Alpl class="title-page">CLIENTS</Alpl>
-			<Alpl class="text-homepage">Nous travaillons avec les petits et les grands. Marques en difficulté de reconnaissance et leaders du marché.
+			<Alpl class="text-homepage">Nous travaillons avec les petits et les grands. Tant les leaders du marché que les marques en difficulté de reconnaissance.
             </Alpl>
 			</div>
 			</div>

@@ -12,7 +12,7 @@
 
 			<div class="center-flex">
 				<Alpl class="title-page">PROJETS</Alpl> 
-				<Alpl class="text-homepage ">Greaty est un studio de création graphique et digitale basé à Bruxelles. Nous conceptualisons, concevons et codons toutes sortes de projets pour les marques, les startups et nous-mêmes. 
+				<Alpl class="text-homepage ">Greaty est un studio de communication visuelle et développement web basé à Bruxelles depuis plus de 10 ans. Nous élaborons votre identité visuelle et nous la déclinons sur tous supports.
 				</Alpl>
 
 			</div>

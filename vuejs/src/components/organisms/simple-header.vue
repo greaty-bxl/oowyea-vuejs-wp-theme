@@ -3,17 +3,15 @@
 		<transition name="slide-right">
 			<div v-show="show" class="menu-fullscreen">
 				<ul class="ul-simply texts">
-					<li v-for="(item, key) in menuMove" :key="key">
-						<a href="#"  :data-index="key" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu" v-html="item.page"></a>
+					<li v-for="(item, key) in wp.menus['header-menu']" :key="key">
+						<a :href="item.url"	:data-index="key" @click="toggleDiv" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu" v-html="item.title"></a>
 					</li>
-					<!-- <li><a href="#" data-index="1" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu">La Carte</a></li>
-					<li><a href="#" data-index="2" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu">Le Restaurant</a></li>
-					<li><a href="#">La Cuisine</a></li>
-					<li><a href="#">Banquet</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Jobs</a></li>
-					<li><a href="#">Faqs</a></li> -->
 				</ul>
+				<div class="bottom-links texts">
+					<a href="tel:003225388794">+32 2 538 87 94</a><br> 
+					<a class="text-gold" href="mailto:info@alpiccolomondo.com">info@alpiccolomondo.com</a>
+				</div>
+				
 			</div>
 			
 		</transition>
@@ -21,9 +19,9 @@
 			<div v-show="show" class="menu-left">
 				<div style="width: 100%; height:100vh" class="d-flex align-items-center justify-content-center">
 					
-					<div class="img-move" v-for="(item, key) in menuMove" :key="key"
+					<div class="img-move" v-for="(item, key) in wp.menus['header-menu']" :key="key"
 						:style="{
-							backgroundImage: item.backgroundImage,
+							backgroundImage: 'url(' + item.acf.image.url + ')',
 							transform: 
 								'translate('+item.x+','+item.y+') skewX('+item.skewX+'deg)', width: item.width + 'px', opacity: item.opacity }
 						">
@@ -33,13 +31,17 @@
 		</transition>
 		
 
-		<div class="header-menu d-flex justify-content-between align-items-start" :class="{minify: minify && !show, open: show}">
+		<div style="pointer-events:none" class="header-menu d-flex justify-content-between align-items-start" :class="{minify: minify && !show, open: show}" :style="backgroundStyle">
 			<img class="logo" src="assets/logo-al-piccolo-mondo.svg">
 			
-			<div class="d-flex align-items-center justify-content-end topRightMenuOpen">
+			<div style="pointer-events:auto" class="d-flex align-items-center justify-content-end topRightMenuOpen">
 				
 				<div class="d-flex align-items-end justify-content-end">
-					<div class="resa" :class="{hidden:show}">Réservation</div>
+					<div class="resa" v-show="!show" :class="{hidden:show}">Réservation</div>
+					<div class="icos" v-show="show">
+						<a target="_blank" href="https://www.instagram.com/alpiccolomondobruxelles/?hl=fr"><img height="16" src="assets/instagram.svg"></a>
+						<a target="_blank" href="https://www.facebook.com/alpiccolomondorestaurant"><img height="16" src="assets/facebook-f.svg"></a>
+					</div>
 					<div class="dropdown">
 						<span class="dropdown-toggle" id="dropdownLangsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							FR
@@ -58,8 +60,8 @@
 			</div>
 		</div>
 
-		<div class="fullImgContainer" v-if="$store.state.fullImg">
-			
+		<div @mousemove="fullImgMove" class="fullImgContainer d-flex flex-column justify-content-center align-items-center" v-if="$store.state.fullImg" @click="close()" >
+			<img :style="{transform: 'translateY('+fullImgMoveY+'px)'}" :src="$store.state.fullImg" width="100%" />
 		</div>
 
 	</div>
@@ -83,53 +85,52 @@
 				timer_skewX: [],
 				timer_out: [],
 				animating: false,
+				fullImgMoveY: 0,
+				animatingImgY : false,
 			}
 		},
 		beforeMount(){
 			this.menuMove = [
 					{
 						page: 'Réservation',
-						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+						backgroundImage: 'url(assets/menu/reservation_al-piccolo-mondo.jpg)',
 					},
 					{
 						page: 'La Carte',
-						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+						backgroundImage: 'url(assets/menu/carte_al-piccolo-mondo.jpg)',
 					},
 					{
 						page: 'Le Restaurant',
-						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+						backgroundImage: 'url(assets/menu/restaurant_al-piccolo-mondo.jpg)',
 					},
 					{
 						page: 'La Cuisine',
-						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+						backgroundImage: 'url(assets/menu/cuisine_al-piccolo-mondo.jpg)',
 					},
 					{
 						page: 'Banquet',
-						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+						backgroundImage: 'url(assets/menu/banquet_al-piccolo-mondo.jpg)',
 					},
 					{
 						page: 'Contact',
-						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+						backgroundImage: 'url(assets/menu/contact_al-piccolo-mondo.jpg)',
 					},
 					{
 						page: 'Jobs',
-						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+						backgroundImage: 'url(assets/menu/jobs_al-piccolo-mondo.jpg)',
 					},
 					{
 						page: 'Faqs',
-						backgroundImage: 'url(assets/03-Al-Piccolo-Mondo-11-21.png)',
+						backgroundImage: 'url(assets/menu/faq_al-piccolo-mondo.jpg)',
 					},
 				] 
 		},
 		mounted () {
-			/*let locomotive = this.$store.state.locomotive
-			locomotive.on('scroll', (instance) => {
-				console.log(instance);
-			});*/
+			console.log( 'header menu', this.wp.menus['header-menu'] );
+
 		},
 		methods: {
 			toggleDiv() {
-				console.log('click');
 
 				this.show = !this.show;
 
@@ -142,7 +143,6 @@
 				}
 			},
 			moveImg(args) {
-				console.log('move', this.menuMove[0] );
 
 				let index = args.target.dataset.index
 
@@ -213,14 +213,44 @@
 
 				}, 150 )	
 				
+			},
+			close() {
+				this.$store.state.fullImg = null
+				this.animatingImgY = false
+				this.fullImgMoveY = 0
+			},
+			fullImgMove(event) {
+				if( this.$(event.target).height() > this.$(window).height() ) {
+
+
+					let percent = ((event.clientY / this.$(window).height() * 100 - 50) * 2) / 100  * -1
+					let depass = (this.$(event.target).height() - this.$(window).height()) / 2				
+					
+					if( !this.animatingImgY ) {
+						this.animatingImgY = true
+						this.fullImgMoveY = depass * percent
+						setTimeout( () => { 
+							this.animatingImgY = false
+						}, 200)
+					}
+				}
+				
 			}
 		},
 		computed: {
-			...mapState(['locomotive'])	// map l'état `count` du store à une propriété computed
+			...mapState(['locomotive']),// map l'état `count` du store à une propriété computed
+			backgroundStyle() {
+				if (!this.show) {
+					return {
+						backgroundImage: 'linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.7))'
+					};
+				}
+				return {};
+			}
+
 		},
 		watch: {
 			locomotive(locomotive) {
-				console.log(`locomotive`, locomotive);
 				if( this.locomotive_active == false )
 				{
 					this.locomotive_active = true
@@ -252,7 +282,7 @@
 		position: absolute;
 		width: 100%;
 		height: 180px;
-		background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.7));
+		/*background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.7));*/
 		padding: 35px;
 		transition: all 0.2s linear;
 	}
@@ -285,13 +315,14 @@
 		font-weight: 300;
 		font-style: normal;
 		font-size: 45px;
+		line-height: 130%;
 		position: fixed;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		width: 50%;
 		background-color: #971732;
-		padding-top: 150px;
+		padding-top: 120px;
 		padding-right: 250px;
 		text-align: right;
 	}
@@ -303,9 +334,21 @@
 		position: relative;
 	}
 
-	.menu-fullscreen a:after {		
+	.menu-fullscreen .bottom-links{
+		font-size: 18px;
+		text-align: right;
+		line-height: 140%;
+		text-decoration: underline;
+		margin-top: 25px;
+	}
+
+	.menu-fullscreen .bottom-links a {
+		text-decoration: underline;
+	}
+
+	.menu-fullscreen .ul-simply a:after {		
 		background: none repeat scroll 0 0 transparent;
-		bottom: 18px;
+		bottom: 10px;
 		content: "";
 		display: block;
 		height: 12px;
@@ -316,7 +359,7 @@
 		width: 0;
 	}
 
-	.menu-fullscreen a:hover:after { 
+	.menu-fullscreen .ul-simply a:hover:after { 
 		width: 106%; 
 		left: -3%; 
 	}
@@ -354,6 +397,20 @@
 	.topRightMenuOpen .resa {
 		font-size: 20px;
 		margin-right: 30px;
+		height: 24px;
+		top: -4px;
+		position: relative;
+	}
+
+	.topRightMenuOpen .icos{
+		margin-right: 20px;
+		text-wrap: nowrap;
+		transform: translateY(-2px);
+	}
+
+	.topRightMenuOpen .icos a {
+		display: inline-block;
+		margin-right: 15px;
 	}
 
 	.topRightMenuOpen .resa.hidden {
@@ -458,6 +515,14 @@
 		z-index: 5000;
 	}
 
+	.fullImgContainer img{
+		transition: all 0.7s linear;
+	}
+
+	.fullImgContainer img:hover {
+		cursor: url('https://dev.alpiccolomondo.be/assets/mouse-close.svg') 32 32, auto;
+	}
+
 	@media (max-width: 991px) {
 		.menu-fullscreen {
 			width: 100%;
@@ -469,9 +534,9 @@
 			display: none;
 		}
 
-		.menu-fullscreen .ul-simply.texts {
+		.menu-fullscreen .texts {
 			margin-top: 20px;
-			position: absolute;
+			width: 90vw;
 			right: 40px;
 		}
 	}
@@ -511,6 +576,7 @@
 		.topRightMenuOpen .resa {
 			font-size: 15px;
 			margin-right: 20px;
+			height: 17px
 		}
 
 		.menu-bt {

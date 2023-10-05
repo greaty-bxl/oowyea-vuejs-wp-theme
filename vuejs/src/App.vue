@@ -1,11 +1,11 @@
 <template>
-  <div id="app" data-scroll-container>
+  <div id="app">
     <Header/>
-    <div id="app-scroller" ref="appScroller">
+    <div id="app-scroller" ref="appScroller" data-scroll-container >
       <!-- <div id="pages"> -->
-        <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key">
+        <div id="fullpage" class="page sections" :class="classes[key]" v-for="(page, key) in pages" :key="key" :data-state="key" data-scroll-section >
           <div class="section" 
-            data-scroll-section
+            
             v-for="(section, key2) in page" 
             :key="section.post_name" 
             :id="section.post_name" 
@@ -26,11 +26,12 @@
                 class="section-wrap" ></component>
           </div>
         </div>
-      <!-- </div> -->
-      <!-- Footer -->
-      <Footer/>
-      <!-- <AudioPlayerBottom />
-      <Editor v-if="wp.user_can.edit_theme_options" /> -->
+        <!-- </div> -->
+        <!-- Footer -->
+        <Footer data-scroll-section/>
+        <!-- <AudioPlayerBottom />
+        <Editor v-if="wp.user_can.edit_theme_options" /> -->
+        <div style="height:10px" data-scroll-section></div>
     </div>
     <div id="page-loader">
       <v-icon name="spinner" class="fa-pulse"></v-icon>
@@ -125,6 +126,9 @@ export default {
 
     });
   },
+  beforeMount() {
+
+  },
   mounted (){
 
     console.log( 'App mounted', this.$store.state.wp );    
@@ -154,6 +158,10 @@ export default {
       }
       // Autres options si nécessaire
     }); 
+
+
+    //this.upLoco(this.$store.state.locomotive)
+    
 
 
     //this.$store.state.locomotive.destroy();
@@ -313,6 +321,14 @@ export default {
 
   },
   methods : {
+
+    upLoco(locomotive){
+      
+      setTimeout( () => {
+        locomotive.update()
+      }, 5000 )
+      
+    },
     template_mounted(){
 
       //let $ = this.$
@@ -464,6 +480,10 @@ html{
   /*height: 100vh;
   overflow-y: auto;*/
   z-index: 0;
+}
+
+[data-state="current"] {
+  min-height: 100vh;
 }
 
 #app-scroller {

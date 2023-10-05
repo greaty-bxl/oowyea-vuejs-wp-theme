@@ -9,15 +9,18 @@
 
 			<div style="min-height: 100vh;" class="row">
 				<div data-scroll data-scroll-speed="2" class="col-xl-6 col-lg-12 p-6" style="text-align: left;">
-					<h1 data-scroll class="title">
+					<h1 data-scroll data-scroll-offset="10%" class="title">
 						<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">UNE</div> 
 						<div data-scroll data-scroll-speed="0.3" data-scroll-direction="horizontal">HISTOIRE DE</div>
 						<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">FAMILLE</div>
 					</h1>
-					<div v-html="post.post_content"></div>	
-					<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-						<a class="section-link" target="_blank" href="assets/76707-Menu-BR-SC-12.pdf">>> DÉCOUVRIR LA CARTE</a>
+					<div data-scroll class="post_content" v-html="post.post_content"></div>	
+					<div data-scroll class="section-link-container">
+						<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
+							<a class="section-link" target="_blank" href="assets/76707-Menu-BR-SC-12.pdf">>> DÉCOUVRIR LA CARTE</a>
+						</div>	
 					</div>
+					
 
 				</div>
 				<div data-scroll data-scroll-speed="-1" style="min-height: 100vh;" class="col-xl-6 col-lg-12 home-imgs d-flex align-items-end justify-content-end">
@@ -62,57 +65,16 @@
 		mounted (){
 			this.$emit('template_mounted')
 
-			/*const scrollReveal = ScrollReveal({
-				container: '#app', // Utilise le div spécifique comme conteneur de défilement
-				reset: true,
-			});
-
-			var slideUp = {
-				delay: 0,
-				opacity: null,
-				afterReveal: (el) => {
-					el.classList.add('reveal');
-				},
-				afterReset: (el) => {
-					console.log('hello');
-					el.classList.remove('reveal');
-				}
-			};
-
-			scrollReveal.reveal('.img1', slideUp)
-			scrollReveal.reveal('.img2', slideUp)
-			scrollReveal.reveal('.img3', slideUp)*/
-
-			
-			// Declare Scene
-			//console.log(LocomotiveScroll);
-			/*this.scroll = new LocomotiveScroll({
-				smooth: true,
-				// Autres options si nécessaire
-			});*/
-
-			
-
-			console.log('locomotive', this.$store.state.locomotive);
 
 			let locomotive = this.$store.state.locomotive
-			/*locomotive.on('scroll', (instance) => {
-				const progress = instance.scroll.y / (instance.limit.y - window.innerHeight);
-				document.getElementById('element-to-animate').style.transform = `translateX(${(progress - 1) * 20}%)`;
-			})*/;
-
 			
-			//this.scroll.update()
-			
-			locomotive.on('scroll', this.checkElements);
+			locomotive.on('scroll', this.checkImages);
 
 
-		},
-		beforeDestroy() {
-			//this.scroll.destroy();
+
 		},
 		methods : {
-			checkElements() {
+			checkImages() {
 				const elements = document.querySelectorAll('.to-reveal');
 				
 				elements.forEach((element, index) => {
@@ -128,7 +90,6 @@
 				});
 			},
 			doSomething(element) {
-				console.log('Element is visible!', this.$(element).hasClass('to-reveal') ) ;
 
 				if( this.$(element).hasClass('to-reveal') )
 				{
@@ -138,15 +99,13 @@
 				}
 				// Ajoutez votre code ici
 
-			}
-
+			},
 		}
-
-
 	}
 </script>
 
 <style type="text/css">
+
 	.video-container{
 		height: 100vh;
 	}
@@ -161,21 +120,21 @@
 
 
 	.home-imgs #img1 {
-		bottom: 32vh;
+		top: 20vh;
 		right: 45%;
 		width: 39vh;
 		height: 0vh; 
 	}
 
 	.home-imgs #img2 {
-		bottom: calc(39vh + 2.5%);
+		top: calc(26vh + 2.5%);
 		right: -15%;
 		width: 57%;
 		height: 0vh; 	
 	}
 
 	.home-imgs #img3 {
-		bottom: 0vh;
+		top: 61vh;
 		right: 10%;
 		width: 57vh;
 		height: 0vh; 
@@ -195,14 +154,14 @@
 
 	@media (max-width: 991px) {
 		.home-imgs {
-			margin-top: -350px;
+			margin-top: -30vh;
 			transform: scale(0.9) translateY(7%) !important;
 		}
 	}
 
 	@media (max-width: 767px) {
 		.home-imgs {
-			margin-top: -450px;
+			margin-top: -60vh;
 			transform: scale(0.6) translateY(40%) translateX(5%) !important;
 		}
 

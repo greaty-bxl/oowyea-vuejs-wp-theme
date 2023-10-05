@@ -32,6 +32,16 @@ function get_menus()
 			));
 
 		$menus_array[$key] = wp_get_nav_menu_items( $menuLocations[$key] );
+
+		if (function_exists('get_fields') ) {
+			foreach ($menus_array[$key] as $key2 => $item) {
+			    $fields = get_fields($item->ID);
+			    if ($fields) {
+			    	$menus_array[$key][$key2]->acf = $fields;
+			    }
+			}
+		}
+
 	}
 	
 	$res  = array();
@@ -41,8 +51,11 @@ function get_menus()
 		$array = json_decode(json_encode($menus_array['header-menu']), true);	
 	}
 	
+	wp_vue_add_var('menus', $menus_array);
 
-	if( is_array( $array ) )
+	
+
+	/*if( is_array( $array ) )
 	{
 
 		foreach($array as $val){
@@ -64,16 +77,14 @@ function get_menus()
 		   }
 		}
 
-		/*echo "<pre>";
-		print_r( $res );
-		exit();*/
-
 		wp_vue_add_var('menus', $res);
 	}
 	else
 	{
 		wp_vue_add_var('menus', array());
-	}
+	}*/
+
+
 }
 
 add_action( 'vue_vars', 'get_menus' );

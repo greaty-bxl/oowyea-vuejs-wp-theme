@@ -5,7 +5,7 @@
 		
 		<div class="wp-content">
 
-			<VideoBackground src="assets/al_piccolo_mondo_540p.mp4" poster="assets/home-poster.png" class="video-container"/>
+			<VideoBackground src="/assets/al_piccolo_mondo_540p.mp4" poster="assets/home-poster.png" class="video-container"/>
 
 			<div style="min-height: 100vh;" class="row">
 				<div data-scroll data-scroll-speed="2" class="col-xl-6 col-lg-12 p-6" style="text-align: left;">

@@ -17,6 +17,7 @@
     "color-scheme": "^1.0.1",
     "core-js": "^3.8.2",
     "dexie": "^3.0.3",
+    "fabric": "^5.3.0",
     "gsap": "^3.12.2",
     "hotkeys-js": "^3.8.1",
     "interactjs": "^1.10.2",

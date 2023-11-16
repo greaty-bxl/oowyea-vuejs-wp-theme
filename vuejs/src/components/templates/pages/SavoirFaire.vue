@@ -67,8 +67,8 @@
 					<p class="follow-us">
 						Suivez-nous sur : 
 						
-						<a target="_blank" href="https://www.instagram.com/alpiccolomondobruxelles/?hl=fr"><img height="16" src="assets/instagram.svg"></a>
-						<a target="_blank" href="https://www.facebook.com/alpiccolomondorestaurant"><img height="16" src="assets/facebook-f.svg"></a>
+						<a target="_blank" href="https://www.instagram.com/alpiccolomondobruxelles/?hl=fr"><img height="16" src="/assets/instagram.svg"></a>
+						<a target="_blank" href="https://www.facebook.com/alpiccolomondorestaurant"><img height="16" src="/assets/facebook-f.svg"></a>
 						
 					</p>
 					<p>

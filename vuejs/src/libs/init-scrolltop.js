@@ -21,12 +21,16 @@ export default function(vue){
 			$('#app').css('pointer-events', 'none');
 			$('#app').data('scrolling', 'init-scrolltop')
 
-			var newScroll = section.offset().top + $('#app').scrollTop()
+			var newScroll = section.offset().top + $('#app-scroller').scrollTop()
 			if( newScroll < 0 ) newScroll == 0
 
-			$('#app').scrollTop( newScroll )
+			$('#app-scroller').scrollTop( 0 /*newScroll*/ )
+			//vue.$store.state.locomotive.scrollTo('top')
+			//vue.$store.state.locomotive.scroll.y = 0;
 
-			//console.log('newScroll', newScroll);
+			vue.$store.state.locomotive.setScroll(0, 0);
+			vue.$store.state.locomotive.update();
+			console.log('newScroll', vue.$store.state, newScroll);
 
 			
 

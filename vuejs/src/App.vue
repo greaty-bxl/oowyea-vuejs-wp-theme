@@ -59,7 +59,7 @@ import GpdrIntro from 'Molecules/gpdr-intro.vue'
 
 //Functions
 //import is from 'is_js'
-//import init_scrolltop from 'Libs/init-scrolltop.js'
+import init_scrolltop from 'Libs/init-scrolltop.js'
 //import scrollSection from 'Libs/scroll-sections.js'
 // import scrollSection from 'Libs/scroll-sections-v2.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
@@ -191,7 +191,7 @@ export default {
       
       //console.log('store', this.$store.state.wp)
       //init scroll if child
-      //init_scrolltop(this)
+      init_scrolltop(this)
 
       //auto scroll next section
       // scrollSection(this)
@@ -290,7 +290,7 @@ export default {
 
                 //$('#footer').show();
 
-                //init_scrolltop(this)
+                init_scrolltop(this)
                 
                 links_and_anchors(this)
 

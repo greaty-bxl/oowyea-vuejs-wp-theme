@@ -1,7 +1,7 @@
 <template>
 	<footer data-scroll >
 		<div style="min-height: 100vh;padding-top: 100px !important;" class="footer wp-content d-flex flex-column align-items-center justify-content-center p-6">			
-			<img class="logo-footer" width="300" src="assets/logo_bruxelles_al-piccolo-mondo.svg">
+			<img class="logo-footer" width="300" src="/assets/logo_bruxelles_al-piccolo-mondo.svg">
 			<hr/>
 			<div class="row " style="width:100%; text-align: left;">
 				<div class="col-xl-5 col-lg-12 no-padding">

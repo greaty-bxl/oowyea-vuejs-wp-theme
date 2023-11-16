@@ -32,15 +32,15 @@
 		
 
 		<div style="pointer-events:none" class="header-menu d-flex justify-content-between align-items-start" :class="{minify: minify && !show, open: show}" :style="backgroundStyle">
-			<img class="logo" src="assets/logo-al-piccolo-mondo.svg">
+			<img class="logo" src="/assets/logo-al-piccolo-mondo.svg">
 			
 			<div style="pointer-events:auto" class="d-flex align-items-center justify-content-end topRightMenuOpen">
 				
 				<div class="d-flex align-items-end justify-content-end">
 					<div class="resa" v-show="!show" :class="{hidden:show}">Réservation</div>
 					<div class="icos" v-show="show">
-						<a target="_blank" href="https://www.instagram.com/alpiccolomondobruxelles/?hl=fr"><img height="16" src="assets/instagram.svg"></a>
-						<a target="_blank" href="https://www.facebook.com/alpiccolomondorestaurant"><img height="16" src="assets/facebook-f.svg"></a>
+						<a target="_blank" href="https://www.instagram.com/alpiccolomondobruxelles/?hl=fr"><img height="16" src="/assets/instagram.svg"></a>
+						<a target="_blank" href="https://www.facebook.com/alpiccolomondorestaurant"><img height="16" src="/assets/facebook-f.svg"></a>
 					</div>
 					<div class="dropdown">
 						<span class="dropdown-toggle" id="dropdownLangsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

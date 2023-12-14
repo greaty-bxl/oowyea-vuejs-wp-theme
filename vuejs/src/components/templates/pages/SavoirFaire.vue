@@ -95,6 +95,7 @@
 </template>
 
 <script>
+
 	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 	import 'swiper/css/swiper.css';
 	import is from "is_js"
@@ -150,12 +151,14 @@
 		},
 		mounted (){
 			this.$emit('template_mounted')
+
+			console.log('slider', this.post);
 		},
 		methods : {
 			open_img (url) {
 				this.$store.state.fullImg = url
 			}
-		}
+		},
 	}
 </script>
 

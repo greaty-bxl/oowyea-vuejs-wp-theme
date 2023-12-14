@@ -36,30 +36,6 @@
 </script>
 
 <style type="text/css">
-	.img-bg-banquet-container{
-		height: 900px;
-	}
-
-	[data-scroll].img-bg-banquet {
-		background-size: cover;
-		background-position: center center;
-		height: 0;
-		transition: all 0.8s ease-in-out;
-	} 
-
-	[data-scroll].img-bg-banquet.is-inview {
-		height: 900px;
-	}
-
-	@media (max-width: 991px) {
-
-		.img-bg-banquet-container{
-			height: 50vh;
-		}
-
-		[data-scroll].img-bg-banquet.is-inview {
-			height: 50vh;
-		}
-	}
+	
 
 </style>

@@ -158,8 +158,8 @@
 					this.menuMove[index].skewX = args.movementX*/
 					
 
-					this.$set(this.menuMove, index, {
-						...this.menuMove[index],
+					this.$set(this.wp.menus['header-menu'], index, {
+						...this.wp.menus['header-menu'][index],
 						x: (args.layerX * 1.5) + 'px',
 						y: ((args.layerY - 30) * 3) + 'px',
 						skewX: args.movementX,
@@ -175,8 +175,8 @@
 				this.timer_skewX[index] = setTimeout( () => { 
 					/*this.menuMove[index].skewX = 0	*/
 					
-					this.$set(this.menuMove, index, {
-						...this.menuMove[index],
+					this.$set(this.wp.menus['header-menu'], index, {
+						...this.wp.menus['header-menu'][index],
 						skewX: 0,
 					});
 
@@ -184,11 +184,15 @@
 				
 			},
 			overMenu ( args ) {
+
+				
+
 				let index = args.target.dataset.index
+				console.log( 'header menu overMenu', index, this.wp.menus['header-menu'] );
 
 				clearTimeout( this.timer_out[index] )
-				this.$set(this.menuMove, index, {
-					...this.menuMove[index],
+				this.$set(this.wp.menus['header-menu'], index, {
+					...this.wp.menus['header-menu'][index],
 					'margin-left': '200px',
 					width: 400,
 					opacity: 1,
@@ -204,8 +208,8 @@
 					/*this.menuMove[index].width = 0
 					this.menuMove[index].opacity = 0*/	
 					
-					this.$set(this.menuMove, index, {
-						...this.menuMove[index],
+					this.$set(this.wp.menus['header-menu'], index, {
+						...this.wp.menus['header-menu'][index],
 						'margin-left': '0px',
 						width: 0,
 						opacity: 0,
@@ -240,7 +244,7 @@
 		computed: {
 			...mapState(['locomotive']),// map l'état `count` du store à une propriété computed
 			backgroundStyle() {
-				if (!this.show) {
+				if (!this.show && this.$store.state.menu_degrade) {
 					return {
 						backgroundImage: 'linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.7))'
 					};

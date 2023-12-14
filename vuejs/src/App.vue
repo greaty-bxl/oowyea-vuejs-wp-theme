@@ -33,11 +33,10 @@
         <Editor v-if="wp.user_can.edit_theme_options" /> -->
         <div style="height:10px" data-scroll-section></div>
     </div>
-    <div id="page-loader">
-      <v-icon name="spinner" class="fa-pulse"></v-icon>
-    </div>
+    <Loader />
     <div class="owy-mailto-ico hide"><v-icon name="at" class="at"/></div>
     <GpdrIntro />
+    <ReservationPop />
   </div>
 </template>
 
@@ -51,8 +50,10 @@ import Header from 'Organisms/simple-header.vue'
 
 //Footer
 import Footer from 'Organisms/footer.vue'
+import Loader from 'Organisms/Loader.vue'
 
 import GpdrIntro from 'Molecules/gpdr-intro.vue'
+import ReservationPop from 'Organisms/ReservationPop.vue'
 
 //import AudioPlayerBottom from 'Organisms/audio-player-bottom.vue'
 //import Editor from 'Organisms/editor.vue'
@@ -110,7 +111,9 @@ export default {
   components: {
     Header,
     Footer,
-    GpdrIntro
+    Loader,
+    GpdrIntro,
+    ReservationPop
     //AudioPlayerBottom,
     //Editor
   },
@@ -538,7 +541,7 @@ html{
   height: 100vh;
   width: 100%;
   top: 0;
-  background: rgba(0,0,0,0.5);
+  /*background: rgba(0,0,0,0.5);*/
   display: none;
   align-items: center;
   justify-content: center;

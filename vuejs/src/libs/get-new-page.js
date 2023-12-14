@@ -7,6 +7,8 @@ function get_new_page(vue, href, callback) {
 	var old_url = new URL(window.location)
 	var url
 
+	vue.$store.state.menu_degrade = true
+
 	function insertParam(href, key, value) {
 		url = new URL(href);
 		var search_params = url.searchParams;
@@ -25,9 +27,101 @@ function get_new_page(vue, href, callback) {
 	}
 
 	//insertParam( href, 'add_to_json', 1 );
-	timer = setTimeout( ()=>{
-		$('#page-loader').css('display', 'flex');	
-	}, 500 )
+	$('#page-loader').css('display', 'flex');	
+	timer = setTimeout( ()=>{		
+		console.log('canvas', vue.$store.state.loader);
+		let w = window.innerWidth
+		let h = window.innerHeight
+		let fabric = vue.$store.state.loader.fabric
+		let canvas = vue.$store.state.loader.canvas
+		let group = vue.$store.state.loader.group
+		let path = vue.$store.state.loader.path
+
+		$('#logo-loader img').addClass('hello')
+		//entrée
+		fabric.util.animate({
+				startValue: -(h),
+				endValue: h / 4,
+				duration: h * 0.9,
+				easing: fabric.util.ease.easeInQuad,
+				onChange: function(value) {			
+					group.set('top', group.height / 2 - value);
+					canvas.renderAll();
+				},
+				onComplete: function() {
+					console.log('animation complete');
+
+					//sortie inverser sens de la courbe
+					group.set({
+						angle: 180,
+						originX: 'center',
+						originY: 'center',
+					}).setCoords();
+
+					group.left = w / 2;
+					group.top = group.height / 2 ;
+
+					group.setCoords();
+
+					setTimeout( () => {
+						
+						$('#logo-loader img').removeClass('hello')
+
+						fabric.util.animate({
+								startValue: 0,
+								endValue: group.height,
+								duration: h * 0.9,
+								easing: fabric.util.ease.easeInQuad,
+								onChange: function(value) {			
+									group.set('top', group.height / 2 - value);
+									canvas.renderAll();
+								},
+								onComplete: function() {
+									console.log('animation complete');
+								}
+							});
+						fabric.util.animate({
+							startValue: h / 4,
+							endValue: 0,
+							duration: h * 0.9,
+							easing: fabric.util.ease.easeInQuad,
+							onChange: function(value) {			
+								path.set('path', [['M', 0, value], ['Q', w / 2, (value) * -1, w, value], ['L', w, h + h / 4], ['Q', w / 2, h + h / 4, 0, h + h / 4], ['Z']]);
+							},
+							onComplete: function() {
+								console.log('animation complete');
+								group.set({
+									angle: 0,
+									originX: 'center',
+									originY: 'center',
+								}).setCoords();
+
+								group.left = w / 2;
+								group.top = h * 2 - ( h / 2 ) + 100;
+								$('#page-loader').css('display', 'none');
+							}
+						});
+					}, 500)
+					//sortie
+					// Animer la courbe et déplacer le groupe
+					
+				}
+		});
+
+		fabric.util.animate({
+			startValue: h / 4,
+			endValue: 0,
+			duration: h * 0.9,
+			easing: fabric.util.ease.easeInQuad,
+			onChange: function(value) {			
+				path.set('path', [['M', 0, value], ['Q', w / 2, (value) * -1, w, value], ['L', w, h + h / 4], ['Q', w / 2, h + h / 4, 0, h + h / 4], ['Z']]);
+			},
+			onComplete: function() {
+				console.log('animation complete');
+			}
+		});
+
+	}, 10 )
 
 
 
@@ -84,7 +178,7 @@ function get_new_page(vue, href, callback) {
 			callback( json_data )
 		}
 
-		$('#page-loader').css('display', 'none');
+		//$('#page-loader').css('display', 'none');
 		
 	}).fail(function() {
 

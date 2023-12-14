@@ -19,6 +19,13 @@ export default new Vuex.Store({
 		filters: {},
 		locomotive: null,
 		fullImg: null,
+		loader: {
+			fabric: null,
+			canvas: null,
+			group: null,
+			path: null,
+		},
+		menu_degrade: true
 	},
 	mutations: {
 		/* WP */

@@ -1,6 +1,6 @@
 <?php
 
-include GREATY_TEMPLATE_PATH.'/libs/acf-fields/theme-settings.php';
+//include GREATY_TEMPLATE_PATH.'/libs/acf-fields/theme-settings.php';
 
 acf_add_options_page(array(
         'page_title'    => 'Theme General Settings',

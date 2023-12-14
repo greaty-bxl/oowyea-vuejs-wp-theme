@@ -1,5 +1,5 @@
 <template>
-	<div class="section-wrap">
+	<div class="section-wrap home-section">
 		<div class="clear"></div>
 
 		
@@ -75,7 +75,7 @@
 		},
 		methods : {
 			checkImages() {
-				const elements = document.querySelectorAll('.to-reveal');
+				const elements = document.querySelectorAll('.home-section .to-reveal');
 				
 				elements.forEach((element, index) => {
 					const rect = element.getBoundingClientRect();
@@ -106,77 +106,5 @@
 
 <style type="text/css">
 
-	.video-container{
-		height: 100vh;
-	}
-
-	.home-imgs > div {
-		position: absolute;
-		overflow: hidden;
-		background-size: cover;
-		background-position: center center;
-		transition: all 0.7s ease-out;
-	}
-
-
-	.home-imgs #img1 {
-		top: 20vh;
-		right: 45%;
-		width: 39vh;
-		height: 0vh; 
-	}
-
-	.home-imgs #img2 {
-		top: calc(26vh + 2.5%);
-		right: -15%;
-		width: 57%;
-		height: 0vh; 	
-	}
-
-	.home-imgs #img3 {
-		top: 61vh;
-		right: 10%;
-		width: 57vh;
-		height: 0vh; 
-	}
-
-	.home-imgs #img1.reveal {
-		height: 50vh;
-	}
-
-	.home-imgs #img2.reveal {
-		height: 29vh;
-	}
-
-	.home-imgs #img3.reveal {
-		height: 39vh 
-	}
-
-	@media (max-width: 991px) {
-		.home-imgs {
-			margin-top: -30vh;
-			transform: scale(0.9) translateY(7%) !important;
-		}
-	}
-
-	@media (max-width: 767px) {
-		.home-imgs {
-			margin-top: -60vh;
-			transform: scale(0.6) translateY(40%) translateX(5%) !important;
-		}
-
-		.home-imgs #img3 {
-			right: 0%;
-		}
-
-		.home-imgs #img2 {
-			width: 75%;
-			right: -35%;
-		}
-	}
-
-	#element-to-animate {
-		position: relative;
-		transform: translateX(0);
-	}
+	
 </style>

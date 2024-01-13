@@ -1,18 +1,21 @@
 <template>
-	<div id="gpdr-intro" v-if="!wp.gpdr_accepted && !is_privacy_policy_page">
+	<div id="gpdr-intro" class="wp-content" v-if="!wp.gpdr_accepted && !is_privacy_policy_page">
       <div id="gpdr-message">
         <div>
-			<h3><strong v-html="pll__('POLITIQUE DE COOKIE')" ></strong></h3>
+			<h3 v-html="pll__('Des cookies pour optimiser votre expérience')"></h3>
 			<div v-html="$store.state.wp.sidebars['gpdr-intro']"></div>
 
-			<p class="google-analytic" v-html="pll__('Google Analytic')"></p>
-			<div class="div-button" >
+			<p class="google-analytic" v-html="pll__('Pour améliorer votre expérience sur notre site internet et vous montrer des infos plus pertinentes, nous utilisons, entre autres, des cookies.')"></p>
 
-			<button v-on:click="accept({gpdr: true, google: true})" class="button-santos-vert google-accepter" v-html="pll__('Accepter')">
-			</button>
+			<p class="google-analytic" v-html="pll__('Pour en savoir plus, consultez notre Politique de confidentialité et notre politique de cookies.')"></p>
 
-			<button v-on:click="accept({gpdr: true, google: false})" class="button-santos-vert  google-refus" v-html="pll__('Refuser')">
-			</button>
+			<div class="d-flex justify-content-end align-items-end mt-4" >
+
+				<a v-on:click="accept({gpdr: true, google: true})" class="button" v-html="pll__('Tout accepter')">
+				</a>
+
+			<!-- <button v-on:click="accept({gpdr: true, google: false})" class="button-santos-vert  google-refus" v-html="pll__('Refuser')"> 
+			</button>-->
 
 			</div>
 
@@ -128,7 +131,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 #gpdr-intro {
 	position: fixed;
 	z-index: 9000;
@@ -142,8 +145,8 @@
 }
 
 #gpdr-message {
-	width: 400px;
-	height: 700px;
+	width: 500px;
+	height: auto;
 	max-width: 90%;
 	max-height: 90vh;
 	background: #FFFFFF;
@@ -153,7 +156,8 @@
 	justify-content: center;
 	padding: 40px;
 	overflow-y: auto;
-
+	border-radius: 16px;
+	text-align: left;
 }
 
 .widget_text * {
@@ -169,13 +173,14 @@
 .widget_text p{
 
 	font-size: 16px;
-	line-height: 24px;
+
 	
 }
 
 h3{
 
-	font-size: 22px;
+	font-size: 28px;
+	font-weight: normal;
 }
 
 
@@ -212,22 +217,12 @@ h3{
 
 	margin-top: 30px;
 	margin-bottom: 15px;
-	font-weight: 600;
-	font-size: 16px;
+	font-size: 22px;
+	line-height: 150%;
 
 }
 
-.div-button {
-    display: flex;
-    flex-direction: column;
-}
 
-.div-button button{
-
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
-}
 
 @media screen and (max-width: 600px){
 

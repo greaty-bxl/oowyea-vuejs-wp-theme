@@ -6,6 +6,7 @@
 </template>
 <script>
 	import { fabric } from "fabric"
+	/*import get_new_page from 'Libs/get-new-page.js'*/
 
 	export default {
 		data(){
@@ -21,6 +22,8 @@
 				this.$store.state.loader.canvas.dispose()
 				this.create_canvas()
 			})
+
+			/*get_new_page(this);*/
 		},
 		methods : {
 			create_canvas() {
@@ -74,7 +77,7 @@
 				}).setCoords();
 
 				group.left = w / 2;
-				group.top = h * 2 - ( h / 2 ) + 100;
+				group.top = h * 2 - ( h / 2 );
 
 				this.$store.state.loader.group = group
 				this.$store.state.loader.path = path
@@ -85,13 +88,39 @@
 	}
 </script>
 <style >
+	#page-loader{
+		position: fixed;
+		height: 100vh;
+		width: 100%;
+		top: 0px;
+		/*background: rgba(0,0,0,0.5);*/
+		display: none;
+		align-items: center;
+		justify-content: center;
+		z-index: 8000;
+	}
+
+	#page-loader .fa-icon{
+		height: 5vh;
+		width: 5vh;
+		color: rgba(255,255,255,0.5);
+	}
+
 	#logo-loader {
-		position: absolute;
+		position: fixed;
 		top: calc(50vh - 150px);
 		font-size: 150px;
 		line-height: 150px;
 		color: white;
 	}
+
+	.canvas-container {
+		/*display: none;*/
+	}
+	#canvas-loader {
+		position: fixed !important;
+	}
+
 	#logo-loader img {
 		opacity: 0;
 		transition: all 0.5s 0.5s;
@@ -102,4 +131,6 @@
 		opacity: 1;
 		transform: translateY(00px);
 	}
+
+	
 </style>

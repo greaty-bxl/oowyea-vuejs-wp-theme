@@ -25,7 +25,11 @@ export default new Vuex.Store({
 			group: null,
 			path: null,
 		},
-		menu_degrade: true
+		header: true,
+		footer: true,
+		menu_degrade: true,
+		reservation: false,
+		res_type: 'restaurant',
 	},
 	mutations: {
 		/* WP */

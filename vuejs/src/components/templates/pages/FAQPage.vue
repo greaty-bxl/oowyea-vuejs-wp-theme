@@ -10,7 +10,6 @@
 					<div data-scroll data-scroll-speed="0.3" data-scroll-direction="horizontal">FRÉQUEMMENT</div>
 					<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">POSÉES</div>
 				</h1>
-					
 			</div>
 			<div data-scroll class="post_content col-xl-8 col-lg-12 px-6" style="text-align: left;" v-html="post.post_content"></div>		
 		</div>

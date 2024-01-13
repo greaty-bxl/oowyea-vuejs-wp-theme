@@ -124,7 +124,7 @@ function get_vue_template($post = false)
 	{
 		return;
 	}
-	
+
 
 	if( empty($page_template) )
 	{

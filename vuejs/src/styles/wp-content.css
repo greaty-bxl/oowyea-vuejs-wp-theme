@@ -5,7 +5,9 @@ body {
 }
 
 
-
+.row>* {
+	margin-top: auto !important;
+}
 
 h3{
 
@@ -15,7 +17,7 @@ h3{
 .wp-content h1{
 	font-family: "nimbus-roman", serif;
 	color: #B49E5C !important;
-	font-size: 75px !important;
+	font-size: 70px !important;
 	margin-bottom: 45px;
 	line-height: 100%;
 	opacity: 0;
@@ -82,7 +84,7 @@ h3{
 	margin-top: 30px;
 	font-family: "nimbus-roman", serif;
 	color: #B49E5C !important;
-	font-size: 30px !important;
+	font-size: 24px !important;
 	text-decoration: none;
 	display: inline-block;
 	position: relative;
@@ -133,7 +135,7 @@ h3{
 
 .wp-content h3{
 
-	color: #888320 !important;
+	
 
 }
 
@@ -141,6 +143,16 @@ h3{
 	font-weight: 300;
 	font-size: 20px;
 	line-height: 200%;
+}
+
+.button {
+	text-decoration: none;
+	background-color: #B49E5C;
+	border: none;
+	border-radius: 5px;
+	color: #FFFFFFCC;
+	padding: 5px 15px;
+	cursor: pointer;
 }
 
 .clickable {
@@ -153,13 +165,13 @@ h3{
 	padding: 0;
 }
 
-.row {
+/*.row {
 	margin: 0 !important;
-}
+}*/
 
-.row>*{
+/*.row>*{
 	padding: 0 !important;
-}
+}*/
 
 .p-6 {
 	padding: 150px 120px !important;
@@ -204,6 +216,10 @@ h3{
 	height: 900px;
 }
 
+.min-vh-100{
+	min-height: 100vh;
+}
+
 @media (max-width: 991px) {
 
 	.img-bg-banquet-container{
@@ -213,12 +229,18 @@ h3{
 	[data-scroll].img-bg-banquet.is-inview {
 		height: 50vh;
 	}
+
+	.min-vh-100-mobile{
+		min-height: auto !important;
+	}
 }
 
 .video-container{
 	height: 100vh;
 }
-
+.home-imgs {
+	min-height: 100vh;
+}
 .home-imgs > div {
 	position: absolute;
 	overflow: hidden;
@@ -272,11 +294,16 @@ h3{
 
 @media (max-width: 991px) {
 	.wp-content h1 {
-		font-size: 70px !important;
+		font-size: 55px !important;
 	}
 
 	.p-6 {
 		padding: 100px 70px !important;
+	}
+
+	.px-6 {
+		padding-left: 70px !important;
+		padding-right: 70px !important;
 	}
 
 	.home-imgs {
@@ -288,7 +315,7 @@ h3{
 
 @media (max-width: 767px) {
 	.wp-content h1 {
-		font-size: 50px !important;
+		font-size: 40px !important;
 	}
 
 	.wp-content p{
@@ -303,9 +330,15 @@ h3{
 		padding: 70px 35px !important;
 	}
 
+	.px-6 {
+		padding-left: 35px !important;
+		padding-right: 35px !important;
+	}
+
 	.home-imgs {
+		min-height: 70vh !important;
 		margin-top: -60vh;
-		transform: scale(0.6) translateY(40%) translateX(5%) !important;
+		transform: scale(0.6) translateY(-30vh) translateX(5%) !important;
 	}
 
 	.home-imgs #img3 {

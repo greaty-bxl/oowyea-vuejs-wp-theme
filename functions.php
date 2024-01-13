@@ -59,6 +59,9 @@ include GREATY_TEMPLATE_PATH.'/libs/greaty/greaty.php';
 // Last call
 include GREATY_TEMPLATE_PATH.'/libs/return_json.php';
 
+// Alpiccolo
+include GREATY_TEMPLATE_PATH.'/libs/alpiccolo/index.php';
+
 
 //auto include php vue
 /*function auto_include_php_scripts($dir, &$results = array()) {
@@ -226,8 +229,8 @@ function greatytheme_header_scripts()
         else
         {
             // vue dist
-            wp_enqueue_script('vue-app', get_template_directory_uri() .'/vuejs/dist/app.js', array('greatythemescripts'), '1.0', true );
-            wp_enqueue_script('vue-chunk-vendors', get_template_directory_uri() . '/vuejs/dist/chunk-vendors.js', array('vue-app'), '1.0', true);
+            wp_enqueue_script('vue-app', get_template_directory_uri() .'/vuejs/dist/app.js', array('greatythemescripts'), '2.0', true );
+            wp_enqueue_script('vue-chunk-vendors', get_template_directory_uri() . '/vuejs/dist/chunk-vendors.js', array('vue-app'), '2.0', true);
         } 
     }
 }
@@ -244,10 +247,10 @@ function greatytheme_styles()
     // vue dist
     if( !is_vuejs_dev )
     {
-        wp_register_style('vue-chunk-vendors-css', get_template_directory_uri() . '/vuejs/dist/chunk-vendors.css', array(), '1.0', 'all');
+        wp_register_style('vue-chunk-vendors-css', get_template_directory_uri() . '/vuejs/dist/chunk-vendors.css', array(), '2.0', 'all');
         wp_enqueue_style('vue-chunk-vendors-css'); // Enqueue it!
 
-        wp_register_style('vue-css', get_template_directory_uri() . '/vuejs/dist/app.css', array(), '1.0', 'all');
+        wp_register_style('vue-css', get_template_directory_uri() . '/vuejs/dist/app.css', array(), '2.0', 'all');
         wp_enqueue_style('vue-css'); // Enqueue it!
     }
 }
@@ -257,7 +260,8 @@ function register_html5_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'greatytheme'), // Main Navigation
-        'burger-menu' => __('Burger Menu', 'greatytheme'), // Sidebar Navigation
+        'footer-legal-menu' => __('Footer Legal Menu', 'greatytheme'), // Footer Navigation
+        //'burger-menu' => __('Burger Menu', 'greatytheme'), // Sidebar Navigation
     ));
 }
 
@@ -562,3 +566,35 @@ remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altoget
 // function wpse303391_change_graphic_editor ($array) {
 //     return array( 'WP_Image_Editor_GD', 'WP_Image_Editor_Imagick' );
 //     }
+
+acf_add_options_page(array(
+    'menu_slug' => 'cartes',
+    'page_title' => 'Cartes',
+    'active' => true,
+    'menu_title' => 'Cartes',
+    'capability' => 'edit_posts',
+    'parent_slug' => '',
+    'position' => 0,
+    'icon_url' => '',
+    'redirect' => true,
+    'post_id' => 'options',
+    'autoload' => false,
+    'update_button' => 'Mise à jour',
+    'updated_message' => 'Options mises à jour',
+));
+
+acf_add_options_page(array(
+    'menu_slug' => 'footer',
+    'page_title' => 'Footer',
+    'active' => true,
+    'menu_title' => 'Footer',
+    'capability' => 'edit_posts',
+    'parent_slug' => '',
+    'position' => '',
+    'icon_url' => '',
+    'redirect' => true,
+    'post_id' => 'options',
+    'autoload' => false,
+    'update_button' => 'Mise à jour',
+    'updated_message' => 'Options mises à jour',
+));

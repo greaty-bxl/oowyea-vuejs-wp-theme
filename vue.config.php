@@ -47,6 +47,8 @@ function is_hierarchical_template($name)
     function get_vue_templates($dir, $lvl = -1) {
         global $vue_hierarchy, $vue_templates;
 
+        
+
         $files = scandir($dir);
 
         $lvl ++;

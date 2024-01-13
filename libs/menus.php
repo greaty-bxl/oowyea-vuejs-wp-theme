@@ -33,7 +33,7 @@ function get_menus()
 
 		$menus_array[$key] = wp_get_nav_menu_items( $menuLocations[$key] );
 
-		if (function_exists('get_fields') ) {
+		if (function_exists('get_fields') && !empty($menus_array[$key]) ) {
 			foreach ($menus_array[$key] as $key2 => $item) {
 			    $fields = get_fields($item->ID);
 			    if ($fields) {

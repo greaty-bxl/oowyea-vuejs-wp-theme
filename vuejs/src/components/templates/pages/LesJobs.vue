@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="img-bg-banquet-container col-xl-6 col-lg-12">
-					<div data-scroll data-scroll-offset="50%" class="img-bg-banquet" :style="{backgroundImage: 'url(assets/al-Piccolo-Mondo-Bruxelles_banquet.jpg)'}">
+					<div data-scroll data-scroll-offset="50%" class="img-bg-banquet" :style="{backgroundImage: 'url('+post.acf_fields.image_droite+')'}">
 					</div>
 				</div>			
 			</div>

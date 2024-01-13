@@ -1,10 +1,10 @@
 <template>
-	<div id="header">
+	<div id="header" v-if="$store.state.header">
 		<transition name="slide-right">
 			<div v-show="show" class="menu-fullscreen">
 				<ul class="ul-simply texts">
 					<li v-for="(item, key) in wp.menus['header-menu']" :key="key">
-						<a :href="item.url"	:data-index="key" @click="toggleDiv" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu" v-html="item.title"></a>
+						<a :href="item.url" :target="item.target" :data-index="key" @click="toggleDiv" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu" v-html="item.title"></a>
 					</li>
 				</ul>
 				<div class="bottom-links texts">
@@ -32,12 +32,12 @@
 		
 
 		<div style="pointer-events:none" class="header-menu d-flex justify-content-between align-items-start" :class="{minify: minify && !show, open: show}" :style="backgroundStyle">
-			<img class="logo" src="/assets/logo-al-piccolo-mondo.svg">
+			<a style="pointer-events: auto; outline: none;text-align: left;" :href="this.wp.options.siteurl"><img class="logo" src="/assets/logo-al-piccolo-mondo.svg"></a>
 			
 			<div style="pointer-events:auto" class="d-flex align-items-center justify-content-end topRightMenuOpen">
 				
 				<div class="d-flex align-items-end justify-content-end">
-					<div class="resa" v-show="!show" :class="{hidden:show}">Réservation</div>
+					<div class="resa" v-show="!show" :class="{hidden:show}"><a :href="wp.menus['header-menu'][1].url">Réservation</a></div>
 					<div class="icos" v-show="show">
 						<a target="_blank" href="https://www.instagram.com/alpiccolomondobruxelles/?hl=fr"><img height="16" src="/assets/instagram.svg"></a>
 						<a target="_blank" href="https://www.facebook.com/alpiccolomondorestaurant"><img height="16" src="/assets/facebook-f.svg"></a>
@@ -126,7 +126,7 @@
 				] 
 		},
 		mounted () {
-			console.log( 'header menu', this.wp.menus['header-menu'] );
+			console.log( 'header menu', this.wp.options.siteurl);
 
 		},
 		methods: {
@@ -326,8 +326,9 @@
 		bottom: 0;
 		width: 50%;
 		background-color: #971732;
-		padding-top: 120px;
+		padding-top: 100px;
 		padding-right: 250px;
+		padding-bottom: 100px;
 		text-align: right;
 	}
 
@@ -404,6 +405,11 @@
 		height: 24px;
 		top: -4px;
 		position: relative;
+	}
+
+	.topRightMenuOpen .resa a {
+		color: inherit !important;
+		text-decoration: none !important;
 	}
 
 	.topRightMenuOpen .icos{
@@ -566,7 +572,7 @@
 		}
 
 		.header-menu .logo {
-			width: 35%;
+			width: 70%;
 		}
 
 		.topRightMenuOpen {

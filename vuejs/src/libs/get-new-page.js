@@ -7,8 +7,6 @@ function get_new_page(vue, href, callback) {
 	var old_url = new URL(window.location)
 	var url
 
-	vue.$store.state.menu_degrade = true
-
 	function insertParam(href, key, value) {
 		url = new URL(href);
 		var search_params = url.searchParams;
@@ -45,7 +43,7 @@ function get_new_page(vue, href, callback) {
 				duration: h * 0.9,
 				easing: fabric.util.ease.easeInQuad,
 				onChange: function(value) {			
-					group.set('top', group.height / 2 - value);
+					group.set('top', (group.height / 2 - value));
 					canvas.renderAll();
 				},
 				onComplete: function() {
@@ -62,6 +60,10 @@ function get_new_page(vue, href, callback) {
 					group.top = group.height / 2 ;
 
 					group.setCoords();
+
+					vue.$store.state.menu_degrade = true
+					vue.$store.state.header = true
+					vue.$store.state.footer = true
 
 					setTimeout( () => {
 						

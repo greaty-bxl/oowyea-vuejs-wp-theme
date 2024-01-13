@@ -9,53 +9,7 @@
 				<div data-scroll data-scroll-speed="1"></div>
 			</h1>
 			
-			<swiper class="swiper-wrap" :options="swiper" >
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="-1" data-img="assets/savoir-faire/1.jpg">
-					<div data-scroll data-scroll-offset="15%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/1.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="0.5" data-img="assets/savoir-faire/2.jpg">
-					<div data-scroll data-scroll-offset="30%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/2.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="-1.2" data-img="assets/savoir-faire/3.jpg">
-					<div data-scroll data-scroll-offset="5%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/3.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="1" data-img="assets/savoir-faire/4.jpg">
-					<div data-scroll data-scroll-offset="25%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/4.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="-0.7" data-img="assets/savoir-faire/5.jpg">
-					<div data-scroll data-scroll-offset="10%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/5.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="1.5" data-img="assets/savoir-faire/6.jpg">
-					<div data-scroll data-scroll-offset="25%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/6.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="-1" data-img="assets/savoir-faire/7.jpg">
-					<div data-scroll data-scroll-offset="15%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/7.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="0.5" data-img="assets/savoir-faire/8.jpg">
-					<div data-scroll data-scroll-offset="30%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/8.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="-1.2" data-img="assets/savoir-faire/9.jpg">
-					<div data-scroll data-scroll-offset="5%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/9.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="1" data-img="assets/savoir-faire/10.jpg">
-					<div data-scroll data-scroll-offset="25%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/10.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="-0.7" data-img="assets/savoir-faire/11.jpg">
-					<div data-scroll data-scroll-offset="10%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/11.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="1.5" data-img="assets/savoir-faire/12.jpg">
-					<div data-scroll data-scroll-offset="25%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/12.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="-1" data-img="assets/savoir-faire/13.jpg">
-					<div data-scroll data-scroll-offset="15%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/13.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="0.5" data-img="assets/savoir-faire/14.jpg">
-					<div data-scroll data-scroll-offset="30%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/14.png)'}">&nbsp;</div>
-				</swiper-slide>
-				<swiper-slide class="swiper-slide" data-scroll data-scroll-speed="-1.2" data-img="assets/savoir-faire/15.jpg">
-					<div data-scroll data-scroll-offset="5%" class="img-bg-100" :style="{backgroundImage: 'url(assets/savoir-faire/min/15.png)'}">&nbsp;</div>
-				</swiper-slide>
-			</swiper>
+			<Slider :post="post" />
 		</div>
 
 		<div class="row wp-content" >
@@ -95,66 +49,25 @@
 </template>
 
 <script>
-	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-	import 'swiper/css/swiper.css';
-	import is from "is_js"
+	import Slider from 'Organisms/slider.vue'
 
 	export default {
 		components: {
-			Swiper,
-			SwiperSlide,
+			Slider
 		},
 		props: {
 			'post' : Object
 		},
 		data() {
 			return {
-				swiper : {
-					preloadImages: true,
-					lazy: false,
-					loop: true,
-					
-					breakpoints: {
-						// when window width is >= 320px
-						1100: {
-						slidesPerView: 3.8,
-						spaceBetween: 60,
-						},
-
-						100: {
-						slidesPerView: 2.17,
-						spaceBetween: 30,
-						},
-
-						/*100: {
-						slidesPerView: 1.8,
-						spaceBetween: 20,
-						},*/
-					},
-
-					on: {
-						click: (swiper) => {
-							if( is.desktop() )
-							{
-								this.open_img( this.$(swiper.target).parent().data('img') )	
-							}							
-						},
-						afterInit: () => {
-							this.$store.state.locomotive.update()
-						}
-					}
-
-
-				}
+				
 			}
 		},
 		mounted (){
 			this.$emit('template_mounted')
 		},
 		methods : {
-			open_img (url) {
-				this.$store.state.fullImg = url
-			}
+
 		}
 	}
 </script>
@@ -179,56 +92,7 @@
 		background-color: #971732;
 	}
 
-	.swiper-wrap {
-		width: 105%;
-		margin-left: -5%;
-		padding: 100px 0;
-		margin-top: -100px;
-	}
-
-	.swiper-slide {
-		width: 100%;
-		padding-bottom: 25%; /* ceci crée le carré */
-		position: relative; /* nécessaire pour positionner le contenu du slide */
-		background-color: #510E1C;
-		background-size: cover;
-		background-position: center center;
-	}
-
-	.swiper-slide > * { /* tout élément enfant direct du slide */
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		/* Pour le centrer, par exemple: */
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.swiper-slide > *:hover {
-		cursor: url('http://dev.alpiccolomondo.be/assets/mouse-plus.svg') 30 30, auto;
-	}
-
 	
-
-	@media (max-width: 1099px) {
-		.swiper-wrap {
-			width: 160%;
-			margin-left: -60%;
-			padding: 100px 0;
-			margin-top: -100px;
-		}
-
-		.swiper-slide {
-			padding-bottom: 48%; /* ceci crée le carré */
-		}
-	}
-
-	@media (max-width: 399px) {
-
-	}
 </style>
 
 <style type="text/css">

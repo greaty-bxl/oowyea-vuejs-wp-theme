@@ -17,16 +17,16 @@
 					<div data-scroll class="post_content" v-html="post.post_content"></div>	
 					<div data-scroll class="section-link-container">
 						<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-							<a class="section-link" target="_blank" href="assets/76707-Menu-BR-SC-12.pdf">>> DÉCOUVRIR LA CARTE</a>
+							<a class="section-link" target="_blank" :href="this.wp.acf.options.carte_restaurant">>> DÉCOUVRIR LA CARTE</a>
 						</div>	
 					</div>
 					
 
 				</div>
-				<div data-scroll data-scroll-speed="-1" style="min-height: 100vh;" class="col-xl-6 col-lg-12 home-imgs d-flex align-items-end justify-content-end">
-					<div id="img1" class="to-reveal" :class="{reveal: img1}" style="background-image: url('assets/Leo-et-Aldo-Spagnuolo-les-fondateurs-du-al-piccolo-mondo-en-1979.png')"></div>
-					<div id="img2" class="to-reveal" :class="{reveal: img2}" style="background-image: url('assets/Terrasse-2023.png')"></div>
-					<div id="img3" class="to-reveal" :class="{reveal: img3}" style="background-image: url('assets/03-Al-Piccolo-Mondo-11-21.png')"></div>
+				<div data-scroll data-scroll-speed="-1" class="col-xl-6 col-lg-12 home-imgs d-flex align-items-end justify-content-end">
+					<div id="img1" class="to-reveal" :class="{reveal: img1}" :style="{backgroundImage: 'url('+post.acf_fields.image_1+')'}"></div>
+					<div id="img2" class="to-reveal" :class="{reveal: img2}" :style="{backgroundImage: 'url('+post.acf_fields.image_2+')'}"></div>
+					<div id="img3" class="to-reveal" :class="{reveal: img3}" :style="{backgroundImage: 'url('+post.acf_fields.image_3+')'}"></div>
 				</div>
 			</div>
 			
@@ -70,7 +70,7 @@
 			
 			locomotive.on('scroll', this.checkImages);
 
-
+			console.log('home', this.post);
 
 		},
 		methods : {

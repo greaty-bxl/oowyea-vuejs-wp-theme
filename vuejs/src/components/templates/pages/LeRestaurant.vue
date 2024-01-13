@@ -12,11 +12,11 @@
 				<div data-scroll class="post_content" v-html="post.post_content"></div>
 				<div data-scroll class="section-link-container">
 					<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-						<a class="section-link" href="#">>> DÉCOUVRIR LA CARTE</a>
+						<a class="section-link" :href="wp.acf.options.carte_restaurant" target="_blank">>> DÉCOUVRIR LA CARTE</a>
 					</div>
 				</div>
 			</div>
-			<div class="img-bg-banquet-container col-xl-6 col-lg-12">
+			<div class="img-bg-banquet-container col-xl-6 col-lg-12 no-padding">
 				<div data-scroll data-scroll-offset="50%" class="img-bg-banquet" :style="{backgroundImage: 'url('+post.acf_fields.image_droite+')'}">
 				</div>
 			</div>			

@@ -66,7 +66,7 @@ import init_scrolltop from 'Libs/init-scrolltop.js'
 import links_and_anchors from 'Libs/links-and-anchors.js'
 import get_new_page from 'Libs/get-new-page.js'
 import animate_next_page from 'Libs/animate-next-page.js'
-import smart_fonts from 'Libs/smart-fonts.js'
+//import smart_fonts from 'Libs/smart-fonts.js'
 //import on_screen from 'Libs/on-screen.js'
 import woocommerceAjax from 'Libs/woocommerce-ajax.js'
 import acf_ajax from 'Libs/acf-front-ajax.js'
@@ -351,7 +351,7 @@ export default {
         }, section)
       }*/
 
-      smart_fonts()
+      //smart_fonts()
     },
 
     google_condition(){
@@ -534,24 +534,6 @@ html{
 
 .page[data-state="next"]{
   z-index: 1000;
-}
-
-#page-loader{
-  position: fixed;
-  height: 100vh;
-  width: 100%;
-  top: 0;
-  /*background: rgba(0,0,0,0.5);*/
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 8000;
-}
-
-#page-loader .fa-icon{
-  height: 5vh;
-  width: 5vh;
-  color: rgba(255,255,255,0.5);
 }
 
 .hide{

@@ -3,7 +3,7 @@
 		<transition name="slide-right">
 			<div v-show="show" class="menu-fullscreen">
 				<ul class="ul-simply texts">
-					<li v-for="(item, key) in wp.menus['header-menu']" :key="key">
+					<li v-for="(item, key) in menus_header" :key="key">
 						<a :href="item.url" :target="item.target" :data-index="key" @click="toggleDiv" @mousemove="moveImg" @mouseover="overMenu" @mouseleave="outMenu" v-html="item.title"></a>
 					</li>
 				</ul>
@@ -43,11 +43,10 @@
 						<a target="_blank" href="https://www.facebook.com/alpiccolomondorestaurant"><img height="16" src="/assets/facebook-f.svg"></a>
 					</div>
 					<div class="dropdown">
-						<span class="dropdown-toggle" id="dropdownLangsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							FR
+						<span class="dropdown-toggle" id="dropdownLangsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-html="current_language">							
 						</span>
 						<div class="dropdown-menu" aria-labelledby="dropdownLangsButton">
-							<a class="dropdown-item" href="#">EN</a>
+							<a v-for="item in languages" :key="item.id" class="dropdown-item" :href="item.url" v-html="item.slug"></a>
 						</div>
 					</div>
 				</div>
@@ -126,7 +125,7 @@
 				] 
 		},
 		mounted () {
-			console.log( 'header menu', this.wp.options.siteurl);
+			console.log( 'header menu', this.wp);
 
 		},
 		methods: {
@@ -158,8 +157,8 @@
 					this.menuMove[index].skewX = args.movementX*/
 					
 
-					this.$set(this.wp.menus['header-menu'], index, {
-						...this.wp.menus['header-menu'][index],
+					this.$set(this.menus_header, index, {
+						...this.menus_header[index],
 						x: (args.layerX * 1.5) + 'px',
 						y: ((args.layerY - 30) * 3) + 'px',
 						skewX: args.movementX,
@@ -175,8 +174,8 @@
 				this.timer_skewX[index] = setTimeout( () => { 
 					/*this.menuMove[index].skewX = 0	*/
 					
-					this.$set(this.wp.menus['header-menu'], index, {
-						...this.wp.menus['header-menu'][index],
+					this.$set(this.menus_header, index, {
+						...this.menus_header[index],
 						skewX: 0,
 					});
 
@@ -188,11 +187,11 @@
 				
 
 				let index = args.target.dataset.index
-				console.log( 'header menu overMenu', index, this.wp.menus['header-menu'] );
+				console.log( 'header menu overMenu', index, this.menus_header );
 
 				clearTimeout( this.timer_out[index] )
-				this.$set(this.wp.menus['header-menu'], index, {
-					...this.wp.menus['header-menu'][index],
+				this.$set(this.menus_header, index, {
+					...this.menus_header[index],
 					'margin-left': '200px',
 					width: 400,
 					opacity: 1,
@@ -208,8 +207,8 @@
 					/*this.menuMove[index].width = 0
 					this.menuMove[index].opacity = 0*/	
 					
-					this.$set(this.wp.menus['header-menu'], index, {
-						...this.wp.menus['header-menu'][index],
+					this.$set(this.menus_header, index, {
+						...this.menus_header[index],
 						'margin-left': '0px',
 						width: 0,
 						opacity: 0,
@@ -250,6 +249,15 @@
 					};
 				}
 				return {};
+			},
+			menus_header(){
+				return this.$store.state.wp.menus['header-menu']
+			},
+			current_language (){
+				return this.$store.state.wp.current_language
+			},
+			languages() {
+				return this.$store.state.wp.languages_except_current
 			}
 
 		},
@@ -272,6 +280,10 @@
 					});
 				}
 				// Ici, vous pouvez réagir au changement de valeur de `count`
+			},
+			'$store.state.wp.current_language' : function()
+			{
+				console.log('watch language', this.$store.state.wp);
 			}
 		}
 
@@ -436,10 +448,16 @@
 		margin-left: -1rem;
 	}
 
+	.dropdown-toggle {
+		user-select: none;
+		text-transform: uppercase;
+	}
+
 	.topRightMenuOpen .dropdown-menu a {
 		color: white;
 		padding-top: 0px;
 		padding-bottom: 0px;
+		text-transform: uppercase;
 	}
 	.topRightMenuOpen .dropdown-menu a:hover {
 		background-color: transparent;

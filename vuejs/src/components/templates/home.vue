@@ -10,9 +10,13 @@
 			<div style="min-height: 100vh;" class="row">
 				<div data-scroll data-scroll-speed="2" class="col-xl-6 col-lg-12 p-6" style="text-align: left;">
 					<h1 data-scroll data-scroll-offset="10%" class="title">
-						<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">UNE</div> 
-						<div data-scroll data-scroll-speed="0.3" data-scroll-direction="horizontal">HISTOIRE DE</div>
-						<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">FAMILLE</div>
+						<div v-for="(item, i) in splitAndTrim(post.post_title)" :key="i" 
+							data-scroll :data-scroll-speed="item.speed" 
+							data-scroll-direction="horizontal" v-html="item.text">
+							
+						</div> 
+						<!-- <div data-scroll data-scroll-speed="0.3" data-scroll-direction="horizontal">HISTOIRE DE</div>
+						<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">FAMILLE</div> -->
 					</h1>
 					<div data-scroll class="post_content" v-html="post.post_content"></div>	
 					<div data-scroll class="section-link-container">
@@ -98,8 +102,25 @@
 					}, 450 )					
 				}
 				// Ajoutez votre code ici
-
 			},
+			splitAndTrim(str) {
+				// Diviser la chaîne en utilisant '/' et supprimer les espaces superflus
+				let speed = -0.3; // Vitesse initiale
+
+				return str.split('/').map((element, index) => {
+					// Créer l'objet avec le texte et la vitesse
+					let obj = {
+						text: element.trim(),
+						speed: speed
+					};
+
+					// Inverser la vitesse pour le prochain élément
+					speed = -speed;
+
+					return obj;
+				});
+ 
+			}
 		}
 	}
 </script>

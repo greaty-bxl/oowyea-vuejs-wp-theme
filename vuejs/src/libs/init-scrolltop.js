@@ -1,4 +1,5 @@
 import remove_get_from_url from "Libs/remove-get-from-url.js"
+import is from 'is_js'
 
 export default function(vue){
 	var $ = vue.$
@@ -24,12 +25,15 @@ export default function(vue){
 			var newScroll = section.offset().top + $('#app-scroller').scrollTop()
 			if( newScroll < 0 ) newScroll == 0
 
-			$('#app-scroller').scrollTop( 0 /*newScroll*/ )
+			$('#app-scroller, html').scrollTop( 0 /*newScroll*/ )
 			//vue.$store.state.locomotive.scrollTo('top')
 			//vue.$store.state.locomotive.scroll.y = 0;
 
-			vue.$store.state.locomotive.setScroll(0, 0);
-			vue.$store.state.locomotive.update();
+			if( !is.mobile() )
+			{
+				vue.$store.state.locomotive.setScroll(0, 0);
+				vue.$store.state.locomotive.update();
+			}
 			console.log('newScroll', vue.$store.state, newScroll);
 
 			

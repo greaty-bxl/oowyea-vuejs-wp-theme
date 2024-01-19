@@ -142,7 +142,8 @@
 	}
 
 	.swiper-slide > *:hover {
-		cursor: url('http://dev.alpiccolomondo.be/assets/mouse-plus.svg') 30 30, auto;
+		cursor: zoom-in;
+		/*cursor: url('http://dev.alpiccolomondo.be/assets/mouse-plus.svg') 30 30, auto;*/
 	}
 
 	

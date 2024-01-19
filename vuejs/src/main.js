@@ -35,6 +35,27 @@ Vue.prototype.add_action = wpdk_add_action
 Vue.prototype.apply_filters = wpdk_apply_filters
 Vue.prototype.add_filter = wpdk_add_filter
 
+/* Title Al Piccolo */
+function splitAndTrim(str) {
+	// Diviser la chaîne en utilisant '/' et supprimer les espaces superflus
+	let speed = -0.3; // Vitesse initiale
+
+	return str.split('/').map((element) => {
+		// Créer l'objet avec le texte et la vitesse
+		let obj = {
+			text: element.trim(),
+			speed: speed
+		};
+
+		// Inverser la vitesse pour le prochain élément
+		speed = -speed;
+
+		return obj;
+	});
+
+}
+Vue.prototype.splitAndTrim = splitAndTrim
+
 /* Fontawesome-icon */
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon' 

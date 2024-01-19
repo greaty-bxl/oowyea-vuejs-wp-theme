@@ -6,7 +6,7 @@
 				<div class="col-xl-12 col-lg-12 px-6 my-6" style="text-align: center; border-right: 1px solid rgba(0, 0, 0, 0.2);">
 					<img class="logo-footer my-5" width="300" src="/assets/logo_bruxelles_al-piccolo-mondo.svg">
 					<div data-scroll class="post_content" v-html="post.post_content"></div>
-					<a :href="wp.front_page" data-scroll class="button form-submit my-2" type="submit">Confirmer l'accusé de ce message</a>
+					<a :href="$store.state.wp.front_page" data-scroll class="button form-submit my-2" type="submit" v-html="pll__('Confirmer l\'accusé de ce message')"></a>
 				</div>
 			</div>		
 		</div>
@@ -42,6 +42,7 @@
 		border: none;
 		border-radius: 5px;
 		color: #FFFFFFCC;
-		padding: 5px 15px;
+		padding: 10px 25px;
+		font-weight: 600;
 	}
 </style>

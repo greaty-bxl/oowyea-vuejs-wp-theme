@@ -32,12 +32,12 @@
 		
 
 		<div style="pointer-events:none" class="header-menu d-flex justify-content-between align-items-start" :class="{minify: minify && !show, open: show}" :style="backgroundStyle">
-			<a style="pointer-events: auto; outline: none;text-align: left;" :href="this.wp.options.siteurl"><img class="logo" src="/assets/logo-al-piccolo-mondo.svg"></a>
+			<a style="pointer-events: auto; outline: none;text-align: left;" :href="front_page" @click="close_menu()"><img class="logo" src="/assets/logo-al-piccolo-mondo.svg"></a>
 			
 			<div style="pointer-events:auto" class="d-flex align-items-center justify-content-end topRightMenuOpen">
 				
 				<div class="d-flex align-items-end justify-content-end">
-					<div class="resa" v-show="!show" :class="{hidden:show}"><a :href="wp.menus['header-menu'][1].url">Réservation</a></div>
+					<div class="resa" v-show="!show" :class="{hidden:show}"><a :href="reservation_url" v-html="pll__('Réservation')"></a></div>
 					<div class="icos" v-show="show">
 						<a target="_blank" href="https://www.instagram.com/alpiccolomondobruxelles/?hl=fr"><img height="16" src="/assets/instagram.svg"></a>
 						<a target="_blank" href="https://www.facebook.com/alpiccolomondorestaurant"><img height="16" src="/assets/facebook-f.svg"></a>
@@ -46,7 +46,7 @@
 						<span class="dropdown-toggle" id="dropdownLangsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-html="current_language">							
 						</span>
 						<div class="dropdown-menu" aria-labelledby="dropdownLangsButton">
-							<a v-for="item in languages" :key="item.id" class="dropdown-item" :href="item.url" v-html="item.slug"></a>
+							<a v-for="item in languages" :key="item.id" class="dropdown-item" :href="item.url" v-html="item.slug" @click="close_menu()"></a>
 						</div>
 					</div>
 				</div>
@@ -140,6 +140,16 @@
 				{
 					this.locomotive.stop()
 				}
+			},
+			close_menu() {
+
+				if( this.show )
+				{
+					this.show = !this.show;
+					this.locomotive.start()
+						
+				}
+				
 			},
 			moveImg(args) {
 
@@ -251,7 +261,20 @@
 				return {};
 			},
 			menus_header(){
-				return this.$store.state.wp.menus['header-menu']
+				
+				let menu = this.$store.state.wp.menus['header-menu']
+				if( menu[2] )
+				{
+					menu[2].url = this.$store.state.wp.acf.options.carte_restaurant
+					menu[2].target = "_blank"	
+				}
+				return menu
+			},
+			front_page(){
+				return this.$store.state.wp.front_page
+			},
+			reservation_url(){
+				return this.$store.state.wp.reservation_page.permalink
 			},
 			current_language (){
 				return this.$store.state.wp.current_language
@@ -548,7 +571,8 @@
 	}
 
 	.fullImgContainer img:hover {
-		cursor: url('https://dev.alpiccolomondo.be/assets/mouse-close.svg') 32 32, auto;
+		cursor: zoom-out;
+		/*cursor: url('https://dev.alpiccolomondo.be/assets/mouse-close.svg') 32 32, auto;*/
 	}
 
 	@media (max-width: 991px) {

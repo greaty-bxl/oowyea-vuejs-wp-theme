@@ -65,6 +65,8 @@ function get_new_page(vue, href, callback) {
 					vue.$store.state.header = true
 					vue.$store.state.footer = true
 
+					$('#app-scroller, html').scrollTop( 0 /*newScroll*/ )
+					
 					setTimeout( () => {
 						
 						$('#logo-loader img').removeClass('hello')

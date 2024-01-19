@@ -4,13 +4,13 @@
 			<img class="logo-footer" width="300" src="/assets/logo_bruxelles_al-piccolo-mondo.svg">
 			<hr/>
 			<div class="row " style="width:100%; text-align: left;">
-				<div class="col-xl-5 col-lg-12 no-padding" v-html="this.wp.acf.options.footer_colonne_1">
+				<div class="col-xl-5 col-lg-12 no-padding" v-html="this.$store.state.wp.acf.options.footer_colonne_1">
 					
 				</div>
-				<div class="col-xl-5 col-lg-12 no-padding" v-html="this.wp.acf.options.footer_colonne_2">
+				<div class="col-xl-5 col-lg-12 no-padding" v-html="this.$store.state.wp.acf.options.footer_colonne_2">
 					
 				</div>
-				<div class="col-xl-2 col-lg-12 no-padding" v-html="this.wp.acf.options.footer_colonne_3">
+				<div class="col-xl-2 col-lg-12 no-padding" v-html="this.$store.state.wp.acf.options.footer_colonne_3">
 					
 				</div>
 			</div>
@@ -57,7 +57,7 @@
 		},
 		computed : {
 			menu () {
-				return this.wp.menus['footer-legal-menu']
+				return this.$store.state.wp.menus['footer-legal-menu']
 			}
 		},
 		watch : {

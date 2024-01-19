@@ -7,7 +7,7 @@
 
 			<VideoBackground src="/assets/al_piccolo_mondo_540p.mp4" poster="assets/home-poster.png" class="video-container"/>
 
-			<div style="min-height: 100vh;" class="row">
+			<div class="row">
 				<div data-scroll data-scroll-speed="2" class="col-xl-6 col-lg-12 p-6" style="text-align: left;">
 					<h1 data-scroll data-scroll-offset="10%" class="title">
 						<div v-for="(item, i) in splitAndTrim(post.post_title)" :key="i" 
@@ -21,13 +21,13 @@
 					<div data-scroll class="post_content" v-html="post.post_content"></div>	
 					<div data-scroll class="section-link-container">
 						<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-							<a class="section-link" target="_blank" :href="this.wp.acf.options.carte_restaurant">>> DÉCOUVRIR LA CARTE</a>
+							<a class="section-link" target="_blank" :href="carte_restaurant" v-html="pll__('>> DÉCOUVRIR LA CARTE')"></a>
 						</div>	
 					</div>
 					
 
 				</div>
-				<div data-scroll data-scroll-speed="-1" class="col-xl-6 col-lg-12 home-imgs d-flex align-items-end justify-content-end">
+				<div data-scroll data-scroll-speed="1" class="col-xl-6 col-lg-12 home-imgs d-flex align-items-end justify-content-end">
 					<div id="img1" class="to-reveal" :class="{reveal: img1}" :style="{backgroundImage: 'url('+post.acf_fields.image_1+')'}"></div>
 					<div id="img2" class="to-reveal" :class="{reveal: img2}" :style="{backgroundImage: 'url('+post.acf_fields.image_2+')'}"></div>
 					<div id="img3" class="to-reveal" :class="{reveal: img3}" :style="{backgroundImage: 'url('+post.acf_fields.image_3+')'}"></div>
@@ -74,7 +74,7 @@
 			
 			locomotive.on('scroll', this.checkImages);
 
-			console.log('home', this.post);
+			console.log('home', this.wp);
 
 		},
 		methods : {
@@ -103,11 +103,11 @@
 				}
 				// Ajoutez votre code ici
 			},
-			splitAndTrim(str) {
+			/*splitAndTrim(str) {
 				// Diviser la chaîne en utilisant '/' et supprimer les espaces superflus
 				let speed = -0.3; // Vitesse initiale
 
-				return str.split('/').map((element, index) => {
+				return str.split('/').map((element) => {
 					// Créer l'objet avec le texte et la vitesse
 					let obj = {
 						text: element.trim(),
@@ -120,6 +120,11 @@
 					return obj;
 				});
  
+			}*/
+		},
+		computed : {
+			carte_restaurant() {
+				return this.$store.state.wp.acf.options.carte_restaurant
 			}
 		}
 	}

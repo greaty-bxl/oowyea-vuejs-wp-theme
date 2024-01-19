@@ -36,7 +36,7 @@
 						<a class="text-gold" href="mailto:info@alpiccolomondo.com">info@alpiccolomondo.com</a>
 					</p>
 					<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal">
-						<a href="#" class="section-link text-gold" style="text-decoration: none;">>> RÉSERVER UNE TABLE</a>
+						<a :href="reservation_url" class="section-link text-gold" style="text-decoration: none;" v-html="pll__('>> RÉSERVER UNE TABLE')"></a>
 					</div>	
 				</div>
 			</div>	
@@ -68,6 +68,11 @@
 		},
 		methods : {
 
+		},
+		computed : {
+			reservation_url(){
+				return this.$store.state.wp.reservation_page.permalink
+			},
 		}
 	}
 </script>

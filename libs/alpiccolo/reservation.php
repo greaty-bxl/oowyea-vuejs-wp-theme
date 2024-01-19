@@ -20,13 +20,51 @@ function init_reservation_vars() {
 	    wp_vue_add_var('reservation_confirmation', $page );
 	}
 
+
+    wp_vue_add_var('reservation_page', array('permalink'=>'#') );
+
+    $args = array(
+        'meta_key'   => '_wp_page_template',
+        'meta_value' => 'LaReservation', // Remplacez par le nom de votre fichier de template
+        'sort_order' => 'ASC',
+        'sort_column' => 'post_date',
+        'number' => 1
+    );
+
+    $pages = get_pages($args);
+
+    if (!empty($pages)) {
+        // Utiliser la première page
+        $page = $pages[0];
+        // Votre code pour afficher le contenu de la page ici
+        wp_vue_add_var('reservation_page', $page );
+    }
+
+    wp_vue_add_var('banquet_page', array('permalink'=>'#') );
+
+    $args = array(
+        'meta_key'   => '_wp_page_template',
+        'meta_value' => 'LesBanquets', // Remplacez par le nom de votre fichier de template
+        'sort_order' => 'ASC',
+        'sort_column' => 'post_date',
+        'number' => 1
+    );
+
+    $pages = get_pages($args);
+
+    if (!empty($pages)) {
+        // Utiliser la première page
+        $page = $pages[0];
+        // Votre code pour afficher le contenu de la page ici
+        wp_vue_add_var('banquet_page', $page );
+    }
 	
 }
 add_action( 'vue_vars', 'init_reservation_vars' );
 
 function submit_reservation()
 {
-	if (isset($_POST['data'])) {
+    if (isset($_POST['data'])) {
         $formData = $_POST['data'];
 
         // Créer un nouveau post de type 'reservation-list'
@@ -40,6 +78,7 @@ function submit_reservation()
         if ($post_id != 0) {
             // Mettre à jour les métadonnées du post
             update_post_meta($post_id, 'type', sanitize_text_field($formData['type']));
+            update_post_meta($post_id, 'language', sanitize_text_field($formData['language']));
             update_post_meta($post_id, 'date', sanitize_text_field($formData['date']));
             update_post_meta($post_id, 'number', intval($formData['number']));
             update_post_meta($post_id, 'time', sanitize_text_field($formData['time']));
@@ -48,6 +87,35 @@ function submit_reservation()
             update_post_meta($post_id, 'phone', sanitize_text_field($formData['phone']));
             update_post_meta($post_id, 'email', sanitize_email($formData['email']));
             update_post_meta($post_id, 'comments', sanitize_textarea_field($formData['comments']));
+
+            // Envoyer un e-mail à l'administrateur
+            $admin_email = 'j.obbiet@greaty.be'; //get_option('admin_email');
+            $subject = 'Nouvelle réservation '. esc_html($formData['type']) .' sur le site';
+                        
+            // Créer le contenu HTML de l'e-mail
+            $message = '<html><body>';
+            $message .= '<table>';
+            $message .= '<tr><td>Type :</td><td>' . esc_html($formData['type']) . '</td></tr>';
+            $message .= '<tr><td>Nom :</td><td>' . esc_html($formData['lastName'] . ' ' . $formData['firstName']) . '</td></tr>';
+            $message .= '<tr><td>Date :</td><td>' . esc_html($formData['date']) . '</td></tr>';
+            $message .= '<tr><td>Heure :</td><td>' . esc_html($formData['time']) . '</td></tr>';
+            $message .= '<tr><td>Nombre de personnes :</td><td>' . esc_html($formData['number']) . '</td></tr>';
+            $message .= '<tr><td>Téléphone :</td><td>' . esc_html($formData['phone']) . '</td></tr>';
+            $message .= '<tr><td>E-mail :</td><td>' . esc_html($formData['email']) . '</td></tr>';
+            $message .= '<tr><td>Langue :</td><td>' . esc_html($formData['language']) . '</td></tr>';
+            $message .= '<tr><td>Commentaires, allergies et habitudes alimentaires :</td><td>' . esc_html($formData['comments']) . '</td></tr>';
+            $message .= '</table>';
+            
+            $message .= '<p>Cliquez sur le bouton ci-dessous pour confirmer la réservation :</p>';
+            $message .= '<a href="' . get_reservation_reply_link($post_id) . '" style="display:inline-block;padding:10px 20px;background-color:#0073e6;color:#fff;text-decoration:none;">Confirmer la réservation</a>';
+            $message .= '</body></html>';
+
+            // En-têtes de l'e-mail
+            $headers[] = 'Content-Type: text/html; charset=UTF-8';
+            $headers[] = 'From: Votre Nom <votre-email@example.com>';
+
+            // Envoyer l'e-mail
+            wp_mail($admin_email, $subject, $message, $headers);
 
             // Renvoyer une réponse
             echo json_encode(array('success' => true, 'message' => 'Réservation enregistrée'));
@@ -83,6 +151,78 @@ function add_custom_columns_to_reservation_list($columns) {
 add_filter('manage_reservation-list_posts_columns', 'add_custom_columns_to_reservation_list');
 
 
+function get_reservation_reply_link($post_id){
+$dateString = get_post_meta($post_id, 'date', true);;
+$date = new DateTime($dateString);
+$formattedDate = $date->format('d/m/Y');
+
+if( get_post_meta($post_id, 'language', true) == 'fr' )
+{
+$email_subject = rawurlencode('Confirmation de réservation'); // Sujet de l'e-mail
+ob_start();
+?>
+Cher/Chère <?= get_post_meta($post_id, 'firstName', true); ?>,
+
+Nous sommes ravis de vous informer que votre réservation au restaurant Al Piccolo Mondo a été confirmée avec succès ! Nous sommes impatients de vous accueillir.
+
+Voici les détails de votre réservation :
+- Nom : <?= get_post_meta($post_id, 'firstName', true); ?> 
+- Prénom : <?= get_post_meta($post_id, 'lastName', true); ?> 
+- Date : <?= $formattedDate; ?> 
+- Heure : <?= get_post_meta($post_id, 'time', true); ?> 
+- Nombre de Personnes : <?= get_post_meta($post_id, 'number', true); ?> 
+- Commentaires, Allergies et Habitudes Alimentaires : <?= get_post_meta($post_id, 'comments', true); ?> 
+
+Votre réservation est désormais confirmée pour la date et l'heure indiquées. Nous avons préparé votre table pour que vous puissiez profiter d'une délicieuse expérience culinaire chez Al Piccolo Mondo.
+
+Si vous avez des questions supplémentaires ou des demandes spécifiques, n'hésitez pas à nous contacter à l'adresse e-mail info@alpiccolomondo.com ou au numéro de téléphone +32 2 538 87 94.
+
+Toute l'équipe d'Al Piccolo Mondo se tient à votre disposition pour vous offrir un moment mémorable. Nous vous remercions de votre confiance et nous attendons avec impatience votre visite.
+
+À bientôt !
+
+Cordialement,
+L'équipe d'Al Piccolo Mondo
+<?php
+$message = ob_get_clean();
+}
+else
+{
+$email_subject = rawurlencode('Confirmation de réservation'); // Sujet de l'e-mail
+ob_start();
+?>
+Dear <?= get_post_meta($post_id, 'firstName', true); ?>,
+
+We are delighted to inform you that your reservation at Al Piccolo Mondo restaurant has been successfully confirmed! We look forward to welcoming you.
+
+Here are the details of your reservation: 
+- Last Name: <?= get_post_meta($post_id, 'firstName', true); ?> 
+- First Name: <?= get_post_meta($post_id, 'lastName', true); ?> 
+- Date: <?= $formattedDate; ?> 
+- Time: <?= get_post_meta($post_id, 'time', true); ?> 
+- Number of Guests: <?= get_post_meta($post_id, 'number', true); ?> 
+- Comments, Allergies, and Dietary Preferences: <?= get_post_meta($post_id, 'comments', true); ?> 
+
+Your reservation is now confirmed for the specified date and time. We have prepared your table to ensure you enjoy a delightful culinary experience at Al Piccolo Mondo.
+
+If you have any additional questions or specific requests, please do not hesitate to contact us via email at info@alpiccolomondo.com or by phone at +32 2 538 87 94.
+
+The entire team at Al Piccolo Mondo is at your service to provide you with a memorable moment. We thank you for your trust and eagerly await your visit.
+
+See you soon!
+
+Best regards,
+The Al Piccolo Mondo Team
+<?php
+$message = ob_get_clean();
+}
+$email_body = rawurlencode( $message );
+$to_email = get_post_meta($post_id, 'email', true); // Adresse e-mail du destinataire
+$email_link = 'mailto:' . $to_email . '?subject=' . $email_subject . '&body=' . $email_body;
+return $email_link;
+}
+
+
 function custom_reservation_list_column_content($column_name, $post_id) {
     switch ($column_name) {
     	case 'type':
@@ -98,7 +238,7 @@ function custom_reservation_list_column_content($column_name, $post_id) {
             echo get_post_meta($post_id, 'number', true);
             break;
         case 'confirm_reservation':
-            echo '<a href="#" class="button confirm-reservation-button" data-post-id="' . $post_id . '">Confirmer la réservation</a>';
+            echo '<a href="' . get_reservation_reply_link($post_id) . '" class="button confirm-reservation-button" data-post-id="' . $post_id . '">Confirmer la réservation</a>';
             break;
 
     }
@@ -126,7 +266,7 @@ add_action('pre_get_posts', 'custom_post_types_admin_orderby');
 function admin_custom_script() {
     ?>
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
+        /*jQuery(document).ready(function($) {
             $('.confirm-reservation-button').click(function(e) {
                 e.preventDefault();
                 var postId = $(this).data('post-id');
@@ -134,7 +274,7 @@ function admin_custom_script() {
                 console.log('Confirmer la réservation pour le post ID:', postId);
                 alert('mail ou sms ?')
             });
-        });
+        });*/
     </script>
     <?php
 }

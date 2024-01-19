@@ -59,7 +59,7 @@ import ReservationPop from 'Organisms/ReservationPop.vue'
 //import Editor from 'Organisms/editor.vue'
 
 //Functions
-//import is from 'is_js'
+import is from 'is_js'
 import init_scrolltop from 'Libs/init-scrolltop.js'
 //import scrollSection from 'Libs/scroll-sections.js'
 // import scrollSection from 'Libs/scroll-sections-v2.js'
@@ -105,7 +105,8 @@ export default {
       classes:{
         'current': '',
         'next': '',
-      }
+      },
+      elementsInViewport: []
     }
   },
   components: {
@@ -155,12 +156,23 @@ export default {
       el: document.querySelector('[data-scroll-container]'),
       smooth: true,
       smartphone: {
-        smooth: true,
+        smooth: false,
         direction : 'vertical',
         horizontalGesture: false,
-      }
-      // Autres options si nécessaire
-    }); 
+      },
+    });
+
+    if( is.mobile() )
+    {
+      this.$('html').css({
+        'height': '100vh',
+        'overflow-y': 'auto',
+      });
+    }
+
+
+
+
 
 
     //this.upLoco(this.$store.state.locomotive)

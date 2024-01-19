@@ -33,6 +33,38 @@
             "search_placeholder": ""
         },
         {
+            "key": "field_65a7a079dabc9",
+            "label": "Langue de la réservation",
+            "name": "language",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "formula": "",
+            "calculated_format": "",
+            "blank_if_zero": 0,
+            "readonly": 0,
+            "acfe_save_meta": 0,
+            "choices": {
+                "fr": "fr",
+                "en": "en"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
             "key": "field_659d0cd3c063f",
             "label": "Date",
             "name": "date",
@@ -236,5 +268,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1704791546
+    "modified": 1705484497
 }

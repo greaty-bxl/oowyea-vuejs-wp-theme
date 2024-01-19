@@ -1,5 +1,5 @@
 <template>
-	<div class="popup-form d-flex justify-content-center align-items-start" data-scroll data-scroll-sticky v-if="$store.state.reservation" @click="close">		
+	<div class="popup-form d-flex justify-content-center align-items-start py-4" data-scroll data-scroll-sticky v-if="$store.state.reservation" @click="close">		
 		<div class="popup-form-container">
 			<div class="popup-form-close">
 				<span class="close-bt" @click="close">x</span>
@@ -13,7 +13,7 @@
 						<div class="arrow left" @click="subtractOneDay">&lt;</div>
 						<div>
 							<input type="date" v-model="date" required :disabled="isSubmitting"/>
-							<br><label>Date</label>
+							<br><label v-html="pll__('Date')"></label>
 						</div>
 						<div class="arrow right" @click="addOneDay">&gt;</div>
 					</div>
@@ -21,7 +21,7 @@
 						<div class="arrow left" @click="decreaseNumber">&lt;</div>
 						<div>
 							<input type="number"  v-model="number" required :disabled="isSubmitting"/>
-							<br><label>Personnes</label>
+							<br><label v-html="pll__('Personnes')"></label>
 						</div>
 						<div class="arrow right" @click="increaseNumber">&gt;</div>
 					</div>
@@ -29,34 +29,34 @@
 						<div class="arrow left" @click="subtract30Minutes">&lt;</div>
 						<div>
 							<input type="time" v-model="time" required :disabled="isSubmitting"/>
-							<br><label>Heure</label>
+							<br><label v-html="pll__('Heure')"></label>
 						</div>
 						<div class="arrow right" @click="add30Minutes">&gt;</div>
 					</div>
 					<div class="p-3">
 						<div class="row gx-3 my-3 ">
 							<div class="col">
-								<input type="text" class="form-control" placeholder="Prénom" aria-label="Prénom" v-model="firstName" required :disabled="isSubmitting">
+								<input type="text" class="form-control" :placeholder="pll__('Prénom')" :aria-label="pll__('Prénom')" v-model="firstName" required :disabled="isSubmitting">
 							</div>
 							<div class="col">
-								<input type="text" class="form-control" placeholder="Nom" aria-label="Nom" v-model="lastName" required :disabled="isSubmitting">
+								<input type="text" class="form-control" :placeholder="pll__('Nom')" :aria-label="pll__('Nom')" v-model="lastName" required :disabled="isSubmitting">
 							</div>
 						</div>
 
 						<!-- Ligne 2 : Téléphone et Email avec une gouttière -->
 						<div class="row gx-3 mb-3">
 							<div class="col">
-								<input type="tel" class="form-control" placeholder="Téléphone" aria-label="Téléphone" v-model="phone" required :disabled="isSubmitting">
+								<input type="tel" class="form-control" :placeholder="pll__('Téléphone')" :aria-label="pll__('Téléphone')" v-model="phone" required :disabled="isSubmitting">
 							</div>
 							<div class="col">
-								<input type="email" class="form-control" placeholder="Email" aria-label="Email" v-model="email" required :disabled="isSubmitting">
+								<input type="email" class="form-control" :placeholder="pll__('E-mail')" :aria-label="pll__('E-mail')" v-model="email" required :disabled="isSubmitting">
 							</div>
 						</div>
 
 						<!-- Ligne 3 : Commentaire -->
 						<div class="row gx-3 mb-3">
 							<div class="col">
-								<textarea class="form-control" placeholder="Commentaires, allergies et habitudes alimentaires (facultatif)" aria-label="Commentaire" rows="3" v-model="comments" :disabled="isSubmitting"></textarea>
+								<textarea class="form-control" :placeholder="pll__('Commentaires, allergies et habitudes alimentaires (facultatif)')" rows="3" v-model="comments" :disabled="isSubmitting"></textarea>
 							</div>
 						</div>
 
@@ -64,14 +64,13 @@
 						<div class="row gx-3 mb-3 form-check" style="text-align: left;">
 							<div class="col">
 								<input type="checkbox" class="form-check-input" id="privacyPolicyCheck" v-model="isPolicyChecked" :disabled="isSubmitting">
-								<label class="form-check-label" for="privacyPolicyCheck">
-									J'ai lu et j'accepte la <a href="URL_DE_VOTRE_POLITIQUE">politique de confidentialité</a>.*
+								<label class="form-check-label" for="privacyPolicyCheck" v-html="pll__('J\'ai lu et j\'accepte la <a>politique de confidentialité</a>.*')">
 								</label>
 							</div>
 						</div>
 						<div class="row gx-3 my-4">
 							<div class="col d-flex justify-content-center">
-								<button v-if="!isSubmitting" class="form-submit" type="submit" :disabled="isSubmitting">Faire une demande de réservation</button>
+								<button v-if="!isSubmitting" class="form-submit" type="submit" :disabled="isSubmitting" v-html="pll__('Faire une demande de réservation')"></button>
 								<div class="text-center" v-if="isSubmitting">
 									<div class="spinner-border" role="status">
 									</div>
@@ -121,7 +120,8 @@
 		},
 		methods : {
 			close : function(e) {
-				if( this.$(e.target).hasClass('popup-form-content') || this.$(e.target).hasClass('close-bt') )
+				console.log('click-close', this.$(e.target)); 
+				if( this.$(e.target).hasClass('popup-form') || this.$(e.target).hasClass('close-bt') || this.$(e.target).hasClass('popup-form-close') )
 				{
 					this.$store.state.reservation = false	
 				}
@@ -245,6 +245,7 @@
 				// Préparer les données du formulaire pour l'envoi
 				const formData = {
 					type: this.$store.state.res_type,
+					language: this.$store.state.wp.current_language,
 					date: this.date,
 					number: this.number,
 					time: this.time,
@@ -334,6 +335,7 @@
 		top: 0;
 		left: 0;
 		display: block;
+		overflow: auto;
 	}
 	.popup-form-container {
 		max-width: 600px;

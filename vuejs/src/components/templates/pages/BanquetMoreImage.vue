@@ -127,7 +127,7 @@
 		}	
 
 		.imgs-trio-banquet.home-imgs {
-			margin-top: -60vh;
+			height: 100vh;
 			transform: scale(0.6) translateY(-20vh) translateX(5%) !important;
 		}
 	}

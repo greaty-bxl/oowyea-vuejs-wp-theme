@@ -19,16 +19,18 @@
 			<div class="col-xl-6 col-lg-12" data-scroll data-scroll-speed="-1.5">
 				<div data-scroll class="post_content text-gold p-6" style="margin-bottom: 70px">
 					<p class="follow-us">
-						Suivez-nous sur : 
+						<span v-html="pll__('Suivez-nous sur : ')"></span>
 						
 						<a target="_blank" href="https://www.instagram.com/alpiccolomondobruxelles/?hl=fr"><img height="16" src="/assets/instagram.svg"></a>
 						<a target="_blank" href="https://www.facebook.com/alpiccolomondorestaurant"><img height="16" src="/assets/facebook-f.svg"></a>
 						
 					</p>
 					<p>
-						Ouvert 7 jours sur 7 (fermeture annuelle du 1 au 31 août) <br>
-						Déjeuner 12:00 - 15:00 <br>
-						Dîner 18:00 - 00:00 (fermeture du restaurant à minuit)
+						<span v-html="pll__('Ouvert 7 jours sur 7 (fermeture annuelle du 1 au 31 août) ')"></span>
+						<br>
+						<span v-html="pll__('Déjeuner 12:00 - 15:00 ')"></span>
+						<br>
+						<span v-html="pll__('Dîner 18:00 - 00:00 (fermeture du restaurant à minuit)')"></span>
 					</p>
 					<p>
 						<a class="text-gold" target="_blank" href="https://goo.gl/maps/GvXUBsJf2VEKwhpW9">19 rue Jourdan, 1060 Bruxelles (Saint-Gilles) – Belgique</a> <br>
@@ -36,8 +38,8 @@
 						<a class="text-gold" href="mailto:info@alpiccolomondo.com">info@alpiccolomondo.com</a>
 					</p>
 					<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal">
-						<a href="#" class="section-link text-gold" style="text-decoration: none;">>> RÉSERVER UNE TABLE</a>
-					</div>	
+						<a :href="reservation_url" class="section-link text-gold" style="text-decoration: none;" v-html="pll__('>> RÉSERVER VOTRE BANQUET')"></a>
+					</div>
 				</div>
 			</div>	
 		</div>
@@ -68,6 +70,11 @@
 		},
 		methods : {
 
+		},
+		computed : {
+			reservation_url(){
+				return this.$store.state.wp.reservation_page.permalink
+			},
 		}
 	}
 </script>

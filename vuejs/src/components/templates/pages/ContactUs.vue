@@ -7,18 +7,19 @@
 			<div class="row">
 				<div data-scroll data-scroll-speed="2" class="col-xl-6 col-lg-12 p-6" style="text-align: left;">
 					<h1 data-scroll data-scroll-offset="10%" class="title">
-						<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">CONTACTEZ</div>   
-						<div data-scroll data-scroll-speed="0.3" data-scroll-direction="horizontal">AL PICCOLO</div>
-						<div data-scroll data-scroll-speed="-0.3" data-scroll-direction="horizontal">MONDO</div>
+						<div v-for="(item, i) in splitAndTrim(post.post_title)" :key="i" 
+							data-scroll :data-scroll-speed="item.speed" 
+							data-scroll-direction="horizontal" v-html="item.text">
+						</div>
 					</h1>
 					<div data-scroll class="section-link-container">
 						<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-							<a class="section-link" target="_blank" href="assets/76707-Menu-BR-SC-12.pdf">>> ENVOYER UN MESSAGE</a>
+							<a class="section-link" target="_blank" href="#" v-html="pll__('>> ENVOYER UN MESSAGE')"></a>
 						</div>	
 					</div>
 					<div data-scroll class="section-link-container">
 						<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-							<a class="section-link" target="_blank" href="assets/76707-Menu-BR-SC-12.pdf">>> RÉSERVER UNE TABLE</a>
+							<a class="section-link" :href="reservation_url" v-html="pll__('>> RÉSERVER UNE TABLE')"></a>
 						</div>	
 					</div>
 				</div>
@@ -49,6 +50,11 @@
 		},
 		mounted (){
 	
+		},
+		computed : {
+			reservation_url(){
+				return this.$store.state.wp.reservation_page.permalink
+			},
 		}
 	}
 </script>

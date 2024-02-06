@@ -5,6 +5,15 @@ body {
 }
 
 
+.c-scrollbar {
+	background-color: #F0F8FF;
+	opacity: 1 !important
+}
+.c-scrollbar_thumb {
+	background-color: #505355;
+	opacity: 0.7;
+}
+
 /*.row>* {
 	margin-top: auto !important;
 }*/
@@ -174,7 +183,7 @@ h3{
 }
 
 .img-bg-banquet-container{
-		height: 900px;
+		height: 1000px;
 	}
 
 [data-scroll].img-bg-banquet {
@@ -185,7 +194,7 @@ h3{
 } 
 
 [data-scroll].img-bg-banquet.is-inview {
-	height: 900px;
+	height: 1000px;
 }
 
 .min-vh-100{

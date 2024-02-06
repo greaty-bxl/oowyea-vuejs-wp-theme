@@ -5,7 +5,7 @@
 		
 		<div class="wp-content">
 
-			<VideoBackground src="/assets/al_piccolo_mondo_540p.mp4" poster="assets/home-poster.png" class="video-container"/>
+			<VideoBackground :src="video" poster="assets/home-poster.png" class="video-container"/>
 
 			<div class="row">
 				<div data-scroll data-scroll-speed="2" class="col-xl-6 col-lg-12 p-6" style="text-align: left;">
@@ -64,6 +64,9 @@
 				img3: false,
 				scroll: null,
 				elementsInViewport: [],
+				highQualitySrc: "/assets/al_piccolo_mondo_1080p-2.mp4", // Chemin vers la vidéo haute qualité
+				video: "/assets/al_piccolo_mondo_540p.mp4", // Chemin vers la vidéo basse qualité
+				connectionSpeed: null, 
 			}
 		},
 		mounted (){
@@ -76,8 +79,26 @@
 
 			console.log('home', this.wp);
 
+			if ("connection" in navigator) {
+				navigator.connection.addEventListener("change", this.updateConnectionSpeed);
+				this.updateConnectionSpeed();
+			}
+
+
 		},
 		methods : {
+			updateConnectionSpeed() {
+				const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+				if (connection) {
+					let connectionSpeed = connection.downlink; // Vitesse de la connexion en Mbps
+					if( connectionSpeed > 5 )
+					{
+						console.log('video highQualitySrc', connectionSpeed);
+						this.video = this.highQualitySrc
+					}
+				}
+
+			},
 			checkImages() {
 				const elements = document.querySelectorAll('.home-section .to-reveal');
 				

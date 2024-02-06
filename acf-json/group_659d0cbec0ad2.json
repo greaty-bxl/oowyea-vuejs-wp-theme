@@ -33,6 +33,38 @@
             "search_placeholder": ""
         },
         {
+            "key": "field_65b8bd55bc643",
+            "label": "Nom du banquet",
+            "name": "nom_du_banquet",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_659d0dc498dc9",
+                        "operator": "==",
+                        "value": "banquet"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "formula": "",
+            "calculated_format": "",
+            "blank_if_zero": 0,
+            "readonly": 0,
+            "acfe_save_meta": 0,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_65a7a079dabc9",
             "label": "Langue de la réservation",
             "name": "language",
@@ -268,5 +300,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1705484497
+    "modified": 1706605949
 }

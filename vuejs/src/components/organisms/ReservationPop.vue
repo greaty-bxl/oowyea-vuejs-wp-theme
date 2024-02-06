@@ -8,7 +8,12 @@
 				<div class="form-header" :style="{backgroundImage: 'url(/assets/reservation-image.jpg)'}">
 					
 				</div>
-				<form @submit.prevent="submit">			
+				<form @submit.prevent="submit">
+					<div class="main-line d-flex justify-content-center align-items-center">
+						<div>
+							<p v-html="fermeture">hello</p>
+						</div>
+					</div>
 					<div class="main-line d-flex justify-content-center align-items-center">
 						<div class="arrow left" @click="subtractOneDay">&lt;</div>
 						<div>
@@ -34,6 +39,11 @@
 						<div class="arrow right" @click="add30Minutes">&gt;</div>
 					</div>
 					<div class="p-3">
+						<div class="row gx-3 my-3" v-if="$store.state.res_type == 'banquet'">
+							<div class="col">
+								<input type="text" class="form-control" :placeholder="pll__('Nom du banquet')" :aria-label="pll__('Nom du banquet')" v-model="nom_du_banquet" required :disabled="isSubmitting">
+							</div>
+						</div>
 						<div class="row gx-3 my-3 ">
 							<div class="col">
 								<input type="text" class="form-control" :placeholder="pll__('Prénom')" :aria-label="pll__('Prénom')" v-model="firstName" required :disabled="isSubmitting">
@@ -96,6 +106,7 @@
 				dateTimeout: null,
 				number : 2,
 				time: '12:00',
+				nom_du_banquet: '',
 				firstName: '',
 				lastName: '',
 				phone: '',
@@ -103,6 +114,7 @@
 				comments: '',
 				isPolicyChecked: false,
 				isSubmitting: false,
+				confirmation_link: null,
 			}
 		},
 		components: {
@@ -116,7 +128,7 @@
 
 			this.default_date_time()
 
-			
+			console.log('reservation_confirmation', this.$store.state.wp.reservation_confirmation.permalink);
 		},
 		methods : {
 			close : function(e) {
@@ -190,7 +202,7 @@
 				if (!this.isValidTime(newTime)) {
 					if (newTime === '15:00') {
 						newTime = '18:00';
-					} else if (newTime === '21:30') {
+					} else if (newTime === '22:30') {
 						newTime = '12:00';
 					}
 				}
@@ -201,7 +213,7 @@
 				let newTime = this.changeTime(-30);
 				if (!this.isValidTime(newTime)) {
 					if (newTime === '11:30') {
-						newTime = '21:30';
+						newTime = '22:30';
 					} else if (newTime === '17:30') {
 						newTime = '14:30';
 					}
@@ -228,7 +240,7 @@
 				const openMorning = 12 * 60; // 12h00
 				const closeAfternoon = 14.5 * 60; // 14h30
 				const openEvening = 18 * 60; // 18h00
-				const closeNight = 21.5 * 60; // 21h30
+				const closeNight = 22.5 * 60; // 21h30
 
 				return (totalMinutes >= openMorning && totalMinutes <= closeAfternoon) ||
 					(totalMinutes >= openEvening && totalMinutes <= closeNight);
@@ -249,6 +261,7 @@
 					date: this.date,
 					number: this.number,
 					time: this.time,
+					nom_du_banquet: this.nom_du_banquet,
 					firstName: this.firstName,
 					lastName: this.lastName,
 					phone: this.phone,
@@ -262,7 +275,7 @@
 					(data) => {
 						console.log('resa ajax', data);
 						
-						document.location.href = this.wp.reservation_confirmation.permalink
+						document.location.href = this.confirmation_link
 						
 						// Réactiver le formulaire
 						
@@ -276,6 +289,7 @@
 				this.date = null; // ou une autre valeur par défaut
 				this.number = 2; // ou votre valeur par défaut initiale
 				this.time = '12:00'; // ou votre valeur par défaut initiale
+				this.nom_du_banquet = '';
 				this.firstName = '';
 				this.lastName = '';
 				this.phone = '';
@@ -285,6 +299,15 @@
 
 				this.default_date_time()
 			}
+		},
+		computed : {
+			fermeture () {
+				return this.$store.state.wp.reservation_page.metas.fermeture[0]
+			},
+			/*confirmation_link() {
+				console.log('reservation_confirmation', this.$store.state.wp.reservation_confirmation);
+				return this.$store.state.wp.reservation_confirmation.permalink
+			}*/
 		},
 		watch: {
 			date(newValue) {
@@ -304,7 +327,6 @@
 					}
 				}, 2000); // Délai de 1 seconde
 			},
-
 			time(newValue) {
 				if (!this.isValidTime(newValue)) {
 					// Réinitialiser à une heure valide selon l'heure actuelle
@@ -312,14 +334,19 @@
 					var currentHour = currentTime.getHours();
 					if (currentHour >= 12 && currentHour <= 14) {
 						this.time = '12:00';
-					} else if (currentHour >= 18 && currentHour <= 21) {
+					} else if (currentHour >= 18 && currentHour <= 22.5) {
 						this.time = '18:00';
 					} else {
 						this.time = '12:00'; // Par défaut à 12h00
 					}
 				}
+			},
+			'$store.state.wp' : function()
+			{
+				//this.google_condition()
+				this.confirmation_link = this.$store.state.wp.reservation_confirmation.permalink
+				console.log('reservation_confirmation', this.confirmation_link);
 			}
-
 		},
 
 	}

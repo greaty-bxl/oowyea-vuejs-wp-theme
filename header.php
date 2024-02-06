@@ -20,6 +20,16 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
+		<?php
+		// Vérifiez si une image à la une existe pour la page actuelle
+		if (has_post_thumbnail()) {
+		    // Récupérez l'URL de l'image à la une
+		    $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'medium'); // 'full' pour obtenir la taille originale
+
+		    // Affichez la balise Open Graph pour l'image
+		    echo '<meta property="og:image" content="' . esc_url($thumbnail_url) . '" />' . "\n";
+		}
+		?>
 		<script>
 			window.ajaxurl = "<?= admin_url('admin-ajax.php'); ?>";
 			window.wp = {};

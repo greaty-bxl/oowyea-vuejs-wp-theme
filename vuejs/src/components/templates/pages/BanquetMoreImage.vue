@@ -113,7 +113,7 @@
 	}
 
 	.imgs-trio-banquet {
-		min-height: 160vh;
+		min-height: 155vh;
 	}
 
 	@media (max-width: 767px) {

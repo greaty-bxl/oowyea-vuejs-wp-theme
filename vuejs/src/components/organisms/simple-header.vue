@@ -63,6 +63,10 @@
 			<img :style="{transform: 'translateY('+fullImgMoveY+'px)'}" :src="$store.state.fullImg" width="100%" />
 		</div>
 
+		<div id="mobile-footer-resa" style="pointer-events: auto; cursor: pointer;" @click="open_res('restaurant')" >
+			<span v-html="pll__('RÉSERVER UNE TABLE')"></span>
+		</div>
+
 	</div>
 	
 </template>
@@ -129,6 +133,11 @@
 
 		},
 		methods: {
+			open_res(type){
+				this.$store.state.reservation = true
+				this.$store.state.res_type = type
+			},
+
 			toggleDiv() {
 
 				this.show = !this.show;
@@ -313,6 +322,7 @@
 	}
 </script>
 <style type="text/css">
+
 	#header {
 		color: #B49E5C;
 	}
@@ -575,7 +585,22 @@
 		/*cursor: url('https://dev.alpiccolomondo.be/assets/mouse-close.svg') 32 32, auto;*/
 	}
 
+	#mobile-footer-resa {
+		display: none;
+		position: fixed;
+		bottom: 0px;
+		background-color: #741226;
+		height: 50px;
+		width: 100%;
+		line-height: 50px;
+		font-weight: 600;
+		letter-spacing: 2;
+	}
+
 	@media (max-width: 991px) {
+		#mobile-footer-resa{
+			display: block;
+		}
 		.menu-fullscreen {
 			width: 100%;
 		}

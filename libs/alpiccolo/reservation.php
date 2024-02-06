@@ -87,17 +87,28 @@ function submit_reservation()
             update_post_meta($post_id, 'phone', sanitize_text_field($formData['phone']));
             update_post_meta($post_id, 'email', sanitize_email($formData['email']));
             update_post_meta($post_id, 'comments', sanitize_textarea_field($formData['comments']));
+            update_post_meta($post_id, 'nom_du_banquet', sanitize_text_field($formData['nom_du_banquet']));
+            
 
             // Envoyer un e-mail à l'administrateur
-            $admin_email = 'j.obbiet@greaty.be'; //get_option('admin_email');
+            $admin_email = 'j.obbiet@greaty.be, nicolaswayenbergh@greaty.be, info@alpiccolomondo.com, alpiccolomondobruxelles@gmail.com'; //get_option('admin_email');
             $subject = 'Nouvelle réservation '. esc_html($formData['type']) .' sur le site';
                         
             // Créer le contenu HTML de l'e-mail
             $message = '<html><body>';
             $message .= '<table>';
             $message .= '<tr><td>Type :</td><td>' . esc_html($formData['type']) . '</td></tr>';
+            if(esc_html($formData['type']) == 'banquet')
+            {
+                $message .= '<tr><td>Nom du banquet :</td><td>' . esc_html($formData['nom_du_banquet']) . '</td></tr>';
+            }
+
+            $dateString = esc_html($formData['date']);
+            $date = new DateTime($dateString);
+            $formattedDate = $date->format('d/m/Y');
+
             $message .= '<tr><td>Nom :</td><td>' . esc_html($formData['lastName'] . ' ' . $formData['firstName']) . '</td></tr>';
-            $message .= '<tr><td>Date :</td><td>' . esc_html($formData['date']) . '</td></tr>';
+            $message .= '<tr><td>Date :</td><td>' . $formattedDate . '</td></tr>';
             $message .= '<tr><td>Heure :</td><td>' . esc_html($formData['time']) . '</td></tr>';
             $message .= '<tr><td>Nombre de personnes :</td><td>' . esc_html($formData['number']) . '</td></tr>';
             $message .= '<tr><td>Téléphone :</td><td>' . esc_html($formData['phone']) . '</td></tr>';
@@ -107,12 +118,14 @@ function submit_reservation()
             $message .= '</table>';
             
             $message .= '<p>Cliquez sur le bouton ci-dessous pour confirmer la réservation :</p>';
-            $message .= '<a href="' . get_reservation_reply_link($post_id) . '" style="display:inline-block;padding:10px 20px;background-color:#0073e6;color:#fff;text-decoration:none;">Confirmer la réservation</a>';
+            $message .= '<a href="' . get_reservation_reply_link($post_id) . '" style="display:inline-block;padding:10px 20px;background-color:#0073e6;color:#fff;text-decoration:none;">Confirmer la réservation</a><br/><br/>';
+            $message .= '<a href="' . get_reservation_cancel_link($post_id) . '" style="display:inline-block;padding:10px 20px;background-color:#E6003C;color:#fff;text-decoration:none;">Refuser la réservation</a>';
             $message .= '</body></html>';
 
             // En-têtes de l'e-mail
             $headers[] = 'Content-Type: text/html; charset=UTF-8';
-            $headers[] = 'From: Votre Nom <votre-email@example.com>';
+            $headers[] = 'From: Al Piccolo Mondo <no-reply@alpiccolomondo.com>';
+            $headers[] = 'Reply-To: ' . esc_html($formData['lastName'] . ' ' . $formData['firstName']) . ' <'.esc_html($formData['email']).'>';
 
             // Envoyer l'e-mail
             wp_mail($admin_email, $subject, $message, $headers);
@@ -158,12 +171,12 @@ $formattedDate = $date->format('d/m/Y');
 
 if( get_post_meta($post_id, 'language', true) == 'fr' )
 {
-$email_subject = rawurlencode('Confirmation de réservation'); // Sujet de l'e-mail
+$email_subject = rawurlencode('✅ Nous vous confirmons votre réservation.'); // Sujet de l'e-mail
 ob_start();
 ?>
 Cher/Chère <?= get_post_meta($post_id, 'firstName', true); ?>,
 
-Nous sommes ravis de vous informer que votre réservation au restaurant Al Piccolo Mondo a été confirmée avec succès ! Nous sommes impatients de vous accueillir.
+Nous sommes ravis de vous accueillir au Al Piccolo Mondo - Dal 1979 ⚜️
 
 Voici les détails de votre réservation :
 - Nom : <?= get_post_meta($post_id, 'firstName', true); ?> 
@@ -173,27 +186,32 @@ Voici les détails de votre réservation :
 - Nombre de Personnes : <?= get_post_meta($post_id, 'number', true); ?> 
 - Commentaires, Allergies et Habitudes Alimentaires : <?= get_post_meta($post_id, 'comments', true); ?> 
 
-Votre réservation est désormais confirmée pour la date et l'heure indiquées. Nous avons préparé votre table pour que vous puissiez profiter d'une délicieuse expérience culinaire chez Al Piccolo Mondo.
+* TENUE CORRECTE EXIGÉE (pas de shorts, casquettes, sandales ou tongs) à l’intérieur du restaurant.
+* Aucune table spécifique ne peut être attribuée à l’avance. 
+* En cas d’annulation, veuillez avoir l’obligeance de nous prévenir minimum 4 heures à l’avance.
+* Après 30 minutes de retard sans nouvelles de votre part nous considérerons votre table comme annulée.
+* Cette confirmation est obligatoire et peut être demandée à l’entrée de l’établissement.
 
-Si vous avez des questions supplémentaires ou des demandes spécifiques, n'hésitez pas à nous contacter à l'adresse e-mail info@alpiccolomondo.com ou au numéro de téléphone +32 2 538 87 94.
+ADRESSE 19 rue Jourdan 1060 Bruxelles 
+TEL +32 2 538 87 94
+WEBSITE www.alpiccolomondo.com
+INSTAGRAM 
+https://www.instagram.com/alpiccolomondobruxelles/
+FACEBOOK 
+https://m.facebook.com/alpiccolomondorestaurant/
 
-Toute l'équipe d'Al Piccolo Mondo se tient à votre disposition pour vous offrir un moment mémorable. Nous vous remercions de votre confiance et nous attendons avec impatience votre visite.
 
-À bientôt !
-
-Cordialement,
-L'équipe d'Al Piccolo Mondo
 <?php
 $message = ob_get_clean();
 }
 else
 {
-$email_subject = rawurlencode('Confirmation de réservation'); // Sujet de l'e-mail
+$email_subject = rawurlencode('✅ We confirm your reservation.'); // Sujet de l'e-mail
 ob_start();
 ?>
 Dear <?= get_post_meta($post_id, 'firstName', true); ?>,
 
-We are delighted to inform you that your reservation at Al Piccolo Mondo restaurant has been successfully confirmed! We look forward to welcoming you.
+We are happy to welcome you at Al Piccolo Mondo - since 1979 ⚜️
 
 Here are the details of your reservation: 
 - Last Name: <?= get_post_meta($post_id, 'firstName', true); ?> 
@@ -203,13 +221,85 @@ Here are the details of your reservation:
 - Number of Guests: <?= get_post_meta($post_id, 'number', true); ?> 
 - Comments, Allergies, and Dietary Preferences: <?= get_post_meta($post_id, 'comments', true); ?> 
 
-Your reservation is now confirmed for the specified date and time. We have prepared your table to ensure you enjoy a delightful culinary experience at Al Piccolo Mondo.
+* WELL DRESSED REQUIRED inside the restaurant (no shorts, no caps, no sandals).
+* No specific table can be given in advance.
+* In case of cancellation, please advise us 4 hours in advance.
+* If you arrive 30 minutes late without letting us know your booking will be automatically cancelled.
+* This confirmation can be asked at the entrance of the restaurant.
 
-If you have any additional questions or specific requests, please do not hesitate to contact us via email at info@alpiccolomondo.com or by phone at +32 2 538 87 94.
+ADDRESS 19 rue Jourdan 1060 Bruxelles 
+TEL +32 2 538 87 94
+WEBSITE www.alpiccolomondo.com
+INSTAGRAM 
+https://www.instagram.com/alpiccolomondobruxelles/
+FACEBOOK 
+https://m.facebook.com/alpiccolomondorestaurant/
 
-The entire team at Al Piccolo Mondo is at your service to provide you with a memorable moment. We thank you for your trust and eagerly await your visit.
+<?php
+$message = ob_get_clean();
+}
+$email_body = rawurlencode( $message );
+$to_email = get_post_meta($post_id, 'email', true); // Adresse e-mail du destinataire
+$email_link = 'mailto:' . $to_email . '?subject=' . $email_subject . '&body=' . $email_body;
+return $email_link;
+}
 
-See you soon!
+
+function get_reservation_cancel_link($post_id){
+$dateString = get_post_meta($post_id, 'date', true);;
+$date = new DateTime($dateString);
+$formattedDate = $date->format('d/m/Y');
+
+if( get_post_meta($post_id, 'language', true) == 'fr' )
+{
+$email_subject = rawurlencode('Refus de Réservation au restaurant Al Piccolo Mondo'); // Sujet de l'e-mail
+ob_start();
+?>
+Cher/Chère <?= get_post_meta($post_id, 'firstName', true); ?>,
+
+Nous regrettons de vous informer que nous ne pouvons pas confirmer votre réservation au restaurant Al Piccolo Mondo pour la date et l'heure demandées.
+
+Voici les détails de votre réservation :
+- Nom : <?= get_post_meta($post_id, 'firstName', true); ?> 
+- Prénom : <?= get_post_meta($post_id, 'lastName', true); ?> 
+- Date : <?= $formattedDate; ?> 
+- Heure : <?= get_post_meta($post_id, 'time', true); ?> 
+- Nombre de Personnes : <?= get_post_meta($post_id, 'number', true); ?> 
+- Commentaires, Allergies et Habitudes Alimentaires : <?= get_post_meta($post_id, 'comments', true); ?> 
+
+Malheureusement, en raison de [RAISON DU REFUS], nous ne pourrons pas accepter votre réservation à cette date. Nous vous prions de nous excuser pour tout désagrément que cela pourrait causer.
+
+Si vous avez des questions supplémentaires ou si vous souhaitez discuter de cette décision, n'hésitez pas à nous contacter à l'adresse e-mail info@alpiccolomondo.com ou au numéro de téléphone +32 2 538 87 94.
+
+Toute l'équipe d'Al Piccolo Mondo est à votre disposition pour répondre à vos besoins et vous offrir une expérience exceptionnelle. Nous espérons avoir l'occasion de vous accueillir à une date ultérieure.
+
+Cordialement,
+L'équipe d'Al Piccolo Mondo
+<?php
+$message = ob_get_clean();
+}
+else
+{
+$email_subject = rawurlencode('Reservation Refusal at Al Piccolo Mondo Restaurant'); // Sujet de l'e-mail
+ob_start();
+?>
+Dear <?= get_post_meta($post_id, 'firstName', true); ?>,
+
+We regret to inform you that we are unable to confirm your reservation at Al Piccolo Mondo restaurant for the requested date and time.
+
+Here are the details of your reservation:
+- Last Name: <?= get_post_meta($post_id, 'firstName', true); ?> 
+- First Name: <?= get_post_meta($post_id, 'lastName', true); ?> 
+- Date: <?= $formattedDate; ?> 
+- Time: <?= get_post_meta($post_id, 'time', true); ?> 
+- Number of Guests: <?= get_post_meta($post_id, 'number', true); ?> 
+- Comments, Allergies, and Dietary Preferences: <?= get_post_meta($post_id, 'comments', true); ?> 
+
+Unfortunately, due to [REASON FOR DECLINE], we cannot accept your reservation on this date. We apologize for any inconvenience this may cause.
+
+If you have any further questions or would like to discuss this decision, please feel free to contact us at the email address info@alpiccolomondo.com or by phone at +32 2 538 87 94.
+
+The entire team at Al Piccolo Mondo is here to assist you and provide you with an exceptional experience. We hope to have the opportunity to welcome you on a future date.
 
 Best regards,
 The Al Piccolo Mondo Team
@@ -382,8 +472,15 @@ function add_csv_export_popup_form() {
                     '11' => 'Novembre',
                     '12' => 'Décembre'
                 );
+
+                $current_month = date('n'); // Obtenez le mois actuel
+                $previous_month = ($current_month - 1) > 0 ? ($current_month - 1) : 12; // Calcul du mois précédent
+
                 foreach ($months as $num => $name) {
-                    echo "<option value='$num'>$name</option>";
+                    // Vérifiez si le mois correspond au mois précédent
+                    $selected = ($num == $previous_month) ? 'selected' : '';
+
+                    echo "<option value='$num' $selected>$name</option>";
                 }
                 ?>
             </select>
@@ -393,6 +490,13 @@ function add_csv_export_popup_form() {
                 <?php for ($i = date('Y'); $i >= 2000; $i--) : ?>
                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                 <?php endfor; ?>
+            </select>
+
+            <label for="export-language">Langue :</label>
+            <select name="export_language" id="export-language">
+                <option value="fr">Français</option>
+                <option value="en">Anglais</option>
+                <!-- Ajoutez d'autres langues au besoin -->
             </select>
 
             <input type="submit" value="Exporter" class="button button-primary">
@@ -409,6 +513,40 @@ function add_csv_export_popup_form() {
                 e.preventDefault();
                 // Ajoutez ici la logique d'exportation CSV
                 console.log('Exporter en CSV pour le mois et l\'année sélectionnés');
+
+                // Récupérer les valeurs du mois et de l'année depuis les sélecteurs HTML
+                var export_month = $('#export-month').val();
+                var export_year = $('#export-year').val();
+                var export_language = $('#export-language').val();
+
+                console.log(export_month, export_year);
+
+                // Effectuer la requête AJAX pour l'exportation CSV
+                $.ajax({
+                    url: ajaxurl, // Assurez-vous que ajaxurl est défini dans votre environnement WordPress
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        action: 'export_reservation', // Nom de l'action WordPress à appeler
+                        export_month: export_month,
+                        export_year: export_year,
+                        export_language: export_language
+                    },
+                    success: function(response) {
+                        // Traiter la réponse, par exemple, afficher un message de réussite
+                        if (response.success) {
+                            console.log('Exportation CSV var', response.args);
+                            console.log('Exportation CSV réussie', response.csv_url);
+                            // Vous pouvez également rediriger l'utilisateur vers le fichier CSV généré
+                            window.location.href = response.csv_url;
+                        } else {
+                            console.log('Erreur lors de l\'exportation CSV');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Erreur AJAX : ' + error);
+                    }
+                });
             });
 
             $('#close-csv-popup').click(function() {
@@ -419,3 +557,101 @@ function add_csv_export_popup_form() {
     <?php
 }
 add_action('admin_footer', 'add_csv_export_popup_form');
+
+
+function export_reservation() {
+    // Récupérer les valeurs du mois, de l'année et de la langue depuis la requête
+    $export_month = isset($_POST['export_month']) ? intval($_POST['export_month']) : null;
+    $export_year = isset($_POST['export_year']) ? intval($_POST['export_year']) : null;
+    $export_language = isset($_POST['export_language']) ? sanitize_text_field($_POST['export_language']) : '';
+
+    // Vérifier que le mois et l'année sont valides
+    if ($export_month && $export_year) {
+        // Créer un tableau pour stocker les données de réservation
+        $reservation_data = array(
+            array('Nom', 'Prénom', 'Date', 'Heure', 'Nombre de Personnes', 'Type', 'Langue', 'Téléphone', 'Email', 'Commentaires'),
+        );
+
+        // Obtenez les réservations en fonction du mois, de l'année et de la langue
+        $args = array(
+            'post_type' => 'reservation-list',
+            'posts_per_page' => -1,
+            'monthnum' => $export_month,
+            'year' => $export_year,
+            'meta_key' => 'language', // Utilisez la clé de métadonnées "language"
+            'meta_value' => $export_language, // Valeur de la langue
+        );
+
+        $reservations_query = new WP_Query($args);
+
+        if ($reservations_query->have_posts()) {
+            while ($reservations_query->have_posts()) {
+                $reservations_query->the_post();
+                // Récupérez les données de chaque réservation
+                $first_name = get_post_meta(get_the_ID(), 'firstName', true);
+                $last_name = get_post_meta(get_the_ID(), 'lastName', true);
+                $date = get_the_date('Y-m-d');
+                $time = get_post_meta(get_the_ID(), 'time', true);
+                $number = get_post_meta(get_the_ID(), 'number', true);
+                $type = get_post_meta(get_the_ID(), 'type', true);
+                $language = get_post_meta(get_the_ID(), 'language', true);
+                $phone = get_post_meta(get_the_ID(), 'phone', true);
+                $email = get_post_meta(get_the_ID(), 'email', true);
+                $comments = get_post_meta(get_the_ID(), 'comments', true);
+
+                // Ajoutez les données de réservation au tableau
+                $reservation_data[] = array($last_name, $first_name, $date, $time, $number, $type, $language, $phone, $email, $comments);
+            }
+        }
+
+        // Créez le contenu CSV
+        $csv_content = '';
+        foreach ($reservation_data as $row) {
+            $csv_content .= implode(',', $row) . "\n";
+        }
+
+        // Créez le nom du fichier CSV avec une date
+        $csv_filename = 'export_reservation_' . date('Y-m-d') . '.csv';
+
+        // Obtenez le répertoire de téléchargement de médias de WordPress
+        $upload_dir = wp_upload_dir();
+
+        // Créez le chemin complet du fichier CSV
+        $csv_file_path = $upload_dir['path'] . '/' . $csv_filename;
+
+        // Écrivez le contenu CSV dans le fichier
+        file_put_contents($csv_file_path, $csv_content);
+
+        // Enregistrez le fichier CSV en tant que média WordPress
+        $attachment = array(
+            'post_mime_type' => 'text/csv',
+            'post_title' => sanitize_file_name($csv_filename),
+            'post_content' => '',
+            'post_status' => 'inherit'
+        );
+
+        $attachment_id = wp_insert_attachment($attachment, $csv_file_path);
+
+        // Incluez le fichier dans la bibliothèque de médias de WordPress
+        require_once(ABSPATH . 'wp-admin/includes/image.php');
+        $attachment_data = wp_generate_attachment_metadata($attachment_id, $csv_file_path);
+        wp_update_attachment_metadata($attachment_id, $attachment_data);
+
+        // Obtenez l'URL du fichier CSV
+        $csv_url = wp_get_attachment_url($attachment_id);
+
+        // Retournez l'URL du fichier CSV
+        echo json_encode(array('success' => true, 'csv_url' => $csv_url, 'args' => $args));
+
+        // Arrêtez l'exécution de WordPress pour empêcher l'affichage de la page habituelle
+        die();
+    } else {
+        // Retournez une réponse d'erreur si le mois et l'année ne sont pas valides
+        echo json_encode(array('success' => false, 'message' => 'Mois et année non valides'));
+        die();
+    }
+}
+
+
+
+add_action('wp_ajax_export_reservation', 'export_reservation');

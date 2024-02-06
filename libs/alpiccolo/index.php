@@ -1,4 +1,8 @@
 <?php
+function add_favicon() {
+    echo '<link rel="icon" href="' . get_template_directory_uri() . '/favicon.svg" type="image/svg+xml" sizes="any">';
+}
+add_action('wp_head', 'add_favicon');
 
 include 'reservation.php';
 

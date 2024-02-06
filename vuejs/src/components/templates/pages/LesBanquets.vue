@@ -15,7 +15,7 @@
 					<div data-scroll class="post_content" v-html="post.post_content"></div>	
 					<div data-scroll class="section-link-container">
 						<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-							<a class="section-link" :href="wp.acf.options.carte_banquet" target="_blank" v-html="pll__('>> DÉCOUVRIR NOS FORMULES')"></a>
+							<a class="section-link" :href="carte_banquet" target="_blank" v-html="pll__('>> DÉCOUVRIR NOS FORMULES')"></a>
 						</div>	
 					</div>
 					<div data-scroll class="section-link-container">
@@ -97,6 +97,11 @@
 				open_res(type){
 					this.$store.state.reservation = true
 					this.$store.state.res_type = type
+				}
+			},
+			computed : {
+				carte_banquet () {
+					return this.$store.state.wp.acf.options.carte_banquet
 				}
 			}
 		}

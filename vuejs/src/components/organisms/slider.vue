@@ -1,5 +1,5 @@
 <template>	
-	<swiper class="swiper-wrap" :options="swiper" v-if="sildes.length > 0" >
+	<swiper ref="mySwiper" class="swiper-wrap swiper-container-free-mode" :options="swiperOptions" v-if="sildes.length > 0" >
 		<swiper-slide v-for="(silde, index) in sildes" :key="index" class="swiper-slide" data-scroll :data-scroll-speed="silde.speed" :data-img="silde.large">
 			<div data-scroll :data-scroll-offset="silde.offset" class="img-bg-100" :style="{backgroundImage: 'url('+silde.img+')'}">&nbsp;</div>
 		</swiper-slide>
@@ -10,7 +10,7 @@
 
 	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 	import 'swiper/css/swiper.css';
-	import is from "is_js"
+	/*import is from "is_js"*/
 
 	export default {
 		components: {
@@ -25,11 +25,23 @@
 				percent_test: '15%',
 				sildes : [
 					],
-				swiper : {
+				swiperOptions : {
 					preloadImages: true,
 					lazy: false,
 					loop: true,
-					
+					autoplay: {
+						delay: 1,
+						disableOnInteraction: false
+					},
+					freeMode: true,
+					freeModeMomentum: true,
+					freeModeMomentumRatio: 0.2, 
+					/*slidesPerView: 'auto',*/
+					speed: 8000,
+					grabCursor: true,
+					mousewheelControl: true,
+					keyboardControl: true,
+
 					breakpoints: {
 						// when window width is >= 320px
 						1100: {
@@ -41,27 +53,24 @@
 						slidesPerView: 2.17,
 						spaceBetween: 30,
 						},
-
-						/*100: {
-						slidesPerView: 1.8,
-						spaceBetween: 20,
-						},*/
 					},
-
 					on: {
-						click: (swiper) => {
-							if( is.desktop() )
+						click: () => {
+							/*if( is.desktop() )
 							{
 								this.open_img( this.$(swiper.target).parent().data('img') )	
-							}							
+							}*/							
 						},
-						afterInit: () => {
+						init: () => {
+							console.log('swiper init', this.$refs.mySwiper);
+						},
+						afterInit: (swiper) => {
+							console.log('swiper init', swiper);
 							this.$store.state.locomotive.update()
 						}
 					}
-
-
-				}
+				},
+				swiper_obj : null,
 			}
 		},
 		mounted (){
@@ -78,19 +87,12 @@
 				images.forEach( (item, index) => {
 					console.log('slider', item, index);
 
-					/*this.sildes[index] = {
-						img: item.sizes.medium_large,
-						large: item.sizes.large,
-						offset: offsets[index_offsets],
-						speed: speeds[index_offsets]
-					}*/
 					this.$set(this.sildes, index, {
 						img: item.sizes.medium_large,
 						large: item.sizes.large,
 						offset: offsets[index_offsets],
 						speed: speeds[index_offsets]
 					});
-
 
 					index_offsets++
 					if( index_offsets > 5 )
@@ -99,7 +101,7 @@
 					}
 				})
 
-				console.log('slider', this.sildes);
+				console.log('swiper refs', this.$refs.mySwiper);
 			}
 			
 		},
@@ -108,6 +110,26 @@
 				this.$store.state.fullImg = url
 			}
 		},
+		watch: {
+			// Surveiller la référence $refs.mySwiper
+			'$refs.mySwiper': {
+				handler() {
+					// La fonction handler sera exécutée lorsque la référence $refs.mySwiper change
+					// newSwiper est la nouvelle valeur de la référence
+					// oldSwiper est la valeur précédente de la référence
+					
+					setTimeout( () => {
+						console.log('La référence $refs.mySwiper a changé ! Nouvelle valeur :', this.$refs.mySwiper);
+						this.$refs.mySwiper.options.speed = 1000
+
+						this.swiperOptions.speed = 1000
+						this.$refs.mySwiper.updateSwiper()
+					}, 10 )
+				},
+				immediate: true, // Exécuter le watcher immédiatement après la création du composant
+			},
+		},
+
 	}
 </script>
 
@@ -142,7 +164,7 @@
 	}
 
 	.swiper-slide > *:hover {
-		cursor: zoom-in;
+		/*cursor: zoom-in;*/
 		/*cursor: url('http://dev.alpiccolomondo.be/assets/mouse-plus.svg') 30 30, auto;*/
 	}
 
@@ -167,6 +189,8 @@
 </style>
 
 <style type="text/css">
-
+	.swiper-container-free-mode > .swiper-wrapper{
+		transition-timing-function : linear;
+	}
 
 </style>

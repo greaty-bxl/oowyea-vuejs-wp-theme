@@ -14,7 +14,7 @@
 					</h1>
 					<div data-scroll class="section-link-container">
 						<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-							<a class="section-link" target="_blank" href="#" v-html="pll__('>> ENVOYER UN MESSAGE')"></a>
+							<a class="section-link" href="mailto:info@alpiccolomondo.com" v-html="pll__('>> ENVOYER UN MESSAGE')"></a>
 						</div>	
 					</div>
 					<div data-scroll class="section-link-container">

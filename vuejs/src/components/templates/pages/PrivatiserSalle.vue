@@ -12,7 +12,7 @@
 				<div data-scroll class="post_content" v-html="post.post_content"></div>
 				<div data-scroll class="section-link-container">
 					<div data-scroll data-scroll-speed="0.7" data-scroll-direction="horizontal" >
-						<a class="section-link" href="#" v-html="pll__('>> DÉCOUVREZ NOS FORMULES')"></a>
+						<a class="section-link" target="_blank" :href="carte_banquet" v-html="pll__('>> DÉCOUVREZ NOS FORMULES')"></a>
 					</div>
 				</div>
 			</div>
@@ -35,6 +35,11 @@
 		},
 		mounted (){
 			console.log('restaurant', this.post);
+		},
+		computed : {
+			carte_banquet () {
+				return this.$store.state.wp.acf.options.carte_banquet
+			}
 		}
 	}
 </script>
